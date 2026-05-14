@@ -1,0 +1,37 @@
+{
+  "_comment": "Maps Zotero collection keys to area page filenames. The daily digest uses this to route new papers to the right area page. The seeding task populates the initial area pages; thereafter this index is read-only unless a new area is created.",
+  "_generated": "2026-05-13",
+  "_source": "Zotero library libraryID=1, 475 items",
+  "collections": {
+    "645WK5UG": { "name": "Reasoning",                  "area_page": "reasoning.md" },
+    "6NVW54UK": { "name": "World Model / RL",           "area_page": "world-model-rl.md" },
+    "8HUWGVRY": { "name": "Causal Inference",           "area_page": "causal-inference.md" },
+    "B4QQTY63": { "name": "MoE",                        "area_page": "moe.md" },
+    "BXIE4C95": { "name": "LLM",                        "area_page": "llm.md" },
+    "C46DN3AD": { "name": "MAMBA",                      "area_page": "mamba.md" },
+    "FAY6DPGF": { "name": "Interpretable ML",           "area_page": "interpretable-ml.md" },
+    "3G3UNNCV": { "name": "XAI Method",                 "area_page": "interpretable-ml.md", "_subarea": "xai-method" },
+    "ILD664JC": { "name": "Framing IML",                "area_page": "interpretable-ml.md", "_subarea": "framing" },
+    "LFK8LDMG": { "name": "Multiplicity",               "area_page": "interpretable-ml.md", "_subarea": "multiplicity" },
+    "G4GXUWMD": { "name": "NLP",                        "area_page": "nlp.md" },
+    "G4Y2RM4Z": { "name": "Hallucination",              "area_page": "hallucination.md" },
+    "IZWWCABQ": { "name": "Video Action Recognition",   "area_page": "video-action-recognition.md" },
+    "JPXN55K9": { "name": "Agent",                      "area_page": "agent.md" },
+    "M9TBQKQW": { "name": "Self-Supervised Framework",  "area_page": "self-supervised.md" },
+    "MCBZN2AH": { "name": "Audio",                      "area_page": "audio.md" },
+    "P9ER2MXU": { "name": "LLM-Health",                 "area_page": "llm-health.md" },
+    "PW2J398M": { "name": "Computer Vision",            "area_page": "computer-vision.md" },
+    "QSDZF3DI": { "name": "Optimizer",                  "area_page": "optimizer.md" },
+    "SW2CX3BC": { "name": "Signal (Time Series)",       "area_page": "time-series.md" },
+    "TNSVCIHT": { "name": "AutoMachineLearning",        "area_page": "automl.md" },
+    "UAEAD3RU": { "name": "TestTimeTraining",           "area_page": "test-time-training.md" },
+    "UZA8RW5K": { "name": "Multi-Modal",                "area_page": "multi-modal.md" },
+    "X2UQS439": { "name": "MathematicsML",              "area_page": "mathematics-ml.md" },
+    "ZRJ845NY": { "name": "Generative CV",              "area_page": "generative-cv.md" }
+  },
+  "user_focus": {
+    "primary": ["time-series.md", "llm-health.md"],
+    "secondary": ["llm.md", "reasoning.md", "multi-modal.md", "self-supervised.md"],
+    "_note": "Primary = Leo's working area (TS / bio-sensing). Secondary = methods he watches for porting opportunities."
+  }
+}
