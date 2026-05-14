@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatTS — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
+<h2>ChatTS</h2>
+<p class="paper-meta">
+  Xie et al. &middot; 2025-04-16 &middot;
+  <a href="http://arxiv.org/abs/2412.03104" target="_blank" rel="noopener">arXiv:2412.03104</a> &middot; zotero_key: VSCNJG5J &middot;
+  Appears in: <a href="../areas/time-series.html">Signal (Time Series)</a>
+</p>
+
+<h3>What</h3>
+<p>Understanding time series is crucial for its application in real-world scenarios. Recently, large language models (LLMs) have been increasingly applied to time series tasks, leveraging their strong language capabilities to enhance various applications. However, research on multimodal LLMs (MLLMs) for time series understanding and reasoning remains limited, primarily due to the scarcity of high-quality datasets that align time series with textual information. This paper introduces ChatTS, a novel MLLM designed for time series analysis. ChatTS treats time series as a modality, similar to how vision MLLMs process images, enabling it to perform both understanding and reasoning with time series. To address the scarcity of training data, we propose an attribute-based method for generating synthetic time series with detailed attribute descriptions. We further introduce Time Series Evol-Instruct, a novel approach that generates diverse time series Q&amp;As, enhancing the model&#x27;s reasoning capabilities. To the best of our knowledge, ChatTS is the first TS-MLLM that takes multivariate time series as input for understanding and reasoning, which is fine-tuned exclusively on synthetic datasets. We evaluate its performance using benchmark datasets with real-world data, including six alignment tasks and four reasoning tasks. Our results show that ChatTS significantly outperforms existing vision-based MLLMs (e.g., GPT-4o) and text/agent-based LLMs, achieving a 46.0% improvement in alignment tasks and a 25.8% improvement in reasoning tasks. We have open-sourced the source code, model checkpoint and datasets at https://github.com/NetManAIOps/ChatTS.</p>
+
+<h3>Cited by (papers in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a></li>
+</ul>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="ELYUE3NF.html">Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)</a></li>
+  <li><a href="I2CIT4I7.html">TS-Agent: Time Series Reasoning Agent (Liu 2025)</a></li>
+</ul>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chronos — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Chronos</h2>
+<p class="paper-meta">
+  Ansari et al. &middot; 2024-03-12 &middot;
+  <a href="http://arxiv.org/abs/2403.07815" target="_blank" rel="noopener">arXiv:2403.07815</a> &middot; zotero_key: 72DFULQQ &middot;
+  Appears in: <a href="../areas/time-series.html">Signal (Time Series)</a>
+</p>
+
+<h3>What</h3>
+<p>We introduce Chronos, a simple yet effective framework for pretrained probabilistic time series models. Chronos tokenizes time series values using scaling and quantization into a fixed vocabulary and trains existing transformer-based language model architectures on these tokenized time series via the cross-entropy loss. We pretrained Chronos models based on the T5 family (ranging from 20M to 710M parameters) on a large collection of publicly available datasets, complemented by a synthetic dataset that we generated via Gaussian processes to improve generalization. In a comprehensive benchmark consisting of 42 datasets, and comprising both classical local models and deep learning methods, we show that Chronos models: (a) significantly outperform other methods on datasets that were part of the training corpus; and (b) have comparable and occasionally superior zero-shot performance on new datasets, relative to methods that were trained specifically on them. Our results demonstrate that Chronos models can leverage time series data from diverse domains to improve zero-shot accuracy on unseen forecasting tasks, positioning pretrained models as a viable tool to greatly simplify forecasting pipelines.</p>
+
+</div>
+</body>
+</html>

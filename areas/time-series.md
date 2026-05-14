@@ -44,33 +44,33 @@
 [KNOWN] [2022] Zhang et al. — TFC. zotero_key:AJ5XKWDZ.
 [KNOWN] [2023] Zhang et al. — Crossformer. zotero_key:RFAMVS5H.
 [KNOWN] [2023] Zeng et al. — DLinear. zotero_key:4QRHV2JG.
-[KNOWN] [2023] Xu et al. — GLOBEM. zotero_key:8VB7UFKN.
+[KNOWN] [2023] Xu et al. — GLOBEM. zotero_key:ICD9EG8Q.
 [KNOWN] [2023] Nguyen et al. — LVM-Med. zotero_key:5GFYJJVV.
 [KNOWN] [2023] Zhang et al. — MAE Theory. zotero_key:6INGKIJV.
-[KNOWN] [2023] Nie et al. — PatchTST. zotero_key:3SLMN5NV.
-[KNOWN] [2023] Wu et al. — TimesNet. zotero_key:TFFPWHUN.
+[KNOWN] [2023] Nie et al. — PatchTST. zotero_key:YY67LF3R.
+[KNOWN] [2023] Wu et al. — TimesNet. zotero_key:HLTA8MDK.
 [KNOWN] [2024] Liang et al. — Bi-Mamba+. zotero_key:AVTJLZIR.
 [KNOWN] [2024] Yuan et al. — Brant-2. zotero_key:YJ3P8H2J.
-[KNOWN] [2024] Ansari et al. — Chronos. zotero_key:HEZXEKXP.
-[KNOWN] [2024] Zhou et al. — GPT4TS. zotero_key:YRPNRRZC.
+[KNOWN] [2024] Ansari et al. — Chronos. zotero_key:72DFULQQ.
+[KNOWN] [2024] Zhou et al. — GPT4TS. zotero_key:6QQNUTL7.
 [KNOWN] [2024] Li et al. — HARMamba. zotero_key:HE9X47KN.
 [KNOWN] [2024] Baur et al. — HeAR. zotero_key:3LA8GNCU.
-[KNOWN] [2024] Zhang et al. — LLMs for TS Survey. zotero_key:DNQKLKBV.
-[KNOWN] [2024] Woo et al. — Moirai. zotero_key:65T96HWJ.
-[KNOWN] [2024] Goswami et al. — Moment. zotero_key:5XPWKHX5.
+[KNOWN] [2024] Zhang et al. — LLMs for TS Survey. zotero_key:N2JLZBY3.
+[KNOWN] [2024] Woo et al. — Moirai. zotero_key:CFG6FEIF.
+[KNOWN] [2024] Goswami et al. — Moment. zotero_key:SIBB8W67.
 [KNOWN] [2024] Yuan et al. — SSL for HAR. zotero_key:RTMH75VW.
-[KNOWN] [2024] Chen et al. — Sensor2Text. zotero_key:2ZYUFEMW.
-[KNOWN] [2024] Sun et al. — TEST. zotero_key:M35RDBWX.
+[KNOWN] [2024] Chen et al. — Sensor2Text. zotero_key:ELYUE3NF.
+[KNOWN] [2024] Sun et al. — TEST. zotero_key:ZE7SFTCQ.
 [KNOWN] [2024] Talukder et al. — TOTEM. zotero_key:SKZEZQTH.
-[KNOWN] [2024] Jin et al. — Time-LLM. zotero_key:BPGWP88R.
+[KNOWN] [2024] Jin et al. — Time-LLM. zotero_key:MKICLA63.
 [KNOWN] [2024] Garza et al. — TimeGPT-1. zotero_key:5I6GAKC4.
 [KNOWN] [2024] Liu et al. — Timer. zotero_key:KKXN4S6L.
-[KNOWN] [2024] Gao et al. — UniTS. zotero_key:9X4Z2LPR.
+[KNOWN] [2024] Gao et al. — UniTS. zotero_key:GPJBBU2T.
 [KNOWN] [2024] Masserano et al. — WaveToken. zotero_key:MXKVRSKK.
-[KNOWN] [2024] Liu et al. — iTransformer. zotero_key:3BLCBJFP.
+[KNOWN] [2024] Liu et al. — iTransformer. zotero_key:QBX2TI2X.
 [KNOWN] [2024] Chen et al. — l-DAE. zotero_key:DZ2UYXUL.
-[KNOWN] [2025] Xie et al. — ChatTS. zotero_key:XQBXBKNH.
-[KNOWN] [2025] Gu et al. — Foundation Models Biosignals. zotero_key:EDTXS4NM.
+[KNOWN] [2025] Xie et al. — ChatTS. zotero_key:VSCNJG5J.
+[KNOWN] [2025] Gu et al. — Foundation Models Biosignals. zotero_key:2XWEG7AF.
 [KNOWN] [2025] Unknown — SensorLM. zotero_key:HDPXBLAP.
 [KNOWN] [2025] Liu et al. — Sundial. zotero_key:4QQTVIYC.
 [KNOWN] [2025] Liu et al. — TS-Agent. zotero_key:I2CIT4I7.

@@ -14,12 +14,12 @@
 ### Paper List
 
 [KNOWN] [2018] Rabinowitz et al. — Machine Theory of Mind. zotero_key:NEKX3K3N.
-[KNOWN] [2023] Prasad et al. — ADaPT. zotero_key:TQIRSRQE.
-[KNOWN] [2024] Durante et al. — Agent AI Survey. zotero_key:PJZ76NJE.
-[KNOWN] [2024] Zhou et al. — LATS. zotero_key:76XQKFGW.
-[KNOWN] [2024] Hao et al. — ToolkenGPT. zotero_key:26QNAFQG.
-[KNOWN] [2025] Zhao et al. — PyVision. zotero_key:3JCCQCMG.
-[KNOWN] [2026] Hong et al. — DeepEyesV2. zotero_key:RDKGJ9PT.
+[KNOWN] [2023] Prasad et al. — ADaPT. zotero_key:J8DYBKW2.
+[KNOWN] [2024] Durante et al. — Agent AI Survey. zotero_key:Z9WZPMNU.
+[KNOWN] [2024] Zhou et al. — LATS. zotero_key:77ERE7HA.
+[KNOWN] [2024] Hao et al. — ToolkenGPT. zotero_key:6RDHVVA2.
+[KNOWN] [2025] Zhao et al. — PyVision. zotero_key:XQTY5MPI.
+[KNOWN] [2026] Hong et al. — DeepEyesV2. zotero_key:4XXXYXS9.
 [KNOWN] [2026] Huang et al. — Memory Mechanisms Survey. zotero_key:BDY3HUCV.
 
 ### Recent Activity

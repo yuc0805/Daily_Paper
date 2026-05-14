@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeepEyesV2 — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>DeepEyesV2</h2>
+<p class="paper-meta">
+  Hong et al. &middot; 2026-02-27 &middot;
+  <a href="http://arxiv.org/abs/2511.05271" target="_blank" rel="noopener">arXiv:2511.05271</a> &middot; zotero_key: 4XXXYXS9 &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>Agentic multimodal models should not only comprehend text and images, but also actively invoke external tools, such as code execution environments and web search, and integrate these operations into reasoning. In this work, we introduce DeepEyesV2 and explore how to build an agentic multimodal model from the perspectives of data construction, training methods, and model evaluation. We observe that direct reinforcement learning alone fails to induce robust tool-use behavior. This phenomenon motivates a two-stage training pipeline: a cold-start stage to establish tool-use patterns, and reinforcement learning stage to further refine tool invocation. We curate a diverse, moderately challenging training dataset, specifically including examples where tool use is beneficial. We further introduce RealX-Bench, a comprehensive benchmark designed to evaluate real-world multimodal reasoning, which inherently requires the integration of multiple capabilities, including perception, search, and reasoning. We evaluate DeepEyesV2 on RealX-Bench and other representative benchmarks, demonstrating its effectiveness across real-world understanding, mathematical reasoning, and search-intensive tasks. Moreover, DeepEyesV2 exhibits task-adaptive tool invocation, tending to use image operations for perception tasks and numerical computations for reasoning tasks. Reinforcement learning further enables complex tool combinations and allows model to selectively invoke tools based on context. We hope our study can provide guidance for community in developing agentic multimodal models.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a></li>
+</ul>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="XQTY5MPI.html">PyVision: Agentic Vision with Dynamic Tooling (Zhao 2025)</a></li>
+</ul>
+
+</div>
+</body>
+</html>
