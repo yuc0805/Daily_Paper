@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.leo.ai-kg-autopush</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-c</string>
+        <string>$HOME/Documents/AI-Knowledge-Graph/scripts/auto-push.sh</string>
+    </array>
+
+    <key>StartInterval</key>
+    <integer>300</integer>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/f00818g/Documents/AI-Knowledge-Graph</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/f00818g/Documents/AI-Knowledge-Graph/scripts/auto-push.stdout.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/f00818g/Documents/AI-Knowledge-Graph/scripts/auto-push.stderr.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>HOME</key>
+        <string>/Users/f00818g</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+</dict>
+</plist>
