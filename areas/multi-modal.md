@@ -9,23 +9,6 @@
 2023 | FLIP (Li et al.) | 
 2025 | Machine Mental Imagery (Yang et al.) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-| SigLIP | Zhai 2023 | Anchor method | _To be filled_ | _To be filled_ |
-| DALL-E 2 | 2022 | _To be filled_ | _To be filled_ | _To be filled_ |
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [2021] Dosovitskiy et al. — ViT. zotero_key:B7F2Q998.

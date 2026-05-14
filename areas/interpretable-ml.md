@@ -27,24 +27,6 @@
 2023 | Explanation Constraints (Pukdee et al.) | 
 2023 | Post-hoc CBM (Yuksekgonul et al.) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-| Comprehensible Models | 2014 | _To be filled_ | _To be filled_ | _To be filled_ |
-| SHAP | 2017 | _To be filled_ | _To be filled_ | _To be filled_ |
-| Actionable Recourse | 2019 | _To be filled_ | _To be filled_ | _To be filled_ |
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [2001] Breiman et al. — Two Cultures. zotero_key:DQD2J9KR.

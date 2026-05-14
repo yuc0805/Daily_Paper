@@ -11,29 +11,6 @@
 2026 | DeepEyesV2 (Hong et al.) | 
 2026 | Memory Mechanisms Survey (Huang et al.) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-| Machine Theory of Mind | 2018 | _To be filled_ | _To be filled_ | _To be filled_ |
-| ADaPT | 2023 | _To be filled_ | _To be filled_ | _To be filled_ |
-| Agent AI Survey | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
-| LATS | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
-| ToolkenGPT | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
-| PyVision | 2025 | _To be filled_ | _To be filled_ | _To be filled_ |
-| DeepEyesV2 | 2026 | _To be filled_ | _To be filled_ | _To be filled_ |
-| Memory Mechanisms Survey | 2026 | _To be filled_ | _To be filled_ | _To be filled_ |
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [2018] Rabinowitz et al. — Machine Theory of Mind. zotero_key:NFNV9QGH.

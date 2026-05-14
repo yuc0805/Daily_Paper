@@ -28,25 +28,6 @@
 2024 | DiChaViT (Pham et al.) | 
 2024 | MedSAM (Ma et al.) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-| DETR | 2020 | _To be filled_ | _To be filled_ | _To be filled_ |
-| Swin Transformer | 2021 | _To be filled_ | _To be filled_ | _To be filled_ |
-| DALL-E 2 | 2022 | _To be filled_ | _To be filled_ | _To be filled_ |
-| MAE Theory | 2023 | _To be filled_ | _To be filled_ | _To be filled_ |
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [2014] Goodfellow et al. — GAN. zotero_key:NJ5BZCFJ.

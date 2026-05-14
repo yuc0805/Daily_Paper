@@ -6,21 +6,6 @@
 2024 | Med-VQA Hallucination (Wu et al.) | 
 2024 | Permutation Self-Consistency (Tang et al.) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [2023] Pal et al. — Med-HALT. zotero_key:2IV8EKL2.

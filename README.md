@@ -38,7 +38,7 @@ The scheduled task `daily-ai-digest-5am` runs at 5:00 AM ET. For each new paper 
 1. Identifies the area page the paper belongs to (creates one if none exists).
 2. Looks up direct intellectual parents in `zotero_index.json` (1-hop only).
 3. Writes a short note to `papers/<YYYY>/<MM>/<DD>/<arxiv-id>.md` explaining what the paper does and how it extends those parents.
-4. Edits the relevant `areas/<area>.md` in place — updates the Timeline, Key Methods, Benchmark Results, and Recent Activity sections.
+4. Edits the relevant `areas/<area>.md` in place — updates the Timeline, Paper List, and Recent Activity sections. Per-paper What / Why / How / lineage content lives on the paper detail page (`docs/papers/<zotero_key>.html`), not on the area page.
 5. Appends a lineage edge to `lineage/<area>.json`.
 6. Stages, commits, and pushes to GitHub (if remote is configured).
 

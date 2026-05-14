@@ -10,23 +10,6 @@
 2023 | LVM-Med (Nguyen et al.) | 
 2024 | l-DAE (Chen et al.) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-| SSL for HAR with 700K Person-days | Yuan 2024 | Anchor method | _To be filled_ | _To be filled_ |
-| Attention Is All You Need | 2017 | _To be filled_ | _To be filled_ | _To be filled_ |
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [2017] Vaswani et al. — Attention Is All You Need. zotero_key:PHB9VRVM.

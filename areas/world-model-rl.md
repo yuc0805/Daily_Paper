@@ -28,24 +28,6 @@
 2024 | World Model Eval (Vafa et al.) | 
 2025 | Brain Science FMs (Serre et al.) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-| CEM | 2020 | _To be filled_ | _To be filled_ | _To be filled_ |
-| Offline RL | 2020 | _To be filled_ | _To be filled_ | _To be filled_ |
-| OPE Study | 2021 | _To be filled_ | _To be filled_ | _To be filled_ |
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [1999] Sutton et al. — Policy Gradient. zotero_key:DAGWCZ67.

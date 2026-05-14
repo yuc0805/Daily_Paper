@@ -13,22 +13,6 @@
 2026 | Latent-GRPO (Deng et al.) | 
 2026 | PonderLM (Zeng et al.) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-| Chain-of-Thought Prompting | Wei 2023 | Anchor method | _To be filled_ | _To be filled_ |
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [2025] Shen et al. — CODI. zotero_key:FFWLYL3J.

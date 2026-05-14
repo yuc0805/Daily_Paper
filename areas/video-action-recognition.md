@@ -10,22 +10,6 @@
 2022 | VideoMAE (Tong et al.) | 
 2023 | VideoMAE V2 (Wang et al.) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-| Video Action Survey | 2020 | _To be filled_ | _To be filled_ | _To be filled_ |
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [2014] Simonyan et al. — Two-Stream. zotero_key:FISF2M9S.

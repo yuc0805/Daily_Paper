@@ -7,22 +7,6 @@
 2024 | TTT for Abstract Reasoning (Akyurek et al.) | 
 2024 | TTT-Unet (Zhou et al.) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-| UNI Pathology | 2023 | _To be filled_ | _To be filled_ | _To be filled_ |
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [2023] Chen et al. — UNI Pathology. zotero_key:6T29JLTN.

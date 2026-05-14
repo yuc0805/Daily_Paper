@@ -21,25 +21,6 @@
 2023 | LED (Mao et al.) | 
 2024 | l-DAE (Chen et al.) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-| DALL-E 2 | Ramesh 2022 | Anchor method | _To be filled_ | _To be filled_ |
-| DDPM | Ho 2020 | Anchor method | _To be filled_ | _To be filled_ |
-| CycleGAN | 2020 | _To be filled_ | _To be filled_ | _To be filled_ |
-| DiT | 2023 | _To be filled_ | _To be filled_ | _To be filled_ |
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [2014] Goodfellow et al. — GAN. zotero_key:GG7GSYUJ.

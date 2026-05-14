@@ -13,23 +13,6 @@
 2022 | Multi-modal Density (Arias-Castro et al.) | 
 Unknown | Deep CCA (Unknown) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-| L1 Minimization | 2003 | _To be filled_ | _To be filled_ | _To be filled_ |
-| CUR | 2009 | _To be filled_ | _To be filled_ | _To be filled_ |
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [2003] Donoho et al. — L1 Minimization. zotero_key:CJZYAK9U.

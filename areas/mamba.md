@@ -20,24 +20,6 @@
 2024 | VMamba (Liu et al.) | 
 2024 | Vision Mamba (Zhu et al.) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-| HARMamba | Li 2024 | Anchor method | _To be filled_ | _To be filled_ |
-| Audio Mamba (Erol) | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
-| Swin-UMamba | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [2020] Gu et al. — HiPPO. zotero_key:5YQ4IKMA.

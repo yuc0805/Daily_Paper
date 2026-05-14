@@ -28,32 +28,6 @@
 2024 | HARMamba (Li et al.) | 
 2024 | HeAR (Baur et al.) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-| TS-Agent | Liu 2025 | Anchor method | _To be filled_ | _To be filled_ |
-| Sensor2Text | Chen 2024 | Anchor method | _To be filled_ | _To be filled_ |
-| Attention Is All You Need | 2017 | _To be filled_ | _To be filled_ | _To be filled_ |
-| GLOBEM | 2023 | _To be filled_ | _To be filled_ | _To be filled_ |
-| MAE Theory | 2023 | _To be filled_ | _To be filled_ | _To be filled_ |
-| HARMamba | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
-| HeAR | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
-| LLMs for TS Survey | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
-| SSL for HAR | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
-| ChatTS | 2025 | _To be filled_ | _To be filled_ | _To be filled_ |
-| Foundation Models Biosignals | 2025 | _To be filled_ | _To be filled_ | _To be filled_ |
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.

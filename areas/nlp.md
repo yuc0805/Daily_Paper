@@ -9,22 +9,6 @@
 2023 | GPT-4 Instruction (Peng et al.) | 
 2023 | Self-Instruct (Wang et al.) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-| Chain-of-Thought | 2023 | _To be filled_ | _To be filled_ | _To be filled_ |
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [2019] Devlin et al. — BERT. zotero_key:WQRB4TUT.

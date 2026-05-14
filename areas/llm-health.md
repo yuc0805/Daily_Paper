@@ -16,31 +16,6 @@
 2025 | HealthAgent (Sun et al.) | 
 2026 | Verifiable Physio Reasoning (Wang et al.) | 
 
-### Key Methods
-
-| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
-|---|---|---|---|---|
-| Foundation Models for Biosignals: A Survey | Gu 2025 | Anchor method | _To be filled_ | _To be filled_ |
-| GLOBEM | 2023 | _To be filled_ | _To be filled_ | _To be filled_ |
-| LLMs Few-Shot Health | 2023 | _To be filled_ | _To be filled_ | _To be filled_ |
-| UNI Pathology | 2023 | _To be filled_ | _To be filled_ | _To be filled_ |
-| HARMamba | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
-| HeAR | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
-| MindScape | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
-| SSL for HAR | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
-| Sensor2Text | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
-| CounselBench | 2025 | _To be filled_ | _To be filled_ | _To be filled_ |
-
-### Benchmark Results
-
-| Method | Benchmark | Metric | Score | Source paper |
-|---|---|---|---|---|
-| _To be added as papers accumulate._ | | | | |
-
-### Limitations
-
-_To be added as papers accumulate._
-
 ### Paper List
 
 [KNOWN] [2023] Xu et al. — GLOBEM. zotero_key:8VB7UFKN.
