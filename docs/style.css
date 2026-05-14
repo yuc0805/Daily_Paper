@@ -214,7 +214,10 @@ footer a:hover { text-decoration: underline; }
   font-family: system-ui, sans-serif;
   padding: 3px 0;
   line-height: 1.5;
+  display: block;
 }
+.area-page a.paper-entry { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; }
+.area-page a.paper-entry:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .area-page .known-tag {
   font-size: 0.7rem;
   background: #e8f4e8;
@@ -244,6 +247,51 @@ footer a:hover { text-decoration: underline; }
   text-decoration: none;
 }
 .back-link:hover { text-decoration: underline; }
+
+/* ======= Paper page styles ======= */
+.paper-page { max-width: 800px; }
+.paper-page h2 { font-size: 1.5rem; border-bottom: 2px solid var(--text); padding-bottom: 8px; margin-bottom: 4px; }
+.paper-page .paper-meta {
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.paper-page .paper-meta a { color: var(--accent); text-decoration: none; }
+.paper-page .paper-meta a:hover { text-decoration: underline; }
+.paper-page h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 8px;
+}
+.paper-page p { font-size: 0.95rem; margin-bottom: 10px; }
+.paper-page .lineage-list {
+  list-style: none;
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+  padding-left: 0;
+}
+.paper-page .lineage-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.5;
+}
+.paper-page .lineage-list li:last-child { border-bottom: none; }
+.paper-page .lineage-list a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; }
+.paper-page .lineage-list a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.paper-page .lineage-list .lineage-note {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-top: 2px;
+}
+.paper-page .placeholder {
+  color: var(--muted);
+  font-style: italic;
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+}
 
 /* Responsive */
 @media (max-width: 640px) {

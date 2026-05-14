@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attention Is All You Need — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Attention Is All You Need</h2>
+<p class="paper-meta">
+  Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, Polosukhin &middot; NeurIPS 2017 &middot;
+  <a href="https://papers.nips.cc/paper_files/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html" target="_blank" rel="noopener">paper</a> &middot;
+  zotero_key: PHB9VRVM &middot;
+  Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>, <a href="../areas/self-supervised.html">Self-supervised</a>
+</p>
+
+<h3>What</h3>
+<p>The Transformer is a sequence-to-sequence architecture built entirely from stacked self-attention and position-wise feedforward layers, with no recurrence and no convolution. An encoder maps the input sequence to a set of continuous representations; a decoder generates the output one token at a time, attending to both its own past outputs (masked self-attention) and the encoder's output (cross-attention). Positional encodings are added at the input layer so the model can use sequence order despite the permutation-invariant attention operation.</p>
+
+<h3>Why</h3>
+<p>Prior dominant sequence transduction models (RNN-based seq2seq with attention, ConvS2S) had two structural drawbacks: recurrent models forced sequential computation along the sequence dimension, which blocked GPU parallelism within a training example, and the path length between any two positions in convolutional models grew with their distance, making long-range dependencies hard to learn. The motivation of this paper is to replace recurrence with a mechanism that (a) parallelises fully along the sequence, (b) has O(1) maximum path length between any pair of positions, and (c) still produces state-of-the-art translation quality.</p>
+
+<h3>How</h3>
+<p>Multi-head scaled dot-product attention is the core operator: queries, keys, and values are linear projections of the same sequence (self-attention) or of two different sequences (cross-attention), and each attention head computes softmax(QK<sup>T</sup>/&radic;d_k)V. Stacking 6 encoder and 6 decoder layers, each layer combines multi-head attention with a position-wise feedforward network and residual connections plus layer normalisation. The decoder uses a causal mask to prevent attending to future positions. Training uses Adam with a warm-up learning-rate schedule and label smoothing; the base model has 65M parameters.</p>
+
+<h3>Builds on</h3>
+<p class="placeholder">No predecessors from your library appear in the lineage graph for this paper. It introduces the architecture rather than building on prior work that is tracked here.</p>
+
+<h3>Solves vs predecessors</h3>
+<p>Compared to RNN-based seq2seq with attention, the Transformer removes the sequential dependency along time, so all positions of a layer are computed in parallel during training, cutting training time on WMT En&rarr;De from days to roughly 12 hours on 8 GPUs while raising BLEU by &gt;1 point over the previous ensemble best. Compared to convolutional seq2seq, the maximum path length between two positions drops from O(log<sub>k</sub> n) (ConvS2S) to O(1), so long-range dependencies need no architectural workaround.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where prior models added attention as an auxiliary mechanism on top of recurrence or convolution, this paper makes attention the only state-mixing operation. The multi-head design lets different heads focus on different relation types (e.g. syntactic head vs lexical head) without a hand-crafted inductive bias, which earlier attention work did not exploit. Positional encodings replace the implicit ordering signal that recurrence provided, decoupling sequence position from computation order.</p>
+
+<h3>Cited by (papers in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="AVF27QK7.html">Swin Transformer (Liu 2021)</a><span class="lineage-note">Adapts the Transformer to vision via hierarchical shifted windows.</span></li>
+  <li><a href="QTFCR4G9.html">DETR (Carion 2020)</a><span class="lineage-note">Uses encoder-decoder Transformer for end-to-end object detection.</span></li>
+  <li><a href="6INGKIJV.html">Masked Autoencoders Theory (Zhang 2023)</a><span class="lineage-note">Analyses MAE which uses Transformer encoder for masked prediction.</span></li>
+  <li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Replaces U-Net backbone in diffusion models with a Transformer.</span></li>
+  <li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Cites Transformer as the baseline class that Mamba aims to displace for HAR.</span></li>
+  <li><a href="2ZYUFEMW.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Uses Transformer backbones for sensor-to-text modelling.</span></li>
+  <li><a href="RTMH75VW.html">SSL for HAR (Yuan 2024)</a><span class="lineage-note">Transformer encoders for self-supervised pretraining on 700K person-days.</span></li>
+  <li><a href="EDTXS4NM.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Surveys Transformer-based biosignal foundation models.</span></li>
+  <li><a href="6VTXUZEG.html">Audio Mamba (Erol 2024)</a><span class="lineage-note">Cites Transformer as the dominant attention-based audio baseline.</span></li>
+  <li>SigLIP (Zhai 2023)<span class="lineage-note">Sigmoid loss for Transformer-based vision-language pretraining. <em>Not in library yet.</em></span></li>
+</ul>
+
+</div>
+</body>
+</html>

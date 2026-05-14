@@ -99,7 +99,7 @@ _To be added as papers accumulate._
 [KNOWN] [2025] Gu et al. — Foundation Models Biosignals. zotero_key:EDTXS4NM.
 [KNOWN] [2025] Unknown — SensorLM. zotero_key:HDPXBLAP.
 [KNOWN] [2025] Liu et al. — Sundial. zotero_key:4QQTVIYC.
-[KNOWN] [2025] Liu et al. — TS-Agent. zotero_key:M87QEL4E.
+[KNOWN] [2025] Liu et al. — TS-Agent. zotero_key:I2CIT4I7.
 
 ### Recent Activity
 

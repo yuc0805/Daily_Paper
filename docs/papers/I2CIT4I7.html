@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TS-Agent — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
+<h2>TS-Agent: A Time Series Reasoning Agent with Iterative Statistical Insight Gathering</h2>
+<p class="paper-meta">
+  Liu, Fons, Vyetrenko, Borrajo, Potluru, Veloso &middot; arXiv 2025-10-08 &middot;
+  <a href="http://arxiv.org/abs/2510.07432" target="_blank" rel="noopener">arXiv:2510.07432</a> &middot;
+  zotero_key: I2CIT4I7 &middot;
+  Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>
+</p>
+
+<h3>What</h3>
+<p>TS-Agent is an LLM-driven agent for reasoning over raw numeric time series. It does not encode the series as text tokens, images, or learned embeddings; instead, the LLM acts as a controller that calls a fixed set of atomic time-series analysis operators (e.g. statistical summaries, change-point detection, decomposition), accumulates their outputs in an explicit evidence log, and iterates with a self-critic loop and a final quality gate before emitting an answer.</p>
+
+<h3>Why</h3>
+<p>Recent work shows that frontier LLMs perform poorly on time-series reasoning: numeric inputs are tokenised inefficiently, and benchmark answers are often produced by hallucination or knowledge leakage from training data rather than genuine analysis. Multi-modal alignment approaches (Time-LLM, ChatTS, Sensor2Text) try to fix this by training a series-to-language bridge, but this requires paired data, costs training compute, loses the native numeric form, and is hard to verify after deployment. The paper's motivation is to obtain time-series reasoning capability with no alignment training and with auditable intermediate reasoning steps.</p>
+
+<h3>How</h3>
+<p>The agent operates in an observe-think-act loop. At each step the LLM chooses an operator from a fixed library, the operator runs on the raw numeric input, and the result is written to an evidence log that the LLM can read on subsequent steps. A self-critic prompt periodically asks whether the current evidence is sufficient and consistent; if not, the agent issues another operator call. A final quality gate validates the answer against the evidence before output. Empirically the system matches state-of-the-art LLMs on understanding benchmarks and outperforms them on reasoning benchmarks where memorisation is insufficient.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Source of the iterative step-by-step reasoning paradigm that TS-Agent adapts into a tool-augmented evidence-log loop.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Chain-of-Thought (Wei 2023) showed that prompting an LLM to produce intermediate reasoning steps improves performance on arithmetic and commonsense tasks, but the reasoning happens entirely in natural-language token space. On time series this fails because the LLM has no reliable way to extract numerical features from a raw sequence by reading it as text. TS-Agent fixes the specific failure mode &mdash; "the model invents statistical claims that are not in the data" &mdash; by forcing every numerical claim to come from an operator call recorded in the evidence log, so the reasoning chain becomes verifiable rather than purely generative.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to Chain-of-Thought, TS-Agent replaces the single-pass natural-language reasoning trace with an iterative tool-using loop, and adds two control mechanisms that CoT lacks: a self-critic that decides whether more evidence is needed, and a quality gate that validates the answer against the evidence log. Compared to time-series-LLM alignment work in the same area (e.g. Time-LLM, ChatTS, Sensor2Text &mdash; all in your library), TS-Agent moves the integration boundary: rather than training a model to <em>see</em> the series, it gives an off-the-shelf LLM <em>tools</em> that see the series. This avoids alignment training and preserves the native numeric representation.</p>
+
+<h3>Cited by (papers in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="DNQKLKBV.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">Surveys the LLM-for-time-series landscape including agent-based approaches.</span></li>
+</ul>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2ZYUFEMW.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Different integration strategy: aligns sensor data with language via training, where TS-Agent uses tool calls instead.</span></li>
+  <li><a href="XQBXBKNH.html">ChatTS (Xie 2025)</a><span class="lineage-note">Also aligns time series with LLMs; differs in alignment vs tool-use design choice.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
