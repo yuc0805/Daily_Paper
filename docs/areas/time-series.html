@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal (Time Series) — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#59a14f;"></span>
+  <span class="meta">44 papers</span>
+</div>
+<h2>Signal Processing and Time Series</h2>
+<h3>What</h3>
+<p>Time series analysis covers methods for modeling, forecasting, and classifying sequential data where observations are indexed by time. In the ML context, this includes sensor signals from wearables, financial data, weather records, and physiological measurements. The field has shifted from classical statistical models (ARIMA, exponential smoothing) toward deep learning architectures, and more recently toward foundation models that generalize across domains.</p>
+<h3>Why</h3>
+<p>Many real-world decision systems depend on temporal data: clinical monitoring, energy demand planning, industrial fault detection. Classical methods assume stationarity and linear dynamics, which fail on high-dimensional, non-stationary sensor streams. Modern deep models can capture long-range dependencies and cross-variate interactions, but they remain data-hungry and hard to transfer across domains, motivating the current push toward pre-trained time series foundation models.</p>
+<h3>Baseline</h3>
+<p>Fit an ARIMA(p,d,q) model per univariate channel, selecting orders by AIC. For multivariate settings, fit a VAR model. For classification, extract hand-crafted features (mean, variance, FFT coefficients) and train a random forest. The main failure mode is that these methods cannot capture nonlinear cross-channel dependencies or adapt to distribution shift without manual re-tuning.</p>
+<h3>Running Example</h3>
+<p>Forecast the next 96 steps of the ETTh1 electricity transformer temperature dataset given the previous 336 steps (7 variates). The desired output is a 96-step prediction with MSE below 0.40. The ARIMA baseline, fit independently per channel, produces MSE around 0.65 because it ignores cross-variate correlations and nonlinear trends.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+<tr><td>TS-Agent</td><td>_To be added as papers accumulate._</td><td>Anchor paper for this area</td></tr>
+<tr><td>Sensor2Text</td><td>_To be added as papers accumulate._</td><td>Anchor paper for this area</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">1970</span><span>ARIMA (Box et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2017</span><span>Attention Is All You Need (Vaswani et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>GPT-3 (Brown et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>GNN Intro (Sanchez-Lengeling et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>Informer (Zhou et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>LoRA (Hu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>TimeGrad (Rasul et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>Autoformer (Wu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>FEDformer (Zhou et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>FPT (Lu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>Foundation Models Survey (Bommasani et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>TFC (Zhang et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>Crossformer (Zhang et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>DLinear (Zeng et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>GLOBEM (Xu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>LVM-Med (Nguyen et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>MAE Theory (Zhang et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>PatchTST (Nie et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>TimesNet (Wu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Bi-Mamba+ (Liang et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Brant-2 (Yuan et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Chronos (Ansari et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>GPT4TS (Zhou et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>HARMamba (Li et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>HeAR (Baur et al.)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+<tr><td>TS-Agent</td><td>Liu 2025</td><td>Anchor method</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>Sensor2Text</td><td>Chen 2024</td><td>Anchor method</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>Attention Is All You Need</td><td>2017</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>GLOBEM</td><td>2023</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>MAE Theory</td><td>2023</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>HARMamba</td><td>2024</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>HeAR</td><td>2024</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>LLMs for TS Survey</td><td>2024</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>SSL for HAR</td><td>2024</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>ChatTS</td><td>2025</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>Foundation Models Biosignals</td><td>2025</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2017] Vaswani et al. — Attention Is All You Need. zotero_key:PHB9VRVM.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Brown et al. — GPT-3. zotero_key:ZT8Y3ABF.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Sanchez-Lengeling et al. — GNN Intro. zotero_key:VHTGRMY5.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Zhou et al. — Informer. zotero_key:6RRFG94V.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Hu et al. — LoRA. zotero_key:PZATM3SC.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Rasul et al. — TimeGrad. zotero_key:RILRU5H6.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Wu et al. — Autoformer. zotero_key:P6BV4TCL.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Zhou et al. — FEDformer. zotero_key:TVHWGWAV.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Lu et al. — FPT. zotero_key:3AA4F4KC.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Bommasani et al. — Foundation Models Survey. zotero_key:TFPTRFGU.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Zhang et al. — TFC. zotero_key:AJ5XKWDZ.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Zhang et al. — Crossformer. zotero_key:RFAMVS5H.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Zeng et al. — DLinear. zotero_key:4QRHV2JG.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Xu et al. — GLOBEM. zotero_key:8VB7UFKN.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Nguyen et al. — LVM-Med. zotero_key:5GFYJJVV.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Zhang et al. — MAE Theory. zotero_key:6INGKIJV.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Nie et al. — PatchTST. zotero_key:3SLMN5NV.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Wu et al. — TimesNet. zotero_key:TFFPWHUN.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Liang et al. — Bi-Mamba+. zotero_key:AVTJLZIR.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Yuan et al. — Brant-2. zotero_key:YJ3P8H2J.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Ansari et al. — Chronos. zotero_key:HEZXEKXP.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Zhou et al. — GPT4TS. zotero_key:YRPNRRZC.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Li et al. — HARMamba. zotero_key:HE9X47KN.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Baur et al. — HeAR. zotero_key:3LA8GNCU.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Zhang et al. — LLMs for TS Survey. zotero_key:DNQKLKBV.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Woo et al. — Moirai. zotero_key:65T96HWJ.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Goswami et al. — Moment. zotero_key:5XPWKHX5.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Yuan et al. — SSL for HAR. zotero_key:RTMH75VW.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Chen et al. — Sensor2Text. zotero_key:2ZYUFEMW.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Sun et al. — TEST. zotero_key:M35RDBWX.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Talukder et al. — TOTEM. zotero_key:SKZEZQTH.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Jin et al. — Time-LLM. zotero_key:BPGWP88R.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Garza et al. — TimeGPT-1. zotero_key:7FJCF2J9.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Liu et al. — Timer. zotero_key:KKXN4S6L.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Gao et al. — UniTS. zotero_key:9X4Z2LPR.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Masserano et al. — WaveToken. zotero_key:MXKVRSKK.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Liu et al. — iTransformer. zotero_key:3BLCBJFP.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Chen et al. — l-DAE. zotero_key:DZ2UYXUL.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Xie et al. — ChatTS. zotero_key:XQBXBKNH.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Gu et al. — Foundation Models Biosignals. zotero_key:EDTXS4NM.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Unknown — SensorLM. zotero_key:HDPXBLAP.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Liu et al. — Sundial. zotero_key:4QQTVIYC.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Liu et al. — TS-Agent. zotero_key:M87QEL4E.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 44 papers from Zotero, 11 from graphify seed.</p>
+</div>
+</body>
+</html>

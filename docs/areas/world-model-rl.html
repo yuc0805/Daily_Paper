@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Model / RL — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#ff9da7;"></span>
+  <span class="meta">31 papers</span>
+</div>
+<h2>World Models and Reinforcement Learning</h2>
+<h3>What</h3>
+<p>This area covers reinforcement learning algorithms and world models: learned simulators that predict environment dynamics. It spans value-based methods (DQN), policy gradient methods (PPO), offline RL, model-based RL with learned world models, and decision transformers that cast RL as sequence modeling.</p>
+<h3>Why</h3>
+<p>RL enables agents to learn optimal behavior from interaction, but sample efficiency remains a core bottleneck. World models address this by allowing the agent to plan in imagination rather than requiring real environment steps. Offline RL further reduces the need for online interaction by learning from pre-collected datasets.</p>
+<h3>Baseline</h3>
+<p>Train a DQN agent with online interaction in the environment, using an epsilon-greedy exploration strategy. The main failure mode is sample inefficiency: DQN requires millions of environment steps to learn a reasonable policy, which is infeasible in real-world settings (robotics, healthcare).</p>
+<h3>Running Example</h3>
+<p>Learn a control policy for the DMControl Walker-Walk task from 500k environment steps. DQN achieves average return of 400. TD-MPC2 with a learned world model achieves average return of 900 because it can plan ahead using predicted future states.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">1999</span><span>Policy Gradient (Sutton et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2000</span><span>IS Eligibility Traces (Precup et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2013</span><span>DQL Atari (Mnih et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2013</span><span>Deep CCA (Andrew et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2015</span><span>DQN (Mnih et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2017</span><span>DRL Sepsis (Raghu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2017</span><span>PPO (Schulman et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2018</span><span>TD3 (Fujimoto et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2018</span><span>World Models (Ha et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>CEM (Pinneri et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>Offline RL (Levine et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>Optimistic Offline RL (Agarwal et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>RL Healthcare Survey (Yu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>Decision Transformer (Chen et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>OPE Study (Voloshin et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>AIVE (Lee et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>LAW (Hu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>OPE for RecSys (Deffayet et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>VIP (Ma et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Coconut (Hao et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>DT RL Vitamin (Yan et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Navigation World Models (Bar et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>TD-MPC2 (Hansen et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>World Model Eval (Vafa et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2025</span><span>Brain Science FMs (Serre et al.)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+<tr><td>CEM</td><td>2020</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>Offline RL</td><td>2020</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>OPE Study</td><td>2021</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [1999] Sutton et al. — Policy Gradient. zotero_key:DAGWCZ67.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2000] Precup et al. — IS Eligibility Traces. zotero_key:JKQ3USCI.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2013] Mnih et al. — DQL Atari. zotero_key:6XBKXTFZ.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2013] Andrew et al. — Deep CCA. zotero_key:SCJHA35S.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2015] Mnih et al. — DQN. zotero_key:2FRGIK77.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2017] Raghu et al. — DRL Sepsis. zotero_key:QAKMF2J4.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2017] Schulman et al. — PPO. zotero_key:KQTIJC4U.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2018] Fujimoto et al. — TD3. zotero_key:6GKDVDPY.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2018] Ha et al. — World Models. zotero_key:938DAXZT.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Pinneri et al. — CEM. zotero_key:ZNEMGMWY.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Levine et al. — Offline RL. zotero_key:ZULLM3UF.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Agarwal et al. — Optimistic Offline RL. zotero_key:2HAUL3B9.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Yu et al. — RL Healthcare Survey. zotero_key:JMNZD5RT.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Chen et al. — Decision Transformer. zotero_key:3J97GWND.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Voloshin et al. — OPE Study. zotero_key:Y2MKM9Y3.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Lee et al. — AIVE. zotero_key:NUTRKPSL.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Hu et al. — LAW. zotero_key:ERFKSNIC.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Deffayet et al. — OPE for RecSys. zotero_key:PGAG7J5S.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Ma et al. — VIP. zotero_key:BT2MFL2J.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Hao et al. — Coconut. zotero_key:2BJAGQ5K.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Yan et al. — DT RL Vitamin. zotero_key:YPRGQZRB.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Bar et al. — Navigation World Models. zotero_key:JQ7JD8AR.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Hansen et al. — TD-MPC2. zotero_key:A4WGRRQ9.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Vafa et al. — World Model Eval. zotero_key:P92FLHJ2.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Serre et al. — Brain Science FMs. zotero_key:M963842L.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Shen et al. — CODI. zotero_key:FFWLYL3J.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Zhou et al. — DINO-WM. zotero_key:W44RSJJI.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Kuzina et al. — KaVa. zotero_key:XH2XHIL5.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Zhang et al. — Soft Thinking. zotero_key:EGRXFZU9.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2026] Yu et al. — Latent Space Survey. zotero_key:KRVDKDGH.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2026] Dupoux et al. — Why AI Doesnt Learn. zotero_key:YREEFKLG.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 31 papers from Zotero, 3 from graphify seed.</p>
+</div>
+</body>
+</html>

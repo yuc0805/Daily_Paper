@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#4e79a7;"></span>
+  <span class="meta">4 papers</span>
+</div>
+<h2>Large Language Models</h2>
+<h3>What</h3>
+<p>Large language models are neural networks trained on large text corpora using self-supervised objectives (typically next-token prediction). This area covers architecture design, scaling laws, training procedures, and the emergent capabilities that arise at scale, including in-context learning and instruction following.</p>
+<h3>Why</h3>
+<p>LLMs serve as the backbone for most current NLP systems and increasingly for multimodal and agentic applications. Understanding their architecture choices (attention variants, mixture-of-experts routing, positional encoding) and training recipes (data mixing, RLHF, distillation) is necessary for anyone building on or evaluating these models.</p>
+<h3>Baseline</h3>
+<p>Fine-tune a BERT-base model on the target task with a task-specific classification head. The main failure mode is that BERT-scale models lack the capacity for complex reasoning and cannot perform in-context learning, requiring separate fine-tuning for each new task.</p>
+<h3>Running Example</h3>
+<p>Answer a multi-step arithmetic word problem from GSM8K: 'A store sells 40 apples on Monday and twice as many on Tuesday. How many total?' The desired output is 120. BERT-base with a classification head cannot generate free-form answers and would need to be re-framed as a multiple-choice task, losing generality.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+<tr><td>Attention Is All You Need</td><td>_To be added as papers accumulate._</td><td>Anchor paper for this area</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>DeepSeek-V2 (DeepSeek-AI et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>DeepSeek-V3 (DeepSeek-AI et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2025</span><span>DeepSeek-R1 (DeepSeek-AI et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2025</span><span>SPRINT (Biju et al.)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+<tr><td>Attention Is All You Need</td><td>Vaswani 2017</td><td>Anchor method</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>DeepSeek-V3</td><td>2024</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>DeepSeek-R1</td><td>2025</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] DeepSeek-AI et al. — DeepSeek-V2. zotero_key:743XA29Y.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] DeepSeek-AI et al. — DeepSeek-V3. zotero_key:2JCKA7GI.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] DeepSeek-AI et al. — DeepSeek-R1. zotero_key:Z5IWHZAE.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Biju et al. — SPRINT. zotero_key:BZKDNHD6.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 4 papers from Zotero, 2 from graphify seed.</p>
+</div>
+</body>
+</html>

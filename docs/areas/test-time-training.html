@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TestTimeTraining — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#999;"></span>
+  <span class="meta">4 papers</span>
+</div>
+<h2>Test-Time Training</h2>
+<h3>What</h3>
+<p>Test-time training (TTT) adapts model parameters at inference time using a self-supervised objective on the test input itself. This allows the model to adjust to distribution shifts between training and test data without requiring labeled test data. Recent work integrates TTT as a layer within sequence models.</p>
+<h3>Why</h3>
+<p>Models trained on one distribution often degrade on shifted test distributions (different hospitals, different sensors, different domains). TTT provides a way to adapt without labels at test time, which is useful when the shift is unpredictable and collecting new training data is infeasible.</p>
+<h3>Baseline</h3>
+<p>Apply the trained model directly to the test data without any adaptation. The main failure mode is degraded accuracy when test data differs from training data in style, resolution, or domain characteristics.</p>
+<h3>Running Example</h3>
+<p>Segment medical images from Hospital B using a U-Net trained on Hospital A data. The unadapted model achieves Dice score of 0.68 due to differences in imaging protocols. TTT-Unet, which fine-tunes on each test image using a self-supervised reconstruction objective, achieves Dice score of 0.79.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>UNI Pathology (Chen et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>TTT Layers (Sun et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>TTT for Abstract Reasoning (Akyurek et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>TTT-Unet (Zhou et al.)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+<tr><td>UNI Pathology</td><td>2023</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Chen et al. — UNI Pathology. zotero_key:6T29JLTN.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Sun et al. — TTT Layers. zotero_key:JEGI4IS7.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Akyurek et al. — TTT for Abstract Reasoning. zotero_key:W7RPRTCH.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Zhou et al. — TTT-Unet. zotero_key:K9AZKZB2.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 4 papers from Zotero, 1 from graphify seed.</p>
+</div>
+</body>
+</html>

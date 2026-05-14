@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAMBA — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#e15759;"></span>
+  <span class="meta">17 papers</span>
+</div>
+<h2>Mamba and State Space Models</h2>
+<h3>What</h3>
+<p>State space models (SSMs) are sequence models derived from continuous-time linear systems, discretized for use on sequential data. Mamba is a selective SSM that introduces input-dependent gating to the state transition, achieving linear-time sequence processing. This area covers the SSM family from S4 through Mamba-2 and domain-specific adaptations (vision, audio, medical imaging, human activity recognition).</p>
+<h3>Why</h3>
+<p>Transformers have quadratic complexity in sequence length, which limits their application to very long sequences (genomics, high-resolution images, long audio). SSMs offer linear scaling while maintaining competitive accuracy, making them attractive for resource-constrained or long-context settings.</p>
+<h3>Baseline</h3>
+<p>Use a standard Transformer encoder with full self-attention. The main failure mode is quadratic memory and compute cost: a 16k-token sequence requires 256M attention entries, making training slow and inference memory-intensive on consumer hardware.</p>
+<h3>Running Example</h3>
+<p>Classify a 10-second accelerometer signal (sampled at 50Hz, 500 time steps, 3 axes) from the UCI HAR dataset into one of six activities. The Transformer baseline processes 500 tokens with full attention (250k entries), taking 45ms per sample. HARMamba processes the same sequence in 12ms with comparable accuracy.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+<tr><td>HARMamba</td><td>_To be added as papers accumulate._</td><td>Anchor paper for this area</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>HiPPO (Gu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>SSM (LSSL) (Gu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>S4 (Gu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Audio Mamba (Erol) (Erol et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Audio Mamba (Yadav) (Yadav et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Bi-Mamba+ (Liang et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>ClinicalMamba (Yang et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>HARMamba (Li et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Mamba (Gu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Mamba-2 (Dao et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Mamba-UNet (Wang et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>MambaOut (Yu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Motion Mamba (Zhang et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Swin-UMamba (Liu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>U-Mamba (Ma et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>VMamba (Liu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Vision Mamba (Zhu et al.)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+<tr><td>HARMamba</td><td>Li 2024</td><td>Anchor method</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>Audio Mamba (Erol)</td><td>2024</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>Swin-UMamba</td><td>2024</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Gu et al. — HiPPO. zotero_key:5YQ4IKMA.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Gu et al. — SSM (LSSL). zotero_key:UTAMLB63.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Gu et al. — S4. zotero_key:J7K2E7A3.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Erol et al. — Audio Mamba (Erol). zotero_key:6VTXUZEG.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Yadav et al. — Audio Mamba (Yadav). zotero_key:5ZZDBB7N.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Liang et al. — Bi-Mamba+. zotero_key:AVTJLZIR.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Yang et al. — ClinicalMamba. zotero_key:E4QKRZTC.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Li et al. — HARMamba. zotero_key:HE9X47KN.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Gu et al. — Mamba. zotero_key:XNI34DQX.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Dao et al. — Mamba-2. zotero_key:JPKDWV2Q.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Wang et al. — Mamba-UNet. zotero_key:MHMYYQUF.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Yu et al. — MambaOut. zotero_key:ZS87LF7R.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Zhang et al. — Motion Mamba. zotero_key:J2EZPHK4.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Liu et al. — Swin-UMamba. zotero_key:ZP32YT5I.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Ma et al. — U-Mamba. zotero_key:INWKDM35.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Liu et al. — VMamba. zotero_key:3LTBUP6E.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Zhu et al. — Vision Mamba. zotero_key:J34W7WZC.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 17 papers from Zotero, 3 from graphify seed.</p>
+</div>
+</body>
+</html>

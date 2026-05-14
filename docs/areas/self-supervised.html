@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Supervised Framework — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#f28e2b;"></span>
+  <span class="meta">7 papers</span>
+</div>
+<h2>Self-Supervised Learning Frameworks</h2>
+<h3>What</h3>
+<p>Self-supervised learning trains representations from unlabeled data by solving pretext tasks (masked prediction, contrastive matching, next-token prediction). This area covers the general frameworks (MAE, SimCLR, BYOL, foundation model pre-training) and their adaptation to domains like pathology, sensor data, and graphs.</p>
+<h3>Why</h3>
+<p>Labeled data is expensive in most scientific and medical domains. Self-supervised pre-training allows models to learn useful features from abundant unlabeled data, then fine-tune on small labeled sets. The key open question is how to design pretext tasks that produce representations transferable to the target downstream task.</p>
+<h3>Baseline</h3>
+<p>Train a supervised model from scratch on the labeled dataset only, with random initialization. The main failure mode is poor generalization when labeled data is small (under 1000 samples), because the model overfits to surface patterns.</p>
+<h3>Running Example</h3>
+<p>Classify pathology slides into tumor vs. normal using 500 labeled slides. The supervised-from-scratch ResNet-50 achieves 78% accuracy. A model pre-trained with MAE on 100k unlabeled slides and fine-tuned on the same 500 labels achieves 89% accuracy.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+<tr><td>SSL for HAR with 700K Person-days</td><td>_To be added as papers accumulate._</td><td>Anchor paper for this area</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">2017</span><span>Attention Is All You Need (Vaswani et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>GPT-3 (Brown et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>GNN Intro (Sanchez-Lengeling et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>LoRA (Hu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>Foundation Models Survey (Bommasani et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>LVM-Med (Nguyen et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>l-DAE (Chen et al.)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+<tr><td>SSL for HAR with 700K Person-days</td><td>Yuan 2024</td><td>Anchor method</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>Attention Is All You Need</td><td>2017</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2017] Vaswani et al. — Attention Is All You Need. zotero_key:PHB9VRVM.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Brown et al. — GPT-3. zotero_key:ZT8Y3ABF.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Sanchez-Lengeling et al. — GNN Intro. zotero_key:VHTGRMY5.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Hu et al. — LoRA. zotero_key:PZATM3SC.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Bommasani et al. — Foundation Models Survey. zotero_key:TFPTRFGU.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Nguyen et al. — LVM-Med. zotero_key:5GFYJJVV.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Chen et al. — l-DAE. zotero_key:DZ2UYXUL.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 7 papers from Zotero, 1 from graphify seed.</p>
+</div>
+</body>
+</html>

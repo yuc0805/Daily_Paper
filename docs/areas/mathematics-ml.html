@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MathematicsML — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#9c755f;"></span>
+  <span class="meta">10 papers</span>
+</div>
+<h2>Mathematical Methods for ML</h2>
+<h3>What</h3>
+<p>This area covers the mathematical tools that underlie machine learning methods: compressed sensing, sparse representation, matrix decomposition (CUR, SVD), canonical correlation analysis, and related optimization theory. These tools provide the theoretical foundations for dimensionality reduction, feature selection, and signal recovery.</p>
+<h3>Why</h3>
+<p>Many ML algorithms rely on linear algebra and optimization theory for their correctness guarantees. Understanding compressed sensing explains why sparse models work; CUR decompositions explain why low-rank approximations preserve structure. These foundations are necessary for designing principled new methods rather than relying on empirical tuning alone.</p>
+<h3>Baseline</h3>
+<p>Use full SVD for dimensionality reduction or feature extraction. The main failure mode is computational cost: SVD on an m-by-n matrix costs O(min(m,n)^2 * max(m,n)), which is prohibitive for large datasets.</p>
+<h3>Running Example</h3>
+<p>Approximate a 10000x5000 gene expression matrix for downstream clustering. Full SVD takes 120 seconds. CUR decomposition with 100 selected columns and rows produces a rank-100 approximation in 3 seconds with relative error under 5%, sufficient for clustering accuracy within 2% of the full-SVD result.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">2003</span><span>L1 Minimization (Donoho et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2004</span><span>CCA (Hardoon et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2004</span><span>Compressive Sampling (Candes et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2007</span><span>Sparsity Incoherence (Candes et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2009</span><span>CUR (Mahoney et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2009</span><span>Median Filtering (Arias-Castro et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2018</span><span>CROWN (Zhang et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>Functional Data Embedding (Arias-Castro et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>Multi-modal Density (Arias-Castro et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">Unknown</span><span>Deep CCA (Unknown)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+<tr><td>L1 Minimization</td><td>2003</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>CUR</td><td>2009</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2003] Donoho et al. — L1 Minimization. zotero_key:CJZYAK9U.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2004] Hardoon et al. — CCA. zotero_key:UJ3HR45N.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2004] Candes et al. — Compressive Sampling. zotero_key:6CN5PLNU.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2007] Candes et al. — Sparsity Incoherence. zotero_key:RII6PLZW.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2009] Mahoney et al. — CUR. zotero_key:7C4VSDBY.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2009] Arias-Castro et al. — Median Filtering. zotero_key:H27VWDAF.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2018] Zhang et al. — CROWN. zotero_key:WIZICQZL.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Arias-Castro et al. — Functional Data Embedding. zotero_key:DZYGYY2C.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Arias-Castro et al. — Multi-modal Density. zotero_key:FG2MX7RW.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [?] Unknown — Deep CCA. zotero_key:GLTH6GX9.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 10 papers from Zotero, 2 from graphify seed.</p>
+</div>
+</body>
+</html>

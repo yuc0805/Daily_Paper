@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-Modal — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#76b7b2;"></span>
+  <span class="meta">6 papers</span>
+</div>
+<h2>Multi-Modal Learning</h2>
+<h3>What</h3>
+<p>Multi-modal learning builds models that process and align information from multiple input types: images, text, audio, video, or sensor data. Core techniques include contrastive alignment (CLIP, SigLIP), cross-modal attention (Flamingo, BLIP-2), and joint generative models (DALL-E 2).</p>
+<h3>Why</h3>
+<p>Real-world tasks often involve multiple modalities simultaneously: a medical diagnosis uses both imaging and clinical notes; a robot uses vision and language instructions. Single-modality models miss cross-modal correlations, and naive concatenation of modality-specific features does not learn alignment.</p>
+<h3>Baseline</h3>
+<p>Encode each modality independently with a pre-trained encoder, concatenate the feature vectors, and train a linear classifier on top. The main failure mode is that this approach cannot capture fine-grained correspondences between modalities (e.g., which image region a word refers to).</p>
+<h3>Running Example</h3>
+<p>Given an image of a dog catching a frisbee and the caption 'a brown dog leaps to catch a red frisbee,' retrieve the correct image from a pool of 1000 candidates. The concatenation baseline achieves Recall@1 of 35%. SigLIP with contrastive pre-training achieves Recall@1 of 82%.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+<tr><td>SigLIP</td><td>_To be added as papers accumulate._</td><td>Anchor paper for this area</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>ViT (Dosovitskiy et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>DALL-E 2 (Ramesh et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>Flamingo (Alayrac et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>BLIP-2 (Li et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>FLIP (Li et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2025</span><span>Machine Mental Imagery (Yang et al.)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+<tr><td>SigLIP</td><td>Zhai 2023</td><td>Anchor method</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>DALL-E 2</td><td>2022</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Dosovitskiy et al. — ViT. zotero_key:B7F2Q998.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Ramesh et al. — DALL-E 2. zotero_key:DUERBZGM.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Alayrac et al. — Flamingo. zotero_key:SC8KWYVK.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Li et al. — BLIP-2. zotero_key:4N5WXKPI.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Li et al. — FLIP. zotero_key:64H6TK5Y.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Yang et al. — Machine Mental Imagery. zotero_key:NSI6PVD7.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 6 papers from Zotero, 1 from graphify seed.</p>
+</div>
+</body>
+</html>

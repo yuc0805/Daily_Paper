@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM-Health — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#f28e2b;"></span>
+  <span class="meta">13 papers</span>
+</div>
+<h2>LLM and AI for Health</h2>
+<h3>What</h3>
+<p>This area covers the application of large language models and foundation models to healthcare tasks, including clinical text understanding, biosignal interpretation, mental health monitoring, and wearable-based health sensing. It spans both pure NLP approaches (clinical note summarization, medical QA) and multimodal systems that combine language models with physiological signals.</p>
+<h3>Why</h3>
+<p>Health data is abundant but heterogeneous: clinical notes, lab values, wearable sensor streams, medical images. Traditional ML pipelines require separate feature engineering for each modality. Foundation models offer a path to unified representations, but healthcare demands reliability, interpretability, and privacy guarantees that general-purpose LLMs do not provide out of the box.</p>
+<h3>Baseline</h3>
+<p>Train a logistic regression on hand-extracted features from structured EHR fields (lab values, vitals, demographics) for a binary clinical prediction task. For wearable data, compute statistical aggregates (mean heart rate, step count per hour) and feed them to a gradient boosted tree. The main failure mode is that these approaches discard unstructured clinical text and raw waveform patterns, missing the majority of available information.</p>
+<h3>Running Example</h3>
+<p>Given 24 hours of wrist accelerometer and heart rate data from the GLOBEM dataset, predict whether the participant will report high stress the following day (binary classification). The desired output is AUROC above 0.72. The hand-feature + gradient boosted tree baseline achieves AUROC around 0.61 because it reduces the full waveform to a handful of summary statistics.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+<tr><td>Foundation Models for Biosignals: A Survey</td><td>_To be added as papers accumulate._</td><td>Anchor paper for this area</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>GLOBEM (Xu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>LLMs Few-Shot Health (Liu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>UNI Pathology (Chen et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>HARMamba (Li et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>HeAR (Baur et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Health-LLM (Kim et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>MindScape (Nepal et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>SSL for HAR (Yuan et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>Sensor2Text (Chen et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2025</span><span>CounselBench (Li et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2025</span><span>Foundation Models Biosignals (Gu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2025</span><span>HealthAgent (Sun et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2026</span><span>Verifiable Physio Reasoning (Wang et al.)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+<tr><td>Foundation Models for Biosignals: A Survey</td><td>Gu 2025</td><td>Anchor method</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>GLOBEM</td><td>2023</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>LLMs Few-Shot Health</td><td>2023</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>UNI Pathology</td><td>2023</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>HARMamba</td><td>2024</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>HeAR</td><td>2024</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>MindScape</td><td>2024</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>SSL for HAR</td><td>2024</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>Sensor2Text</td><td>2024</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>CounselBench</td><td>2025</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Xu et al. — GLOBEM. zotero_key:8VB7UFKN.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Liu et al. — LLMs Few-Shot Health. zotero_key:68JNSBFP.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Chen et al. — UNI Pathology. zotero_key:6T29JLTN.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Li et al. — HARMamba. zotero_key:HE9X47KN.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Baur et al. — HeAR. zotero_key:3LA8GNCU.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Kim et al. — Health-LLM. zotero_key:4IRZIDPQ.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Nepal et al. — MindScape. zotero_key:K5HKSQUN.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Yuan et al. — SSL for HAR. zotero_key:RTMH75VW.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Chen et al. — Sensor2Text. zotero_key:2ZYUFEMW.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Li et al. — CounselBench. zotero_key:CZ48FSVX.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Gu et al. — Foundation Models Biosignals. zotero_key:EDTXS4NM.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Sun et al. — HealthAgent. zotero_key:R2D2W9DD.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2026] Wang et al. — Verifiable Physio Reasoning. zotero_key:2BGP9QJL.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 13 papers from Zotero, 10 from graphify seed.</p>
+</div>
+</body>
+</html>

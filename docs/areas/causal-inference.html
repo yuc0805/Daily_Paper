@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Causal Inference — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#b07aa1;"></span>
+  <span class="meta">1 papers</span>
+</div>
+<h2>Causal Inference</h2>
+<h3>What</h3>
+<p>Causal inference provides formal frameworks for reasoning about cause-and-effect relationships from observational or experimental data. Core tools include structural causal models, do-calculus, and potential outcomes. In ML, causal reasoning informs fairness, robustness, and transfer learning.</p>
+<h3>Why</h3>
+<p>Correlation-based ML models can learn spurious associations that break under distribution shift or intervention. Causal models explicitly represent the data-generating process, enabling predictions about the effect of actions rather than mere statistical associations.</p>
+<h3>Baseline</h3>
+<p>Estimate the effect of a treatment by comparing mean outcomes between treated and untreated groups. The main failure mode is confounding: if treatment assignment correlates with a variable that also affects the outcome, the naive estimate is biased.</p>
+<h3>Running Example</h3>
+<p>Estimate the effect of a new drug on blood pressure from observational hospital records, where sicker patients are more likely to receive the drug. The naive comparison shows the drug increases blood pressure (confounding by severity). A propensity-score adjusted estimate reveals the drug decreases blood pressure by 5 mmHg.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">2010</span><span>Causal Inference Intro (Pearl et al.)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+<tr><td>Causal Inference Intro</td><td>2010</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2010] Pearl et al. — Causal Inference Intro. zotero_key:BB78CC56.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 1 papers from Zotero, 1 from graphify seed.</p>
+</div>
+</body>
+</html>

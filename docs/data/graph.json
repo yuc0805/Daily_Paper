@@ -1,0 +1,367 @@
+{
+  "nodes": [
+    {
+      "id": "agent",
+      "label": "Agent",
+      "file": "agent.md",
+      "papers": 8,
+      "community": 0,
+      "focus": "none"
+    },
+    {
+      "id": "audio",
+      "label": "Audio",
+      "file": "audio.md",
+      "papers": 9,
+      "community": -1,
+      "focus": "none"
+    },
+    {
+      "id": "automl",
+      "label": "AutoMachineLearning",
+      "file": "automl.md",
+      "papers": 2,
+      "community": -1,
+      "focus": "none"
+    },
+    {
+      "id": "causal-inference",
+      "label": "Causal Inference",
+      "file": "causal-inference.md",
+      "papers": 1,
+      "community": 6,
+      "focus": "none"
+    },
+    {
+      "id": "computer-vision",
+      "label": "Computer Vision",
+      "file": "computer-vision.md",
+      "papers": 26,
+      "community": 2,
+      "focus": "none"
+    },
+    {
+      "id": "generative-cv",
+      "label": "Generative CV",
+      "file": "generative-cv.md",
+      "papers": 18,
+      "community": 3,
+      "focus": "none"
+    },
+    {
+      "id": "hallucination",
+      "label": "Hallucination",
+      "file": "hallucination.md",
+      "papers": 3,
+      "community": -1,
+      "focus": "none"
+    },
+    {
+      "id": "interpretable-ml",
+      "label": "Interpretable ML",
+      "file": "interpretable-ml.md",
+      "papers": 24,
+      "community": 6,
+      "focus": "none"
+    },
+    {
+      "id": "llm-health",
+      "label": "LLM-Health",
+      "file": "llm-health.md",
+      "papers": 13,
+      "community": 1,
+      "focus": "primary"
+    },
+    {
+      "id": "llm",
+      "label": "LLM",
+      "file": "llm.md",
+      "papers": 4,
+      "community": 0,
+      "focus": "secondary"
+    },
+    {
+      "id": "mamba",
+      "label": "MAMBA",
+      "file": "mamba.md",
+      "papers": 17,
+      "community": 2,
+      "focus": "none"
+    },
+    {
+      "id": "mathematics-ml",
+      "label": "MathematicsML",
+      "file": "mathematics-ml.md",
+      "papers": 10,
+      "community": 8,
+      "focus": "none"
+    },
+    {
+      "id": "moe",
+      "label": "MoE",
+      "file": "moe.md",
+      "papers": 4,
+      "community": -1,
+      "focus": "none"
+    },
+    {
+      "id": "multi-modal",
+      "label": "Multi-Modal",
+      "file": "multi-modal.md",
+      "papers": 6,
+      "community": 3,
+      "focus": "secondary"
+    },
+    {
+      "id": "nlp",
+      "label": "NLP",
+      "file": "nlp.md",
+      "papers": 6,
+      "community": -1,
+      "focus": "none"
+    },
+    {
+      "id": "optimizer",
+      "label": "Optimizer",
+      "file": "optimizer.md",
+      "papers": 1,
+      "community": -1,
+      "focus": "none"
+    },
+    {
+      "id": "reasoning",
+      "label": "Reasoning",
+      "file": "reasoning.md",
+      "papers": 10,
+      "community": 0,
+      "focus": "secondary"
+    },
+    {
+      "id": "self-supervised",
+      "label": "Self-Supervised Framework",
+      "file": "self-supervised.md",
+      "papers": 7,
+      "community": 1,
+      "focus": "secondary"
+    },
+    {
+      "id": "test-time-training",
+      "label": "TestTimeTraining",
+      "file": "test-time-training.md",
+      "papers": 4,
+      "community": -1,
+      "focus": "none"
+    },
+    {
+      "id": "time-series",
+      "label": "Signal (Time Series)",
+      "file": "time-series.md",
+      "papers": 44,
+      "community": 4,
+      "focus": "primary"
+    },
+    {
+      "id": "video-action-recognition",
+      "label": "Video Action Recognition",
+      "file": "video-action-recognition.md",
+      "papers": 7,
+      "community": 9,
+      "focus": "none"
+    },
+    {
+      "id": "world-model-rl",
+      "label": "World Model / RL",
+      "file": "world-model-rl.md",
+      "papers": 31,
+      "community": 7,
+      "focus": "none"
+    }
+  ],
+  "links": [
+    {
+      "source": "llm-health",
+      "target": "time-series",
+      "weight": 6,
+      "type": "shared_papers"
+    },
+    {
+      "source": "mamba",
+      "target": "time-series",
+      "weight": 2,
+      "type": "shared_papers"
+    },
+    {
+      "source": "llm-health",
+      "target": "mamba",
+      "weight": 1,
+      "type": "shared_papers"
+    },
+    {
+      "source": "moe",
+      "target": "time-series",
+      "weight": 1,
+      "type": "shared_papers"
+    },
+    {
+      "source": "generative-cv",
+      "target": "time-series",
+      "weight": 2,
+      "type": "shared_papers"
+    },
+    {
+      "source": "self-supervised",
+      "target": "time-series",
+      "weight": 7,
+      "type": "shared_papers"
+    },
+    {
+      "source": "nlp",
+      "target": "time-series",
+      "weight": 1,
+      "type": "shared_papers"
+    },
+    {
+      "source": "nlp",
+      "target": "self-supervised",
+      "weight": 1,
+      "type": "shared_papers"
+    },
+    {
+      "source": "generative-cv",
+      "target": "self-supervised",
+      "weight": 1,
+      "type": "shared_papers"
+    },
+    {
+      "source": "computer-vision",
+      "target": "time-series",
+      "weight": 1,
+      "type": "shared_papers"
+    },
+    {
+      "source": "audio",
+      "target": "time-series",
+      "weight": 1,
+      "type": "shared_papers"
+    },
+    {
+      "source": "audio",
+      "target": "llm-health",
+      "weight": 1,
+      "type": "shared_papers"
+    },
+    {
+      "source": "llm-health",
+      "target": "test-time-training",
+      "weight": 1,
+      "type": "shared_papers"
+    },
+    {
+      "source": "reasoning",
+      "target": "world-model-rl",
+      "weight": 3,
+      "type": "shared_papers"
+    },
+    {
+      "source": "computer-vision",
+      "target": "multi-modal",
+      "weight": 4,
+      "type": "shared_papers"
+    },
+    {
+      "source": "multi-modal",
+      "target": "nlp",
+      "weight": 1,
+      "type": "shared_papers"
+    },
+    {
+      "source": "generative-cv",
+      "target": "interpretable-ml",
+      "weight": 1,
+      "type": "shared_papers"
+    }
+  ],
+  "communities": [
+    {
+      "id": 0,
+      "label": "LLM Agents & Reasoning",
+      "area_pages": [
+        "agent",
+        "reasoning",
+        "llm"
+      ]
+    },
+    {
+      "id": 1,
+      "label": "Health AI & Self-Supervised",
+      "area_pages": [
+        "llm-health",
+        "self-supervised"
+      ]
+    },
+    {
+      "id": 2,
+      "label": "Transformer & SSM Architectures",
+      "area_pages": [
+        "mamba",
+        "llm",
+        "computer-vision"
+      ]
+    },
+    {
+      "id": 3,
+      "label": "Vision-Language & Generative",
+      "area_pages": [
+        "multi-modal",
+        "generative-cv"
+      ]
+    },
+    {
+      "id": 4,
+      "label": "Time Series + LLM Integration",
+      "area_pages": [
+        "time-series",
+        "llm"
+      ]
+    },
+    {
+      "id": 5,
+      "label": "Wearable Sensing & Behavior",
+      "area_pages": [
+        "time-series",
+        "llm-health"
+      ]
+    },
+    {
+      "id": 6,
+      "label": "Model Interpretability & Fairness",
+      "area_pages": [
+        "interpretable-ml",
+        "causal-inference"
+      ]
+    },
+    {
+      "id": 7,
+      "label": "Reinforcement Learning",
+      "area_pages": [
+        "world-model-rl"
+      ]
+    },
+    {
+      "id": 8,
+      "label": "Sparse Matrix Methods",
+      "area_pages": [
+        "mathematics-ml"
+      ]
+    },
+    {
+      "id": 9,
+      "label": "Video Action Recognition",
+      "area_pages": [
+        "video-action-recognition"
+      ]
+    }
+  ],
+  "total_papers": 224,
+  "total_areas": 22
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Vision — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#e15759;"></span>
+  <span class="meta">26 papers</span>
+</div>
+<h2>Computer Vision</h2>
+<h3>What</h3>
+<p>Computer vision covers models for image classification, object detection, segmentation, and visual representation learning. The field has moved from CNNs (ResNet) through vision transformers (ViT, Swin) to foundation models (SAM, DINOv2). This area focuses on the backbone architectures and pre-training strategies rather than generative models (covered in generative-cv.md).</p>
+<h3>Why</h3>
+<p>Visual understanding is required in autonomous driving, medical imaging, robotics, and surveillance. Transformer-based architectures now match or exceed CNNs on most benchmarks, but the choice of architecture, pre-training data, and fine-tuning strategy still matters for domain-specific applications.</p>
+<h3>Baseline</h3>
+<p>Train a ResNet-50 from scratch on the target dataset with supervised cross-entropy loss. The main failure mode is that ResNet requires large labeled datasets and its fixed receptive field limits performance on tasks requiring global context (e.g., scene understanding).</p>
+<h3>Running Example</h3>
+<p>Classify ImageNet images into 1000 categories. ResNet-50 trained from scratch achieves 76.1% top-1 accuracy. ViT-B/16 pre-trained on ImageNet-21k and fine-tuned achieves 84.0% top-1 accuracy.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">2014</span><span>GAN (Goodfellow et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2016</span><span>YOLO (Redmon et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2017</span><span>DeepLabV3 (Chen et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>DETR (Carion et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>MoCo (He et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>SimCLR (Chen et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>CrossViT (Chen et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>DINO (Caron et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>DPT (Ranftl et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>DeiT (Touvron et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>MAE (He et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>MaskFormer (Cheng et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>SegFormer (Xie et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>Swin Transformer (Liu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>ViT (Dosovitskiy et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>DALL-E 2 (Ramesh et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>Mask DINO (Li et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>Mask2Former (Cheng et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>VAE (Kingma et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>BLIP-2 (Li et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>FLIP (Li et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>MAE Theory (Zhang et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>SAM (Kirillov et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>DiChaViT (Pham et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>MedSAM (Ma et al.)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+<tr><td>DETR</td><td>2020</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>Swin Transformer</td><td>2021</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>DALL-E 2</td><td>2022</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>MAE Theory</td><td>2023</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2014] Goodfellow et al. — GAN. zotero_key:NJ5BZCFJ.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2016] Redmon et al. — YOLO. zotero_key:PN27XKD6.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2017] Chen et al. — DeepLabV3. zotero_key:P5Q5TRVY.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Carion et al. — DETR. zotero_key:QTFCR4G9.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] He et al. — MoCo. zotero_key:BMA3ALHC.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Chen et al. — SimCLR. zotero_key:EQ3FJMPY.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Chen et al. — CrossViT. zotero_key:EW4CUT2S.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Caron et al. — DINO. zotero_key:DVUL4GU6.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Ranftl et al. — DPT. zotero_key:YXTBME7X.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Touvron et al. — DeiT. zotero_key:Y2C9BISN.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] He et al. — MAE. zotero_key:A5HBRQB9.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Cheng et al. — MaskFormer. zotero_key:BNKLHAQM.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Xie et al. — SegFormer. zotero_key:MYSZ5BCQ.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Liu et al. — Swin Transformer. zotero_key:AVF27QK7.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Dosovitskiy et al. — ViT. zotero_key:B7F2Q998.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Ramesh et al. — DALL-E 2. zotero_key:DUERBZGM.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Li et al. — Mask DINO. zotero_key:EAIQ4KD3.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Cheng et al. — Mask2Former. zotero_key:PM4XDV56.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Kingma et al. — VAE. zotero_key:MTXFCQX6.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Li et al. — BLIP-2. zotero_key:4N5WXKPI.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Li et al. — FLIP. zotero_key:64H6TK5Y.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Zhang et al. — MAE Theory. zotero_key:6INGKIJV.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Kirillov et al. — SAM. zotero_key:PQNM49GJ.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Pham et al. — DiChaViT. zotero_key:5WKSNRIH.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Ma et al. — MedSAM. zotero_key:UXDYEMP4.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Sun et al. — TTT. zotero_key:SFYVQXEG.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 26 papers from Zotero, 4 from graphify seed.</p>
+</div>
+</body>
+</html>

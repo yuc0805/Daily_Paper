@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audio — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#999;"></span>
+  <span class="meta">9 papers</span>
+</div>
+<h2>Audio Representation Learning</h2>
+<h3>What</h3>
+<p>Audio representation learning covers models that extract useful features from raw audio or spectrograms for tasks like sound classification, speech recognition, and health acoustics. Methods range from CNN-based spectrogram classifiers (PSLA) to transformer encoders (AST) and self-supervised approaches (TRILL, HeAR, CLAP).</p>
+<h3>Why</h3>
+<p>Audio signals carry information about health (cough detection, respiratory disease), environment (urban sound classification), and communication (speech). Pre-trained audio representations reduce the need for labeled audio data, which is expensive to annotate at scale.</p>
+<h3>Baseline</h3>
+<p>Extract mel-spectrogram features and train a CNN classifier from scratch. The main failure mode is that spectrogram-level CNNs miss temporal structure beyond their receptive field and require large labeled datasets to avoid overfitting.</p>
+<h3>Running Example</h3>
+<p>Classify environmental sounds into 50 categories on the ESC-50 dataset. The mel-spectrogram CNN baseline achieves 72% accuracy. AST (Audio Spectrogram Transformer) pre-trained on AudioSet achieves 88% accuracy.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>TRILL (Shor et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>AST (Gong et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>FRILL (Peplinski et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>PSLA (Gong et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>Audio MAE (Huang et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>CLAP (Elizalde et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>LTU (Gong et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>HeAR (Baur et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>OPERA (Zhang et al.)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+<tr><td>HeAR</td><td>2024</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Shor et al. — TRILL. zotero_key:WJQ5APZU.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Gong et al. — AST. zotero_key:7J6K6W8I.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Peplinski et al. — FRILL. zotero_key:4A2A73JF.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Gong et al. — PSLA. zotero_key:MB3HH9SR.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Huang et al. — Audio MAE. zotero_key:65EDEWIJ.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Elizalde et al. — CLAP. zotero_key:KNGZCC5J.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Gong et al. — LTU. zotero_key:ESEEEH85.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Baur et al. — HeAR. zotero_key:3LA8GNCU.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Zhang et al. — OPERA. zotero_key:T2T4DUKA.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 9 papers from Zotero, 1 from graphify seed.</p>
+</div>
+</body>
+</html>

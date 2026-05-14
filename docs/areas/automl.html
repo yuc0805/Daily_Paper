@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoMachineLearning — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#999;"></span>
+  <span class="meta">2 papers</span>
+</div>
+<h2>Automated Machine Learning</h2>
+<h3>What</h3>
+<p>AutoML automates the process of selecting model architectures, hyperparameters, and feature engineering pipelines. It includes neural architecture search (NAS), hyperparameter optimization (Bayesian optimization, random search), and automated feature extraction.</p>
+<h3>Why</h3>
+<p>Manual model selection and tuning is time-consuming and requires expert knowledge. AutoML makes ML accessible to non-experts and can discover configurations that human practitioners would not try. The main limitation is computational cost: searching over architecture spaces requires training many candidate models.</p>
+<h3>Baseline</h3>
+<p>Manually select a standard architecture (e.g., ResNet for images, LSTM for sequences) and tune hyperparameters by grid search over a small set of values. The main failure mode is that the search space is too small to find good configurations, and the process does not scale to new datasets without human intervention.</p>
+<h3>Running Example</h3>
+<p>Find the best image classifier for a custom 10-class medical imaging dataset with 5000 images. Manual selection picks ResNet-50 with default hyperparameters, achieving 82% accuracy. An AutoML system searching over architectures and augmentation strategies finds an EfficientNet-B2 with specific augmentation that achieves 88% accuracy.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">2018</span><span>AutoPhrase (Shang et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>AutoML Survey (He et al.)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2018] Shang et al. — AutoPhrase. zotero_key:PWXG35AH.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] He et al. — AutoML Survey. zotero_key:W5D5V7NQ.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 2 papers from Zotero, 0 from graphify seed.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reasoning — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#4e79a7;"></span>
+  <span class="meta">10 papers</span>
+</div>
+<h2>Reasoning in Language Models</h2>
+<h3>What</h3>
+<p>Reasoning research studies how language models perform multi-step inference, including arithmetic, logical deduction, planning, and commonsense reasoning. Methods range from prompting strategies (chain-of-thought, self-consistency) to architectural changes (latent reasoning in continuous space) and training-time interventions (reinforcement learning for reasoning traces).</p>
+<h3>Why</h3>
+<p>Standard LLMs often fail on tasks requiring more than pattern matching: multi-hop questions, constraint satisfaction, or mathematical derivations. Improving reasoning ability is necessary for reliable use in scientific, legal, and medical settings where answers must follow from premises rather than statistical correlation.</p>
+<h3>Baseline</h3>
+<p>Prompt the LLM with a direct question (no intermediate steps). The main failure mode is that the model produces a plausible-sounding but incorrect answer because it skips intermediate reasoning steps that would expose errors.</p>
+<h3>Running Example</h3>
+<p>Solve the GSM8K problem: 'Janet has 16 eggs per day. She eats 3 for breakfast and bakes 4 into muffins. She sells the rest at $2 each. How much does she earn daily?' The correct answer is $18. Direct prompting of a mid-sized LLM often yields $26 or $32 because the model conflates subtraction steps.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+<tr><td>Chain-of-Thought Prompting</td><td>_To be added as papers accumulate._</td><td>Anchor paper for this area</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">2025</span><span>CODI (Shen et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2025</span><span>Large Multimodal Reasoning Survey (Li et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2025</span><span>Latent Reasoning Survey (Zhu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2025</span><span>Machine Mental Imagery (Yang et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2025</span><span>Soft Thinking (Zhang et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2026</span><span>Chain of Superposition (Deng et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2026</span><span>CoLaR (Tan et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2026</span><span>Latent Space Survey (Yu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2026</span><span>Latent-GRPO (Deng et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2026</span><span>PonderLM (Zeng et al.)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+<tr><td>Chain-of-Thought Prompting</td><td>Wei 2023</td><td>Anchor method</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Shen et al. — CODI. zotero_key:FFWLYL3J.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Li et al. — Large Multimodal Reasoning Survey. zotero_key:FPEC4PIH.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Zhu et al. — Latent Reasoning Survey. zotero_key:EMXEJYHV.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Yang et al. — Machine Mental Imagery. zotero_key:PDAMP7VF.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2025] Zhang et al. — Soft Thinking. zotero_key:EGRXFZU9.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2026] Deng et al. — Chain of Superposition. zotero_key:CXGMDHJ3.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2026] Tan et al. — CoLaR. zotero_key:Y4ZNT3EC.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2026] Yu et al. — Latent Space Survey. zotero_key:KRVDKDGH.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2026] Deng et al. — Latent-GRPO. zotero_key:U4ZPM5DN.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2026] Zeng et al. — PonderLM. zotero_key:3TLRP8U5.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 10 papers from Zotero, 0 from graphify seed.</p>
+</div>
+</body>
+</html>

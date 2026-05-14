@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generative CV — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#76b7b2;"></span>
+  <span class="meta">18 papers</span>
+</div>
+<h2>Generative Computer Vision</h2>
+<h3>What</h3>
+<p>Generative computer vision covers models that synthesize images, videos, or 3D content. The field has progressed from GANs through VAEs to diffusion models, with recent work on transformer-based diffusion (DiT) and latent diffusion (Stable Diffusion). Applications include image generation, inpainting, style transfer, and super-resolution.</p>
+<h3>Why</h3>
+<p>Generative models enable data augmentation, creative tools, and scientific simulation (e.g., generating synthetic medical images for training). The shift from GANs to diffusion models improved training stability and sample diversity, but diffusion models remain computationally expensive at inference time.</p>
+<h3>Baseline</h3>
+<p>Train a GAN (generator + discriminator) on the target image domain. The main failure mode is mode collapse: the generator learns to produce only a few distinct outputs, failing to cover the full data distribution.</p>
+<h3>Running Example</h3>
+<p>Generate a 256x256 image of a bedroom from the LSUN Bedrooms dataset. The GAN baseline achieves FID of 12.4 but produces nearly identical layouts. DDPM achieves FID of 4.9 with much greater diversity in furniture arrangement and lighting.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+<tr><td>DALL-E 2</td><td>_To be added as papers accumulate._</td><td>Anchor paper for this area</td></tr>
+<tr><td>DDPM</td><td>_To be added as papers accumulate._</td><td>Anchor paper for this area</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">2014</span><span>GAN (Goodfellow et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2015</span><span>Nonequilibrium Thermodynamics (Sohl-Dickstein et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2018</span><span>FID (Heusel et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2019</span><span>StyleGAN (Karras et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>CycleGAN (Zhu et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>DDPM (Ho et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>Diffusion Beats GANs (Dhariwal et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>Score SDE (Song et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>TimeGrad (Rasul et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>DDIM (Song et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>Palette (Saharia et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>Stable Diffusion (Rombach et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>StyTr2 (Deng et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>BLIP-Diffusion (Li et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>CTG++ (Zhong et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>DiT (Peebles et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>LED (Mao et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2024</span><span>l-DAE (Chen et al.)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+<tr><td>DALL-E 2</td><td>Ramesh 2022</td><td>Anchor method</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>DDPM</td><td>Ho 2020</td><td>Anchor method</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>CycleGAN</td><td>2020</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>DiT</td><td>2023</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2014] Goodfellow et al. — GAN. zotero_key:GG7GSYUJ.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2015] Sohl-Dickstein et al. — Nonequilibrium Thermodynamics. zotero_key:ZPY5XD8Y.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2018] Heusel et al. — FID. zotero_key:IMBVAAFD.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2019] Karras et al. — StyleGAN. zotero_key:IFU2GS2W.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Zhu et al. — CycleGAN. zotero_key:XBYZMQ6D.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Ho et al. — DDPM. zotero_key:GX7WR7KA.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Dhariwal et al. — Diffusion Beats GANs. zotero_key:MVWM4TZJ.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Song et al. — Score SDE. zotero_key:NMJXW3GJ.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Rasul et al. — TimeGrad. zotero_key:RILRU5H6.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Song et al. — DDIM. zotero_key:9UA578GP.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Saharia et al. — Palette. zotero_key:FZBCF7MH.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Rombach et al. — Stable Diffusion. zotero_key:DULT32HM.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Deng et al. — StyTr2. zotero_key:SNSMLW7Z.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Li et al. — BLIP-Diffusion. zotero_key:BRHAE43A.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Zhong et al. — CTG++. zotero_key:S4EZPJHE.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Peebles et al. — DiT. zotero_key:YJ9TK993.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Mao et al. — LED. zotero_key:G4MF7DQQ.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2024] Chen et al. — l-DAE. zotero_key:DZ2UYXUL.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 18 papers from Zotero, 3 from graphify seed.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Knowledge Graph — Leo Chen</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <h1>AI Knowledge Graph</h1>
+    <p class="subtitle">A structured map of research areas, methods, and papers from my reading.</p>
+    <p class="meta">22 areas &middot; 224 papers &middot; Seeded from Zotero + Graphify clustering</p>
+  </div>
+</header>
+
+<main>
+  <section id="graph-section">
+    <h2>Area Map</h2>
+    <p class="section-desc">Each node is a research area. Size reflects paper count. Edges connect areas that share papers. Color encodes community cluster. Click a node to jump to its page.</p>
+    <div id="graph-container">
+      <svg id="graph"></svg>
+    </div>
+    <div id="legend"></div>
+  </section>
+
+  <section id="areas-section">
+    <h2>Research Areas</h2>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="primary">My Focus</button>
+      <button class="filter-btn" data-filter="secondary">Watching</button>
+    </div>
+    <div id="area-cards"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Built from <a href="https://github.com/yuc0805/Daily_Paper">yuc0805/Daily_Paper</a>. Inspired by <a href="https://lunadong.com/knowledge.htm">Luna Dong's Knowledge Graph</a>.</p>
+</footer>
+
+<script>
+const COMMUNITY_COLORS = [
+  '#4e79a7','#f28e2b','#e15759','#76b7b2','#59a14f',
+  '#edc948','#b07aa1','#ff9da7','#9c755f','#bab0ac','#aec7e8'
+];
+const COMMUNITY_LABELS = {};
+
+async function main() {
+  const resp = await fetch('data/graph.json');
+  const data = await resp.json();
+
+  // Populate community labels
+  data.communities.forEach(c => { COMMUNITY_LABELS[c.id] = c.label; });
+
+  renderGraph(data);
+  renderCards(data);
+  renderLegend(data);
+  setupFilters(data);
+}
+
+function renderGraph(data) {
+  const container = document.getElementById('graph-container');
+  const width = container.clientWidth;
+  const height = 480;
+  const svg = d3.select('#graph')
+    .attr('width', width)
+    .attr('height', height)
+    .attr('viewBox', `0 0 ${width} ${height}`);
+
+  const simulation = d3.forceSimulation(data.nodes)
+    .force('link', d3.forceLink(data.links).id(d => d.id).distance(100).strength(d => Math.min(d.weight * 0.15, 0.8)))
+    .force('charge', d3.forceManyBody().strength(-300))
+    .force('center', d3.forceCenter(width / 2, height / 2))
+    .force('collision', d3.forceCollide().radius(d => Math.sqrt(d.papers) * 5 + 12));
+
+  const link = svg.append('g').attr('class','links')
+    .selectAll('line').data(data.links).enter().append('line')
+    .attr('stroke', '#ccc').attr('stroke-width', d => Math.min(d.weight, 6))
+    .attr('stroke-opacity', 0.5);
+
+  const node = svg.append('g').attr('class','nodes')
+    .selectAll('g').data(data.nodes).enter().append('g')
+    .attr('cursor', 'pointer')
+    .on('click', (e, d) => { window.location.href = `areas/${d.id}.html`; })
+    .call(d3.drag()
+      .on('start', (e, d) => { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+      .on('drag', (e, d) => { d.fx = e.x; d.fy = e.y; })
+      .on('end', (e, d) => { if (!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; })
+    );
+
+  node.append('circle')
+    .attr('r', d => Math.sqrt(d.papers) * 4 + 6)
+    .attr('fill', d => d.community >= 0 ? COMMUNITY_COLORS[d.community % COMMUNITY_COLORS.length] : '#999')
+    .attr('stroke', d => d.focus === 'primary' ? '#222' : (d.focus === 'secondary' ? '#666' : 'transparent'))
+    .attr('stroke-width', d => d.focus === 'primary' ? 3 : (d.focus === 'secondary' ? 2 : 0))
+    .attr('opacity', 0.85);
+
+  node.append('text')
+    .text(d => d.label)
+    .attr('dy', d => Math.sqrt(d.papers) * 4 + 18)
+    .attr('text-anchor', 'middle')
+    .attr('font-size', '11px')
+    .attr('fill', '#333')
+    .attr('font-family', 'system-ui, sans-serif');
+
+  // Tooltip
+  const tooltip = d3.select('body').append('div').attr('class','tooltip').style('opacity',0);
+  node.on('mouseover', (e, d) => {
+    tooltip.transition().duration(150).style('opacity',1);
+    tooltip.html(`<strong>${d.label}</strong><br>${d.papers} papers` +
+      (d.community >= 0 ? `<br>Community: ${COMMUNITY_LABELS[d.community] || d.community}` : '') +
+      (d.focus !== 'none' ? `<br><em>${d.focus} focus</em>` : ''))
+      .style('left', (e.pageX + 12) + 'px').style('top', (e.pageY - 20) + 'px');
+  }).on('mouseout', () => { tooltip.transition().duration(200).style('opacity',0); });
+
+  simulation.on('tick', () => {
+    link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y)
+        .attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+    node.attr('transform', d => `translate(${d.x},${d.y})`);
+  });
+}
+
+function renderCards(data) {
+  const container = document.getElementById('area-cards');
+  // Sort: primary first, then secondary, then by paper count
+  const sorted = [...data.nodes].sort((a,b) => {
+    const fo = {primary:0, secondary:1, none:2};
+    if (fo[a.focus] !== fo[b.focus]) return fo[a.focus] - fo[b.focus];
+    return b.papers - a.papers;
+  });
+
+  sorted.forEach(n => {
+    const card = document.createElement('a');
+    card.href = `areas/${n.id}.html`;
+    card.className = `area-card focus-${n.focus}`;
+    card.dataset.focus = n.focus;
+    const color = n.community >= 0 ? COMMUNITY_COLORS[n.community % COMMUNITY_COLORS.length] : '#999';
+    card.innerHTML = `
+      <div class="card-accent" style="background:${color}"></div>
+      <div class="card-body">
+        <h3>${n.label}</h3>
+        <span class="paper-count">${n.papers} papers</span>
+        ${n.focus !== 'none' ? `<span class="focus-badge ${n.focus}">${n.focus}</span>` : ''}
+      </div>`;
+    container.appendChild(card);
+  });
+}
+
+function renderLegend(data) {
+  const legend = document.getElementById('legend');
+  const seen = new Set();
+  data.communities.forEach(c => {
+    if (seen.has(c.id)) return;
+    seen.add(c.id);
+    const el = document.createElement('span');
+    el.className = 'legend-item';
+    el.innerHTML = `<span class="legend-dot" style="background:${COMMUNITY_COLORS[c.id % COMMUNITY_COLORS.length]}"></span>${c.label}`;
+    legend.appendChild(el);
+  });
+}
+
+function setupFilters(data) {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.area-card').forEach(card => {
+        if (filter === 'all') { card.style.display = ''; }
+        else if (filter === 'primary') { card.style.display = (card.dataset.focus === 'primary' || card.dataset.focus === 'secondary') ? '' : 'none'; }
+        else { card.style.display = card.dataset.focus === filter ? '' : 'none'; }
+      });
+    });
+  });
+}
+
+main();
+</script>
+</body>
+</html>

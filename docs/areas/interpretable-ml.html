@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interpretable ML — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="area-page">
+<a href="../index.html" class="back-link">&larr; Back to Area Map</a>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+  <span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#b07aa1;"></span>
+  <span class="meta">24 papers</span>
+</div>
+<h2>Interpretable Machine Learning</h2>
+<h3>What</h3>
+<p>Interpretable ML studies how to make model predictions understandable to humans. It covers inherently interpretable models (decision trees, rule lists, risk scores), post-hoc explanation methods (SHAP, LIME, concept-based explanations), and the meta-question of what interpretability means and how to evaluate it. Sub-areas include XAI methods, framing/philosophy of interpretability, and predictive multiplicity.</p>
+<h3>Why</h3>
+<p>In high-stakes domains (healthcare, criminal justice, lending), stakeholders need to understand why a model made a particular prediction. Post-hoc explanations can be misleading or unstable, and the field lacks consensus on evaluation criteria. Predictive multiplicity (multiple models with similar accuracy but different individual predictions) further complicates the picture.</p>
+<h3>Baseline</h3>
+<p>Train a black-box gradient boosted tree and inspect feature importances from the tree structure. The main failure mode is that global feature importance does not explain individual predictions and can be misleading when features are correlated.</p>
+<h3>Running Example</h3>
+<p>Predict whether a loan applicant will default (binary classification on the FICO dataset). The gradient boosted tree achieves AUC 0.79 and reports 'income' as the top feature. But for a specific applicant who was denied, the user wants to know which features to change to get approved. SHAP values reveal that 'number of recent inquiries' was the decisive factor for this individual, and Ustun et al.'s actionable recourse method finds the minimum-cost set of changes.</p>
+<h3>Baseline vs Method Comparison on the Running Example</h3>
+<table>
+<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
+<tbody>
+<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
+</tbody></table>
+<h3>Timeline</h3>
+<div class="timeline-entry"><span class="timeline-year">2001</span><span>Two Cultures (Breiman et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2011</span><span>Submodular Maximization (Feige et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2014</span><span>Comprehensible Models (Freitas et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2014</span><span>GAN (Goodfellow et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2015</span><span>Explanatory Debugging (Kulesza et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2015</span><span>ResNet (He et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2016</span><span>Decision Sets (Lakkaraju et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2016</span><span>LIME (Ribeiro et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2017</span><span>Mythos of Interpretability (Lipton et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2017</span><span>Right for Right Reasons (Ross et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2017</span><span>SHAP (Lundberg et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2019</span><span>Actionable Recourse (Ustun et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2019</span><span>Risk Scores (Ustun et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2019</span><span>Stop Explaining (Rudin et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>Concept Bottleneck (Koh et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>Human Factors IML (Hong et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>Predictive Multiplicity (Marx et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2020</span><span>Sanity Checks (Adebayo et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>Manipulating Interpretability (Poursabzi-Sangdeh et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2021</span><span>User Study IML (Sixt et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2022</span><span>Model Indeterminacy (Brunet et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>Consistent Explanations (Ley et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>Explanation Constraints (Pukdee et al.)</span></div>
+<div class="timeline-entry"><span class="timeline-year">2023</span><span>Post-hoc CBM (Yuksekgonul et al.)</span></div>
+<h3>Key Methods</h3>
+<table>
+<thead><tr><th>Method</th><th>Year</th><th>Core idea (one clause)</th><th>Best benchmark result</th><th>Cost / limitation</th></tr></thead>
+<tbody>
+<tr><td>Comprehensible Models</td><td>2014</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>SHAP</td><td>2017</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+<tr><td>Actionable Recourse</td><td>2019</td><td>_To be filled_</td><td>_To be filled_</td><td>_To be filled_</td></tr>
+</tbody></table>
+<h3>Benchmark Results</h3>
+<table>
+<thead><tr><th>Method</th><th>Benchmark</th><th>Metric</th><th>Score</th><th>Source paper</th></tr></thead>
+<tbody>
+<tr><td>_To be added as papers accumulate._</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<h3>Limitations</h3>
+<p class="placeholder"><em>To be added as papers accumulate.</em></p>
+<h3>Paper List</h3>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2001] Breiman et al. — Two Cultures. zotero_key:DQD2J9KR.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2011] Feige et al. — Submodular Maximization. zotero_key:VZ5NCDN7.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2014] Freitas et al. — Comprehensible Models. zotero_key:JLX2PPVN.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2014] Goodfellow et al. — GAN. zotero_key:GG7GSYUJ.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2015] Kulesza et al. — Explanatory Debugging. zotero_key:Q4LYVFY8.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2015] He et al. — ResNet. zotero_key:3INBF8ND.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2016] Lakkaraju et al. — Decision Sets. zotero_key:YJAJHV5A.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2016] Ribeiro et al. — LIME. zotero_key:CFDS9G6C.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2017] Lipton et al. — Mythos of Interpretability. zotero_key:FN9DST5B.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2017] Ross et al. — Right for Right Reasons. zotero_key:6XPE47QI.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2017] Lundberg et al. — SHAP. zotero_key:46WR27KQ.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2019] Ustun et al. — Actionable Recourse. zotero_key:A362GCCM.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2019] Ustun et al. — Risk Scores. zotero_key:QQ29DMJU.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2019] Rudin et al. — Stop Explaining. zotero_key:T264MQTK.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Koh et al. — Concept Bottleneck. zotero_key:TUIUJY92.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Hong et al. — Human Factors IML. zotero_key:4Z8VSMFY.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Marx et al. — Predictive Multiplicity. zotero_key:FW3ZISUV.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2020] Adebayo et al. — Sanity Checks. zotero_key:SKKD9UXV.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Poursabzi-Sangdeh et al. — Manipulating Interpretability. zotero_key:6GBGGUEZ.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2021] Sixt et al. — User Study IML. zotero_key:C284A7ZR.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2022] Brunet et al. — Model Indeterminacy. zotero_key:SF6V4MPG.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Ley et al. — Consistent Explanations. zotero_key:8T8LJMTW.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Pukdee et al. — Explanation Constraints. zotero_key:C48LQQN7.</div>
+<div class="paper-entry"><span class="known-tag">KNOWN</span> [2023] Yuksekgonul et al. — Post-hoc CBM. zotero_key:CKEAV8EA.</div>
+<h3>Recent Activity</h3>
+<p>2026-05-14 | Area page seeded | 24 papers from Zotero, 3 from graphify seed.</p>
+</div>
+</body>
+</html>
