@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PonderLM — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+
+<h2>PonderLM</h2>
+<p class="paper-meta">
+  Zeng et al. &middot; 2026-02-20 &middot;
+  <a href="http://arxiv.org/abs/2505.20674" target="_blank" rel="noopener">arXiv:2505.20674</a> &middot; zotero_key: 3TLRP8U5 &middot;
+  Appears in: <a href="../areas/reasoning.html">Reasoning</a>
+</p>
+
+<h3>What</h3>
+<p>Humans ponder before articulating complex sentence elements, enabling deeper cognitive processing through focused effort. In this work, we introduce this pondering process into language models by repeatedly invoking the forward process within a single token generation step. During pondering, instead of generating an actual token sampled from the prediction distribution, the model ponders by yielding a weighted sum of all token embeddings according to the predicted token distribution. The generated embedding is then fed back as input for another forward pass. We show that the model can learn to ponder in this way through self-supervised learning, without any human annotations. Experiments across three widely used open-source architectures-GPT-2, Pythia, and LLaMA-and extensive downstream task evaluations demonstrate the effectiveness and generality of our method. On 9 downstream benchmarks, our pondering-enhanced Pythia models significantly outperform the official Pythia models. Notably, our PonderPythia models demonstrate remarkable effectiveness: PonderPythia-2.8B surpasses Pythia-6.9B and rivals Pythia-12B, while our PonderPythia-1B matches TinyLlama-1.1B, a model trained on 10 times more data. The code is available at https://github.com/LUMIA-Group/PonderingLM.</p>
+
+</div>
+</body>
+</html>

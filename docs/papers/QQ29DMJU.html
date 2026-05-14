@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risk Scores — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/interpretable-ml.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Risk Scores</h2>
+<p class="paper-meta">
+  Ustun et al. &middot; 2019-09-16 &middot;
+  <a href="http://arxiv.org/abs/1610.00168" target="_blank" rel="noopener">arXiv:1610.00168</a> &middot; zotero_key: QQ29DMJU &middot;
+  Appears in: <a href="../areas/interpretable-ml.html">Interpretable ML</a>
+</p>
+
+<h3>What</h3>
+<p>Risk scores are simple classification models that let users make quick risk predictions by adding and subtracting a few small numbers. These models are widely used in medicine and criminal justice, but are difficult to learn from data because they need to be calibrated, sparse, use small integer coefficients, and obey application-specific operational constraints. In this paper, we present a new machine learning approach to learn risk scores. We formulate the risk score problem as a mixed integer nonlinear program, and present a cutting plane algorithm for non-convex settings to efficiently recover its optimal solution. We improve our algorithm with specialized techniques to generate feasible solutions, narrow the optimality gap, and reduce data-related computation. Our approach can fit risk scores in a way that scales linearly in the number of samples, provides a certificate of optimality, and obeys real-world constraints without parameter tuning or post-processing. We benchmark the performance benefits of this approach through an extensive set of numerical experiments, comparing to risk scores built using heuristic approaches. We also discuss its practical benefits through a real-world application where we build a customized risk score for ICU seizure prediction in collaboration with the Massachusetts General Hospital.</p>
+
+</div>
+</body>
+</html>

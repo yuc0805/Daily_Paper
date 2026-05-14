@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TTT for Abstract Reasoning — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/test-time-training.html" class="back-link">&larr; Back to Area</a>
+
+<h2>TTT for Abstract Reasoning</h2>
+<p class="paper-meta">
+  Akyurek et al. &middot; 2024-11-11 &middot;
+  <a href="http://arxiv.org/abs/2411.07279" target="_blank" rel="noopener">arXiv:2411.07279</a> &middot; zotero_key: W7RPRTCH &middot;
+  Appears in: <a href="../areas/test-time-training.html">TestTimeTraining</a>
+</p>
+
+<h3>What</h3>
+<p>Language models have shown impressive performance on tasks within their training distribution, but often struggle with novel problems requiring complex reasoning. We investigate the effectiveness of test-time training (TTT) -- updating model parameters temporarily during inference using a loss derived from input data -- as a mechanism for improving models&#x27; reasoning capabilities, using the Abstraction and Reasoning Corpus (ARC) as a benchmark. Through systematic experimentation, we identify three crucial components for successful TTT: (1) initial finetuning on similar tasks (2) auxiliary task format and augmentations (3) per-instance training. TTT significantly improves performance on ARC tasks, achieving up to 6x improvement in accuracy compared to base fine-tuned models; applying TTT to an 8B-parameter language model, we achieve 53% accuracy on the ARC&#x27;s public validation set, improving the state-of-the-art by nearly 25% for public and purely neural approaches. By ensembling our method with recent program generation approaches, we get SoTA public validation accuracy of 61.9%, matching the average human score. Our findings suggest that explicit symbolic search is not the only path to improved abstract reasoning in neural language models; additional test-time applied to continued training on few-shot examples can also be extremely effective.</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decision Transformer — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/world-model-rl.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Decision Transformer</h2>
+<p class="paper-meta">
+  Chen et al. &middot; 2021-06-24 &middot;
+  <a href="http://arxiv.org/abs/2106.01345" target="_blank" rel="noopener">arXiv:2106.01345</a> &middot; zotero_key: 3J97GWND &middot;
+  Appears in: <a href="../areas/world-model-rl.html">World Model / RL</a>
+</p>
+
+<h3>What</h3>
+<p>We introduce a framework that abstracts Reinforcement Learning (RL) as a sequence modeling problem. This allows us to draw upon the simplicity and scalability of the Transformer architecture, and associated advances in language modeling such as GPT-x and BERT. In particular, we present Decision Transformer, an architecture that casts the problem of RL as conditional sequence modeling. Unlike prior approaches to RL that fit value functions or compute policy gradients, Decision Transformer simply outputs the optimal actions by leveraging a causally masked Transformer. By conditioning an autoregressive model on the desired return (reward), past states, and actions, our Decision Transformer model can generate future actions that achieve the desired return. Despite its simplicity, Decision Transformer matches or exceeds the performance of state-of-the-art model-free offline RL baselines on Atari, OpenAI Gym, and Key-to-Door tasks.</p>
+
+</div>
+</body>
+</html>

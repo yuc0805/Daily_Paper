@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post-hoc CBM — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/interpretable-ml.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Post-hoc CBM</h2>
+<p class="paper-meta">
+  Yuksekgonul et al. &middot; 2023-02-01 &middot;
+  <a href="http://arxiv.org/abs/2205.15480" target="_blank" rel="noopener">arXiv:2205.15480</a> &middot; zotero_key: CKEAV8EA &middot;
+  Appears in: <a href="../areas/interpretable-ml.html">Interpretable ML</a>
+</p>
+
+<h3>What</h3>
+<p>Concept Bottleneck Models (CBMs) map the inputs onto a set of interpretable concepts (``the bottleneck&#x27;&#x27;) and use the concepts to make predictions. A concept bottleneck enhances interpretability since it can be investigated to understand what concepts the model &quot;sees&quot; in an input and which of these concepts are deemed important. However, CBMs are restrictive in practice as they require dense concept annotations in the training data to learn the bottleneck. Moreover, CBMs often do not match the accuracy of an unrestricted neural network, reducing the incentive to deploy them in practice. In this work, we address these limitations of CBMs by introducing Post-hoc Concept Bottleneck models (PCBMs). We show that we can turn any neural network into a PCBM without sacrificing model performance while still retaining the interpretability benefits. When concept annotations are not available on the training data, we show that PCBM can transfer concepts from other datasets or from natural language descriptions of concepts via multimodal models. A key benefit of PCBM is that it enables users to quickly debug and update the model to reduce spurious correlations and improve generalization to new distributions. PCBM allows for global model edits, which can be more efficient than previous works on local interventions that fix a specific prediction. Through a model-editing user study, we show that editing PCBMs via concept-level feedback can provide significant performance gains without using data from the target domain or model retraining.</p>
+
+</div>
+</body>
+</html>

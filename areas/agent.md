@@ -13,7 +13,7 @@
 
 ### Paper List
 
-[KNOWN] [2018] Rabinowitz et al. — Machine Theory of Mind. zotero_key:NFNV9QGH.
+[KNOWN] [2018] Rabinowitz et al. — Machine Theory of Mind. zotero_key:NEKX3K3N.
 [KNOWN] [2023] Prasad et al. — ADaPT. zotero_key:TQIRSRQE.
 [KNOWN] [2024] Durante et al. — Agent AI Survey. zotero_key:PJZ76NJE.
 [KNOWN] [2024] Zhou et al. — LATS. zotero_key:76XQKFGW.

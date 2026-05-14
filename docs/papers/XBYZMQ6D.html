@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CycleGAN — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/generative-cv.html" class="back-link">&larr; Back to Area</a>
+
+<h2>CycleGAN</h2>
+<p class="paper-meta">
+  Zhu et al. &middot; 2020-08-24 &middot;
+  <a href="http://arxiv.org/abs/1703.10593" target="_blank" rel="noopener">arXiv:1703.10593</a> &middot; zotero_key: XBYZMQ6D &middot;
+  Appears in: <a href="../areas/generative-cv.html">Generative CV</a>
+</p>
+
+<h3>What</h3>
+<p>Image-to-image translation is a class of vision and graphics problems where the goal is to learn the mapping between an input image and an output image using a training set of aligned image pairs. However, for many tasks, paired training data will not be available. We present an approach for learning to translate an image from a source domain $X$ to a target domain $Y$ in the absence of paired examples. Our goal is to learn a mapping $G: X \rightarrow Y$ such that the distribution of images from $G(X)$ is indistinguishable from the distribution $Y$ using an adversarial loss. Because this mapping is highly under-constrained, we couple it with an inverse mapping $F: Y \rightarrow X$ and introduce a cycle consistency loss to push $F(G(X)) \approx X$ (and vice versa). Qualitative results are presented on several tasks where paired training data does not exist, including collection style transfer, object transfiguration, season transfer, photo enhancement, etc. Quantitative comparisons against several prior methods demonstrate the superiority of our approach.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="JRH3CE5M.html">Adam Optimizer (Kingma &amp; Ba 2017)</a></li>
+</ul>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="GX7WR7KA.html">Denoising Diffusion Probabilistic Models (Ho 2020)</a></li>
+</ul>
+
+</div>
+</body>
+</html>

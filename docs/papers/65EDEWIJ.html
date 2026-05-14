@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audio MAE — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/audio.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Audio MAE</h2>
+<p class="paper-meta">
+  Huang et al. &middot; 2022/05/16 &middot;
+  <a href="https://openreview.net/forum?id=MAMOi89bOL" target="_blank" rel="noopener">paper</a> &middot; zotero_key: 65EDEWIJ &middot;
+  Appears in: <a href="../areas/audio.html">Audio</a>
+</p>
+
+<h3>What</h3>
+<p>This paper studies a simple extension of image-based Masked Autoencoders (MAE) to self-supervised representation learning from audio spectrograms. Following the Transformer encoder-decoder design in MAE, our Audio-MAE first encodes audio spectrogram patches with a high masking ratio, feeding only the non-masked tokens through encoder layers. The decoder then re-orders and decodes the encoded context padded with mask tokens, in order to reconstruct the input spectrogram. We find it beneficial to incorporate local window attention in the decoder, as audio spectrograms are highly correlated in local time and frequency bands. We then fine-tune the encoder with a lower masking ratio on target datasets. Empirically, Audio-MAE sets new state-of-the-art performance on six audio and speech classification tasks, outperforming other recent models that use external supervised pre-training. Our code and models is available at https://github.com/facebookresearch/AudioMAE.</p>
+
+</div>
+</body>
+</html>

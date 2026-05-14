@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoE+Instruction — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/moe.html" class="back-link">&larr; Back to Area</a>
+
+<h2>MoE+Instruction</h2>
+<p class="paper-meta">
+  Shen et al. &middot; 2023-07-05 &middot;
+  <a href="http://arxiv.org/abs/2305.14705" target="_blank" rel="noopener">arXiv:2305.14705</a> &middot; zotero_key: UBDCML5N &middot;
+  Appears in: <a href="../areas/moe.html">MoE</a>
+</p>
+
+<h3>What</h3>
+<p>Sparse Mixture-of-Experts (MoE) is a neural architecture design that can be utilized to add learnable parameters to Large Language Models (LLMs) without increasing inference cost. Instruction tuning is a technique for training LLMs to follow instructions. We advocate combining these two approaches, as we find that MoE models benefit more from instruction tuning than dense models. In particular, we conduct empirical studies across three experimental setups: (i) Direct finetuning on individual downstream tasks devoid of instruction tuning; (ii) Instructiontuning followed by in-context few-shot or zero-shot generalization on downstream tasks; and (iii) Instruction tuning supplemented by further finetuning on individual downstream tasks. In the first scenario, MoE models overall underperform dense models of identical computational capacity. This narrative, however, dramatically changes with the introduction of instruction tuning (second and third scenario), used independently or in conjunction with task-specific finetuning. Our most powerful model, FLAN-MOE-32B, surpasses the performance of FLAN-PALM-62B on four benchmark tasks, while using only a third of the FLOPs. The advancements embodied byFLAN-MOE inspire a reevaluation of the design principles of large-scale, high-performance language models in the framework of task-agnostic learning.</p>
+
+</div>
+</body>
+</html>

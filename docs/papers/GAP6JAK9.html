@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Permutation Self-Consistency — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/hallucination.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Permutation Self-Consistency</h2>
+<p class="paper-meta">
+  Tang et al. &middot; 2024-04-22 &middot;
+  <a href="http://arxiv.org/abs/2310.07712" target="_blank" rel="noopener">arXiv:2310.07712</a> &middot; zotero_key: GAP6JAK9 &middot;
+  Appears in: <a href="../areas/hallucination.html">Hallucination</a>
+</p>
+
+<h3>What</h3>
+<p>Large language models (LLMs) exhibit positional bias in how they use context, which especially complicates listwise ranking. To address this, we propose permutation self-consistency, a form of self-consistency over ranking list outputs of black-box LLMs. Our key idea is to marginalize out different list orders in the prompt to produce an order-independent ranking with less positional bias. First, given some input prompt, we repeatedly shuffle the list in the prompt and pass it through the LLM while holding the instructions the same. Next, we aggregate the resulting sample of rankings by computing the central ranking closest in distance to all of them, marginalizing out prompt order biases in the process. Theoretically, we prove the robustness of our method, showing convergence to the true ranking in the presence of random perturbations. Empirically, on five list-ranking datasets in sorting and passage reranking, our approach improves scores from conventional inference by up to 7-18% for GPT-3.5 and 8-16% for LLaMA v2 (70B), surpassing the previous state of the art in passage reranking. Our code is at https://github.com/castorini/perm-sc.</p>
+
+</div>
+</body>
+</html>

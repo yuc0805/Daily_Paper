@@ -63,7 +63,7 @@
 [KNOWN] [2024] Sun et al. — TEST. zotero_key:M35RDBWX.
 [KNOWN] [2024] Talukder et al. — TOTEM. zotero_key:SKZEZQTH.
 [KNOWN] [2024] Jin et al. — Time-LLM. zotero_key:BPGWP88R.
-[KNOWN] [2024] Garza et al. — TimeGPT-1. zotero_key:7FJCF2J9.
+[KNOWN] [2024] Garza et al. — TimeGPT-1. zotero_key:5I6GAKC4.
 [KNOWN] [2024] Liu et al. — Timer. zotero_key:KKXN4S6L.
 [KNOWN] [2024] Gao et al. — UniTS. zotero_key:9X4Z2LPR.
 [KNOWN] [2024] Masserano et al. — WaveToken. zotero_key:MXKVRSKK.

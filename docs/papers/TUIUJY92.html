@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concept Bottleneck — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/interpretable-ml.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Concept Bottleneck</h2>
+<p class="paper-meta">
+  Koh et al. &middot; 2020-12-28 &middot;
+  <a href="http://arxiv.org/abs/2007.04612" target="_blank" rel="noopener">arXiv:2007.04612</a> &middot; zotero_key: TUIUJY92 &middot;
+  Appears in: <a href="../areas/interpretable-ml.html">Interpretable ML</a>
+</p>
+
+<h3>What</h3>
+<p>We seek to learn models that we can interact with using high-level concepts: if the model did not think there was a bone spur in the x-ray, would it still predict severe arthritis? State-of-the-art models today do not typically support the manipulation of concepts like &quot;the existence of bone spurs&quot;, as they are trained end-to-end to go directly from raw input (e.g., pixels) to output (e.g., arthritis severity). We revisit the classic idea of first predicting concepts that are provided at training time, and then using these concepts to predict the label. By construction, we can intervene on these concept bottleneck models by editing their predicted concept values and propagating these changes to the final prediction. On x-ray grading and bird identification, concept bottleneck models achieve competitive accuracy with standard end-to-end models, while enabling interpretation in terms of high-level clinical concepts (&quot;bone spurs&quot;) or bird attributes (&quot;wing color&quot;). These models also allow for richer human-model interaction: accuracy improves significantly if we can correct model mistakes on concepts at test time.</p>
+
+</div>
+</body>
+</html>

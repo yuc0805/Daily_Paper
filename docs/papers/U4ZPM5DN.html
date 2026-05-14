@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latent-GRPO — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Latent-GRPO</h2>
+<p class="paper-meta">
+  Deng et al. &middot; 2026-04-30 &middot;
+  <a href="http://arxiv.org/abs/2604.27998" target="_blank" rel="noopener">arXiv:2604.27998</a> &middot; zotero_key: U4ZPM5DN &middot;
+  Appears in: <a href="../areas/reasoning.html">Reasoning</a>
+</p>
+
+<h3>What</h3>
+<p>Latent reasoning offers a more efficient alternative to explicit reasoning by compressing intermediate reasoning into continuous representations and substantially shortening reasoning chains. However, existing latent reasoning methods mainly focus on supervised learning, and reinforcement learning in latent space remains highly unstable. We study this problem through the lens of Group Relative Policy Optimization (GRPO), and show that directly adapting GRPO to latent reasoning is fundamentally non-trivial: latent reasoning changes both the probability density and the sampling mechanism, causing three coupled bottlenecks: absence of intrinsic latent manifolds, where unconstrained exploration pushes rollouts off the valid latent manifold; exploration-optimization misalignment, where trajectory-level rewards can induce incorrect token-level updates; and latent mixture non-closure, where jointly reinforcing multiple correct latent paths can produce an invalid averaged state. To address them, we propose \textbf{Latent-GRPO}, which combines invalid-sample advantage masking, one-sided noise sampling, and optimal correct-path first-token selection. Across four low-difficulty benchmarks (e.g., GSM8K-Aug) and four high-difficulty benchmarks (e.g., AIME), Latent-GRPO improves over its latent initialization by 7.86 Pass@1 points on low-difficulty tasks and surpasses explicit GRPO by 4.27 points on high-difficulty tasks while using 3--4$\times$ shorter reasoning chains. It also achieves stronger pass@$k$ performance under Gumbel sampling. These results establish Latent-GRPO as an effective approach for stable and efficient latent reasoning.</p>
+
+</div>
+</body>
+</html>
