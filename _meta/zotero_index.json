@@ -1,0 +1,3424 @@
+[
+  {
+    "zotero_key": "BZKDNHD6",
+    "title": "SPRINT",
+    "authors": "Biju et al.",
+    "year": 2025,
+    "collection_keys": [
+      "BXIE4C95"
+    ],
+    "area_pages": [
+      "llm.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "743XA29Y",
+    "title": "DeepSeek-V2",
+    "authors": "DeepSeek-AI et al.",
+    "year": 2024,
+    "collection_keys": [
+      "BXIE4C95"
+    ],
+    "area_pages": [
+      "llm.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "2JCKA7GI",
+    "title": "DeepSeek-V3",
+    "authors": "DeepSeek-AI et al.",
+    "year": 2024,
+    "collection_keys": [
+      "BXIE4C95"
+    ],
+    "area_pages": [
+      "llm.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "deepseek2024_v3",
+    "graphify_community": 0
+  },
+  {
+    "zotero_key": "Z5IWHZAE",
+    "title": "DeepSeek-R1",
+    "authors": "DeepSeek-AI et al.",
+    "year": 2025,
+    "collection_keys": [
+      "BXIE4C95"
+    ],
+    "area_pages": [
+      "llm.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "deepseek2025_r1",
+    "graphify_community": 0
+  },
+  {
+    "zotero_key": "4QQTVIYC",
+    "title": "Sundial",
+    "authors": "Liu et al.",
+    "year": 2025,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "HDPXBLAP",
+    "title": "SensorLM",
+    "authors": "Unknown",
+    "year": 2025,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "HEZXEKXP",
+    "title": "Chronos",
+    "authors": "Ansari et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "9X4Z2LPR",
+    "title": "UniTS",
+    "authors": "Gao et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "3BLCBJFP",
+    "title": "iTransformer",
+    "authors": "Liu et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "3SLMN5NV",
+    "title": "PatchTST",
+    "authors": "Nie et al.",
+    "year": 2023,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "RFAMVS5H",
+    "title": "Crossformer",
+    "authors": "Zhang et al.",
+    "year": 2023,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "TFFPWHUN",
+    "title": "TimesNet",
+    "authors": "Wu et al.",
+    "year": 2023,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "BPGWP88R",
+    "title": "Time-LLM",
+    "authors": "Jin et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "M35RDBWX",
+    "title": "TEST",
+    "authors": "Sun et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "YRPNRRZC",
+    "title": "GPT4TS",
+    "authors": "Zhou et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "3AA4F4KC",
+    "title": "FPT",
+    "authors": "Lu et al.",
+    "year": 2022,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "7FJCF2J9",
+    "title": "TimeGPT-1",
+    "authors": "Garza et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "65T96HWJ",
+    "title": "Moirai",
+    "authors": "Woo et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "5XPWKHX5",
+    "title": "Moment",
+    "authors": "Goswami et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "KKXN4S6L",
+    "title": "Timer",
+    "authors": "Liu et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "SKZEZQTH",
+    "title": "TOTEM",
+    "authors": "Talukder et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "M87QEL4E",
+    "title": "TS-Agent",
+    "authors": "Liu et al.",
+    "year": 2025,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "liu2025_tsagent",
+    "graphify_community": 4
+  },
+  {
+    "zotero_key": "XQBXBKNH",
+    "title": "ChatTS",
+    "authors": "Xie et al.",
+    "year": 2025,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "xie2025_chatts",
+    "graphify_community": 4
+  },
+  {
+    "zotero_key": "DNQKLKBV",
+    "title": "LLMs for TS Survey",
+    "authors": "Zhang et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "zhang2024_llm_ts_survey",
+    "graphify_community": 4
+  },
+  {
+    "zotero_key": "2ZYUFEMW",
+    "title": "Sensor2Text",
+    "authors": "Chen et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC",
+      "P9ER2MXU"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "llm-health.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "chen2024_sensor2text",
+    "graphify_community": 4
+  },
+  {
+    "zotero_key": "U2R8DC2P",
+    "title": "ARIMA",
+    "authors": "Box et al.",
+    "year": 1970,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "P6BV4TCL",
+    "title": "Autoformer",
+    "authors": "Wu et al.",
+    "year": 2022,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "6RRFG94V",
+    "title": "Informer",
+    "authors": "Zhou et al.",
+    "year": 2021,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "TVHWGWAV",
+    "title": "FEDformer",
+    "authors": "Zhou et al.",
+    "year": 2022,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "4QRHV2JG",
+    "title": "DLinear",
+    "authors": "Zeng et al.",
+    "year": 2023,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "RTMH75VW",
+    "title": "SSL for HAR",
+    "authors": "Yuan et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC",
+      "P9ER2MXU"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "llm-health.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "yuan2024_ssl_har",
+    "graphify_community": 1
+  },
+  {
+    "zotero_key": "HE9X47KN",
+    "title": "HARMamba",
+    "authors": "Li et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC",
+      "P9ER2MXU",
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "llm-health.md",
+      "mamba.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "li2024_harmamba",
+    "graphify_community": 2
+  },
+  {
+    "zotero_key": "8VB7UFKN",
+    "title": "GLOBEM",
+    "authors": "Xu et al.",
+    "year": 2023,
+    "collection_keys": [
+      "SW2CX3BC",
+      "P9ER2MXU"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "llm-health.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "xu2023_globem",
+    "graphify_community": 5
+  },
+  {
+    "zotero_key": "EDTXS4NM",
+    "title": "Foundation Models Biosignals",
+    "authors": "Gu et al.",
+    "year": 2025,
+    "collection_keys": [
+      "SW2CX3BC",
+      "P9ER2MXU"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "llm-health.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "gu2025_biosignals",
+    "graphify_community": 1
+  },
+  {
+    "zotero_key": "AJ5XKWDZ",
+    "title": "TFC",
+    "authors": "Zhang et al.",
+    "year": 2022,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "YJ3P8H2J",
+    "title": "Brant-2",
+    "authors": "Yuan et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC"
+    ],
+    "area_pages": [
+      "time-series.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "MXKVRSKK",
+    "title": "WaveToken",
+    "authors": "Masserano et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC",
+      "B4QQTY63"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "moe.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "AVTJLZIR",
+    "title": "Bi-Mamba+",
+    "authors": "Liang et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC",
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "mamba.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "RILRU5H6",
+    "title": "TimeGrad",
+    "authors": "Rasul et al.",
+    "year": 2021,
+    "collection_keys": [
+      "SW2CX3BC",
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "generative-cv.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "PHB9VRVM",
+    "title": "Attention Is All You Need",
+    "authors": "Vaswani et al.",
+    "year": 2017,
+    "collection_keys": [
+      "SW2CX3BC",
+      "M9TBQKQW"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "self-supervised.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "vaswani2017_transformer",
+    "graphify_community": 2
+  },
+  {
+    "zotero_key": "ZT8Y3ABF",
+    "title": "GPT-3",
+    "authors": "Brown et al.",
+    "year": 2020,
+    "collection_keys": [
+      "SW2CX3BC",
+      "M9TBQKQW",
+      "G4GXUWMD"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "self-supervised.md",
+      "nlp.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "PZATM3SC",
+    "title": "LoRA",
+    "authors": "Hu et al.",
+    "year": 2021,
+    "collection_keys": [
+      "SW2CX3BC",
+      "M9TBQKQW"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "self-supervised.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "VHTGRMY5",
+    "title": "GNN Intro",
+    "authors": "Sanchez-Lengeling et al.",
+    "year": 2021,
+    "collection_keys": [
+      "SW2CX3BC",
+      "M9TBQKQW"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "self-supervised.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "5GFYJJVV",
+    "title": "LVM-Med",
+    "authors": "Nguyen et al.",
+    "year": 2023,
+    "collection_keys": [
+      "SW2CX3BC",
+      "M9TBQKQW"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "self-supervised.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "DZ2UYXUL",
+    "title": "l-DAE",
+    "authors": "Chen et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC",
+      "M9TBQKQW",
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "self-supervised.md",
+      "generative-cv.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "TFPTRFGU",
+    "title": "Foundation Models Survey",
+    "authors": "Bommasani et al.",
+    "year": 2022,
+    "collection_keys": [
+      "SW2CX3BC",
+      "M9TBQKQW"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "self-supervised.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "6INGKIJV",
+    "title": "MAE Theory",
+    "authors": "Zhang et al.",
+    "year": 2023,
+    "collection_keys": [
+      "SW2CX3BC",
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "computer-vision.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "zhang2023_mae",
+    "graphify_community": 1
+  },
+  {
+    "zotero_key": "3LA8GNCU",
+    "title": "HeAR",
+    "authors": "Baur et al.",
+    "year": 2024,
+    "collection_keys": [
+      "SW2CX3BC",
+      "P9ER2MXU",
+      "MCBZN2AH"
+    ],
+    "area_pages": [
+      "time-series.md",
+      "llm-health.md",
+      "audio.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "baur2024_hear",
+    "graphify_community": 1
+  },
+  {
+    "zotero_key": "2BGP9QJL",
+    "title": "Verifiable Physio Reasoning",
+    "authors": "Wang et al.",
+    "year": 2026,
+    "collection_keys": [
+      "P9ER2MXU"
+    ],
+    "area_pages": [
+      "llm-health.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "R2D2W9DD",
+    "title": "HealthAgent",
+    "authors": "Sun et al.",
+    "year": 2025,
+    "collection_keys": [
+      "P9ER2MXU"
+    ],
+    "area_pages": [
+      "llm-health.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "CZ48FSVX",
+    "title": "CounselBench",
+    "authors": "Li et al.",
+    "year": 2025,
+    "collection_keys": [
+      "P9ER2MXU"
+    ],
+    "area_pages": [
+      "llm-health.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "li2025_counselbench",
+    "graphify_community": 1
+  },
+  {
+    "zotero_key": "K5HKSQUN",
+    "title": "MindScape",
+    "authors": "Nepal et al.",
+    "year": 2024,
+    "collection_keys": [
+      "P9ER2MXU"
+    ],
+    "area_pages": [
+      "llm-health.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "nepal2024_mindscape",
+    "graphify_community": 5
+  },
+  {
+    "zotero_key": "4IRZIDPQ",
+    "title": "Health-LLM",
+    "authors": "Kim et al.",
+    "year": 2024,
+    "collection_keys": [
+      "P9ER2MXU"
+    ],
+    "area_pages": [
+      "llm-health.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "68JNSBFP",
+    "title": "LLMs Few-Shot Health",
+    "authors": "Liu et al.",
+    "year": 2023,
+    "collection_keys": [
+      "P9ER2MXU"
+    ],
+    "area_pages": [
+      "llm-health.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "liu2023_health_llm",
+    "graphify_community": 1
+  },
+  {
+    "zotero_key": "6T29JLTN",
+    "title": "UNI Pathology",
+    "authors": "Chen et al.",
+    "year": 2023,
+    "collection_keys": [
+      "P9ER2MXU",
+      "UAEAD3RU"
+    ],
+    "area_pages": [
+      "llm-health.md",
+      "test-time-training.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "chen2023_pathology",
+    "graphify_community": 1
+  },
+  {
+    "zotero_key": "EMXEJYHV",
+    "title": "Latent Reasoning Survey",
+    "authors": "Zhu et al.",
+    "year": 2025,
+    "collection_keys": [
+      "645WK5UG"
+    ],
+    "area_pages": [
+      "reasoning.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "KRVDKDGH",
+    "title": "Latent Space Survey",
+    "authors": "Yu et al.",
+    "year": 2026,
+    "collection_keys": [
+      "645WK5UG",
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "reasoning.md",
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "PDAMP7VF",
+    "title": "Machine Mental Imagery",
+    "authors": "Yang et al.",
+    "year": 2025,
+    "collection_keys": [
+      "645WK5UG"
+    ],
+    "area_pages": [
+      "reasoning.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "Y4ZNT3EC",
+    "title": "CoLaR",
+    "authors": "Tan et al.",
+    "year": 2026,
+    "collection_keys": [
+      "645WK5UG"
+    ],
+    "area_pages": [
+      "reasoning.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "CXGMDHJ3",
+    "title": "Chain of Superposition",
+    "authors": "Deng et al.",
+    "year": 2026,
+    "collection_keys": [
+      "645WK5UG"
+    ],
+    "area_pages": [
+      "reasoning.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "FPEC4PIH",
+    "title": "Large Multimodal Reasoning Survey",
+    "authors": "Li et al.",
+    "year": 2025,
+    "collection_keys": [
+      "645WK5UG"
+    ],
+    "area_pages": [
+      "reasoning.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "3TLRP8U5",
+    "title": "PonderLM",
+    "authors": "Zeng et al.",
+    "year": 2026,
+    "collection_keys": [
+      "645WK5UG"
+    ],
+    "area_pages": [
+      "reasoning.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "U4ZPM5DN",
+    "title": "Latent-GRPO",
+    "authors": "Deng et al.",
+    "year": 2026,
+    "collection_keys": [
+      "645WK5UG"
+    ],
+    "area_pages": [
+      "reasoning.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "FFWLYL3J",
+    "title": "CODI",
+    "authors": "Shen et al.",
+    "year": 2025,
+    "collection_keys": [
+      "645WK5UG",
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "reasoning.md",
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "EGRXFZU9",
+    "title": "Soft Thinking",
+    "authors": "Zhang et al.",
+    "year": 2025,
+    "collection_keys": [
+      "645WK5UG",
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "reasoning.md",
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "BDY3HUCV",
+    "title": "Memory Mechanisms Survey",
+    "authors": "Huang et al.",
+    "year": 2026,
+    "collection_keys": [
+      "JPXN55K9"
+    ],
+    "area_pages": [
+      "agent.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "huang2026_memory",
+    "graphify_community": 0
+  },
+  {
+    "zotero_key": "RDKGJ9PT",
+    "title": "DeepEyesV2",
+    "authors": "Hong et al.",
+    "year": 2026,
+    "collection_keys": [
+      "JPXN55K9"
+    ],
+    "area_pages": [
+      "agent.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "hong2026_deepeyesv2",
+    "graphify_community": 0
+  },
+  {
+    "zotero_key": "3JCCQCMG",
+    "title": "PyVision",
+    "authors": "Zhao et al.",
+    "year": 2025,
+    "collection_keys": [
+      "JPXN55K9"
+    ],
+    "area_pages": [
+      "agent.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "zhao2025_pyvision",
+    "graphify_community": 0
+  },
+  {
+    "zotero_key": "26QNAFQG",
+    "title": "ToolkenGPT",
+    "authors": "Hao et al.",
+    "year": 2024,
+    "collection_keys": [
+      "JPXN55K9"
+    ],
+    "area_pages": [
+      "agent.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "hao2024_toolkengpt",
+    "graphify_community": 0
+  },
+  {
+    "zotero_key": "PJZ76NJE",
+    "title": "Agent AI Survey",
+    "authors": "Durante et al.",
+    "year": 2024,
+    "collection_keys": [
+      "JPXN55K9"
+    ],
+    "area_pages": [
+      "agent.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "durante2024_agentai",
+    "graphify_community": 0
+  },
+  {
+    "zotero_key": "TQIRSRQE",
+    "title": "ADaPT",
+    "authors": "Prasad et al.",
+    "year": 2023,
+    "collection_keys": [
+      "JPXN55K9"
+    ],
+    "area_pages": [
+      "agent.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "prasad2023_adapt",
+    "graphify_community": 0
+  },
+  {
+    "zotero_key": "76XQKFGW",
+    "title": "LATS",
+    "authors": "Zhou et al.",
+    "year": 2024,
+    "collection_keys": [
+      "JPXN55K9"
+    ],
+    "area_pages": [
+      "agent.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "zhou2024_lats",
+    "graphify_community": 0
+  },
+  {
+    "zotero_key": "NFNV9QGH",
+    "title": "Machine Theory of Mind",
+    "authors": "Rabinowitz et al.",
+    "year": 2018,
+    "collection_keys": [
+      "JPXN55K9"
+    ],
+    "area_pages": [
+      "agent.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "rabinowitz2018_tom",
+    "graphify_community": 0
+  },
+  {
+    "zotero_key": "NSI6PVD7",
+    "title": "Machine Mental Imagery",
+    "authors": "Yang et al.",
+    "year": 2025,
+    "collection_keys": [
+      "UZA8RW5K"
+    ],
+    "area_pages": [
+      "multi-modal.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "4N5WXKPI",
+    "title": "BLIP-2",
+    "authors": "Li et al.",
+    "year": 2023,
+    "collection_keys": [
+      "UZA8RW5K",
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "multi-modal.md",
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "SC8KWYVK",
+    "title": "Flamingo",
+    "authors": "Alayrac et al.",
+    "year": 2022,
+    "collection_keys": [
+      "UZA8RW5K",
+      "G4GXUWMD"
+    ],
+    "area_pages": [
+      "multi-modal.md",
+      "nlp.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "DUERBZGM",
+    "title": "DALL-E 2",
+    "authors": "Ramesh et al.",
+    "year": 2022,
+    "collection_keys": [
+      "UZA8RW5K",
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "multi-modal.md",
+      "computer-vision.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "ramesh2022_dalle2",
+    "graphify_community": 3
+  },
+  {
+    "zotero_key": "64H6TK5Y",
+    "title": "FLIP",
+    "authors": "Li et al.",
+    "year": 2023,
+    "collection_keys": [
+      "UZA8RW5K",
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "multi-modal.md",
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "B7F2Q998",
+    "title": "ViT",
+    "authors": "Dosovitskiy et al.",
+    "year": 2021,
+    "collection_keys": [
+      "UZA8RW5K",
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "multi-modal.md",
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "5YQ4IKMA",
+    "title": "HiPPO",
+    "authors": "Gu et al.",
+    "year": 2020,
+    "collection_keys": [
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "mamba.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "5ZZDBB7N",
+    "title": "Audio Mamba (Yadav)",
+    "authors": "Yadav et al.",
+    "year": 2024,
+    "collection_keys": [
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "mamba.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "J34W7WZC",
+    "title": "Vision Mamba",
+    "authors": "Zhu et al.",
+    "year": 2024,
+    "collection_keys": [
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "mamba.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "ZS87LF7R",
+    "title": "MambaOut",
+    "authors": "Yu et al.",
+    "year": 2024,
+    "collection_keys": [
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "mamba.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "MHMYYQUF",
+    "title": "Mamba-UNet",
+    "authors": "Wang et al.",
+    "year": 2024,
+    "collection_keys": [
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "mamba.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "3LTBUP6E",
+    "title": "VMamba",
+    "authors": "Liu et al.",
+    "year": 2024,
+    "collection_keys": [
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "mamba.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "ZP32YT5I",
+    "title": "Swin-UMamba",
+    "authors": "Liu et al.",
+    "year": 2024,
+    "collection_keys": [
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "mamba.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "liu2024_swinumamba",
+    "graphify_community": 2
+  },
+  {
+    "zotero_key": "6VTXUZEG",
+    "title": "Audio Mamba (Erol)",
+    "authors": "Erol et al.",
+    "year": 2024,
+    "collection_keys": [
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "mamba.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "erol2024_audiomamba",
+    "graphify_community": 2
+  },
+  {
+    "zotero_key": "E4QKRZTC",
+    "title": "ClinicalMamba",
+    "authors": "Yang et al.",
+    "year": 2024,
+    "collection_keys": [
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "mamba.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "J2EZPHK4",
+    "title": "Motion Mamba",
+    "authors": "Zhang et al.",
+    "year": 2024,
+    "collection_keys": [
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "mamba.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "JPKDWV2Q",
+    "title": "Mamba-2",
+    "authors": "Dao et al.",
+    "year": 2024,
+    "collection_keys": [
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "mamba.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "XNI34DQX",
+    "title": "Mamba",
+    "authors": "Gu et al.",
+    "year": 2024,
+    "collection_keys": [
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "mamba.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "INWKDM35",
+    "title": "U-Mamba",
+    "authors": "Ma et al.",
+    "year": 2024,
+    "collection_keys": [
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "mamba.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "UTAMLB63",
+    "title": "SSM (LSSL)",
+    "authors": "Gu et al.",
+    "year": 2021,
+    "collection_keys": [
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "mamba.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "J7K2E7A3",
+    "title": "S4",
+    "authors": "Gu et al.",
+    "year": 2022,
+    "collection_keys": [
+      "C46DN3AD"
+    ],
+    "area_pages": [
+      "mamba.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "S4EZPJHE",
+    "title": "CTG++",
+    "authors": "Zhong et al.",
+    "year": 2023,
+    "collection_keys": [
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "generative-cv.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "SNSMLW7Z",
+    "title": "StyTr2",
+    "authors": "Deng et al.",
+    "year": 2022,
+    "collection_keys": [
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "generative-cv.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "MVWM4TZJ",
+    "title": "Diffusion Beats GANs",
+    "authors": "Dhariwal et al.",
+    "year": 2021,
+    "collection_keys": [
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "generative-cv.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "IFU2GS2W",
+    "title": "StyleGAN",
+    "authors": "Karras et al.",
+    "year": 2019,
+    "collection_keys": [
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "generative-cv.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "G4MF7DQQ",
+    "title": "LED",
+    "authors": "Mao et al.",
+    "year": 2023,
+    "collection_keys": [
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "generative-cv.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "BRHAE43A",
+    "title": "BLIP-Diffusion",
+    "authors": "Li et al.",
+    "year": 2023,
+    "collection_keys": [
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "generative-cv.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "IMBVAAFD",
+    "title": "FID",
+    "authors": "Heusel et al.",
+    "year": 2018,
+    "collection_keys": [
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "generative-cv.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "GX7WR7KA",
+    "title": "DDPM",
+    "authors": "Ho et al.",
+    "year": 2020,
+    "collection_keys": [
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "generative-cv.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "ho2020_ddpm",
+    "graphify_community": 3
+  },
+  {
+    "zotero_key": "GG7GSYUJ",
+    "title": "GAN",
+    "authors": "Goodfellow et al.",
+    "year": 2014,
+    "collection_keys": [
+      "ZRJ845NY",
+      "3G3UNNCV"
+    ],
+    "area_pages": [
+      "generative-cv.md",
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "FZBCF7MH",
+    "title": "Palette",
+    "authors": "Saharia et al.",
+    "year": 2022,
+    "collection_keys": [
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "generative-cv.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "DULT32HM",
+    "title": "Stable Diffusion",
+    "authors": "Rombach et al.",
+    "year": 2022,
+    "collection_keys": [
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "generative-cv.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "YJ9TK993",
+    "title": "DiT",
+    "authors": "Peebles et al.",
+    "year": 2023,
+    "collection_keys": [
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "generative-cv.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "peebles2023_dit",
+    "graphify_community": 3
+  },
+  {
+    "zotero_key": "ZPY5XD8Y",
+    "title": "Nonequilibrium Thermodynamics",
+    "authors": "Sohl-Dickstein et al.",
+    "year": 2015,
+    "collection_keys": [
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "generative-cv.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "XBYZMQ6D",
+    "title": "CycleGAN",
+    "authors": "Zhu et al.",
+    "year": 2020,
+    "collection_keys": [
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "generative-cv.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "zhu2020_cyclegan",
+    "graphify_community": 5
+  },
+  {
+    "zotero_key": "NMJXW3GJ",
+    "title": "Score SDE",
+    "authors": "Song et al.",
+    "year": 2021,
+    "collection_keys": [
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "generative-cv.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "9UA578GP",
+    "title": "DDIM",
+    "authors": "Song et al.",
+    "year": 2022,
+    "collection_keys": [
+      "ZRJ845NY"
+    ],
+    "area_pages": [
+      "generative-cv.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "YREEFKLG",
+    "title": "Why AI Doesnt Learn",
+    "authors": "Dupoux et al.",
+    "year": 2026,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "M963842L",
+    "title": "Brain Science FMs",
+    "authors": "Serre et al.",
+    "year": 2025,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "XH2XHIL5",
+    "title": "KaVa",
+    "authors": "Kuzina et al.",
+    "year": 2025,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "BT2MFL2J",
+    "title": "VIP",
+    "authors": "Ma et al.",
+    "year": 2023,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "JQ7JD8AR",
+    "title": "Navigation World Models",
+    "authors": "Bar et al.",
+    "year": 2024,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "2BJAGQ5K",
+    "title": "Coconut",
+    "authors": "Hao et al.",
+    "year": 2024,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "NUTRKPSL",
+    "title": "AIVE",
+    "authors": "Lee et al.",
+    "year": 2023,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "ERFKSNIC",
+    "title": "LAW",
+    "authors": "Hu et al.",
+    "year": 2023,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "ZNEMGMWY",
+    "title": "CEM",
+    "authors": "Pinneri et al.",
+    "year": 2020,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "pinneri2020_cem",
+    "graphify_community": 7
+  },
+  {
+    "zotero_key": "6GKDVDPY",
+    "title": "TD3",
+    "authors": "Fujimoto et al.",
+    "year": 2018,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "A4WGRRQ9",
+    "title": "TD-MPC2",
+    "authors": "Hansen et al.",
+    "year": 2024,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "P92FLHJ2",
+    "title": "World Model Eval",
+    "authors": "Vafa et al.",
+    "year": 2024,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "ZULLM3UF",
+    "title": "Offline RL",
+    "authors": "Levine et al.",
+    "year": 2020,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "levine2020_offline_rl",
+    "graphify_community": 7
+  },
+  {
+    "zotero_key": "PGAG7J5S",
+    "title": "OPE for RecSys",
+    "authors": "Deffayet et al.",
+    "year": 2023,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "YPRGQZRB",
+    "title": "DT RL Vitamin",
+    "authors": "Yan et al.",
+    "year": 2024,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "3J97GWND",
+    "title": "Decision Transformer",
+    "authors": "Chen et al.",
+    "year": 2021,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "W44RSJJI",
+    "title": "DINO-WM",
+    "authors": "Zhou et al.",
+    "year": 2025,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "SCJHA35S",
+    "title": "Deep CCA",
+    "authors": "Andrew et al.",
+    "year": 2013,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "JKQ3USCI",
+    "title": "IS Eligibility Traces",
+    "authors": "Precup et al.",
+    "year": 2000,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "Y2MKM9Y3",
+    "title": "OPE Study",
+    "authors": "Voloshin et al.",
+    "year": 2021,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "voloshin2021_ope",
+    "graphify_community": 7
+  },
+  {
+    "zotero_key": "2FRGIK77",
+    "title": "DQN",
+    "authors": "Mnih et al.",
+    "year": 2015,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "2HAUL3B9",
+    "title": "Optimistic Offline RL",
+    "authors": "Agarwal et al.",
+    "year": 2020,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "QAKMF2J4",
+    "title": "DRL Sepsis",
+    "authors": "Raghu et al.",
+    "year": 2017,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "JMNZD5RT",
+    "title": "RL Healthcare Survey",
+    "authors": "Yu et al.",
+    "year": 2020,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "6XBKXTFZ",
+    "title": "DQL Atari",
+    "authors": "Mnih et al.",
+    "year": 2013,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "DAGWCZ67",
+    "title": "Policy Gradient",
+    "authors": "Sutton et al.",
+    "year": 1999,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "KQTIJC4U",
+    "title": "PPO",
+    "authors": "Schulman et al.",
+    "year": 2017,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "938DAXZT",
+    "title": "World Models",
+    "authors": "Ha et al.",
+    "year": 2018,
+    "collection_keys": [
+      "6NVW54UK"
+    ],
+    "area_pages": [
+      "world-model-rl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "BB78CC56",
+    "title": "Causal Inference Intro",
+    "authors": "Pearl et al.",
+    "year": 2010,
+    "collection_keys": [
+      "8HUWGVRY"
+    ],
+    "area_pages": [
+      "causal-inference.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "pearl2010_causal",
+    "graphify_community": 6
+  },
+  {
+    "zotero_key": "UXDYEMP4",
+    "title": "MedSAM",
+    "authors": "Ma et al.",
+    "year": 2024,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "BMA3ALHC",
+    "title": "MoCo",
+    "authors": "He et al.",
+    "year": 2020,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "EAIQ4KD3",
+    "title": "Mask DINO",
+    "authors": "Li et al.",
+    "year": 2022,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "SFYVQXEG",
+    "title": "TTT",
+    "authors": "Sun et al.",
+    "year": 2024,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "MYSZ5BCQ",
+    "title": "SegFormer",
+    "authors": "Xie et al.",
+    "year": 2021,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "A5HBRQB9",
+    "title": "MAE",
+    "authors": "He et al.",
+    "year": 2021,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "YXTBME7X",
+    "title": "DPT",
+    "authors": "Ranftl et al.",
+    "year": 2021,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "Y2C9BISN",
+    "title": "DeiT",
+    "authors": "Touvron et al.",
+    "year": 2021,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "5WKSNRIH",
+    "title": "DiChaViT",
+    "authors": "Pham et al.",
+    "year": 2024,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "MTXFCQX6",
+    "title": "VAE",
+    "authors": "Kingma et al.",
+    "year": 2022,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "QTFCR4G9",
+    "title": "DETR",
+    "authors": "Carion et al.",
+    "year": 2020,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "carion2020_detr",
+    "graphify_community": 2
+  },
+  {
+    "zotero_key": "DVUL4GU6",
+    "title": "DINO",
+    "authors": "Caron et al.",
+    "year": 2021,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "EW4CUT2S",
+    "title": "CrossViT",
+    "authors": "Chen et al.",
+    "year": 2021,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "PM4XDV56",
+    "title": "Mask2Former",
+    "authors": "Cheng et al.",
+    "year": 2022,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "P5Q5TRVY",
+    "title": "DeepLabV3",
+    "authors": "Chen et al.",
+    "year": 2017,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "EQ3FJMPY",
+    "title": "SimCLR",
+    "authors": "Chen et al.",
+    "year": 2020,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "BNKLHAQM",
+    "title": "MaskFormer",
+    "authors": "Cheng et al.",
+    "year": 2021,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "NJ5BZCFJ",
+    "title": "GAN",
+    "authors": "Goodfellow et al.",
+    "year": 2014,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "PQNM49GJ",
+    "title": "SAM",
+    "authors": "Kirillov et al.",
+    "year": 2023,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "AVF27QK7",
+    "title": "Swin Transformer",
+    "authors": "Liu et al.",
+    "year": 2021,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "liu2021_swin",
+    "graphify_community": 2
+  },
+  {
+    "zotero_key": "PN27XKD6",
+    "title": "YOLO",
+    "authors": "Redmon et al.",
+    "year": 2016,
+    "collection_keys": [
+      "PW2J398M"
+    ],
+    "area_pages": [
+      "computer-vision.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "2IV8EKL2",
+    "title": "Med-HALT",
+    "authors": "Pal et al.",
+    "year": 2023,
+    "collection_keys": [
+      "G4Y2RM4Z"
+    ],
+    "area_pages": [
+      "hallucination.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "GAP6JAK9",
+    "title": "Permutation Self-Consistency",
+    "authors": "Tang et al.",
+    "year": 2024,
+    "collection_keys": [
+      "G4Y2RM4Z"
+    ],
+    "area_pages": [
+      "hallucination.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "ATEFZQA4",
+    "title": "Med-VQA Hallucination",
+    "authors": "Wu et al.",
+    "year": 2024,
+    "collection_keys": [
+      "G4Y2RM4Z"
+    ],
+    "area_pages": [
+      "hallucination.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "UBDCML5N",
+    "title": "MoE+Instruction",
+    "authors": "Shen et al.",
+    "year": 2023,
+    "collection_keys": [
+      "B4QQTY63"
+    ],
+    "area_pages": [
+      "moe.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "497XVFB6",
+    "title": "MoE Explained",
+    "authors": "Unknown",
+    "year": 2025,
+    "collection_keys": [
+      "B4QQTY63"
+    ],
+    "area_pages": [
+      "moe.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "WIGLUNFZ",
+    "title": "ST-MoE",
+    "authors": "Zoph et al.",
+    "year": 2022,
+    "collection_keys": [
+      "B4QQTY63"
+    ],
+    "area_pages": [
+      "moe.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "2HU6MLMN",
+    "title": "TimeSformer",
+    "authors": "Bertasius et al.",
+    "year": 2021,
+    "collection_keys": [
+      "IZWWCABQ"
+    ],
+    "area_pages": [
+      "video-action-recognition.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "WYQSCSRF",
+    "title": "I3D",
+    "authors": "Carreira et al.",
+    "year": 2018,
+    "collection_keys": [
+      "IZWWCABQ"
+    ],
+    "area_pages": [
+      "video-action-recognition.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "FISF2M9S",
+    "title": "Two-Stream",
+    "authors": "Simonyan et al.",
+    "year": 2014,
+    "collection_keys": [
+      "IZWWCABQ"
+    ],
+    "area_pages": [
+      "video-action-recognition.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "9QCZ3A32",
+    "title": "VideoMAE",
+    "authors": "Tong et al.",
+    "year": 2022,
+    "collection_keys": [
+      "IZWWCABQ"
+    ],
+    "area_pages": [
+      "video-action-recognition.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "JUB597ZG",
+    "title": "VideoMAE V2",
+    "authors": "Wang et al.",
+    "year": 2023,
+    "collection_keys": [
+      "IZWWCABQ"
+    ],
+    "area_pages": [
+      "video-action-recognition.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "7AJ9P5N3",
+    "title": "TSN",
+    "authors": "Wang et al.",
+    "year": 2017,
+    "collection_keys": [
+      "IZWWCABQ"
+    ],
+    "area_pages": [
+      "video-action-recognition.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "RYGRHCG3",
+    "title": "Video Action Survey",
+    "authors": "Zhu et al.",
+    "year": 2020,
+    "collection_keys": [
+      "IZWWCABQ"
+    ],
+    "area_pages": [
+      "video-action-recognition.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "zhu2020_video_action",
+    "graphify_community": 9
+  },
+  {
+    "zotero_key": "T2T4DUKA",
+    "title": "OPERA",
+    "authors": "Zhang et al.",
+    "year": 2024,
+    "collection_keys": [
+      "MCBZN2AH"
+    ],
+    "area_pages": [
+      "audio.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "KNGZCC5J",
+    "title": "CLAP",
+    "authors": "Elizalde et al.",
+    "year": 2022,
+    "collection_keys": [
+      "MCBZN2AH"
+    ],
+    "area_pages": [
+      "audio.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "4A2A73JF",
+    "title": "FRILL",
+    "authors": "Peplinski et al.",
+    "year": 2021,
+    "collection_keys": [
+      "MCBZN2AH"
+    ],
+    "area_pages": [
+      "audio.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "WJQ5APZU",
+    "title": "TRILL",
+    "authors": "Shor et al.",
+    "year": 2020,
+    "collection_keys": [
+      "MCBZN2AH"
+    ],
+    "area_pages": [
+      "audio.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "65EDEWIJ",
+    "title": "Audio MAE",
+    "authors": "Huang et al.",
+    "year": 2022,
+    "collection_keys": [
+      "MCBZN2AH"
+    ],
+    "area_pages": [
+      "audio.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "ESEEEH85",
+    "title": "LTU",
+    "authors": "Gong et al.",
+    "year": 2023,
+    "collection_keys": [
+      "MCBZN2AH"
+    ],
+    "area_pages": [
+      "audio.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "7J6K6W8I",
+    "title": "AST",
+    "authors": "Gong et al.",
+    "year": 2021,
+    "collection_keys": [
+      "MCBZN2AH"
+    ],
+    "area_pages": [
+      "audio.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "MB3HH9SR",
+    "title": "PSLA",
+    "authors": "Gong et al.",
+    "year": 2021,
+    "collection_keys": [
+      "MCBZN2AH"
+    ],
+    "area_pages": [
+      "audio.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "JRH3CE5M",
+    "title": "Adam",
+    "authors": "Kingma et al.",
+    "year": 2017,
+    "collection_keys": [
+      "QSDZF3DI"
+    ],
+    "area_pages": [
+      "optimizer.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "kingma2017_adam",
+    "graphify_community": 5
+  },
+  {
+    "zotero_key": "W5D5V7NQ",
+    "title": "AutoML Survey",
+    "authors": "He et al.",
+    "year": 2021,
+    "collection_keys": [
+      "TNSVCIHT"
+    ],
+    "area_pages": [
+      "automl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "PWXG35AH",
+    "title": "AutoPhrase",
+    "authors": "Shang et al.",
+    "year": 2018,
+    "collection_keys": [
+      "TNSVCIHT"
+    ],
+    "area_pages": [
+      "automl.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "W7RPRTCH",
+    "title": "TTT for Abstract Reasoning",
+    "authors": "Akyurek et al.",
+    "year": 2024,
+    "collection_keys": [
+      "UAEAD3RU"
+    ],
+    "area_pages": [
+      "test-time-training.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "K9AZKZB2",
+    "title": "TTT-Unet",
+    "authors": "Zhou et al.",
+    "year": 2024,
+    "collection_keys": [
+      "UAEAD3RU"
+    ],
+    "area_pages": [
+      "test-time-training.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "JEGI4IS7",
+    "title": "TTT Layers",
+    "authors": "Sun et al.",
+    "year": 2024,
+    "collection_keys": [
+      "UAEAD3RU"
+    ],
+    "area_pages": [
+      "test-time-training.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "7C4VSDBY",
+    "title": "CUR",
+    "authors": "Mahoney et al.",
+    "year": 2009,
+    "collection_keys": [
+      "X2UQS439"
+    ],
+    "area_pages": [
+      "mathematics-ml.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "mahoney2009_cur",
+    "graphify_community": 8
+  },
+  {
+    "zotero_key": "UJ3HR45N",
+    "title": "CCA",
+    "authors": "Hardoon et al.",
+    "year": 2004,
+    "collection_keys": [
+      "X2UQS439"
+    ],
+    "area_pages": [
+      "mathematics-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "GLTH6GX9",
+    "title": "Deep CCA",
+    "authors": "Unknown",
+    "year": 0,
+    "collection_keys": [
+      "X2UQS439"
+    ],
+    "area_pages": [
+      "mathematics-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "H27VWDAF",
+    "title": "Median Filtering",
+    "authors": "Arias-Castro et al.",
+    "year": 2009,
+    "collection_keys": [
+      "X2UQS439"
+    ],
+    "area_pages": [
+      "mathematics-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "DZYGYY2C",
+    "title": "Functional Data Embedding",
+    "authors": "Arias-Castro et al.",
+    "year": 2022,
+    "collection_keys": [
+      "X2UQS439"
+    ],
+    "area_pages": [
+      "mathematics-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "CJZYAK9U",
+    "title": "L1 Minimization",
+    "authors": "Donoho et al.",
+    "year": 2003,
+    "collection_keys": [
+      "X2UQS439"
+    ],
+    "area_pages": [
+      "mathematics-ml.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "donoho2003_l1",
+    "graphify_community": 8
+  },
+  {
+    "zotero_key": "6CN5PLNU",
+    "title": "Compressive Sampling",
+    "authors": "Candes et al.",
+    "year": 2004,
+    "collection_keys": [
+      "X2UQS439"
+    ],
+    "area_pages": [
+      "mathematics-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "RII6PLZW",
+    "title": "Sparsity Incoherence",
+    "authors": "Candes et al.",
+    "year": 2007,
+    "collection_keys": [
+      "X2UQS439"
+    ],
+    "area_pages": [
+      "mathematics-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "FG2MX7RW",
+    "title": "Multi-modal Density",
+    "authors": "Arias-Castro et al.",
+    "year": 2022,
+    "collection_keys": [
+      "X2UQS439"
+    ],
+    "area_pages": [
+      "mathematics-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "WIZICQZL",
+    "title": "CROWN",
+    "authors": "Zhang et al.",
+    "year": 2018,
+    "collection_keys": [
+      "X2UQS439"
+    ],
+    "area_pages": [
+      "mathematics-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "HBLPTRMY",
+    "title": "Chain-of-Thought",
+    "authors": "Wei et al.",
+    "year": 2023,
+    "collection_keys": [
+      "G4GXUWMD"
+    ],
+    "area_pages": [
+      "nlp.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "wei2023_cot",
+    "graphify_community": 0
+  },
+  {
+    "zotero_key": "WQRB4TUT",
+    "title": "BERT",
+    "authors": "Devlin et al.",
+    "year": 2019,
+    "collection_keys": [
+      "G4GXUWMD"
+    ],
+    "area_pages": [
+      "nlp.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "LJ3CTGDF",
+    "title": "GPT-4 Instruction",
+    "authors": "Peng et al.",
+    "year": 2023,
+    "collection_keys": [
+      "G4GXUWMD"
+    ],
+    "area_pages": [
+      "nlp.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "WAB8J2FQ",
+    "title": "Self-Instruct",
+    "authors": "Wang et al.",
+    "year": 2023,
+    "collection_keys": [
+      "G4GXUWMD"
+    ],
+    "area_pages": [
+      "nlp.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "SKKD9UXV",
+    "title": "Sanity Checks",
+    "authors": "Adebayo et al.",
+    "year": 2020,
+    "collection_keys": [
+      "3G3UNNCV"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "Q4LYVFY8",
+    "title": "Explanatory Debugging",
+    "authors": "Kulesza et al.",
+    "year": 2015,
+    "collection_keys": [
+      "3G3UNNCV"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "TUIUJY92",
+    "title": "Concept Bottleneck",
+    "authors": "Koh et al.",
+    "year": 2020,
+    "collection_keys": [
+      "3G3UNNCV"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "YJAJHV5A",
+    "title": "Decision Sets",
+    "authors": "Lakkaraju et al.",
+    "year": 2016,
+    "collection_keys": [
+      "3G3UNNCV"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "46WR27KQ",
+    "title": "SHAP",
+    "authors": "Lundberg et al.",
+    "year": 2017,
+    "collection_keys": [
+      "3G3UNNCV"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "lundberg2017_shap",
+    "graphify_community": 6
+  },
+  {
+    "zotero_key": "6GBGGUEZ",
+    "title": "Manipulating Interpretability",
+    "authors": "Poursabzi-Sangdeh et al.",
+    "year": 2021,
+    "collection_keys": [
+      "3G3UNNCV"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "CFDS9G6C",
+    "title": "LIME",
+    "authors": "Ribeiro et al.",
+    "year": 2016,
+    "collection_keys": [
+      "3G3UNNCV"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "T264MQTK",
+    "title": "Stop Explaining",
+    "authors": "Rudin et al.",
+    "year": 2019,
+    "collection_keys": [
+      "3G3UNNCV"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "A362GCCM",
+    "title": "Actionable Recourse",
+    "authors": "Ustun et al.",
+    "year": 2019,
+    "collection_keys": [
+      "3G3UNNCV"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "ustun2019_recourse",
+    "graphify_community": 6
+  },
+  {
+    "zotero_key": "QQ29DMJU",
+    "title": "Risk Scores",
+    "authors": "Ustun et al.",
+    "year": 2019,
+    "collection_keys": [
+      "3G3UNNCV"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "CKEAV8EA",
+    "title": "Post-hoc CBM",
+    "authors": "Yuksekgonul et al.",
+    "year": 2023,
+    "collection_keys": [
+      "3G3UNNCV"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "DQD2J9KR",
+    "title": "Two Cultures",
+    "authors": "Breiman et al.",
+    "year": 2001,
+    "collection_keys": [
+      "ILD664JC"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "JLX2PPVN",
+    "title": "Comprehensible Models",
+    "authors": "Freitas et al.",
+    "year": 2014,
+    "collection_keys": [
+      "ILD664JC"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": true,
+    "graphify_id": "freitas2014",
+    "graphify_community": 6
+  },
+  {
+    "zotero_key": "4Z8VSMFY",
+    "title": "Human Factors IML",
+    "authors": "Hong et al.",
+    "year": 2020,
+    "collection_keys": [
+      "ILD664JC"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "FN9DST5B",
+    "title": "Mythos of Interpretability",
+    "authors": "Lipton et al.",
+    "year": 2017,
+    "collection_keys": [
+      "ILD664JC"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "C284A7ZR",
+    "title": "User Study IML",
+    "authors": "Sixt et al.",
+    "year": 2021,
+    "collection_keys": [
+      "ILD664JC"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "SF6V4MPG",
+    "title": "Model Indeterminacy",
+    "authors": "Brunet et al.",
+    "year": 2022,
+    "collection_keys": [
+      "LFK8LDMG"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "VZ5NCDN7",
+    "title": "Submodular Maximization",
+    "authors": "Feige et al.",
+    "year": 2011,
+    "collection_keys": [
+      "LFK8LDMG"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "3INBF8ND",
+    "title": "ResNet",
+    "authors": "He et al.",
+    "year": 2015,
+    "collection_keys": [
+      "LFK8LDMG"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "8T8LJMTW",
+    "title": "Consistent Explanations",
+    "authors": "Ley et al.",
+    "year": 2023,
+    "collection_keys": [
+      "LFK8LDMG"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "FW3ZISUV",
+    "title": "Predictive Multiplicity",
+    "authors": "Marx et al.",
+    "year": 2020,
+    "collection_keys": [
+      "LFK8LDMG"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "C48LQQN7",
+    "title": "Explanation Constraints",
+    "authors": "Pukdee et al.",
+    "year": 2023,
+    "collection_keys": [
+      "LFK8LDMG"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  },
+  {
+    "zotero_key": "6XPE47QI",
+    "title": "Right for Right Reasons",
+    "authors": "Ross et al.",
+    "year": 2017,
+    "collection_keys": [
+      "LFK8LDMG"
+    ],
+    "area_pages": [
+      "interpretable-ml.md"
+    ],
+    "in_graphify": false,
+    "graphify_id": null,
+    "graphify_community": null
+  }
+]
