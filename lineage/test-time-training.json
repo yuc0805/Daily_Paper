@@ -1,0 +1,44 @@
+{
+  "_generated": "2026-05-14",
+  "_source": "graphify_seed/graph.json + zotero_index.json",
+  "area": "test-time-training.md",
+  "edges": [
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "target": "chen2023_pathology",
+      "target_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "cross_area": false
+    },
+    {
+      "source": "chen2023_pathology",
+      "source_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
+      "target": "zhang2023_mae",
+      "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "self_supervised_pretraining",
+      "label": "Self-Supervised Pretraining Methods",
+      "nodes": [
+        "yuan2024_ssl_har",
+        "chen2023_pathology",
+        "zhang2023_mae",
+        "baur2024_hear",
+        "concept_self_supervised"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9
+    }
+  ],
+  "cross_area_bridges": []
+}

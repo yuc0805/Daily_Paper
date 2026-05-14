@@ -1,0 +1,59 @@
+{
+  "_generated": "2026-05-14",
+  "_source": "graphify_seed/graph.json + zotero_index.json",
+  "area": "audio.md",
+  "edges": [
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "target": "baur2024_hear",
+      "target_label": "HeAR: Health Acoustic Representations (Baur 2024)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "baur2024_hear",
+      "target_label": "HeAR: Health Acoustic Representations (Baur 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "wearable_health_sensing",
+      "label": "Wearable Sensing for Health & Behavior",
+      "nodes": [
+        "yuan2024_ssl_har",
+        "xu2023_globem",
+        "nepal2024_mindscape",
+        "gu2025_biosignals",
+        "baur2024_hear",
+        "chen2024_sensor2text"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85
+    },
+    {
+      "id": "self_supervised_pretraining",
+      "label": "Self-Supervised Pretraining Methods",
+      "nodes": [
+        "yuan2024_ssl_har",
+        "chen2023_pathology",
+        "zhang2023_mae",
+        "baur2024_hear",
+        "concept_self_supervised"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9
+    }
+  ],
+  "cross_area_bridges": []
+}

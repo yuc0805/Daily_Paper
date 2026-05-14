@@ -1,0 +1,19 @@
+{
+  "_generated": "2026-05-14",
+  "_source": "graphify_seed/graph.json + zotero_index.json",
+  "area": "mathematics-ml.md",
+  "edges": [
+    {
+      "source": "donoho2003_l1",
+      "source_label": "L1 Minimization for Sparse Representation (Donoho 2003)",
+      "target": "mahoney2009_cur",
+      "target_label": "CUR Matrix Decompositions (Mahoney 2009)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "cross_area": false
+    }
+  ],
+  "hyperedges": [],
+  "cross_area_bridges": []
+}

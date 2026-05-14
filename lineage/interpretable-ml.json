@@ -1,0 +1,29 @@
+{
+  "_generated": "2026-05-14",
+  "_source": "graphify_seed/graph.json + zotero_index.json",
+  "area": "interpretable-ml.md",
+  "edges": [
+    {
+      "source": "lundberg2017_shap",
+      "source_label": "SHAP: Unified Model Interpretation (Lundberg 2017)",
+      "target": "ustun2019_recourse",
+      "target_label": "Actionable Recourse in Linear Classification (Ustun 2019)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "ustun2019_recourse",
+      "source_label": "Actionable Recourse in Linear Classification (Ustun 2019)",
+      "target": "freitas2014",
+      "target_label": "Comprehensible Classification Models (Freitas 2014)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "cross_area": false
+    }
+  ],
+  "hyperedges": [],
+  "cross_area_bridges": []
+}

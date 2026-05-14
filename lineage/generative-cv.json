@@ -1,0 +1,65 @@
+{
+  "_generated": "2026-05-14",
+  "_source": "graphify_seed/graph.json + zotero_index.json",
+  "area": "generative-cv.md",
+  "edges": [
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "peebles2023_dit",
+      "target_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "ho2020_ddpm",
+      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+      "target": "peebles2023_dit",
+      "target_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "ho2020_ddpm",
+      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+      "target": "ramesh2022_dalle2",
+      "target_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "ho2020_ddpm",
+      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+      "target": "zhu2020_cyclegan",
+      "target_label": "CycleGAN: Unpaired Image Translation (Zhu 2020)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "cross_area": false
+    },
+    {
+      "source": "kingma2017_adam",
+      "source_label": "Adam Optimizer (Kingma & Ba 2017)",
+      "target": "zhu2020_cyclegan",
+      "target_label": "CycleGAN: Unpaired Image Translation (Zhu 2020)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    }
+  ],
+  "hyperedges": [],
+  "cross_area_bridges": [
+    {
+      "from": "cyclegan_zhu2020",
+      "to": "ho2020_ddpm",
+      "reason": "semantically_similar (generative-cv)"
+    }
+  ]
+}

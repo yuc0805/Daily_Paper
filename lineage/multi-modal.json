@@ -1,0 +1,29 @@
+{
+  "_generated": "2026-05-14",
+  "_source": "graphify_seed/graph.json + zotero_index.json",
+  "area": "multi-modal.md",
+  "edges": [
+    {
+      "source": "ho2020_ddpm",
+      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+      "target": "ramesh2022_dalle2",
+      "target_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "ramesh2022_dalle2",
+      "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+      "target": "zhai2023_siglip",
+      "target_label": "SigLIP: Sigmoid Loss for Language Image Pre-Training (Zhai 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    }
+  ],
+  "hyperedges": [],
+  "cross_area_bridges": []
+}

@@ -1,0 +1,75 @@
+{
+  "_generated": "2026-05-14",
+  "_source": "graphify_seed/graph.json + zotero_index.json",
+  "area": "nlp.md",
+  "edges": [
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "prasad2023_adapt",
+      "target_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "zhou2024_lats",
+      "target_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "hong2026_deepeyesv2",
+      "target_label": "DeepEyesV2: Agentic Multimodal Model (Hong 2026)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "deepseek2025_r1",
+      "target_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "cross_area": true
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "liu2025_tsagent",
+      "target_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "nepal2024_mindscape",
+      "target_label": "MindScape: LLM + Behavioral Sensing Journaling (Nepal 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    }
+  ],
+  "hyperedges": [],
+  "cross_area_bridges": [
+    {
+      "from": "deepseek2025_r1",
+      "to": "wei2023_cot",
+      "reason": "semantically_similar (reasoning-via-rl vs prompting)"
+    }
+  ]
+}

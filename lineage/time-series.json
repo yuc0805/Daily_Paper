@@ -1,0 +1,352 @@
+{
+  "_generated": "2026-05-14",
+  "_source": "graphify_seed/graph.json + zotero_index.json",
+  "area": "time-series.md",
+  "edges": [
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "liu2021_swin",
+      "target_label": "Swin Transformer (Liu 2021)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "carion2020_detr",
+      "target_label": "DETR: End-to-End Object Detection with Transformers (Carion 2020)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "peebles2023_dit",
+      "target_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "zhai2023_siglip",
+      "target_label": "SigLIP: Sigmoid Loss for Language Image Pre-Training (Zhai 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "li2024_harmamba",
+      "target_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "erol2024_audiomamba",
+      "target_label": "Audio Mamba: Bidirectional SSM for Audio (Erol 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "chen2024_sensor2text",
+      "target_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "yuan2024_ssl_har",
+      "target_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "gu2025_biosignals",
+      "target_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "zhang2023_mae",
+      "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "liu2025_tsagent",
+      "target_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "zhang2024_llm_ts_survey",
+      "target_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "xie2025_chatts",
+      "target_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "chen2024_sensor2text",
+      "target_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "cross_area": false
+    },
+    {
+      "source": "xie2025_chatts",
+      "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
+      "target": "zhang2024_llm_ts_survey",
+      "target_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "xie2025_chatts",
+      "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
+      "target": "chen2024_sensor2text",
+      "target_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "cross_area": false
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "target": "liu2023_health_llm",
+      "target_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "cross_area": false
+    },
+    {
+      "source": "li2024_harmamba",
+      "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+      "target": "yuan2024_ssl_har",
+      "target_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "li2024_harmamba",
+      "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+      "target": "erol2024_audiomamba",
+      "target_label": "Audio Mamba: Bidirectional SSM for Audio (Erol 2024)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "cross_area": false
+    },
+    {
+      "source": "li2024_harmamba",
+      "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+      "target": "liu2024_swinumamba",
+      "target_label": "Swin-UMamba: Mamba-based UNet (Liu 2024)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "cross_area": false
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "target": "gu2025_biosignals",
+      "target_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "target": "chen2023_pathology",
+      "target_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "cross_area": false
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "target": "baur2024_hear",
+      "target_label": "HeAR: Health Acoustic Representations (Baur 2024)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "cross_area": false
+    },
+    {
+      "source": "xu2023_globem",
+      "source_label": "GLOBEM: Multi-Year Human Behavior Datasets (Xu 2023)",
+      "target": "kingma2017_adam",
+      "target_label": "Adam Optimizer (Kingma & Ba 2017)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "xu2023_globem",
+      "source_label": "GLOBEM: Multi-Year Human Behavior Datasets (Xu 2023)",
+      "target": "nepal2024_mindscape",
+      "target_label": "MindScape: LLM + Behavioral Sensing Journaling (Nepal 2024)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "baur2024_hear",
+      "target_label": "HeAR: Health Acoustic Representations (Baur 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "liu2023_health_llm",
+      "target_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "cross_area": false
+    },
+    {
+      "source": "chen2023_pathology",
+      "source_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
+      "target": "zhang2023_mae",
+      "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "mamba_ssm_family",
+      "label": "Mamba/SSM Architecture Applications",
+      "nodes": [
+        "li2024_harmamba",
+        "erol2024_audiomamba",
+        "liu2024_swinumamba",
+        "concept_mamba_ssm"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9
+    },
+    {
+      "id": "ts_llm_reasoning_pipeline",
+      "label": "Time Series + LLM Reasoning Ecosystem",
+      "nodes": [
+        "xie2025_chatts",
+        "liu2025_tsagent",
+        "zhang2024_llm_ts_survey",
+        "chen2024_sensor2text",
+        "concept_ts_llm"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85
+    },
+    {
+      "id": "wearable_health_sensing",
+      "label": "Wearable Sensing for Health & Behavior",
+      "nodes": [
+        "yuan2024_ssl_har",
+        "xu2023_globem",
+        "nepal2024_mindscape",
+        "gu2025_biosignals",
+        "baur2024_hear",
+        "chen2024_sensor2text"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85
+    },
+    {
+      "id": "self_supervised_pretraining",
+      "label": "Self-Supervised Pretraining Methods",
+      "nodes": [
+        "yuan2024_ssl_har",
+        "chen2023_pathology",
+        "zhang2023_mae",
+        "baur2024_hear",
+        "concept_self_supervised"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9
+    }
+  ],
+  "cross_area_bridges": [
+    {
+      "from": "chen2024_sensor2text",
+      "to": "liu2023_few_shot_health",
+      "reason": "semantically_similar (bio-sensing + llm-health bridge)"
+    }
+  ]
+}

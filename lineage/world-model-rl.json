@@ -1,0 +1,39 @@
+{
+  "_generated": "2026-05-14",
+  "_source": "graphify_seed/graph.json + zotero_index.json",
+  "area": "world-model-rl.md",
+  "edges": [
+    {
+      "source": "levine2020_offline_rl",
+      "source_label": "Offline Reinforcement Learning Tutorial (Levine 2020)",
+      "target": "voloshin2021_ope",
+      "target_label": "Off-Policy Policy Evaluation Study (Voloshin 2021)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "levine2020_offline_rl",
+      "source_label": "Offline Reinforcement Learning Tutorial (Levine 2020)",
+      "target": "pinneri2020_cem",
+      "target_label": "Sample-efficient Cross-Entropy Method (Pinneri 2020)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "voloshin2021_ope",
+      "source_label": "Off-Policy Policy Evaluation Study (Voloshin 2021)",
+      "target": "pinneri2020_cem",
+      "target_label": "Sample-efficient Cross-Entropy Method (Pinneri 2020)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "cross_area": false
+    }
+  ],
+  "hyperedges": [],
+  "cross_area_bridges": []
+}

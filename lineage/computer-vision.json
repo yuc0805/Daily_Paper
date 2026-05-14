@@ -1,0 +1,104 @@
+{
+  "_generated": "2026-05-14",
+  "_source": "graphify_seed/graph.json + zotero_index.json",
+  "area": "computer-vision.md",
+  "edges": [
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "liu2021_swin",
+      "target_label": "Swin Transformer (Liu 2021)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "carion2020_detr",
+      "target_label": "DETR: End-to-End Object Detection with Transformers (Carion 2020)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "zhang2023_mae",
+      "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "ho2020_ddpm",
+      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+      "target": "ramesh2022_dalle2",
+      "target_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "ramesh2022_dalle2",
+      "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+      "target": "zhai2023_siglip",
+      "target_label": "SigLIP: Sigmoid Loss for Language Image Pre-Training (Zhai 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "liu2021_swin",
+      "source_label": "Swin Transformer (Liu 2021)",
+      "target": "liu2024_swinumamba",
+      "target_label": "Swin-UMamba: Mamba-based UNet (Liu 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "liu2021_swin",
+      "source_label": "Swin Transformer (Liu 2021)",
+      "target": "finder2024_wavelet",
+      "target_label": "Wavelet Convolutions for Large Receptive Fields (Finder 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "chen2023_pathology",
+      "source_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
+      "target": "zhang2023_mae",
+      "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "self_supervised_pretraining",
+      "label": "Self-Supervised Pretraining Methods",
+      "nodes": [
+        "yuan2024_ssl_har",
+        "chen2023_pathology",
+        "zhang2023_mae",
+        "baur2024_hear",
+        "concept_self_supervised"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9
+    }
+  ],
+  "cross_area_bridges": []
+}

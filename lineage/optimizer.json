@@ -1,0 +1,29 @@
+{
+  "_generated": "2026-05-14",
+  "_source": "graphify_seed/graph.json + zotero_index.json",
+  "area": "optimizer.md",
+  "edges": [
+    {
+      "source": "xu2023_globem",
+      "source_label": "GLOBEM: Multi-Year Human Behavior Datasets (Xu 2023)",
+      "target": "kingma2017_adam",
+      "target_label": "Adam Optimizer (Kingma & Ba 2017)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "kingma2017_adam",
+      "source_label": "Adam Optimizer (Kingma & Ba 2017)",
+      "target": "zhu2020_cyclegan",
+      "target_label": "CycleGAN: Unpaired Image Translation (Zhu 2020)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    }
+  ],
+  "hyperedges": [],
+  "cross_area_bridges": []
+}

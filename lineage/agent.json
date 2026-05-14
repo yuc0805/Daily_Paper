@@ -1,0 +1,116 @@
+{
+  "_generated": "2026-05-14",
+  "_source": "graphify_seed/graph.json + zotero_index.json",
+  "area": "agent.md",
+  "edges": [
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "prasad2023_adapt",
+      "target_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "zhou2024_lats",
+      "target_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "hong2026_deepeyesv2",
+      "target_label": "DeepEyesV2: Agentic Multimodal Model (Hong 2026)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "prasad2023_adapt",
+      "source_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
+      "target": "zhou2024_lats",
+      "target_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "cross_area": false
+    },
+    {
+      "source": "hao2024_toolkengpt",
+      "source_label": "ToolkenGPT: Tool Embeddings for LLMs (Hao 2024)",
+      "target": "zhao2025_pyvision",
+      "target_label": "PyVision: Agentic Vision with Dynamic Tooling (Zhao 2025)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "cross_area": false
+    },
+    {
+      "source": "hong2026_deepeyesv2",
+      "source_label": "DeepEyesV2: Agentic Multimodal Model (Hong 2026)",
+      "target": "zhao2025_pyvision",
+      "target_label": "PyVision: Agentic Vision with Dynamic Tooling (Zhao 2025)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "cross_area": false
+    },
+    {
+      "source": "durante2024_agentai",
+      "source_label": "Agent AI: Surveying Multimodal Interaction (Durante 2024)",
+      "target": "huang2026_memory",
+      "target_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "huang2026_memory",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "rabinowitz2018_tom",
+      "target_label": "Machine Theory of Mind (Rabinowitz 2018)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "cross_area": false
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "llm_agent_frameworks",
+      "label": "LLM Agent Architectures",
+      "nodes": [
+        "prasad2023_adapt",
+        "zhou2024_lats",
+        "hong2026_deepeyesv2",
+        "zhao2025_pyvision",
+        "hao2024_toolkengpt",
+        "huang2026_memory"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8
+    }
+  ],
+  "cross_area_bridges": [
+    {
+      "from": "prasad2023_adapt",
+      "to": "zhou2024_lats",
+      "reason": "semantically_similar (planning-decomposition agents)"
+    },
+    {
+      "from": "hao2024_toolkengpt",
+      "to": "zhao2025_pyvision",
+      "reason": "semantically_similar (tool-using agents)"
+    }
+  ]
+}

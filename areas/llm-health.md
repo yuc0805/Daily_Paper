@@ -1,0 +1,85 @@
+## LLM and AI for Health
+
+### What
+
+This area covers the application of large language models and foundation models to healthcare tasks, including clinical text understanding, biosignal interpretation, mental health monitoring, and wearable-based health sensing. It spans both pure NLP approaches (clinical note summarization, medical QA) and multimodal systems that combine language models with physiological signals.
+
+### Why
+
+Health data is abundant but heterogeneous: clinical notes, lab values, wearable sensor streams, medical images. Traditional ML pipelines require separate feature engineering for each modality. Foundation models offer a path to unified representations, but healthcare demands reliability, interpretability, and privacy guarantees that general-purpose LLMs do not provide out of the box.
+
+### Baseline
+
+Train a logistic regression on hand-extracted features from structured EHR fields (lab values, vitals, demographics) for a binary clinical prediction task. For wearable data, compute statistical aggregates (mean heart rate, step count per hour) and feed them to a gradient boosted tree. The main failure mode is that these approaches discard unstructured clinical text and raw waveform patterns, missing the majority of available information.
+
+### Running Example
+
+Given 24 hours of wrist accelerometer and heart rate data from the GLOBEM dataset, predict whether the participant will report high stress the following day (binary classification). The desired output is AUROC above 0.72. The hand-feature + gradient boosted tree baseline achieves AUROC around 0.61 because it reduces the full waveform to a handful of summary statistics.
+
+### Baseline vs Method Comparison on the Running Example
+
+| Approach | Output on running example | Why it differs from baseline |
+|---|---|---|
+| Baseline | See running example above | (anchor) |
+| Foundation Models for Biosignals: A Survey | _To be added as papers accumulate._ | Anchor paper for this area |
+
+### Timeline
+
+2023 | GLOBEM (Xu et al.) | 
+2023 | LLMs Few-Shot Health (Liu et al.) | 
+2023 | UNI Pathology (Chen et al.) | 
+2024 | HARMamba (Li et al.) | 
+2024 | HeAR (Baur et al.) | 
+2024 | Health-LLM (Kim et al.) | 
+2024 | MindScape (Nepal et al.) | 
+2024 | SSL for HAR (Yuan et al.) | 
+2024 | Sensor2Text (Chen et al.) | 
+2025 | CounselBench (Li et al.) | 
+2025 | Foundation Models Biosignals (Gu et al.) |  [anchor]
+2025 | HealthAgent (Sun et al.) | 
+2026 | Verifiable Physio Reasoning (Wang et al.) | 
+
+### Key Methods
+
+| Method | Year | Core idea (one clause) | Best benchmark result | Cost / limitation |
+|---|---|---|---|---|
+| Foundation Models for Biosignals: A Survey | Gu 2025 | Anchor method | _To be filled_ | _To be filled_ |
+| GLOBEM | 2023 | _To be filled_ | _To be filled_ | _To be filled_ |
+| LLMs Few-Shot Health | 2023 | _To be filled_ | _To be filled_ | _To be filled_ |
+| UNI Pathology | 2023 | _To be filled_ | _To be filled_ | _To be filled_ |
+| HARMamba | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
+| HeAR | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
+| MindScape | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
+| SSL for HAR | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
+| Sensor2Text | 2024 | _To be filled_ | _To be filled_ | _To be filled_ |
+| CounselBench | 2025 | _To be filled_ | _To be filled_ | _To be filled_ |
+
+### Benchmark Results
+
+| Method | Benchmark | Metric | Score | Source paper |
+|---|---|---|---|---|
+| _To be added as papers accumulate._ | | | | |
+
+### Limitations
+
+_To be added as papers accumulate._
+
+### Paper List
+
+[KNOWN] [2023] Xu et al. — GLOBEM. zotero_key:8VB7UFKN.
+[KNOWN] [2023] Liu et al. — LLMs Few-Shot Health. zotero_key:68JNSBFP.
+[KNOWN] [2023] Chen et al. — UNI Pathology. zotero_key:6T29JLTN.
+[KNOWN] [2024] Li et al. — HARMamba. zotero_key:HE9X47KN.
+[KNOWN] [2024] Baur et al. — HeAR. zotero_key:3LA8GNCU.
+[KNOWN] [2024] Kim et al. — Health-LLM. zotero_key:4IRZIDPQ.
+[KNOWN] [2024] Nepal et al. — MindScape. zotero_key:K5HKSQUN.
+[KNOWN] [2024] Yuan et al. — SSL for HAR. zotero_key:RTMH75VW.
+[KNOWN] [2024] Chen et al. — Sensor2Text. zotero_key:2ZYUFEMW.
+[KNOWN] [2025] Li et al. — CounselBench. zotero_key:CZ48FSVX.
+[KNOWN] [2025] Gu et al. — Foundation Models Biosignals. zotero_key:EDTXS4NM.
+[KNOWN] [2025] Sun et al. — HealthAgent. zotero_key:R2D2W9DD.
+[KNOWN] [2026] Wang et al. — Verifiable Physio Reasoning. zotero_key:2BGP9QJL.
+
+### Recent Activity
+
+2026-05-14 | Area page seeded | 13 papers from Zotero, 10 from graphify seed.

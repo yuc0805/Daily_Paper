@@ -1,0 +1,35 @@
+{
+  "_generated": "2026-05-14",
+  "_source": "graphify_seed/graph.json + zotero_index.json",
+  "area": "llm.md",
+  "edges": [
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "deepseek2025_r1",
+      "target_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "cross_area": true
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "deepseek2024_v3",
+      "target_label": "DeepSeek-V3 Technical Report (2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    }
+  ],
+  "hyperedges": [],
+  "cross_area_bridges": [
+    {
+      "from": "deepseek2025_r1",
+      "to": "wei2023_cot",
+      "reason": "semantically_similar (reasoning-via-rl vs prompting)"
+    }
+  ]
+}
