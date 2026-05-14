@@ -1,28 +1,5 @@
 ## Mamba and State Space Models
 
-### What
-
-State space models (SSMs) are sequence models derived from continuous-time linear systems, discretized for use on sequential data. Mamba is a selective SSM that introduces input-dependent gating to the state transition, achieving linear-time sequence processing. This area covers the SSM family from S4 through Mamba-2 and domain-specific adaptations (vision, audio, medical imaging, human activity recognition).
-
-### Why
-
-Transformers have quadratic complexity in sequence length, which limits their application to very long sequences (genomics, high-resolution images, long audio). SSMs offer linear scaling while maintaining competitive accuracy, making them attractive for resource-constrained or long-context settings.
-
-### Baseline
-
-Use a standard Transformer encoder with full self-attention. The main failure mode is quadratic memory and compute cost: a 16k-token sequence requires 256M attention entries, making training slow and inference memory-intensive on consumer hardware.
-
-### Running Example
-
-Classify a 10-second accelerometer signal (sampled at 50Hz, 500 time steps, 3 axes) from the UCI HAR dataset into one of six activities. The Transformer baseline processes 500 tokens with full attention (250k entries), taking 45ms per sample. HARMamba processes the same sequence in 12ms with comparable accuracy.
-
-### Baseline vs Method Comparison on the Running Example
-
-| Approach | Output on running example | Why it differs from baseline |
-|---|---|---|
-| Baseline | See running example above | (anchor) |
-| HARMamba | _To be added as papers accumulate._ | Anchor paper for this area |
-
 ### Timeline
 
 2020 | HiPPO (Gu et al.) | 

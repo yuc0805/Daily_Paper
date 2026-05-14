@@ -46,6 +46,3 @@ The scheduled task `daily-ai-digest-5am` runs at 5:00 AM ET. For each new paper 
 
 A one-time seeding task `seed-knowledge-graph` (created separately) walks all 25 Zotero collections and produces an initial Luna Dong-style page per collection. This is heavy and runs once.
 
-## Author note
-
-This repo is auto-generated and auto-updated by Claude based on Leo's stated preferences. Manual edits are welcome but the scheduled task will preserve them by section: it only touches Timeline, Key Methods, Benchmark Results, Paper List, and Recent Activity in `areas/<area>.md`. Manual edits to What, Why, Baseline, Running Example, and Limitations are preserved unless explicitly requested.

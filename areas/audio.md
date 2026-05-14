@@ -1,27 +1,5 @@
 ## Audio Representation Learning
 
-### What
-
-Audio representation learning covers models that extract useful features from raw audio or spectrograms for tasks like sound classification, speech recognition, and health acoustics. Methods range from CNN-based spectrogram classifiers (PSLA) to transformer encoders (AST) and self-supervised approaches (TRILL, HeAR, CLAP).
-
-### Why
-
-Audio signals carry information about health (cough detection, respiratory disease), environment (urban sound classification), and communication (speech). Pre-trained audio representations reduce the need for labeled audio data, which is expensive to annotate at scale.
-
-### Baseline
-
-Extract mel-spectrogram features and train a CNN classifier from scratch. The main failure mode is that spectrogram-level CNNs miss temporal structure beyond their receptive field and require large labeled datasets to avoid overfitting.
-
-### Running Example
-
-Classify environmental sounds into 50 categories on the ESC-50 dataset. The mel-spectrogram CNN baseline achieves 72% accuracy. AST (Audio Spectrogram Transformer) pre-trained on AudioSet achieves 88% accuracy.
-
-### Baseline vs Method Comparison on the Running Example
-
-| Approach | Output on running example | Why it differs from baseline |
-|---|---|---|
-| Baseline | See running example above | (anchor) |
-
 ### Timeline
 
 2020 | TRILL (Shor et al.) | 

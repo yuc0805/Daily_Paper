@@ -1,27 +1,5 @@
 ## Video Action Recognition
 
-### What
-
-Video action recognition classifies human actions in video clips. Methods have evolved from hand-crafted features through two-stream CNNs (spatial + optical flow) to 3D convolutions (I3D) and video transformers (TimeSformer, VideoMAE). Self-supervised pre-training with masked video modeling is the current frontier.
-
-### Why
-
-Action recognition is needed in surveillance, sports analytics, human-computer interaction, and activity monitoring for health. Video data is high-dimensional and temporally redundant, so efficient architectures that capture motion patterns without processing every frame are important.
-
-### Baseline
-
-Extract per-frame features with a 2D CNN (ResNet-50) and average-pool across the temporal dimension. The main failure mode is that temporal averaging destroys motion information: actions like 'opening a door' and 'closing a door' become indistinguishable.
-
-### Running Example
-
-Classify a 16-frame clip from Kinetics-400 into one of 400 action categories. The frame-averaged ResNet-50 achieves 56% top-1 accuracy. TimeSformer with divided space-time attention achieves 78% top-1 accuracy because it models temporal relationships between frames.
-
-### Baseline vs Method Comparison on the Running Example
-
-| Approach | Output on running example | Why it differs from baseline |
-|---|---|---|
-| Baseline | See running example above | (anchor) |
-
 ### Timeline
 
 2014 | Two-Stream (Simonyan et al.) | 

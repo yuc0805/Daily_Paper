@@ -1,27 +1,5 @@
 ## Computer Vision
 
-### What
-
-Computer vision covers models for image classification, object detection, segmentation, and visual representation learning. The field has moved from CNNs (ResNet) through vision transformers (ViT, Swin) to foundation models (SAM, DINOv2). This area focuses on the backbone architectures and pre-training strategies rather than generative models (covered in generative-cv.md).
-
-### Why
-
-Visual understanding is required in autonomous driving, medical imaging, robotics, and surveillance. Transformer-based architectures now match or exceed CNNs on most benchmarks, but the choice of architecture, pre-training data, and fine-tuning strategy still matters for domain-specific applications.
-
-### Baseline
-
-Train a ResNet-50 from scratch on the target dataset with supervised cross-entropy loss. The main failure mode is that ResNet requires large labeled datasets and its fixed receptive field limits performance on tasks requiring global context (e.g., scene understanding).
-
-### Running Example
-
-Classify ImageNet images into 1000 categories. ResNet-50 trained from scratch achieves 76.1% top-1 accuracy. ViT-B/16 pre-trained on ImageNet-21k and fine-tuned achieves 84.0% top-1 accuracy.
-
-### Baseline vs Method Comparison on the Running Example
-
-| Approach | Output on running example | Why it differs from baseline |
-|---|---|---|
-| Baseline | See running example above | (anchor) |
-
 ### Timeline
 
 2014 | GAN (Goodfellow et al.) | 

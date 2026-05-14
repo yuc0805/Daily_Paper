@@ -1,28 +1,5 @@
 ## Reasoning in Language Models
 
-### What
-
-Reasoning research studies how language models perform multi-step inference, including arithmetic, logical deduction, planning, and commonsense reasoning. Methods range from prompting strategies (chain-of-thought, self-consistency) to architectural changes (latent reasoning in continuous space) and training-time interventions (reinforcement learning for reasoning traces).
-
-### Why
-
-Standard LLMs often fail on tasks requiring more than pattern matching: multi-hop questions, constraint satisfaction, or mathematical derivations. Improving reasoning ability is necessary for reliable use in scientific, legal, and medical settings where answers must follow from premises rather than statistical correlation.
-
-### Baseline
-
-Prompt the LLM with a direct question (no intermediate steps). The main failure mode is that the model produces a plausible-sounding but incorrect answer because it skips intermediate reasoning steps that would expose errors.
-
-### Running Example
-
-Solve the GSM8K problem: 'Janet has 16 eggs per day. She eats 3 for breakfast and bakes 4 into muffins. She sells the rest at $2 each. How much does she earn daily?' The correct answer is $18. Direct prompting of a mid-sized LLM often yields $26 or $32 because the model conflates subtraction steps.
-
-### Baseline vs Method Comparison on the Running Example
-
-| Approach | Output on running example | Why it differs from baseline |
-|---|---|---|
-| Baseline | See running example above | (anchor) |
-| Chain-of-Thought Prompting | _To be added as papers accumulate._ | Anchor paper for this area |
-
 ### Timeline
 
 2025 | CODI (Shen et al.) | 

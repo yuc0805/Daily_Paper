@@ -1,28 +1,5 @@
 ## Multi-Modal Learning
 
-### What
-
-Multi-modal learning builds models that process and align information from multiple input types: images, text, audio, video, or sensor data. Core techniques include contrastive alignment (CLIP, SigLIP), cross-modal attention (Flamingo, BLIP-2), and joint generative models (DALL-E 2).
-
-### Why
-
-Real-world tasks often involve multiple modalities simultaneously: a medical diagnosis uses both imaging and clinical notes; a robot uses vision and language instructions. Single-modality models miss cross-modal correlations, and naive concatenation of modality-specific features does not learn alignment.
-
-### Baseline
-
-Encode each modality independently with a pre-trained encoder, concatenate the feature vectors, and train a linear classifier on top. The main failure mode is that this approach cannot capture fine-grained correspondences between modalities (e.g., which image region a word refers to).
-
-### Running Example
-
-Given an image of a dog catching a frisbee and the caption 'a brown dog leaps to catch a red frisbee,' retrieve the correct image from a pool of 1000 candidates. The concatenation baseline achieves Recall@1 of 35%. SigLIP with contrastive pre-training achieves Recall@1 of 82%.
-
-### Baseline vs Method Comparison on the Running Example
-
-| Approach | Output on running example | Why it differs from baseline |
-|---|---|---|
-| Baseline | See running example above | (anchor) |
-| SigLIP | _To be added as papers accumulate._ | Anchor paper for this area |
-
 ### Timeline
 
 2021 | ViT (Dosovitskiy et al.) | 

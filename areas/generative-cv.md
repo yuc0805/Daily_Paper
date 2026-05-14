@@ -1,29 +1,5 @@
 ## Generative Computer Vision
 
-### What
-
-Generative computer vision covers models that synthesize images, videos, or 3D content. The field has progressed from GANs through VAEs to diffusion models, with recent work on transformer-based diffusion (DiT) and latent diffusion (Stable Diffusion). Applications include image generation, inpainting, style transfer, and super-resolution.
-
-### Why
-
-Generative models enable data augmentation, creative tools, and scientific simulation (e.g., generating synthetic medical images for training). The shift from GANs to diffusion models improved training stability and sample diversity, but diffusion models remain computationally expensive at inference time.
-
-### Baseline
-
-Train a GAN (generator + discriminator) on the target image domain. The main failure mode is mode collapse: the generator learns to produce only a few distinct outputs, failing to cover the full data distribution.
-
-### Running Example
-
-Generate a 256x256 image of a bedroom from the LSUN Bedrooms dataset. The GAN baseline achieves FID of 12.4 but produces nearly identical layouts. DDPM achieves FID of 4.9 with much greater diversity in furniture arrangement and lighting.
-
-### Baseline vs Method Comparison on the Running Example
-
-| Approach | Output on running example | Why it differs from baseline |
-|---|---|---|
-| Baseline | See running example above | (anchor) |
-| DALL-E 2 | _To be added as papers accumulate._ | Anchor paper for this area |
-| DDPM | _To be added as papers accumulate._ | Anchor paper for this area |
-
 ### Timeline
 
 2014 | GAN (Goodfellow et al.) | 

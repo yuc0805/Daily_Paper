@@ -1,28 +1,5 @@
 ## Self-Supervised Learning Frameworks
 
-### What
-
-Self-supervised learning trains representations from unlabeled data by solving pretext tasks (masked prediction, contrastive matching, next-token prediction). This area covers the general frameworks (MAE, SimCLR, BYOL, foundation model pre-training) and their adaptation to domains like pathology, sensor data, and graphs.
-
-### Why
-
-Labeled data is expensive in most scientific and medical domains. Self-supervised pre-training allows models to learn useful features from abundant unlabeled data, then fine-tune on small labeled sets. The key open question is how to design pretext tasks that produce representations transferable to the target downstream task.
-
-### Baseline
-
-Train a supervised model from scratch on the labeled dataset only, with random initialization. The main failure mode is poor generalization when labeled data is small (under 1000 samples), because the model overfits to surface patterns.
-
-### Running Example
-
-Classify pathology slides into tumor vs. normal using 500 labeled slides. The supervised-from-scratch ResNet-50 achieves 78% accuracy. A model pre-trained with MAE on 100k unlabeled slides and fine-tuned on the same 500 labels achieves 89% accuracy.
-
-### Baseline vs Method Comparison on the Running Example
-
-| Approach | Output on running example | Why it differs from baseline |
-|---|---|---|
-| Baseline | See running example above | (anchor) |
-| SSL for HAR with 700K Person-days | _To be added as papers accumulate._ | Anchor paper for this area |
-
 ### Timeline
 
 2017 | Attention Is All You Need (Vaswani et al.) | 

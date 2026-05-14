@@ -1,28 +1,5 @@
 ## LLM and AI for Health
 
-### What
-
-This area covers the application of large language models and foundation models to healthcare tasks, including clinical text understanding, biosignal interpretation, mental health monitoring, and wearable-based health sensing. It spans both pure NLP approaches (clinical note summarization, medical QA) and multimodal systems that combine language models with physiological signals.
-
-### Why
-
-Health data is abundant but heterogeneous: clinical notes, lab values, wearable sensor streams, medical images. Traditional ML pipelines require separate feature engineering for each modality. Foundation models offer a path to unified representations, but healthcare demands reliability, interpretability, and privacy guarantees that general-purpose LLMs do not provide out of the box.
-
-### Baseline
-
-Train a logistic regression on hand-extracted features from structured EHR fields (lab values, vitals, demographics) for a binary clinical prediction task. For wearable data, compute statistical aggregates (mean heart rate, step count per hour) and feed them to a gradient boosted tree. The main failure mode is that these approaches discard unstructured clinical text and raw waveform patterns, missing the majority of available information.
-
-### Running Example
-
-Given 24 hours of wrist accelerometer and heart rate data from the GLOBEM dataset, predict whether the participant will report high stress the following day (binary classification). The desired output is AUROC above 0.72. The hand-feature + gradient boosted tree baseline achieves AUROC around 0.61 because it reduces the full waveform to a handful of summary statistics.
-
-### Baseline vs Method Comparison on the Running Example
-
-| Approach | Output on running example | Why it differs from baseline |
-|---|---|---|
-| Baseline | See running example above | (anchor) |
-| Foundation Models for Biosignals: A Survey | _To be added as papers accumulate._ | Anchor paper for this area |
-
 ### Timeline
 
 2023 | GLOBEM (Xu et al.) | 

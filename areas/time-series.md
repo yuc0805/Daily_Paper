@@ -1,29 +1,5 @@
 ## Signal Processing and Time Series
 
-### What
-
-Time series analysis covers methods for modeling, forecasting, and classifying sequential data where observations are indexed by time. In the ML context, this includes sensor signals from wearables, financial data, weather records, and physiological measurements. The field has shifted from classical statistical models (ARIMA, exponential smoothing) toward deep learning architectures, and more recently toward foundation models that generalize across domains.
-
-### Why
-
-Many real-world decision systems depend on temporal data: clinical monitoring, energy demand planning, industrial fault detection. Classical methods assume stationarity and linear dynamics, which fail on high-dimensional, non-stationary sensor streams. Modern deep models can capture long-range dependencies and cross-variate interactions, but they remain data-hungry and hard to transfer across domains, motivating the current push toward pre-trained time series foundation models.
-
-### Baseline
-
-Fit an ARIMA(p,d,q) model per univariate channel, selecting orders by AIC. For multivariate settings, fit a VAR model. For classification, extract hand-crafted features (mean, variance, FFT coefficients) and train a random forest. The main failure mode is that these methods cannot capture nonlinear cross-channel dependencies or adapt to distribution shift without manual re-tuning.
-
-### Running Example
-
-Forecast the next 96 steps of the ETTh1 electricity transformer temperature dataset given the previous 336 steps (7 variates). The desired output is a 96-step prediction with MSE below 0.40. The ARIMA baseline, fit independently per channel, produces MSE around 0.65 because it ignores cross-variate correlations and nonlinear trends.
-
-### Baseline vs Method Comparison on the Running Example
-
-| Approach | Output on running example | Why it differs from baseline |
-|---|---|---|
-| Baseline | See running example above | (anchor) |
-| TS-Agent | _To be added as papers accumulate._ | Anchor paper for this area |
-| Sensor2Text | _To be added as papers accumulate._ | Anchor paper for this area |
-
 ### Timeline
 
 1970 | ARIMA (Box et al.) | 

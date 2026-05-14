@@ -1,27 +1,5 @@
 ## Test-Time Training
 
-### What
-
-Test-time training (TTT) adapts model parameters at inference time using a self-supervised objective on the test input itself. This allows the model to adjust to distribution shifts between training and test data without requiring labeled test data. Recent work integrates TTT as a layer within sequence models.
-
-### Why
-
-Models trained on one distribution often degrade on shifted test distributions (different hospitals, different sensors, different domains). TTT provides a way to adapt without labels at test time, which is useful when the shift is unpredictable and collecting new training data is infeasible.
-
-### Baseline
-
-Apply the trained model directly to the test data without any adaptation. The main failure mode is degraded accuracy when test data differs from training data in style, resolution, or domain characteristics.
-
-### Running Example
-
-Segment medical images from Hospital B using a U-Net trained on Hospital A data. The unadapted model achieves Dice score of 0.68 due to differences in imaging protocols. TTT-Unet, which fine-tunes on each test image using a self-supervised reconstruction objective, achieves Dice score of 0.79.
-
-### Baseline vs Method Comparison on the Running Example
-
-| Approach | Output on running example | Why it differs from baseline |
-|---|---|---|
-| Baseline | See running example above | (anchor) |
-
 ### Timeline
 
 2023 | UNI Pathology (Chen et al.) | 

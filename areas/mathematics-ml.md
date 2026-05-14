@@ -1,27 +1,5 @@
 ## Mathematical Methods for ML
 
-### What
-
-This area covers the mathematical tools that underlie machine learning methods: compressed sensing, sparse representation, matrix decomposition (CUR, SVD), canonical correlation analysis, and related optimization theory. These tools provide the theoretical foundations for dimensionality reduction, feature selection, and signal recovery.
-
-### Why
-
-Many ML algorithms rely on linear algebra and optimization theory for their correctness guarantees. Understanding compressed sensing explains why sparse models work; CUR decompositions explain why low-rank approximations preserve structure. These foundations are necessary for designing principled new methods rather than relying on empirical tuning alone.
-
-### Baseline
-
-Use full SVD for dimensionality reduction or feature extraction. The main failure mode is computational cost: SVD on an m-by-n matrix costs O(min(m,n)^2 * max(m,n)), which is prohibitive for large datasets.
-
-### Running Example
-
-Approximate a 10000x5000 gene expression matrix for downstream clustering. Full SVD takes 120 seconds. CUR decomposition with 100 selected columns and rows produces a rank-100 approximation in 3 seconds with relative error under 5%, sufficient for clustering accuracy within 2% of the full-SVD result.
-
-### Baseline vs Method Comparison on the Running Example
-
-| Approach | Output on running example | Why it differs from baseline |
-|---|---|---|
-| Baseline | See running example above | (anchor) |
-
 ### Timeline
 
 2003 | L1 Minimization (Donoho et al.) | 

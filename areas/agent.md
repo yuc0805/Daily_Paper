@@ -1,27 +1,5 @@
 ## LLM-based Agents
 
-### What
-
-LLM-based agents are systems where a language model acts as the central controller, making decisions about which tools to call, how to decompose tasks, and when to revise plans. This area covers architectures for tool use, memory mechanisms, planning algorithms, and multi-agent coordination.
-
-### Why
-
-Single-turn LLM interactions cannot handle tasks that require external information retrieval, code execution, or multi-step planning. Agent frameworks extend LLMs into iterative problem solvers, but current systems are brittle: they hallucinate tool calls, get stuck in loops, and lack reliable self-correction.
-
-### Baseline
-
-Use a single LLM call with all instructions in the prompt (no tool use, no planning loop). The main failure mode is that the model cannot access external data or verify its own outputs, leading to stale or fabricated answers on any task requiring real-time information.
-
-### Running Example
-
-Answer the question: 'What is the current stock price of AAPL and is it above its 50-day moving average?' The single-call baseline hallucinates a price from training data. An agent system would call a finance API, compute the moving average, and compare.
-
-### Baseline vs Method Comparison on the Running Example
-
-| Approach | Output on running example | Why it differs from baseline |
-|---|---|---|
-| Baseline | See running example above | (anchor) |
-
 ### Timeline
 
 2018 | Machine Theory of Mind (Rabinowitz et al.) | 

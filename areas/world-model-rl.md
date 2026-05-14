@@ -1,27 +1,5 @@
 ## World Models and Reinforcement Learning
 
-### What
-
-This area covers reinforcement learning algorithms and world models: learned simulators that predict environment dynamics. It spans value-based methods (DQN), policy gradient methods (PPO), offline RL, model-based RL with learned world models, and decision transformers that cast RL as sequence modeling.
-
-### Why
-
-RL enables agents to learn optimal behavior from interaction, but sample efficiency remains a core bottleneck. World models address this by allowing the agent to plan in imagination rather than requiring real environment steps. Offline RL further reduces the need for online interaction by learning from pre-collected datasets.
-
-### Baseline
-
-Train a DQN agent with online interaction in the environment, using an epsilon-greedy exploration strategy. The main failure mode is sample inefficiency: DQN requires millions of environment steps to learn a reasonable policy, which is infeasible in real-world settings (robotics, healthcare).
-
-### Running Example
-
-Learn a control policy for the DMControl Walker-Walk task from 500k environment steps. DQN achieves average return of 400. TD-MPC2 with a learned world model achieves average return of 900 because it can plan ahead using predicted future states.
-
-### Baseline vs Method Comparison on the Running Example
-
-| Approach | Output on running example | Why it differs from baseline |
-|---|---|---|
-| Baseline | See running example above | (anchor) |
-
 ### Timeline
 
 1999 | Policy Gradient (Sutton et al.) | 

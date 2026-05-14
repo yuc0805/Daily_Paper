@@ -1,27 +1,5 @@
 ## Interpretable Machine Learning
 
-### What
-
-Interpretable ML studies how to make model predictions understandable to humans. It covers inherently interpretable models (decision trees, rule lists, risk scores), post-hoc explanation methods (SHAP, LIME, concept-based explanations), and the meta-question of what interpretability means and how to evaluate it. Sub-areas include XAI methods, framing/philosophy of interpretability, and predictive multiplicity.
-
-### Why
-
-In high-stakes domains (healthcare, criminal justice, lending), stakeholders need to understand why a model made a particular prediction. Post-hoc explanations can be misleading or unstable, and the field lacks consensus on evaluation criteria. Predictive multiplicity (multiple models with similar accuracy but different individual predictions) further complicates the picture.
-
-### Baseline
-
-Train a black-box gradient boosted tree and inspect feature importances from the tree structure. The main failure mode is that global feature importance does not explain individual predictions and can be misleading when features are correlated.
-
-### Running Example
-
-Predict whether a loan applicant will default (binary classification on the FICO dataset). The gradient boosted tree achieves AUC 0.79 and reports 'income' as the top feature. But for a specific applicant who was denied, the user wants to know which features to change to get approved. SHAP values reveal that 'number of recent inquiries' was the decisive factor for this individual, and Ustun et al.'s actionable recourse method finds the minimum-cost set of changes.
-
-### Baseline vs Method Comparison on the Running Example
-
-| Approach | Output on running example | Why it differs from baseline |
-|---|---|---|
-| Baseline | See running example above | (anchor) |
-
 ### Timeline
 
 2001 | Two Cultures (Breiman et al.) | 
