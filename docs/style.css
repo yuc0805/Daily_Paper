@@ -176,6 +176,74 @@ footer {
 footer a { color: var(--accent); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 
+/* ======= Today's Papers ======= */
+.section-date {
+  font-size: 0.85rem;
+  font-family: system-ui, sans-serif;
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 8px;
+}
+.placeholder-msg {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-style: italic;
+  font-family: system-ui, sans-serif;
+  padding: 16px 0;
+}
+#today-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.today-card {
+  display: block;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 16px 20px;
+  text-decoration: none;
+  color: var(--text);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.today-card:hover {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
+}
+.today-card-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.today-meta {
+  font-size: 0.8rem;
+  font-family: system-ui, sans-serif;
+  color: var(--muted);
+}
+.today-what {
+  font-size: 0.9rem;
+  margin: 10px 0 8px;
+  line-height: 1.5;
+}
+.today-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.78rem;
+  font-family: system-ui, sans-serif;
+}
+.today-area {
+  background: #eef2ff;
+  color: var(--accent);
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+.today-lineage {
+  color: var(--muted);
+  padding: 2px 0;
+}
+
 /* ======= Area page styles ======= */
 .area-page { max-width: 800px; }
 .area-page h2 { font-size: 1.6rem; border-bottom: 2px solid var(--text); margin-bottom: 16px; }

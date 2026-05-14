@@ -17,6 +17,13 @@
 </header>
 
 <main>
+  <section id="today-section">
+    <h2>Today's Papers <span id="today-date" class="section-date"></span></h2>
+    <p class="section-desc">Papers picked from recent Zotero additions, explained in context of the knowledge graph. Archived to area pages at end of day.</p>
+    <div id="today-cards"></div>
+    <p id="today-empty" class="placeholder-msg" style="display:none;">No papers for today yet. The morning digest will populate this section.</p>
+  </section>
+
   <section id="graph-section">
     <h2>Area Map</h2>
     <p class="section-desc">Each node is a research area. Size reflects paper count. Edges connect areas that share papers. Color encodes community cluster. Click a node to jump to its page.</p>
@@ -55,11 +62,53 @@ async function main() {
   // Populate community labels
   data.communities.forEach(c => { COMMUNITY_LABELS[c.id] = c.label; });
 
+  await renderToday();
   renderGraph(data);
   renderCards(data);
   renderLegend(data);
   setupFilters(data);
 }
+
+async function renderToday() {
+  const section = document.getElementById('today-section');
+  const container = document.getElementById('today-cards');
+  const emptyMsg = document.getElementById('today-empty');
+  const dateEl = document.getElementById('today-date');
+
+  try {
+    const resp = await fetch('data/today.json');
+    if (!resp.ok) { emptyMsg.style.display = 'block'; return; }
+    const today = await resp.json();
+
+    dateEl.textContent = today.date || '';
+
+    if (!today.papers || today.papers.length === 0) {
+      emptyMsg.style.display = 'block';
+      return;
+    }
+
+    today.papers.forEach(p => {
+      const card = document.createElement('a');
+      card.href = `papers/${p.zotero_key}.html`;
+      card.className = 'today-card';
+      card.innerHTML = `
+        <div class="today-card-header">
+          <h3>${esc(p.title)}</h3>
+          <span class="today-meta">${esc(p.authors)} &middot; ${p.year}</span>
+        </div>
+        <p class="today-what">${esc(p.what)}</p>
+        <div class="today-footer">
+          <span class="today-area">${esc(p.area_label)}</span>
+          ${p.builds_on ? `<span class="today-lineage">Builds on: ${esc(p.builds_on)}</span>` : ''}
+        </div>`;
+      container.appendChild(card);
+    });
+  } catch (e) {
+    emptyMsg.style.display = 'block';
+  }
+}
+
+function esc(s) { return s ? s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') : ''; }
 
 function renderGraph(data) {
   const container = document.getElementById('graph-container');
