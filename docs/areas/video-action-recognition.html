@@ -14,20 +14,6 @@
   <span class="meta">7 papers</span>
 </div>
 <h2>Video Action Recognition</h2>
-<h3>What</h3>
-<p>Video action recognition classifies human actions in video clips. Methods have evolved from hand-crafted features through two-stream CNNs (spatial + optical flow) to 3D convolutions (I3D) and video transformers (TimeSformer, VideoMAE). Self-supervised pre-training with masked video modeling is the current frontier.</p>
-<h3>Why</h3>
-<p>Action recognition is needed in surveillance, sports analytics, human-computer interaction, and activity monitoring for health. Video data is high-dimensional and temporally redundant, so efficient architectures that capture motion patterns without processing every frame are important.</p>
-<h3>Baseline</h3>
-<p>Extract per-frame features with a 2D CNN (ResNet-50) and average-pool across the temporal dimension. The main failure mode is that temporal averaging destroys motion information: actions like 'opening a door' and 'closing a door' become indistinguishable.</p>
-<h3>Running Example</h3>
-<p>Classify a 16-frame clip from Kinetics-400 into one of 400 action categories. The frame-averaged ResNet-50 achieves 56% top-1 accuracy. TimeSformer with divided space-time attention achieves 78% top-1 accuracy because it models temporal relationships between frames.</p>
-<h3>Baseline vs Method Comparison on the Running Example</h3>
-<table>
-<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
-<tbody>
-<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
-</tbody></table>
 <h3>Timeline</h3>
 <div class="timeline-entry"><span class="timeline-year">2014</span><span>Two-Stream (Simonyan et al.)</span></div>
 <div class="timeline-entry"><span class="timeline-year">2017</span><span>TSN (Wang et al.)</span></div>

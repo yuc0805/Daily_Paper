@@ -14,20 +14,6 @@
   <span class="meta">3 papers</span>
 </div>
 <h2>Hallucination in Language Models</h2>
-<h3>What</h3>
-<p>Hallucination refers to model outputs that are fluent but factually incorrect or unsupported by the input. This area covers detection methods (consistency checks, retrieval-based verification), mitigation strategies (constrained decoding, retrieval augmentation), and domain-specific benchmarks (medical hallucination).</p>
-<h3>Why</h3>
-<p>Hallucination is the primary reliability failure of LLMs in high-stakes applications. A medical QA system that fabricates drug interactions or a legal assistant that invents case citations can cause real harm. Reducing hallucination is necessary before LLMs can be deployed in safety-critical settings.</p>
-<h3>Baseline</h3>
-<p>Generate an answer with a standard LLM and present it to the user without verification. The main failure mode is that the model confidently states incorrect facts, and the user has no way to distinguish correct from hallucinated content.</p>
-<h3>Running Example</h3>
-<p>Answer the medical question: 'What is the recommended first-line treatment for stage II hypertension?' The unverified LLM baseline might state a specific drug with fabricated dosage guidelines. A retrieval-augmented system grounds its answer in clinical guidelines and flags when no source supports a claim.</p>
-<h3>Baseline vs Method Comparison on the Running Example</h3>
-<table>
-<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
-<tbody>
-<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
-</tbody></table>
 <h3>Timeline</h3>
 <div class="timeline-entry"><span class="timeline-year">2023</span><span>Med-HALT (Pal et al.)</span></div>
 <div class="timeline-entry"><span class="timeline-year">2024</span><span>Med-VQA Hallucination (Wu et al.)</span></div>

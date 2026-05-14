@@ -14,20 +14,6 @@
   <span class="meta">9 papers</span>
 </div>
 <h2>Audio Representation Learning</h2>
-<h3>What</h3>
-<p>Audio representation learning covers models that extract useful features from raw audio or spectrograms for tasks like sound classification, speech recognition, and health acoustics. Methods range from CNN-based spectrogram classifiers (PSLA) to transformer encoders (AST) and self-supervised approaches (TRILL, HeAR, CLAP).</p>
-<h3>Why</h3>
-<p>Audio signals carry information about health (cough detection, respiratory disease), environment (urban sound classification), and communication (speech). Pre-trained audio representations reduce the need for labeled audio data, which is expensive to annotate at scale.</p>
-<h3>Baseline</h3>
-<p>Extract mel-spectrogram features and train a CNN classifier from scratch. The main failure mode is that spectrogram-level CNNs miss temporal structure beyond their receptive field and require large labeled datasets to avoid overfitting.</p>
-<h3>Running Example</h3>
-<p>Classify environmental sounds into 50 categories on the ESC-50 dataset. The mel-spectrogram CNN baseline achieves 72% accuracy. AST (Audio Spectrogram Transformer) pre-trained on AudioSet achieves 88% accuracy.</p>
-<h3>Baseline vs Method Comparison on the Running Example</h3>
-<table>
-<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
-<tbody>
-<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
-</tbody></table>
 <h3>Timeline</h3>
 <div class="timeline-entry"><span class="timeline-year">2020</span><span>TRILL (Shor et al.)</span></div>
 <div class="timeline-entry"><span class="timeline-year">2021</span><span>AST (Gong et al.)</span></div>

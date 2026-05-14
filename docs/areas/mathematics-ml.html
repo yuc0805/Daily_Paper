@@ -14,20 +14,6 @@
   <span class="meta">10 papers</span>
 </div>
 <h2>Mathematical Methods for ML</h2>
-<h3>What</h3>
-<p>This area covers the mathematical tools that underlie machine learning methods: compressed sensing, sparse representation, matrix decomposition (CUR, SVD), canonical correlation analysis, and related optimization theory. These tools provide the theoretical foundations for dimensionality reduction, feature selection, and signal recovery.</p>
-<h3>Why</h3>
-<p>Many ML algorithms rely on linear algebra and optimization theory for their correctness guarantees. Understanding compressed sensing explains why sparse models work; CUR decompositions explain why low-rank approximations preserve structure. These foundations are necessary for designing principled new methods rather than relying on empirical tuning alone.</p>
-<h3>Baseline</h3>
-<p>Use full SVD for dimensionality reduction or feature extraction. The main failure mode is computational cost: SVD on an m-by-n matrix costs O(min(m,n)^2 * max(m,n)), which is prohibitive for large datasets.</p>
-<h3>Running Example</h3>
-<p>Approximate a 10000x5000 gene expression matrix for downstream clustering. Full SVD takes 120 seconds. CUR decomposition with 100 selected columns and rows produces a rank-100 approximation in 3 seconds with relative error under 5%, sufficient for clustering accuracy within 2% of the full-SVD result.</p>
-<h3>Baseline vs Method Comparison on the Running Example</h3>
-<table>
-<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
-<tbody>
-<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
-</tbody></table>
 <h3>Timeline</h3>
 <div class="timeline-entry"><span class="timeline-year">2003</span><span>L1 Minimization (Donoho et al.)</span></div>
 <div class="timeline-entry"><span class="timeline-year">2004</span><span>CCA (Hardoon et al.)</span></div>

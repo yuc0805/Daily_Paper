@@ -14,20 +14,6 @@
   <span class="meta">1 papers</span>
 </div>
 <h2>Optimization Methods</h2>
-<h3>What</h3>
-<p>This area covers the optimization algorithms used to train neural networks, from SGD through adaptive methods (Adam, AdaGrad) to more recent variants. It includes convergence theory, learning rate schedules, and the practical considerations that determine which optimizer to use.</p>
-<h3>Why</h3>
-<p>The choice of optimizer affects training speed, final accuracy, and generalization. Adam is the de facto default, but it can converge to sharp minima that generalize poorly. Understanding optimizer behavior is necessary for diagnosing training failures and tuning large-scale training runs.</p>
-<h3>Baseline</h3>
-<p>Use SGD with a fixed learning rate and momentum. The main failure mode is that SGD requires careful learning rate tuning per problem and converges slowly on ill-conditioned loss surfaces.</p>
-<h3>Running Example</h3>
-<p>Train a ResNet-50 on ImageNet for 90 epochs. SGD with fixed learning rate 0.1 achieves 75.2% top-1 accuracy but diverges if the learning rate is set above 0.3. Adam with default settings achieves 74.8% accuracy with less sensitivity to the initial learning rate, but uses 2x memory for moment estimates.</p>
-<h3>Baseline vs Method Comparison on the Running Example</h3>
-<table>
-<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
-<tbody>
-<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
-</tbody></table>
 <h3>Timeline</h3>
 <div class="timeline-entry"><span class="timeline-year">2017</span><span>Adam (Kingma et al.)</span></div>
 <h3>Key Methods</h3>

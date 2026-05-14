@@ -14,22 +14,6 @@
   <span class="meta">18 papers</span>
 </div>
 <h2>Generative Computer Vision</h2>
-<h3>What</h3>
-<p>Generative computer vision covers models that synthesize images, videos, or 3D content. The field has progressed from GANs through VAEs to diffusion models, with recent work on transformer-based diffusion (DiT) and latent diffusion (Stable Diffusion). Applications include image generation, inpainting, style transfer, and super-resolution.</p>
-<h3>Why</h3>
-<p>Generative models enable data augmentation, creative tools, and scientific simulation (e.g., generating synthetic medical images for training). The shift from GANs to diffusion models improved training stability and sample diversity, but diffusion models remain computationally expensive at inference time.</p>
-<h3>Baseline</h3>
-<p>Train a GAN (generator + discriminator) on the target image domain. The main failure mode is mode collapse: the generator learns to produce only a few distinct outputs, failing to cover the full data distribution.</p>
-<h3>Running Example</h3>
-<p>Generate a 256x256 image of a bedroom from the LSUN Bedrooms dataset. The GAN baseline achieves FID of 12.4 but produces nearly identical layouts. DDPM achieves FID of 4.9 with much greater diversity in furniture arrangement and lighting.</p>
-<h3>Baseline vs Method Comparison on the Running Example</h3>
-<table>
-<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
-<tbody>
-<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
-<tr><td>DALL-E 2</td><td>_To be added as papers accumulate._</td><td>Anchor paper for this area</td></tr>
-<tr><td>DDPM</td><td>_To be added as papers accumulate._</td><td>Anchor paper for this area</td></tr>
-</tbody></table>
 <h3>Timeline</h3>
 <div class="timeline-entry"><span class="timeline-year">2014</span><span>GAN (Goodfellow et al.)</span></div>
 <div class="timeline-entry"><span class="timeline-year">2015</span><span>Nonequilibrium Thermodynamics (Sohl-Dickstein et al.)</span></div>

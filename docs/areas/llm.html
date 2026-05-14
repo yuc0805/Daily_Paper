@@ -14,21 +14,6 @@
   <span class="meta">4 papers</span>
 </div>
 <h2>Large Language Models</h2>
-<h3>What</h3>
-<p>Large language models are neural networks trained on large text corpora using self-supervised objectives (typically next-token prediction). This area covers architecture design, scaling laws, training procedures, and the emergent capabilities that arise at scale, including in-context learning and instruction following.</p>
-<h3>Why</h3>
-<p>LLMs serve as the backbone for most current NLP systems and increasingly for multimodal and agentic applications. Understanding their architecture choices (attention variants, mixture-of-experts routing, positional encoding) and training recipes (data mixing, RLHF, distillation) is necessary for anyone building on or evaluating these models.</p>
-<h3>Baseline</h3>
-<p>Fine-tune a BERT-base model on the target task with a task-specific classification head. The main failure mode is that BERT-scale models lack the capacity for complex reasoning and cannot perform in-context learning, requiring separate fine-tuning for each new task.</p>
-<h3>Running Example</h3>
-<p>Answer a multi-step arithmetic word problem from GSM8K: 'A store sells 40 apples on Monday and twice as many on Tuesday. How many total?' The desired output is 120. BERT-base with a classification head cannot generate free-form answers and would need to be re-framed as a multiple-choice task, losing generality.</p>
-<h3>Baseline vs Method Comparison on the Running Example</h3>
-<table>
-<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
-<tbody>
-<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
-<tr><td>Attention Is All You Need</td><td>_To be added as papers accumulate._</td><td>Anchor paper for this area</td></tr>
-</tbody></table>
 <h3>Timeline</h3>
 <div class="timeline-entry"><span class="timeline-year">2024</span><span>DeepSeek-V2 (DeepSeek-AI et al.)</span></div>
 <div class="timeline-entry"><span class="timeline-year">2024</span><span>DeepSeek-V3 (DeepSeek-AI et al.)</span></div>

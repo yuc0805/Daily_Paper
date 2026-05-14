@@ -14,20 +14,6 @@
   <span class="meta">31 papers</span>
 </div>
 <h2>World Models and Reinforcement Learning</h2>
-<h3>What</h3>
-<p>This area covers reinforcement learning algorithms and world models: learned simulators that predict environment dynamics. It spans value-based methods (DQN), policy gradient methods (PPO), offline RL, model-based RL with learned world models, and decision transformers that cast RL as sequence modeling.</p>
-<h3>Why</h3>
-<p>RL enables agents to learn optimal behavior from interaction, but sample efficiency remains a core bottleneck. World models address this by allowing the agent to plan in imagination rather than requiring real environment steps. Offline RL further reduces the need for online interaction by learning from pre-collected datasets.</p>
-<h3>Baseline</h3>
-<p>Train a DQN agent with online interaction in the environment, using an epsilon-greedy exploration strategy. The main failure mode is sample inefficiency: DQN requires millions of environment steps to learn a reasonable policy, which is infeasible in real-world settings (robotics, healthcare).</p>
-<h3>Running Example</h3>
-<p>Learn a control policy for the DMControl Walker-Walk task from 500k environment steps. DQN achieves average return of 400. TD-MPC2 with a learned world model achieves average return of 900 because it can plan ahead using predicted future states.</p>
-<h3>Baseline vs Method Comparison on the Running Example</h3>
-<table>
-<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
-<tbody>
-<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
-</tbody></table>
 <h3>Timeline</h3>
 <div class="timeline-entry"><span class="timeline-year">1999</span><span>Policy Gradient (Sutton et al.)</span></div>
 <div class="timeline-entry"><span class="timeline-year">2000</span><span>IS Eligibility Traces (Precup et al.)</span></div>

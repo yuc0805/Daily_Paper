@@ -14,20 +14,6 @@
   <span class="meta">8 papers</span>
 </div>
 <h2>LLM-based Agents</h2>
-<h3>What</h3>
-<p>LLM-based agents are systems where a language model acts as the central controller, making decisions about which tools to call, how to decompose tasks, and when to revise plans. This area covers architectures for tool use, memory mechanisms, planning algorithms, and multi-agent coordination.</p>
-<h3>Why</h3>
-<p>Single-turn LLM interactions cannot handle tasks that require external information retrieval, code execution, or multi-step planning. Agent frameworks extend LLMs into iterative problem solvers, but current systems are brittle: they hallucinate tool calls, get stuck in loops, and lack reliable self-correction.</p>
-<h3>Baseline</h3>
-<p>Use a single LLM call with all instructions in the prompt (no tool use, no planning loop). The main failure mode is that the model cannot access external data or verify its own outputs, leading to stale or fabricated answers on any task requiring real-time information.</p>
-<h3>Running Example</h3>
-<p>Answer the question: 'What is the current stock price of AAPL and is it above its 50-day moving average?' The single-call baseline hallucinates a price from training data. An agent system would call a finance API, compute the moving average, and compare.</p>
-<h3>Baseline vs Method Comparison on the Running Example</h3>
-<table>
-<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
-<tbody>
-<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
-</tbody></table>
 <h3>Timeline</h3>
 <div class="timeline-entry"><span class="timeline-year">2018</span><span>Machine Theory of Mind (Rabinowitz et al.)</span></div>
 <div class="timeline-entry"><span class="timeline-year">2023</span><span>ADaPT (Prasad et al.)</span></div>

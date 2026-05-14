@@ -14,21 +14,6 @@
   <span class="meta">7 papers</span>
 </div>
 <h2>Self-Supervised Learning Frameworks</h2>
-<h3>What</h3>
-<p>Self-supervised learning trains representations from unlabeled data by solving pretext tasks (masked prediction, contrastive matching, next-token prediction). This area covers the general frameworks (MAE, SimCLR, BYOL, foundation model pre-training) and their adaptation to domains like pathology, sensor data, and graphs.</p>
-<h3>Why</h3>
-<p>Labeled data is expensive in most scientific and medical domains. Self-supervised pre-training allows models to learn useful features from abundant unlabeled data, then fine-tune on small labeled sets. The key open question is how to design pretext tasks that produce representations transferable to the target downstream task.</p>
-<h3>Baseline</h3>
-<p>Train a supervised model from scratch on the labeled dataset only, with random initialization. The main failure mode is poor generalization when labeled data is small (under 1000 samples), because the model overfits to surface patterns.</p>
-<h3>Running Example</h3>
-<p>Classify pathology slides into tumor vs. normal using 500 labeled slides. The supervised-from-scratch ResNet-50 achieves 78% accuracy. A model pre-trained with MAE on 100k unlabeled slides and fine-tuned on the same 500 labels achieves 89% accuracy.</p>
-<h3>Baseline vs Method Comparison on the Running Example</h3>
-<table>
-<thead><tr><th>Approach</th><th>Output on running example</th><th>Why it differs from baseline</th></tr></thead>
-<tbody>
-<tr><td>Baseline</td><td>See running example above</td><td>(anchor)</td></tr>
-<tr><td>SSL for HAR with 700K Person-days</td><td>_To be added as papers accumulate._</td><td>Anchor paper for this area</td></tr>
-</tbody></table>
 <h3>Timeline</h3>
 <div class="timeline-entry"><span class="timeline-year">2017</span><span>Attention Is All You Need (Vaswani et al.)</span></div>
 <div class="timeline-entry"><span class="timeline-year">2020</span><span>GPT-3 (Brown et al.)</span></div>
