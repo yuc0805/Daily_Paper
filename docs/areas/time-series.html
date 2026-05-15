@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Signal (Time Series) — AI Knowledge Graph</title>
 <link rel="stylesheet" href="../style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="../area-graph.js" defer></script>
 </head>
 <body>
 <div class="area-page">
@@ -14,6 +16,12 @@
   <span class="meta">44 papers</span>
 </div>
 <h2>Signal Processing and Time Series</h2>
+
+<h3>Lineage Map</h3>
+<p class="section-desc" style="font-family:system-ui,sans-serif;font-size:0.85rem;color:#666;">Each node is a paper. Edges are <strong>builds_on</strong> (arrow: target builds on source) or <strong>sibling</strong> (dashed). Anchors have black borders. Drag to rearrange. Click a node to open its paper page.</p>
+<div id="area-graph-container"></div>
+<script>document.addEventListener('DOMContentLoaded', () => renderAreaGraph('time-series'));</script>
+
 <h3>Timeline</h3>
 <div class="timeline-entry"><span class="timeline-year">1970</span><span>ARIMA (Box et al.)</span></div>
 <div class="timeline-entry"><span class="timeline-year">2017</span><span>Attention Is All You Need (Vaswani et al.)</span></div>
