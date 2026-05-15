@@ -316,6 +316,48 @@ footer a:hover { text-decoration: underline; }
 }
 .back-link:hover { text-decoration: underline; }
 
+/* ======= Per-area lineage graph ======= */
+.area-graph-wrap {
+  position: relative;
+  margin: 20px 0 28px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  overflow: hidden;
+}
+#area-graph-svg { display: block; width: 100%; height: auto; }
+.area-graph-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--border);
+  font-family: system-ui, sans-serif;
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: #fafafa;
+}
+.area-graph-legend-item { display: inline-flex; align-items: center; gap: 5px; }
+.area-graph-legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.area-graph-legend-dash {
+  width: 16px; height: 0; border-top: 1.5px dashed #888; display: inline-block;
+}
+.area-graph-tooltip {
+  position: fixed;
+  pointer-events: none;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 0.78rem;
+  font-family: system-ui, sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  max-width: 260px;
+  line-height: 1.4;
+  transition: opacity 0.1s;
+}
+
 /* ======= Paper page styles ======= */
 .paper-page { max-width: 800px; }
 .paper-page h2 { font-size: 1.5rem; border-bottom: 2px solid var(--text); padding-bottom: 8px; margin-bottom: 4px; }
