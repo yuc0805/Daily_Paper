@@ -24,15 +24,6 @@
     <p id="today-empty" class="placeholder-msg" style="display:none;">No papers for today yet. The morning digest will populate this section.</p>
   </section>
 
-  <section id="graph-section">
-    <h2>Area Map</h2>
-    <p class="section-desc">Each node is a research area. Size reflects paper count. Edges connect areas that share papers. Color encodes community cluster. Click a node to jump to its page.</p>
-    <div id="graph-container">
-      <svg id="graph"></svg>
-    </div>
-    <div id="legend"></div>
-  </section>
-
   <section id="areas-section">
     <h2>Research Areas</h2>
     <div class="filter-bar">
@@ -63,9 +54,7 @@ async function main() {
   data.communities.forEach(c => { COMMUNITY_LABELS[c.id] = c.label; });
 
   await renderToday();
-  renderGraph(data);
   renderCards(data);
-  renderLegend(data);
   setupFilters(data);
 }
 
