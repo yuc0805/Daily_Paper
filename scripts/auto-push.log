@@ -4773,3 +4773,5 @@ To https://github.com/yuc0805/Daily_Paper.git
 To https://github.com/yuc0805/Daily_Paper.git
    fa78397..2f7eb13  HEAD -> main
 2026-05-20 17:29:46  pushed
+fatal: unable to access 'https://github.com/yuc0805/Daily_Paper.git/': Resolving timed out after 401963 milliseconds
+2026-05-20 17:41:34  pushed
