@@ -5453,3 +5453,5 @@ To https://github.com/yuc0805/Daily_Paper.git
 To https://github.com/yuc0805/Daily_Paper.git
    6dba27d..d029c15  HEAD -> main
 2026-05-21 18:12:56  pushed
+fatal: unable to access 'https://github.com/yuc0805/Daily_Paper.git/': Could not resolve host: github.com
+2026-05-21 18:25:48  pushed
