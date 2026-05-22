@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fast Training of MoE for Time Series Forecasting — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Fast Training of Mixture-of-Experts for Time Series Forecasting via Expert Loss Integration</h2>
+<p class="paper-meta">El Mahtout, Ziel &middot; 2026 &middot; <a href="https://arxiv.org/abs/2605.10330" target="_blank" rel="noopener">arXiv:2605.10330</a> &middot; Appears in: <a href="../areas/time-series.html">Signal (Time Series)</a></p>
+
+<h3>What</h3>
+<p>An adaptive MoE framework for time series forecasting with expert-specific loss integration. Per-expert prediction errors shape routing alongside the global forecasting loss. Combined with partial online learning for incremental updates without full retraining.</p>
+
+<h3>Why</h3>
+<p>Standard MoE routing for time series uses load-balancing objectives that do not account for whether individual experts are actually accurate on their assigned data. This leads to suboptimal expert specialization. Additionally, most TS models require full retraining when new data arrives, which is impractical for deployment.</p>
+
+<h3>How</h3>
+<p>The training objective combines a base forecasting loss with per-expert losses, so expert-level prediction errors directly influence the gating mechanism. A partial online learning strategy allows incremental updates of both the gating mechanism and expert parameters when new data arrives. Evaluated on economic, tourism, and energy datasets at varying frequencies.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="SN3VCQJQ.html">LLMs for Time Series Survey (Zhang 2024)</a><span class="lineage-note">Cataloged neural TS methods including Transformer baselines that this paper benchmarks against.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Standard MoE approaches route tokens based on load balancing or learned similarity without considering expert accuracy. This paper feeds expert-level prediction errors back into routing, so poor-performing experts receive fewer tokens. The online learning component addresses the retraining cost that prevents deployment of most neural TS models in production settings.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to Transformer-based TS models that process all time steps uniformly, MoE routing allows different experts to specialize on different temporal patterns. Compared to standard MoE (e.g., DECO or Hi-MoE from this week), the loss-aware routing is specific to the forecasting objective rather than general-purpose load balancing.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="4QQTVIYC.html">Sundial (Liu 2025)</a><span class="lineage-note">TS foundation model; could benefit from MoE expert specialization and online adaptation.</span></li>
+</ul>
+</div>
+</body>
+</html>

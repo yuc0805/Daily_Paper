@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Efficient Pre-Training with Token Superposition — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>Efficient Pre-Training with Token Superposition</h2>
+<p class="paper-meta">Peng, Gigant, Quesnelle (Nous Research) &middot; 2026 &middot; <a href="https://arxiv.org/abs/2605.06546" target="_blank" rel="noopener">arXiv:2605.06546</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a></p>
+
+<h3>What</h3>
+<p>Token Superposition Training (TST) achieves 2-3x wall-clock speedup for LLM pretraining by combining contiguous tokens into bag representations trained with multi-hot cross-entropy, followed by standard recovery training. No changes to model, optimizer, tokenizer, or data are needed.</p>
+
+<h3>Why</h3>
+<p>LLM pretraining is compute-bound. Existing efficiency methods modify the architecture (MoE, pruning) or the optimizer (mixed precision, gradient accumulation). TST is orthogonal: it compresses the training data stream itself, meaning it can stack with architectural efficiency methods for compounding gains.</p>
+
+<h3>How</h3>
+<p>During the superposition phase, groups of contiguous tokens are folded into single bag representations. The model is trained with a multi-hot cross-entropy loss that targets all tokens in the bag simultaneously. After sufficient superposition training, a recovery phase resumes standard next-token prediction. Validated at 270M, 600M, 3B dense, and 10B-A1B MoE scales.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Pushed MoE training efficiency; TST is orthogonal and can combine with MoE for further gains.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-V3 and similar MoE approaches reduce compute per token by activating fewer parameters. TST reduces the effective number of training steps needed by processing multiple tokens per step during the superposition phase. This addresses a different bottleneck (data throughput vs. model sparsity) and the two approaches can be combined.</p>
+
+<h3>Method vs predecessors</h3>
+<p>MoE routes tokens to sparse expert subsets. TST does the opposite: it merges multiple tokens into dense bag representations. The multi-hot cross-entropy loss is the key innovation — it allows the model to learn from all tokens in a bag simultaneously while maintaining a standard architecture that produces a normal model after recovery.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2IV8EKL2.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">Base Transformer architecture that TST trains more efficiently.</span></li>
+</ul>
+</div>
+</body>
+</html>
