@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLMT — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Compact Latent Manifold Translation: A Parameter-Efficient Foundation Model for Cross-Modal and Cross-Frequency Physiological Signal Synthesis</h2>
+<p class="paper-meta">arXiv 2026-05-13 &middot; <a href="https://arxiv.org/abs/2605.13248" target="_blank" rel="noopener">arXiv:2605.13248</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>, <a href="../areas/llm-health.html">LLM-Health</a></p>
+
+<h3>What</h3>
+<p>CLMT is a 0.09B-parameter framework for translating between different physiological signal modalities (ECG, PPG, EEG, EMG, etc.) and across different sampling frequencies. It uses a Universal Tokenizer with Hierarchical Residual Vector Quantization to map heterogeneous biosignals into discrete latent manifolds, then performs cross-modal translation in this shared space.</p>
+
+<h3>Why</h3>
+<p>Collecting certain physiological signals is more invasive or expensive than others (e.g., ECG requires chest electrodes, PPG only needs a wristband). If you can synthesize one modality from another with sufficient fidelity, you can reduce data collection burden. Prior work on physiological signal synthesis is mostly modality-specific and does not handle cross-frequency translation. The Foundation Models for Biosignals survey (Gu 2025) identified cross-modal alignment as an open problem.</p>
+
+<h3>How</h3>
+<p>The Universal Tokenizer uses Hierarchical Residual VQ to encode each signal modality into a shared discrete codebook. The hierarchical structure captures both coarse (global shape) and fine (local morphology) features. Translation between modalities is performed by mapping from one modality's latent codes to another's through a lightweight transformer decoder. Cross-frequency translation is handled by interpolating in the latent space rather than resampling raw signals.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="WAB8J2FQ.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Identified cross-modal biosignal alignment as unsolved; CLMT provides a concrete solution.</span></li>
+  <li><a href="2ZYUFEMW.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Bridged sensors to language; CLMT instead bridges sensors to sensors without the text bottleneck.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The Biosignals survey (Gu 2025) identified that existing foundation models for physiological signals are modality-specific: one model for ECG, another for PPG, and so on. Cross-modal translation was listed as an open direction. CLMT directly solves this by providing a single framework that handles multiple modalities and frequencies in a unified latent space.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to SensorLM, which builds large sensor-language models requiring >59M hours of data, CLMT is parameter-efficient at 0.09B and does not need text supervision. The Hierarchical Residual VQ approach is imported from audio/speech codecs (similar to SoundStream and Encodec), adapted here for physiological signals. This is a different design path from Sensor2Text's student-teacher distillation approach.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="HDPXBLAP.html">SensorLM</a><span class="lineage-note">Large sensor-language model; CLMT takes the small-model, signal-to-signal path instead.</span></li>
+  <li><a href="WIGLUNFZ.html">HeAR (Baur 2024)</a><span class="lineage-note">Health acoustic representations via self-supervised pretraining; related in the biosignal foundation model space.</span></li>
+</ul>
+</div>
+</body>
+</html>

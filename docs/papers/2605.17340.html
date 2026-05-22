@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olivia — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Olivia: Harmonizing Time Series Foundation Models with Power Spectral Density</h2>
+<p class="paper-meta">Fei, Yi, Wang, Wen, Zhu, Fan &middot; ICML 2026 &middot; <a href="https://arxiv.org/abs/2605.17340" target="_blank" rel="noopener">arXiv:2605.17340</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+
+<h3>What</h3>
+<p>Olivia is a time series foundation model that uses spectral harmonization to handle heterogeneous temporal patterns across pretraining domains. A Harmonizer module reshapes the power spectral density of different datasets into a shared spectral space, and a HarmonicAttention mechanism performs self-attention in a low-dimensional resonator-based interaction space.</p>
+
+<h3>Why</h3>
+<p>Time series foundation models pretrain over diverse datasets, but these datasets have very different spectral characteristics (e.g., financial data is dominated by low frequencies, while sensor data has strong high-frequency components). This spectral mismatch can hurt pretraining effectiveness and reduce transferability. Prior foundation models (Chronos, Sundial, PatchTST) do not explicitly address this heterogeneity.</p>
+
+<h3>How</h3>
+<p>The Harmonizer module computes the normalized PSD of each input batch and applies a learned spectral reshaping to align it with a target spectral profile. The theoretical analysis shows this corresponds to reparameterizing second-order temporal correlations across datasets. Token interactions under this harmonization can be mediated by a compact set of resonators, which motivates the HarmonicAttention design: self-attention is performed in a low-dimensional space defined by these resonators, reducing computation while preserving cross-domain transferability. SOTA results on TSLib, GIFT-Eval, and 6 GluonTS datasets across zero-shot, few-shot, and full-shot settings.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="4QQTVIYC.html">Sundial (Liu 2025)</a><span class="lineage-note">TS foundation model using flow-matching; Olivia addresses a different bottleneck (spectral heterogeneity).</span></li>
+  <li><a href="72DFULQQ.html">Chronos (Ansari 2024)</a><span class="lineage-note">Pretrained probabilistic TS model via tokenization; Olivia adds spectral normalization before processing.</span></li>
+  <li><a href="YY67LF3R.html">PatchTST (Nie 2023)</a><span class="lineage-note">Established patching for TS transformers; Olivia adds PSD harmonization on top of patch-based input.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Prior TS foundation models assume that a single transformer can learn from spectrally heterogeneous datasets without explicit normalization. This assumption fails when pretraining mixes domains with very different frequency characteristics. Olivia fixes this by harmonizing PSDs before attention, ensuring that the model sees a more uniform spectral landscape during training.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to Sundial's flow-matching approach and Chronos's quantization, Olivia's key novelty is in the preprocessing: the Harmonizer is a learned spectral reshaping module that operates before the transformer sees the data. The HarmonicAttention mechanism is a structural change to attention itself, performing it in a resonator-defined subspace. This is different from PatchTST's channel-independent patching and TimesNet's 2D period-based reshaping.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="5I6GAKC4.html">TimeGPT-1 (Garza 2024)</a><span class="lineage-note">Another TS foundation model; Olivia differs in spectral harmonization approach.</span></li>
+  <li><a href="CFG6FEIF.html">Moirai (Woo 2024)</a><span class="lineage-note">Uses frequency-based input specialization; Olivia argues frequency-level is too coarse and uses PSD instead.</span></li>
+</ul>
+</div>
+</body>
+</html>

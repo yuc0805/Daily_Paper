@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chronicle — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Chronicle: A Multimodal Foundation Model for Joint Language and Time Series Understanding</h2>
+<p class="paper-meta">Quinlan, Levasseur, Li, Zhu &middot; arXiv 2026-05-18 &middot; <a href="https://arxiv.org/abs/2605.20268" target="_blank" rel="noopener">arXiv:2605.20268</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+
+<h3>What</h3>
+<p>Chronicle is a 324M-parameter decoder-only transformer trained from scratch on both natural language and time series in a single unified architecture. Both modalities share the same transformer blocks, attention mechanism, and residual stream. The bulk of pretraining uses unimodal batches so that cross-modal capability emerges from shared parameters, with a short alignment stage that interleaves the two modalities.</p>
+
+<h3>Why</h3>
+<p>Existing time series foundation models process numbers in isolation. The multimodal models that combine text and time series all adapt a pretrained language model after the fact, inheriting representations shaped without ever seeing temporal data. These models are also evaluated only against other multimodal baselines, not against the strongest unimodal foundation models, leaving it unclear whether joint training helps at all. Chronicle addresses both problems: it trains jointly from scratch and evaluates against dedicated unimodal baselines.</p>
+
+<h3>How</h3>
+<p>Chronicle shares all transformer blocks between text and time series. During pretraining, most batches contain a single modality (either text or time series), and a short alignment stage at the end interleaves both modalities. The model uses standard decoder-only autoregressive training for text and a patch-based prediction objective for time series. At 324M parameters, it matches Gemma-3-270M-PT on 19 NLU tasks, sets a new state-of-the-art for frozen-embedding time series classification on 24 UCR/UEA datasets, and beats supervised fusion baselines on Time-MMD multimodal forecasts.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="XQBXBKNH.html">ChatTS (Xie 2025)</a><span class="lineage-note">Showed fine-tuning a pretrained LLM to accept multivariate TS input; Chronicle instead trains from scratch.</span></li>
+  <li><a href="DNQKLKBV.html">LLMs for Time Series Survey (Zhang 2024)</a><span class="lineage-note">Categorized five paradigms for combining LLMs with TS; Chronicle adds native joint pretraining as a sixth.</span></li>
+  <li><a href="2ZYUFEMW.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Bridged sensor data and language via distillation; Chronicle shares all parameters natively.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The core failure mode Chronicle addresses is that post-hoc adaptation of a pretrained LLM to time series data produces representations that were shaped entirely by language during initial training. ChatTS and Time-LLM both freeze or fine-tune a language backbone, which means the transformer's internal representations of temporal patterns are constrained by what language pretraining happened to produce. Chronicle removes this constraint by training on both modalities from the start, so the shared representations are shaped by both domains equally.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to ChatTS, which inserts a time series encoder into a frozen LLM and fine-tunes the bridge, Chronicle trains a single architecture end-to-end on both modalities with no frozen components. Compared to Sensor2Text, which uses student-teacher distillation from a vision-language model, Chronicle avoids the intermediate vision bottleneck. The key architectural difference is that Chronicle has no modality-specific layers beyond input tokenization; everything after tokenization is shared.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Different integration strategy: uses LLM as controller with tool calls, while Chronicle trains a unified model.</span></li>
+  <li><a href="ZE7SFTCQ.html">TEST (Sun 2024)</a><span class="lineage-note">Aligns TS embeddings to LLM space via contrastive learning; Chronicle trains jointly from scratch.</span></li>
+</ul>
+</div>
+</body>
+</html>
