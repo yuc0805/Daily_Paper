@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ActFocus: Action Bottleneck in Agentic RL — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Resolving Action Bottleneck: Agentic Reinforcement Learning Informed by Token-Level Energy</h2>
+<p class="paper-meta">He et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.14558" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+
+<h3>What</h3>
+<p>ActFocus is a token reweighting method for agentic RL that downweights gradients on reasoning tokens and upweights action tokens. It addresses the "action bottleneck" — the finding that in multi-turn agent trajectories, training signal concentrates on action tokens (a tiny fraction of the sequence) while standard methods like PPO and GRPO treat all tokens equally. ActFocus yields up to 65.2 percentage point success-rate improvements over PPO.</p>
+
+<h3>Why</h3>
+<p>Agentic RL trains LLMs on trajectories that interleave long reasoning traces with short environment-facing actions. Standard policy-gradient methods assign uniform credit across all tokens, which misallocates gradient signal. Prior work on token-level credit assignment in RL for LLMs (e.g., DeepSeek-R1) did not distinguish between reasoning and action tokens or analyze the energy landscape of different token types.</p>
+
+<h3>How</h3>
+<p>The authors analyze agentic RL trajectories from an energy-based modeling perspective, showing that token-level training signals concentrate sharply on action tokens. They then propose ActFocus, which computes token-level energy scores and uses them to reweight the policy gradient, giving action tokens proportionally more gradient signal. The method is a drop-in modification to PPO and GRPO.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="5YQ4IKMA.html">DeepSeek-R1 (2025)</a><span class="lineage-note">RL for LLM reasoning with uniform credit; ActFocus diagnoses a failure mode.</span></li>
+<li><a href="JPKDWV2Q.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Tool-use agent where action tokens (tool calls) are similarly sparse.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 demonstrated that RL can improve LLM reasoning but used uniform token weighting, which this paper shows wastes most gradient updates on reasoning tokens that carry little learning signal. ActFocus provides a principled fix based on energy-based analysis rather than heuristic approaches to credit assignment.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where DeepSeek-R1 applies uniform PPO across all tokens in the trajectory, ActFocus uses energy-based token scoring to create a non-uniform weighting. This is conceptually related to advantage-weighted methods in traditional RL but applied at the token level within a language trajectory rather than at the trajectory level.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="WAB8J2FQ.html">Chain-of-Thought (Wei 2023)</a><span class="lineage-note">The reasoning traces that ActFocus downweights are essentially CoT chains.</span></li>
+<li><a href="Y2MKM9Y3.html">LATS (Zhou 2024)</a><span class="lineage-note">Tree search agent; ActFocus's insight applies to training any agent with RL.</span></li>
+</ul>
+</div>
+</body>
+</html>

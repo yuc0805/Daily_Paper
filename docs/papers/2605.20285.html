@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introspective X Training — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>Introspective X Training: Feedback Conditioning Improves Scaling Across All LLM Training Stages</h2>
+<p class="paper-meta">Cui, Lu, Jung, Akter, Kim, Qu, Acuna, Prabhumoye, Choi, Ammanabrolu &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.20285" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a></p>
+
+<h3>What</h3>
+<p>IXT is a training method that uses a thinking reward model to annotate data with natural language critique-based feedback, then prefix-conditions training samples with this feedback so that quality-aware token weighting begins at the earliest stage of the LLM pipeline (pretraining). On 7.5-12B dense transformers trained up to 18 trillion tokens, IXT yields up to 2.8x compute efficiency and reaches performance on math and code that models trained without feedback conditioning cannot achieve regardless of additional compute.</p>
+
+<h3>Why</h3>
+<p>Current LLM pipelines treat pretraining as quality-agnostic: all tokens receive equal weight for billions of gradient steps. Quality-aware signals (reward models, human preferences) appear only during post-training. This wastes compute on low-value data during the most expensive phase of training. Prior work on data filtering or curriculum learning addressed data selection but did not incorporate reward-model feedback directly into the training objective at pretraining time.</p>
+
+<h3>How</h3>
+<p>A thinking reward model generates natural language critique for each pretraining sample. The critique is prepended as a prefix to the training data, and the model learns to condition on this prefix during standard autoregressive training. This is inspired by offline reward-conditioned RL, where the reward signal is embedded in the input rather than used as a gradient modifier. The method applies uniformly across pretraining, SFT, and RL stages.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="5YQ4IKMA.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Showed RL unlocks reasoning; IXT pushes reward signals one stage earlier into pretraining.</span></li>
+<li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">The transformer backbone made more sample-efficient by feedback conditioning.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 showed that RL can unlock reasoning ability in LLMs, but the reward signal only shapes the model during post-training, after pretraining representations have already been formed. IXT solves this temporal gap by introducing reward-derived quality signals from the very first pretraining step. Data filtering methods (e.g., quality classifiers for pretraining data) address a related problem but make binary keep/discard decisions; IXT instead provides continuous, fine-grained quality feedback that the model learns to condition on.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where DeepSeek-R1 uses reward signals as gradient modifiers via policy gradient objectives, IXT encodes reward information as input prefixes, following the offline reward-conditioned RL paradigm. This means no special RL training loop is needed — standard next-token prediction suffices. Where curriculum learning orders training data by difficulty, IXT keeps all data but annotates each sample with quality information, letting the model itself learn how to weight different quality levels.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="WAB8J2FQ.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">CoT adds reasoning traces at inference; IXT adds critique at training time.</span></li>
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Same model family; IXT's method could be applied to future DeepSeek pretraining.</span></li>
+</ul>
+</div>
+</body>
+</html>

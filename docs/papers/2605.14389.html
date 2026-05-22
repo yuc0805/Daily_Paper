@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexus: Agentic Time Series Forecasting — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Nexus: An Agentic Framework for Time Series Forecasting</h2>
+<p class="paper-meta">Das, Goyal, Parmar, Peng, Tirumalashetty, Li, Zhang, Yoon, Pfister &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.14389" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>, <a href="../areas/agent.html">Agent</a></p>
+
+<h3>What</h3>
+<p>Nexus is a multi-agent forecasting framework that decomposes time series prediction into specialized stages: isolating macro-level and micro-level temporal fluctuations, integrating contextual information (news, events), and synthesizing a final forecast. It shows that LLMs have stronger intrinsic forecasting ability than previously recognized when reasoning is properly organized.</p>
+
+<h3>Why</h3>
+<p>Time Series Foundation Models (TSFMs) handle numerical patterns well but ignore real-world textual signals. LLMs can incorporate context but their forecasting performance is uneven when given monolithic prompts. Prior work either adapted LLMs with fine-tuning (ChatTS) or used LLMs as controllers over statistical tools (TS-Agent), but neither fully exploited the LLM's own numerical reasoning through structured decomposition.</p>
+
+<h3>How</h3>
+<p>Nexus uses a multi-agent pipeline where each agent handles a specific reasoning subtask: one isolates seasonal/macro patterns, another handles micro-level volatility, and a third integrates available contextual information. A synthesis agent combines the outputs. No fine-tuning is needed; the decomposition is achieved through prompt design. Evaluation uses data strictly after LLM knowledge cutoffs (Zillow real estate, stock equities) to ensure genuine forecasting rather than memorization.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="VSCNJG5J.html">TS-Agent (Liu 2025)</a><span class="lineage-note">LLM as controller over tools; Nexus uses LLM as forecaster via decomposition.</span></li>
+<li>ChatTS (Xie 2025)<span class="lineage-note">Fine-tuned LLM for TS alignment; Nexus achieves this zero-shot via multi-agent prompting.</span></li>
+<li><a href="NMJXW3GJ.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Task decomposition for planning; Nexus applies the same principle to forecasting.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>TS-Agent relies on the LLM only for tool selection, deferring numerical computation to external statistical methods. This limits the LLM's contribution to orchestration. Nexus shows the LLM itself can perform competitive numerical forecasting when the reasoning is decomposed, removing the dependency on external statistical tools. ChatTS requires fine-tuning to align time series tokens with language; Nexus achieves comparable or better results with no training at all.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where TS-Agent uses a single LLM agent that selects tools from a predefined toolkit, Nexus uses multiple specialized agents that each handle a different temporal scale or information type. Where ChatTS modifies the LLM's input representation to accept time series tokens, Nexus feeds time series as text (numbers in prompts) and relies on decomposition to manage complexity. The multi-agent design is borrowed from the general agent literature (ADaPT) but adapted specifically for the temporal decomposition structure of forecasting.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="WIGLUNFZ.html">LLMs for Time Series Survey (Zhang 2024)</a><span class="lineage-note">Surveys paradigms for TS+LLM; Nexus adds a new paradigm (multi-agent decomposition).</span></li>
+<li><a href="2ZYUFEMW.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Also bridges sensor data and language but via distillation rather than agentic reasoning.</span></li>
+</ul>
+</div>
+</body>
+</html>

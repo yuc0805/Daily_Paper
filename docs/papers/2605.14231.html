@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AudioMosaic — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/audio.html" class="back-link">&larr; Back to Area</a>
+<h2>AudioMosaic: Contrastive Masked Audio Representation Learning</h2>
+<p class="paper-meta">Huang, Wang, Ma, Xie, Leckie, Erfani &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.14231" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/audio.html">Audio</a>, <a href="../areas/self-supervised.html">Self-supervised</a></p>
+
+<h3>What</h3>
+<p>AudioMosaic is a contrastive self-supervised audio encoder that constructs positive pairs via structured time-frequency masking on spectrogram patches. It achieves state-of-the-art on multiple audio benchmarks under both linear probing and fine-tuning, outperforming generative reconstruction approaches. When integrated into audio-language models, it also improves downstream audio-language tasks.</p>
+
+<h3>Why</h3>
+<p>Recent audio SSL has been dominated by generative objectives (masked autoencoders, reconstruction targets). Contrastive approaches have been underexplored for audio because designing effective audio augmentations is harder than for images, and large batch sizes required for contrastive training create memory constraints. Prior contrastive audio methods relied on hand-crafted augmentations (pitch shift, time stretch) that may not generalize across audio domains.</p>
+
+<h3>How</h3>
+<p>AudioMosaic applies structured time-frequency masking to spectrogram patches to construct positive pairs for contrastive learning. The masking strategy serves dual purposes: it provides a domain-agnostic augmentation (no hand-crafted audio transforms needed) and reduces memory by processing only unmasked patches, enabling large-batch contrastive training on standard hardware.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="6VTXUZEG.html">Audio Mamba (Erol 2024)</a><span class="lineage-note">Applied SSM architecture to audio; AudioMosaic instead focuses on pretraining objective.</span></li>
+<li><a href="RTMH75VW.html">SSL for HAR (Yuan 2024)</a><span class="lineage-note">Combined masking and contrastive learning for wearable data; AudioMosaic unifies them by using masking as the contrastive augmentation.</span></li>
+<li><a href="6INGKIJV.html">MAE Theory (Zhang 2023)</a><span class="lineage-note">Analyzed masked autoencoders; AudioMosaic shows contrastive + masking can outperform generative + masking.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Audio Mamba changed the architecture but kept standard pretraining objectives. AudioMosaic shows that changing the pretraining objective (contrastive instead of generative) can matter more than changing the architecture. Compared to generative audio SSL, AudioMosaic produces more discriminative utterance-level representations with better transferability across datasets and acoustic conditions.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where Yuan 2024 uses masking as a reconstruction target alongside a separate contrastive loss (two objectives), AudioMosaic uses masking solely as an augmentation strategy for a single contrastive objective. This is simpler and avoids the need to balance reconstruction and contrastive losses. Where prior audio contrastive methods needed hand-crafted augmentations, AudioMosaic's masking-based augmentation is domain-agnostic.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="EDTXS4NM.html">Biosignals Survey (Gu 2025)</a><span class="lineage-note">Surveys SSL for biosignals; AudioMosaic's approach could transfer.</span></li>
+<li><a href="TUIUJY92.html">HeAR (Baur 2024)</a><span class="lineage-note">Health acoustic representations; AudioMosaic offers an alternative pretraining strategy.</span></li>
+</ul>
+</div>
+</body>
+</html>

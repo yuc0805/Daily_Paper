@@ -1,45 +1,45 @@
 {
-  "date": "2026-05-21",
+  "date": "2026-05-22",
   "papers": [
     {
-      "zotero_key": "2605.20268",
-      "title": "Chronicle: A Multimodal Foundation Model for Joint Language and Time Series Understanding",
-      "authors": "Quinlan et al.",
+      "zotero_key": "2605.20285",
+      "title": "Introspective X Training: Feedback Conditioning Improves Scaling Across All LLM Training Stages",
+      "authors": "Cui et al.",
       "year": 2026,
-      "what": "First model jointly pretrained from scratch on text and time series; 324M params, SOTA on UCR/UEA classification and Time-MMD fusion.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "ChatTS (Xie 2025), LLMs for TS Survey (Zhang 2024)"
+      "what": "Prefix-conditions pretraining data with reward-model feedback; 2.8x compute efficiency on 7.5-12B transformers trained to 18T tokens.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "DeepSeek-R1 (2025), Chain-of-Thought (Wei 2023)"
     },
     {
-      "zotero_key": "2605.17340",
-      "title": "Olivia: Harmonizing Time Series Foundation Models with Power Spectral Density",
-      "authors": "Fei et al.",
+      "zotero_key": "2605.14389",
+      "title": "Nexus: An Agentic Framework for Time Series Forecasting",
+      "authors": "Das et al.",
       "year": 2026,
-      "what": "ICML 2026. Spectral harmonization via PSD reshaping for TS foundation model pretraining; SOTA on TSLib and GIFT-Eval.",
+      "what": "Multi-agent LLM forecasting that decomposes prediction into macro, micro, and contextual stages; matches TSFMs zero-shot.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "Sundial (Liu 2025), PatchTST (Nie 2023)"
+      "builds_on": "TS-Agent (Liu 2025), ADaPT (Prasad 2023)"
     },
     {
-      "zotero_key": "2605.13248",
-      "title": "Compact Latent Manifold Translation for Cross-Modal Physiological Signal Synthesis",
-      "authors": "Unknown",
+      "zotero_key": "2605.14558",
+      "title": "Resolving Action Bottleneck: Agentic RL Informed by Token-Level Energy",
+      "authors": "He et al.",
       "year": 2026,
-      "what": "Tiny 0.09B model translates between ECG, PPG, EEG modalities and frequencies using hierarchical residual VQ.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "Biosignals Survey (Gu 2025), Sensor2Text (Chen 2024)"
+      "what": "Shows action tokens carry most learning signal in agent trajectories; token reweighting yields +65pp over PPO.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "DeepSeek-R1 (2025), ToolkenGPT (Hao 2024)"
     },
     {
-      "zotero_key": "2605.08538",
-      "title": "Human-Inspired Memory Architecture for LLM Agents",
-      "authors": "Unknown",
+      "zotero_key": "2605.14231",
+      "title": "AudioMosaic: Contrastive Masked Audio Representation Learning",
+      "authors": "Huang et al.",
       "year": 2026,
-      "what": "Bio-grounded agent memory with sleep consolidation, forgetting, reconsolidation — six cognitive mechanisms as concrete modules.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Rethinking Memory (Huang 2026), LATS (Zhou 2024)"
+      "what": "Masking-as-augmentation for contrastive audio pretraining; SOTA on audio benchmarks, outperforms generative SSL.",
+      "area_label": "Audio",
+      "area_slug": "audio",
+      "builds_on": "SSL for HAR (Yuan 2024), MAE Theory (Zhang 2023)"
     }
   ]
 }
