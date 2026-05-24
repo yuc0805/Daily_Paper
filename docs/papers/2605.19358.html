@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taming the Thinker: CES for Adaptive LLM Reasoning — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Taming the Thinker: Conditional Entropy Shaping for Adaptive LLM Reasoning</h2>
+<p class="paper-meta">Wei, Sun, Qiu, Wang, Liu, Liang, Fu, Huang, Sang &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.19358" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a>, <a href="../areas/llm.html">LLM</a></p>
+
+<h3>What</h3>
+<p>CES is a reinforcement learning framework that dynamically controls token-level response entropy during LLM reasoning training. It enables models to produce concise solutions on simple problems while encouraging deeper exploration on hard ones. Built on DAPO, it improves both accuracy and response efficiency on 12 mathematical benchmarks using DeepSeek-R1-Distill-7B.</p>
+
+<h3>Why</h3>
+<p>Existing RL-based reasoning methods either increase response length indiscriminately (hurting efficiency) or shorten responses uniformly (hurting accuracy on hard problems). No prior method adaptively allocates reasoning depth per-problem during training without requiring explicit difficulty labels. DAPO and standard policy gradient approaches apply uniform updates regardless of problem complexity.</p>
+
+<h3>How</h3>
+<p>CES identifies high-entropy "forking point" tokens as uncertainty signals. It applies a conditional bidirectional policy: on correct reasoning paths, high-entropy forking points are penalized to compress reasoning; on incorrect paths, they are rewarded to encourage exploration and self-correction. This makes easy problems get shorter traces and hard problems get deeper exploration, all learned automatically from the entropy signal.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Demonstrated RL for reasoning; CES adds adaptive depth control via entropy shaping on top of the RL training pipeline.</span></li>
+<li><a href="5YQ4IKMA.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Produces reasoning traces at inference time via prompting; CES shapes reasoning depth distribution at training time via entropy signals.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 uses uniform RL signals across all tokens and all problems, which means easy problems get unnecessarily long reasoning and hard problems may not get enough exploration. CES fixes this by making the reward signal contingent on both the entropy level (is the model uncertain?) and the outcome (did this path lead to a correct answer?), creating a natural difficulty-adaptive training objective.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where DeepSeek-R1 applies policy gradient uniformly, CES adds a conditional entropy bonus/penalty layer. Where CoT prompting controls reasoning depth through prompt design at inference, CES controls it through the training objective. The method is also complementary to ActFocus (2605.14558), which reweights by token type (action vs reasoning); CES reweights within reasoning tokens by uncertainty level.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2605.14558.html">ActFocus (2605.14558)</a><span class="lineage-note">Both diagnose uniform token-level RL as wasteful; ActFocus reweights by token type, CES by uncertainty.</span></li>
+<li><a href="2605.20285.html">IXT (2605.20285)</a><span class="lineage-note">Both improve training efficiency via token-level signal shaping, but IXT operates at pretraining and CES at RL post-training.</span></li>
+</ul>
+</div>
+</body>
+</html>

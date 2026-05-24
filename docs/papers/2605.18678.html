@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lance: Unified Multimodal Modeling — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+<h2>Lance: Unified Multimodal Modeling by Multi-Task Synergy</h2>
+<p class="paper-meta">Fu et al. (ByteDance) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.18678" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a>, <a href="../areas/generative-cv.html">Generative CV</a></p>
+
+<h3>What</h3>
+<p>Lance is a 3B-active-parameter native unified model that handles image and video understanding, generation, and editing within a single architecture. It uses a dual-stream mixture-of-experts design on shared interleaved multimodal sequences, trained entirely from scratch on 128 A100 GPUs. It outperforms larger specialized models on several image generation and editing benchmarks.</p>
+
+<h3>Why</h3>
+<p>Prior unified multimodal models either rely on massive scale to absorb task interference, or use text-image-dominant designs that generalize poorly to video and editing. Smaller models that attempt unification suffer from cross-task interference, where training on generation degrades understanding and vice versa. No prior work at this scale achieves competitive unified performance across understanding, generation, and editing for both images and videos.</p>
+
+<h3>How</h3>
+<p>Lance applies two core design principles: unified context modeling (shared interleaved sequences for all modalities) and decoupled capability pathways (dual-stream MoE routing separates understanding from generation). A modality-aware rotary positional encoding reduces interference among heterogeneous visual tokens. The model is trained with a staged multi-task recipe that gradually introduces harder tasks.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="ZE7SFTCQ.html">SigLIP (Zhai 2023)</a><span class="lineage-note">Established contrastive vision-language encoding; Lance extends to joint understanding and generation.</span></li>
+<li><a href="SFYVQXEG.html">DiT (Peebles 2023)</a><span class="lineage-note">Introduced Transformer-based diffusion; Lance folds diffusion-style generation into a unified LM with MoE routing.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>SigLIP and SigLIP 2 produce strong visual encoders but require separate generation models downstream. DiT showed Transformers can do diffusion generation but as a standalone generator. Lance eliminates the need for separate encoder and generator by unifying them through dual-stream MoE, where routing naturally separates understanding and generation pathways within one model.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where SigLIP uses contrastive loss on image-text pairs, Lance uses a multi-task objective spanning understanding, generation, and editing. Where DiT uses a class-conditional diffusion framework, Lance conditions generation on arbitrary multimodal context via interleaved sequences. The MoE routing is the key architectural difference from prior unified models that use dense architectures and rely on scale to handle interference.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="H27VWDAF.html">SigLIP 2 (Tschannen 2025)</a><span class="lineage-note">Latest vision-language encoder; Lance shows the encoder can be unified with generation.</span></li>
+<li><a href="IFU2GS2W.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Pioneered text-to-image generation; Lance achieves similar capability in a much smaller unified model.</span></li>
+</ul>
+</div>
+</body>
+</html>

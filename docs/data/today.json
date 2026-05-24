@@ -1,45 +1,45 @@
 {
-  "date": "2026-05-22",
+  "date": "2026-05-24",
   "papers": [
     {
-      "zotero_key": "2605.20285",
-      "title": "Introspective X Training: Feedback Conditioning Improves Scaling Across All LLM Training Stages",
-      "authors": "Cui et al.",
+      "zotero_key": "2605.19358",
+      "title": "Taming the Thinker: Conditional Entropy Shaping for Adaptive LLM Reasoning",
+      "authors": "Wei et al.",
       "year": 2026,
-      "what": "Prefix-conditions pretraining data with reward-model feedback; 2.8x compute efficiency on 7.5-12B transformers trained to 18T tokens.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "DeepSeek-R1 (2025), Chain-of-Thought (Wei 2023)"
-    },
-    {
-      "zotero_key": "2605.14389",
-      "title": "Nexus: An Agentic Framework for Time Series Forecasting",
-      "authors": "Das et al.",
-      "year": 2026,
-      "what": "Multi-agent LLM forecasting that decomposes prediction into macro, micro, and contextual stages; matches TSFMs zero-shot.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "TS-Agent (Liu 2025), ADaPT (Prasad 2023)"
-    },
-    {
-      "zotero_key": "2605.14558",
-      "title": "Resolving Action Bottleneck: Agentic RL Informed by Token-Level Energy",
-      "authors": "He et al.",
-      "year": 2026,
-      "what": "Shows action tokens carry most learning signal in agent trajectories; token reweighting yields +65pp over PPO.",
+      "what": "Uses token-level entropy to adaptively control reasoning depth during RL training, improving both accuracy and efficiency.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025), ToolkenGPT (Hao 2024)"
+      "builds_on": "DeepSeek-R1 (DeepSeek-AI 2025)"
     },
     {
-      "zotero_key": "2605.14231",
-      "title": "AudioMosaic: Contrastive Masked Audio Representation Learning",
-      "authors": "Huang et al.",
+      "zotero_key": "2605.18678",
+      "title": "Lance: Unified Multimodal Modeling by Multi-Task Synergy",
+      "authors": "Fu et al.",
       "year": 2026,
-      "what": "Masking-as-augmentation for contrastive audio pretraining; SOTA on audio benchmarks, outperforms generative SSL.",
-      "area_label": "Audio",
-      "area_slug": "audio",
-      "builds_on": "SSL for HAR (Yuan 2024), MAE Theory (Zhang 2023)"
+      "what": "3B-parameter unified model for image/video understanding, generation, and editing via dual-stream MoE.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "SigLIP (Zhai 2023), DiT (Peebles 2023)"
+    },
+    {
+      "zotero_key": "2605.13997",
+      "title": "HodgeCover: Higher-Order Topological Coverage Drives Compression of Sparse MoE",
+      "authors": "Zhong et al.",
+      "year": 2026,
+      "what": "Uses Hodge decomposition to detect irreducible expert cycles that pairwise merging scores miss.",
+      "area_label": "MoE",
+      "area_slug": "moe",
+      "builds_on": "CUR Decompositions (Mahoney 2009)"
+    },
+    {
+      "zotero_key": "2605.11739",
+      "title": "Learning to Foresee: Unveiling the Unlocking Efficiency of On-Policy Distillation",
+      "authors": "Cai et al.",
+      "year": 2026,
+      "what": "Explains why on-policy distillation works via early subspace alignment between current and final parameter updates.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "Transformer (Vaswani 2017)"
     }
   ]
 }

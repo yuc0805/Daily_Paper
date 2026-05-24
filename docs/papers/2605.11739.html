@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning to Foresee: On-Policy Distillation Efficiency — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>Learning to Foresee: Unveiling the Unlocking Efficiency of On-Policy Distillation</h2>
+<p class="paper-meta">Cai et al. (Tencent Hunyuan) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.11739" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a></p>
+
+<h3>What</h3>
+<p>This paper provides the first mechanistic explanation of why on-policy distillation (OPD) is more sample-efficient than off-policy distillation for LLM post-training. It shows OPD achieves "foresight" — establishing stable update trajectories toward the final model from early in training — at both the module-allocation and update-direction levels.</p>
+
+<h3>Why</h3>
+<p>On-policy distillation is widely used for LLM post-training but its efficiency advantage over off-policy methods has lacked a parameter-level explanation. Understanding why it works is necessary for designing even more efficient training methods, rather than relying on empirical recipe tuning.</p>
+
+<h3>How</h3>
+<p>The paper analyzes parameter update dynamics across training. At the module-allocation level, OPD identifies low-marginal-utility regions early and concentrates updates on reasoning-critical modules. At the update-direction level, OPD produces updates with stronger low-rank concentration whose dominant subspaces align closely with the final update subspace from early training. The paper proposes cheaply predicting OPD-aligned update directions to accelerate convergence further.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="M963842L.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">The Transformer architecture whose training dynamics are analyzed.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Prior work attributed OPD's advantage to denser and more stable supervision from the teacher model. This paper shows the real mechanism is structural: OPD creates an early alignment between the current update direction and the final update direction, which off-policy distillation does not achieve because its training distribution drifts from the student's.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where standard distillation analysis compares loss curves, this paper analyzes the singular value decomposition of parameter updates across training, comparing subspace alignment between early and final checkpoints. This SVD-based analysis methodology could apply to understanding training dynamics in other settings.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2605.20285.html">IXT (2605.20285)</a><span class="lineage-note">Complementary efficiency work for pretraining; this paper covers post-training efficiency.</span></li>
+<li><a href="A362GCCM.html">Adam Optimizer (Kingma 2017)</a><span class="lineage-note">Per-parameter adaptive rates; this work suggests per-subspace adaptation matters more.</span></li>
+</ul>
+</div>
+</body>
+</html>

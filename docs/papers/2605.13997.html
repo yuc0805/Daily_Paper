@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HodgeCover: Topological MoE Compression — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/moe.html" class="back-link">&larr; Back to Area</a>
+<h2>HodgeCover: Higher-Order Topological Coverage Drives Compression of Sparse Mixture-of-Experts</h2>
+<p class="paper-meta">Zhong, Zheng, Allen-Blanchette (Princeton) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.13997" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/moe.html">MoE</a>, <a href="../areas/mathematics-ml.html">Mathematics-ML</a></p>
+
+<h3>What</h3>
+<p>HodgeCover is a learning-free method for compressing sparse MoE layers by merging experts. It uses Hodge decomposition on a simplicial complex of expert interactions to identify which expert groups can be safely merged, accounting for higher-order (triplet) interactions that pairwise scores miss.</p>
+
+<h3>Why</h3>
+<p>Standard MoE compression ranks experts by pairwise similarity (e.g., KL divergence) and greedily merges the most similar pairs. This fails because three experts can each be pairwise compatible yet form an irreducible cycle when merged together. Any score that only examines pairs is structurally blind to these problematic triples, leading to unexpected accuracy drops after merging.</p>
+
+<h3>How</h3>
+<p>The method builds a 2-complex whose vertices are experts, edges carry pairwise KL merge barriers, and triangular faces carry triplet merge barriers. The Hodge decomposition of the edge-barrier signal on this complex isolates the harmonic kernel — exactly the component responsible for irreducible cycles. HodgeCover greedily covers harmonic-critical edges and triplet-critical triangles. A hybrid variant pairs topological merging with weight pruning on surviving experts.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="NMJXW3GJ.html">CUR Decompositions (Mahoney 2009)</a><span class="lineage-note">Both find low-dimensional structure in high-dimensional objects; CUR operates on weight matrices, HodgeCover on expert interaction graphs.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Pairwise merging methods fail on triples with irreducible cycles. HodgeCover detects these cycles via the harmonic kernel and avoids merging them, achieving better accuracy retention at the same compression ratio.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where CUR decomposition selects representative rows/columns from a matrix, HodgeCover selects representative expert subsets from a simplicial complex. The mathematical machinery is different (spectral graph theory vs matrix approximation) but the goal is the same: find the minimal structure that preserves function.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Large MoE model that would directly benefit from principled compression.</span></li>
+<li><a href="GLTH6GX9.html">L1 Minimization (Donoho 2003)</a><span class="lineage-note">Sparse representation theory; HodgeCover addresses sparsity in a different domain (expert selection).</span></li>
+</ul>
+</div>
+</body>
+</html>
