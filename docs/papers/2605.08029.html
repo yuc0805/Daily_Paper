@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STARFlow2: Bridging Language Models and Normalizing Flows — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+<h2>STARFlow2: Bridging Language Models and Normalizing Flows for Unified Multimodal Generation</h2>
+<p class="paper-meta">Shen et al. (Apple, UIUC) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.08029" target="_blank" rel="noopener">paper</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+
+<h3>What</h3>
+<p>STARFlow2 is a unified multimodal system for interleaved text-image understanding and generation. It replaces the usual diffusion-based image generator with autoregressive normalizing flows, achieving architectural unification: both text and image tokens are generated left-to-right under the same causal mask with shared KV-cache.</p>
+
+<h3>Why</h3>
+<p>Most unified multimodal models combine autoregressive text generation with iterative diffusion for images, creating a structural mismatch. Text flows left-to-right and populates the KV-cache, while diffusion requires multi-step denoising outside the cache. This prevents true interleaved generation and introduces re-encoding overhead when switching between modalities.</p>
+
+<h3>How</h3>
+<p>The Pretzel architecture vertically interleaves a pretrained VLM stream with a TarFlow (autoregressive normalizing flow) stream via residual skip connections. Both streams operate under the same causal mask. A deep-shallow flow design applies more flow steps to coarse structure and fewer to fine details. A unified FAE latent space allows both text and image tokens to enter the KV-cache directly without re-encoding. The result is cache-friendly interleaved generation of text and images.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Earlier text-to-image generation using diffusion; STARFlow2 replaces diffusion with flows.</span></li>
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Foundation of the diffusion paradigm that STARFlow2 departs from.</span></li>
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Brought Transformers to diffusion; STARFlow2 brings normalizing flows instead.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DDPM and DiT require iterative denoising that cannot share the KV-cache with autoregressive text generation. STARFlow2 eliminates this mismatch by using normalizing flows, which are inherently autoregressive and causal, allowing unified caching and truly interleaved multimodal generation.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where DDPM and DiT generate images by iteratively denoising latents (requiring many forward passes), STARFlow2 generates image tokens in a single autoregressive pass through normalizing flows. The Pretzel architecture interleaves the flow stream with the language stream, sharing positional encoding and causal masking. This is structurally different from approaches like Lance (2605.18678) that use dual MoE streams: STARFlow2 achieves unification through matching the generative paradigm (flows = autoregressive) rather than through routing.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2605.18678.html">Lance (Fu 2026)</a><span class="lineage-note">Alternative unified multimodal approach using dual-stream MoE. From yesterday's digest.</span></li>
+<li>SigLIP (Zhai 2023)<span class="lineage-note">Vision-language encoder used in the VLM stream of STARFlow2. <em>Not yet in library.</em></span></li>
+</ul>
+</div>
+</body>
+</html>

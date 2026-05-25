@@ -1,45 +1,45 @@
 {
-  "date": "2026-05-24",
+  "date": "2026-05-25",
   "papers": [
     {
-      "zotero_key": "2605.19358",
-      "title": "Taming the Thinker: Conditional Entropy Shaping for Adaptive LLM Reasoning",
-      "authors": "Wei et al.",
+      "zotero_key": "2605.18753",
+      "title": "DashAttention: Differentiable and Adaptive Sparse Hierarchical Attention",
+      "authors": "Huang et al.",
       "year": 2026,
-      "what": "Uses token-level entropy to adaptively control reasoning depth during RL training, improving both accuracy and efficiency.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (DeepSeek-AI 2025)"
-    },
-    {
-      "zotero_key": "2605.18678",
-      "title": "Lance: Unified Multimodal Modeling by Multi-Task Synergy",
-      "authors": "Fu et al.",
-      "year": 2026,
-      "what": "3B-parameter unified model for image/video understanding, generation, and editing via dual-stream MoE.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "SigLIP (Zhai 2023), DiT (Peebles 2023)"
-    },
-    {
-      "zotero_key": "2605.13997",
-      "title": "HodgeCover: Higher-Order Topological Coverage Drives Compression of Sparse MoE",
-      "authors": "Zhong et al.",
-      "year": 2026,
-      "what": "Uses Hodge decomposition to detect irreducible expert cycles that pairwise merging scores miss.",
-      "area_label": "MoE",
-      "area_slug": "moe",
-      "builds_on": "CUR Decompositions (Mahoney 2009)"
-    },
-    {
-      "zotero_key": "2605.11739",
-      "title": "Learning to Foresee: Unveiling the Unlocking Efficiency of On-Policy Distillation",
-      "authors": "Cai et al.",
-      "year": 2026,
-      "what": "Explains why on-policy distillation works via early subspace alignment between current and final parameter updates.",
+      "what": "Replaces top-k block selection in sparse attention with differentiable alpha-entmax, achieving full-attention accuracy at 75% sparsity.",
       "area_label": "LLM",
       "area_slug": "llm",
-      "builds_on": "Transformer (Vaswani 2017)"
+      "builds_on": "Attention Is All You Need (Vaswani 2017)"
+    },
+    {
+      "zotero_key": "2605.18643",
+      "title": "Post-Trained MoE Can Skip Half Experts via Self-Distillation (ZEDA)",
+      "authors": "Lv et al.",
+      "year": 2026,
+      "what": "Converts static MoE models to dynamic routing post-hoc via self-distillation, skipping up to 50% of experts on easy inputs.",
+      "area_label": "MoE",
+      "area_slug": "moe",
+      "builds_on": "DeepSeek-V3 (DeepSeek-AI 2024)"
+    },
+    {
+      "zotero_key": "2605.17672",
+      "title": "Stop When Reasoning Converges: Semantic-Preserving Early Exit for Reasoning Models",
+      "authors": "Min et al.",
+      "year": 2026,
+      "what": "Detects reasoning convergence via semantic similarity to stop LLM reasoning early without sacrificing accuracy.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "Chain-of-Thought (Wei 2023), DeepSeek-R1 (2025)"
+    },
+    {
+      "zotero_key": "2605.08029",
+      "title": "STARFlow2: Bridging Language Models and Normalizing Flows for Unified Multimodal Generation",
+      "authors": "Shen et al.",
+      "year": 2026,
+      "what": "Unifies text and image generation under one causal mask by replacing diffusion with autoregressive normalizing flows.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "DDPM (Ho 2020), DiT (Peebles 2023)"
     }
   ]
 }

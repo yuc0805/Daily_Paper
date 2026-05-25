@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stop When Reasoning Converges — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Stop When Reasoning Converges: Semantic-Preserving Early Exit for Reasoning Models</h2>
+<p class="paper-meta">Min, Vaccarino, Chen, Wu, Yona, Cheng (UIC, Google Research, UIUC) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.17672" target="_blank" rel="noopener">paper</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+
+<h3>What</h3>
+<p>A semantic-preserving early exit method for large reasoning models that detects when chain-of-thought reasoning has converged by measuring semantic similarity between consecutive reasoning windows. When successive steps stop introducing new information, generation stops early.</p>
+
+<h3>Why</h3>
+<p>Large reasoning models (e.g., DeepSeek-R1) often generate far more reasoning tokens than needed, continuing to think after the solution has stabilised. Existing early-exit methods use answer-level signals like trial-answer consistency, but these can trigger prematurely during self-correction. No prior method distinguishes genuine convergence from premature answer stability.</p>
+
+<h3>How</h3>
+<p>The method measures semantic similarity between consecutive windows of reasoning tokens using an embedding model. When the similarity exceeds a threshold for several consecutive windows, the method infers that the reasoning trajectory has converged — successive steps are repeating established conclusions rather than introducing new progress. At that point, generation is terminated early. The threshold is calibrated to avoid cutting off genuine self-correction.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (DeepSeek-AI 2025)</a><span class="lineage-note">The reasoning model whose overthinking behavior this method addresses.</span></li>
+<li><a href="SFYVQXEG.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Established the reasoning-via-generation paradigm that early exit optimises.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Chain-of-Thought introduced explicit reasoning traces but had no mechanism to control their length. DeepSeek-R1 trained reasoning via RL but also lacks adaptive stopping. This paper provides an inference-time stopping criterion that preserves answer quality while reducing token waste.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where CoT uses fixed-length reasoning and DeepSeek-R1 generates until an end token, this method monitors the semantic content of the reasoning process itself. The key difference from answer-based early exit is that it tracks reasoning novelty rather than answer stability, avoiding premature exit during active self-correction phases.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li>Taming the Thinker (2605.19358)<span class="lineage-note">Complementary training-time approach: controls reasoning depth via entropy shaping during RL. <em>From yesterday's digest.</em></span></li>
+<li><a href="U4ZPM5DN.html">Latent-GRPO (Deng 2026)</a><span class="lineage-note">RL for reasoning in latent space; related adaptive reasoning paradigm.</span></li>
+</ul>
+</div>
+</body>
+</html>

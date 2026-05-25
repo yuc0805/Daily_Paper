@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post-Trained MoE Can Skip Half Experts via Self-Distillation (ZEDA) — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/moe.html" class="back-link">&larr; Back to Area</a>
+<h2>Post-Trained MoE Can Skip Half Experts via Self-Distillation (ZEDA)</h2>
+<p class="paper-meta">Lv et al. (Tsinghua, Shanghai AI Lab, Kuaishou) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.18643" target="_blank" rel="noopener">paper</a> &middot; Appears in: <a href="../areas/moe.html">MoE</a></p>
+
+<h3>What</h3>
+<p>ZEDA (Zero-Expert Self-Distillation Adaptation) converts an already-trained static Mixture-of-Experts model into a dynamic one that skips up to half its experts on easy inputs. A learnable router decides per-token how many experts to activate, using the original full model as teacher via self-distillation.</p>
+
+<h3>Why</h3>
+<p>Static MoE models activate a fixed number of experts regardless of input difficulty, wasting compute on easy tokens. Existing dynamic MoE approaches require pre-training from scratch or task-specific adaptation, which is impractical for large deployed models. The gap is converting fully trained MoE models to dynamic routing post-hoc.</p>
+
+<h3>How</h3>
+<p>ZEDA adds a lightweight dynamic router on top of the existing static router. The full model serves as its own teacher: the dynamic router learns to predict which experts can be skipped while preserving the teacher's output distribution. Training uses KL-divergence between the dynamic (fewer experts) and static (all experts) outputs. The method requires no changes to the pretrained weights and operates as a post-hoc adaptation stage.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (DeepSeek-AI 2024)</a><span class="lineage-note">The static MoE architecture that ZEDA converts to dynamic routing.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-V3 uses fixed expert activation per token. ZEDA adds input-adaptive expert skipping without retraining the base model, achieving roughly 50% reduction in activated parameters on routine inputs while preserving accuracy on hard inputs that genuinely need all experts.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where DeepSeek-V3 selects a fixed top-k set of experts per token, ZEDA learns a per-token budget via a lightweight secondary router trained through self-distillation. The key distinction from prior dynamic MoE work is that ZEDA operates entirely post-hoc on already-trained models rather than requiring architectural changes at pre-training time.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="WIGLUNFZ.html">ST-MoE</a><span class="lineage-note">Earlier work on MoE scaling and routing strategies.</span></li>
+<li><a href="MXKVRSKK.html">WaveToken (Masserano 2024)</a><span class="lineage-note">MoE for time-series tokenization; ZEDA's dynamic routing could be applied here.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DashAttention: Differentiable and Adaptive Sparse Hierarchical Attention — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>DashAttention: Differentiable and Adaptive Sparse Hierarchical Attention</h2>
+<p class="paper-meta">Huang, Gonçalves, Alvetreti, Li, Han, Ponti, Martins, Treviso &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.18753" target="_blank" rel="noopener">paper</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a></p>
+
+<h3>What</h3>
+<p>DashAttention is a two-stage hierarchical sparse attention mechanism that replaces the non-differentiable top-k block selection used in methods like NSA and InfLLMv2 with alpha-entmax, a differentiable sparse transformation. This allows each query to adaptively select a variable number of key-value blocks — fewer for locally focused queries, more for globally dependent ones — while keeping the entire attention hierarchy end-to-end trainable.</p>
+
+<h3>Why</h3>
+<p>Hierarchical sparse attention methods reduce the quadratic cost of full attention by first selecting relevant KV blocks at coarse resolution and then applying fine-grained attention within them. However, existing methods use top-k selection, which assumes every query needs exactly the same number of blocks (an unrealistic assumption) and blocks gradient flow between the selection and attention stages. This prevents the model from learning to optimise its own sparsity pattern during training.</p>
+
+<h3>How</h3>
+<p>The first stage applies the alpha-entmax transformation to coarse block-level attention scores, producing a sparse distribution where the number of non-zero entries varies per query. This sparse distribution serves as a differentiable prior for second-stage softmax attention over the selected tokens. Because alpha-entmax is differentiable everywhere — including at the boundary between zero and non-zero — gradients flow through the full hierarchy. The authors prove that DashAttention is non-dispersive: attention mass concentrates on genuinely relevant tokens rather than spreading uniformly across selected blocks. A GPU-aware Triton implementation achieves speedup over FlashAttention-3 at inference.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">Introduces the dense softmax attention that DashAttention replaces with adaptive sparse attention.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The original Transformer uses dense O(n^2) attention, making long-context modeling expensive. Subsequent methods (NSA, InfLLMv2) introduced hierarchical sparse attention but relied on top-k, which is non-differentiable and assumes fixed sparsity per query. DashAttention solves both problems: it is fully differentiable and adapts the sparsity level per query, achieving full-attention accuracy at 75% sparsity while dominating the Pareto frontier at higher sparsity regimes.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where the Transformer applies dense softmax over all positions, and NSA/InfLLMv2 apply a hard top-k filter followed by softmax on survivors, DashAttention applies alpha-entmax (a smooth, sparse alternative to softmax) at the block selection stage. The key technical difference is that alpha-entmax produces exact zeros while remaining differentiable at the sparsity boundary, enabling the coarse selection stage to be trained jointly with the fine attention stage. The non-dispersive property is a direct consequence: alpha-entmax concentrates mass rather than spreading it, unlike softmax which always assigns non-zero weight to every block.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="QBX2TI2X.html">iTransformer (Liu 2024)</a><span class="lineage-note">Time-series Transformer that inherits the dense attention bottleneck DashAttention addresses.</span></li>
+<li><a href="YY67LF3R.html">PatchTST (Nie 2023)</a><span class="lineage-note">Patch-based TS Transformer; would benefit from adaptive sparse attention for long sequences.</span></li>
+</ul>
+</div>
+</body>
+</html>
