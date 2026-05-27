@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Superposition Is Not Necessary — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Superposition Is Not Necessary: A Mechanistic Interpretability Analysis of Transformer Representations for Time Series Forecasting</h2>
+<p class="paper-meta">Yildirim &middot; arXiv 2026-05-06 &middot; <a href="https://arxiv.org/abs/2605.05151" target="_blank" rel="noopener">arXiv:2605.05151</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>, <a href="../areas/interpretable-ml.html">Interpretable ML</a></p>
+
+<h3>What</h3>
+<p>Applies sparse autoencoders (SAEs) to probe PatchTST internal FFN representations and finds that standard time series forecasting benchmarks do not require superposition. Dictionary expansion from 0.5x to 4.0x produces negligible performance change (0.214% average), overcomplete dictionaries remain largely inactive, and causal interventions on dominant features cause minimal forecast perturbation.</p>
+
+<h3>Why</h3>
+<p>Transformers dominate time series forecasting leaderboards, yet simple linear models like DLinear remain competitive. No mechanistic explanation for this phenomenon had been offered. Understanding whether transformers actually use their representational capacity on TS data has direct implications for model selection and architecture design.</p>
+
+<h3>How</h3>
+<p>SAEs are trained on post-GELU intermediate FFN activations of PatchTST with dictionary sizes from 0.5x to 4.0x the native dimensionality. The authors first show that a single-layer narrow transformer matches deeper configurations. They then measure dictionary utilization, reconstruction quality, downstream performance sensitivity to dictionary expansion, and causal intervention effects on dominant latent features.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="YY67LF3R.html">PatchTST (Nie 2023)</a><span class="lineage-note">The transformer architecture being probed; established patching as the standard TS transformer input method.</span></li>
+  <li><a href="4QRHV2JG.html">DLinear (Zeng 2023)</a><span class="lineage-note">The simple linear baseline whose persistent competitiveness is mechanistically explained here.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The debate between PatchTST-class transformers and DLinear-class linear models was empirical: sometimes one wins, sometimes the other, with no explanation of why. This paper provides the mechanistic explanation: PatchTST does not use superposition on standard benchmarks, meaning its excess capacity over DLinear is wasted on these tasks.</p>
+
+<h3>Method vs predecessors</h3>
+<p>PatchTST and DLinear are both evaluated only on forecasting accuracy. This paper adds a layer of analysis using SAEs from the mechanistic interpretability literature (typically applied to language models) and applies causal intervention techniques. The methodological contribution is porting NLP interpretability tools to the TS domain.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="46WR27KQ.html">SHAP (Lundberg 2017)</a><span class="lineage-note">Feature attribution for model interpretation; different interpretability approach (post-hoc attribution vs mechanistic probing).</span></li>
+  <li><a href="72DFULQQ.html">Chronos (Ansari 2024)</a><span class="lineage-note">TS foundation model; the superposition question applies to Chronos as well.</span></li>
+</ul>
+</div>
+</body>
+</html>

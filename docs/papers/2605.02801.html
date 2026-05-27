@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RL for Multi-Agent Orchestration — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>Reinforcement Learning for LLM-based Multi-Agent Systems through Orchestration Traces</h2>
+<p class="paper-meta">arXiv 2026-05-04 &middot; <a href="https://arxiv.org/abs/2605.02801" target="_blank" rel="noopener">arXiv:2605.02801</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+
+<h3>What</h3>
+<p>Formalizes RL for LLM multi-agent systems by modeling interactions as orchestration traces: temporal interaction graphs whose events include sub-agent spawning, delegation, communication, tool use, return, aggregation, and stopping decisions. Identifies eight reward families, decomposes orchestration into five sub-decisions, and reveals that no explicit RL training method exists for the stopping decision.</p>
+
+<h3>Why</h3>
+<p>Prior work on LLM agents focused on single-agent planning and search. As multi-agent systems become common (e.g., coding assistants with specialized sub-agents), there is no formal framework for training the orchestration layer with RL. Without such a framework, orchestration decisions (whom to delegate to, when to stop) are hand-coded heuristics.</p>
+
+<h3>How</h3>
+<p>The paper defines orchestration traces as temporal interaction graphs and categorizes RL approaches along three axes: reward design (eight families including parallelism speedup and aggregation quality), credit assignment (eight granularity levels from token to team), and orchestration sub-decisions (spawn, delegate, communicate, aggregate, stop). A systematic gap analysis over the existing literature identifies missing coverage.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">As-needed decomposition for single agents; this paper extends decomposition to multi-agent orchestration.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Language agent tree search for single-agent planning; this paper lifts tree search to multi-agent interaction graphs.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>ADaPT and LATS decomposed planning for a single agent but had no mechanism for inter-agent coordination. When multiple agents run in parallel, questions of delegation routing, communication protocols, and aggregation strategies arise that single-agent frameworks cannot address. This paper provides the first formal decomposition of these multi-agent orchestration decisions.</p>
+
+<h3>Method vs predecessors</h3>
+<p>ADaPT used as-needed task decomposition with a single LLM. LATS combined Monte Carlo tree search with LLM-based value estimation. This paper introduces temporal interaction graphs as the RL state representation, where nodes are agent events and edges are delegation/communication flows. The reward design taxonomy (eight families) is substantially richer than the single task-success reward used by ADaPT and LATS.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2605.10344.html">TMAS (2026)</a><span class="lineage-note">Multi-agent synergy for test-time scaling; applies multi-agent cooperation to inference rather than training.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,45 +1,45 @@
 {
-  "date": "2026-05-25",
+  "date": "2026-05-27",
   "papers": [
     {
-      "zotero_key": "2605.18753",
-      "title": "DashAttention: Differentiable and Adaptive Sparse Hierarchical Attention",
-      "authors": "Huang et al.",
+      "zotero_key": "2605.22759",
+      "title": "Towards a General Intelligence and Interface for Wearable Health Data",
+      "authors": "Narayanswamy et al.",
       "year": 2026,
-      "what": "Replaces top-k block selection in sparse attention with differentiable alpha-entmax, achieving full-attention accuracy at 75% sparsity.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "Attention Is All You Need (Vaswani 2017)"
+      "what": "Foundation model pretrained on 1T+ minutes of wearable signals from 5M participants, evaluated on 35 health tasks with LLM-agent AutoML for downstream heads.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "Foundation Models for Biosignals (Gu 2025)"
     },
     {
-      "zotero_key": "2605.18643",
-      "title": "Post-Trained MoE Can Skip Half Experts via Self-Distillation (ZEDA)",
-      "authors": "Lv et al.",
+      "zotero_key": "2605.20268",
+      "title": "Chronicle: A Multimodal Foundation Model for Joint Language and Time Series Understanding",
+      "authors": "Quinlan et al.",
       "year": 2026,
-      "what": "Converts static MoE models to dynamic routing post-hoc via self-distillation, skipping up to 50% of experts on easy inputs.",
-      "area_label": "MoE",
-      "area_slug": "moe",
-      "builds_on": "DeepSeek-V3 (DeepSeek-AI 2024)"
+      "what": "324M-param transformer trained from scratch on text and time series in one architecture; beats unimodal FMs in both domains.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "ChatTS (Xie 2025), TS-Agent (Liu 2025)"
     },
     {
-      "zotero_key": "2605.17672",
-      "title": "Stop When Reasoning Converges: Semantic-Preserving Early Exit for Reasoning Models",
-      "authors": "Min et al.",
+      "zotero_key": "2605.05151",
+      "title": "Superposition Is Not Necessary: Mechanistic Interpretability of Transformer Representations for TS Forecasting",
+      "authors": "Yildirim",
       "year": 2026,
-      "what": "Detects reasoning convergence via semantic similarity to stop LLM reasoning early without sacrificing accuracy.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "Chain-of-Thought (Wei 2023), DeepSeek-R1 (2025)"
+      "what": "SAE probing of PatchTST shows no superposition on forecasting benchmarks, explaining why linear models stay competitive.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "PatchTST (Nie 2023), DLinear (Zeng 2023)"
     },
     {
-      "zotero_key": "2605.08029",
-      "title": "STARFlow2: Bridging Language Models and Normalizing Flows for Unified Multimodal Generation",
-      "authors": "Shen et al.",
+      "zotero_key": "2605.02801",
+      "title": "RL for LLM-based Multi-Agent Systems through Orchestration Traces",
+      "authors": "Anonymous",
       "year": 2026,
-      "what": "Unifies text and image generation under one causal mask by replacing diffusion with autoregressive normalizing flows.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "DDPM (Ho 2020), DiT (Peebles 2023)"
+      "what": "Formalizes multi-agent RL via temporal interaction graphs; identifies five orchestration sub-decisions and a gap in stopping-decision training.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "ADaPT (Prasad 2023), LATS (Zhou 2024)"
     }
   ]
 }
