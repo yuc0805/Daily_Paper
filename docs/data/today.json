@@ -1,45 +1,45 @@
 {
-  "date": "2026-05-27",
+  "date": "2026-05-28",
   "papers": [
     {
-      "zotero_key": "2605.22759",
-      "title": "Towards a General Intelligence and Interface for Wearable Health Data",
-      "authors": "Narayanswamy et al.",
+      "zotero_key": "2605.00973",
+      "title": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
+      "authors": "Zhou et al.",
       "year": 2026,
-      "what": "Foundation model pretrained on 1T+ minutes of wearable signals from 5M participants, evaluated on 35 health tasks with LLM-agent AutoML for downstream heads.",
+      "what": "Cross-modal masked autoencoder for biosignals that exploits ECG-to-PPG temporal ordering, outperforming baselines on 15/19 health tasks. ICML 2026.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "Foundation Models for Biosignals (Gu 2025)"
+      "builds_on": "Masked Autoencoders Theory (Zhang 2023), Foundation Models for Biosignals (Gu 2025)"
     },
     {
-      "zotero_key": "2605.20268",
-      "title": "Chronicle: A Multimodal Foundation Model for Joint Language and Time Series Understanding",
-      "authors": "Quinlan et al.",
+      "zotero_key": "2605.08296",
+      "title": "BenchHAR: Benchmarking Self-Supervised Learning for Generalizable Sensor-based HAR",
+      "authors": "Cai et al.",
       "year": 2026,
-      "what": "324M-param transformer trained from scratch on text and time series in one architecture; beats unimodal FMs in both domains.",
+      "what": "Unified benchmark showing hybrid SSL with CNN encoders generalizes best for HAR; domain-matched pretraining data matters more than raw volume.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "ChatTS (Xie 2025), TS-Agent (Liu 2025)"
+      "builds_on": "SSL for HAR (Yuan 2024)"
     },
     {
-      "zotero_key": "2605.05151",
-      "title": "Superposition Is Not Necessary: Mechanistic Interpretability of Transformer Representations for TS Forecasting",
-      "authors": "Yildirim",
+      "zotero_key": "2605.06638",
+      "title": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
+      "authors": "Wang et al.",
       "year": 2026,
-      "what": "SAE probing of PatchTST shows no superposition on forecasting benchmarks, explaining why linear models stay competitive.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "PatchTST (Nie 2023), DLinear (Zeng 2023)"
+      "what": "RL training compute scales as a power law with reasoning depth; the exponent increases 2.5x with logical expressiveness, and expressive training transfers better.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "DeepSeek-R1 (2025), Chain-of-Thought Prompting (Wei 2023)"
     },
     {
-      "zotero_key": "2605.02801",
-      "title": "RL for LLM-based Multi-Agent Systems through Orchestration Traces",
-      "authors": "Anonymous",
+      "zotero_key": "2605.07153",
+      "title": "Beyond Reasoning: RL Unlocks Parametric Knowledge in LLMs",
+      "authors": "Yang et al.",
       "year": 2026,
-      "what": "Formalizes multi-agent RL via temporal interaction graphs; identifies five orchestration sub-decisions and a gap in stopping-decision training.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "ADaPT (Prasad 2023), LATS (Zhou 2024)"
+      "what": "RL yields 27% relative gains in factual recall by redistributing probability mass over existing knowledge, not by learning new facts.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "DeepSeek-R1 (2025)"
     }
   ]
 }

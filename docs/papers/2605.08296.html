@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BenchHAR: Benchmarking SSL for Generalizable Sensor-based HAR — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>BenchHAR: Benchmarking Self-Supervised Learning for Generalizable Sensor-based Activity Recognition</h2>
+<p class="paper-meta">Cai, Feng, Yu, Guo, Hong &middot; 2026 &middot; <a href="https://arxiv.org/abs/2605.08296" target="_blank" rel="noopener">paper</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>, <a href="../areas/self-supervised.html">Self-supervised</a></p>
+
+<h3>What</h3>
+<p>BenchHAR is a unified benchmark for evaluating the generalization of self-supervised learning methods for sensor-based human activity recognition. It curates roughly 258K samples and evaluates eight SSL methods across 12 encoder-classifier architectures, finding that hybrid pretraining (reconstruction + contrastive) with CNN encoders generalizes best.</p>
+
+<h3>Why</h3>
+<p>SSL methods developed for vision and language have been adopted for HAR, but no systematic comparison existed for how well they generalize to unseen target distributions in the sensor domain. Prior work demonstrated that SSL helps HAR but did not identify which paradigm, encoder, or data scaling strategy produces the best out-of-distribution generalization.</p>
+
+<h3>How</h3>
+<p>The framework standardizes evaluation by fixing the dataset, preprocessing, and evaluation protocol across all methods. It varies three axes: SSL paradigm (contrastive, reconstructive, hybrid), encoder architecture (CNN, Transformer, etc.), and classifier expressiveness. Data scaling experiments control for activity class overlap between pretraining and downstream data. Device type (custom-grade vs. research-grade) and body position transfer are also evaluated.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="RTMH75VW.html">SSL for HAR with 700K Person-days (Yuan 2024)</a><span class="lineage-note">Demonstrated large-scale SSL pretraining for HAR. BenchHAR refines the scaling story by showing that domain-matched data matters more than raw volume.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Yuan 2024 showed that scaling SSL pretraining to 700K person-days improves HAR but did not isolate which SSL paradigm generalizes best or whether all types of additional data help equally. BenchHAR provides the missing controlled comparison and reveals a key negative result: unlabeled data from non-downstream activity classes does not improve generalization, qualifying the "more data is better" narrative.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where Yuan 2024 used a single SSL approach at large scale, BenchHAR systematically compares eight methods (spanning contrastive, reconstructive, and hybrid paradigms) under a standardized protocol. The hybrid paradigm (combining both reconstruction and contrastive objectives) consistently outperforms either alone, and CNN encoders outperform Transformers for generalizable HAR representations — a finding that goes against the trend in vision and NLP where Transformers dominate.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Alternative architecture (Mamba) for HAR — BenchHAR does not include SSM encoders, leaving a gap.</span></li>
+<li><a href="EDTXS4NM.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Surveys foundation models for biosignals including HAR applications.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

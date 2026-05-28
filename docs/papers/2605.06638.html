@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key</h2>
+<p class="paper-meta">Wang, Wang, Lan, Wei, Zhang, Qiu, Saparov &middot; 2026 &middot; <a href="https://arxiv.org/abs/2605.06638" target="_blank" rel="noopener">paper</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a>, <a href="../areas/llm.html">LLM</a></p>
+
+<h3>What</h3>
+<p>This paper introduces ScaleLogic, a synthetic logical reasoning framework with independent control over proof depth (horizon) and logical expressiveness. It demonstrates that RL training compute follows a power law with respect to reasoning depth (T proportional to D^gamma, R^2 > 0.99), with the scaling exponent increasing from 1.04 to 2.60 as logic becomes more expressive.</p>
+
+<h3>Why</h3>
+<p>RL has been applied to improve LLM reasoning, but the systematic study of how training scales with task difficulty has been limited by the lack of controlled, scalable environments. Natural language reasoning tasks conflate multiple axes of difficulty, making it impossible to isolate the effects of depth and expressiveness separately.</p>
+
+<h3>How</h3>
+<p>ScaleLogic generates synthetic logical reasoning problems with configurable depth (number of proof steps) and expressiveness (from if-then to first-order logic with conjunction, disjunction, negation, and universal quantification). RL training is applied using multiple methods (GRPO, PPO variants), and compute is measured as a function of reasoning depth. Downstream transfer is evaluated on mathematics and general reasoning benchmarks.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="2JCKA7GI.html">DeepSeek-R1: Reasoning via RL (2025)</a><span class="lineage-note">Demonstrated RL-trained reasoning at scale on natural tasks. ScaleLogic provides the controlled environment to study what R1 demonstrated empirically.</span></li>
+<li><a href="5YQ4IKMA.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Established multi-step reasoning via prompting. ScaleLogic studies how RL training scales when multi-step chains are required.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 showed that RL improves reasoning on natural benchmarks but could not disentangle depth from expressiveness effects. ScaleLogic isolates these axes and shows that the scaling exponent on reasoning depth more than doubles (1.04 to 2.60) when the underlying logic becomes more expressive. This means cost projections based on simple logic tasks (like if-then) drastically underestimate the compute needed for complex logical reasoning.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where R1 trained on natural, uncontrolled reasoning tasks, ScaleLogic uses synthetic problems with exact control over difficulty. Where Wei 2023 studied chain-of-thought at inference time, ScaleLogic studies chain-of-reasoning at training time under RL. The key methodological contribution is the two-axis difficulty framework (depth x expressiveness) that allows power-law fitting and compute prediction.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="WAB8J2FQ.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Foundation model underlying R1; ScaleLogic's findings apply to scaling decisions for models in this family.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond Reasoning: RL Unlocks Parametric Knowledge in LLMs — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>Beyond Reasoning: Reinforcement Learning Unlocks Parametric Knowledge in LLMs</h2>
+<p class="paper-meta">Yang, Zang, Zhang, Shi, Su, Wang, Cheng, Sun &middot; 2026 &middot; <a href="https://arxiv.org/abs/2605.07153" target="_blank" rel="noopener">paper</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a>, <a href="../areas/reasoning.html">Reasoning</a></p>
+
+<h3>What</h3>
+<p>This paper shows that RL can improve LLM factual recall (not just reasoning) by roughly 27% relative across three model families in a controlled zero-shot, closed-book QA setting. Mechanistically, RL redistributes probability mass — moving correct answers from the low-probability tail into reliable greedy generations — rather than acquiring new facts.</p>
+
+<h3>Why</h3>
+<p>The RLVR literature has focused almost exclusively on reasoning improvements. Whether RL can also improve direct parametric knowledge recall was an open question. Demonstrating this would broaden the utility of RL fine-tuning beyond reasoning-specific tasks.</p>
+
+<h3>How</h3>
+<p>The authors train with binary correctness rewards in a zero-shot, one-hop, closed-book QA setting with no chain-of-thought, and apply fact-level train-test deduplication to ensure gains reflect improved recall rather than reasoning or memorization. Data attribution analysis shows that the 18% hardest examples (answers never appear in 128 pre-RL samples) drive 83% of the total gain.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="2JCKA7GI.html">DeepSeek-R1: Reasoning via RL (2025)</a><span class="lineage-note">Established RL as a tool for LLM reasoning. This paper extends the paradigm to factual recall, showing RL has a second mode of action.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>R1 and the RLVR literature demonstrated RL for reasoning but left open whether the gains were reasoning-specific or more general. This paper shows RL also works for factual recall, with a different mechanism: probability mass redistribution rather than new capability acquisition. This means RL is a broader tool than previously understood.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where R1 used chain-of-thought reasoning tasks with multi-step verification, this paper strips away reasoning entirely (zero-shot, no CoT, one-hop questions) to isolate the effect of RL on pure factual recall. The data attribution analysis identifying the "hardest 18% drive 83% of gain" pattern is a methodological contribution for understanding RL training dynamics.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="WAB8J2FQ.html">DeepSeek-V3 (2024)</a><span class="lineage-note">One of the model families tested.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

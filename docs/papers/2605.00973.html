@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>xMAE: Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)</h2>
+<p class="paper-meta">Zhou, Lee, Tanade, Chun, Lee, Gwak, Thukral, Sung, Hwang, Morshed, Zhu, Nathan, Rahman, Venkatraman, Desai &middot; ICML 2026 &middot; <a href="https://arxiv.org/abs/2605.00973" target="_blank" rel="noopener">paper</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>, <a href="../areas/self-supervised.html">Self-supervised</a>, <a href="../areas/llm-health.html">LLM-Health</a></p>
+
+<h3>What</h3>
+<p>xMAE is a biosignal pretraining framework that uses masked cross-modal reconstruction across temporally ordered biosignals (ECG and PPG) as a training-time constraint. It enforces the known physiological causal direction — ECG captures electrical activation first, PPG records the resulting peripheral pulse after vascular delay — to learn representations that encode meaningful timing structure. It outperforms unimodal and multimodal baselines on 15 of 19 downstream health tasks.</p>
+
+<h3>Why</h3>
+<p>Existing self-supervised methods for biosignals treat multi-sensor signals as interchangeable views and apply symmetric objectives (contrastive, reconstructive). This discards the directional temporal dynamics between signals. For ECG and PPG, the electrical activation always precedes the peripheral pulse by a time interval determined by vascular properties. Ignoring this structure means the model must rediscover it from data rather than having it baked into the learning objective.</p>
+
+<h3>How</h3>
+<p>xMAE masks patches in one modality and reconstructs them using information from the other modality, with the reconstruction direction following the known physiological causal path (ECG to PPG). The pretraining loss encodes the pulse transit relationship as an inductive bias. The framework builds on the masked autoencoder architecture but replaces the standard within-modality reconstruction with a cross-modal, temporally directed variant. Pretraining and evaluation use clinical datasets with simultaneous ECG and PPG recordings.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="6INGKIJV.html">How Mask Matters: Masked Autoencoders Theory (Zhang 2023)</a><span class="lineage-note">Established the theoretical foundation for why masked reconstruction works as a pretraining objective. xMAE extends this from unimodal to cross-modal with temporal ordering.</span></li>
+<li><a href="EDTXS4NM.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Identified cross-modal pretraining with physiological priors as an open direction. xMAE is a concrete instantiation of this direction.</span></li>
+<li><a href="HBLPTRMY.html">HeAR: Health Acoustic Representations (Baur 2024)</a><span class="lineage-note">Demonstrated self-supervised pretraining for health signals in the audio domain using standard symmetric SSL. xMAE shows that adding temporal structure to the objective yields stronger health representations.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Standard multimodal SSL (including contrastive methods like CLIP-style approaches and symmetric masked reconstruction) treats the two modalities as exchangeable views. This fails to capture the directional causal relationship between ECG and PPG. xMAE solves this by making the reconstruction objective asymmetric and temporally directed, which produces representations that reflect the pulse transit time — a clinically meaningful quantity that symmetric methods discard.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where Zhang 2023 (MAE) masks and reconstructs within a single modality, xMAE masks in one modality and reconstructs from the other, with the direction matching the known physiological causal flow. Where HeAR (Baur 2024) applied standard contrastive SSL to health audio, xMAE introduces a domain-specific structural constraint. The difference is not just multi-modal vs. unimodal — it is that the cross-modal reconstruction is ordered rather than symmetric, encoding prior knowledge about the underlying physiology into the learning objective itself.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="RTMH75VW.html">SSL for HAR with 700K Person-days (Yuan 2024)</a><span class="lineage-note">Large-scale self-supervised pretraining for wearable sensor data, using standard symmetric SSL.</span></li>
+<li><a href="2ZYUFEMW.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Bridges sensor data and natural language, also working with wearable biosignals.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
