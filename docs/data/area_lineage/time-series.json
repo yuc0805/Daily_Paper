@@ -1,147 +1,881 @@
 {
   "area": "time-series.md",
   "nodes": [
-    {"key": "PHB9VRVM", "title": "Attention Is All You Need", "year": 2017, "authors_short": "Vaswani et al.", "anchor": true, "cluster": "transformer-foundations"},
-    {"key": "ZT8Y3ABF", "title": "GPT-3", "year": 2020, "authors_short": "Brown et al.", "anchor": true, "cluster": "transformer-foundations"},
-    {"key": "PZATM3SC", "title": "LoRA", "year": 2021, "authors_short": "Hu et al.", "anchor": false, "cluster": "transformer-foundations"},
-    {"key": "TFPTRFGU", "title": "Foundation Models Survey", "year": 2022, "authors_short": "Bommasani et al.", "anchor": true, "cluster": "transformer-foundations"},
-    {"key": "VHTGRMY5", "title": "GNN Intro", "year": 2021, "authors_short": "Sanchez-Lengeling et al.", "anchor": true, "cluster": "transformer-foundations"},
-
-    {"key": "U2R8DC2P", "title": "ARIMA", "year": 1970, "authors_short": "Box et al.", "anchor": true, "cluster": "classical-forecasting"},
-    {"key": "6RRFG94V", "title": "Informer", "year": 2021, "authors_short": "Zhou et al.", "anchor": false, "cluster": "classical-forecasting"},
-    {"key": "P6BV4TCL", "title": "Autoformer", "year": 2022, "authors_short": "Wu et al.", "anchor": false, "cluster": "classical-forecasting"},
-    {"key": "TVHWGWAV", "title": "FEDformer", "year": 2022, "authors_short": "Zhou et al.", "anchor": false, "cluster": "classical-forecasting"},
-    {"key": "4QRHV2JG", "title": "DLinear", "year": 2023, "authors_short": "Zeng et al.", "anchor": false, "cluster": "classical-forecasting"},
-    {"key": "HLTA8MDK", "title": "TimesNet", "year": 2023, "authors_short": "Wu et al.", "anchor": false, "cluster": "classical-forecasting"},
-    {"key": "YY67LF3R", "title": "PatchTST", "year": 2023, "authors_short": "Nie et al.", "anchor": false, "cluster": "classical-forecasting"},
-    {"key": "QBX2TI2X", "title": "iTransformer", "year": 2024, "authors_short": "Liu et al.", "anchor": false, "cluster": "classical-forecasting"},
-    {"key": "RFAMVS5H", "title": "Crossformer", "year": 2023, "authors_short": "Zhang et al.", "anchor": false, "cluster": "classical-forecasting"},
-
-    {"key": "72DFULQQ", "title": "Chronos", "year": 2024, "authors_short": "Ansari et al.", "anchor": false, "cluster": "foundation-models-ts"},
-    {"key": "5I6GAKC4", "title": "TimeGPT-1", "year": 2024, "authors_short": "Garza et al.", "anchor": false, "cluster": "foundation-models-ts"},
-    {"key": "CFG6FEIF", "title": "Moirai", "year": 2024, "authors_short": "Woo et al.", "anchor": false, "cluster": "foundation-models-ts"},
-    {"key": "SIBB8W67", "title": "Moment", "year": 2024, "authors_short": "Goswami et al.", "anchor": false, "cluster": "foundation-models-ts"},
-    {"key": "KKXN4S6L", "title": "Timer", "year": 2024, "authors_short": "Liu et al.", "anchor": false, "cluster": "foundation-models-ts"},
-    {"key": "SKZEZQTH", "title": "TOTEM", "year": 2024, "authors_short": "Talukder et al.", "anchor": false, "cluster": "foundation-models-ts"},
-    {"key": "4QQTVIYC", "title": "Sundial", "year": 2025, "authors_short": "Liu et al.", "anchor": false, "cluster": "foundation-models-ts"},
-    {"key": "GPJBBU2T", "title": "UniTS", "year": 2024, "authors_short": "Gao et al.", "anchor": false, "cluster": "foundation-models-ts"},
-    {"key": "MXKVRSKK", "title": "WaveToken", "year": 2024, "authors_short": "Masserano et al.", "anchor": false, "cluster": "foundation-models-ts"},
-    {"key": "RILRU5H6", "title": "TimeGrad", "year": 2021, "authors_short": "Rasul et al.", "anchor": true, "cluster": "foundation-models-ts"},
-
-    {"key": "MKICLA63", "title": "Time-LLM", "year": 2024, "authors_short": "Jin et al.", "anchor": false, "cluster": "llm-time-series"},
-    {"key": "ZE7SFTCQ", "title": "TEST", "year": 2024, "authors_short": "Sun et al.", "anchor": false, "cluster": "llm-time-series"},
-    {"key": "6QQNUTL7", "title": "GPT4TS", "year": 2024, "authors_short": "Zhou et al.", "anchor": false, "cluster": "llm-time-series"},
-    {"key": "3AA4F4KC", "title": "FPT", "year": 2022, "authors_short": "Lu et al.", "anchor": false, "cluster": "llm-time-series"},
-    {"key": "I2CIT4I7", "title": "TS-Agent", "year": 2025, "authors_short": "Liu et al.", "anchor": false, "cluster": "llm-time-series"},
-    {"key": "VSCNJG5J", "title": "ChatTS", "year": 2025, "authors_short": "Xie et al.", "anchor": false, "cluster": "llm-time-series"},
-    {"key": "N2JLZBY3", "title": "LLMs for TS Survey", "year": 2024, "authors_short": "Zhang et al.", "anchor": false, "cluster": "llm-time-series"},
-
-    {"key": "AVTJLZIR", "title": "Bi-Mamba+", "year": 2024, "authors_short": "Liang et al.", "anchor": false, "cluster": "ssm-mamba"},
-    {"key": "HE9X47KN", "title": "HARMamba", "year": 2024, "authors_short": "Li et al.", "anchor": false, "cluster": "ssm-mamba"},
-
-    {"key": "RTMH75VW", "title": "SSL for HAR", "year": 2024, "authors_short": "Yuan et al.", "anchor": false, "cluster": "wearable-har"},
-    {"key": "ELYUE3NF", "title": "Sensor2Text", "year": 2024, "authors_short": "Chen et al.", "anchor": false, "cluster": "wearable-har"},
-    {"key": "ICD9EG8Q", "title": "GLOBEM", "year": 2023, "authors_short": "Xu et al.", "anchor": false, "cluster": "wearable-har"},
-
-    {"key": "2XWEG7AF", "title": "Foundation Models Biosignals", "year": 2025, "authors_short": "Gu et al.", "anchor": false, "cluster": "biosignals"},
-    {"key": "3LA8GNCU", "title": "HeAR", "year": 2024, "authors_short": "Baur et al.", "anchor": false, "cluster": "biosignals"},
-    {"key": "HDPXBLAP", "title": "SensorLM", "year": 2025, "authors_short": "Unknown", "anchor": false, "cluster": "biosignals"},
-    {"key": "YJ3P8H2J", "title": "Brant-2", "year": 2024, "authors_short": "Yuan et al.", "anchor": false, "cluster": "biosignals"},
-    {"key": "AJ5XKWDZ", "title": "TFC", "year": 2022, "authors_short": "Zhang et al.", "anchor": false, "cluster": "biosignals"},
-
-    {"key": "6INGKIJV", "title": "MAE Theory", "year": 2023, "authors_short": "Zhang et al.", "anchor": false, "cluster": "self-supervised-pretraining"},
-    {"key": "5GFYJJVV", "title": "LVM-Med", "year": 2023, "authors_short": "Nguyen et al.", "anchor": false, "cluster": "self-supervised-pretraining"},
-    {"key": "DZ2UYXUL", "title": "l-DAE", "year": 2024, "authors_short": "Chen et al.", "anchor": false, "cluster": "self-supervised-pretraining"}
+    {
+      "key": "PHB9VRVM",
+      "title": "Attention Is All You Need",
+      "year": 2017,
+      "authors_short": "Vaswani et al.",
+      "anchor": true,
+      "cluster": "transformer-foundations"
+    },
+    {
+      "key": "ZT8Y3ABF",
+      "title": "GPT-3",
+      "year": 2020,
+      "authors_short": "Brown et al.",
+      "anchor": true,
+      "cluster": "transformer-foundations"
+    },
+    {
+      "key": "PZATM3SC",
+      "title": "LoRA",
+      "year": 2021,
+      "authors_short": "Hu et al.",
+      "anchor": false,
+      "cluster": "transformer-foundations"
+    },
+    {
+      "key": "TFPTRFGU",
+      "title": "Foundation Models Survey",
+      "year": 2022,
+      "authors_short": "Bommasani et al.",
+      "anchor": true,
+      "cluster": "transformer-foundations"
+    },
+    {
+      "key": "VHTGRMY5",
+      "title": "GNN Intro",
+      "year": 2021,
+      "authors_short": "Sanchez-Lengeling et al.",
+      "anchor": true,
+      "cluster": "transformer-foundations"
+    },
+    {
+      "key": "U2R8DC2P",
+      "title": "ARIMA",
+      "year": 1970,
+      "authors_short": "Box et al.",
+      "anchor": true,
+      "cluster": "classical-forecasting"
+    },
+    {
+      "key": "6RRFG94V",
+      "title": "Informer",
+      "year": 2021,
+      "authors_short": "Zhou et al.",
+      "anchor": false,
+      "cluster": "classical-forecasting"
+    },
+    {
+      "key": "P6BV4TCL",
+      "title": "Autoformer",
+      "year": 2022,
+      "authors_short": "Wu et al.",
+      "anchor": false,
+      "cluster": "classical-forecasting"
+    },
+    {
+      "key": "TVHWGWAV",
+      "title": "FEDformer",
+      "year": 2022,
+      "authors_short": "Zhou et al.",
+      "anchor": false,
+      "cluster": "classical-forecasting"
+    },
+    {
+      "key": "4QRHV2JG",
+      "title": "DLinear",
+      "year": 2023,
+      "authors_short": "Zeng et al.",
+      "anchor": false,
+      "cluster": "classical-forecasting"
+    },
+    {
+      "key": "HLTA8MDK",
+      "title": "TimesNet",
+      "year": 2023,
+      "authors_short": "Wu et al.",
+      "anchor": false,
+      "cluster": "classical-forecasting"
+    },
+    {
+      "key": "YY67LF3R",
+      "title": "PatchTST",
+      "year": 2023,
+      "authors_short": "Nie et al.",
+      "anchor": false,
+      "cluster": "classical-forecasting"
+    },
+    {
+      "key": "QBX2TI2X",
+      "title": "iTransformer",
+      "year": 2024,
+      "authors_short": "Liu et al.",
+      "anchor": false,
+      "cluster": "classical-forecasting"
+    },
+    {
+      "key": "RFAMVS5H",
+      "title": "Crossformer",
+      "year": 2023,
+      "authors_short": "Zhang et al.",
+      "anchor": false,
+      "cluster": "classical-forecasting"
+    },
+    {
+      "key": "72DFULQQ",
+      "title": "Chronos",
+      "year": 2024,
+      "authors_short": "Ansari et al.",
+      "anchor": false,
+      "cluster": "foundation-models-ts"
+    },
+    {
+      "key": "5I6GAKC4",
+      "title": "TimeGPT-1",
+      "year": 2024,
+      "authors_short": "Garza et al.",
+      "anchor": false,
+      "cluster": "foundation-models-ts"
+    },
+    {
+      "key": "CFG6FEIF",
+      "title": "Moirai",
+      "year": 2024,
+      "authors_short": "Woo et al.",
+      "anchor": false,
+      "cluster": "foundation-models-ts"
+    },
+    {
+      "key": "SIBB8W67",
+      "title": "Moment",
+      "year": 2024,
+      "authors_short": "Goswami et al.",
+      "anchor": false,
+      "cluster": "foundation-models-ts"
+    },
+    {
+      "key": "KKXN4S6L",
+      "title": "Timer",
+      "year": 2024,
+      "authors_short": "Liu et al.",
+      "anchor": false,
+      "cluster": "foundation-models-ts"
+    },
+    {
+      "key": "SKZEZQTH",
+      "title": "TOTEM",
+      "year": 2024,
+      "authors_short": "Talukder et al.",
+      "anchor": false,
+      "cluster": "foundation-models-ts"
+    },
+    {
+      "key": "4QQTVIYC",
+      "title": "Sundial",
+      "year": 2025,
+      "authors_short": "Liu et al.",
+      "anchor": false,
+      "cluster": "foundation-models-ts"
+    },
+    {
+      "key": "GPJBBU2T",
+      "title": "UniTS",
+      "year": 2024,
+      "authors_short": "Gao et al.",
+      "anchor": false,
+      "cluster": "foundation-models-ts"
+    },
+    {
+      "key": "MXKVRSKK",
+      "title": "WaveToken",
+      "year": 2024,
+      "authors_short": "Masserano et al.",
+      "anchor": false,
+      "cluster": "foundation-models-ts"
+    },
+    {
+      "key": "RILRU5H6",
+      "title": "TimeGrad",
+      "year": 2021,
+      "authors_short": "Rasul et al.",
+      "anchor": true,
+      "cluster": "foundation-models-ts"
+    },
+    {
+      "key": "MKICLA63",
+      "title": "Time-LLM",
+      "year": 2024,
+      "authors_short": "Jin et al.",
+      "anchor": false,
+      "cluster": "llm-time-series"
+    },
+    {
+      "key": "ZE7SFTCQ",
+      "title": "TEST",
+      "year": 2024,
+      "authors_short": "Sun et al.",
+      "anchor": false,
+      "cluster": "llm-time-series"
+    },
+    {
+      "key": "6QQNUTL7",
+      "title": "GPT4TS",
+      "year": 2024,
+      "authors_short": "Zhou et al.",
+      "anchor": false,
+      "cluster": "llm-time-series"
+    },
+    {
+      "key": "3AA4F4KC",
+      "title": "FPT",
+      "year": 2022,
+      "authors_short": "Lu et al.",
+      "anchor": false,
+      "cluster": "llm-time-series"
+    },
+    {
+      "key": "I2CIT4I7",
+      "title": "TS-Agent",
+      "year": 2025,
+      "authors_short": "Liu et al.",
+      "anchor": false,
+      "cluster": "llm-time-series"
+    },
+    {
+      "key": "VSCNJG5J",
+      "title": "ChatTS",
+      "year": 2025,
+      "authors_short": "Xie et al.",
+      "anchor": false,
+      "cluster": "llm-time-series"
+    },
+    {
+      "key": "N2JLZBY3",
+      "title": "LLMs for TS Survey",
+      "year": 2024,
+      "authors_short": "Zhang et al.",
+      "anchor": false,
+      "cluster": "llm-time-series"
+    },
+    {
+      "key": "AVTJLZIR",
+      "title": "Bi-Mamba+",
+      "year": 2024,
+      "authors_short": "Liang et al.",
+      "anchor": false,
+      "cluster": "ssm-mamba"
+    },
+    {
+      "key": "HE9X47KN",
+      "title": "HARMamba",
+      "year": 2024,
+      "authors_short": "Li et al.",
+      "anchor": false,
+      "cluster": "ssm-mamba"
+    },
+    {
+      "key": "RTMH75VW",
+      "title": "SSL for HAR",
+      "year": 2024,
+      "authors_short": "Yuan et al.",
+      "anchor": false,
+      "cluster": "wearable-har"
+    },
+    {
+      "key": "ELYUE3NF",
+      "title": "Sensor2Text",
+      "year": 2024,
+      "authors_short": "Chen et al.",
+      "anchor": false,
+      "cluster": "wearable-har"
+    },
+    {
+      "key": "ICD9EG8Q",
+      "title": "GLOBEM",
+      "year": 2023,
+      "authors_short": "Xu et al.",
+      "anchor": false,
+      "cluster": "wearable-har"
+    },
+    {
+      "key": "2XWEG7AF",
+      "title": "Foundation Models Biosignals",
+      "year": 2025,
+      "authors_short": "Gu et al.",
+      "anchor": false,
+      "cluster": "biosignals"
+    },
+    {
+      "key": "3LA8GNCU",
+      "title": "HeAR",
+      "year": 2024,
+      "authors_short": "Baur et al.",
+      "anchor": false,
+      "cluster": "biosignals"
+    },
+    {
+      "key": "HDPXBLAP",
+      "title": "SensorLM",
+      "year": 2025,
+      "authors_short": "Unknown",
+      "anchor": false,
+      "cluster": "biosignals"
+    },
+    {
+      "key": "YJ3P8H2J",
+      "title": "Brant-2",
+      "year": 2024,
+      "authors_short": "Yuan et al.",
+      "anchor": false,
+      "cluster": "biosignals"
+    },
+    {
+      "key": "AJ5XKWDZ",
+      "title": "TFC",
+      "year": 2022,
+      "authors_short": "Zhang et al.",
+      "anchor": false,
+      "cluster": "biosignals"
+    },
+    {
+      "key": "6INGKIJV",
+      "title": "MAE Theory",
+      "year": 2023,
+      "authors_short": "Zhang et al.",
+      "anchor": false,
+      "cluster": "self-supervised-pretraining"
+    },
+    {
+      "key": "5GFYJJVV",
+      "title": "LVM-Med",
+      "year": 2023,
+      "authors_short": "Nguyen et al.",
+      "anchor": false,
+      "cluster": "self-supervised-pretraining"
+    },
+    {
+      "key": "DZ2UYXUL",
+      "title": "l-DAE",
+      "year": 2024,
+      "authors_short": "Chen et al.",
+      "anchor": false,
+      "cluster": "self-supervised-pretraining"
+    },
+    {
+      "key": "2605.05151",
+      "title": "Superposition Not Necessary",
+      "year": 2026,
+      "authors_short": "Yildirim",
+      "anchor": false,
+      "cluster": "classical-forecasting"
+    },
+    {
+      "key": "2605.20268",
+      "title": "Chronicle",
+      "year": 2026,
+      "authors_short": "Quinlan et al.",
+      "anchor": false,
+      "cluster": "ts-llm-integration"
+    },
+    {
+      "key": "2605.22759",
+      "title": "Wearable Health FM",
+      "year": 2026,
+      "authors_short": "Narayanswamy et al.",
+      "anchor": false,
+      "cluster": "wearable-health-sensing"
+    }
   ],
   "edges": [
-    {"source": "PHB9VRVM", "target": "HE9X47KN", "relation": "builds_on", "rationale": "HARMamba is positioned as an alternative to transformer-based HAR models and explicitly cites Transformer attention as the prior backbone it replaces."},
-    {"source": "PHB9VRVM", "target": "ELYUE3NF", "relation": "builds_on", "rationale": "Sensor2Text uses an encoder-decoder neural model on top of pretrained transformer-based vision-language backbones."},
-    {"source": "PHB9VRVM", "target": "RTMH75VW", "relation": "builds_on", "rationale": "Self-supervised HAR work cites and uses Transformer encoders for wearable representation learning."},
-    {"source": "PHB9VRVM", "target": "2XWEG7AF", "relation": "builds_on", "rationale": "Biosignals foundation-model survey builds on transformer architectures as the pretraining backbone."},
-    {"source": "PHB9VRVM", "target": "6INGKIJV", "relation": "builds_on", "rationale": "MAE theory paper analyzes masked autoencoders built on the Transformer architecture."},
-    {"source": "PHB9VRVM", "target": "YY67LF3R", "relation": "builds_on", "rationale": "PatchTST treats time-series as patches and feeds them to a Transformer."},
-    {"source": "PHB9VRVM", "target": "QBX2TI2X", "relation": "builds_on", "rationale": "iTransformer keeps the Transformer architecture and only inverts the attention dimensions for variate tokens."},
-    {"source": "PHB9VRVM", "target": "72DFULQQ", "relation": "builds_on", "rationale": "Chronos pretrains T5-family transformer language models on tokenized time series."},
-    {"source": "PHB9VRVM", "target": "MKICLA63", "relation": "builds_on", "rationale": "Time-LLM reprograms a frozen pretrained LLM transformer for time-series forecasting."},
-    {"source": "PHB9VRVM", "target": "6QQNUTL7", "relation": "builds_on", "rationale": "GPT4TS freezes self-attention and feedforward layers of a pretrained transformer."},
-    {"source": "PHB9VRVM", "target": "SIBB8W67", "relation": "builds_on", "rationale": "MOMENT pretrains transformer-based foundation models on the Time-series Pile."},
-    {"source": "PHB9VRVM", "target": "CFG6FEIF", "relation": "builds_on", "rationale": "Moirai uses Transformers with mixture-of-experts for heterogeneous time series."},
-    {"source": "PHB9VRVM", "target": "4QQTVIYC", "relation": "builds_on", "rationale": "Sundial leverages minimal adaptations of Transformers for native time-series pretraining."},
-    {"source": "PHB9VRVM", "target": "GPJBBU2T", "relation": "builds_on", "rationale": "UniTS uses sequence and variable attention as its unified network backbone."},
-    {"source": "PHB9VRVM", "target": "ZE7SFTCQ", "relation": "builds_on", "rationale": "TEST aligns time-series embeddings to LLM embedding spaces, relying on the Transformer LLM backbone."},
-    {"source": "PHB9VRVM", "target": "5I6GAKC4", "relation": "builds_on", "rationale": "TimeGPT-1 is a transformer-based foundation model for time-series forecasting."},
-    {"source": "PHB9VRVM", "target": "AVTJLZIR", "relation": "builds_on", "rationale": "Bi-Mamba+ is framed as a Mamba alternative to Transformer-based long-term forecasters."},
-    {"source": "PHB9VRVM", "target": "PZATM3SC", "relation": "builds_on", "rationale": "LoRA injects trainable low-rank matrices into each Transformer layer."},
-    {"source": "PHB9VRVM", "target": "6RRFG94V", "relation": "builds_on", "rationale": "Informer adapts the Transformer for long-sequence time-series forecasting with sparse attention."},
-    {"source": "PHB9VRVM", "target": "P6BV4TCL", "relation": "builds_on", "rationale": "Autoformer is a Transformer variant for long-term forecasting with auto-correlation attention."},
-    {"source": "PHB9VRVM", "target": "TVHWGWAV", "relation": "builds_on", "rationale": "FEDformer is a frequency-enhanced Transformer for long-sequence time-series forecasting."},
-    {"source": "PHB9VRVM", "target": "RFAMVS5H", "relation": "builds_on", "rationale": "Crossformer is a Transformer for multivariate time-series forecasting using cross-dimension attention."},
-
-    {"source": "ZT8Y3ABF", "target": "MKICLA63", "relation": "builds_on", "rationale": "Time-LLM repurposes large language models by reprogramming the input rather than fine-tuning."},
-    {"source": "ZT8Y3ABF", "target": "6QQNUTL7", "relation": "builds_on", "rationale": "GPT4TS leverages pretrained language models for time-series analysis using GPT-style backbones."},
-    {"source": "ZT8Y3ABF", "target": "ZE7SFTCQ", "relation": "builds_on", "rationale": "TEST is a TS-for-LLM approach that activates pretrained LLMs' ability to process time-series."},
-    {"source": "ZT8Y3ABF", "target": "ELYUE3NF", "relation": "builds_on", "rationale": "Sensor2Text uses LLMs to enable interactive conversation about wearable sensor data."},
-    {"source": "ZT8Y3ABF", "target": "I2CIT4I7", "relation": "builds_on", "rationale": "TS-Agent leverages LLMs for evidence gathering and step-by-step reasoning over time series."},
-    {"source": "ZT8Y3ABF", "target": "VSCNJG5J", "relation": "builds_on", "rationale": "ChatTS extends MLLM techniques from LLMs to treat time series as a modality."},
-    {"source": "ZT8Y3ABF", "target": "N2JLZBY3", "relation": "builds_on", "rationale": "The LLMs-for-TS survey catalogs methods that adapt large language models to time-series analysis."},
-    {"source": "ZT8Y3ABF", "target": "PZATM3SC", "relation": "builds_on", "rationale": "LoRA is benchmarked using GPT-3 175B as the canonical large model for adaptation."},
-    {"source": "ZT8Y3ABF", "target": "3AA4F4KC", "relation": "builds_on", "rationale": "FPT applies the Frozen Pretrained Transformer paradigm derived from large pretrained language models."},
-
-    {"source": "TFPTRFGU", "target": "72DFULQQ", "relation": "builds_on", "rationale": "Chronos is presented as a foundation model for probabilistic time-series."},
-    {"source": "TFPTRFGU", "target": "5I6GAKC4", "relation": "builds_on", "rationale": "TimeGPT-1 is explicitly framed as the first foundation model for time series."},
-    {"source": "TFPTRFGU", "target": "CFG6FEIF", "relation": "builds_on", "rationale": "Moirai is a time-series foundation model."},
-    {"source": "TFPTRFGU", "target": "SIBB8W67", "relation": "builds_on", "rationale": "MOMENT introduces open-source foundation models for general-purpose time-series analysis."},
-    {"source": "TFPTRFGU", "target": "GPJBBU2T", "relation": "builds_on", "rationale": "UniTS is positioned as a foundation model for unified time-series tasks."},
-    {"source": "TFPTRFGU", "target": "HDPXBLAP", "relation": "builds_on", "rationale": "SensorLM is a sensor-language foundation model family."},
-    {"source": "TFPTRFGU", "target": "2XWEG7AF", "relation": "builds_on", "rationale": "Foundation Models for Biosignals surveys the foundation-model paradigm applied to physiological signals."},
-    {"source": "TFPTRFGU", "target": "MXKVRSKK", "relation": "builds_on", "rationale": "WaveToken benchmarks itself against foundation models for time-series forecasting."},
-    {"source": "TFPTRFGU", "target": "6QQNUTL7", "relation": "builds_on", "rationale": "GPT4TS leverages large pretrained foundation models for time-series analysis."},
-    {"source": "TFPTRFGU", "target": "5GFYJJVV", "relation": "builds_on", "rationale": "LVM-Med is a medical-domain analog of large vision-language foundation models."},
-
-    {"source": "U2R8DC2P", "target": "6RRFG94V", "relation": "builds_on", "rationale": "Informer is benchmarked against classical statistical baselines like ARIMA."},
-
-    {"source": "6RRFG94V", "target": "P6BV4TCL", "relation": "builds_on", "rationale": "Autoformer is the next-step Transformer forecaster following Informer in long-term forecasting."},
-    {"source": "6RRFG94V", "target": "TVHWGWAV", "relation": "builds_on", "rationale": "FEDformer extends Informer-style efficient attention with frequency-domain decomposition."},
-    {"source": "6RRFG94V", "target": "YY67LF3R", "relation": "builds_on", "rationale": "PatchTST critiques and improves on prior Transformer forecasters like Informer using patching."},
-    {"source": "6RRFG94V", "target": "4QRHV2JG", "relation": "builds_on", "rationale": "DLinear is motivated as a critique of complex Transformer forecasters like Informer."},
-
-    {"source": "4QRHV2JG", "target": "QBX2TI2X", "relation": "builds_on", "rationale": "iTransformer cites the recent boom of linear forecasting models like DLinear as motivation."},
-
-    {"source": "YY67LF3R", "target": "CFG6FEIF", "relation": "builds_on", "rationale": "Moirai uses patch-based tokenization of time series following PatchTST."},
-    {"source": "YY67LF3R", "target": "SIBB8W67", "relation": "builds_on", "rationale": "MOMENT adopts patch-based representations of time-series similar to PatchTST."},
-    {"source": "YY67LF3R", "target": "4QQTVIYC", "relation": "builds_on", "rationale": "Sundial predicts the next-patch distribution, building on PatchTST patching."},
-    {"source": "YY67LF3R", "target": "HE9X47KN", "relation": "builds_on", "rationale": "HARMamba divides each sensor channel into patches following PatchTST."},
-    {"source": "YY67LF3R", "target": "AVTJLZIR", "relation": "builds_on", "rationale": "Bi-Mamba+ uses a series-relation-aware tokenization following the channel-independent patching motif from PatchTST."},
-
-    {"source": "72DFULQQ", "target": "4QQTVIYC", "relation": "builds_on", "rationale": "Sundial extends Chronos' tokenized-transformer foundation-model paradigm with continuous flow-matching."},
-    {"source": "72DFULQQ", "target": "MXKVRSKK", "relation": "builds_on", "rationale": "WaveToken explicitly compares its tokenization to Chronos."},
-    {"source": "5I6GAKC4", "target": "CFG6FEIF", "relation": "builds_on", "rationale": "Moirai's frequency-aware specialization is positioned against earlier foundation models like TimeGPT-1."},
-    {"source": "5I6GAKC4", "target": "SIBB8W67", "relation": "builds_on", "rationale": "MOMENT follows TimeGPT-1 in building open foundation models for time-series."},
-
-    {"source": "RILRU5H6", "target": "72DFULQQ", "relation": "builds_on", "rationale": "Chronos generates probabilistic forecasts, extending the probabilistic-forecasting tradition pioneered by TimeGrad."},
-    {"source": "RILRU5H6", "target": "4QQTVIYC", "relation": "builds_on", "rationale": "Sundial's flow-matching generative forecasting builds on TimeGrad's diffusion-based forecasting."},
-
-    {"source": "N2JLZBY3", "target": "I2CIT4I7", "relation": "builds_on", "rationale": "TS-Agent follows the LLM-for-TS taxonomy laid out in the survey."},
-    {"source": "N2JLZBY3", "target": "VSCNJG5J", "relation": "builds_on", "rationale": "ChatTS's MLLM design extends the LLMs-for-TS framework."},
-    {"source": "MKICLA63", "target": "N2JLZBY3", "relation": "builds_on", "rationale": "Survey catalogs reprogramming approaches like Time-LLM."},
-    {"source": "6QQNUTL7", "target": "N2JLZBY3", "relation": "builds_on", "rationale": "GPT4TS's frozen-pretrained-transformer approach is a primary example in the survey."},
-    {"source": "ZE7SFTCQ", "target": "N2JLZBY3", "relation": "builds_on", "rationale": "TEST's TS-for-LLM strategy is summarized in the survey taxonomy."},
-
-    {"source": "RTMH75VW", "target": "HE9X47KN", "relation": "builds_on", "rationale": "HARMamba follows the self-supervised HAR pretraining line."},
-    {"source": "RTMH75VW", "target": "ELYUE3NF", "relation": "builds_on", "rationale": "Sensor2Text builds wearable activity representations on sensor encoders trained with self-supervision."},
-    {"source": "RTMH75VW", "target": "2XWEG7AF", "relation": "builds_on", "rationale": "Biosignals survey cites large-scale self-supervised wearable HAR work."},
-    {"source": "RTMH75VW", "target": "3LA8GNCU", "relation": "builds_on", "rationale": "HeAR's MAE-based pretraining parallels the wearable SSL HAR pipeline."},
-
-    {"source": "6INGKIJV", "target": "RTMH75VW", "relation": "builds_on", "rationale": "Self-supervised HAR relies on masked-autoencoder objectives analyzed by MAE Theory."},
-    {"source": "6INGKIJV", "target": "3LA8GNCU", "relation": "builds_on", "rationale": "HeAR is a masked-autoencoder pretrained system whose design space is analyzed by MAE theory."},
-    {"source": "6INGKIJV", "target": "HDPXBLAP", "relation": "builds_on", "rationale": "SensorLM extends multimodal pretraining relying on masked-modeling objectives."},
-    {"source": "6INGKIJV", "target": "DZ2UYXUL", "relation": "builds_on", "rationale": "l-DAE deconstructs denoising diffusion models toward classical denoising autoencoders, building on MAE-style analysis."},
-    {"source": "6INGKIJV", "target": "5GFYJJVV", "relation": "builds_on", "rationale": "LVM-Med benchmarks self-supervised pretraining approaches related to masked-autoencoder methods."},
-
-    {"source": "3LA8GNCU", "target": "2XWEG7AF", "relation": "builds_on", "rationale": "Biosignals survey cites HeAR as health-acoustic representation learning."},
-
-    {"source": "AVTJLZIR", "target": "HE9X47KN", "relation": "sibling", "rationale": "Bi-Mamba+ and HARMamba are contemporaneous applications of Mamba/SSM to multivariate time-series and HAR respectively."},
-    {"source": "I2CIT4I7", "target": "VSCNJG5J", "relation": "sibling", "rationale": "TS-Agent and ChatTS independently address LLM-based time-series reasoning using different paradigms."},
-    {"source": "5I6GAKC4", "target": "72DFULQQ", "relation": "sibling", "rationale": "TimeGPT-1 and Chronos are concurrent first-wave time-series foundation models."}
+    {
+      "source": "PHB9VRVM",
+      "target": "HE9X47KN",
+      "relation": "builds_on",
+      "rationale": "HARMamba is positioned as an alternative to transformer-based HAR models and explicitly cites Transformer attention as the prior backbone it replaces."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "ELYUE3NF",
+      "relation": "builds_on",
+      "rationale": "Sensor2Text uses an encoder-decoder neural model on top of pretrained transformer-based vision-language backbones."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "RTMH75VW",
+      "relation": "builds_on",
+      "rationale": "Self-supervised HAR work cites and uses Transformer encoders for wearable representation learning."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "2XWEG7AF",
+      "relation": "builds_on",
+      "rationale": "Biosignals foundation-model survey builds on transformer architectures as the pretraining backbone."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "6INGKIJV",
+      "relation": "builds_on",
+      "rationale": "MAE theory paper analyzes masked autoencoders built on the Transformer architecture."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "YY67LF3R",
+      "relation": "builds_on",
+      "rationale": "PatchTST treats time-series as patches and feeds them to a Transformer."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "QBX2TI2X",
+      "relation": "builds_on",
+      "rationale": "iTransformer keeps the Transformer architecture and only inverts the attention dimensions for variate tokens."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "72DFULQQ",
+      "relation": "builds_on",
+      "rationale": "Chronos pretrains T5-family transformer language models on tokenized time series."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "MKICLA63",
+      "relation": "builds_on",
+      "rationale": "Time-LLM reprograms a frozen pretrained LLM transformer for time-series forecasting."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "6QQNUTL7",
+      "relation": "builds_on",
+      "rationale": "GPT4TS freezes self-attention and feedforward layers of a pretrained transformer."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "SIBB8W67",
+      "relation": "builds_on",
+      "rationale": "MOMENT pretrains transformer-based foundation models on the Time-series Pile."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "CFG6FEIF",
+      "relation": "builds_on",
+      "rationale": "Moirai uses Transformers with mixture-of-experts for heterogeneous time series."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "4QQTVIYC",
+      "relation": "builds_on",
+      "rationale": "Sundial leverages minimal adaptations of Transformers for native time-series pretraining."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "GPJBBU2T",
+      "relation": "builds_on",
+      "rationale": "UniTS uses sequence and variable attention as its unified network backbone."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "ZE7SFTCQ",
+      "relation": "builds_on",
+      "rationale": "TEST aligns time-series embeddings to LLM embedding spaces, relying on the Transformer LLM backbone."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "5I6GAKC4",
+      "relation": "builds_on",
+      "rationale": "TimeGPT-1 is a transformer-based foundation model for time-series forecasting."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "AVTJLZIR",
+      "relation": "builds_on",
+      "rationale": "Bi-Mamba+ is framed as a Mamba alternative to Transformer-based long-term forecasters."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "PZATM3SC",
+      "relation": "builds_on",
+      "rationale": "LoRA injects trainable low-rank matrices into each Transformer layer."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "6RRFG94V",
+      "relation": "builds_on",
+      "rationale": "Informer adapts the Transformer for long-sequence time-series forecasting with sparse attention."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "P6BV4TCL",
+      "relation": "builds_on",
+      "rationale": "Autoformer is a Transformer variant for long-term forecasting with auto-correlation attention."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "TVHWGWAV",
+      "relation": "builds_on",
+      "rationale": "FEDformer is a frequency-enhanced Transformer for long-sequence time-series forecasting."
+    },
+    {
+      "source": "PHB9VRVM",
+      "target": "RFAMVS5H",
+      "relation": "builds_on",
+      "rationale": "Crossformer is a Transformer for multivariate time-series forecasting using cross-dimension attention."
+    },
+    {
+      "source": "ZT8Y3ABF",
+      "target": "MKICLA63",
+      "relation": "builds_on",
+      "rationale": "Time-LLM repurposes large language models by reprogramming the input rather than fine-tuning."
+    },
+    {
+      "source": "ZT8Y3ABF",
+      "target": "6QQNUTL7",
+      "relation": "builds_on",
+      "rationale": "GPT4TS leverages pretrained language models for time-series analysis using GPT-style backbones."
+    },
+    {
+      "source": "ZT8Y3ABF",
+      "target": "ZE7SFTCQ",
+      "relation": "builds_on",
+      "rationale": "TEST is a TS-for-LLM approach that activates pretrained LLMs' ability to process time-series."
+    },
+    {
+      "source": "ZT8Y3ABF",
+      "target": "ELYUE3NF",
+      "relation": "builds_on",
+      "rationale": "Sensor2Text uses LLMs to enable interactive conversation about wearable sensor data."
+    },
+    {
+      "source": "ZT8Y3ABF",
+      "target": "I2CIT4I7",
+      "relation": "builds_on",
+      "rationale": "TS-Agent leverages LLMs for evidence gathering and step-by-step reasoning over time series."
+    },
+    {
+      "source": "ZT8Y3ABF",
+      "target": "VSCNJG5J",
+      "relation": "builds_on",
+      "rationale": "ChatTS extends MLLM techniques from LLMs to treat time series as a modality."
+    },
+    {
+      "source": "ZT8Y3ABF",
+      "target": "N2JLZBY3",
+      "relation": "builds_on",
+      "rationale": "The LLMs-for-TS survey catalogs methods that adapt large language models to time-series analysis."
+    },
+    {
+      "source": "ZT8Y3ABF",
+      "target": "PZATM3SC",
+      "relation": "builds_on",
+      "rationale": "LoRA is benchmarked using GPT-3 175B as the canonical large model for adaptation."
+    },
+    {
+      "source": "ZT8Y3ABF",
+      "target": "3AA4F4KC",
+      "relation": "builds_on",
+      "rationale": "FPT applies the Frozen Pretrained Transformer paradigm derived from large pretrained language models."
+    },
+    {
+      "source": "TFPTRFGU",
+      "target": "72DFULQQ",
+      "relation": "builds_on",
+      "rationale": "Chronos is presented as a foundation model for probabilistic time-series."
+    },
+    {
+      "source": "TFPTRFGU",
+      "target": "5I6GAKC4",
+      "relation": "builds_on",
+      "rationale": "TimeGPT-1 is explicitly framed as the first foundation model for time series."
+    },
+    {
+      "source": "TFPTRFGU",
+      "target": "CFG6FEIF",
+      "relation": "builds_on",
+      "rationale": "Moirai is a time-series foundation model."
+    },
+    {
+      "source": "TFPTRFGU",
+      "target": "SIBB8W67",
+      "relation": "builds_on",
+      "rationale": "MOMENT introduces open-source foundation models for general-purpose time-series analysis."
+    },
+    {
+      "source": "TFPTRFGU",
+      "target": "GPJBBU2T",
+      "relation": "builds_on",
+      "rationale": "UniTS is positioned as a foundation model for unified time-series tasks."
+    },
+    {
+      "source": "TFPTRFGU",
+      "target": "HDPXBLAP",
+      "relation": "builds_on",
+      "rationale": "SensorLM is a sensor-language foundation model family."
+    },
+    {
+      "source": "TFPTRFGU",
+      "target": "2XWEG7AF",
+      "relation": "builds_on",
+      "rationale": "Foundation Models for Biosignals surveys the foundation-model paradigm applied to physiological signals."
+    },
+    {
+      "source": "TFPTRFGU",
+      "target": "MXKVRSKK",
+      "relation": "builds_on",
+      "rationale": "WaveToken benchmarks itself against foundation models for time-series forecasting."
+    },
+    {
+      "source": "TFPTRFGU",
+      "target": "6QQNUTL7",
+      "relation": "builds_on",
+      "rationale": "GPT4TS leverages large pretrained foundation models for time-series analysis."
+    },
+    {
+      "source": "TFPTRFGU",
+      "target": "5GFYJJVV",
+      "relation": "builds_on",
+      "rationale": "LVM-Med is a medical-domain analog of large vision-language foundation models."
+    },
+    {
+      "source": "U2R8DC2P",
+      "target": "6RRFG94V",
+      "relation": "builds_on",
+      "rationale": "Informer is benchmarked against classical statistical baselines like ARIMA."
+    },
+    {
+      "source": "6RRFG94V",
+      "target": "P6BV4TCL",
+      "relation": "builds_on",
+      "rationale": "Autoformer is the next-step Transformer forecaster following Informer in long-term forecasting."
+    },
+    {
+      "source": "6RRFG94V",
+      "target": "TVHWGWAV",
+      "relation": "builds_on",
+      "rationale": "FEDformer extends Informer-style efficient attention with frequency-domain decomposition."
+    },
+    {
+      "source": "6RRFG94V",
+      "target": "YY67LF3R",
+      "relation": "builds_on",
+      "rationale": "PatchTST critiques and improves on prior Transformer forecasters like Informer using patching."
+    },
+    {
+      "source": "6RRFG94V",
+      "target": "4QRHV2JG",
+      "relation": "builds_on",
+      "rationale": "DLinear is motivated as a critique of complex Transformer forecasters like Informer."
+    },
+    {
+      "source": "4QRHV2JG",
+      "target": "QBX2TI2X",
+      "relation": "builds_on",
+      "rationale": "iTransformer cites the recent boom of linear forecasting models like DLinear as motivation."
+    },
+    {
+      "source": "YY67LF3R",
+      "target": "CFG6FEIF",
+      "relation": "builds_on",
+      "rationale": "Moirai uses patch-based tokenization of time series following PatchTST."
+    },
+    {
+      "source": "YY67LF3R",
+      "target": "SIBB8W67",
+      "relation": "builds_on",
+      "rationale": "MOMENT adopts patch-based representations of time-series similar to PatchTST."
+    },
+    {
+      "source": "YY67LF3R",
+      "target": "4QQTVIYC",
+      "relation": "builds_on",
+      "rationale": "Sundial predicts the next-patch distribution, building on PatchTST patching."
+    },
+    {
+      "source": "YY67LF3R",
+      "target": "HE9X47KN",
+      "relation": "builds_on",
+      "rationale": "HARMamba divides each sensor channel into patches following PatchTST."
+    },
+    {
+      "source": "YY67LF3R",
+      "target": "AVTJLZIR",
+      "relation": "builds_on",
+      "rationale": "Bi-Mamba+ uses a series-relation-aware tokenization following the channel-independent patching motif from PatchTST."
+    },
+    {
+      "source": "72DFULQQ",
+      "target": "4QQTVIYC",
+      "relation": "builds_on",
+      "rationale": "Sundial extends Chronos' tokenized-transformer foundation-model paradigm with continuous flow-matching."
+    },
+    {
+      "source": "72DFULQQ",
+      "target": "MXKVRSKK",
+      "relation": "builds_on",
+      "rationale": "WaveToken explicitly compares its tokenization to Chronos."
+    },
+    {
+      "source": "5I6GAKC4",
+      "target": "CFG6FEIF",
+      "relation": "builds_on",
+      "rationale": "Moirai's frequency-aware specialization is positioned against earlier foundation models like TimeGPT-1."
+    },
+    {
+      "source": "5I6GAKC4",
+      "target": "SIBB8W67",
+      "relation": "builds_on",
+      "rationale": "MOMENT follows TimeGPT-1 in building open foundation models for time-series."
+    },
+    {
+      "source": "RILRU5H6",
+      "target": "72DFULQQ",
+      "relation": "builds_on",
+      "rationale": "Chronos generates probabilistic forecasts, extending the probabilistic-forecasting tradition pioneered by TimeGrad."
+    },
+    {
+      "source": "RILRU5H6",
+      "target": "4QQTVIYC",
+      "relation": "builds_on",
+      "rationale": "Sundial's flow-matching generative forecasting builds on TimeGrad's diffusion-based forecasting."
+    },
+    {
+      "source": "N2JLZBY3",
+      "target": "I2CIT4I7",
+      "relation": "builds_on",
+      "rationale": "TS-Agent follows the LLM-for-TS taxonomy laid out in the survey."
+    },
+    {
+      "source": "N2JLZBY3",
+      "target": "VSCNJG5J",
+      "relation": "builds_on",
+      "rationale": "ChatTS's MLLM design extends the LLMs-for-TS framework."
+    },
+    {
+      "source": "MKICLA63",
+      "target": "N2JLZBY3",
+      "relation": "builds_on",
+      "rationale": "Survey catalogs reprogramming approaches like Time-LLM."
+    },
+    {
+      "source": "6QQNUTL7",
+      "target": "N2JLZBY3",
+      "relation": "builds_on",
+      "rationale": "GPT4TS's frozen-pretrained-transformer approach is a primary example in the survey."
+    },
+    {
+      "source": "ZE7SFTCQ",
+      "target": "N2JLZBY3",
+      "relation": "builds_on",
+      "rationale": "TEST's TS-for-LLM strategy is summarized in the survey taxonomy."
+    },
+    {
+      "source": "RTMH75VW",
+      "target": "HE9X47KN",
+      "relation": "builds_on",
+      "rationale": "HARMamba follows the self-supervised HAR pretraining line."
+    },
+    {
+      "source": "RTMH75VW",
+      "target": "ELYUE3NF",
+      "relation": "builds_on",
+      "rationale": "Sensor2Text builds wearable activity representations on sensor encoders trained with self-supervision."
+    },
+    {
+      "source": "RTMH75VW",
+      "target": "2XWEG7AF",
+      "relation": "builds_on",
+      "rationale": "Biosignals survey cites large-scale self-supervised wearable HAR work."
+    },
+    {
+      "source": "RTMH75VW",
+      "target": "3LA8GNCU",
+      "relation": "builds_on",
+      "rationale": "HeAR's MAE-based pretraining parallels the wearable SSL HAR pipeline."
+    },
+    {
+      "source": "6INGKIJV",
+      "target": "RTMH75VW",
+      "relation": "builds_on",
+      "rationale": "Self-supervised HAR relies on masked-autoencoder objectives analyzed by MAE Theory."
+    },
+    {
+      "source": "6INGKIJV",
+      "target": "3LA8GNCU",
+      "relation": "builds_on",
+      "rationale": "HeAR is a masked-autoencoder pretrained system whose design space is analyzed by MAE theory."
+    },
+    {
+      "source": "6INGKIJV",
+      "target": "HDPXBLAP",
+      "relation": "builds_on",
+      "rationale": "SensorLM extends multimodal pretraining relying on masked-modeling objectives."
+    },
+    {
+      "source": "6INGKIJV",
+      "target": "DZ2UYXUL",
+      "relation": "builds_on",
+      "rationale": "l-DAE deconstructs denoising diffusion models toward classical denoising autoencoders, building on MAE-style analysis."
+    },
+    {
+      "source": "6INGKIJV",
+      "target": "5GFYJJVV",
+      "relation": "builds_on",
+      "rationale": "LVM-Med benchmarks self-supervised pretraining approaches related to masked-autoencoder methods."
+    },
+    {
+      "source": "3LA8GNCU",
+      "target": "2XWEG7AF",
+      "relation": "builds_on",
+      "rationale": "Biosignals survey cites HeAR as health-acoustic representation learning."
+    },
+    {
+      "source": "AVTJLZIR",
+      "target": "HE9X47KN",
+      "relation": "sibling",
+      "rationale": "Bi-Mamba+ and HARMamba are contemporaneous applications of Mamba/SSM to multivariate time-series and HAR respectively."
+    },
+    {
+      "source": "I2CIT4I7",
+      "target": "VSCNJG5J",
+      "relation": "sibling",
+      "rationale": "TS-Agent and ChatTS independently address LLM-based time-series reasoning using different paradigms."
+    },
+    {
+      "source": "5I6GAKC4",
+      "target": "72DFULQQ",
+      "relation": "sibling",
+      "rationale": "TimeGPT-1 and Chronos are concurrent first-wave time-series foundation models."
+    },
+    {
+      "source": "YY67LF3R",
+      "target": "2605.05151",
+      "relation": "builds_on",
+      "rationale": "Probes PatchTST FFN representations with sparse autoencoders"
+    },
+    {
+      "source": "4QRHV2JG",
+      "target": "2605.05151",
+      "relation": "builds_on",
+      "rationale": "Mechanistically explains why DLinear remains competitive"
+    },
+    {
+      "source": "VSCNJG5J",
+      "target": "2605.20268",
+      "relation": "builds_on",
+      "rationale": "Replaces post-hoc LLM adaptation with joint pretraining from scratch"
+    },
+    {
+      "source": "I2CIT4I7",
+      "target": "2605.20268",
+      "relation": "builds_on",
+      "rationale": "Replaces tool-use agent approach with unified architecture"
+    },
+    {
+      "source": "2XWEG7AF",
+      "target": "2605.22759",
+      "relation": "builds_on",
+      "rationale": "Fills the scaling gap identified in the biosignals FM survey"
+    },
+    {
+      "source": "ICD9EG8Q",
+      "target": "2605.22759",
+      "relation": "builds_on",
+      "rationale": "Scales from traditional ML pipelines to frozen FM embeddings across 35 tasks"
+    },
+    {
+      "source": "ELYUE3NF",
+      "target": "2605.22759",
+      "relation": "builds_on",
+      "rationale": "Replaces sensor-language distillation with LLM-agent AutoML over embeddings"
+    }
   ]
 }

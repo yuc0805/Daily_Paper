@@ -4,7 +4,7 @@
       "id": "agent",
       "label": "Agent",
       "file": "agent.md",
-      "papers": 8,
+      "papers": 9,
       "community": 0,
       "focus": "none"
     },
@@ -60,7 +60,7 @@
       "id": "interpretable-ml",
       "label": "Interpretable ML",
       "file": "interpretable-ml.md",
-      "papers": 24,
+      "papers": 25,
       "community": 6,
       "focus": "none"
     },
@@ -68,7 +68,7 @@
       "id": "llm-health",
       "label": "LLM-Health",
       "file": "llm-health.md",
-      "papers": 13,
+      "papers": 14,
       "community": 1,
       "focus": "primary"
     },
@@ -156,7 +156,7 @@
       "id": "time-series",
       "label": "Signal (Time Series)",
       "file": "time-series.md",
-      "papers": 44,
+      "papers": 47,
       "community": 4,
       "focus": "primary"
     },
@@ -362,6 +362,6 @@
       ]
     }
   ],
-  "total_papers": 224,
+  "total_papers": 228,
   "total_areas": 22
 }
