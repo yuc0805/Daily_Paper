@@ -27,6 +27,7 @@
 2023 | Explanation Constraints (Pukdee et al.) | 
 2023 | Post-hoc CBM (Yuksekgonul et al.) | 
 
+2026-05 | Superposition Not Necessary (2605.05151) | SAE probing of PatchTST shows TS forecasting does not require superposition
 ### Paper List
 
 [KNOWN] [2001] Breiman et al. — Two Cultures. zotero_key:DQD2J9KR.
@@ -54,6 +55,8 @@
 [KNOWN] [2023] Pukdee et al. — Explanation Constraints. zotero_key:C48LQQN7.
 [KNOWN] [2023] Yuksekgonul et al. — Post-hoc CBM. zotero_key:CKEAV8EA.
 
+[2026] 2605.05151 — Superposition Is Not Necessary: Mechanistic Interpretability for TS Forecasting. [https://arxiv.org/abs/2605.05151](https://arxiv.org/abs/2605.05151). external.
 ### Recent Activity
 
+2026-05-27 | 2605.05151 added | mechanistic interpretability applied to time series transformers
 2026-05-14 | Area page seeded | 24 papers from Zotero, 3 from graphify seed.

@@ -22,6 +22,26 @@
       "confidence": "INFERRED",
       "confidence_score": 0.65,
       "cross_area": false
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie 2023)",
+      "target": "2605.05151",
+      "target_label": "Superposition Is Not Necessary: Mechanistic Interpretability of Transformer Representations for Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "4QRHV2JG",
+      "source_label": "DLinear (Zeng 2023)",
+      "target": "2605.05151",
+      "target_label": "Superposition Is Not Necessary: Mechanistic Interpretability of Transformer Representations for Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [],

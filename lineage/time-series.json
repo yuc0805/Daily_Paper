@@ -282,6 +282,76 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "cross_area": true
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie 2023)",
+      "target": "2605.05151",
+      "target_label": "Superposition Is Not Necessary: Mechanistic Interpretability of Transformer Representations for Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "4QRHV2JG",
+      "source_label": "DLinear (Zeng 2023)",
+      "target": "2605.05151",
+      "target_label": "Superposition Is Not Necessary: Mechanistic Interpretability of Transformer Representations for Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "xie2025_chatts",
+      "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
+      "target": "2605.20268",
+      "target_label": "Chronicle: A Multimodal Foundation Model for Joint Language and Time Series Understanding",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2605.20268",
+      "target_label": "Chronicle: A Multimodal Foundation Model for Joint Language and Time Series Understanding",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2605.22759",
+      "target_label": "Towards a General Intelligence and Interface for Wearable Health Data",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "xu2023_globem",
+      "source_label": "GLOBEM: Multi-Year Human Behavior Datasets (Xu 2023)",
+      "target": "2605.22759",
+      "target_label": "Towards a General Intelligence and Interface for Wearable Health Data",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "target": "2605.22759",
+      "target_label": "Towards a General Intelligence and Interface for Wearable Health Data",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [

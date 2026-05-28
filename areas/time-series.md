@@ -28,6 +28,9 @@
 2024 | HARMamba (Li et al.) | 
 2024 | HeAR (Baur et al.) | 
 
+2026-05 | Superposition Not Necessary (2605.05151) | mechanistic interpretability shows TS transformers underuse superposition
+2026-05 | Chronicle (2605.20268) | 324M joint language+TS transformer trained from scratch
+2026-05 | Wearable Health FM (2605.22759) | 5M-participant wearable FM with LLM-agent AutoML for 35 health tasks
 ### Paper List
 
 [KNOWN] [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.
@@ -75,6 +78,12 @@
 [KNOWN] [2025] Liu et al. — Sundial. zotero_key:4QQTVIYC.
 [KNOWN] [2025] Liu et al. — TS-Agent. zotero_key:I2CIT4I7.
 
+[2026] 2605.05151 — Superposition Is Not Necessary: Mechanistic Interpretability for TS Forecasting. [https://arxiv.org/abs/2605.05151](https://arxiv.org/abs/2605.05151). external.
+[2026] 2605.20268 — Chronicle: Joint Language and Time Series Foundation Model. [https://arxiv.org/abs/2605.20268](https://arxiv.org/abs/2605.20268). external.
+[2026] 2605.22759 — Towards a General Intelligence and Interface for Wearable Health Data. [https://arxiv.org/abs/2605.22759](https://arxiv.org/abs/2605.22759). external.
 ### Recent Activity
 
+2026-05-27 | 2605.22759 added | 5M-participant wearable FM with LLM-agent AutoML; cross-area bridge agent+health
+2026-05-27 | 2605.20268 added | joint pretraining from scratch replaces adapter-based TS+LLM pipelines
+2026-05-27 | 2605.05151 added | SAE probing shows PatchTST does not use superposition on standard benchmarks
 2026-05-14 | Area page seeded | 44 papers from Zotero, 11 from graphify seed.
