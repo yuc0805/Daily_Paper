@@ -222,6 +222,36 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2605.00973",
+      "target_label": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2605.00973",
+      "target_label": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "baur2024_hear",
+      "source_label": "HeAR: Health Acoustic Representations (Baur 2024)",
+      "target": "2605.00973",
+      "target_label": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [

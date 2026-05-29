@@ -10,6 +10,8 @@
 2023 | LVM-Med (Nguyen et al.) | 
 2024 | l-DAE (Chen et al.) | 
 
+2026-05 | xMAE (2605.00973) | physiology-aware masked cross-modal reconstruction across ECG and PPG
+2026-05 | BenchHAR (2605.08296) | SSL benchmark for generalizable sensor-based activity recognition
 ### Paper List
 
 [KNOWN] [2017] Vaswani et al. — Attention Is All You Need. zotero_key:PHB9VRVM.
@@ -20,6 +22,10 @@
 [KNOWN] [2023] Nguyen et al. — LVM-Med. zotero_key:5GFYJJVV.
 [KNOWN] [2024] Chen et al. — l-DAE. zotero_key:DZ2UYXUL.
 
+[2026] 2605.00973 — Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE). [https://arxiv.org/abs/2605.00973](https://arxiv.org/abs/2605.00973). external.
+[2026] 2605.08296 — BenchHAR: Benchmarking Self-Supervised Learning for Generalizable Sensor-based Activity Recognition. [https://arxiv.org/abs/2605.08296](https://arxiv.org/abs/2605.08296). external.
 ### Recent Activity
 
+2026-05-28 | 2605.00973 added | imports masked autoencoding into biosignals with a physiology ordering constraint; Tier A
+2026-05-28 | 2605.08296 added | benchmark of SSL paradigms for HAR; hybrid reconstruction plus contrastive generalizes best; Tier B
 2026-05-14 | Area page seeded | 7 papers from Zotero, 1 from graphify seed.

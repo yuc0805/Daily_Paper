@@ -17,6 +17,7 @@
 2026 | Verifiable Physio Reasoning (Wang et al.) | 
 
 2026-05 | Wearable Health FM (2605.22759) | largest wearable health FM; LLM-agent AutoML over frozen sensor embeddings
+2026-05 | xMAE (2605.00973) | physiology-aware masked cross-modal reconstruction across ECG and PPG
 ### Paper List
 
 [KNOWN] [2023] Xu et al. — GLOBEM. zotero_key:ICD9EG8Q.
@@ -34,7 +35,9 @@
 [KNOWN] [2026] Wang et al. — Verifiable Physio Reasoning. zotero_key:2BGP9QJL.
 
 [2026] 2605.22759 — Towards a General Intelligence and Interface for Wearable Health Data. [https://arxiv.org/abs/2605.22759](https://arxiv.org/abs/2605.22759). external.
+[2026] 2605.00973 — Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE). [https://arxiv.org/abs/2605.00973](https://arxiv.org/abs/2605.00973). external.
 ### Recent Activity
 
+2026-05-28 | 2605.00973 added | physiology-aware cross-modal MAE for ECG and PPG; outperforms baselines on 15 of 19 tasks; Tier A
 2026-05-27 | 2605.22759 added | largest wearable health FM; LLM-agent AutoML for downstream prediction heads
 2026-05-14 | Area page seeded | 13 papers from Zotero, 10 from graphify seed.

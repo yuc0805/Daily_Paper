@@ -2,7 +2,38 @@
   "_generated": "2026-05-14",
   "_source": "graphify_seed/graph.json + zotero_index.json",
   "area": "reasoning.md",
-  "edges": [],
+  "edges": [
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2605.06638",
+      "target_label": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2605.06638",
+      "target_label": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2605.07153",
+      "target_label": "Beyond Reasoning: Reinforcement Learning Unlocks Parametric Knowledge in LLMs",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    }
+  ],
   "hyperedges": [],
   "cross_area_bridges": []
 }

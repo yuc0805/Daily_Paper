@@ -13,6 +13,8 @@
 2026 | Latent-GRPO (Deng et al.) | 
 2026 | PonderLM (Zeng et al.) | 
 
+2026-05 | ScaleLogic (2605.06638) | RL training compute scales as a power law with reasoning depth; expressiveness sets the exponent
+2026-05 | RL Unlocks Parametric Knowledge (2605.07153) | RL redistributes probability mass to surface latent facts
 ### Paper List
 
 [KNOWN] [2025] Shen et al. — CODI. zotero_key:FFWLYL3J.
@@ -26,6 +28,10 @@
 [KNOWN] [2026] Deng et al. — Latent-GRPO. zotero_key:U4ZPM5DN.
 [KNOWN] [2026] Zeng et al. — PonderLM. zotero_key:3TLRP8U5.
 
+[2026] 2605.06638 — Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key. [https://arxiv.org/abs/2605.06638](https://arxiv.org/abs/2605.06638). external.
+[2026] 2605.07153 — Beyond Reasoning: Reinforcement Learning Unlocks Parametric Knowledge in LLMs. [https://arxiv.org/abs/2605.07153](https://arxiv.org/abs/2605.07153). external.
 ### Recent Activity
 
+2026-05-28 | 2605.06638 added | controlled synthetic logic; RL compute power law, exponent rises with logical expressiveness; Tier B
+2026-05-28 | 2605.07153 added | RL improves factual recall by probability-mass redistribution, not new facts; Tier B
 2026-05-14 | Area page seeded | 10 papers from Zotero, 0 from graphify seed.
