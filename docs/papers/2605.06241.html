@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rethinking RL for LLM Reasoning — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Rethinking RL for LLM Reasoning: It is Sparse Policy Selection, Not Capability Learning</h2>
+<p class="paper-meta">Akg&uuml;l, Kannan, Neiswanger, Prasanna &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.06241" target="_blank" rel="noopener">arXiv:2605.06241</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3>
+<p>The paper measures, at the token level, what reinforcement learning actually changes in a reasoning model. Across several model families and RL algorithms it finds the effect is sparse: only 1 to 3 percent of token positions change, those positions sit at high-entropy decision points, and the promoted token almost always lies within the base model's top-5 candidates. RL therefore selects among solutions the base model already contains rather than teaching new ones.</p>
+<h3>Why</h3>
+<p>Reinforcement learning is widely described as the step that gives reasoning models new strategies, following results such as DeepSeek-R1. If that description is wrong, the field is spending large optimization budgets on something a cheaper, targeted method could approximate. The paper tests the "RL teaches capability" claim directly instead of accepting it from aggregate benchmark gains.</p>
+<h3>How</h3>
+<p>The authors compare base and RL-trained models token by token, locate the positions where outputs diverge, and characterize those positions by entropy and by the base model's candidate ranking. The pattern (sparse, high-entropy, within top-5) is consistent enough that they propose targeted corrections at those uncertain points as a substitute for a full RL loop.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1</a><span class="lineage-note">Treated RL as the source of new reasoning ability; this paper questions that reading.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Obtained reasoning from prompting alone; the baseline the RL gain is measured against.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 demonstrated strong reasoning after RL but did not isolate where the gain comes from. This paper addresses that failure mode by localizing the change to a few uncertain decision points, turning a global "RL made it smarter" claim into a specific, measurable correction. It extends the graphify bridge between DeepSeek-R1 and Chain-of-Thought (reasoning-via-RL versus prompting) toward "RL as selection over what prompting could already reach."</p>
+<h3>Method vs predecessors</h3>
+<p>Where DeepSeek-R1 contributes a training method and Chain-of-Thought a prompting method, this paper contributes an analysis method: token-level divergence and entropy attribution. Its proposed alternative (sparse targeted correction) is lighter than full RL post-training.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2605.06638.html">Can RL Teach Long-Horizon Reasoning? (2026)</a><span class="lineage-note">Same debate from the scaling side; this paper takes the mechanistic, token-level side.</span></li>
+  <li><a href="2605.07153.html">Beyond Reasoning: RL Unlocks Parametric Knowledge (2026)</a><span class="lineage-note">Also argues RL redistributes existing model mass rather than adding facts.</span></li>
+</ul>
+</div>
+</body>
+</html>

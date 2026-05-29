@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personalizing Embodied Multimodal LLM Agents (POLAR) — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>Personalizing Embodied Multimodal LLM Agents over Long-term User Interactions (POLAR)</h2>
+<p class="paper-meta">Lee, Park, Lee &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.26256" target="_blank" rel="noopener">arXiv:2605.26256</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3>
+<p>POLAR is a memory-augmented framework for embodied agents that serve the same user across many sessions. It organizes prior interactions into a multimodal knowledge graph that separates semantic memory (stable facts about the user and environment) from episodic memory (specific past events), and conditions the agent's actions on retrieved memory so behavior reflects the user's history rather than a generic policy.</p>
+<h3>Why</h3>
+<p>Embodied agents that interact with one user over time need to remember both durable facts and specific events, but a single flat memory store mixes the two and retrieves poorly. Prior agent-memory work mapped the design space without committing to a structure suited to long-term personalization, which is the gap POLAR targets.</p>
+<h3>How</h3>
+<p>Interactions are written into a multimodal knowledge graph with a semantic layer (facts) and an episodic layer (events). At decision time the agent retrieves relevant nodes from both layers and conditions its multimodal policy on them, so repeated interactions accumulate into personalized behavior.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Catalogued how foundation-model agents store and recall state; POLAR commits to one concrete structure from that space.</span></li>
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Mapped multimodal agent interaction broadly; POLAR specializes it to long-term per-user memory.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>The Memory Mechanisms Survey described options but did not solve the long-term personalization case; a flat memory store fails to separate stable facts from one-off events, so retrieval degrades over many sessions. POLAR fixes this by splitting memory into semantic and episodic layers tied to a single user.</p>
+<h3>Method vs predecessors</h3>
+<p>Where the surveys are descriptive, POLAR is a concrete system: a multimodal knowledge graph with explicit semantic and episodic layers plus retrieval-conditioned action, rather than a single undifferentiated memory buffer.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Same Community 0 (LLM Agents and Reasoning); broader scope, no personalization commitment.</span></li>
+</ul>
+</div>
+</body>
+</html>

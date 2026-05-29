@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM Pretraining Shapes a Generalizable Manifold — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>LLM Pretraining Shapes a Generalizable Manifold: Insights into Cross-Modal Transfer to Time Series</h2>
+<p class="paper-meta">Roger et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.20449" target="_blank" rel="noopener">arXiv:2605.20449</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3>
+<p>The paper explains why a frozen language model transfers to time-series forecasting. It probes the hidden states of a frozen language model fed with numeric series, uses nearest-neighbor retrieval in the projected space, and analyzes the loss surface against random initialization. The conclusion is that language pretraining builds a reusable manifold, and fine-tuning projects numerical dynamics onto the task-relevant directions of that manifold rather than creating the structure from scratch.</p>
+<h3>Why</h3>
+<p>Earlier work in this library (GPT4TS, FPT, Time-LLM) showed that a mostly frozen language model can be repurposed for time-series forecasting and often beats models built only for time series, but it did not say why. Language and numeric sequences look unrelated, so the source of the transfer was unclear. Benchmark numbers alone do not settle the mechanism, which is what this paper sets out to provide.</p>
+<h3>How</h3>
+<p>A linear probe on the frozen states decodes realistic time-series trajectories with no paired supervision, and retrieval in that projected space already yields competitive forecasts, so structure and dynamics exist before fine-tuning. Pretrained initialization also changes optimization: it produces coherent gradients and a sharply anisotropic loss surface that random initialization does not. Together these give a geometric account of language-to-time-series transfer.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="6QQNUTL7.html">GPT4TS</a><span class="lineage-note">The "One Fits All" frozen-LLM-for-time-series result this paper sets out to explain.</span></li>
+  <li><a href="MKICLA63.html">Time-LLM</a><span class="lineage-note">Reprograms a numeric series into the language input space; an instance of the transfer the manifold view accounts for.</span></li>
+  <li><a href="6INGKIJV.html">MAE Theory (Zhang 2023)</a><span class="lineage-note">Earlier geometric argument for why pretraining yields transferable representations, here moved to language-to-time-series transfer.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>GPT4TS and FPT established the empirical fact that freezing language-model blocks helps time series, but left the failure mode "we do not know what transfers or why" open. This paper closes that gap by showing the relevant structure is already present in the frozen representation, so the unexplained success becomes a measurable geometric property rather than a lucky engineering result.</p>
+<h3>Method vs predecessors</h3>
+<p>Where GPT4TS, FPT, and Time-LLM are transfer recipes (freeze weights, train thin adapters, or reprogram the input), this paper is an analysis: linear probing, retrieval, and loss-surface geometry instead of a new forecasting head. Compared with the MAE-Theory geometric account for vision pretraining, it applies the same manifold lens across modalities, from language to numeric series.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">Surveys the LLM-for-time-series landscape that this paper explains mechanistically.</span></li>
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Same Community 4 (Time Series + LLM Integration); uses an LLM as a controller rather than studying its representation geometry.</span></li>
+</ul>
+</div>
+</body>
+</html>

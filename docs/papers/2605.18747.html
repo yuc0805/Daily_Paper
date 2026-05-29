@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code as Agent Harness — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>Code as Agent Harness</h2>
+<p class="paper-meta">Ning et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.18747" target="_blank" rel="noopener">arXiv:2605.18747</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3>
+<p>This position-and-survey paper reframes code as the substrate that connects an agent to reasoning, action, environment modeling, and execution-based verification, rather than treating code only as an output to be generated. It organizes the design space into three layers: the harness interface, harness mechanisms (planning, memory, tool use, and feedback-driven control for long-horizon execution), and scaling.</p>
+<h3>Why</h3>
+<p>Agent systems increasingly use code for more than producing programs: code calls tools, models the environment, and verifies results by execution. Prior work treated these uses separately (tool calling, code generation, memory) without a unifying account, which makes it hard to reason about what a reliable agent harness needs.</p>
+<h3>How</h3>
+<p>The paper surveys and organizes existing systems around the three layers above, describing how code links the agent to its world at the interface layer, how planning, memory, tool use, and feedback control operate at the mechanism layer, and what changes at scale. It is a structuring contribution rather than a single new model.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Made tools callable by LLMs as learned token embeddings; an early form of the tool-use mechanism this paper generalizes.</span></li>
+  <li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Let an agent write and run vision code on the fly; an instance of code as the operational substrate.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>ToolkenGPT and PyVision each solved one slice (callable tools, dynamic code execution) but left the larger picture fragmented. This paper extends the graphify bridge between them (tool-using agents) by treating code as the single harness that unifies tool use, memory, and execution-based verification, addressing the "no common account of the agent substrate" gap.</p>
+<h3>Method vs predecessors</h3>
+<p>Where ToolkenGPT contributes a tool-embedding method and PyVision a dynamic-tooling system, this paper contributes a framework that places both inside a layered harness view, moving from "agents that call tools" toward "code as the operating layer the whole agent runs on."</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Same Community 0; concrete instance of executable code as the agent substrate.</span></li>
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Tool-use mechanism the harness view subsumes.</span></li>
+</ul>
+</div>
+</body>
+</html>
