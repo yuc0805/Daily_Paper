@@ -392,6 +392,46 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "6QQNUTL7",
+      "source_label": "GPT4TS (Zhou 2024)",
+      "target": "2605.20449",
+      "target_label": "LLM Pretraining Shapes a Generalizable Manifold: Cross-Modal Transfer to Time Series",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "3AA4F4KC",
+      "source_label": "FPT (Lu 2022)",
+      "target": "2605.20449",
+      "target_label": "LLM Pretraining Shapes a Generalizable Manifold: Cross-Modal Transfer to Time Series",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "MKICLA63",
+      "source_label": "Time-LLM (Jin 2024)",
+      "target": "2605.20449",
+      "target_label": "LLM Pretraining Shapes a Generalizable Manifold: Cross-Modal Transfer to Time Series",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2605.20449",
+      "target_label": "LLM Pretraining Shapes a Generalizable Manifold: Cross-Modal Transfer to Time Series",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [

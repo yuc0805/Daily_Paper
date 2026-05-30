@@ -33,6 +33,7 @@
 2026-05 | Wearable Health FM (2605.22759) | 5M-participant wearable FM with LLM-agent AutoML for 35 health tasks
 2026-05 | xMAE (2605.00973) | physiology-aware masked cross-modal reconstruction across ECG and PPG
 2026-05 | BenchHAR (2605.08296) | SSL benchmark for generalizable sensor-based activity recognition
+2026-05 | Generalizable Manifold (2605.20449) | frozen LLM transfers to forecasting because pretraining builds a reusable manifold
 ### Paper List
 
 [KNOWN] [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.
@@ -85,11 +86,11 @@
 [2026] 2605.22759 — Towards a General Intelligence and Interface for Wearable Health Data. [https://arxiv.org/abs/2605.22759](https://arxiv.org/abs/2605.22759). external.
 [2026] 2605.00973 — Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE). [https://arxiv.org/abs/2605.00973](https://arxiv.org/abs/2605.00973). external.
 [2026] 2605.08296 — BenchHAR: Benchmarking Self-Supervised Learning for Generalizable Sensor-based Activity Recognition. [https://arxiv.org/abs/2605.08296](https://arxiv.org/abs/2605.08296). external.
+[2026] 2605.20449 — LLM Pretraining Shapes a Generalizable Manifold: Cross-Modal Transfer to Time Series. [https://arxiv.org/abs/2605.20449](https://arxiv.org/abs/2605.20449). external.
 ### Recent Activity
 
+2026-05-29 | 2605.20449 added | explains frozen-LLM time-series transfer as a reusable pretraining manifold; Tier A
 2026-05-28 | 2605.00973 added | physiology-aware cross-modal MAE; ECG leads PPG as a temporal constraint; Tier A
 2026-05-28 | 2605.08296 added | SSL-for-HAR generalization benchmark; hybrid pretraining with CNN encoders works best; Tier B
 2026-05-27 | 2605.22759 added | 5M-participant wearable FM with LLM-agent AutoML; cross-area bridge agent+health
 2026-05-27 | 2605.20268 added | joint pretraining from scratch replaces adapter-based TS+LLM pipelines
-2026-05-27 | 2605.05151 added | SAE probing shows PatchTST does not use superposition on standard benchmarks
-2026-05-14 | Area page seeded | 44 papers from Zotero, 11 from graphify seed.
