@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enhanced LLM Reasoning by Optimizing Reward Functions — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Enhanced LLM Reasoning by Optimizing Reward Functions with Search-Driven Reinforcement Learning</h2>
+<p class="paper-meta">Ahmadi, Sharif, Banad &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.02073" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3>
+<p>The paper treats the reinforcement-learning reward function, not the model weights, as the object to optimize for mathematical reasoning. A frontier language model proposes candidate reward functions; each is validated automatically, screened with a short 500-step Group Relative Policy Optimization (GRPO) run on a fixed Llama-3.2-3B-Instruct base with Low-Rank Adaptation, and ranked by F1 on GSM8K. Ranked summaries are fed back into the next round, so the search learns from its own history over five rounds and 50 candidates.</p>
+<h3>Why</h3>
+<p>Reinforcement learning is the standard post-training step for reasoning, but its result is sensitive to the reward design, and most prior work tunes the policy while leaving the reward fixed and hand-written. When the base model is small and frozen, the reward becomes the main remaining design lever, and there was no systematic way to search it. This paper fills that gap with an automated, feedback-driven reward search.</p>
+<h3>How</h3>
+<p>Each candidate reward is given a short GRPO training run and scored by F1 on the GSM8K test set. The top rewards across rounds are combined into ensembles, and seven ensemble configurations are compared. The best ensemble reaches F1 = 0.795 (95% bootstrap CI [0.756, 0.832]) and accuracy 0.660, a 0.19 absolute F1 gain over a base-rewards-only GRPO baseline (F1 = 0.609). A random 5-reward control collapses to F1 = 0.047, which isolates the ranked-feedback loop as the cause of the gain rather than the number of reward terms.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Produced reasoning through large-scale RL that reshapes the policy; this paper keeps the RL but searches the reward instead.</span></li>
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Established step-by-step reasoning at the prompt level without weight changes.</span></li>
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Base-model and GRPO-style training backdrop for this line.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 improves reasoning by spending compute on policy optimization with a fixed reward; that route is expensive and leaves the reward unexamined. This paper holds the policy fixed and gets a 0.19 absolute F1 gain purely by searching reward functions, which is a much cheaper intervention for a small model and exposes the reward as the controlling factor that R1 left implicit.</p>
+<h3>Method vs predecessors</h3>
+<p>Where R1 runs RL to move weights and Chain-of-Thought edits the prompt, this method moves the optimization one level up, to the reward specification, and uses a frontier model plus ranked feedback as the search operator. The control experiment (random rewards collapsing to F1 = 0.047) shows the feedback loop, not additive reward signal, drives the result, which is a different mechanism from simply scaling RL.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Shares the GRPO training setting.</span></li>
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Alternative, prompt-level account of where reasoning comes from.</span></li>
+</ul>
+</div>
+</body>
+</html>

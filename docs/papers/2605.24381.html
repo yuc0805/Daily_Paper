@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operational Viability of Foundation Models for Time Series Forecasting — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Assessing the Operational Viability of Foundation Models for Time Series Forecasting</h2>
+<p class="paper-meta">Soni, Das, Guduguntla (Google) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.24381" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3>
+<p>The paper measures whether large time-series foundation models earn their inference cost in production. It compares zero-shot foundation models against industry-standard supervised forecasters on real workloads and finds the trade-off depends on series complexity. It then proposes a Complexity Router that reads simple empirical features of each series and assigns it to the cheapest adequate model class.</p>
+<h3>Why</h3>
+<p>Foundation models promise zero-shot forecasting without task-specific training, which is attractive, but deploying one universal large model on every series can cost far more per forecast than a light supervised model, and prior work reports accuracy without this cost accounting. The open question is when the heavy model is actually worth it.</p>
+<h3>How</h3>
+<p>The Complexity Router classifies each series by empirical features and routes easy series to light supervised models while reserving foundation models for hard cases. The reported effect is higher overall accuracy and much lower inference cost than deploying a single universal foundation model across all series.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">Mapped the direction of applying large language-model-style systems to time series; this paper audits its cost.</span></li>
+<li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">A language-model agent reasoning over time series; a god node in this area.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>The survey and TS-Agent argued for larger language-model-style time-series systems but did not weigh deployment cost. This paper shows that a universal foundation model is often not worth its inference cost on easy series and recovers both accuracy and cost by routing, fixing the silent assumption that bigger is always better.</p>
+<h3>Method vs predecessors</h3>
+<p>Where prior work added model capacity and language integration, this paper adds a cheap feature-based router in front of a model zoo. The contribution is a systems mechanism (cost-aware selection), not a new forecaster, which is a different axis from the predecessors' modeling focus.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Same Time Series + LLM community.</span></li>
+<li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">Surveys the direction this paper cost-checks.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Squeezing Capacity from MLLMs for Subject-driven Generation — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/generative-cv.html" class="back-link">&larr; Back to Area</a>
+<h2>Squeezing Capacity from Multimodal Large Language Models for Subject-driven Generation</h2>
+<p class="paper-meta">Anonymous et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.26111" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/generative-cv.html">Generative CV</a></p>
+<h3>What</h3>
+<p>The paper does subject-driven image generation: placing a specific subject from a few reference images into new scenes. It conditions a diffusion generator on a multimodal language model that jointly encodes the text prompt and reference images, adds VAE-based identity conditioning, and introduces a Dual Layer Aggregation module that combines features from several language-model layers rather than only the last one.</p>
+<h3>Why</h3>
+<p>Subject-driven generation needs to keep a subject's identity while following a new prompt, and conditioning a generator on a single pooled embedding from a multimodal model loses layer-specific detail that identity depends on. Prior approaches read only the final embedding, which limits how much identity information reaches the generator.</p>
+<h3>How</h3>
+<p>The Dual Layer Aggregation module pulls multi-level features from the multimodal model and combines them into the conditioning signal, while VAE-based identity conditioning supplies appearance detail. The combined signal improves identity preservation and prompt-following on subject-driven benchmarks relative to last-layer conditioning.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Conditioned image generation on a single CLIP text-image embedding; this paper aggregates many layers instead.</span></li>
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Transformer diffusion backbone of the generation family.</span></li>
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">The denoising-diffusion generative base.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DALL-E 2 conditioned on one pooled embedding, which preserves coarse semantics but loses fine identity detail. This paper recovers that detail by aggregating across language-model layers, improving identity preservation that single-vector conditioning could not hold.</p>
+<h3>Method vs predecessors</h3>
+<p>Where DALL-E 2 changed the conditioning source and DiT changed the backbone, this paper changes the conditioning interface from one vector to a multi-level stack, plus VAE identity cues. The modeling change is in how the frozen multimodal model is read, not in the diffusion process itself.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Shared diffusion base.</span></li>
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Transformer diffusion backbone in the same community.</span></li>
+</ul>
+</div>
+</body>
+</html>

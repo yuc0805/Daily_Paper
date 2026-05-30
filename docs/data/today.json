@@ -1,45 +1,45 @@
 {
-  "date": "2026-05-29",
+  "date": "2026-05-30",
   "papers": [
     {
-      "zotero_key": "2605.20449",
-      "title": "LLM Pretraining Shapes a Generalizable Manifold: Insights into Cross-Modal Transfer to Time Series",
-      "authors": "Roger et al.",
+      "zotero_key": "2605.02073",
+      "title": "Enhanced LLM Reasoning by Optimizing Reward Functions with Search-Driven Reinforcement Learning",
+      "authors": "Ahmadi et al.",
       "year": 2026,
-      "what": "Explains why a frozen LLM transfers to time-series forecasting: a linear probe on frozen states decodes realistic trajectories with no paired supervision, so pretraining builds a reusable manifold and fine-tuning only projects onto it.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "GPT4TS (Zhou 2023), Time-LLM (Jin 2024), MAE Theory (Zhang 2023)"
-    },
-    {
-      "zotero_key": "2605.06241",
-      "title": "Rethinking RL for LLM Reasoning: It is Sparse Policy Selection, Not Capability Learning",
-      "authors": "Akgul et al.",
-      "year": 2026,
-      "what": "Token-level analysis shows RL changes only 1-3% of positions, all at high-entropy decision points and within the base model's top-5, so RL selects among existing solutions rather than teaching new ones.",
+      "what": "Holds the base model fixed and searches the RL reward function itself: a frontier model proposes rewards, each screened by a short GRPO run and ranked by F1, lifting the best ensemble to F1 0.795 over a 0.609 baseline.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025), Chain-of-Thought Prompting (Wei 2023)"
+      "builds_on": "DeepSeek-R1 (2025), Chain-of-Thought Prompting (Wei 2023), DeepSeek-V3 (2024)"
     },
     {
-      "zotero_key": "2605.26256",
-      "title": "Personalizing Embodied Multimodal LLM Agents over Long-term User Interactions (POLAR)",
-      "authors": "Lee et al.",
+      "zotero_key": "2605.24381",
+      "title": "Assessing the Operational Viability of Foundation Models for Time Series Forecasting",
+      "authors": "Soni et al.",
       "year": 2026,
-      "what": "Memory-augmented embodied agent that splits a multimodal knowledge graph into semantic (facts) and episodic (events) layers to personalize behavior across many sessions.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026), Agent AI Survey (Durante 2024)"
+      "what": "Audits whether large time-series foundation models earn their inference cost, and adds a Complexity Router that sends each series to the cheapest adequate model class for higher accuracy at much lower cost.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "LLMs for Time Series Survey (Zhang 2024), TS-Agent (Liu 2025)"
     },
     {
-      "zotero_key": "2605.18747",
-      "title": "Code as Agent Harness",
-      "authors": "Ning et al.",
+      "zotero_key": "2605.26111",
+      "title": "Squeezing Capacity from Multimodal Large Language Models for Subject-driven Generation",
+      "authors": "Anonymous et al.",
       "year": 2026,
-      "what": "Position-and-survey paper reframing code as the substrate that unifies agent reasoning, action, environment modeling, and execution-based verification, organized into interface, mechanism, and scaling layers.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "ToolkenGPT (Hao 2024), PyVision (Zhao 2025)"
+      "what": "Conditions a diffusion generator on a multimodal LLM with a Dual Layer Aggregation module that combines features across LLM layers, improving identity preservation in subject-driven image generation.",
+      "area_label": "Generative CV",
+      "area_slug": "generative-cv",
+      "builds_on": "DALL-E 2 (Ramesh 2022), DiT (Peebles 2023), DDPM (Ho 2020)"
+    },
+    {
+      "zotero_key": "2605.26230",
+      "title": "GARD: Geometry-Aware Representation Denoising for Robust Multi-view 3D Reconstruction",
+      "authors": "CVLab KAIST",
+      "year": 2026,
+      "what": "Runs diffusion-based restoration inside the geometry-aware feature space of a feed-forward 3D reconstructor rather than on raw pixels, recovering accurate structure under degraded real images.",
+      "area_label": "Generative CV",
+      "area_slug": "generative-cv",
+      "builds_on": "DDPM (Ho 2020), DiT (Peebles 2023)"
     }
   ]
 }

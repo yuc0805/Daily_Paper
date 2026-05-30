@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GARD: Geometry-Aware Representation Denoising — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/generative-cv.html" class="back-link">&larr; Back to Area</a>
+<h2>GARD: Geometry-Aware Representation Denoising for Robust Multi-view 3D Reconstruction</h2>
+<p class="paper-meta">CVLab KAIST &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.26230" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/generative-cv.html">Generative CV</a></p>
+<h3>What</h3>
+<p>GARD makes feed-forward multi-view 3D reconstruction robust to degraded real images. Instead of cleaning the raw images, it runs a diffusion-based restoration step directly in the geometry-aware feature space of the feed-forward reconstruction model. Because that feature space already carries scene geometry, denoising there recovers accurate structure under degradations the reconstructor was never trained on.</p>
+<h3>Why</h3>
+<p>Feed-forward 3D reconstruction models are trained and evaluated under clean, degradation-free conditions, but real photos carry blur and noise that break them. Cleaning raw pixels with a generic restorer does not target what the reconstructor needs, so robustness under realistic degradation was an open problem.</p>
+<h3>How</h3>
+<p>A diffusion model denoises in the reconstructor's internal feature space rather than image space, so the restoration objective is correct geometry rather than clean pixels. This recovers reconstruction quality under degraded inputs without retraining the feed-forward reconstructor from scratch.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">The denoising-diffusion base; GARD moves its noise model into a task feature space.</span></li>
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Closest model-side neighbor (Transformer diffusion backbone).</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DDPM and standard diffusion restorers denoise in pixel or latent image space, which produces clean-looking images but not necessarily correct geometry. GARD denoises inside the reconstructor's geometry-aware features, so the recovered signal is the structure the downstream task needs, fixing the mismatch between image quality and reconstruction quality.</p>
+<h3>Method vs predecessors</h3>
+<p>The diffusion formulation is standard; the change is where the noise model lives. By relocating denoising from image space to a downstream model's feature space, GARD ties restoration to the task representation rather than to perceptual image fidelity, which earlier diffusion restoration did not do.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Shared diffusion base.</span></li>
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Transformer diffusion backbone in the same community.</span></li>
+</ul>
+</div>
+</body>
+</html>
