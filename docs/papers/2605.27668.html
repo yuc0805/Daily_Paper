@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aligning LLMs with Human Uncertainty: A Beta-Bernoulli Calibrator for LLM Forecasting — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Aligning LLMs with Human Uncertainty: A Beta-Bernoulli Calibrator for LLM Forecasting</h2>
+<p class="paper-meta">Agentic Learning AI Lab &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.27668" target="_blank" rel="noopener">arXiv:2605.27668</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3>
+<p>The paper introduces the Beta-Bernoulli Calibrator (BBC), a lightweight, model-agnostic, post-hoc layer that converts a single point-probability forecast from any LLM into a Beta distribution over the event likelihood. It is trained with two supervision signals at once: realized binary outcomes and human forecasts of the same events. The Beta mean is the recalibrated point forecast, and the Beta variance is an epistemic uncertainty estimate that predicts when the forecast is likely to be wrong.</p>
+<h3>Why</h3>
+<p>When a language model forecasts an uncertain event, it returns a single probability that is often poorly calibrated: the stated 70% does not match the empirical 70%. The usual fallback, asking the model to verbalize its confidence, is also an unreliable guide to error. Fine-tuning a model specifically for forecasting helps but is expensive and does not transfer well out of distribution. The paper asks how to recalibrate any forecaster's output after the fact and how to read a usable uncertainty signal off the recalibrated distribution.</p>
+<h3>How</h3>
+<p>BBC maps an initial point probability to a Beta distribution. Supervision combines binary outcomes with human forecasts, so the calibrator learns both what happened and how humans hedged. Because it is post-hoc and model-agnostic, it sits on top of any base LLM forecaster without retraining that model. Across several input LLMs the Beta mean is better calibrated and more accurate than the raw output, and the Beta variance predicts forecasting error more reliably than verbalized confidence, both in- and out-of-distribution.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Established LLM reasoning over numeric series with an auditable evidence log; BBC adds the calibration layer that step lacked.</span></li>
+<li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">Mapped LLM-for-time-series integration and flagged calibration as underexplored.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>TS-Agent made the forecast-producing reasoning steps verifiable, but it did not say how much to trust the final number. The survey catalogued integration strategies yet named calibration as an open gap. BBC fixes the specific failure mode that both leave open: a forecast number that is not calibrated and carries no reliable uncertainty estimate. It does so without touching how the forecast is produced, attaching a recalibrated mean and an epistemic-variance signal afterward.</p>
+<h3>Method vs predecessors</h3>
+<p>Where TS-Agent integrates the LLM with the data through tool calls, BBC integrates nothing new at the input side; it is a post-hoc statistical wrapper on the output. This makes it orthogonal to the integration strategy, so it can stack on top of a tool-using forecaster rather than replacing it. Against models fine-tuned for forecasting, BBC reports better calibration without retraining the base model, and its learned epistemic variance is a stronger error predictor than the verbalized confidence those models tend to rely on.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">Also couples LLMs to time series; differs by aligning the series rather than recalibrating the output.</span></li>
+<li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Bridges sensor data to language; a candidate base forecaster that BBC could wrap.</span></li>
+</ul>
+</div>
+</body>
+</html>

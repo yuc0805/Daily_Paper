@@ -1,45 +1,45 @@
 {
-  "date": "2026-05-30",
+  "date": "2026-05-31",
   "papers": [
     {
-      "zotero_key": "2605.02073",
-      "title": "Enhanced LLM Reasoning by Optimizing Reward Functions with Search-Driven Reinforcement Learning",
-      "authors": "Ahmadi et al.",
+      "zotero_key": "2605.27668",
+      "title": "Aligning LLMs with Human Uncertainty: A Beta-Bernoulli Calibrator for LLM Forecasting",
+      "authors": "Agentic Learning AI Lab",
       "year": 2026,
-      "what": "Holds the base model fixed and searches the RL reward function itself: a frontier model proposes rewards, each screened by a short GRPO run and ranked by F1, lifting the best ensemble to F1 0.795 over a 0.609 baseline.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025), Chain-of-Thought Prompting (Wei 2023), DeepSeek-V3 (2024)"
-    },
-    {
-      "zotero_key": "2605.24381",
-      "title": "Assessing the Operational Viability of Foundation Models for Time Series Forecasting",
-      "authors": "Soni et al.",
-      "year": 2026,
-      "what": "Audits whether large time-series foundation models earn their inference cost, and adds a Complexity Router that sends each series to the cheapest adequate model class for higher accuracy at much lower cost.",
+      "what": "A post-hoc, model-agnostic calibrator turns any LLM point forecast into a Beta distribution, giving a better-calibrated mean and an epistemic variance that predicts error better than verbalized confidence.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "LLMs for Time Series Survey (Zhang 2024), TS-Agent (Liu 2025)"
+      "builds_on": "TS-Agent (Liu 2025), LLMs for Time Series Survey (Zhang 2024)"
     },
     {
-      "zotero_key": "2605.26111",
-      "title": "Squeezing Capacity from Multimodal Large Language Models for Subject-driven Generation",
+      "zotero_key": "2605.28456",
+      "title": "Diffusion Large Language Models for Visual Speech Recognition",
+      "authors": "Yeo et al.",
+      "year": 2026,
+      "what": "First diffusion-LLM lip-reading framework: transcribes by confidence-ordered masked denoising with bidirectional context and length-guided decoding, reaching 19.5% WER on LRS3.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "DDPM (Ho 2020), Audio Mamba (Erol 2024)"
+    },
+    {
+      "zotero_key": "2605.02641",
+      "title": "Mamoda2.5: Enhancing a Unified Multimodal Model with DiT-MoE",
+      "authors": "Shi et al.",
+      "year": 2026,
+      "what": "Makes a Diffusion Transformer backbone sparse with a 128-expert top-8 MoE (25B params, 3B active), setting a video-editing record and cutting editing inference up to 95.9x via few-step distillation plus RL.",
+      "area_label": "Generative CV",
+      "area_slug": "generative-cv",
+      "builds_on": "DiT (Peebles 2023), DDPM (Ho 2020)"
+    },
+    {
+      "zotero_key": "2605.10120",
+      "title": "MicroWorld: Bridging the Microscopic Domain Gap for Multimodal LLMs",
       "authors": "Anonymous et al.",
       "year": 2026,
-      "what": "Conditions a diffusion generator on a multimodal LLM with a Dual Layer Aggregation module that combines features across LLM layers, improving identity preservation in subject-driven image generation.",
-      "area_label": "Generative CV",
-      "area_slug": "generative-cv",
-      "builds_on": "DALL-E 2 (Ramesh 2022), DiT (Peebles 2023), DDPM (Ho 2020)"
-    },
-    {
-      "zotero_key": "2605.26230",
-      "title": "GARD: Geometry-Aware Representation Denoising for Robust Multi-view 3D Reconstruction",
-      "authors": "CVLab KAIST",
-      "year": 2026,
-      "what": "Runs diffusion-based restoration inside the geometry-aware feature space of a feed-forward 3D reconstructor rather than on raw pixels, recovering accurate structure under degraded real images.",
-      "area_label": "Generative CV",
-      "area_slug": "generative-cv",
-      "builds_on": "DDPM (Ho 2020), DiT (Peebles 2023)"
+      "what": "Builds a multimodal attributed property graph from scientific image-caption corpora to ground a multimodal LLM in microscopy concepts, closing part of the domain gap that contrastive pretraining leaves open.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "DALL-E 2 (Ramesh 2022), UNI Pathology (Chen 2023)"
     }
   ]
 }

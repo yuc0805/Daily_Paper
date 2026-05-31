@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mamoda2.5: Enhancing a Unified Multimodal Model with DiT-MoE — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/generative-cv.html" class="back-link">&larr; Back to Area</a>
+<h2>Mamoda2.5: Enhancing a Unified Multimodal Model with DiT-MoE</h2>
+<p class="paper-meta">Shi, Zhu, Shen et al. (ByteDance) &middot; arXiv 2026-05-04 &middot; <a href="https://arxiv.org/abs/2605.02641" target="_blank" rel="noopener">arXiv:2605.02641</a> &middot; Appears in: <a href="../areas/generative-cv.html">Generative CV</a></p>
+<h3>What</h3>
+<p>Mamoda2.5 is a single AR-Diffusion architecture for both multimodal understanding and generation. Its generation backbone is a Diffusion Transformer equipped with a fine-grained Mixture-of-Experts layer (128 experts, top-8 routing), producing a 25B-parameter model that activates only 3B parameters per step. It reaches top-tier scores on VBench 2.0 and a video-editing record on OpenVE-Bench, and a joint few-step distillation plus reinforcement-learning stage compresses a 30-step editing model to 4 steps, reported as up to 95.9 times faster inference.</p>
+<h3>Why</h3>
+<p>Unified multimodal models want both broad capacity and affordable training and inference, but a dense diffusion backbone pays the full parameter cost on every step. Scaling such a model up makes training expensive and inference slow, which is a problem for deployed video editing. The paper aims to raise capacity without paying dense compute, and to cut the many-step sampling cost that makes diffusion editing slow.</p>
+<h3>How</h3>
+<p>The Diffusion Transformer backbone is made sparse with a fine-grained MoE layer: 128 experts with top-8 routing, so only 3B of 25B parameters fire per step. Understanding and generation share one architecture through an AR-Diffusion formulation. For speed, a joint few-step distillation and reinforcement-learning stage compresses a 30-step editor to 4 steps. The result matches strong proprietary systems on VBench 2.0 and OpenVE-Bench and reports up to 95.9 times faster editing inference than open-source baselines, with a 98% success rate in an internal advertising-editing deployment.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Transformer diffusion backbone with clean scaling; Mamoda2.5 makes it sparse with expert routing.</span></li>
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">The underlying iterative denoising process the backbone runs.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DiT scaled diffusion cleanly but with a dense transformer, so every parameter is active on every denoising step. Mamoda2.5 fixes that compute-per-step problem with sparse expert routing, activating a fraction of parameters while keeping nominal capacity high. It also addresses a cost DiT and DDPM left untouched: the many-step sampling loop, which the distillation-plus-RL stage cuts to four steps.</p>
+<h3>Method vs predecessors</h3>
+<p>The structural change from DiT is the MoE layer inside the transformer, turning a dense backbone into a conditionally sparse one. The denoising mechanism is unchanged from DDPM in principle. The inference-acceleration recipe (few-step distillation combined with reinforcement learning) is new relative to both parents and is what delivers the large speedups.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Earlier text-conditioned generative system; Mamoda2.5 unifies understanding and generation in one model.</span></li>
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Foundational diffusion process shared across the generative-CV community.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MicroWorld: Bridging the Microscopic Domain Gap for Multimodal LLMs — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+<h2>MicroWorld: Bridging the Microscopic Domain Gap for Multimodal LLMs</h2>
+<p class="paper-meta">Anonymous et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.10120" target="_blank" rel="noopener">arXiv:2605.10120</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+<h3>What</h3>
+<p>MicroWorld addresses the failure of general multimodal LLMs on microscopy images, a visual domain far from natural photos. It builds a multimodal attributed property graph from large-scale scientific image-caption corpora and uses that graph to ground a multimodal LLM in microscopy-specific concepts and relations, so the model can describe and reason about microscopic structures it was not pretrained on.</p>
+<h3>Why</h3>
+<p>Multimodal LLMs are pretrained mostly on natural images and text, so they transfer poorly to specialist scientific domains where the visual statistics and vocabulary differ. Microscopy is a sharp case: cells, stains, and instruments look nothing like web photos. Simply adding more contrastive pretraining does not reliably close this gap, because the labeled scientific data is limited and the relevant knowledge is relational, not just perceptual.</p>
+<h3>How</h3>
+<p>MicroWorld constructs a multimodal attributed property graph from scientific image-caption corpora, encoding domain concepts and the relations among them. This graph grounds the multimodal LLM, supplying structured prior knowledge that the model can attach to image regions and captions. The grounding step lets the model handle microscopy description and reasoning beyond what its general pretraining supports.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Tied text and image representations; MicroWorld adds a knowledge graph to extend this to a specialist domain.</span></li>
+<li><a href="6T29JLTN.html">UNI Pathology (Chen 2023)</a><span class="lineage-note">Closed a related medical-imaging domain gap, but through self-supervised pretraining rather than a graph.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DALL-E 2 aligned text with natural images and does not transfer to microscopy. UNI closed a medical-imaging gap with large-scale self-supervised pretraining on pathology slides, which needs a large in-domain image corpus. MicroWorld targets the same domain-gap failure but with an explicit attributed graph of concepts, so it can supply structured knowledge where in-domain image data is scarce.</p>
+<h3>Method vs predecessors</h3>
+<p>Against DALL-E 2's contrastive and generative alignment, MicroWorld adds a relational knowledge structure on top of vision-language grounding. Against UNI's pretraining-heavy route, it trades additional data for an explicit graph, a different point on the cost-accuracy curve that may suit low-data scientific domains.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="6T29JLTN.html">UNI Pathology (Chen 2023)</a><span class="lineage-note">Domain-gap closure for medical imaging; complementary self-supervised approach.</span></li>
+<li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Grounds a non-natural signal domain in language, like MicroWorld for microscopy.</span></li>
+</ul>
+</div>
+</body>
+</html>

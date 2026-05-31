@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diffusion Large Language Models for Visual Speech Recognition — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+<h2>Diffusion Large Language Models for Visual Speech Recognition (DLLM-VSR)</h2>
+<p class="paper-meta">Yeo, Kim, Rha, Ro (KAIST) &middot; arXiv 2026-05-27 &middot; <a href="https://arxiv.org/abs/2605.28456" target="_blank" rel="noopener">arXiv:2605.28456</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+<h3>What</h3>
+<p>DLLM-VSR is the first diffusion-LLM framework for visual speech recognition (lip reading from video). It formulates transcription as iterative masked denoising with flexible decoding order: high-confidence positions are committed first, then used as bidirectional context to refine ambiguous tokens. A two-stage training scheme separates visual-to-text content alignment from length modeling, and a length-guided candidate decoder uses video duration to propose plausible transcript lengths and rerank candidates. It reaches a state-of-the-art 19.5% word error rate on LRS3 using only its labeled training data.</p>
+<h3>Why</h3>
+<p>Standard visual speech recognition decodes left to right, which forces premature decisions on visually ambiguous mouth shapes before later context is available. Once a wrong token is committed, autoregressive decoding cannot revisit it. The paper argues that a decoding order driven by confidence, with the ability to use already-committed tokens as two-sided context, fits a task where ambiguity is spread unevenly across the sequence.</p>
+<h3>How</h3>
+<p>Transcription is cast as masked denoising. The model unmasks high-confidence positions first and conditions the remaining positions on them bidirectionally, iterating until the sequence is filled. Training is split into content alignment and length modeling so the model learns what to say separately from how long to say it. Because output length is a source of error, a length-guided candidate decoder proposes several transcript-length hypotheses from the video duration, decodes under each, and reranks by length plausibility and decoding confidence.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Source of iterative denoising generation; DLLM-VSR moves it from continuous pixels to discrete masked tokens.</span></li>
+<li><a href="6VTXUZEG.html">Audio Mamba (Erol 2024)</a><span class="lineage-note">Neighboring approach to speech-signal modeling, via state-space recurrence rather than diffusion unmasking.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Left-to-right autoregressive VSR commits to ambiguous tokens too early and cannot correct them. DLLM-VSR fixes that failure mode by deferring uncertain positions and resolving them once confident neighbors are fixed. Where DDPM solved high-fidelity generation in continuous space but said nothing about discrete transcription, this paper adapts its iterative-refinement loop to a discrete sequence task.</p>
+<h3>Method vs predecessors</h3>
+<p>Against DDPM, the noise process here is masking over tokens rather than Gaussian noise over pixels, and unmasking is ordered by confidence instead of a fixed schedule. Against Audio Mamba, which streams a signal through linear-time recurrence, DLLM-VSR uses a non-causal denoising decoder that revisits positions, trading streaming for bidirectional context and a length-search step.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Transformer-backed diffusion; shares the iterative-refinement family.</span></li>
+<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Cross-modal conditioning of a generative model, here video-to-text instead of text-to-image.</span></li>
+</ul>
+</div>
+</body>
+</html>
