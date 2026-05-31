@@ -21,6 +21,9 @@
 2023 | LED (Mao et al.) | 
 2024 | l-DAE (Chen et al.) | 
 
+2026-05 | MLLM Subject-Driven Generation (2605.26111) | aggregates features across several language-model layers to preserve subject identity
+2026-05 | GARD (2605.26230) | runs diffusion denoising inside a reconstructor's geometry-aware feature space
+
 ### Paper List
 
 [KNOWN] [2014] Goodfellow et al. — GAN. zotero_key:GG7GSYUJ.
@@ -42,6 +45,11 @@
 [KNOWN] [2023] Mao et al. — LED. zotero_key:G4MF7DQQ.
 [KNOWN] [2024] Chen et al. — l-DAE. zotero_key:DZ2UYXUL.
 
+[2026] 2605.26111 — Squeezing Capacity from Multimodal Large Language Models for Subject-driven Generation. [https://arxiv.org/abs/2605.26111](https://arxiv.org/abs/2605.26111). external.
+[2026] 2605.26230 — GARD: Geometry-Aware Representation Denoising for Robust Multi-view 3D Reconstruction. [https://arxiv.org/abs/2605.26230](https://arxiv.org/abs/2605.26230). external.
+
 ### Recent Activity
 
+2026-05-30 | 2605.26111 added | Dual Layer Aggregation conditions a diffusion generator on multiple MLLM layers for better identity preservation; Tier B
+2026-05-30 | 2605.26230 added | runs diffusion restoration in a reconstruction model's geometry-aware feature space rather than pixel space; Tier B
 2026-05-14 | Area page seeded | 18 papers from Zotero, 3 from graphify seed.

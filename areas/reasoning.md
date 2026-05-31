@@ -16,6 +16,7 @@
 2026-05 | ScaleLogic (2605.06638) | RL training compute scales as a power law with reasoning depth; expressiveness sets the exponent
 2026-05 | RL Unlocks Parametric Knowledge (2605.07153) | RL redistributes probability mass to surface latent facts
 2026-05 | Sparse Policy Selection (2605.06241) | RL changes only 1 to 3 percent of tokens, at high-entropy points already in the base top-5
+2026-05 | Reward-Function Search RL (2605.02073) | a frontier model searches the RL reward function instead of the policy for math reasoning
 ### Paper List
 
 [KNOWN] [2025] Shen et al. — CODI. zotero_key:FFWLYL3J.
@@ -32,8 +33,10 @@
 [2026] 2605.06638 — Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key. [https://arxiv.org/abs/2605.06638](https://arxiv.org/abs/2605.06638). external.
 [2026] 2605.07153 — Beyond Reasoning: Reinforcement Learning Unlocks Parametric Knowledge in LLMs. [https://arxiv.org/abs/2605.07153](https://arxiv.org/abs/2605.07153). external.
 [2026] 2605.06241 — Rethinking RL for LLM Reasoning: It is Sparse Policy Selection, Not Capability Learning. [https://arxiv.org/abs/2605.06241](https://arxiv.org/abs/2605.06241). external.
+[2026] 2605.02073 — Enhanced LLM Reasoning by Optimizing Reward Functions with Search-Driven Reinforcement Learning. [https://arxiv.org/abs/2605.02073](https://arxiv.org/abs/2605.02073). external.
 ### Recent Activity
 
+2026-05-30 | 2605.02073 added | freezes the policy and searches the RL reward function instead; ranked-feedback loop lifts GSM8K F1 from 0.609 to 0.795; Tier A
 2026-05-29 | 2605.06241 added | token-level analysis finds RL selects among base-model solutions rather than teaching new reasoning; Tier B
 2026-05-28 | 2605.06638 added | controlled synthetic logic; RL compute power law, exponent rises with logical expressiveness; Tier B
 2026-05-28 | 2605.07153 added | RL improves factual recall by probability-mass redistribution, not new facts; Tier B
