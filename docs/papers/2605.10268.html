@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MemReread — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>MemReread: Enhancing Agentic Long-Context Reasoning via Memory-Guided Rereading</h2>
+<p class="paper-meta">Ji, Weng, Li, Tang, Lou, Zhang &middot; arXiv 2026-05-11 &middot; <a href="https://arxiv.org/abs/2605.10268" target="_blank" rel="noopener">arXiv:2605.10268</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3>
+<p>MemReread is a framework for reasoning over long documents at linear cost. It reads the document as a stream and keeps a running memory, but when that memory cannot answer the question it decomposes the question into sub-questions and rereads the relevant source text, recovering indirect facts dropped during the first pass. A reinforcement learning stage improves how far the method extrapolates beyond training context length and decides how many rereading passes each question needs, so easy questions stay cheap and hard ones get more passes.</p>
+<h3>Why</h3>
+<p>Reasoning over long documents without the quadratic cost of full attention is hard. Streaming-memory agents read chunk by chunk and update a running memory, but updates overwrite earlier content, so evidence that matters later is lost. Adding a retrieval module to recall discarded text helps only partially: retrieval loses evidence at memory-formation time and is thrown off by queries that do not match what was stored. The paper's motivation is to get non-linear reasoning over long input while keeping linear time complexity and without relying on a fragile retrieval step.</p>
+<h3>How</h3>
+<p>The method keeps the streaming reader but removes intermediate retrieval. It builds a final memory in one pass; when that memory is insufficient, it decomposes the question and rereads the relevant parts of the source, which lets the model jump back to earlier text while preserving the document's logical order. A reinforcement learning controller sets the number of rereading passes from task complexity and improves length extrapolation, keeping the added cost bounded. The paper reports consistent gains over baseline long-context frameworks while maintaining linear time complexity in context length.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Catalogs agent memory mechanisms and names retrieval-based recall as a weak point; MemReread acts on that diagnosis.</span></li>
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Source of step-by-step reasoning; MemReread makes the reasoning non-linear by rereading the source.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>The Memory Mechanisms Survey (Huang 2026) describes how agents store, update, and retrieve memory and identifies retrieval-based recall as lossy. MemReread fixes that specific failure mode: rather than retrieving from a compressed store, it rereads the raw source on demand, so evidence overwritten during memory formation can still be recovered. It removes the retrieval module entirely instead of trying to make retrieval less lossy.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared to Chain-of-Thought, which produces a single forward reasoning trace in token space, MemReread reasons non-linearly by triggering question decomposition and rereading when the running memory is insufficient, and it adds a reinforcement learning controller that Chain-of-Thought lacks to decide how many rereading passes to spend. Compared to the decomposition-planning agents ADaPT and LATS in your library, MemReread decomposes a question to decide what to reread rather than to plan a sequence of actions.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Decomposition for planning; MemReread decomposes for evidence recovery instead.</span></li>
+<li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Tree search over actions; shares the decompose-then-act structure applied to rereading.</span></li>
+</ul>
+</div>
+</body>
+</html>

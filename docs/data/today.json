@@ -1,45 +1,45 @@
 {
-  "date": "2026-05-31",
+  "date": "2026-06-01",
   "papers": [
     {
-      "zotero_key": "2605.27668",
-      "title": "Aligning LLMs with Human Uncertainty: A Beta-Bernoulli Calibrator for LLM Forecasting",
-      "authors": "Agentic Learning AI Lab",
+      "zotero_key": "2605.10268",
+      "title": "MemReread: Enhancing Agentic Long-Context Reasoning via Memory-Guided Rereading",
+      "authors": "Ji et al.",
       "year": 2026,
-      "what": "A post-hoc, model-agnostic calibrator turns any LLM point forecast into a Beta distribution, giving a better-calibrated mean and an epistemic variance that predicts error better than verbalized confidence.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "TS-Agent (Liu 2025), LLMs for Time Series Survey (Zhang 2024)"
+      "what": "A streaming long-context reader that drops retrieval and instead decomposes the question and rereads the source when its running memory is insufficient, with an RL controller setting the number of rereading passes at linear cost.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "Memory Mechanisms Survey (Huang 2026), Chain-of-Thought (Wei 2023)"
     },
     {
-      "zotero_key": "2605.28456",
-      "title": "Diffusion Large Language Models for Visual Speech Recognition",
-      "authors": "Yeo et al.",
-      "year": 2026,
-      "what": "First diffusion-LLM lip-reading framework: transcribes by confidence-ordered masked denoising with bidirectional context and length-guided decoding, reaching 19.5% WER on LRS3.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "DDPM (Ho 2020), Audio Mamba (Erol 2024)"
-    },
-    {
-      "zotero_key": "2605.02641",
-      "title": "Mamoda2.5: Enhancing a Unified Multimodal Model with DiT-MoE",
-      "authors": "Shi et al.",
-      "year": 2026,
-      "what": "Makes a Diffusion Transformer backbone sparse with a 128-expert top-8 MoE (25B params, 3B active), setting a video-editing record and cutting editing inference up to 95.9x via few-step distillation plus RL.",
-      "area_label": "Generative CV",
-      "area_slug": "generative-cv",
-      "builds_on": "DiT (Peebles 2023), DDPM (Ho 2020)"
-    },
-    {
-      "zotero_key": "2605.10120",
-      "title": "MicroWorld: Bridging the Microscopic Domain Gap for Multimodal LLMs",
+      "zotero_key": "2605.18421",
+      "title": "EvoMemBench: Benchmarking Agent Memory from a Self-Evolving Perspective",
       "authors": "Anonymous et al.",
       "year": 2026,
-      "what": "Builds a multimodal attributed property graph from scientific image-caption corpora to ground a multimodal LLM in microscopy concepts, closing part of the domain gap that contrastive pretraining leaves open.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "DALL-E 2 (Ramesh 2022), UNI Pathology (Chen 2023)"
+      "what": "A benchmark that isolates agent memory and scores it under self-evolving conditions, separating in-episode from cross-episode memory rather than reporting one aggregate end-task score.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "Memory Mechanisms Survey (Huang 2026)"
+    },
+    {
+      "zotero_key": "2605.23071",
+      "title": "The Efficiency Frontier: A Unified Framework for Cost-Performance Optimization in LLM Context Management",
+      "authors": "Anonymous et al.",
+      "year": 2026,
+      "what": "Frames LLM context management as a single cost-performance optimization, characterizing the non-dominated set of context strategies so a system can pick a point on the frontier instead of using ad hoc truncation or summarization rules.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "Attention Is All You Need (Vaswani 2017)"
+    },
+    {
+      "zotero_key": "2605.19995",
+      "title": "CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition",
+      "authors": "Anonymous et al.",
+      "year": 2026,
+      "what": "Factorizes controllable video generation into a creative-intent reasoning stage followed by diffusion generation conditioned on the inferred intent, improving control for abstract or underspecified prompts.",
+      "area_label": "Generative CV",
+      "area_slug": "generative-cv",
+      "builds_on": "DiT (Peebles 2023), DDPM (Ho 2020), Chain-of-Thought (Wei 2023)"
     }
   ]
 }
