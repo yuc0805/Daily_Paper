@@ -452,6 +452,26 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2605.27668",
+      "target_label": "Aligning LLMs with Human Uncertainty: A Beta-Bernoulli Calibrator for LLM Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "zhang2024_llm_ts_survey",
+      "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "target": "2605.27668",
+      "target_label": "Aligning LLMs with Human Uncertainty: A Beta-Bernoulli Calibrator for LLM Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [

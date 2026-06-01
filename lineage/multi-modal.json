@@ -22,6 +22,46 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "cross_area": true
+    },
+    {
+      "source": "ramesh2022_dalle2",
+      "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+      "target": "2605.10120",
+      "target_label": "MicroWorld: Bridging the Microscopic Domain Gap for Multimodal LLMs",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "chen2023_pathology",
+      "source_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
+      "target": "2605.10120",
+      "target_label": "MicroWorld: Bridging the Microscopic Domain Gap for Multimodal LLMs",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
+    },
+    {
+      "source": "ho2020_ddpm",
+      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+      "target": "2605.28456",
+      "target_label": "Diffusion Large Language Models for Visual Speech Recognition (DLLM-VSR)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
+    },
+    {
+      "source": "erol2024_audiomamba",
+      "source_label": "Audio Mamba: Bidirectional SSM for Audio (Erol 2024)",
+      "target": "2605.28456",
+      "target_label": "Diffusion Large Language Models for Visual Speech Recognition (DLLM-VSR)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
     }
   ],
   "hyperedges": [],
