@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QUEST: Training Frontier Deep Research Agents with Fully Synthetic Tasks — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>QUEST: Training Frontier Deep Research Agents with Fully Synthetic Tasks</h2>
+<p class="paper-meta">Xie, Lin, Wang, Su, Sun et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.24218" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3>
+<p>QUEST is an open family of deep research agents, from 2B to 35B parameters, built for long-horizon search: fact seeking, citation grounding, and report synthesis. Using only 8K synthesized tasks, it approaches or surpasses closed-source agents across eight deep-research benchmarks and is the best open-weight agent reported. Models, data, and training scripts are released.</p>
+<h3>Why</h3>
+<p>Frontier deep research systems are proprietary, and existing open agents generalize poorly across task types, so it is unclear how to train a broadly capable research agent. A central obstacle is data: long-horizon search trajectories with reliable rewards are hard to collect and annotate, which limits both supervised and reinforcement learning.</p>
+<h3>How</h3>
+<p>The recipe combines mid-training, supervised fine-tuning, and reinforcement learning. The key component is a data-synthesis pipeline built on unified rubric trees, which generate tasks across different types with verifiable rewards and no human labels. A built-in context-management mechanism supports long-horizon reasoning and knowledge synthesis across many search steps.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Mapped multimodal agent capabilities that QUEST instantiates for research search.</span></li>
+<li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Framed memory and context handling for foundation agents, which QUEST addresses with built-in context management.</span></li>
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">RL post-training at model scale; QUEST reuses RL but on synthetic verifiable tasks.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>The surveys describe what agents should do but do not provide training data; DeepSeek-V3 showed RL post-training but for general capability, not long-horizon search. QUEST fixes the missing-data failure mode with rubric-tree synthesis, which produces checkable rewards across task types so the agent can be trained end to end without hand-labeled trajectories.</p>
+<h3>Method vs predecessors</h3>
+<p>Earlier agent work relied on human-curated tasks or imitation of proprietary systems. QUEST replaces that with synthetic tasks carrying verifiable rewards, then trains with a staged mid-training, fine-tuning, and RL pipeline. The context-management mechanism is built into the model rather than bolted on as an external retriever, which is what lets it sustain long search horizons at modest task counts (8K).</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Reasoning via RL; same RL-for-capability family in Community 0.</span></li>
+<li><a href="HBLPTRMY.html">Chain-of-Thought (Wei 2023)</a><span class="lineage-note">Long-horizon reasoning baseline that agentic search extends.</span></li>
+</ul>
+</div>
+</body>
+</html>

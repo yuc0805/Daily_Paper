@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reinforcing Few-step Generators via Reward-Tilted Distribution Matching — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/generative-cv.html" class="back-link">&larr; Back to Area</a>
+<h2>Reinforcing Few-step Generators via Reward-Tilted Distribution Matching</h2>
+<p class="paper-meta">Huang, Zhou, Wang, Pang et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.26108" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/generative-cv.html">Generative CV</a></p>
+<h3>What</h3>
+<p>RTDMD is a two-stage method that aligns few-step image generators with human preferences. It shows that minimizing KL divergence to a reward-tilted teacher distribution splits into a distribution-matching term and a reward-maximization term. With 4 inference steps it sets new state of the art on SD3, SD3.5, and FLUX.2 across preference, aesthetic, and compositional metrics; the distilled FLUX.2 4B beats the 9B teacher at 50 steps on most rewards.</p>
+<h3>Why</h3>
+<p>Few-step diffusion distillation makes image generation efficient, but distilled models are hard to align with human preferences: the speed-up discards the iterative sampling that preference tuning relied on. Combining distillation with reward optimization is unstable because the fake score model must track a generator that shifts under very few updates.</p>
+<h3>How</h3>
+<p>Stage one, Ambient-Consistent Distribution Matching Distillation, does subinterval-wise matching and adds a consistency regularizer so the fake score tracks the shifting generator. Stage two jointly optimizes both terms with a hybrid policy gradient: a GRPO-style estimator for stochastic intermediate transitions plus direct reward backprop through the deterministic final step, with step-subset GRPO (SubGRPO) to reduce variance.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Defined the iterative denoising process that distillation compresses to four steps.</span></li>
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Made the diffusion backbone a scalable transformer, the class of generator distilled here.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DDPM produced high quality but needed many steps; prior few-step distillation recovered speed but lost human-preference alignment. RTDMD fixes the alignment failure mode by deriving a reward-tilted objective that keeps distribution matching while adding reward maximization, so a 4-step generator stays preference-aligned rather than degrading.</p>
+<h3>Method vs predecessors</h3>
+<p>Earlier distillation matched the teacher distribution alone; earlier reward tuning assumed a full sampler. RTDMD unifies both by tilting the teacher with a reward and splitting the resulting KL, then handling the mixed stochastic-deterministic short sampler with a hybrid gradient. This is what lets the distilled model beat its larger, slower teacher on most reward metrics.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Text-to-image generation; the application area RTDMD accelerates.</span></li>
+</ul>
+</div>
+</body>
+</html>

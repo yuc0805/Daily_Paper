@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-01",
+  "date": "2026-06-02",
   "papers": [
     {
-      "zotero_key": "2605.10268",
-      "title": "MemReread: Enhancing Agentic Long-Context Reasoning via Memory-Guided Rereading",
-      "authors": "Ji et al.",
+      "zotero_key": "2605.22759",
+      "title": "Towards a General Intelligence and Interface for Wearable Health Data",
+      "authors": "Narayanswamy, McDuff et al.",
       "year": 2026,
-      "what": "A streaming long-context reader that drops retrieval and instead decomposes the question and rereads the source when its running memory is insufficient, with an RL controller setting the number of rereading passes at linear cost.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026), Chain-of-Thought (Wei 2023)"
+      "what": "A wearable-health foundation model pretrained on over one trillion minutes of sensor signal from five million people, with LLM agents that search downstream predictive heads and a clinician-rated Personal Health Agent on top.",
+      "area_label": "LLM-Health",
+      "area_slug": "llm-health",
+      "builds_on": "Foundation Models for Biosignals (Gu 2025), SSL for HAR (Yuan 2024), LLMs are Few-Shot Health Learners (Liu 2023)"
     },
     {
-      "zotero_key": "2605.18421",
-      "title": "EvoMemBench: Benchmarking Agent Memory from a Self-Evolving Perspective",
-      "authors": "Anonymous et al.",
+      "zotero_key": "2605.24218",
+      "title": "QUEST: Training Frontier Deep Research Agents with Fully Synthetic Tasks",
+      "authors": "Xie et al.",
       "year": 2026,
-      "what": "A benchmark that isolates agent memory and scores it under self-evolving conditions, separating in-episode from cross-episode memory rather than reporting one aggregate end-task score.",
+      "what": "An open family of deep research agents (2B-35B) trained with rubric-tree synthetic tasks and RL, matching or beating closed-source agents on eight benchmarks using only 8K tasks.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "Agent AI Survey (Durante 2024), Memory Mechanisms Survey (Huang 2026)"
+    },
+    {
+      "zotero_key": "2605.23986",
+      "title": "MemForest: An Efficient Agent Memory System with Hierarchical Temporal Indexing",
+      "authors": "Chen et al.",
+      "year": 2026,
+      "what": "A write-efficient agent memory framework whose time-ordered MemTree index replaces full-state rewrites with per-node updates, reaching 79.8% on LongMemEval-S with about 6x higher construction throughput.",
       "area_label": "Agent",
       "area_slug": "agent",
       "builds_on": "Memory Mechanisms Survey (Huang 2026)"
     },
     {
-      "zotero_key": "2605.23071",
-      "title": "The Efficiency Frontier: A Unified Framework for Cost-Performance Optimization in LLM Context Management",
-      "authors": "Anonymous et al.",
+      "zotero_key": "2605.26108",
+      "title": "Reinforcing Few-step Generators via Reward-Tilted Distribution Matching",
+      "authors": "Huang et al.",
       "year": 2026,
-      "what": "Frames LLM context management as a single cost-performance optimization, characterizing the non-dominated set of context strategies so a system can pick a point on the frontier instead of using ad hoc truncation or summarization rules.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "Attention Is All You Need (Vaswani 2017)"
-    },
-    {
-      "zotero_key": "2605.19995",
-      "title": "CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition",
-      "authors": "Anonymous et al.",
-      "year": 2026,
-      "what": "Factorizes controllable video generation into a creative-intent reasoning stage followed by diffusion generation conditioned on the inferred intent, improving control for abstract or underspecified prompts.",
+      "what": "A two-stage method that splits a reward-tilted KL objective into distribution matching and reward maximization, giving 4-step image generators that set state of the art on SD3 and FLUX.2.",
       "area_label": "Generative CV",
       "area_slug": "generative-cv",
-      "builds_on": "DiT (Peebles 2023), DDPM (Ho 2020), Chain-of-Thought (Wei 2023)"
+      "builds_on": "DDPM (Ho 2020), DiT (Peebles 2023)"
     }
   ]
 }

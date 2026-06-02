@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MemForest: An Efficient Agent Memory System with Hierarchical Temporal Indexing — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>MemForest: An Efficient Agent Memory System with Hierarchical Temporal Indexing</h2>
+<p class="paper-meta">Chen, Zhang, Pei, He et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.23986" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3>
+<p>MemForest is a memory framework for long-context LLM agents that treats memory as a write-efficient temporal data-management problem. It introduces MemTree, a time-ordered hierarchical index that replaces full-state rewrites with localized per-node updates. On LongMemEval-S it reaches 79.8% pass@1, best among stateful baselines, with memory-construction throughput about 6 times higher than prior systems including EverMemOS. It is also evaluated on LoCoMo.</p>
+<h3>Why</h3>
+<p>Existing agent memory systems carry heavy maintenance cost from two limits: coarse-grained state management and sequential update pipelines. Updates are tightly coupled to LLM inference and often require rewriting the full state, so latency grows as memory accumulates and scalability suffers.</p>
+<h3>How</h3>
+<p>MemForest breaks the sequential bottleneck with parallel chunk extraction, decoupling memory construction into concurrent operations. MemTree organizes memory as time-ordered trees rather than flat global summaries, so an update touches only the affected tree paths. Interval summaries capture how state evolves over time while leaves keep concrete evidence at specific timestamps, which preserves temporal fidelity without brute-force rewrites.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Cataloged agent memory designs and flagged full-state rewrites as a scaling limit; MemForest is the systems answer.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>The survey identified full-state rewrites and sequential updates as the practical limit on agent memory. MemForest fixes that failure mode directly: per-node updates make write cost scale with what changed rather than total memory size, and parallel extraction removes the sequential coupling to inference, cutting construction latency.</p>
+<h3>Method vs predecessors</h3>
+<p>Where prior systems kept a flat global summary that had to be regenerated on each update, MemForest keeps a hierarchical temporal index and treats summaries, embeddings, and root rows as derived views over persistent canonical facts. Re-scoping (splitting, merging, deleting scopes) then rematerializes only affected trees rather than replaying raw sessions, which is what gives the throughput gain.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Broader agent-capability map; memory is one component MemForest optimizes.</span></li>
+</ul>
+</div>
+</body>
+</html>

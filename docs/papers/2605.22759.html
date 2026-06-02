@@ -3,42 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wearable Health Foundation Model — AI Knowledge Graph</title>
+<title>Towards a General Intelligence and Interface for Wearable Health Data — AI Knowledge Graph</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <div class="paper-page">
-<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
 <h2>Towards a General Intelligence and Interface for Wearable Health Data</h2>
-<p class="paper-meta">Narayanswamy, Xu, Heydari et al. &middot; arXiv 2026-05-21 &middot; <a href="https://arxiv.org/abs/2605.22759" target="_blank" rel="noopener">arXiv:2605.22759</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>, <a href="../areas/llm-health.html">LLM-Health</a></p>
-
+<p class="paper-meta">Narayanswamy, Xu, Heydari, McDuff et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.22759" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm-health.html">LLM-Health</a></p>
 <h3>What</h3>
-<p>A foundation model pretrained on more than one trillion minutes of unlabeled wearable sensor signals from five million participants. It is evaluated on 35 health prediction tasks spanning cardiovascular, metabolic, sleep, and mental health, as well as lifestyle and demographic factors. A "classroom" of LLM agents autonomously searches the space of downstream predictive heads built on frozen embeddings, and a Personal Health Agent integrates these predictors with clinician validation.</p>
-
+<p>A foundation model for wearable health, pretrained on more than one trillion minutes of unlabeled sensor signal from about five million participants. On top of the frozen representation, a classroom of LLM agents searches the space of downstream predictive heads, and the best heads feed a Personal Health Agent that answers health questions in natural language. The model is evaluated on 35 health prediction tasks spanning cardiovascular, metabolic, sleep, and mental health, plus lifestyle and demographic targets.</p>
 <h3>Why</h3>
-<p>Converting low-level wearable sensor data into representations that characterize higher-level health states is difficult because of high phenotypic diversity and variation in individual baselines. Collecting outcome-labeled wearable data at scale is expensive and retrospective annotation is practically infeasible. Existing biosignal foundation models, as surveyed by Gu 2025, are either modality-specific or trained on small cohorts, leaving the scaling question unanswered.</p>
-
+<p>Turning low-level wearable streams into personal health states is hard because individuals differ in baseline health, physiology, and lifestyle, so the same raw signal means different things across people. Paired labels (signal plus a confirmed outcome) are expensive and cannot be added retrospectively, so labeled data stays scarce. Prior wearable models were trained at smaller scale and used hand-built interfaces between signal and language, which limited both accuracy and the range of questions the system could answer.</p>
 <h3>How</h3>
-<p>Joint scaling of model capacity and pretraining data volume on unlabeled sensor signals from 5M participants. The frozen embeddings serve as input to downstream predictive heads. Instead of manual head design, a classroom of LLM agents searches the architecture space — performance improves with LLM capacity. A Personal Health Agent wraps these predictors to produce contextually aware responses, validated by 1,860 clinician ratings.</p>
-
+<p>The authors pretrain with self-supervision on the trillion-minute corpus and measure how performance moves as model size and data volume scale together. They keep the representation frozen and use LLM agents to automatically select downstream heads (which embedding, which architecture, which target) rather than designing one head per task. The selected predictors are wrapped in a Personal Health Agent, whose responses were rated by clinicians across 1,860 ratings for relevance, context awareness, and safety.</p>
 <h3>Builds on</h3>
 <ul class="lineage-list">
-  <li><a href="WAB8J2FQ.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Surveyed biosignal FMs and identified scaling and cross-task transfer as open problems; this paper directly addresses both.</span></li>
-  <li><a href="2ZYUFEMW.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Connected sensors to language via distillation; this paper instead uses LLM agents as an AutoML layer on sensor embeddings.</span></li>
-  <li><a href="ICD9EG8Q.html">GLOBEM (Xu 2023)</a><span class="lineage-note">Established cross-dataset transfer evaluation for wearable behavior; this paper scales to 5M participants and 35 tasks.</span></li>
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Survey of self-supervised foundation models for physiological signals; this paper is a concrete trillion-minute instance.</span></li>
+<li><a href="RTMH75VW.html">SSL for HAR with 700K Person-days (Yuan 2024)</a><span class="lineage-note">Showed large-scale self-supervised pretraining helps wearable tasks; scaled here by roughly a thousand times.</span></li>
+<li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">Fed sensor-derived numbers into LLM prompts; replaced here by trained heads on a learned representation.</span></li>
+<li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Bridged bio-sensing and llm-health by turning sensor data into language; the new work scales and automates that bridge.</span></li>
 </ul>
-
 <h3>Solves vs predecessors</h3>
-<p>The Biosignals survey (Gu 2025) catalogued models trained on at most tens of thousands of participants and a handful of tasks. The primary failure mode was limited transfer: a model trained for one health outcome (e.g., sleep staging) would not generalize to another (e.g., cardiovascular risk) without retraining. This paper solves that by pretraining at population scale, producing embeddings that transfer across 35 diverse health tasks via frozen representations.</p>
-
+<p>The main failure mode of the predecessors was scale and rigidity. Yuan 2024 demonstrated self-supervision at 700K person-days but could not show how far it scales; this paper provides scaling-law evidence at one trillion minutes and five million people. Liu 2023 relied on prompting with summary numbers, which loses signal detail; training heads on a learned representation keeps more of the signal and supports few-shot transfer to new tasks. Sensor2Text needed a hand-built captioning path; the agentic head search removes that manual step.</p>
 <h3>Method vs predecessors</h3>
-<p>GLOBEM used traditional ML pipelines with handcrafted features for cross-dataset transfer. Sensor2Text used student-teacher distillation to connect sensors to language. This paper skips both feature engineering and distillation: it pretrains directly on raw sensor signals at scale, then uses LLM agents (not human engineers) to design downstream predictive heads. The architectural search via LLM agents is a structurally different approach from prior manual or NAS-based head design.</p>
-
+<p>Where earlier work fixed one downstream head per task, this paper separates representation learning from task adaptation and delegates head selection to LLM agents, so adding a task is a search rather than a redesign. The interface layer is also different: instead of a static prompt template, a Personal Health Agent composes the selected predictors and is checked against clinician judgment. The denoising-free self-supervised objective scales with compute and data in a way the smaller predecessors did not test.</p>
 <h3>Related (semantically similar in your library)</h3>
 <ul class="lineage-list">
-  <li><a href="RTMH75VW.html">SSL for HAR with 700K Person-days (Yuan 2024)</a><span class="lineage-note">Self-supervised pretraining for wearable activity recognition; same pretraining philosophy but at smaller scale.</span></li>
-  <li><a href="K4PR34NU.html">MindScape (Nepal 2024)</a><span class="lineage-note">LLM + behavioral sensing for mental health journaling; related personal health agent concept.</span></li>
-  <li><a href="WIGLUNFZ.html">HeAR (Baur 2024)</a><span class="lineage-note">Health acoustic representations via self-supervised pretraining; biosignal FM in a different modality.</span></li>
+<li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Time-series reasoning agent; same time-series-plus-LLM stack, different signal domain.</span></li>
+<li><a href="ICD9EG8Q.html">GLOBEM (Xu 2023)</a><span class="lineage-note">Multi-year behavioral sensing datasets; the wearable-behavior setting this model targets.</span></li>
+<li><a href="K4PR34NU.html">MindScape (Nepal 2024)</a><span class="lineage-note">LLM plus behavioral sensing for journaling; a downstream interface of the same kind.</span></li>
 </ul>
 </div>
 </body>
