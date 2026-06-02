@@ -24,6 +24,7 @@
 2026-05 | MLLM Subject-Driven Generation (2605.26111) | aggregates features across several language-model layers to preserve subject identity
 2026-05 | GARD (2605.26230) | runs diffusion denoising inside a reconstructor's geometry-aware feature space
 2026-05 | Mamoda2.5 (2605.02641) | unified AR-diffusion model with a 128-expert MoE DiT backbone, 25B parameters and 3B active per step
+2026-06 | CogOmniControl (2605.19995) | infers creative intent first, then generates video conditioned on that inferred intent
 
 ### Paper List
 
@@ -49,9 +50,11 @@
 [2026] 2605.26111 — Squeezing Capacity from Multimodal Large Language Models for Subject-driven Generation. [https://arxiv.org/abs/2605.26111](https://arxiv.org/abs/2605.26111). external.
 [2026] 2605.26230 — GARD: Geometry-Aware Representation Denoising for Robust Multi-view 3D Reconstruction. [https://arxiv.org/abs/2605.26230](https://arxiv.org/abs/2605.26230). external.
 [2026] 2605.02641 — Mamoda2.5: Enhancing a Unified Multimodal Model with DiT-MoE. [https://arxiv.org/abs/2605.02641](https://arxiv.org/abs/2605.02641). external.
+[2026] 2605.19995 — CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition. [https://arxiv.org/abs/2605.19995](https://arxiv.org/abs/2605.19995). external.
 
 ### Recent Activity
 
+2026-06-01 | 2605.19995 added | inserts a reasoning stage ahead of the diffusion backbone to read underspecified prompts; Tier B
 2026-05-31 | 2605.02641 added | sparse 128-expert MoE replaces the dense DiT backbone; 25B parameters with 3B active; Tier B
 2026-05-30 | 2605.26111 added | Dual Layer Aggregation conditions a diffusion generator on multiple MLLM layers for better identity preservation; Tier B
 2026-05-30 | 2605.26230 added | runs diffusion restoration in a reconstruction model's geometry-aware feature space rather than pixel space; Tier B

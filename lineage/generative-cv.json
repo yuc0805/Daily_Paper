@@ -122,6 +122,36 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "peebles2023_dit",
+      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+      "target": "2605.19995",
+      "target_label": "CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "ho2020_ddpm",
+      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+      "target": "2605.19995",
+      "target_label": "CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2605.19995",
+      "target_label": "CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
     }
   ],
   "hyperedges": [],

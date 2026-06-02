@@ -9,6 +9,7 @@
 
 2026-05 | ScaleLogic (2605.06638) | RL training compute scales as a power law with reasoning depth; expressiveness sets the exponent
 2026-05 | RL Unlocks Parametric Knowledge (2605.07153) | RL redistributes probability mass to surface latent facts
+2026-06 | Efficiency Frontier (2605.23071) | frames LLM context management as one cost-performance optimization problem
 ### Paper List
 
 [KNOWN] [2024] DeepSeek-AI et al. — DeepSeek-V2. zotero_key:743XA29Y.
@@ -18,8 +19,10 @@
 
 [2026] 2605.06638 — Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key. [https://arxiv.org/abs/2605.06638](https://arxiv.org/abs/2605.06638). external.
 [2026] 2605.07153 — Beyond Reasoning: Reinforcement Learning Unlocks Parametric Knowledge in LLMs. [https://arxiv.org/abs/2605.07153](https://arxiv.org/abs/2605.07153). external.
+[2026] 2605.23071 — The Efficiency Frontier: A Unified Framework for Cost-Performance Optimization in LLM Context Management. [https://arxiv.org/abs/2605.23071](https://arxiv.org/abs/2605.23071). external.
 ### Recent Activity
 
+2026-06-01 | 2605.23071 added | treats quadratic attention cost as an explicit budget optimized against accuracy; a systems-side complement to MemReread; Tier B
 2026-05-28 | 2605.06638 added | RL training-compute power law vs reasoning depth and logical expressiveness; Tier B
 2026-05-28 | 2605.07153 added | RL surfaces latent parametric knowledge via probability-mass redistribution; Tier B
 2026-05-14 | Area page seeded | 4 papers from Zotero, 2 from graphify seed.
