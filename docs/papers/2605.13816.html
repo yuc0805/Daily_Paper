@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Psychotic Relapse Smartwatch — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+<h2>Uncertainty-Driven Anomaly Detection for Psychotic Relapse Using Smartwatches</h2>
+<p class="paper-meta">Tsalkitzis, Filntisis, Maragos, Efthymiou &middot; arXiv 2026-05-13 &middot; <a href="https://arxiv.org/abs/2605.13816" target="_blank" rel="noopener">arXiv:2605.13816</a> &middot; Appears in: <a href="../areas/llm-health.html">LLM-Health</a></p>
+
+<h3>What</h3>
+<p>Two smartwatch-based frameworks for daily psychotic relapse detection. Pipeline 1 forecasts cardiac dynamics and flags deviations as anomalies. Pipeline 2 fuses sleep, motion, and cardiac signals in a multi-task Transformer. Both produce daily anomaly scores from predictive uncertainty estimated via an MLP ensemble.</p>
+
+<h3>Why</h3>
+<p>Psychotic relapse often has prodromal behavioral and physiological signatures that precede clinical manifestation by days. Continuous passive monitoring via smartwatches could enable early warning, but prior work either uses single modalities or lacks calibrated uncertainty for clinical use.</p>
+
+<h3>How</h3>
+<p>Transformer encoders process sequences of daily cardiac, sleep, and motion features extracted from smartwatch data. Pipeline 1 trains a forecasting model on cardiac dynamics during stable periods and measures prediction error during relapse windows. Pipeline 2 uses a multi-task objective to jointly predict across modalities. Uncertainty is estimated via an ensemble of MLPs on top of the Transformer features, producing a calibrated daily anomaly score.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="RQFDYWGH.html">GLOBEM (Xu 2023)</a><span class="lineage-note">Multi-year wearable behavioral datasets for mental health; provides the data paradigm this paper builds on.</span></li>
+  <li><a href="A3SKMW4I.html">MindScape (Nepal 2024)</a><span class="lineage-note">LLM + behavioral sensing for mental health journaling; this paper shares the scope but uses signal-level anomaly detection instead of LLM interaction.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>GLOBEM provided datasets and baseline models but did not focus on anomaly detection with calibrated uncertainty. MindScape used LLMs for reflective journaling but did not produce quantitative daily risk scores. This paper provides a clinically actionable daily anomaly score with uncertainty calibration, and the multi-task fusion of cardiac, sleep, and motion signals is more comprehensive than single-modality predecessors.</p>
+
+<h3>Method vs predecessors</h3>
+<p>GLOBEM baselines used traditional ML (random forests, logistic regression) on hand-crafted features. This paper uses Transformer encoders on learned representations plus ensemble uncertainty. MindScape used GPT-4 for text generation from sensor summaries; this paper stays at the signal level without an LLM in the loop, trading interpretability for lower latency and cost.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="WAB8J2FQ.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Surveys biosignal processing; this paper provides a clinical application of the anomaly detection direction.</span></li>
+  <li><a href="2ZYUFEMW.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Bridges wearable sensors to language; this paper takes the sensor-only path for mental health monitoring.</span></li>
+</ul>
+</div>
+</body>
+</html>

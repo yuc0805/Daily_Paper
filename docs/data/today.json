@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-02",
+  "date": "2026-06-03",
   "papers": [
     {
-      "zotero_key": "2605.22759",
-      "title": "Towards a General Intelligence and Interface for Wearable Health Data",
-      "authors": "Narayanswamy, McDuff et al.",
+      "zotero_key": "2506.10630",
+      "title": "Time-R1: Time Series Forecasting as Reasoning — A Slow-Thinking Approach with Reinforced LLMs",
+      "authors": "Zhou et al.",
       "year": 2026,
-      "what": "A wearable-health foundation model pretrained on over one trillion minutes of sensor signal from five million people, with LLM agents that search downstream predictive heads and a clinician-rated Personal Health Agent on top.",
+      "what": "A two-stage RL fine-tuning framework (SFT + GRIP) that teaches LLMs multi-step reasoning for time series forecasting, bridging DeepSeek-R1 reasoning to the TS domain.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "DeepSeek-R1 (2025), TS-Agent (Liu 2025), ChatTS (Xie 2025)"
+    },
+    {
+      "zotero_key": "2506.13717",
+      "title": "CLAMP: Contrastive Self-Supervised Learning As Neural Manifold Packing",
+      "authors": "Zhang et al.",
+      "year": 2026,
+      "what": "A physics-inspired SSL framework that recasts contrastive learning as manifold packing using repulsive particle system potentials.",
+      "area_label": "Self-Supervised Framework",
+      "area_slug": "self-supervised",
+      "builds_on": "SSL for HAR (Yuan 2024)"
+    },
+    {
+      "zotero_key": "2506.06482",
+      "title": "TimeRecipe: A Time-Series Forecasting Recipe via Benchmarking Module Level Effectiveness",
+      "authors": "Unknown",
+      "year": 2025,
+      "what": "A 10K-experiment benchmark that decomposes TS forecasting architectures into modules and ranks which component choices actually drive accuracy.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "PatchTST (Nie 2023), iTransformer (Liu 2024), TimesNet (Wu 2023)"
+    },
+    {
+      "zotero_key": "2605.13816",
+      "title": "Uncertainty-Driven Anomaly Detection for Psychotic Relapse Using Smartwatches",
+      "authors": "Tsalkitzis et al.",
+      "year": 2026,
+      "what": "Two smartwatch pipelines for daily psychotic relapse detection using Transformer encoders and ensemble uncertainty on cardiac, sleep, and motion signals.",
       "area_label": "LLM-Health",
       "area_slug": "llm-health",
-      "builds_on": "Foundation Models for Biosignals (Gu 2025), SSL for HAR (Yuan 2024), LLMs are Few-Shot Health Learners (Liu 2023)"
-    },
-    {
-      "zotero_key": "2605.24218",
-      "title": "QUEST: Training Frontier Deep Research Agents with Fully Synthetic Tasks",
-      "authors": "Xie et al.",
-      "year": 2026,
-      "what": "An open family of deep research agents (2B-35B) trained with rubric-tree synthetic tasks and RL, matching or beating closed-source agents on eight benchmarks using only 8K tasks.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Agent AI Survey (Durante 2024), Memory Mechanisms Survey (Huang 2026)"
-    },
-    {
-      "zotero_key": "2605.23986",
-      "title": "MemForest: An Efficient Agent Memory System with Hierarchical Temporal Indexing",
-      "authors": "Chen et al.",
-      "year": 2026,
-      "what": "A write-efficient agent memory framework whose time-ordered MemTree index replaces full-state rewrites with per-node updates, reaching 79.8% on LongMemEval-S with about 6x higher construction throughput.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026)"
-    },
-    {
-      "zotero_key": "2605.26108",
-      "title": "Reinforcing Few-step Generators via Reward-Tilted Distribution Matching",
-      "authors": "Huang et al.",
-      "year": 2026,
-      "what": "A two-stage method that splits a reward-tilted KL objective into distribution matching and reward maximization, giving 4-step image generators that set state of the art on SD3 and FLUX.2.",
-      "area_label": "Generative CV",
-      "area_slug": "generative-cv",
-      "builds_on": "DDPM (Ho 2020), DiT (Peebles 2023)"
+      "builds_on": "GLOBEM (Xu 2023), MindScape (Nepal 2024)"
     }
   ]
 }
