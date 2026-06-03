@@ -26,6 +26,7 @@
 2026-05 | Mamoda2.5 (2605.02641) | unified AR-diffusion model with a 128-expert MoE DiT backbone, 25B parameters and 3B active per step
 2026-06 | CogOmniControl (2605.19995) | infers creative intent first, then generates video conditioned on that inferred intent
 
+2026-06 | RTDMD (2605.26108) | reward-tilted distribution matching distills few-step generators with preference RL
 ### Paper List
 
 [KNOWN] [2014] Goodfellow et al. — GAN. zotero_key:GG7GSYUJ.
@@ -52,10 +53,11 @@
 [2026] 2605.02641 — Mamoda2.5: Enhancing a Unified Multimodal Model with DiT-MoE. [https://arxiv.org/abs/2605.02641](https://arxiv.org/abs/2605.02641). external.
 [2026] 2605.19995 — CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition. [https://arxiv.org/abs/2605.19995](https://arxiv.org/abs/2605.19995). external.
 
+[2026] 2605.26108 — Reinforcing Few-step Generators via Reward-Tilted Distribution Matching. [https://arxiv.org/abs/2605.26108](https://arxiv.org/abs/2605.26108). external.
 ### Recent Activity
 
+2026-06-02 | 2605.26108 added | reward-tilted KL splits into matching and reward terms; 4-step distilled FLUX.2 beats 50-step teacher; Tier B
 2026-06-01 | 2605.19995 added | inserts a reasoning stage ahead of the diffusion backbone to read underspecified prompts; Tier B
 2026-05-31 | 2605.02641 added | sparse 128-expert MoE replaces the dense DiT backbone; 25B parameters with 3B active; Tier B
 2026-05-30 | 2605.26111 added | Dual Layer Aggregation conditions a diffusion generator on multiple MLLM layers for better identity preservation; Tier B
 2026-05-30 | 2605.26230 added | runs diffusion restoration in a reconstruction model's geometry-aware feature space rather than pixel space; Tier B
-2026-05-14 | Area page seeded | 18 papers from Zotero, 3 from graphify seed.
