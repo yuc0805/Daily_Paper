@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biosignal Fingerprinting: A Cross-Modal PPG-ECG Foundation Model — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+<h2>Biosignal Fingerprinting: A Cross-Modal PPG-ECG Foundation Model</h2>
+<p class="paper-meta">arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.09579" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm-health.html">LLM-Health</a>, <a href="../areas/time-series.html">Time Series</a></p>
+
+<h3>What</h3>
+<p>A Multi-modal Masked Autoencoder (M2AE) trained on 3.4 million paired ECG and PPG signal segments. The model combines cross-modal contrastive learning with signal reconstruction to learn shared biosignal representations. It achieves AUROC 0.974 for 5-class cardiovascular disease classification and 0.877 for hypertension detection. Critically, it works with a single modality at inference time — a PPG-only wearable can use ECG-informed representations without ever seeing ECG data at deployment.</p>
+
+<h3>Why</h3>
+<p>ECG provides high-fidelity cardiac electrical activity but requires clinical-grade sensors. PPG is available on consumer wearables but carries less diagnostic information. Training on paired data forces the model to learn modality-invariant features — representations that capture the underlying cardiac physiology regardless of whether it was observed electrically or optically. This means the representational quality of clinical ECG can be transferred to consumer PPG devices, which is the practical value proposition.</p>
+
+<h3>How</h3>
+<p>The architecture is a dual-encoder masked autoencoder. Each modality (ECG, PPG) has its own encoder that processes masked input patches. A shared decoder reconstructs both modalities from the joint latent space. The training objective combines three losses: (1) per-modality masked reconstruction, (2) cross-modal reconstruction (reconstruct ECG from PPG latents and vice versa), and (3) contrastive alignment that pulls paired ECG-PPG representations together and pushes unpaired ones apart. The 3.4 million paired segments come from clinical datasets where both ECG and PPG were recorded simultaneously. At inference, only one encoder is needed — the model accepts whichever modality is available and produces the shared representation.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="gu2025_biosignals.html">Biosignal Foundation Models (Gu 2025)</a><span class="lineage-note">Surveyed foundation models for physiological signals, establishing the baseline landscape this paper advances.</span></li>
+<li><a href="yuan2024_ssl_har.html">SSL for Human Activity Recognition (Yuan 2024)</a><span class="lineage-note">Demonstrated self-supervised contrastive learning on wearable sensor data, providing the methodological template.</span></li>
+<li><a href="zhang2023_mae.html">Masked Autoencoders for Time Series (Zhang 2023)</a><span class="lineage-note">Ported MAE from vision to time-series, which this paper extends to multi-modal paired biosignals.</span></li>
+<li><a href="baur2024_hear.html">HEAR (Baur 2024)</a><span class="lineage-note">Applied representation learning to ECG specifically, establishing cardiac diagnostic benchmarks.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Single-modality MAEs (zhang2023_mae) learn good representations within one signal type but cannot transfer across modalities. ECG-specific models (HEAR) require ECG at inference. This paper solves the modality gap: pretrain on paired data, deploy on either modality alone. The 0.974 AUROC for CVD classification from a self-supervised foundation model also exceeds what prior supervised approaches achieved on the same task categories.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The key methodological difference from zhang2023_mae is the cross-modal reconstruction and contrastive objectives. A standard MAE reconstructs masked patches within a single signal. This paper adds cross-modal reconstruction (predict ECG from PPG and vice versa) and a contrastive loss that aligns the two modalities in latent space. The dual-encoder design with a shared decoder is architecturally straightforward, but the training objective design — particularly the balance between within-modal reconstruction, cross-modal reconstruction, and contrastive alignment — is where the engineering contribution lies.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2605.13248.html">Compact Latent Manifold Translation</a><span class="lineage-note">Parameter-efficient cross-modal physiological signal synthesis — a complementary approach to cross-modal biosignal modeling using latent translation rather than masked autoencoders.</span></li>
+</ul>
+</div>
+</body>
+</html>

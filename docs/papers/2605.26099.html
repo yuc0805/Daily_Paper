@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Language Models Need Sleep — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/mamba.html" class="back-link">&larr; Back to Area</a>
+<h2>Language Models Need Sleep</h2>
+<p class="paper-meta">Lee, McLeish, Goldstein, Fanti &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.26099" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/mamba.html">Mamba / SSM</a>, <a href="../areas/llm.html">LLM</a></p>
+
+<h3>What</h3>
+<p>A sleep-like consolidation mechanism for language models. During waking inference, the model uses standard transformer attention with a KV cache. Periodically, it enters a sleep phase where N offline recurrent passes distill accumulated context into persistent fast weights in SSM blocks via a learned local update rule. After consolidation, the KV cache is cleared. Performance scales with sleep duration N, with disproportionate gains on deeper reasoning tasks such as multi-hop graph retrieval and mathematical problem solving.</p>
+
+<h3>Why</h3>
+<p>Transformer attention provides rich context processing but at quadratic memory cost. SSM recurrence is memory-efficient but has limited representational capacity per step. Existing hybrid architectures interleave both in the same forward pass, forcing a fixed tradeoff. This paper proposes a temporal separation: attention does the heavy lifting during active processing, then sleep consolidation compresses the results into SSM state. This allows indefinite-length processing with bounded memory while preserving the quality of attention-derived representations.</p>
+
+<h3>How</h3>
+<p>The architecture augments a standard transformer with SSM blocks (Mamba-style). During waking inference, the model processes input normally, building a KV cache. When the sleep trigger fires (based on cache size or a scheduled interval), the model enters a sleep phase: it performs N recurrent passes over the cached context, updating SSM fast weights through a learned local rule. The local rule is parameterized as a small neural network that takes the current SSM state and the attention-derived context vector as input and outputs a weight update. After N passes, the KV cache is flushed. Subsequent waking inference reads from the updated SSM state as persistent memory. Training uses a combination of standard language modeling loss during waking and a consolidation loss during sleep that measures information retention after cache clearing.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="PHB9VRVM.html">Attention Is All You Need</a><span class="lineage-note">Established the transformer architecture and KV-cache mechanism that this paper augments with persistent SSM memory.</span></li>
+<li><a href="HE9X47KN.html">HARMamba</a><span class="lineage-note">Demonstrated hybrid attention-recurrence architectures combining Mamba SSM blocks with transformer layers.</span></li>
+<li><a href="ZP32YT5I.html">Swin-UMamba</a><span class="lineage-note">Established SSM blocks as viable alternatives to attention for structured prediction tasks.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Standard transformers (Vaswani et al.) face quadratic KV cache growth with sequence length. Hybrid attention-SSM models like HARMamba process both modalities simultaneously, which constrains the SSM component to operate within the same forward pass as attention. This paper solves both issues: the KV cache is periodically cleared (bounding memory), and the SSM component operates asynchronously during offline sleep passes (removing the simultaneity constraint). The result is a system where the quality of attention-based reasoning is preserved while the memory footprint remains bounded.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where HARMamba and similar hybrids interleave attention and SSM layers within each forward pass, this paper introduces a temporal phasing: attention-only during waking, SSM-update-only during sleep. The learned local update rule for SSM fast weights is also novel — previous SSM-based models used fixed or globally trained recurrence parameters, not a context-dependent local rule that adapts the state based on what was accumulated during waking inference.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2604.20943.html">SCM: Sleep-Consolidated Memory</a><span class="lineage-note">NREM/REM-inspired memory for LLMs — thematically parallel but uses a different consolidation mechanism (importance tagging vs. learned local rules).</span></li>
+<li><a href="2606.01495.html">CART: Context-Anchored Recurrent Transformer</a><span class="lineage-note">Another approach to combining recurrence with transformers, using learned LTI stability gates rather than sleep phases.</span></li>
+</ul>
+</div>
+</body>
+</html>

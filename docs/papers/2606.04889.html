@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRAIL: Gradient-Reweighted Advantages for RL with Verifiable Rewards — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>GRAIL: Gradient-Reweighted Advantages for RL with Verifiable Rewards</h2>
+<p class="paper-meta">Pala, Toh, Poria &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.04889" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+
+<h3>What</h3>
+<p>A token-level advantage reweighting method for reinforcement learning with verifiable rewards (RLVR). GRAIL computes gradient-activation saliency for each generated token — measuring how much that token influenced the verified outcome — and uses these saliency scores to reweight per-token advantages during policy optimization. It outperforms GRPO by 3.60% accuracy and 3.05% Pass@3 without requiring a process reward model.</p>
+
+<h3>Why</h3>
+<p>GRPO and similar RLVR methods assign uniform credit across all tokens in a response, treating a filler word and a critical reasoning step as equally responsible for the outcome. This is a coarse approximation. Process reward models (PRMs) can provide finer-grained credit, but they require expensive step-level annotations and separate model training. GRAIL provides token-level credit assignment using only gradient information from the policy itself, avoiding the PRM overhead entirely.</p>
+
+<h3>How</h3>
+<p>For each generated response, GRAIL computes the product of the gradient of the verified reward with respect to each token's hidden activation and the activation magnitude itself — a standard saliency measure from interpretability research. These saliency scores are normalized across the response to produce per-token weight coefficients. During GRPO-style policy optimization, the standard uniform advantage for each response is multiplied by these per-token weights before computing the policy gradient. Tokens with high saliency (those most responsible for the correct or incorrect outcome) receive proportionally larger gradient updates. The method adds negligible computational overhead beyond the backward pass that is already computed during training.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="deepseek2025_r1.html">DeepSeek-R1</a><span class="lineage-note">Introduced GRPO for reasoning with verifiable rewards, providing the baseline that GRAIL improves upon.</span></li>
+<li><a href="wei2023_cot.html">Chain-of-Thought Prompting</a><span class="lineage-note">Established that intermediate reasoning steps affect final answers, motivating the need for per-step credit assignment.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>GRPO assigns uniform credit, which means tokens that merely restate the question or produce filler receive the same training signal as tokens that perform the key reasoning step. Process reward models fix this but at the cost of training a separate model on step-level annotations. GRAIL achieves token-level credit assignment without any additional model or annotation, using only gradient information that is already computed during training.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The technical departure from GRPO is the per-token saliency reweighting. Instead of a single advantage value per response, each token gets advantage multiplied by its normalized gradient-activation saliency. This is conceptually similar to attention-based interpretability methods but applied in the RL training loop rather than post-hoc analysis. Compared to process reward models, the saliency computation is orders of magnitude cheaper because it reuses the existing backward pass.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="U4ZPM5DN.html">Latent-GRPO (Deng 2026)</a><span class="lineage-note">Improves GRPO from the latent space side rather than the credit assignment side — complementary approach.</span></li>
+<li><a href="2606.05152.html">DistIL: RL from Rich Feedback</a><span class="lineage-note">Another GRPO alternative using distributional DAgger, providing richer feedback signals through a different mechanism.</span></li>
+</ul>
+</div>
+</body>
+</html>

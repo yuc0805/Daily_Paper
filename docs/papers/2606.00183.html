@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic Transformers Provably Learn to Search via RL — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Agentic Transformers Provably Learn to Search via RL</h2>
+<p class="paper-meta">Yang, Huang, Liang, Chi &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.00183" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a>, <a href="../areas/agent.html">Agent</a></p>
+
+<h3>What</h3>
+<p>A theoretical proof that transformer policies trained with reinforcement learning on k-ary tree environments acquire depth-first search (DFS) capabilities. The paper identifies the minimal mechanism: two attention heads, one for trajectory tracking and one for failure detection and backtracking. A key result is depth generalization — policies trained on depth-1 and depth-2 trees correctly search deeper trees at test time.</p>
+
+<h3>Why</h3>
+<p>Prior work (LATS, ADaPT) showed empirically that transformers can execute search-like behaviors, but without formal guarantees about when or why this works. Understanding the mechanism matters for two reasons: it tells us the minimal architectural requirements for search capability (two heads suffice), and the depth generalization guarantee means we do not need to train on the hardest instances to handle them.</p>
+
+<h3>How</h3>
+<p>The authors construct a k-ary tree search environment where the agent must find a goal node by choosing branches at each depth level. They analyze the RL training dynamics of a two-layer transformer with two attention heads. Head 1 implements a trajectory-tracking pattern: it attends to the sequence of past actions to maintain the current path. Head 2 implements failure detection: it attends to reward signals and triggers a backtracking action when a dead end is encountered. The proof shows that gradient-based RL training converges to weights that implement this two-head DFS mechanism, and that the learned weights generalize to deeper trees because the per-step logic (choose next branch or backtrack) is depth-independent.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="wei2023_cot.html">Chain-of-Thought Prompting</a><span class="lineage-note">Showed that LLMs can perform multi-step reasoning, raising the question of whether systematic search can also emerge.</span></li>
+<li><a href="zhou2024_lats.html">Language Agent Tree Search (LATS)</a><span class="lineage-note">Introduced explicit tree search as a planning mechanism for LLM agents, which this paper shows can emerge implicitly from RL.</span></li>
+<li><a href="prasad2023_adapt.html">ADaPT</a><span class="lineage-note">Provided empirical evidence that RL-trained transformers acquire planning behaviors, which this paper now proves formally.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>LATS requires an explicit search module bolted onto the LLM. ADaPT demonstrated learned planning but without formal guarantees. This paper shows that neither an explicit search module nor training on hard instances is necessary — RL on simple trees produces a policy that provably generalizes to harder ones. The two-head mechanism is also a minimal characterization: prior work could not tell you how many parameters or heads are sufficient for search.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where LATS implements search as an external algorithm that calls the LLM repeatedly, this paper shows search emerging as an internal computation within the transformer's forward pass. The proof technique analyzes the attention patterns that RL training converges to, identifying the specific trajectory-tracking and failure-detection roles of each head. This is a constructive proof — it does not merely show existence but identifies the exact mechanism.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2606.02373.html">Harness-1: RL for Search Agents</a><span class="lineage-note">Applies RL to search agents empirically, achieving 0.730 recall — a practical complement to this theoretical result.</span></li>
+</ul>
+</div>
+</body>
+</html>
