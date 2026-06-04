@@ -252,6 +252,26 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "xu2023_globem",
+      "source_label": "GLOBEM: Multi-Year Human Behavior Datasets (Xu 2023)",
+      "target": "2605.13816",
+      "target_label": "Uncertainty-Driven Anomaly Detection for Psychotic Relapse Using Smartwatches",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "nepal2024_mindscape",
+      "source_label": "MindScape: LLM + Behavioral Sensing Journaling (Nepal 2024)",
+      "target": "2605.13816",
+      "target_label": "Uncertainty-Driven Anomaly Detection for Psychotic Relapse Using Smartwatches",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [

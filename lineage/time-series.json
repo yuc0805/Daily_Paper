@@ -472,6 +472,66 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie 2023)",
+      "target": "2506.06482",
+      "target_label": "TimeRecipe: Module-Level Benchmarking for TS Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "QBX2TI2X",
+      "source_label": "iTransformer (Liu 2024)",
+      "target": "2506.06482",
+      "target_label": "TimeRecipe: Module-Level Benchmarking for TS Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "HLTA8MDK",
+      "source_label": "TimesNet (Wu 2023)",
+      "target": "2506.06482",
+      "target_label": "TimeRecipe: Module-Level Benchmarking for TS Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "Z5IWHZAE",
+      "source_label": "DeepSeek-R1 (DeepSeek-AI 2025)",
+      "target": "2506.10630",
+      "target_label": "Time-R1: RL Fine-Tuning for Slow-Thinking TS Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
+    },
+    {
+      "source": "I2CIT4I7",
+      "source_label": "TS-Agent (Liu 2025)",
+      "target": "2506.10630",
+      "target_label": "Time-R1: RL Fine-Tuning for Slow-Thinking TS Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "VSCNJG5J",
+      "source_label": "ChatTS (Xie 2025)",
+      "target": "2506.10630",
+      "target_label": "Time-R1: RL Fine-Tuning for Slow-Thinking TS Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [

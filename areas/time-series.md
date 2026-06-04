@@ -36,6 +36,8 @@
 2026-05 | Generalizable Manifold (2605.20449) | frozen LLM transfers to forecasting because pretraining builds a reusable manifold
 2026-05 | Operational Viability of TS FMs (2605.24381) | a Complexity Router sends each series to the cheapest adequate model class
 2026-05 | BBC Calibrator (2605.27668) | post-hoc Beta-Bernoulli layer turns an LLM point forecast into a calibrated distribution with epistemic variance
+2026-06 | TimeRecipe (2506.06482) | module-level benchmarking of TS forecasting; 10K experiments show tokenization and normalization matter more than backbone
+2026-06 | Time-R1 (2506.10630) | RL fine-tuning teaches LLMs slow-thinking reasoning for TS forecasting via GRIP reward
 ### Paper List
 
 [KNOWN] [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.
@@ -91,10 +93,12 @@
 [2026] 2605.20449 — LLM Pretraining Shapes a Generalizable Manifold: Cross-Modal Transfer to Time Series. [https://arxiv.org/abs/2605.20449](https://arxiv.org/abs/2605.20449). external.
 [2026] 2605.24381 — Assessing the Operational Viability of Foundation Models for Time Series Forecasting. [https://arxiv.org/abs/2605.24381](https://arxiv.org/abs/2605.24381). external.
 [2026] 2605.27668 — Aligning LLMs with Human Uncertainty: A Beta-Bernoulli Calibrator for LLM Forecasting. [https://arxiv.org/abs/2605.27668](https://arxiv.org/abs/2605.27668). external.
+[2026] 2506.06482 — TimeRecipe: A Time-Series Forecasting Recipe via Benchmarking Module Level Effectiveness. [https://arxiv.org/abs/2506.06482](https://arxiv.org/abs/2506.06482). external.
+[2026] 2506.10630 — Time-R1: Time Series Forecasting as Reasoning via Reinforced LLMs. [https://arxiv.org/abs/2506.10630](https://arxiv.org/abs/2506.10630). external.
 ### Recent Activity
 
+2026-06-03 | 2506.10630 added | RL fine-tuning for LLM slow-thinking on TS forecasting; GRIP reward mechanism; Tier A
+2026-06-03 | 2506.06482 added | module-level benchmarking shows tokenization and normalization outweigh backbone choice; Tier B
 2026-05-31 | 2605.27668 added | post-hoc Beta-Bernoulli calibrator wraps an LLM forecaster; learned epistemic variance beats verbalized confidence; Tier A
 2026-05-30 | 2605.24381 added | cost-aware Complexity Router keeps simple series on light models and reserves foundation models for hard cases; Tier B
 2026-05-29 | 2605.20449 added | explains frozen-LLM time-series transfer as a reusable pretraining manifold; Tier A
-2026-05-28 | 2605.00973 added | physiology-aware cross-modal MAE; ECG leads PPG as a temporal constraint; Tier A
-2026-05-28 | 2605.08296 added | SSL-for-HAR generalization benchmark; hybrid pretraining with CNN encoders works best; Tier B
