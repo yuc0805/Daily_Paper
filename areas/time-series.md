@@ -38,6 +38,7 @@
 2026-05 | BBC Calibrator (2605.27668) | post-hoc Beta-Bernoulli layer turns an LLM point forecast into a calibrated distribution with epistemic variance
 2026-06 | TimeRecipe (2506.06482) | module-level benchmarking of TS forecasting; 10K experiments show tokenization and normalization matter more than backbone
 2026-06 | Time-R1 (2506.10630) | RL fine-tuning teaches LLMs slow-thinking reasoning for TS forecasting via GRIP reward
+2026-06 | Biosignal Fingerprinting (2605.09579) | cross-modal MAE for paired ECG and PPG; single-modality inference at test time
 ### Paper List
 
 [KNOWN] [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.
@@ -95,8 +96,10 @@
 [2026] 2605.27668 — Aligning LLMs with Human Uncertainty: A Beta-Bernoulli Calibrator for LLM Forecasting. [https://arxiv.org/abs/2605.27668](https://arxiv.org/abs/2605.27668). external.
 [2026] 2506.06482 — TimeRecipe: A Time-Series Forecasting Recipe via Benchmarking Module Level Effectiveness. [https://arxiv.org/abs/2506.06482](https://arxiv.org/abs/2506.06482). external.
 [2026] 2506.10630 — Time-R1: Time Series Forecasting as Reasoning via Reinforced LLMs. [https://arxiv.org/abs/2506.10630](https://arxiv.org/abs/2506.10630). external.
+[2605] 2605.09579 — Biosignal Fingerprinting: A Cross-Modal PPG-ECG Foundation Model. [https://arxiv.org/abs/2605.09579](https://arxiv.org/abs/2605.09579). external.
 ### Recent Activity
 
+2026-06-04 | 2605.09579 added | Multi-modal Masked Autoencoder on 3.4M paired ECG and PPG segments; cross-modal contrastive + reconstruction; AUROC 0.97; Tier B
 2026-06-03 | 2506.10630 added | RL fine-tuning for LLM slow-thinking on TS forecasting; GRIP reward mechanism; Tier A
 2026-06-03 | 2506.06482 added | module-level benchmarking shows tokenization and normalization outweigh backbone choice; Tier B
 2026-05-31 | 2605.27668 added | post-hoc Beta-Bernoulli calibrator wraps an LLM forecaster; learned epistemic variance beats verbalized confidence; Tier A

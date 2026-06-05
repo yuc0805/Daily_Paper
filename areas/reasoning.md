@@ -18,6 +18,8 @@
 2026-05 | Sparse Policy Selection (2605.06241) | RL changes only 1 to 3 percent of tokens, at high-entropy points already in the base top-5
 2026-05 | Reward-Function Search RL (2605.02073) | a frontier model searches the RL reward function instead of the policy for math reasoning
 2026-06 | MemReread (2605.10268) | linear-cost long-context reasoning via a running memory plus on-demand rereading of source text
+2026-06 | Agentic Transformers Search (2606.00183) | formal proof of RL-trained DFS with depth generalization
+2026-06 | GRAIL (2606.04889) | token-wise saliency reweighting for RLVR advantage signals
 ### Paper List
 
 [KNOWN] [2025] Shen et al. — CODI. zotero_key:FFWLYL3J.
@@ -36,8 +38,12 @@
 [2026] 2605.06241 — Rethinking RL for LLM Reasoning: It is Sparse Policy Selection, Not Capability Learning. [https://arxiv.org/abs/2605.06241](https://arxiv.org/abs/2605.06241). external.
 [2026] 2605.02073 — Enhanced LLM Reasoning by Optimizing Reward Functions with Search-Driven Reinforcement Learning. [https://arxiv.org/abs/2605.02073](https://arxiv.org/abs/2605.02073). external.
 [2026] 2605.10268 — MemReread: Enhancing Agentic Long-Context Reasoning via Memory-Guided Rereading. [https://arxiv.org/abs/2605.10268](https://arxiv.org/abs/2605.10268). external.
+[2606] 2606.00183 — Agentic Transformers Provably Learn to Search via RL. [https://arxiv.org/abs/2606.00183](https://arxiv.org/abs/2606.00183). external.
+[2606] 2606.04889 — GRAIL: Gradient-Reweighted Advantages for RL with Verifiable Rewards. [https://arxiv.org/abs/2606.04889](https://arxiv.org/abs/2606.04889). external.
 ### Recent Activity
 
+2026-06-04 | 2606.04889 added | Token-wise advantage reweighting via gradient-activation saliency for RLVR; outperforms GRPO by 3.60 percent accuracy wi; Tier B
+2026-06-04 | 2606.00183 added | Formal proof that RL on shallow k-ary trees produces DFS-capable transformer policies that generalize to greater depth; ; Tier B
 2026-06-01 | 2605.10268 added | drops the retrieval module and rereads raw source on demand; an RL controller bounds the number of rereading passes; Tier A
 2026-05-30 | 2605.02073 added | freezes the policy and searches the RL reward function instead; ranked-feedback loop lifts GSM8K F1 from 0.609 to 0.795; Tier A
 2026-05-29 | 2605.06241 added | token-level analysis finds RL selects among base-model solutions rather than teaching new reasoning; Tier B

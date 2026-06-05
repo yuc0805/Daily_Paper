@@ -192,6 +192,36 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": true
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2606.00183",
+      "target_label": "Agentic Transformers Provably Learn to Search via RL",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2606.00183",
+      "target_label": "Agentic Transformers Provably Learn to Search via RL",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "prasad2023_adapt",
+      "source_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
+      "target": "2606.00183",
+      "target_label": "Agentic Transformers Provably Learn to Search via RL",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [

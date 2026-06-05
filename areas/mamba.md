@@ -20,6 +20,7 @@
 2024 | VMamba (Liu et al.) | 
 2024 | Vision Mamba (Zhu et al.) | 
 
+2026-06 | Language Models Need Sleep (2605.26099) | sleep consolidation distills attention context into SSM fast weights
 ### Paper List
 
 [KNOWN] [2020] Gu et al. — HiPPO. zotero_key:5YQ4IKMA.
@@ -40,6 +41,8 @@
 [KNOWN] [2024] Liu et al. — VMamba. zotero_key:3LTBUP6E.
 [KNOWN] [2024] Zhu et al. — Vision Mamba. zotero_key:J34W7WZC.
 
+[2605] 2605.26099 — Language Models Need Sleep. [https://arxiv.org/abs/2605.26099](https://arxiv.org/abs/2605.26099). external.
 ### Recent Activity
 
+2026-06-04 | 2605.26099 added | Sleep-like consolidation converts recent context into persistent SSM fast weights via learned local update rule, then cl; Tier A
 2026-05-14 | Area page seeded | 17 papers from Zotero, 3 from graphify seed.

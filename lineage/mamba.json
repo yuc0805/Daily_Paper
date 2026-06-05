@@ -62,6 +62,36 @@
       "confidence": "INFERRED",
       "confidence_score": 0.75,
       "cross_area": false
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2605.26099",
+      "target_label": "Language Models Need Sleep",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "li2024_harmamba",
+      "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+      "target": "2605.26099",
+      "target_label": "Language Models Need Sleep",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "liu2024_swinumamba",
+      "source_label": "Swin-UMamba: Mamba-based UNet (Liu 2024)",
+      "target": "2605.26099",
+      "target_label": "Language Models Need Sleep",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [

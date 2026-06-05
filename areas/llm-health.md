@@ -19,6 +19,7 @@
 2026-05 | Wearable Health FM (2605.22759) | largest wearable health FM; LLM-agent AutoML over frozen sensor embeddings
 2026-05 | xMAE (2605.00973) | physiology-aware masked cross-modal reconstruction across ECG and PPG
 2026-06 | Uncertainty Anomaly Detection (2605.13816) | smartwatch-based psychotic relapse detection via forecasting uncertainty and multi-task fusion
+2026-06 | Biosignal Fingerprinting (2605.09579) | cross-modal MAE for paired ECG and PPG; single-modality inference at test time
 ### Paper List
 
 [KNOWN] [2023] Xu et al. — GLOBEM. zotero_key:ICD9EG8Q.
@@ -38,8 +39,10 @@
 [2026] 2605.22759 — Towards a General Intelligence and Interface for Wearable Health Data. [https://arxiv.org/abs/2605.22759](https://arxiv.org/abs/2605.22759). external.
 [2026] 2605.00973 — Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE). [https://arxiv.org/abs/2605.00973](https://arxiv.org/abs/2605.00973). external.
 [2026] 2605.13816 — Uncertainty-Driven Anomaly Detection for Psychotic Relapse Using Smartwatches. [https://arxiv.org/abs/2605.13816](https://arxiv.org/abs/2605.13816). external.
+[2605] 2605.09579 — Biosignal Fingerprinting: A Cross-Modal PPG-ECG Foundation Model. [https://arxiv.org/abs/2605.09579](https://arxiv.org/abs/2605.09579). external.
 ### Recent Activity
 
+2026-06-04 | 2605.09579 added | Multi-modal Masked Autoencoder on 3.4M paired ECG and PPG segments; cross-modal contrastive + reconstruction; AUROC 0.97; Tier B
 2026-06-03 | 2605.13816 added | smartwatch anomaly detection for psychotic relapse via forecasting uncertainty; multi-task cardiac+sleep+motion fusion; Tier B
 2026-05-28 | 2605.00973 added | physiology-aware cross-modal MAE for ECG and PPG; outperforms baselines on 15 of 19 tasks; Tier A
 2026-05-27 | 2605.22759 added | largest wearable health FM; LLM-agent AutoML for downstream prediction heads
