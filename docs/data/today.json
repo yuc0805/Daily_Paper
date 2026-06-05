@@ -1,56 +1,40 @@
 {
-  "date": "2026-06-04",
+  "date": "2026-06-05",
   "papers": {
     "tier_a": [
       {
-        "arxiv_id": "2605.26099",
-        "title": "Language Models Need Sleep",
-        "authors": ["Lee", "McLeish", "Goldstein", "Fanti"],
-        "date": "2026-05-25",
-        "areas": ["mamba", "llm"],
-        "community": 2,
+        "arxiv_id": "2506.14965",
+        "title": "GURU: Revisiting RL for LLM Reasoning from A Cross-Domain Perspective",
+        "authors": [],
+        "date": "2026-06-05",
+        "areas": ["reasoning", "rl"],
+        "community": 0,
         "parents": {
-          "graphify": ["vaswani2017_transformer", "li2024_harmamba", "concept_mamba_ssm"],
-          "zotero": ["PHB9VRVM", "HE9X47KN", "ZP32YT5I"]
+          "graphify": ["deepseek2025_r1", "wei2023_cot"],
+          "zotero": ["Z5IWHZAE", "HBLPTRMY"]
         },
-        "hook": "Sleep-like consolidation converts transformer KV-cache context into persistent SSM fast weights via learned local update rules. Largest gains on deep reasoning.",
-        "note": "papers/2026/06/04/2605.26099.md",
-        "html": "docs/papers/2605.26099.html",
-        "url": "https://arxiv.org/abs/2605.26099"
+        "hook": "92K-example corpus across 6 domains reveals that RL reasoning transfer depends on pretraining exposure. GURU-7B/32B SOTA among open RL-trained models (+7.9%/+6.7%).",
+        "note": "papers/2026/06/05/2506.14965.md",
+        "html": "docs/papers/2506.14965.html",
+        "url": "https://arxiv.org/abs/2506.14965"
       }
     ],
     "tier_b": [
       {
-        "arxiv_id": "2606.04889",
-        "title": "GRAIL: Gradient-Reweighted Advantages for RL with Verifiable Rewards",
-        "authors": ["Pala", "Toh", "Poria"],
-        "date": "2026-06-03",
+        "arxiv_id": "2506.06632",
+        "title": "E2H Reasoner: Curriculum RL from Easy to Hard Tasks",
+        "authors": [],
+        "date": "2026-06-05",
         "areas": ["reasoning"],
         "community": 0,
         "parents": {
           "graphify": ["deepseek2025_r1", "wei2023_cot"],
-          "zotero": ["U4ZPM5DN"]
+          "zotero": ["Z5IWHZAE", "HBLPTRMY"]
         },
-        "hook": "Token-wise gradient-activation saliency reweighting for RLVR. +3.60% accuracy over GRPO, no process reward model needed.",
-        "note": "papers/2026/06/04/2606.04889.md",
-        "html": "docs/papers/2606.04889.html",
-        "url": "https://arxiv.org/abs/2606.04889"
-      },
-      {
-        "arxiv_id": "2606.00183",
-        "title": "Agentic Transformers Provably Learn to Search via RL",
-        "authors": ["Yang", "Huang", "Liang", "Chi"],
-        "date": "2026-05-29",
-        "areas": ["reasoning", "agent"],
-        "community": 0,
-        "parents": {
-          "graphify": ["wei2023_cot", "zhou2024_lats", "prasad2023_adapt"],
-          "zotero": []
-        },
-        "hook": "Formal proof that RL-trained transformers acquire DFS via a two-head mechanism (trajectory tracking + failure detection). Depth generalization from shallow training.",
-        "note": "papers/2026/06/04/2606.00183.md",
-        "html": "docs/papers/2606.00183.html",
-        "url": "https://arxiv.org/abs/2606.00183"
+        "hook": "Easy-to-hard curriculum makes RL viable for 1.5B-3B models via approximate policy iteration with convergence guarantees.",
+        "note": "papers/2026/06/05/2506.06632.md",
+        "html": "docs/papers/2506.06632.html",
+        "url": "https://arxiv.org/abs/2506.06632"
       },
       {
         "arxiv_id": "2605.09579",
@@ -60,78 +44,85 @@
         "areas": ["llm-health", "time-series"],
         "community": 1,
         "parents": {
-          "graphify": ["gu2025_biosignals", "yuan2024_ssl_har", "zhang2023_mae", "baur2024_hear"],
-          "zotero": []
+          "graphify": ["gu2025_biosignals", "yuan2024_ssl_har", "zhang2023_mae"],
+          "zotero": ["2XWEG7AF"]
         },
-        "hook": "Multi-modal Masked Autoencoder on 3.4M paired ECG/PPG segments. AUROC 0.974 for 5-class CVD. Works with single modality at inference.",
-        "note": "papers/2026/06/04/2605.09579.md",
+        "hook": "Multi-modal Masked Autoencoder on 3.4M paired ECG/PPG segments. AUROC 0.974 for 5-class CVD. Works with PPG alone at inference.",
+        "note": "papers/2026/06/05/2605.09579.md",
         "html": "docs/papers/2605.09579.html",
         "url": "https://arxiv.org/abs/2605.09579"
+      },
+      {
+        "arxiv_id": "2506.23424",
+        "title": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
+        "authors": [],
+        "date": "2026-06-05",
+        "areas": ["time-series", "test-time-training"],
+        "community": 4,
+        "parents": {
+          "graphify": ["liu2025_tsagent"],
+          "zotero": ["YY67LF3R", "W7RPRTCH", "4QQTVIYC"]
+        },
+        "hook": "Low-rank adapters + dynamic gating for test-time adaptation of TS foundation models. Three-part loss (robust + frequency + patch-structural).",
+        "note": "papers/2026/06/05/2506.23424.md",
+        "html": "docs/papers/2506.23424.html",
+        "url": "https://arxiv.org/abs/2506.23424"
       }
     ],
     "tier_c": [
       {
-        "arxiv_id": "2606.01495",
-        "title": "CART: Context-Anchored Recurrent Transformer",
-        "hook": "Parameter-efficient looped transformer with learned LTI stability gate.",
-        "url": "https://arxiv.org/abs/2606.01495"
+        "arxiv_id": "2506.02718",
+        "title": "MHGPO: Heterogeneous Group RL for Multi-Agent LLM Systems",
+        "hook": "Extends GRPO to multi-agent settings with heterogeneous reward structures.",
+        "url": "https://arxiv.org/abs/2506.02718"
       },
       {
-        "arxiv_id": "2606.02373",
-        "title": "Harness-1: RL for Search Agents",
-        "hook": "0.730 average recall across 8 retrieval benchmarks via RL over explicit search state.",
-        "url": "https://arxiv.org/abs/2606.02373"
+        "arxiv_id": "2606.00147",
+        "title": "RAFT: Data Refinement and Adaptive Distillation for Domain Fine-Tuning",
+        "hook": "Iterative data refinement with adaptive temperature distillation for domain-specific fine-tuning.",
+        "url": "https://arxiv.org/abs/2606.00147"
       },
       {
-        "arxiv_id": "2606.01091",
-        "title": "Deep Research as Rubric for RL",
-        "hook": "DR-Rubric uses deep research output as RL reward signal, strong with only 1K-3K examples.",
-        "url": "https://arxiv.org/abs/2606.01091"
+        "arxiv_id": "2506.02671",
+        "title": "Test-Time Distillation for Continual Model Adaptation (CoDiRe)",
+        "hook": "Combines test-time training with knowledge distillation for continual domain shift.",
+        "url": "https://arxiv.org/abs/2506.02671"
       },
       {
-        "arxiv_id": "2606.05152",
-        "title": "DistIL: RL from Rich Feedback",
-        "hook": "Distributional DAgger improves over GRPO on math, coding, science reasoning.",
-        "url": "https://arxiv.org/abs/2606.05152"
+        "arxiv_id": "2606.05988",
+        "title": "Compress-Distill: Reasoning Trace Compression for Knowledge Distillation",
+        "hook": "Compresses verbose chain-of-thought traces before distillation, reducing transfer cost.",
+        "url": "https://arxiv.org/abs/2606.05988"
       },
       {
-        "arxiv_id": "2606.03243",
-        "title": "MemoGen: Agentic T2I Evolution",
-        "hook": "Training-free layer augments image generators with agentic memory of past generations.",
-        "url": "https://arxiv.org/abs/2606.03243"
+        "arxiv_id": "2605.26230",
+        "title": "Geometry-Aware Representation Denoising for Multi-view 3D Reconstruction",
+        "hook": "Denoises latent representations using geometric priors for multi-view consistency.",
+        "url": "https://arxiv.org/abs/2605.26230"
       },
       {
-        "arxiv_id": "2606.02000",
-        "title": "3D-Aware Video Diffusion",
-        "hook": "Render-free human motion control via mesh tokenization in video diffusion.",
-        "url": "https://arxiv.org/abs/2606.02000"
-      },
-      {
-        "arxiv_id": "2604.20943",
-        "title": "SCM: Sleep-Consolidated Memory",
-        "hook": "NREM/REM-inspired memory with importance tagging and intentional forgetting for LLMs.",
-        "url": "https://arxiv.org/abs/2604.20943"
-      },
-      {
-        "arxiv_id": "2605.13248",
-        "title": "Compact Latent Manifold Translation",
-        "hook": "Parameter-efficient cross-modal/cross-frequency physiological signal synthesis.",
-        "url": "https://arxiv.org/abs/2605.13248"
+        "arxiv_id": "2512.24165",
+        "title": "DiffThinker: Generative Multimodal Reasoning with Diffusion Models",
+        "hook": "Uses diffusion models as a reasoning backbone rather than autoregressive generation.",
+        "url": "https://arxiv.org/abs/2512.24165"
       }
     ]
   },
   "news": [
     {
-      "title": "Google Gemini 3.5 Flash generally available",
-      "summary": "76.2% Terminal-Bench 2.1, 4x faster than competitors, $1.50/$9 per 1M tokens. Agent-first design."
+      "title": "Anthropic released Claude Opus 4.8",
+      "date": "2026-05-28",
+      "summary": "Dynamic workflows, Super-Agent benchmark leader. $5/$25 per 1M input/output tokens."
     },
     {
-      "title": "Anthropic files confidential S-1 for IPO",
-      "summary": "Filed after $65B Series H at $965B valuation."
+      "title": "Google released Gemini 3.5 Flash at I/O 2026",
+      "date": "2026-05-19",
+      "summary": "Outperforms Gemini 3.1 Pro on agentic benchmarks at 40% less cost. Agent-first design."
     },
     {
-      "title": "Microsoft MAI-Code-1-Flash and MAI-Thinking-1 announced at Build 2026",
-      "summary": "Microsoft's own code and reasoning models, built in-house rather than through OpenAI partnership."
+      "title": "Microsoft released MAI-Code-1-Flash at Build 2026",
+      "date": "2026-06-02",
+      "summary": "5B-param coding model, first Microsoft in-house model without OpenAI involvement."
     }
   ],
   "gap_watch": {
@@ -142,25 +133,25 @@
         "source_technique": "zhang2023_mae"
       },
       {
-        "arxiv_id": "2605.13248",
-        "description": "Latent space translation for cross-modal physiological signal synthesis.",
-        "source_technique": "latent_translation"
+        "arxiv_id": "2506.23424",
+        "description": "Test-time training concepts applied to time-series forecasting with parameter efficiency.",
+        "source_technique": "test_time_training"
       }
     ],
     "unported": [
       {
-        "source_paper": "2606.04889",
-        "technique": "Gradient-activation saliency for token-level credit assignment",
-        "target_domain": "Time-series foundation model fine-tuning",
-        "hypothesis": "Apply per-token gradient saliency reweighting to time-series fine-tuning, where different time steps contribute unequally to downstream clinical predictions.",
+        "source_paper": "2506.14965",
+        "technique": "Cross-domain RL transfer analysis for reasoning",
+        "target_domain": "Time-series reasoning agents",
+        "hypothesis": "Time-series is likely an underrepresented pretraining domain, meaning RL-based reasoning agents for sensor data will need dedicated in-domain RL corpora rather than relying on cross-domain transfer from math/code.",
         "gap_confidence": "high"
       },
       {
-        "source_paper": "2605.26099",
-        "technique": "Sleep consolidation of attention context into SSM fast weights",
-        "target_domain": "Streaming wearable data processing",
-        "hypothesis": "Periodic offline consolidation of accumulated sensor context into SSM fast weights, enabling indefinite-length monitoring without KV cache growth.",
-        "gap_confidence": "high"
+        "source_paper": "2506.06632",
+        "technique": "Easy-to-hard curriculum RL for small models",
+        "target_domain": "On-device clinical inference with 1.5B-3B models",
+        "hypothesis": "Curriculum RL could enable small models suitable for wearable deployment to learn reasoning over physiological signals, where vanilla RL fails due to sparse rewards.",
+        "gap_confidence": "medium"
       }
     ]
   }

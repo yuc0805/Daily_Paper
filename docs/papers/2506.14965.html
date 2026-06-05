@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GURU: Revisiting RL for LLM Reasoning from A Cross-Domain Perspective — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>GURU: Revisiting RL for LLM Reasoning from A Cross-Domain Perspective</h2>
+<p class="paper-meta">arxiv 2506.14965 &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2506.14965" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a>, <a href="../areas/rl.html">RL</a></p>
+
+<h3>What</h3>
+<p>A systematic study of cross-domain transfer in RL-based LLM reasoning. The authors construct the Guru corpus — 92,000 verifiable examples spanning six domains (Math, Code, Science, Logic, Simulation, Tabular) — and train GURU-7B and GURU-32B using GRPO-style optimization. They measure transfer matrices across all domain combinations using single-domain, leave-one-out, and full mixed training configurations. GURU-7B/32B achieve state-of-the-art among open RL-trained models, outperforming baselines by 7.9% and 6.7% respectively on a 17-task evaluation suite.</p>
+
+<h3>Why</h3>
+<p>Prior RL-based reasoning work — most notably DeepSeek-R1 — trains and evaluates primarily on math and code. Whether RL-trained reasoning transfers to other domains, and what determines the success or failure of that transfer, has not been systematically studied. Understanding domain transfer is critical for anyone who wants to apply RL-based reasoning beyond the math-code corridor, including domains like time-series analysis, clinical reasoning, and tabular data interpretation.</p>
+
+<h3>How</h3>
+<p>The Guru corpus provides ground-truth verifiers for all six domains, enabling reward-based RL without human annotation. The experimental design varies the training domain mixture systematically: each domain is trained in isolation, each is excluded from a five-domain mixture, and all six are combined. Transfer is measured by evaluating each trained model on all six domain test sets plus an 11-task out-of-distribution evaluation. The key finding is a dichotomy: domains with substantial pretraining exposure (Math, Code, Science) transfer easily — RL on one surfaces reasoning capabilities for the others. Domains with limited pretraining exposure (Logic, Simulation, Tabular) require explicit in-domain RL training. The authors argue this means RL is not merely surfacing cached knowledge but facilitating genuine skill acquisition, with the ease of acquisition depending on the pretraining foundation.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1</a><span class="lineage-note">Established the GRPO training recipe that GURU adopts and extends to a six-domain setting.</span></li>
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Demonstrated that multi-step reasoning improves with explicit intermediate steps, motivating the study of cross-domain reasoning transfer.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 showed that GRPO produces strong reasoning but only evaluated on math and code, leaving open the question of domain generality. Chain-of-thought prompting demonstrated cross-task transfer within narrow domains but did not study structurally different domains. GURU closes this gap by providing the first systematic transfer matrix across six diverse reasoning domains with a unified evaluation framework.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The methodological contribution is the Guru corpus itself and the systematic experimental design. Where prior work trained on a single domain (math) and hoped for transfer, GURU explicitly constructs verifiable training sets for six domains and measures all pairwise transfer effects. The finding that transfer success correlates with pretraining exposure is empirically demonstrated through the transfer matrices rather than assumed. The training algorithm (GRPO) is inherited from DeepSeek-R1 without modification — the novelty is in the data and experimental design, not the optimizer.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2606.04889.html">GRAIL: Gradient-Reweighted Advantages for RL</a><span class="lineage-note">Improves GRPO from the credit-assignment side; complementary to GURU's domain-coverage approach.</span></li>
+<li><a href="2506.06632.html">E2H Reasoner</a><span class="lineage-note">Makes RL viable for small models via curriculum; complementary to GURU's cross-domain analysis.</span></li>
+<li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Language agent tree search that requires multi-domain reasoning capabilities similar to what GURU trains.</span></li>
+<li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Surveys agentic AI systems that need cross-domain reasoning, which GURU's transfer findings directly inform.</span></li>
+</ul>
+</div>
+</body>
+</html>

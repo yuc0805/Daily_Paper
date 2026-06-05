@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E2H Reasoner: Curriculum RL from Easy to Hard Tasks — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>E2H Reasoner: Curriculum RL from Easy to Hard Tasks</h2>
+<p class="paper-meta">arxiv 2506.06632 &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2506.06632" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+
+<h3>What</h3>
+<p>An easy-to-hard curriculum for reinforcement learning that makes RL-based reasoning viable for small language models (1.5B to 3B parameters). Standard GRPO fails at this scale because the model almost never produces correct answers on hard problems, yielding a sparse reward signal that stalls training. E2H schedules tasks from easy to hard using a difficulty curriculum grounded in approximate policy iteration, producing convergence guarantees and significant accuracy improvements on models that otherwise fail completely during vanilla RL training.</p>
+
+<h3>Why</h3>
+<p>DeepSeek-R1 demonstrated that GRPO produces strong reasoning, but only at the 671B parameter scale where the model has sufficient initial capability to bootstrap learning. At 1.5B to 3B parameters, the initial policy is too weak to stumble onto correct solutions for hard tasks, creating a dead-reward problem where RL provides no learning signal. If RL-based reasoning is to scale down to edge devices and cost-efficient deployments, this size gap must be closed.</p>
+
+<h3>How</h3>
+<p>The curriculum is constructed by stratifying training problems by difficulty (measured by success rate of the initial policy). RL training begins on the easiest stratum where even small models occasionally succeed, providing a non-zero reward signal. As the policy improves, harder strata are gradually introduced. The theoretical framework models each curriculum stage as an approximate policy iteration step, where the policy improvement at each stage is bounded by the approximation error of the current stratum. This provides convergence guarantees: the policy monotonically improves across curriculum stages, unlike vanilla GRPO which can oscillate or stall on small models.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1</a><span class="lineage-note">Established the GRPO baseline for RL-based reasoning. E2H extends GRPO to small models by adding curriculum scheduling.</span></li>
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Demonstrated multi-step reasoning in LLMs, which small models struggle to produce without curriculum guidance.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1's GRPO requires a model large enough to occasionally produce correct answers on hard problems, providing the initial reward signal for RL. At 1.5B-3B parameters, this assumption fails. E2H solves the cold-start problem by ensuring the model always encounters problems at its current difficulty level, maintaining a non-zero reward signal throughout training.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The key departure from GRPO is the difficulty-stratified curriculum with approximate policy iteration guarantees. GRPO samples uniformly from the training set; E2H samples preferentially from problems the current policy can partially solve. The theoretical contribution is the convergence bound: each curriculum stage is formally an approximate policy improvement step, giving guarantees that vanilla GRPO lacks at small model scales.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2506.14965.html">GURU</a><span class="lineage-note">Studies cross-domain RL transfer for reasoning; complementary to E2H's focus on model-size scaling.</span></li>
+<li><a href="2606.04889.html">GRAIL</a><span class="lineage-note">Improves GRPO via token-level credit; a different axis of GRPO improvement than E2H's curriculum approach.</span></li>
+<li><a href="U4ZPM5DN.html">Latent-GRPO (Deng 2026)</a><span class="lineage-note">Improves GRPO from the latent space side; another variant in the growing family of GRPO improvements.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting</h2>
+<p class="paper-meta">arxiv 2506.23424 &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2506.23424" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>, <a href="../areas/test-time-training.html">Test-Time Training</a></p>
+
+<h3>What</h3>
+<p>A parameter-efficient test-time adaptation method for time-series foundation models. When the test distribution diverges from training, PETSA updates only small calibration modules — low-rank adapters plus dynamic gating mechanisms — rather than the full model. It uses a three-part specialized loss: a robust reconstruction term that tolerates outliers, a frequency-domain term that preserves spectral structure, and a patch-wise structural term that maintains local temporal patterns. The method achieves competitive forecasting accuracy with significantly fewer updated parameters than full-model test-time adaptation baselines.</p>
+
+<h3>Why</h3>
+<p>Time-series foundation models (PatchTST, Sundial, Chronos) are pretrained on broad data distributions but degrade when deployed on out-of-distribution signals. Full-model test-time adaptation is computationally expensive and risks catastrophic adaptation on small test batches. Parameter-efficient adaptation that updates only a small fraction of the model is essential for on-device deployment where compute is limited and data is non-stationary.</p>
+
+<h3>How</h3>
+<p>PETSA inserts low-rank adapter modules at each transformer layer of the frozen foundation model. A dynamic gating mechanism determines how much each adapter contributes, allowing the model to selectively adapt different layers based on the nature of the distribution shift. At test time, only the adapter weights and gating parameters are updated using the three-part loss. The robust reconstruction term uses a Huber-like loss that reduces sensitivity to outlier time points. The frequency-domain term computes the spectral divergence between the model's predicted spectrum and the observed test spectrum, catching distribution shifts that manifest as frequency changes (e.g., heart rate variability changes, seasonal pattern shifts). The patch-wise structural term enforces local temporal consistency within each patch, complementing the global frequency-domain term.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="YY67LF3R.html">PatchTST</a><span class="lineage-note">Established patch-based tokenization for time-series transformers; PETSA's patch-wise structural loss is designed to complement patching architectures.</span></li>
+<li><a href="W7RPRTCH.html">TTT for Abstract Reasoning</a><span class="lineage-note">Demonstrated test-time training as a general adaptation strategy; PETSA applies the concept to time-series with parameter efficiency.</span></li>
+<li><a href="4QQTVIYC.html">Sundial</a><span class="lineage-note">A time-series foundation model representing the class of pretrained models that PETSA adapts at deployment.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>PatchTST and Sundial assume a fixed data distribution between training and deployment. TTT for Abstract Reasoning demonstrated test-time adaptation but updated the full model, which is expensive and risky on small test batches. PETSA solves both problems: it adapts to distribution shift (unlike frozen foundation models) while updating only a small parameter subset (unlike full-model TTT).</p>
+
+<h3>Method vs predecessors</h3>
+<p>The key departures are the low-rank adapter architecture for test-time adaptation and the three-part loss function. TTT methods typically use a single self-supervised loss (usually reconstruction); PETSA adds frequency-domain and patch-structural terms that are specific to time-series data. The dynamic gating is also novel — it allows different layers to adapt at different rates, which is important because distribution shifts in time-series data affect low-level features (signal amplitude, noise floor) and high-level features (seasonal patterns, trend components) differently.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="JEGI4IS7.html">TTT Layers</a><span class="lineage-note">Introduces TTT as a layer-level mechanism; PETSA uses a similar per-layer adaptation concept but with low-rank efficiency.</span></li>
+<li><a href="K9AZKZB2.html">TTT-Unet</a><span class="lineage-note">Applies TTT to medical image segmentation; parallel application of TTT to a different domain (vision vs. time-series).</span></li>
+<li><a href="72DFULQQ.html">Chronos</a><span class="lineage-note">Another time-series foundation model that would benefit from PETSA-style test-time adaptation.</span></li>
+<li><a href="GPJBBU2T.html">UniTS</a><span class="lineage-note">Unified time-series model; a potential backbone for PETSA-style adaptation.</span></li>
+</ul>
+</div>
+</body>
+</html>
