@@ -22,6 +22,36 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "cross_area": true
+    },
+    {
+      "source": "W7RPRTCH",
+      "source_label": "TTT for Abstract Reasoning (Akyurek 2024)",
+      "target": "2506.23424",
+      "target_label": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie 2023)",
+      "target": "2506.23424",
+      "target_label": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
+    },
+    {
+      "source": "4QQTVIYC",
+      "source_label": "Sundial (Liu 2025)",
+      "target": "2506.23424",
+      "target_label": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
     }
   ],
   "hyperedges": [

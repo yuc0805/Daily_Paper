@@ -32,6 +32,16 @@
       "confidence": "INFERRED",
       "confidence_score": 0.7,
       "cross_area": false
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2506.14965",
+      "target_label": "GURU: Revisiting RL for LLM Reasoning from A Cross-Domain Perspective",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
     }
   ],
   "hyperedges": [],

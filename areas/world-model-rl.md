@@ -28,6 +28,8 @@
 2024 | World Model Eval (Vafa et al.) | 
 2025 | Brain Science FMs (Serre et al.) | 
 
+2026-06 | GURU (2506.14965) | 92K cross-domain RL corpus; domain-conditional transfer for LLM reasoning
+
 ### Paper List
 
 [KNOWN] [1999] Sutton et al. — Policy Gradient. zotero_key:DAGWCZ67.
@@ -62,6 +64,9 @@
 [KNOWN] [2026] Yu et al. — Latent Space Survey. zotero_key:KRVDKDGH.
 [KNOWN] [2026] Dupoux et al. — Why AI Doesnt Learn. zotero_key:YREEFKLG.
 
+[2026] 2506.14965 — GURU: Revisiting RL for LLM Reasoning from A Cross-Domain Perspective. [https://arxiv.org/abs/2506.14965](https://arxiv.org/abs/2506.14965). external.
+
 ### Recent Activity
 
+2026-06-05 | 2506.14965 added | 92K cross-domain RL corpus; RL is a domain-conditional skill activator; GURU-7B/32B SOTA among open RL-trained models; Tier A
 2026-05-14 | Area page seeded | 31 papers from Zotero, 3 from graphify seed.
