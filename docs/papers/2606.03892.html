@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROVE: Programmatic Rewards for Multi-Step Tool Use — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>PROVE: Synthesize and Reward — Reinforcement Learning for Multi-Step Tool Use in Live Environments</h2>
+<p class="paper-meta">Abdelaziz, Munawar, Basu, Crouse, Gunasekara, Katrekar, Kapanipathi (IBM) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.03892" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+
+<h3>What</h3>
+<p>PROVE trains LLMs for multi-step tool orchestration using RL against 20 stateful MCP servers exposing 343 tools. It introduces an automated data synthesis pipeline that generates validated multi-turn tool-call trajectories grounded in live server state, plus a multi-component programmatic reward that requires no external judge model.</p>
+
+<h3>Why</h3>
+<p>Training LLMs to orchestrate multi-step tool calls faces three coupled obstacles: realistic stateful execution environments are costly to build, synthetic training queries are detached from actual server state (causing tool calls to fail), and recall-based RL rewards incentivize verbose calling patterns. Prior agent training relied on expensive judge models or hand-crafted trajectories.</p>
+
+<h3>How</h3>
+<p>PROVE builds 20 stateful MCP servers with session-scoped state isolation. An automated pipeline generates multi-turn trajectories via dependency-graph-guided conversation simulation grounded in live-sampled server state. The programmatic reward combines graduated validity scoring, dependency-aware coverage, an adaptive efficiency penalty with complexity-scaled call budget, a tool-name signal, and an argument-value matching bonus. Four models are trained with GRPO using 13K examples and identical reward hyperparameters.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Embedded tool identifiers as special tokens for efficient tool selection.</span></li>
+<li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Introduced as-needed decomposition and planning for multi-step tasks.</span></li>
+<li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Used tree search over agent actions with LLM-based value functions.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>ToolkenGPT, ADaPT, and LATS focused on tool selection and planning mechanisms but did not address the training data problem: generating realistic multi-turn trajectories that execute against live stateful environments. PROVE solves this by grounding synthetic data in real server state and replacing expensive judge-model rewards with a compact programmatic signal, making RL training for tool use practical at 13K examples.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where ToolkenGPT modified the token vocabulary and ADaPT/LATS designed inference-time search strategies, PROVE operates at the training data and reward level. The dependency-graph-guided conversation simulation is new — it ensures generated queries reference entities that exist in the server. The multi-component programmatic reward is more structured than the binary or scalar rewards used in prior agent RL work.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Agentic vision with dynamic tooling, related tool-use architecture.</span></li>
+<li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Agentic multimodal model with tool use capabilities.</span></li>
+</ul>
+</div>
+</body>
+</html>

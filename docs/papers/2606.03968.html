@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QUBRIC — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>QUBRIC: Co-Designing Queries and Rubrics for RL Beyond Verifiable Rewards</h2>
+<p class="paper-meta">Zhang, Feng, Zhang, Yang, Yin, Liu, Zhang, Nigam, Yin, Zhao, Zhang &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.03968" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+
+<h3>What</h3>
+<p>QUBRIC extends rubric-based reinforcement learning to tasks without verifiable answers by co-designing queries and rubrics. It rewrites open-ended queries into scenario-based evaluable questions, generates contrastive rubrics from teacher-policy gaps, and filters for learnability before GRPO training.</p>
+
+<h3>Why</h3>
+<p>RL for LLM reasoning has been most successful on tasks with verifiable rewards (math, code). Extending RL to open-ended tasks requires rubric-based rewards, but rubric quality is constrained by query structure: open-ended queries yield vague rubrics, and naively narrowing queries introduces fabricated references that cause all responses to fail (zero reward signal).</p>
+
+<h3>How</h3>
+<p>Teacher-derived key points ground the rewriting of open-ended queries into scenario-based, evaluable questions. Contrastive rubric generation turns teacher-policy gaps into query-level criteria. A learnability filter retains only informative query-rubric pairs for GRPO training. The framework is trained only on instruction-following data but transfers to held-out benchmarks spanning legal, moral, and narrative reasoning.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Demonstrated RL for reasoning with verifiable rewards; QUBRIC extends this to non-verifiable tasks.</span></li>
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Established the reasoning trace format that GRPO-based methods optimize.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 relied on verifiable rewards (math answers, code test cases) which do not exist for most real-world reasoning tasks. Prior rubric-based RL methods optimized rubrics while treating the query distribution as fixed, leading to vague or impossible evaluation criteria. QUBRIC solves this by jointly optimizing queries and rubrics, ensuring that the evaluation criteria are both specific and achievable.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where DeepSeek-R1 used outcome-based verification and prior rubric methods fixed query structure, QUBRIC introduces a three-stage pipeline: query rewriting via teacher key points, contrastive rubric generation from teacher-policy gaps, and learnability filtering. The contrastive rubric generation is the key methodological contribution — it produces criteria that discriminate between good and bad responses rather than just listing desirable properties.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="U4ZPM5DN.html">Latent-GRPO</a><span class="lineage-note">Alternative approach to extending GRPO beyond standard verifiable reward settings.</span></li>
+<li><a href="EGRXFZU9.html">Soft Thinking</a><span class="lineage-note">Related reasoning-RL work exploring softer reward signals.</span></li>
+</ul>
+</div>
+</body>
+</html>

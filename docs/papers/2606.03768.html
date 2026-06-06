@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HybridThinker — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>HybridThinker: Efficient Chain-of-Thought Reasoning via Compressed Memory and Transient Thought Steps</h2>
+<p class="paper-meta">Liu, Zhao, Liu, Ruan, Huang, Dong, Xiao, Wang, Li, Zhu, Xiao &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.03768" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+
+<h3>What</h3>
+<p>HybridThinker compresses chain-of-thought traces by encoding completed reasoning steps into compact memory tokens while temporarily retaining the original thought steps for fine-grained detail access. A hybrid training scheme randomly masks some thought steps while keeping others accessible, preventing the model from bypassing memory compression.</p>
+
+<h3>Why</h3>
+<p>Extended CoT traces from reasoning models like DeepSeek-R1 can run to thousands of tokens, creating substantial computational and memory costs. Prior compression methods either truncate traces (losing information) or replace all thought steps with memory tokens (losing fine-grained detail needed for subsequent steps). Neither approach preserves both long-range recall and local detail.</p>
+
+<h3>How</h3>
+<p>Each completed thought step is compressed into a fixed set of memory tokens via a learned compression function. The original thought step text is also temporarily retained in the attention window. During training, a random subset of thought steps is masked (forcing the model to use only memory tokens for those steps), while the rest remain visible. This hybrid masking prevents the model from bypassing compression by always reading the original text. At inference, thought steps are retained temporarily and then dropped after the next step consumes them.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Established explicit reasoning traces as the format that HybridThinker compresses.</span></li>
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Produces the long reasoning traces (thousands of tokens) that create the efficiency problem this paper addresses.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Prior CoT compression methods faced a dilemma: fully replacing thought steps with memory tokens loses fine-grained information (subsequent reasoning steps become error-prone), but keeping all steps defeats the purpose of compression. HybridThinker resolves this by keeping both representations simultaneously and using hybrid training to ensure the model actually learns to use the compressed form.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where prior compression methods used a single modality (either full text or compressed tokens), HybridThinker uses dual representation with stochastic masking during training. The hybrid training scheme is the key methodological contribution: it is a form of dropout applied at the thought-step level rather than the neuron level, forcing the model to build robust compressed representations.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="Y4ZNT3EC.html">CoLaR</a><span class="lineage-note">Latent reasoning that also addresses reasoning efficiency through compressed representations.</span></li>
+<li><a href="CXGMDHJ3.html">Chain of Superposition</a><span class="lineage-note">Alternative approach to reasoning efficiency via superposed representations.</span></li>
+</ul>
+</div>
+</body>
+</html>
