@@ -202,6 +202,66 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2606.03965",
+      "target_label": "ACTS: Agentic Chain-of-Thought Steering for Efficient and Controllable LLM Reasoning",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2606.03965",
+      "target_label": "ACTS: Agentic Chain-of-Thought Steering for Efficient and Controllable LLM Reasoning",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2606.03768",
+      "target_label": "HybridThinker: Efficient Chain-of-Thought Reasoning via Compressed Memory and Transient Thought Steps",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2606.03768",
+      "target_label": "HybridThinker: Efficient Chain-of-Thought Reasoning via Compressed Memory and Transient Thought Steps",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2606.03968",
+      "target_label": "QUBRIC: Co-Designing Queries and Rubrics for RL Beyond Verifiable Rewards",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2606.03968",
+      "target_label": "QUBRIC: Co-Designing Queries and Rubrics for RL Beyond Verifiable Rewards",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [],

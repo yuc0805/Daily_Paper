@@ -22,6 +22,9 @@
 2026-06 | GRAIL (2606.04889) | token-wise saliency reweighting for RLVR advantage signals
 2026-06 | E2H Reasoner (2506.06632) | curriculum RL from easy to hard enables reasoning in 1.5B-3B models
 2026-06 | GURU (2506.14965) | 92K cross-domain RL corpus; transfer works for pretrained domains, fails for underrepresented ones
+2026-06 | ACTS (2606.03965) | MDP controller steers frozen reasoner with budget-aware inference
+2026-06 | HybridThinker (2606.03768) | CoT compression via memory tokens plus transient thought steps
+2026-06 | QUBRIC (2606.03968) | co-designed queries and rubrics extend RL beyond verifiable rewards
 ### Paper List
 
 [KNOWN] [2025] Shen et al. — CODI. zotero_key:FFWLYL3J.
@@ -44,10 +47,13 @@
 [2606] 2606.04889 — GRAIL: Gradient-Reweighted Advantages for RL with Verifiable Rewards. [https://arxiv.org/abs/2606.04889](https://arxiv.org/abs/2606.04889). external.
 [2026] 2506.06632 — E2H Reasoner: Curriculum RL from Easy to Hard Tasks. [https://arxiv.org/abs/2506.06632](https://arxiv.org/abs/2506.06632). external.
 [2026] 2506.14965 — GURU: Revisiting RL for LLM Reasoning from A Cross-Domain Perspective. [https://arxiv.org/abs/2506.14965](https://arxiv.org/abs/2506.14965). external.
+[2026] 2606.03965 — ACTS: Agentic Chain-of-Thought Steering for Efficient and Controllable LLM Reasoning. [https://arxiv.org/abs/2606.03965](https://arxiv.org/abs/2606.03965). external.
+[2026] 2606.03768 — HybridThinker: Efficient Chain-of-Thought Reasoning via Compressed Memory and Transient Thought Steps. [https://arxiv.org/abs/2606.03768](https://arxiv.org/abs/2606.03768). external.
+[2026] 2606.03968 — QUBRIC: Co-Designing Queries and Rubrics for RL Beyond Verifiable Rewards. [https://arxiv.org/abs/2606.03968](https://arxiv.org/abs/2606.03968). external.
 ### Recent Activity
 
+2026-06-06 | 2606.03965 added | MDP controller steers a frozen reasoner with budget-aware inference; Tier A
+2026-06-06 | 2606.03768 added | CoT compression via memory tokens plus transient thought retention; Tier B
+2026-06-06 | 2606.03968 added | co-designed queries and rubrics extend RL training to open-ended tasks; Tier B
 2026-06-05 | 2506.14965 added | 92K cross-domain RL corpus for LLM reasoning; transfer conditional on pretraining coverage; SOTA open RL models; Tier A
 2026-06-05 | 2506.06632 added | curriculum RL enables reasoning in 1.5B-3B models via approximate policy iteration; Tier B
-2026-06-04 | 2606.04889 added | Token-wise advantage reweighting via gradient-activation saliency for RLVR; outperforms GRPO by 3.60 percent accuracy wi; Tier B
-2026-06-04 | 2606.00183 added | Formal proof that RL on shallow k-ary trees produces DFS-capable transformer policies that generalize to greater depth; ; Tier B
-2026-06-01 | 2605.10268 added | drops the retrieval module and rereads raw source on demand; an RL controller bounds the number of rereading passes; Tier A

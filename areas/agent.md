@@ -18,6 +18,7 @@
 2026-06 | MemForest (2605.23986) | write-efficient temporal memory index for agents; 6x throughput over prior systems
 2026-06 | QUEST (2605.24218) | open deep research agents trained with synthetic verifiable tasks; best open-weight agent
 2026-06 | Agentic Transformers Search (2606.00183) | formal proof of RL-trained DFS with depth generalization
+2026-06 | PROVE (2606.03892) | programmatic rewards for multi-step tool use via 20 stateful MCP servers
 ### Paper List
 
 [KNOWN] [2018] Rabinowitz et al. — Machine Theory of Mind. zotero_key:NEKX3K3N.
@@ -36,11 +37,11 @@
 [2026] 2605.23986 — MemForest: An Efficient Agent Memory System with Hierarchical Temporal Indexing. [https://arxiv.org/abs/2605.23986](https://arxiv.org/abs/2605.23986). external.
 [2026] 2605.24218 — QUEST: Training Frontier Deep Research Agents with Fully Synthetic Tasks. [https://arxiv.org/abs/2605.24218](https://arxiv.org/abs/2605.24218). external.
 [2606] 2606.00183 — Agentic Transformers Provably Learn to Search via RL. [https://arxiv.org/abs/2606.00183](https://arxiv.org/abs/2606.00183). external.
+[2026] 2606.03892 — PROVE: Programmatic Rewards On Verified Environments for Multi-Step Tool Use. [https://arxiv.org/abs/2606.03892](https://arxiv.org/abs/2606.03892). external.
 ### Recent Activity
 
+2026-06-06 | 2606.03892 added | programmatic rewards for multi-step tool use trained on 13K stateful MCP trajectories; Tier B
 2026-06-04 | 2606.00183 added | Formal proof that RL on shallow k-ary trees produces DFS-capable transformer policies that generalize to greater depth; ; Tier B
 2026-06-02 | 2605.23986 added | write-efficient temporal memory with hierarchical indexing; 6x throughput gain; Tier B
 2026-06-02 | 2605.24218 added | open deep research agents from synthetic tasks; best open-weight on 8 benchmarks; Tier B
 2026-06-01 | 2605.18421 added | turns the Huang 2026 memory taxonomy into scored store/update/retrieve tasks under self-evolving conditions; Tier B
-2026-05-29 | 2605.18747 added | code reframed as the agent harness unifying tools, memory, and verification; Tier B
-2026-05-29 | 2605.26256 added | POLAR adds per-user semantic and episodic memory graph for long-term embodied agents; Tier B
