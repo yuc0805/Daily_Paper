@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Predict and Reconstruct — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/self-supervised.html" class="back-link">&larr; Back to Area</a>
+<h2>Predict and Reconstruct: Joint Objectives for Self-Supervised Language Representation Learning</h2>
+<p class="paper-meta">Boukhari &middot; arXiv 2026-04-16 &middot; <a href="https://arxiv.org/abs/2606.05173" target="_blank" rel="noopener">arXiv:2606.05173</a> &middot; Appears in: <a href="../areas/self-supervised.html">Self-Supervised Framework</a></p>
+
+<h3>What</h3>
+<p>This paper combines a JEPA-style latent-space prediction loss with standard masked language modelling (MLM) over a shared encoder, using a learnable scalar to continuously balance the two objectives during training. The hybrid encoder produces significantly more uniform embeddings while achieving similar downstream accuracy on GLUE benchmarks.</p>
+
+<h3>Why</h3>
+<p>Masked language modelling has been the dominant pre-training objective for text encoders since BERT, but it encourages representations strongly anchored to surface-form token identity rather than deeper semantic structure. This limits the geometric quality of the representation space — MLM-trained encoders produce clustered, non-uniform embeddings that may hurt performance on tasks requiring fine-grained semantic distinctions.</p>
+
+<h3>How</h3>
+<p>A BERT-base encoder is pre-trained on English Wikipedia with a dual loss: standard MLM reconstruction plus a JEPA-style loss that predicts masked representations in latent space (rather than reconstructing tokens). A single learnable scalar parameter balances the two losses, allowing the training to adaptively weight prediction vs reconstruction. The resulting encoder is evaluated on representation geometry (uniformity, alignment) and downstream linear probes (five GLUE benchmarks).</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="WIGLUNFZ.html">SSL for HAR (Yuan 2024)</a><span class="lineage-note">Large-scale self-supervised learning for sensor data; used contrastive and masked objectives. This paper adds the JEPA prediction loss as a complementary objective.</span></li>
+<li><a href="TUIUJY92.html">MAE Theory (Zhang 2023)</a><span class="lineage-note">Theory of how masking strategies affect learned representations; this paper extends to joint masking + prediction objectives.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>SSL for HAR (Yuan 2024) used contrastive and masked reconstruction objectives but did not include a latent-space prediction component. The resulting representations, while effective for activity recognition, may have suboptimal geometric properties (clustering, non-uniformity) that limit cross-task transfer. This paper shows that adding a JEPA prediction loss produces more uniform embeddings (uniformity < -0.16 vs -0.05) — a geometric improvement that could benefit the diverse downstream tasks in biosignal analysis (activity recognition, health prediction, anomaly detection).</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to pure MLM (BERT-style) or pure contrastive learning, the hybrid approach adds a single JEPA prediction head with a learnable balancing scalar. This is architecturally simple — no additional encoders or momentum networks. Compared to the MAE Theory paper (Zhang 2023), which analyzed masking strategies theoretically, this work provides an empirical demonstration that combining prediction and reconstruction objectives reshapes latent geometry in measurable ways.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Survey of biosignal foundation models; the hybrid JEPA+masked objective tested here is a candidate pre-training recipe for future biosignal FMs.</span></li>
+<li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">Aligns time series with LLMs; better pre-trained representations from hybrid objectives could improve the alignment quality.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

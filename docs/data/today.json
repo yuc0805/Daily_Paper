@@ -1,163 +1,163 @@
 {
-  "date": "2026-06-06",
+  "date": "2026-06-07",
   "papers": {
     "tier_a": [
       {
-        "arxiv_id": "2606.03965",
-        "title": "ACTS: Agentic Chain-of-Thought Steering for Efficient and Controllable LLM Reasoning",
-        "authors": "Xia et al.",
-        "date": "2026-06-02",
-        "areas": ["reasoning"],
+        "arxiv_id": "2606.01041",
+        "title": "ExpWeaver: LLM Agents Learn from Experience via Latent RAG",
+        "authors": "Feng et al.",
+        "date": "2026-05-31",
+        "areas": ["agent"],
         "community": 0,
         "parents": {
-          "graphify": ["deepseek2025_r1", "wei2023_cot"],
-          "zotero": ["Z5IWHZAE", "HBLPTRMY"]
+          "graphify": ["huang2026_memory", "hao2024_toolkengpt", "zhou2024_lats"],
+          "zotero": ["BDY3HUCV", "6RDHVVA2", "77ERE7HA"]
         },
-        "hook": "Formulates CoT steering as MDP with a learned controller agent. Matches full-thinking accuracy with substantial token savings and controllable budget-accuracy trade-offs.",
-        "note": "papers/2026/06/06/2606.03965.md",
-        "html": "docs/papers/2606.03965.html",
-        "url": "https://arxiv.org/abs/2606.03965"
+        "hook": "Encodes agent experiences as LLM hidden states, retrieves in latent space via cross-attention. SOTA on 12/13 tasks, +6.8% over baselines, token-efficient, strong cross-domain transfer.",
+        "note": "papers/2026/06/07/2606.01041.md",
+        "html": "docs/papers/2606.01041.html",
+        "url": "https://arxiv.org/abs/2606.01041"
       }
     ],
     "tier_b": [
       {
-        "arxiv_id": "2606.03892",
-        "title": "PROVE: Programmatic Rewards On Verified Environments for Multi-Step Tool Use",
-        "authors": "Abdelaziz et al.",
+        "arxiv_id": "2606.04135",
+        "title": "SARAF: Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
+        "authors": "Zhou et al.",
         "date": "2026-06-02",
-        "areas": ["agent"],
-        "community": 0,
+        "areas": ["time-series"],
+        "community": 4,
         "parents": {
-          "graphify": ["hao2024_toolkengpt", "prasad2023_adapt", "zhou2024_lats"],
-          "zotero": ["6RDHVVA2", "J8DYBKW2", "77ERE7HA"]
+          "graphify": ["zhang2024_llm_ts_survey"],
+          "zotero": ["QBX2TI2X", "YY67LF3R"]
         },
-        "hook": "RL training for multi-step tool use against 20 stateful MCP servers. Programmatic rewards replace judge models. +10.2 on BFCL Multi-Turn with only 13K examples.",
-        "note": "papers/2026/06/06/2606.03892.md",
-        "html": "docs/papers/2606.03892.html",
-        "url": "https://arxiv.org/abs/2606.03892"
+        "hook": "Retrieval-augmented TS forecasting with diversity-aware selection modulated by dataset stationarity. Best gains under non-stationary conditions.",
+        "note": "papers/2026/06/07/2606.04135.md",
+        "html": "docs/papers/2606.04135.html",
+        "url": "https://arxiv.org/abs/2606.04135"
       },
       {
-        "arxiv_id": "2606.03768",
-        "title": "HybridThinker: CoT Compression via Compressed Memory and Transient Thought Steps",
-        "authors": "Liu et al.",
+        "arxiv_id": "2606.03458",
+        "title": "KVarN: Variance-Normalized KV-Cache Quantization for Reasoning Tasks",
+        "authors": "Huawei CSL",
         "date": "2026-06-02",
-        "areas": ["reasoning"],
+        "areas": ["llm"],
         "community": 0,
         "parents": {
-          "graphify": ["deepseek2025_r1", "wei2023_cot"],
-          "zotero": ["Z5IWHZAE", "HBLPTRMY"]
+          "graphify": ["deepseek2024_v3", "deepseek2025_r1"],
+          "zotero": ["2JCKA7GI", "Z5IWHZAE"]
         },
-        "hook": "Dual-representation CoT compression: memory tokens + temporarily retained thought steps. Hybrid training prevents compression bypass. +5.8 avg accuracy over prior CoT compression.",
-        "note": "papers/2026/06/06/2606.03768.md",
-        "html": "docs/papers/2606.03768.html",
-        "url": "https://arxiv.org/abs/2606.03768"
+        "hook": "Calibration-free KV-cache quantizer: Hadamard + variance normalization. 3-5x capacity at 2-bit with FP16 accuracy on MATH500/AIME24. Single vLLM flag.",
+        "note": "papers/2026/06/07/2606.03458.md",
+        "html": "docs/papers/2606.03458.html",
+        "url": "https://arxiv.org/abs/2606.03458"
       },
       {
-        "arxiv_id": "2606.03968",
-        "title": "QUBRIC: Co-Designing Queries and Rubrics for RL Beyond Verifiable Rewards",
-        "authors": "Zhang et al.",
-        "date": "2026-06-02",
-        "areas": ["reasoning"],
-        "community": 0,
+        "arxiv_id": "2606.05173",
+        "title": "Predict and Reconstruct: Joint JEPA + MLM for Self-Supervised Representations",
+        "authors": "Boukhari",
+        "date": "2026-04-16",
+        "areas": ["self-supervised"],
+        "community": 1,
         "parents": {
-          "graphify": ["deepseek2025_r1", "wei2023_cot"],
-          "zotero": ["Z5IWHZAE", "HBLPTRMY"]
+          "graphify": ["yuan2024_ssl_har", "zhang2023_mae"],
+          "zotero": ["WIGLUNFZ", "TUIUJY92"]
         },
-        "hook": "Extends RL-based reasoning training to open-ended tasks by co-designing queries and rubrics. +5.5 ArenaHard, +6.3 avg on legal/moral/narrative transfer.",
-        "note": "papers/2026/06/06/2606.03968.md",
-        "html": "docs/papers/2606.03968.html",
-        "url": "https://arxiv.org/abs/2606.03968"
+        "hook": "Hybrid JEPA prediction + MLM reconstruction on shared encoder. More uniform embeddings (< -0.16 vs -0.05) with same downstream accuracy.",
+        "note": "papers/2026/06/07/2606.05173.md",
+        "html": "docs/papers/2606.05173.html",
+        "url": "https://arxiv.org/abs/2606.05173"
       }
     ],
     "tier_c": [
       {
-        "arxiv_id": "2606.03924",
-        "title": "Knowledge Editing in Masked Diffusion Language Models",
-        "hook": "Causal tracing transferred to masked diffusion LMs; multi-token edits fail due to unmasked intermediates.",
-        "url": "https://arxiv.org/abs/2606.03924"
+        "arxiv_id": "2606.06042",
+        "title": "LoomVideo: Unified Video Generation and Editing",
+        "hook": "5B-param MLLM + Deepstack injection for DiT. Half the compute of 13B competitors.",
+        "url": "https://arxiv.org/abs/2606.06042"
       },
       {
-        "arxiv_id": "2606.03780",
-        "title": "Expert-Aware Causal Tracing in Sparse MoE LMs",
-        "hook": "Identifies which routed experts mediate factual recall in MoE models.",
-        "url": "https://arxiv.org/abs/2606.03780"
+        "arxiv_id": "2606.02907",
+        "title": "Linear Probes Detect Task Format, Not Reasoning Mode",
+        "hook": "100% probe accuracy drops to chance after controlling for format confounds.",
+        "url": "https://arxiv.org/abs/2606.02907"
       },
       {
-        "arxiv_id": "2606.03810",
-        "title": "Consistency Training Can Entrench Misalignment",
-        "hook": "7 consistency methods on 108 model organisms: suppresses reward hacking but amplifies sycophancy.",
-        "url": "https://arxiv.org/abs/2606.03810"
+        "arxiv_id": "2606.04719",
+        "title": "Query-based Cross-Modal Projector for Mamba Multimodal LLM",
+        "hook": "Cross-attention compresses visual tokens for Mamba LLMs; no 2D scan order needed.",
+        "url": "https://arxiv.org/abs/2606.04719"
       },
       {
-        "arxiv_id": "2606.03739",
-        "title": "Entropy Gate: Near-Lossless Token Compression",
-        "hook": "Thermodynamic-inspired token filtering: 40-60% compression at semantic fidelity > 0.80.",
-        "url": "https://arxiv.org/abs/2606.03739"
+        "arxiv_id": "2606.05610",
+        "title": "Predictable Scaling Laws for Continued Pre-training Hyperparameters",
+        "hook": "Optimal LR and batch size follow stable power laws as compute budget grows.",
+        "url": "https://arxiv.org/abs/2606.05610"
       },
       {
-        "arxiv_id": "2606.03846",
-        "title": "Clustered Self-Assessment for LLM Uncertainty Quantification",
-        "hook": "Semantic clustering of samples into multiple-choice for confidence estimation. Works with 2 samples.",
-        "url": "https://arxiv.org/abs/2606.03846"
+        "arxiv_id": "2606.04051",
+        "title": "RUBAS: Rubric-Based RL for Agent Safety",
+        "hook": "4-dimension safety decomposition for fine-grained reward in tool-use scenarios.",
+        "url": "https://arxiv.org/abs/2606.04051"
       },
       {
-        "arxiv_id": "2606.03695",
-        "title": "EMBER: Robust Knowledge Erasure via Embedding Editing",
-        "hook": "Sparse matrix factorization on embeddings reduces relearning of erased knowledge by up to 50%.",
-        "url": "https://arxiv.org/abs/2606.03695"
+        "arxiv_id": "2606.06373",
+        "title": "LatentWave: JEPA Pretraining for Wireless Foundation Models",
+        "hook": "JEPA applied to wireless signals; learns transferable representations via latent masking.",
+        "url": "https://arxiv.org/abs/2606.06373"
       },
       {
-        "arxiv_id": "2606.06473",
-        "title": "MLEvolve: Self-Evolving Automated ML Algorithm Discovery",
-        "hook": "LLM multi-agent framework with Progressive MCGS and Retrospective Memory for ML algorithm search.",
-        "url": "https://arxiv.org/abs/2606.06473"
+        "arxiv_id": "2605.30394",
+        "title": "CodeGolfBench: Concise Code Generation Benchmark",
+        "hook": "Multi-language benchmark; reasoning LLMs achieve 70.97% percentile in conciseness.",
+        "url": "https://arxiv.org/abs/2605.30394"
       },
       {
-        "arxiv_id": "2606.01019",
-        "title": "Hybrid Verified Decoding",
-        "hook": "Learned verification allocation for speculative decoding; 2.73x speedup on agentic workflows.",
-        "url": "https://arxiv.org/abs/2606.01019"
+        "arxiv_id": "2606.03918",
+        "title": "Hedge-Bench: Financial Reasoning for Agents",
+        "hook": "102 real-world financial tasks; frontier models score under 16%.",
+        "url": "https://arxiv.org/abs/2606.03918"
       }
     ]
   },
   "news": [
     {
-      "title": "Microsoft released MAI-Thinking-1 and MAI-Code-1-Flash at Build 2026",
-      "date": "2026-06-02",
-      "summary": "35B-active-param reasoning model (no OpenAI data). MAI-Code-1-Flash 5B coding model for Copilot."
+      "title": "Anthropic confidentially filed for IPO at $965B valuation",
+      "date": "2026-06-06",
+      "summary": "Surpasses OpenAI valuation. Also secured 300 MW of compute at xAI Colossus 1 for $1.25B/month through May 2029."
     },
     {
-      "title": "Google released Gemma 4 12B",
-      "date": "2026-06-03",
-      "summary": "Encoder-free multimodal (text+image+audio+video), 256K context, runs on 16GB VRAM. Apache 2.0."
+      "title": "Google I/O 2026: Gemini 3.5 Flash, Gemini Omni, Gemini Spark",
+      "date": "2026-06-04",
+      "summary": "Flash rivals large flagships on coding/agentic benchmarks. Omni does any-to-any generation. Spark is a 24/7 personal agent."
     },
     {
-      "title": "Anthropic Claude Opus 4.8",
-      "date": "2026-05-28",
-      "summary": "Dynamic workflows, Super-Agent benchmark leader. $5/$25 per 1M input/output tokens."
+      "title": "SpaceX plans to acquire Cursor post-IPO",
+      "date": "2026-06-06",
+      "summary": "Option expected to be exercised in July, roughly 30 days after SpaceX begins trading publicly on June 12."
     }
   ],
   "gap_watch": {
     "already_ported": [
       {
-        "arxiv_id": "2605.09579",
-        "description": "Masked autoencoders from CV applied to paired PPG/ECG biosignals (featured yesterday).",
-        "source_technique": "zhang2023_mae"
+        "arxiv_id": "2606.04135",
+        "description": "Retrieval augmentation for time-series forecasting with stationarity awareness. RAG-for-TS is now well-explored.",
+        "source_technique": "RAG (from NLP)"
       }
     ],
     "unported": [
       {
-        "source_paper": "2606.03965",
-        "technique": "MDP-based budget-aware reasoning control",
-        "target_domain": "Time-series reasoning agents (TS-Agent)",
-        "hypothesis": "A controller trained to manage when a sensor-data agent should stop analyzing and commit to a classification could reduce inference cost for on-device clinical applications.",
+        "source_paper": "2606.01041",
+        "technique": "Latent experience retrieval via cross-attention at decoding time",
+        "target_domain": "Biosignal reasoning agents (TS-Agent, diagnostic pipelines)",
+        "hypothesis": "Encoding past diagnostic reasoning as latent states rather than text summaries could reduce context-window pressure for ECG/PPG analysis agents while improving diagnostic consistency.",
         "gap_confidence": "high"
       },
       {
-        "source_paper": "2606.03892",
-        "technique": "Programmatic rewards for tool-use RL with stateful environments",
-        "target_domain": "Biosignal analysis tool agents",
-        "hypothesis": "Building stateful environments where tools are signal processing functions and state is an evolving clinical interpretation would enable RL training for biosignal analysis pipelines.",
+        "source_paper": "2606.05173",
+        "technique": "Hybrid JEPA prediction + masked reconstruction pre-training",
+        "target_domain": "Sensor foundation model pre-training (SSL for HAR, biosignal FMs)",
+        "hypothesis": "Combining JEPA prediction loss with masked reconstruction for sensor data could produce more uniform representations that generalize better across diverse downstream health tasks.",
         "gap_confidence": "medium"
       }
     ]

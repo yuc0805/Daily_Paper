@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SARAF — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>SARAF: Stationarity-Aware Retrieval-Augmented Time Series Forecasting</h2>
+<p class="paper-meta">Zhou et al. &middot; arXiv 2026-06-02 &middot; <a href="https://arxiv.org/abs/2606.04135" target="_blank" rel="noopener">arXiv:2606.04135</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+
+<h3>What</h3>
+<p>SARAF is a retrieval-augmented framework for time-series forecasting that adaptively balances relevance and diversity in the retrieved historical segments. It modulates diversification strength based on dataset-level stationarity, addressing the failure mode where similarity-only retrieval is brittle under non-stationary conditions.</p>
+
+<h3>Why</h3>
+<p>Real-world time series exhibit non-stationarity and regime shifts that challenge fully parametric forecasters. Retrieval-augmented approaches promise to condition forecasts on relevant historical evidence, but a highly similar past segment does not guarantee a similar future when the generating process changes. Existing retrieval methods select purely by similarity, leading to redundant retrievals that miss regime diversity.</p>
+
+<h3>How</h3>
+<p>SARAF first forms a candidate pool via temporal similarity with time-aligned enhancement. It then applies a diversity-aware selection strategy to cover heterogeneous historical regimes, with the diversification strength automatically modulated by dataset-level stationarity. Finally, a stationarity-aware aggregation step fuses the retrieved futures. On eight real-world datasets, SARAF improves average accuracy and robustness over strong baselines, with particularly clear benefits under non-stationary settings.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="QBX2TI2X.html">iTransformer</a><span class="lineage-note">Inverted transformer for time series; SARAF adds retrieval augmentation on top of parametric forecasters like iTransformer.</span></li>
+<li><a href="YY67LF3R.html">PatchTST</a><span class="lineage-note">Patch-based time-series transformer; SARAF complements patch representations with retrieved historical evidence.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Prior retrieval-augmented time-series methods (TS-RAG, RATF) retrieve segments purely by similarity. Under non-stationarity, similar history does not imply similar future, so these methods retrieve redundant segments that reinforce a single regime while missing regime transitions. SARAF's stationarity-aware modulation adaptively increases retrieval diversity when the data is more non-stationary, covering regime heterogeneity that similarity-only retrieval misses.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to iTransformer and PatchTST, which rely entirely on parametric forecasting from a single input window, SARAF adds an external evidence channel: retrieved historical segments condition the forecast. Compared to prior retrieval-augmented TS methods, the key difference is the diversity-aware selection with stationarity-based modulation — a mechanism that has no equivalent in existing TS retrieval frameworks.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Agent-based time-series reasoning; SARAF's retrieval approach could provide the agent with relevant historical context.</span></li>
+<li><a href="HLTA8MDK.html">TimesNet</a><span class="lineage-note">Multi-scale temporal pattern extraction; complementary to SARAF's retrieval approach.</span></li>
+<li><a href="4QQTVIYC.html">Sundial</a><span class="lineage-note">Time-series foundation model; SARAF's retrieval augmentation could enhance Sundial's parametric predictions.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
