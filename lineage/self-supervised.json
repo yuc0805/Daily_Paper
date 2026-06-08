@@ -152,6 +152,26 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "target": "2606.05173",
+      "target_label": "Predict and Reconstruct: Joint JEPA + MLM for Self-Supervised Language Representations",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2606.05173",
+      "target_label": "Predict and Reconstruct: Joint JEPA + MLM for Self-Supervised Language Representations",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [],

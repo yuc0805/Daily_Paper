@@ -92,6 +92,26 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "deepseek2024_v3",
+      "source_label": "DeepSeek-V3 Technical Report (2024)",
+      "target": "2606.03458",
+      "target_label": "KVarN: Variance-Normalized KV-Cache Quantization",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2606.03458",
+      "target_label": "KVarN: Variance-Normalized KV-Cache Quantization",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [],

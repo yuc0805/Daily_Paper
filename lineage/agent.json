@@ -252,6 +252,36 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "huang2026_memory",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "2606.01041",
+      "target_label": "ExpWeaver: LLM Agents Learn from Experience via Latent RAG",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "hao2024_toolkengpt",
+      "source_label": "ToolkenGPT: Tool Embeddings for LLMs (Hao 2024)",
+      "target": "2606.01041",
+      "target_label": "ExpWeaver: LLM Agents Learn from Experience via Latent RAG",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2606.01041",
+      "target_label": "ExpWeaver: LLM Agents Learn from Experience via Latent RAG",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [

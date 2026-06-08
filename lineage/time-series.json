@@ -602,6 +602,36 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "zhang2024_llm_ts_survey",
+      "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "target": "2606.04135",
+      "target_label": "SARAF: Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "QBX2TI2X",
+      "source_label": "iTransformer (Liu 2024)",
+      "target": "2606.04135",
+      "target_label": "SARAF: Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie 2023)",
+      "target": "2606.04135",
+      "target_label": "SARAF: Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [

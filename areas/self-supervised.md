@@ -13,6 +13,7 @@
 2026-05 | xMAE (2605.00973) | physiology-aware masked cross-modal reconstruction across ECG and PPG
 2026-05 | BenchHAR (2605.08296) | SSL benchmark for generalizable sensor-based activity recognition
 2026-06 | CLAMP (2506.13717) | contrastive SSL recast as manifold packing via jammed-particle physics loss
+2026-06 | Predict and Reconstruct (2606.05173) | joint JEPA latent prediction + MLM reconstruction on shared encoder
 ### Paper List
 
 [KNOWN] [2017] Vaswani et al. — Attention Is All You Need. zotero_key:PHB9VRVM.
@@ -26,8 +27,11 @@
 [2026] 2605.00973 — Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE). [https://arxiv.org/abs/2605.00973](https://arxiv.org/abs/2605.00973). external.
 [2026] 2605.08296 — BenchHAR: Benchmarking Self-Supervised Learning for Generalizable Sensor-based Activity Recognition. [https://arxiv.org/abs/2605.08296](https://arxiv.org/abs/2605.08296). external.
 [2026] 2506.13717 — CLAMP: Contrastive Self-Supervised Learning As Neural Manifold Packing. [https://arxiv.org/abs/2506.13717](https://arxiv.org/abs/2506.13717). external.
+[2026] 2606.05173 — Predict and Reconstruct: Joint Objectives for Self-Supervised Language Representation Learning. [https://arxiv.org/abs/2606.05173](https://arxiv.org/abs/2606.05173). external.
+
 ### Recent Activity
 
+2026-06-07 | 2606.05173 added | hybrid JEPA+MLM objective yields more uniform embeddings; transfer to sensor data is the open opportunity; Tier B
 2026-06-03 | 2506.13717 added | contrastive SSL recast as manifold packing; physics-inspired loss with interpretable geometry; Tier B
 2026-05-28 | 2605.00973 added | imports masked autoencoding into biosignals with a physiology ordering constraint; Tier A
 2026-05-28 | 2605.08296 added | benchmark of SSL paradigms for HAR; hybrid reconstruction plus contrastive generalizes best; Tier B
