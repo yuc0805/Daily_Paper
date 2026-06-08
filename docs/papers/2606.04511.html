@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SparDA: Sparse Decoupled Attention for Efficient Long-Context LLM Inference — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>SparDA: Sparse Decoupled Attention for Efficient Long-Context LLM Inference</h2>
+<p class="paper-meta">Fu, Xiao, Dong, Han, Villa &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.04511" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a></p>
+
+<h3>What</h3>
+<p>SparDA adds a fourth per-layer linear projection called the Forecast alongside Q, K, V in Transformer attention. At layer L, the Forecast predicts which KV blocks layer L+1 will need, enabling lookahead CPU-to-GPU prefetch that runs concurrently with the current layer's attention. It adds less than 0.5% parameters and is trained only by matching the original sparse selector's attention distribution. On 8B sparse-pretrained models, SparDA achieves up to 1.7x decode speedup and 5.3x higher decode throughput by enabling larger batch sizes on a single GPU.</p>
+
+<h3>Why</h3>
+<p>Sparse attention reduces compute for long-context LLM inference, but two bottlenecks remain: the KV cache still grows linearly with sequence length and offloading it to CPU memory creates a PCIe transfer wall, while the sparse block selection step itself retains O(T^2) complexity and can dominate attention cost at long contexts. Existing solutions address compute or memory separately but not both simultaneously.</p>
+
+<h3>How</h3>
+<p>The Forecast projection is a lightweight linear layer that, given the current layer's hidden states, predicts a score for each KV block indicating whether the next layer will attend to it. Because the Forecast is decoupled from the attention query, it uses one head per GQA group rather than one per attention head, reducing selection overhead. During inference, while layer L computes attention over its selected KV blocks, the Forecast's predictions for layer L+1 are used to initiate asynchronous CPU-to-GPU prefetch, hiding the transfer latency behind computation.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">Defined the Q/K/V multi-head attention mechanism that SparDA extends with a fourth Forecast projection.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The original Transformer computes attention over the full KV cache at every layer with no mechanism for managing memory placement. SparDA solves the memory access bottleneck that appears when the KV cache is offloaded to CPU by making the access pattern predictable one layer in advance, so prefetch and compute can overlap. This is a systems-level fix that does not alter the attention function itself.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where Vaswani 2017 uses three projections (Q, K, V) that jointly determine attention weights and output, SparDA separates the "what to attend to" question from the "where is the data physically" question by adding the Forecast as a pure data-movement predictor. This decoupling is the key architectural insight: the Forecast does not participate in the attention computation, so it can be smaller (one head per GQA group) and trained cheaply by distilling from the original attention distribution.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Also addresses long-sequence efficiency but via SSM instead of sparse attention.</span></li>
+<li><a href="6VTXUZEG.html">Audio Mamba (Erol 2024)</a><span class="lineage-note">Another SSM approach to replacing full attention for long sequences in the audio domain.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

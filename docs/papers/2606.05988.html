@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compress-Distill — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>Compress-Distill: Reasoning Trace Compression for Efficient Knowledge Distillation</h2>
+<p class="paper-meta">Griot, Scotti, Abraham &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.05988" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a></p>
+
+<h3>What</h3>
+<p>This paper compresses chain-of-thought reasoning traces from large teacher models (Qwen3.5-397B, gpt-oss-120B) to 8.6-21.0% of their original length before distilling into smaller students. Compressed traces cut training tokens to 12-30%, speed up training by 2.0-7.6x, and shorten inference outputs by 3-19x while retaining up to 96% of raw-trace accuracy.</p>
+
+<h3>Why</h3>
+<p>Reasoning models trained with RL (such as DeepSeek-R1) produce long chain-of-thought traces. Using these traces directly as training data for knowledge distillation is expensive in both compute and storage. Prior distillation work assumed raw traces were the only option; this paper asks whether intelligent compression can preserve reasoning structure while reducing cost.</p>
+
+<h3>How</h3>
+<p>Two teacher models each generate roughly 283k correct reasoning traces. Two instruction-tuned compressor models then reduce these traces to 8.6-21.0% of their character length. A 48-run grid evaluates student accuracy across model sizes, with additional truncation ablations to isolate compression quality from length reduction. The key finding is that model-compressed traces outperform length-matched naive truncation, especially at smaller student scales.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="IFU2GS2W.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Established chain-of-thought as the dominant reasoning format, creating the long traces this paper compresses.</span></li>
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Trained models via RL to produce extended reasoning traces, creating the distillation cost problem this paper addresses.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>CoT prompting and DeepSeek-R1 focused on generating longer, more detailed reasoning to improve accuracy. This creates a cost problem downstream: distilling those long traces into smaller models is expensive. Compress-Distill shows that model-based compression can reduce this cost substantially (up to 18x per-token efficiency) while preserving most of the reasoning quality, something naive truncation cannot achieve.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where DeepSeek-R1 distilled raw reasoning traces directly, Compress-Distill inserts a compression step between teacher generation and student training. The compressor is itself an instruction-tuned LLM that learns to keep structurally important reasoning steps while discarding redundant elaboration. This is different from simply shortening the trace — the compressor preserves logical dependencies that truncation would sever.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">The base model family whose reasoning descendants create the distillation problem studied here.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

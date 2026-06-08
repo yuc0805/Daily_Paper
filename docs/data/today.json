@@ -1,165 +1,45 @@
 {
-  "date": "2026-06-07",
-  "papers": {
-    "tier_a": [
-      {
-        "arxiv_id": "2606.01041",
-        "title": "ExpWeaver: LLM Agents Learn from Experience via Latent RAG",
-        "authors": "Feng et al.",
-        "date": "2026-05-31",
-        "areas": ["agent"],
-        "community": 0,
-        "parents": {
-          "graphify": ["huang2026_memory", "hao2024_toolkengpt", "zhou2024_lats"],
-          "zotero": ["BDY3HUCV", "6RDHVVA2", "77ERE7HA"]
-        },
-        "hook": "Encodes agent experiences as LLM hidden states, retrieves in latent space via cross-attention. SOTA on 12/13 tasks, +6.8% over baselines, token-efficient, strong cross-domain transfer.",
-        "note": "papers/2026/06/07/2606.01041.md",
-        "html": "docs/papers/2606.01041.html",
-        "url": "https://arxiv.org/abs/2606.01041"
-      }
-    ],
-    "tier_b": [
-      {
-        "arxiv_id": "2606.04135",
-        "title": "SARAF: Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
-        "authors": "Zhou et al.",
-        "date": "2026-06-02",
-        "areas": ["time-series"],
-        "community": 4,
-        "parents": {
-          "graphify": ["zhang2024_llm_ts_survey"],
-          "zotero": ["QBX2TI2X", "YY67LF3R"]
-        },
-        "hook": "Retrieval-augmented TS forecasting with diversity-aware selection modulated by dataset stationarity. Best gains under non-stationary conditions.",
-        "note": "papers/2026/06/07/2606.04135.md",
-        "html": "docs/papers/2606.04135.html",
-        "url": "https://arxiv.org/abs/2606.04135"
-      },
-      {
-        "arxiv_id": "2606.03458",
-        "title": "KVarN: Variance-Normalized KV-Cache Quantization for Reasoning Tasks",
-        "authors": "Huawei CSL",
-        "date": "2026-06-02",
-        "areas": ["llm"],
-        "community": 0,
-        "parents": {
-          "graphify": ["deepseek2024_v3", "deepseek2025_r1"],
-          "zotero": ["2JCKA7GI", "Z5IWHZAE"]
-        },
-        "hook": "Calibration-free KV-cache quantizer: Hadamard + variance normalization. 3-5x capacity at 2-bit with FP16 accuracy on MATH500/AIME24. Single vLLM flag.",
-        "note": "papers/2026/06/07/2606.03458.md",
-        "html": "docs/papers/2606.03458.html",
-        "url": "https://arxiv.org/abs/2606.03458"
-      },
-      {
-        "arxiv_id": "2606.05173",
-        "title": "Predict and Reconstruct: Joint JEPA + MLM for Self-Supervised Representations",
-        "authors": "Boukhari",
-        "date": "2026-04-16",
-        "areas": ["self-supervised"],
-        "community": 1,
-        "parents": {
-          "graphify": ["yuan2024_ssl_har", "zhang2023_mae"],
-          "zotero": ["WIGLUNFZ", "TUIUJY92"]
-        },
-        "hook": "Hybrid JEPA prediction + MLM reconstruction on shared encoder. More uniform embeddings (< -0.16 vs -0.05) with same downstream accuracy.",
-        "note": "papers/2026/06/07/2606.05173.md",
-        "html": "docs/papers/2606.05173.html",
-        "url": "https://arxiv.org/abs/2606.05173"
-      }
-    ],
-    "tier_c": [
-      {
-        "arxiv_id": "2606.06042",
-        "title": "LoomVideo: Unified Video Generation and Editing",
-        "hook": "5B-param MLLM + Deepstack injection for DiT. Half the compute of 13B competitors.",
-        "url": "https://arxiv.org/abs/2606.06042"
-      },
-      {
-        "arxiv_id": "2606.02907",
-        "title": "Linear Probes Detect Task Format, Not Reasoning Mode",
-        "hook": "100% probe accuracy drops to chance after controlling for format confounds.",
-        "url": "https://arxiv.org/abs/2606.02907"
-      },
-      {
-        "arxiv_id": "2606.04719",
-        "title": "Query-based Cross-Modal Projector for Mamba Multimodal LLM",
-        "hook": "Cross-attention compresses visual tokens for Mamba LLMs; no 2D scan order needed.",
-        "url": "https://arxiv.org/abs/2606.04719"
-      },
-      {
-        "arxiv_id": "2606.05610",
-        "title": "Predictable Scaling Laws for Continued Pre-training Hyperparameters",
-        "hook": "Optimal LR and batch size follow stable power laws as compute budget grows.",
-        "url": "https://arxiv.org/abs/2606.05610"
-      },
-      {
-        "arxiv_id": "2606.04051",
-        "title": "RUBAS: Rubric-Based RL for Agent Safety",
-        "hook": "4-dimension safety decomposition for fine-grained reward in tool-use scenarios.",
-        "url": "https://arxiv.org/abs/2606.04051"
-      },
-      {
-        "arxiv_id": "2606.06373",
-        "title": "LatentWave: JEPA Pretraining for Wireless Foundation Models",
-        "hook": "JEPA applied to wireless signals; learns transferable representations via latent masking.",
-        "url": "https://arxiv.org/abs/2606.06373"
-      },
-      {
-        "arxiv_id": "2605.30394",
-        "title": "CodeGolfBench: Concise Code Generation Benchmark",
-        "hook": "Multi-language benchmark; reasoning LLMs achieve 70.97% percentile in conciseness.",
-        "url": "https://arxiv.org/abs/2605.30394"
-      },
-      {
-        "arxiv_id": "2606.03918",
-        "title": "Hedge-Bench: Financial Reasoning for Agents",
-        "hook": "102 real-world financial tasks; frontier models score under 16%.",
-        "url": "https://arxiv.org/abs/2606.03918"
-      }
-    ]
-  },
-  "news": [
+  "date": "2026-06-08",
+  "papers": [
     {
-      "title": "Anthropic confidentially filed for IPO at $965B valuation",
-      "date": "2026-06-06",
-      "summary": "Surpasses OpenAI valuation. Also secured 300 MW of compute at xAI Colossus 1 for $1.25B/month through May 2029."
+      "zotero_key": "2606.04511",
+      "title": "SparDA: Sparse Decoupled Attention for Efficient Long-Context LLM Inference",
+      "authors": "Fu et al.",
+      "year": 2026,
+      "what": "Adds a fourth Forecast projection to predict next-layer KV block needs, enabling lookahead prefetch for 1.7x decode speedup and 5.3x throughput on a single GPU.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "Attention Is All You Need (Vaswani 2017)"
     },
     {
-      "title": "Google I/O 2026: Gemini 3.5 Flash, Gemini Omni, Gemini Spark",
-      "date": "2026-06-04",
-      "summary": "Flash rivals large flagships on coding/agentic benchmarks. Omni does any-to-any generation. Spark is a 24/7 personal agent."
+      "zotero_key": "2606.04874",
+      "title": "Agent Planning Benchmark: A Diagnostic Framework for Planning Capabilities in LLM Agents",
+      "authors": "Sun et al.",
+      "year": 2026,
+      "what": "4,209-case benchmark isolating planning failures from execution failures across 22 domains and five robustness settings.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "ADaPT (Prasad 2023), LATS (Zhou 2024)"
     },
     {
-      "title": "SpaceX plans to acquire Cursor post-IPO",
-      "date": "2026-06-06",
-      "summary": "Option expected to be exercised in July, roughly 30 days after SpaceX begins trading publicly on June 12."
+      "zotero_key": "2606.05988",
+      "title": "Compress-Distill: Reasoning Trace Compression for Efficient Knowledge Distillation",
+      "authors": "Griot et al.",
+      "year": 2026,
+      "what": "Compresses CoT traces to 8-21% length before KD; 96% accuracy retained at 18x per-token efficiency, outperforming naive truncation.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "Chain-of-Thought (Wei 2023), DeepSeek-R1 (2025)"
+    },
+    {
+      "zotero_key": "2606.03748",
+      "title": "Ultralytics YOLO26: Unified Real-Time End-to-End Vision Models",
+      "authors": "Ultralytics",
+      "year": 2026,
+      "what": "NMS-free real-time detector with MuSGD optimizer from LLM training and STAL label assignment for small objects; 40.9-57.5 mAP at 1.7-11.8 ms.",
+      "area_label": "Computer Vision",
+      "area_slug": "computer-vision",
+      "builds_on": "DETR (Carion 2020), Swin Transformer (Liu 2021)"
     }
-  ],
-  "gap_watch": {
-    "already_ported": [
-      {
-        "arxiv_id": "2606.04135",
-        "description": "Retrieval augmentation for time-series forecasting with stationarity awareness. RAG-for-TS is now well-explored.",
-        "source_technique": "RAG (from NLP)"
-      }
-    ],
-    "unported": [
-      {
-        "source_paper": "2606.01041",
-        "technique": "Latent experience retrieval via cross-attention at decoding time",
-        "target_domain": "Biosignal reasoning agents (TS-Agent, diagnostic pipelines)",
-        "hypothesis": "Encoding past diagnostic reasoning as latent states rather than text summaries could reduce context-window pressure for ECG/PPG analysis agents while improving diagnostic consistency.",
-        "gap_confidence": "high"
-      },
-      {
-        "source_paper": "2606.05173",
-        "technique": "Hybrid JEPA prediction + masked reconstruction pre-training",
-        "target_domain": "Sensor foundation model pre-training (SSL for HAR, biosignal FMs)",
-        "hypothesis": "Combining JEPA prediction loss with masked reconstruction for sensor data could produce more uniform representations that generalize better across diverse downstream health tasks.",
-        "gap_confidence": "medium"
-      }
-    ]
-  }
+  ]
 }

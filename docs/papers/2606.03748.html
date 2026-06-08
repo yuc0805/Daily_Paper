@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOLO26 — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/computer-vision.html" class="back-link">&larr; Back to Area</a>
+<h2>Ultralytics YOLO26: Unified Real-Time End-to-End Vision Models</h2>
+<p class="paper-meta">Ultralytics &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.03748" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/computer-vision.html">Computer Vision</a></p>
+
+<h3>What</h3>
+<p>YOLO26 is a five-scale (n/s/m/l/x) real-time detection family with a dual-head NMS-free design, MuSGD optimizer (hybrid Muon-SGD from LLM training), and STAL label assignment for small objects. It achieves 40.9-57.5 mAP on COCO at 1.7-11.8 ms T4 latency, supporting detection, segmentation, pose estimation, classification, and oriented detection in a single pipeline.</p>
+
+<h3>Why</h3>
+<p>Previous YOLO versions relied on NMS post-processing which is non-differentiable and adds deployment complexity. The DFL head constrained the regression range. Small object coverage in label assignment was not guaranteed, leading to missed detections on small targets. The optimizer was standard SGD without the recent advances from LLM training.</p>
+
+<h3>How</h3>
+<p>The dual-head design trains with two detection heads but uses only the NMS-free head at inference, removing NMS entirely. DFL is dropped in favor of unconstrained regression. MuSGD combines Muon (a second-order optimizer from LLM training) with SGD for stable convergence. STAL guarantees that every small object receives at least one positive anchor assignment during training, preventing missed small targets.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="AVF27QK7.html">Swin Transformer (Liu 2021)</a><span class="lineage-note">Hierarchical vision transformer that influenced modern detection backbones.</span></li>
+<li><a href="QTFCR4G9.html">DETR (Carion 2020)</a><span class="lineage-note">Pioneered end-to-end NMS-free detection with transformers, though with slow convergence.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DETR achieved NMS-free detection but required hundreds of epochs to converge and was too slow for real-time use. YOLO26 achieves NMS-free inference through a dual-head training trick that converges normally, maintaining real-time latency. Compared to Swin Transformer, YOLO26 is designed for deployment efficiency rather than representation learning.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where DETR used Hungarian matching for set-prediction-based NMS removal, YOLO26 uses a simpler dual-head approach: one head with NMS during training guides the NMS-free head via Progressive Loss that shifts supervision. The MuSGD optimizer is a direct import from LLM training — an example of cross-domain method transfer that the YOLO line had not previously adopted.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">The transformer architecture underlying modern detection backbones.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
