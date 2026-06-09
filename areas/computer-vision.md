@@ -28,6 +28,7 @@
 2024 | DiChaViT (Pham et al.) | 
 2024 | MedSAM (Ma et al.) | 
 
+2026-06 | YOLO26 (2606.03748) | dual-head NMS-free detection with MuSGD optimizer from LLM training
 ### Paper List
 
 [KNOWN] [2014] Goodfellow et al. — GAN. zotero_key:NJ5BZCFJ.
@@ -57,6 +58,9 @@
 [KNOWN] [2024] Ma et al. — MedSAM. zotero_key:UXDYEMP4.
 [KNOWN] [2024] Sun et al. — TTT. zotero_key:SFYVQXEG.
 
+[2026] 2606.03748 — Ultralytics YOLO26: Unified Real-Time End-to-End Vision Models. [https://arxiv.org/abs/2606.03748](https://arxiv.org/abs/2606.03748). external.
+
 ### Recent Activity
 
+2026-06-08 | 2606.03748 added | NMS-free dual-head YOLO with MuSGD optimizer ported from LLM training; Tier B
 2026-05-14 | Area page seeded | 26 papers from Zotero, 4 from graphify seed.

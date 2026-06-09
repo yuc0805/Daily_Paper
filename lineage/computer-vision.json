@@ -82,6 +82,26 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "cross_area": true
+    },
+    {
+      "source": "liu2021_swin",
+      "source_label": "Swin Transformer (Liu 2021)",
+      "target": "2606.03748",
+      "target_label": "Ultralytics YOLO26: Unified Real-Time End-to-End Vision Models",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "carion2020_detr",
+      "source_label": "DETR: End-to-End Object Detection with Transformers (Carion 2020)",
+      "target": "2606.03748",
+      "target_label": "Ultralytics YOLO26: Unified Real-Time End-to-End Vision Models",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [

@@ -12,6 +12,8 @@
 2026-06 | Efficiency Frontier (2605.23071) | frames LLM context management as one cost-performance optimization problem
 2026-06 | Language Models Need Sleep (2605.26099) | sleep consolidation distills attention context into SSM fast weights
 2026-06 | KVarN (2606.03458) | calibration-free KV-cache quantizer with Hadamard rotation and dual-scaling variance normalization
+2026-06 | SparDA (2606.04511) | fourth Forecast projection enables lookahead KV-cache prefetch for 1.7x decode speedup
+2026-06 | Compress-Distill (2606.05988) | compressed reasoning traces yield 2-7.6x training speedup at up to 96% raw accuracy
 ### Paper List
 
 [KNOWN] [2024] DeepSeek-AI et al. — DeepSeek-V2. zotero_key:743XA29Y.
@@ -25,10 +27,14 @@
 [2605] 2605.26099 — Language Models Need Sleep. [https://arxiv.org/abs/2605.26099](https://arxiv.org/abs/2605.26099). external.
 [2026] 2606.03458 — KVarN: Variance-Normalized KV-Cache Quantization Mitigates Error Accumulation in Reasoning Tasks. [https://arxiv.org/abs/2606.03458](https://arxiv.org/abs/2606.03458). external.
 
+[2026] 2606.04511 — SparDA: Sparse Decoupled Attention for Efficient Long-Context LLM Inference. [https://arxiv.org/abs/2606.04511](https://arxiv.org/abs/2606.04511). external.
+
+[2026] 2606.05988 — Compress-Distill: Reasoning Trace Compression for Efficient Knowledge Distillation. [https://arxiv.org/abs/2606.05988](https://arxiv.org/abs/2606.05988). external.
+
 ### Recent Activity
 
+2026-06-08 | 2606.05988 added | compressing CoT traces before distillation gives 2-7.6x training speedup at up to 96% raw accuracy; Tier B
+2026-06-08 | 2606.04511 added | fourth Forecast projection for lookahead KV-cache prefetch; 1.7x decode speedup; Tier A
 2026-06-07 | 2606.03458 added | calibration-free 2-bit KV-cache quantization with FP16-level accuracy on reasoning benchmarks; Tier B
 2026-06-04 | 2605.26099 added | Sleep-like consolidation converts recent context into persistent SSM fast weights via learned local update rule, then cl; Tier A
 2026-06-01 | 2605.23071 added | treats quadratic attention cost as an explicit budget optimized against accuracy; a systems-side complement to MemReread; Tier B
-2026-05-28 | 2605.06638 added | RL training-compute power law vs reasoning depth and logical expressiveness; Tier B
-2026-05-28 | 2605.07153 added | RL surfaces latent parametric knowledge via probability-mass redistribution; Tier B
