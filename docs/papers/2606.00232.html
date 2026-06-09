@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIGER — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/hallucination.html" class="back-link">&larr; Back to Area</a>
+<h2>TIGER: Traceable Inference with Graph-Based Evidence Routing for Mitigating Hallucinations in Multimodal Generation</h2>
+<p class="paper-meta">Zhao et al. &middot; arXiv 2026-06-01 &middot; <a href="https://arxiv.org/abs/2606.00232" target="_blank" rel="noopener">arXiv:2606.00232</a> &middot; Appears in: <a href="../areas/hallucination.html">Hallucination</a></p>
+
+<h3>What</h3>
+<p>TIGER is an inference-time repair framework for multimodal generation that replaces free-form joint feedback with independent graph-based evidence routing. It independently extracts an observation graph from the input and a claim graph from the output, matches claims against observations, ranks claims by factual risk, and repairs the highest-risk claims under a fixed compute budget.</p>
+
+<h3>Why</h3>
+<p>Existing inference-time repair methods generate feedback by jointly conditioning on the input and the current (potentially hallucinated) output. This design has two problems: hallucinated claims in the output can bias the model's interpretation of the input during feedback generation, and free-form feedback cannot be ranked or scheduled at the fact level. Both limitations mean that repair effort is poorly allocated and can be counterproductive.</p>
+
+<h3>How</h3>
+<p>TIGER extracts two graphs independently: an observation graph from the input (e.g., visual elements and their relationships) and a claim graph from the generated output (factual assertions and their dependencies). Claims are matched against observations via a deterministic matching procedure. Unmatched or contradicted claims receive high risk scores. Repair proceeds in risk-ranked order under a fixed compute budget, ensuring the most dangerous hallucinations are addressed first. The process is fully traceable — each repair action is linked to specific evidence.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="GAP6JAK9.html">Permutation Self-Consistency</a><span class="lineage-note">Hallucination detection via output consistency across permuted inputs; TIGER extends from detection to structured repair.</span></li>
+  <li><a href="ATEFZQA4.html">Med-VQA Hallucination</a><span class="lineage-note">Analysis of hallucination patterns in medical VQA; TIGER provides a general repair mechanism applicable to such settings.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Permutation Self-Consistency detects hallucinations by checking whether outputs remain consistent under input permutations, but offers no mechanism for targeted repair. TIGER goes from detection to active, prioritized repair by constructing explicit evidence graphs. The independent extraction of observation and claim graphs avoids the bias problem where joint feedback methods are contaminated by the hallucinations they try to fix.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to Permutation Self-Consistency, TIGER replaces the statistical consistency check with a structured graph-matching procedure. This makes the repair process deterministic, auditable, and budget-aware. Compared to other inference-time correction methods that generate free-form textual feedback, TIGER operates on atomic fact-level claims rather than paragraph-level summaries, enabling finer-grained and more targeted corrections.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2IV8EKL2.html">Med-HALT</a><span class="lineage-note">Medical hallucination benchmark; TIGER's repair approach could be evaluated on Med-HALT tasks.</span></li>
+</ul>
+</div>
+</body>
+</html>

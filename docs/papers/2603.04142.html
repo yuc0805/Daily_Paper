@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vivaldi — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Vivaldi: A Multi-Agent Framework for Interpreting Multivariate Physiological Time Series</h2>
+<p class="paper-meta">Gabrielli, Velardi, Faralli, Prenkaj &middot; arXiv 2026-03-04 &middot; <a href="https://arxiv.org/abs/2603.04142" target="_blank" rel="noopener">arXiv:2603.04142</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>, <a href="../areas/llm-health.html">LLM-Health</a></p>
+
+<h3>What</h3>
+<p>Vivaldi is a role-structured multi-agent system that produces natural-language explanations of multivariate physiological time series. Each agent handles a distinct function (signal decomposition, clinical contextualization, synthesis). A controlled pilot with emergency medicine experts shows agentic pipelines improve explanation justification by +6.9 and relevance by +9.7 points for non-thinking and medically fine-tuned models, though gains shrink for frontier reasoning models.</p>
+
+<h3>Why</h3>
+<p>Interpreting physiological time series (ECG, PPG, accelerometry) in clinical settings requires both signal-level analysis and medical context. Prior work either trains end-to-end sensor-language bridges (Sensor2Text) or uses a single LLM controller with tool calls (TS-Agent), but neither approach separates the distinct cognitive tasks of signal analysis, clinical knowledge retrieval, and explanation synthesis. Single-agent systems also provide no mechanism for internal cross-checking between these functions.</p>
+
+<h3>How</h3>
+<p>Vivaldi assigns specialized roles to separate LLM agents in a structured pipeline. A signal analyst agent decomposes the multivariate input into temporal patterns and anomalies. A clinical context agent maps these patterns to known medical conditions and thresholds. A synthesis agent merges both outputs into a coherent explanation. The system was evaluated in a controlled clinical pilot where emergency medicine experts rated explanation quality on justification, relevance, and clarity scales.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Single-agent LLM controller for time-series reasoning with iterative tool calls; Vivaldi extends this to multi-agent with specialized clinical roles.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Surveys self-supervised FMs for biosignals; Vivaldi uses these as signal-processing backends within the agent pipeline.</span></li>
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Trained sensor-to-language bridge; Vivaldi avoids alignment training by distributing interpretation across cooperating agents.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>TS-Agent showed that an LLM with tool calls can reason about time series without alignment training, but it used a single controller for all cognitive tasks and was not evaluated with domain experts on clinical data. Vivaldi fixes the single-controller bottleneck by splitting the pipeline into specialized roles, and adds clinical validation that prior work lacked. The key finding — that agentic pipelines help weaker models more than frontier models — also provides practical deployment guidance missing from TS-Agent.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to TS-Agent, Vivaldi replaces the single observe-think-act loop with a multi-agent pipeline where each agent has a fixed role and passes structured intermediate outputs to the next. Compared to Sensor2Text, Vivaldi avoids training a sensor-language bridge entirely, relying instead on agent orchestration for the sensor-to-language translation. The evaluation methodology also differs: Vivaldi uses expert clinician ratings rather than automated metrics.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">Also aligns time series with LLMs; uses a different integration strategy (embedding alignment vs agent roles).</span></li>
+  <li><a href="3LA8GNCU.html">HeAR (Baur 2024)</a><span class="lineage-note">Self-supervised audio/biosignal FM that could serve as a signal-processing backend in Vivaldi-like pipelines.</span></li>
+  <li><a href="K4PR34NU.html">MindScape (Nepal 2024)</a><span class="lineage-note">Wearable sensing for mental health; related application domain for multi-agent physiological interpretation.</span></li>
+</ul>
+</div>
+</body>
+</html>

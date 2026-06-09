@@ -3,40 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GRAIL: Gradient-Reweighted Advantages for RL with Verifiable Rewards — AI Knowledge Graph</title>
+<title>GRAIL — AI Knowledge Graph</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <div class="paper-page">
 <a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
-<h2>GRAIL: Gradient-Reweighted Advantages for RL with Verifiable Rewards</h2>
-<p class="paper-meta">Pala, Toh, Poria &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.04889" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h2>GRAIL: Gradient-Reweighted Advantages for Reinforcement Learning with Verifiable Rewards</h2>
+<p class="paper-meta">Pala, Toh, Poria &middot; arXiv 2026-06-03 &middot; <a href="https://arxiv.org/abs/2606.04889" target="_blank" rel="noopener">arXiv:2606.04889</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
 
 <h3>What</h3>
-<p>A token-level advantage reweighting method for reinforcement learning with verifiable rewards (RLVR). GRAIL computes gradient-activation saliency for each generated token — measuring how much that token influenced the verified outcome — and uses these saliency scores to reweight per-token advantages during policy optimization. It outperforms GRPO by 3.60% accuracy and 3.05% Pass@3 without requiring a process reward model.</p>
+<p>GRAIL introduces token-wise advantage reweighting for reinforcement learning with verifiable rewards (RLVR) in LLM reasoning training. Instead of broadcasting one sequence-level advantage to all tokens as GRPO does, it uses gradient-activation saliency to assign higher weight to tokens whose hidden-state activations are most sensitive to the final answer. Evaluated on five models from the Qwen3, R1-distilled, and OctoThinker families, it achieves +3.60% accuracy and +3.05% Pass@3 over standard GRPO without requiring a process reward model.</p>
 
 <h3>Why</h3>
-<p>GRPO and similar RLVR methods assign uniform credit across all tokens in a response, treating a filler word and a critical reasoning step as equally responsible for the outcome. This is a coarse approximation. Process reward models (PRMs) can provide finer-grained credit, but they require expensive step-level annotations and separate model training. GRAIL provides token-level credit assignment using only gradient information from the policy itself, avoiding the PRM overhead entirely.</p>
+<p>GRPO and similar RLVR methods treat all tokens in a response equally when computing policy gradient updates. This dilutes the training signal: filler words and flawed reasoning steps receive the same gradient magnitude as the tokens that actually drove the correct inference. Process reward models can provide step-level supervision but are expensive to train, require human-annotated step labels, and add a separate model to maintain. The field needed a way to get fine-grained credit assignment without these costs.</p>
 
 <h3>How</h3>
-<p>For each generated response, GRAIL computes the product of the gradient of the verified reward with respect to each token's hidden activation and the activation magnitude itself — a standard saliency measure from interpretability research. These saliency scores are normalized across the response to produce per-token weight coefficients. During GRPO-style policy optimization, the standard uniform advantage for each response is multiplied by these per-token weights before computing the policy gradient. Tokens with high saliency (those most responsible for the correct or incorrect outcome) receive proportionally larger gradient updates. The method adds negligible computational overhead beyond the backward pass that is already computed during training.</p>
+<p>For each token in a sampled response, GRAIL computes a saliency score by measuring the product of the token's activation and its gradient with respect to the final-answer logit. Tokens with higher saliency receive proportionally larger advantage weights in the GRPO policy gradient update. This requires one additional backward pass per batch — no separate reward model, no step-level annotations. The method is architecture-agnostic and plugs into existing GRPO training pipelines.</p>
 
 <h3>Builds on</h3>
 <ul class="lineage-list">
-<li><a href="deepseek2025_r1.html">DeepSeek-R1</a><span class="lineage-note">Introduced GRPO for reasoning with verifiable rewards, providing the baseline that GRAIL improves upon.</span></li>
-<li><a href="wei2023_cot.html">Chain-of-Thought Prompting</a><span class="lineage-note">Established that intermediate reasoning steps affect final answers, motivating the need for per-step credit assignment.</span></li>
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Established GRPO as the practical RL algorithm for LLM reasoning, replacing PPO with group relative policy optimization and uniform sequence-level advantage.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Showed that step-by-step reasoning traces improve LLM performance; GRAIL makes RL training aware of which steps matter most.</span></li>
 </ul>
 
 <h3>Solves vs predecessors</h3>
-<p>GRPO assigns uniform credit, which means tokens that merely restate the question or produce filler receive the same training signal as tokens that perform the key reasoning step. Process reward models fix this but at the cost of training a separate model on step-level annotations. GRAIL achieves token-level credit assignment without any additional model or annotation, using only gradient information that is already computed during training.</p>
+<p>DeepSeek-R1 demonstrated that GRPO with uniform advantage broadcasting produces strong reasoning models, but the uniform distribution means every token — including filler and incorrect reasoning steps — gets the same gradient push. GRAIL fixes this specific failure mode by using gradient-activation saliency as an intrinsic credit-assignment signal, concentrating the training update on the tokens that actually drive correctness. This achieves what process reward models do (fine-grained credit) without what they cost (separate model training and human step annotations).</p>
 
 <h3>Method vs predecessors</h3>
-<p>The technical departure from GRPO is the per-token saliency reweighting. Instead of a single advantage value per response, each token gets advantage multiplied by its normalized gradient-activation saliency. This is conceptually similar to attention-based interpretability methods but applied in the RL training loop rather than post-hoc analysis. Compared to process reward models, the saliency computation is orders of magnitude cheaper because it reuses the existing backward pass.</p>
+<p>Compared to standard GRPO (DeepSeek-R1), GRAIL adds one backward pass per batch to compute token-level saliency scores, then multiplies these into the advantage before the policy gradient step. The overhead is roughly 30-40% more compute per training step, but this is far cheaper than training and running a separate PRM. Compared to Chain-of-Thought prompting, GRAIL operates at training time rather than inference time — it shapes which reasoning patterns the model learns rather than which patterns it expresses at test time.</p>
 
 <h3>Related (semantically similar in your library)</h3>
 <ul class="lineage-list">
-<li><a href="U4ZPM5DN.html">Latent-GRPO (Deng 2026)</a><span class="lineage-note">Improves GRPO from the latent space side rather than the credit assignment side — complementary approach.</span></li>
-<li><a href="2606.05152.html">DistIL: RL from Rich Feedback</a><span class="lineage-note">Another GRPO alternative using distributional DAgger, providing richer feedback signals through a different mechanism.</span></li>
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">The base model architecture that DeepSeek-R1 fine-tunes; GRAIL could apply to V3-based reasoning training.</span></li>
 </ul>
 </div>
 </body>

@@ -9,37 +9,37 @@
 <body>
 <div class="paper-page">
 <a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
-<h2>Agent Planning Benchmark: A Diagnostic Framework for Planning Capabilities in LLM Agents</h2>
-<p class="paper-meta">Sun, Wang, Song, He, Zhang, Liu, Yang, Cheng &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.04874" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h2>Agent Planning Benchmark (APB): A Diagnostic Framework for Planning Capabilities in LLM Agents</h2>
+<p class="paper-meta">Sun, Wang, Song, He, Zhang, Liu, Yang, Cheng &middot; arXiv 2026-06-03 &middot; <a href="https://arxiv.org/abs/2606.04874" target="_blank" rel="noopener">arXiv:2606.04874</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
 
 <h3>What</h3>
-<p>APB is a planning-specific diagnostic benchmark with 4,209 multimodal cases across 22 domains and five settings that isolates planning failures from execution failures in LLM agent pipelines. It covers holistic planning, feedback-conditioned step-wise planning, and robustness under extraneous tools, broken tools, and unsolvable tasks.</p>
+<p>APB is a planning-specific diagnostic benchmark with 4,209 multimodal cases across 22 domains and five settings. It separates planning failures from execution failures by testing holistic planning, feedback-conditioned step-wise planning, and robustness under extraneous tools, broken tools, and unsolvable tasks. Across 12 MLLMs, it reveals systematic weaknesses in long-horizon planning, tool-noise robustness, and calibrated refusal.</p>
 
 <h3>Why</h3>
-<p>Existing agent benchmarks report only end-to-end success rates, making it impossible to tell whether a failure occurred because the agent made a bad plan or because it failed to execute a good plan. Without this diagnostic separation, improving agent systems is guesswork. Prior benchmarks also do not test calibrated refusal — whether the agent can recognize an unsolvable task and say so.</p>
+<p>Existing agent evaluations report only end-to-end success rates, making it impossible to determine whether failures stem from planning or execution. This conflation hinders targeted improvement. Furthermore, no prior benchmark systematically tests whether agents can refuse unsolvable tasks or handle noisy tool environments — both of which are critical for real-world deployment.</p>
 
 <h3>How</h3>
-<p>APB defines five evaluation settings with increasing difficulty. For each, it constructs task instances with known-correct plans and evaluates the agent's generated plan against that reference. The benchmark tests 12 multimodal LLMs and validates that APB-guided plan refinement (feeding APB diagnostic feedback back to the model) improves plan correctness and downstream execution on 200 ToolSandbox tasks and 200 tau-bench tasks.</p>
+<p>APB constructs cases across five settings: holistic planning (generate a full plan), step-wise planning with feedback, robustness under extraneous tools (irrelevant tools added), broken tools (tools that fail or return errors), and unsolvable tasks (tasks that cannot be completed with available tools). APB-guided refinement is validated on 200 ToolSandbox and 200 tau-bench tasks, showing consistent improvements in plan correctness and downstream execution metrics across three representative models.</p>
 
 <h3>Builds on</h3>
 <ul class="lineage-list">
-<li><a href="NMJXW3GJ.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Proposed adaptive goal decomposition for agents; APB tests exactly this decomposition capability.</span></li>
-<li><a href="JPKDWV2Q.html">LATS (Zhou 2024)</a><span class="lineage-note">Combined tree search with LLM agents for planning; APB evaluates whether such search-based planners handle tool noise.</span></li>
-<li><a href="HBLPTRMY.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Addressed tool selection via embeddings; APB adds adversarial tool-noise robustness tests.</span></li>
+  <li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Proposed as-needed decomposition for agent planning; APB benchmarks this capability systematically.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Introduced tree search for agent planning; APB tests whether tree-search-style planning survives noisy environments.</span></li>
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Comprehensive survey of agent architectures; APB provides the diagnostic evaluation framework that the survey identified as missing.</span></li>
 </ul>
 
 <h3>Solves vs predecessors</h3>
-<p>ADaPT, LATS, and ToolkenGPT proposed specific planning algorithms but evaluated them only on end-to-end task completion. APB provides the missing diagnostic layer: it can tell you that an agent's holistic planning is strong but its robustness to extraneous tools is weak, or that it plans well but refuses too infrequently on unsolvable tasks. This fine-grained feedback was not available from any prior benchmark.</p>
+<p>ADaPT and LATS proposed planning algorithms but evaluated them on narrow task suites with clean tool environments. APB creates adversarial conditions — extraneous tools, broken tools, unsolvable tasks — that expose failure modes invisible in standard evaluations. The key new finding is that calibrated refusal (knowing when to say "this cannot be done") is systematically weak across all tested models, including frontier ones.</p>
 
 <h3>Method vs predecessors</h3>
-<p>Where prior agent evaluations used a single pass-fail metric per task, APB introduces five orthogonal evaluation settings and scores plans independently of their execution. The benchmark design separates the planner from the executor, so the same diagnostic can be applied to any agent architecture regardless of its execution backend.</p>
+<p>Unlike ADaPT and LATS which are planning algorithms, APB is a diagnostic benchmark — it evaluates planning capability rather than proposing a new planning method. The five-setting design (holistic, step-wise, extraneous, broken, unsolvable) is more comprehensive than any prior agent benchmark. The validation on ToolSandbox and tau-bench shows that APB scores predict downstream execution success, establishing APB as an upstream diagnostic complement.</p>
 
 <h3>Related (semantically similar in your library)</h3>
 <ul class="lineage-list">
-<li><a href="5YQ4IKMA.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Agentic multimodal model that requires planning capabilities APB would test.</span></li>
-<li><a href="M963842L.html">PyVision (Zhao 2025)</a><span class="lineage-note">Agentic vision with dynamic tooling — another system APB could diagnose.</span></li>
+  <li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Agentic multimodal model; APB could serve as a diagnostic benchmark for its planning module.</span></li>
+  <li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Agentic vision with dynamic tooling; APB tests the planning robustness that PyVision-style systems need.</span></li>
+  <li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Memory supports planning in agents; APB measures whether memory-augmented planning resists tool noise.</span></li>
 </ul>
-
 </div>
 </body>
 </html>

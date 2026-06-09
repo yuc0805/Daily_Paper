@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-08",
+  "date": "2026-06-09",
   "papers": [
     {
-      "zotero_key": "2606.04511",
-      "title": "SparDA: Sparse Decoupled Attention for Efficient Long-Context LLM Inference",
-      "authors": "Fu et al.",
+      "zotero_key": "2606.04889",
+      "title": "GRAIL: Gradient-Reweighted Advantages for Reinforcement Learning with Verifiable Rewards",
+      "authors": "Pala, Toh, Poria",
       "year": 2026,
-      "what": "Adds a fourth Forecast projection to predict next-layer KV block needs, enabling lookahead prefetch for 1.7x decode speedup and 5.3x throughput on a single GPU.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "Attention Is All You Need (Vaswani 2017)"
+      "what": "Token-wise advantage reweighting via gradient saliency for RLVR; +3.6% accuracy over GRPO without process reward models.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "DeepSeek-R1 (DeepSeek 2025), Chain-of-Thought (Wei 2023)"
+    },
+    {
+      "zotero_key": "2603.04142",
+      "title": "Vivaldi: A Multi-Agent Framework for Interpreting Multivariate Physiological Time Series",
+      "authors": "Gabrielli, Velardi, Faralli, Prenkaj",
+      "year": 2026,
+      "what": "Role-structured multi-agent system for clinical physiological TS interpretation; +6.9 justification, +9.7 relevance from clinician evaluation.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "TS-Agent (Liu 2025), Foundation Models for Biosignals (Gu 2025)"
     },
     {
       "zotero_key": "2606.04874",
-      "title": "Agent Planning Benchmark: A Diagnostic Framework for Planning Capabilities in LLM Agents",
-      "authors": "Sun et al.",
+      "title": "Agent Planning Benchmark (APB)",
+      "authors": "Sun, Wang, Song, He, Zhang, Liu, Yang, Cheng",
       "year": 2026,
-      "what": "4,209-case benchmark isolating planning failures from execution failures across 22 domains and five robustness settings.",
+      "what": "Planning-specific diagnostic with 4,209 cases; reveals systematic weaknesses in long-horizon planning and calibrated refusal across 12 MLLMs.",
       "area_label": "Agent",
       "area_slug": "agent",
       "builds_on": "ADaPT (Prasad 2023), LATS (Zhou 2024)"
     },
     {
-      "zotero_key": "2606.05988",
-      "title": "Compress-Distill: Reasoning Trace Compression for Efficient Knowledge Distillation",
-      "authors": "Griot et al.",
+      "zotero_key": "2606.00232",
+      "title": "TIGER: Traceable Inference with Graph-Based Evidence Routing",
+      "authors": "Zhao et al.",
       "year": 2026,
-      "what": "Compresses CoT traces to 8-21% length before KD; 96% accuracy retained at 18x per-token efficiency, outperforming naive truncation.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "Chain-of-Thought (Wei 2023), DeepSeek-R1 (2025)"
-    },
-    {
-      "zotero_key": "2606.03748",
-      "title": "Ultralytics YOLO26: Unified Real-Time End-to-End Vision Models",
-      "authors": "Ultralytics",
-      "year": 2026,
-      "what": "NMS-free real-time detector with MuSGD optimizer from LLM training and STAL label assignment for small objects; 40.9-57.5 mAP at 1.7-11.8 ms.",
-      "area_label": "Computer Vision",
-      "area_slug": "computer-vision",
-      "builds_on": "DETR (Carion 2020), Swin Transformer (Liu 2021)"
+      "what": "Graph-based hallucination repair at the fact level; independent observation and claim graphs avoid feedback bias.",
+      "area_label": "Hallucination",
+      "area_slug": "hallucination",
+      "builds_on": "Permutation Self-Consistency"
     }
   ]
 }
