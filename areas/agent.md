@@ -21,6 +21,7 @@
 2026-06 | PROVE (2606.03892) | programmatic rewards for multi-step tool use via 20 stateful MCP servers
 2026-06 | ExpWeaver (2606.01041) | latent-space experience retrieval via cross-attention for LLM agents
 2026-06 | APB (2606.04874) | diagnostic benchmark separating planning sub-skills across 22 domains
+2026-06 | Vivaldi (2603.04142) | multi-agent physiological time-series interpretation
 ### Paper List
 
 [KNOWN] [2018] Rabinowitz et al. — Machine Theory of Mind. zotero_key:NEKX3K3N.
@@ -44,10 +45,12 @@
 
 [2026] 2606.04874 — Agent Planning Benchmark: A Diagnostic Framework for Planning Capabilities in LLM Agents. [https://arxiv.org/abs/2606.04874](https://arxiv.org/abs/2606.04874). external.
 
+[2026] 2603.04142 — Vivaldi: A Multi-Agent Framework for Interpreting Multivariate Physiological Time Series. [https://arxiv.org/abs/2603.04142](https://arxiv.org/abs/2603.04142). external.
+
 ### Recent Activity
 
+2026-06-09 | 2603.04142 added | role-structured multi-agent system for physiological TS; agentic benefit is model-dependent; Tier B
 2026-06-08 | 2606.04874 added | diagnostic benchmark isolating planning sub-skills from execution across 22 domains; Tier B
 2026-06-07 | 2606.01041 added | latent experience retrieval replaces text-based few-shot with cross-attention; +6.8% over strongest baseline; Tier A
 2026-06-06 | 2606.03892 added | programmatic rewards for multi-step tool use trained on 13K stateful MCP trajectories; Tier B
 2026-06-04 | 2606.00183 added | Formal proof that RL on shallow k-ary trees produces DFS-capable transformer policies that generalize to greater depth; ; Tier B
-2026-06-02 | 2605.23986 added | write-efficient temporal memory with hierarchical indexing; 6x throughput gain; Tier B

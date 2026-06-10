@@ -42,6 +42,7 @@
 2026-06 | PETSA (2506.23424) | parameter-efficient test-time adaptation for TS foundation models via low-rank adapters
 
 2026-06 | SARAF (2606.04135) | retrieval-augmented forecasting modulated by dataset-level stationarity
+2026-06 | Vivaldi (2603.04142) | multi-agent framework for interpreting multivariate physiological time series
 ### Paper List
 
 [KNOWN] [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.
@@ -104,10 +105,12 @@
 
 [2026] 2606.04135 — SARAF: Stationarity-Aware Retrieval-Augmented Time Series Forecasting. [https://arxiv.org/abs/2606.04135](https://arxiv.org/abs/2606.04135). external.
 
+[2026] 2603.04142 — Vivaldi: A Multi-Agent Framework for Interpreting Multivariate Physiological Time Series. [https://arxiv.org/abs/2603.04142](https://arxiv.org/abs/2603.04142). external.
+
 ### Recent Activity
 
+2026-06-09 | 2603.04142 added | multi-agent physiological TS interpretation; agentic pipeline benefit is model-dependent; Tier B
 2026-06-07 | 2606.04135 added | retrieval-augmented forecasting with stationarity-aware selection and aggregation; Tier B
 2026-06-05 | 2506.23424 added | parameter-efficient TTA for TS foundation models; low-rank adapters with frequency-domain loss; Tier B
 2026-06-04 | 2605.09579 added | Multi-modal Masked Autoencoder on 3.4M paired ECG and PPG segments; cross-modal contrastive + reconstruction; AUROC 0.97; Tier B
 2026-06-03 | 2506.10630 added | RL fine-tuning for LLM slow-thinking on TS forecasting; GRIP reward mechanism; Tier A
-2026-06-03 | 2506.06482 added | module-level benchmarking shows tokenization and normalization outweigh backbone choice; Tier B

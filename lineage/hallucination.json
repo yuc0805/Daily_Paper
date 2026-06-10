@@ -2,7 +2,24 @@
   "_generated": "2026-05-14",
   "_source": "graphify_seed/graph.json + zotero_index.json",
   "area": "hallucination.md",
-  "edges": [],
+  "edges": [
+    {
+      "source": "GAP6JAK9",
+      "source_label": "Permutation Self-Consistency (Tang 2024)",
+      "target": "2606.00232",
+      "target_label": "TIGER: Graph-Based Evidence Routing for Hallucination Repair (2026)",
+      "relation": "builds_on",
+      "note": "Where Permutation Self-Consistency detects hallucinations via output consistency, TIGER adds active repair through explicit evidence graphs."
+    },
+    {
+      "source": "ATEFZQA4",
+      "source_label": "Med-VQA Hallucination (Wu 2024)",
+      "target": "2606.00232",
+      "target_label": "TIGER: Graph-Based Evidence Routing for Hallucination Repair (2026)",
+      "relation": "builds_on",
+      "note": "TIGER generalizes medical VQA hallucination analysis into a domain-agnostic claim-observation graph repair framework."
+    }
+  ],
   "hyperedges": [],
   "cross_area_bridges": []
 }

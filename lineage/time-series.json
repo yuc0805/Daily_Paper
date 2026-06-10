@@ -632,6 +632,30 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent (Liu 2025)",
+      "target": "2603.04142",
+      "target_label": "Vivaldi: Multi-Agent Physiological TS Interpretation (2026)",
+      "relation": "builds_on",
+      "note": "Vivaldi extends single-agent TS reasoning to a multi-agent architecture with specialized clinical roles."
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals Survey (Gu 2025)",
+      "target": "2603.04142",
+      "target_label": "Vivaldi: Multi-Agent Physiological TS Interpretation (2026)",
+      "relation": "builds_on",
+      "note": "Vivaldi operationalizes biosignal FM concepts via a cooperative multi-agent pipeline for clinical interpretation."
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text (Chen 2024)",
+      "target": "2603.04142",
+      "target_label": "Vivaldi: Multi-Agent Physiological TS Interpretation (2026)",
+      "relation": "builds_on",
+      "note": "Where Sensor2Text trains a sensor-language bridge, Vivaldi avoids alignment training by distributing interpretation across agents."
     }
   ],
   "hyperedges": [
