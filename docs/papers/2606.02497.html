@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bridging the Last Mile of TS Forecasting — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Bridging the Last Mile of Time Series Forecasting with LLM Agents</h2>
+<p class="paper-meta">Liao, Wang, Nie, Zhang &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.02497" target="_blank" rel="noopener">arXiv:2606.02497</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+
+<h3>What</h3>
+<p>This paper formulates the "last-mile forecasting" problem: after a foundation model produces a statistically plausible baseline forecast, an LLM agent revises it using weakly structured business context (holiday effects, campaign plans, external events, historical analogs, expert feedback). The agent maintains a unified forecast workspace, invokes tools to retrieve contextual evidence, and converts reasoning trajectories into explicit revision actions under structural safety constraints.</p>
+
+<h3>Why</h3>
+<p>Time-series foundation models now produce strong zero-shot baselines, but these are rarely the final forecast used in practice. The gap between a statistically good forecast and a deployment-ready one involves domain knowledge that is difficult to encode in the model itself. Prior work on LLM agents for time series (TS-Agent, ChatTS) focused on reasoning and understanding rather than forecast correction.</p>
+
+<h3>How</h3>
+<p>The system wraps around an existing forecasting backbone (any TS foundation model). The LLM agent receives the baseline forecast plus a structured description of the forecasting context. It then calls tools to retrieve relevant contextual evidence (e.g., checking for holidays in the forecast window, retrieving historical analogs from similar periods). Based on the evidence, it produces a set of forecast revisions. Safety constraints bound the magnitude of revisions relative to the baseline to prevent unbounded drift.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Established the tool-using LLM agent paradigm for time series reasoning; this paper extends it from analysis to forecast correction.</span></li>
+<li><a href="N2JLZBY3.html">LLMs for TS Survey (Zhang 2024)</a><span class="lineage-note">Catalogued the gap between zero-shot foundation models and deployment-ready forecasts that this paper addresses.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>TS-Agent (Liu 2025) showed that LLMs can reason over time series via tool calls, but it targeted understanding and analysis rather than forecast improvement. The LLMs-for-TS survey noted that zero-shot foundation models fail on domain-specific distribution shifts. This paper provides the missing piece: a mechanism for injecting domain knowledge into foundation model forecasts at deployment time through structured, tool-augmented revision with safety bounds.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where TS-Agent calls statistical operators to understand a series, this agent calls contextual retrieval tools to gather business knowledge and applies it as forecast corrections. The key structural difference is the "workspace" abstraction: the agent maintains a running forecast state that it iteratively revises, rather than producing a one-shot analysis. The safety constraints (bounding revision magnitude) have no analog in TS-Agent, which does not modify any output — it only produces analysis.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="4QQTVIYC.html">Sundial (Liu 2025)</a><span class="lineage-note">A TS foundation model that produces the kind of baseline forecast this agent would revise.</span></li>
+<li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Different approach to integrating LLMs with sensor data; uses training-time alignment rather than agent-based revision.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

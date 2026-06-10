@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-09",
+  "date": "2026-06-10",
   "papers": [
     {
-      "zotero_key": "2606.04889",
-      "title": "GRAIL: Gradient-Reweighted Advantages for Reinforcement Learning with Verifiable Rewards",
-      "authors": "Pala, Toh, Poria",
+      "zotero_key": "2606.06447",
+      "title": "Latent Reasoning with Normalizing Flows (NF-CoT)",
+      "authors": "Tu, Fu, Yu, Tang, Kang, Qin, Zhang, Gu",
       "year": 2026,
-      "what": "Token-wise advantage reweighting via gradient saliency for RLVR; +3.6% accuracy over GRPO without process reward models.",
+      "what": "Normalizing flows inside the LLM backbone replace discrete CoT with compact continuous thoughts; improves pass rates on code generation with ~4x fewer reasoning tokens.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (DeepSeek 2025), Chain-of-Thought (Wei 2023)"
+      "builds_on": "Chain-of-Thought (Wei 2023), DeepSeek-R1 (2025)"
     },
     {
-      "zotero_key": "2603.04142",
-      "title": "Vivaldi: A Multi-Agent Framework for Interpreting Multivariate Physiological Time Series",
-      "authors": "Gabrielli, Velardi, Faralli, Prenkaj",
+      "zotero_key": "2606.08656",
+      "title": "MemoPilot: Test-Time Learning of LLM Agents via RL over Memory",
+      "authors": "See paper",
       "year": 2026,
-      "what": "Role-structured multi-agent system for clinical physiological TS interpretation; +6.9 justification, +9.7 relevance from clinician evaluation.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "TS-Agent (Liu 2025), Foundation Models for Biosignals (Gu 2025)"
-    },
-    {
-      "zotero_key": "2606.04874",
-      "title": "Agent Planning Benchmark (APB)",
-      "authors": "Sun, Wang, Song, He, Zhang, Liu, Yang, Cheng",
-      "year": 2026,
-      "what": "Planning-specific diagnostic with 4,209 cases; reveals systematic weaknesses in long-horizon planning and calibrated refusal across 12 MLLMs.",
+      "what": "Trainable memory copilot for frozen LLM agents; multi-turn GRPO over the memory-update process achieves top Elo on sequential game benchmarks.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "ADaPT (Prasad 2023), LATS (Zhou 2024)"
+      "builds_on": "Memory Mechanisms Survey (Huang 2026), LATS (Zhou 2024)"
     },
     {
-      "zotero_key": "2606.00232",
-      "title": "TIGER: Traceable Inference with Graph-Based Evidence Routing",
-      "authors": "Zhao et al.",
+      "zotero_key": "2606.02497",
+      "title": "Bridging the Last Mile of Time Series Forecasting with LLM Agents",
+      "authors": "Liao, Wang, Nie, Zhang",
       "year": 2026,
-      "what": "Graph-based hallucination repair at the fact level; independent observation and claim graphs avoid feedback bias.",
-      "area_label": "Hallucination",
-      "area_slug": "hallucination",
-      "builds_on": "Permutation Self-Consistency"
+      "what": "LLM agent wraps around TS foundation model forecasts and applies structured revisions using business context retrieved via tool calls.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "TS-Agent (Liu 2025), LLMs for TS Survey (Zhang 2024)"
+    },
+    {
+      "zotero_key": "2606.01041",
+      "title": "ExpWeaver: LLM Agents Learn from Experience via Latent RAG",
+      "authors": "See paper",
+      "year": 2026,
+      "what": "End-to-end latent-space experience retrieval for LLM agents; eliminates text-based RAG overhead via hidden-state encoding and cross-attention.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "Memory Mechanisms Survey (Huang 2026), ToolkenGPT (Hao 2024)"
     }
   ]
 }
