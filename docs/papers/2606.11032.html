@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U-TTT: Towards Generalizable PET Image Denoising via Test-Time Training — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/test-time-training.html" class="back-link">&larr; Back to Area</a>
+
+<h2>U-TTT: Towards Generalizable PET Image Denoising via Test-Time Training</h2>
+<p class="paper-meta">Yang, Li, Lu, Zhang, Wang, Wei, Xu &middot; arXiv 2026-06-09 &middot; <a href="https://arxiv.org/abs/2606.11032" target="_blank" rel="noopener">arXiv:2606.11032</a> &middot; Appears in: <a href="../areas/test-time-training.html">Test-Time Training</a></p>
+
+<h3>What</h3>
+<p>U-TTT is a U-shaped denoising network for PET imaging whose inner blocks are Test-Time Training layers: parameters update during inference through a self-supervised loss on each test instance, so the model adapts to the dose level and scanner that produced the input. It reports state-of-the-art denoising and improved generalization to unseen dose levels and unseen scanners.</p>
+
+<h3>Why</h3>
+<p>Deep PET denoisers are trained on one acquisition setting and deployed on others. Performance drops sharply when dose protocol or scanner hardware changes, because parameters are frozen after training. Domain-generalization training helps on average but cannot react to the specific test instance in front of the model, which is what clinical deployment requires.</p>
+
+<h3>How</h3>
+<p>The network keeps the U-shaped encoder-decoder common in medical imaging but replaces inner blocks with two kinds of TTT layers, adapted per test volume with no access to training data. The Spatial TTT layer captures and corrects spatial structural degradation; the Frequency TTT layer operates on the spectrum, suppressing global noise while restoring high-frequency detail. Code: <a href="https://github.com/Yaziwel/U-TTT" target="_blank" rel="noopener">github.com/Yaziwel/U-TTT</a>.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="JEGI4IS7.html">TTT Layers (Sun 2024)</a><span class="lineage-note">Established the hidden-state-as-model formulation that turns test-time adaptation into a layer property.</span></li>
+  <li><a href="K9AZKZB2.html">TTT-Unet (Zhou 2024)</a><span class="lineage-note">Put TTT layers inside a U-shaped network for medical image segmentation; U-TTT is the denoising counterpart.</span></li>
+  <li><a href="SFYVQXEG.html">TTT (Sun 2024)</a><span class="lineage-note">The original test-time training idea: adapt to each test instance with self-supervision.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Fixed-parameter denoisers fail under acquisition shift, and TTT-Unet, while adaptive, was built for segmentation where the self-supervised signal and the loss target differ from restoration. U-TTT fixes the specific failure mode — a denoiser confidently producing artifacts on a dose level it never saw — by letting each test volume fine-tune the adaptation layers before the prediction is made.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to TTT-Unet, U-TTT changes both the task (denoising rather than segmentation) and the adaptation domain: it adds a frequency-branch TTT layer, because PET noise statistics are better characterized in the spectrum than in image space. Compared to the original TTT line, it specializes a generic sequence-modeling primitive into a clinical robustness mechanism with a dual-domain design.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="W7RPRTCH.html">TTT for Abstract Reasoning (Akyurek 2024)</a><span class="lineage-note">Same per-instance adaptation principle applied to reasoning tasks instead of imaging.</span></li>
+  <li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">Different mechanism, same goal: adapting general models to specific health data regimes.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

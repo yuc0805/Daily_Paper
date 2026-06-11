@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-10",
+  "date": "2026-06-11",
   "papers": [
     {
-      "zotero_key": "2606.06447",
-      "title": "Latent Reasoning with Normalizing Flows (NF-CoT)",
-      "authors": "Tu, Fu, Yu, Tang, Kang, Qin, Zhang, Gu",
+      "zotero_key": "2606.11032",
+      "title": "U-TTT: Generalizable PET Image Denoising via Test-Time Training",
+      "authors": "Yang et al.",
       "year": 2026,
-      "what": "Normalizing flows inside the LLM backbone replace discrete CoT with compact continuous thoughts; improves pass rates on code generation with ~4x fewer reasoning tokens.",
+      "what": "U-shaped denoiser with spatial and frequency test-time-training layers adapts per test instance; generalizes to unseen dose levels and scanners.",
+      "area_label": "Test-Time Training",
+      "area_slug": "test-time-training",
+      "builds_on": "TTT Layers (Sun 2024), TTT-Unet (Zhou 2024)"
+    },
+    {
+      "zotero_key": "2606.09821",
+      "title": "Rethinking the Divergence Regularization in LLM RL (DRPO)",
+      "authors": "Yao et al.",
+      "year": 2026,
+      "what": "Replaces DPPO's hard divergence mask with a smooth advantage-weighted regularizer; more stable off-policy LLM RL across scales.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "Chain-of-Thought (Wei 2023), DeepSeek-R1 (2025)"
+      "builds_on": "DeepSeek-R1 (2025), Latent-GRPO (Deng 2026)"
     },
     {
-      "zotero_key": "2606.08656",
-      "title": "MemoPilot: Test-Time Learning of LLM Agents via RL over Memory",
+      "zotero_key": "2606.11052",
+      "title": "Attention Amnesia in Hybrid LLMs",
+      "authors": "Zhou et al.",
+      "year": 2026,
+      "what": "CoT fine-tuning collapses 256K recall in hybrid linear-attention models (67.2% to 9.4%); training-free QK-Restore reverts W_Q/W_K and recovers it.",
+      "area_label": "SSM / Hybrid Architectures",
+      "area_slug": "mamba",
+      "builds_on": "Chain-of-Thought (Wei 2023), TTT Layers (Sun 2024)"
+    },
+    {
+      "zotero_key": "2606.10677",
+      "title": "Infini Memory: Maintainable Topic Documents for Long-Term Agent Memory",
       "authors": "See paper",
       "year": 2026,
-      "what": "Trainable memory copilot for frozen LLM agents; multi-turn GRPO over the memory-update process achieves top Elo on sequential game benchmarks.",
+      "what": "Agent memory as topic documents with revision semantics; targets contradiction, staleness, and unbounded growth in long-running agents.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026), LATS (Zhou 2024)"
-    },
-    {
-      "zotero_key": "2606.02497",
-      "title": "Bridging the Last Mile of Time Series Forecasting with LLM Agents",
-      "authors": "Liao, Wang, Nie, Zhang",
-      "year": 2026,
-      "what": "LLM agent wraps around TS foundation model forecasts and applies structured revisions using business context retrieved via tool calls.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "TS-Agent (Liu 2025), LLMs for TS Survey (Zhang 2024)"
-    },
-    {
-      "zotero_key": "2606.01041",
-      "title": "ExpWeaver: LLM Agents Learn from Experience via Latent RAG",
-      "authors": "See paper",
-      "year": 2026,
-      "what": "End-to-end latent-space experience retrieval for LLM agents; eliminates text-based RAG overhead via hidden-state encoding and cross-attention.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026), ToolkenGPT (Hao 2024)"
+      "builds_on": "Memory Mechanisms Survey (Huang 2026)"
     }
   ]
 }
