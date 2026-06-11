@@ -656,6 +656,30 @@
       "target_label": "Vivaldi: Multi-Agent Physiological TS Interpretation (2026)",
       "relation": "builds_on",
       "note": "Where Sensor2Text trains a sensor-language bridge, Vivaldi avoids alignment training by distributing interpretation across agents."
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2606.02497",
+      "target_label": "Bridging the Last Mile of Time Series Forecasting with LLM Agents",
+      "relation": "builds_on",
+      "note": "Extends TS-Agent from analysis/reasoning to forecast correction via tool-augmented contextual revision."
+    },
+    {
+      "source": "zhang2024_llm_ts_survey",
+      "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "target": "2606.02497",
+      "target_label": "Bridging the Last Mile of Time Series Forecasting with LLM Agents",
+      "relation": "builds_on",
+      "note": "Fills the deployment gap the survey identified between zero-shot foundation models and usable forecasts."
+    },
+    {
+      "source": "4QQTVIYC",
+      "source_label": "Sundial (Liu 2025)",
+      "target": "2606.02497",
+      "target_label": "Bridging the Last Mile of Time Series Forecasting with LLM Agents",
+      "relation": "builds_on",
+      "note": "The last-mile agent wraps a foundation model forecast (like Sundial) and applies structured revisions using domain context."
     }
   ],
   "hyperedges": [

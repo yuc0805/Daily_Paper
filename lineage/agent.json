@@ -336,6 +336,31 @@
       "target_label": "Vivaldi: Multi-Agent Physiological TS Interpretation (2026)",
       "relation": "builds_on",
       "note": "Where Sensor2Text trains a sensor-language bridge, Vivaldi avoids alignment training by distributing interpretation across agents."
+    },
+    {
+      "source": "huang2026_memory",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "2606.08656",
+      "target_label": "MemoPilot: Enhancing Test-Time Learning of LLM Agents via RL over Memory",
+      "relation": "builds_on",
+      "note": "MemoPilot fills the gap between hand-designed memory prompts and optimal memory policies with end-to-end RL training."
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2606.08656",
+      "target_label": "MemoPilot: Enhancing Test-Time Learning of LLM Agents via RL over Memory",
+      "relation": "builds_on",
+      "note": "Where LATS searches over action trajectories, MemoPilot fixes the player LLM and trains only the memory-update policy."
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2606.08656",
+      "target_label": "MemoPilot: Enhancing Test-Time Learning of LLM Agents via RL over Memory",
+      "relation": "builds_on",
+      "note": "MemoPilot adapts the GRPO training recipe from R1 to optimize multi-turn memory updates.",
+      "cross_area": true
     }
   ],
   "hyperedges": [

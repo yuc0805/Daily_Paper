@@ -262,6 +262,30 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2606.06447",
+      "target_label": "Latent Reasoning with Normalizing Flows (NF-CoT)",
+      "relation": "builds_on",
+      "note": "Where R1 improves reasoning via RL over full token output, NF-CoT moves reasoning into continuous latent space with normalizing flows."
+    },
+    {
+      "source": "EMXEJYHV",
+      "source_label": "Latent Reasoning Survey (Zhu 2025)",
+      "target": "2606.06447",
+      "target_label": "Latent Reasoning with Normalizing Flows (NF-CoT)",
+      "relation": "builds_on",
+      "note": "NF-CoT directly addresses open problems catalogued in the latent reasoning survey."
+    },
+    {
+      "source": "U4ZPM5DN",
+      "source_label": "Latent-GRPO (Deng 2026)",
+      "target": "2606.06447",
+      "target_label": "Latent Reasoning with Normalizing Flows (NF-CoT)",
+      "relation": "builds_on",
+      "note": "Replaces GRPO reward-based approximation with normalizing-flow exact log-likelihoods in latent reasoning space."
     }
   ],
   "hyperedges": [],
