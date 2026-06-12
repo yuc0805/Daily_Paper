@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TimeClaw — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
+<h2>TimeClaw: Harnessing Generalist Agents for Contextualized Time Series</h2>
+<p class="paper-meta">
+  Li, Jin, Bei, Zou, Kumar, Ning, Zhao, Ai, Jing, Tong, He &middot; arXiv 2026-06-03 &middot;
+  <a href="https://arxiv.org/abs/2606.05404" target="_blank" rel="noopener">arXiv:2606.05404</a> &middot;
+  Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>
+</p>
+
+<h3>What</h3>
+<p>TimeClaw is an agentic harness that gives a generalist LLM agent time-series-native runtime support. It combines executable temporal tools for grounded and auditable analysis, experience-driven capability evolution that turns successful trajectories into reusable analytical routines, and episodic multimodal memory that retrieves relevant past reasoning traces. Evaluation spans energy, finance, weather, traffic, and other real-world domains; code is public at github.com/iDEA-iSAIL-Lab-UIUC/TimeClaw.</p>
+
+<h3>Why</h3>
+<p>Time series are embedded in rich contexts, and practitioners run end-to-end workflows where forecasting is only one step. Generalist LLM agents are a natural interface for such workflows but operate primarily in text space, which is not aligned with structured temporal signals. Prior single-loop tool agents handle one reasoning episode at a time and relearn the same analysis on every new task, while alignment-trained models require paired data and training compute.</p>
+
+<h3>How</h3>
+<p>The harness wraps a frozen generalist agent with three runtime services. Executable temporal tools keep every numerical claim grounded in an auditable operation on the raw series. A capability-evolution loop promotes successful reasoning trajectories into reusable analytical routines, so the agent accumulates competence across tasks. An episodic multimodal memory stores reasoning traces and retrieves relevant ones for new queries. The abstract reports improved benchmark performance but no numeric deltas; the preprint runs 38 pages.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Established the tool-calling loop with evidence log for time-series reasoning; TimeClaw extends it from one episode to a persistent harness.</span></li>
+  <li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">The alignment-training alternative; TimeClaw takes the opposite, frozen-LLM design position.</span></li>
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Source of the episodic memory designs TimeClaw imports into the time-series setting.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>TS-Agent's loop is stateless across tasks: the operator library is fixed and nothing learned in one episode carries to the next, so repeated workflows pay full cost every time. TimeClaw fixes this by making experience persistent in two forms — reusable routines distilled from successful trajectories, and episodic memory of past reasoning traces — while keeping the auditability that motivated the tool-calling design in the first place.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to TS-Agent, TimeClaw widens the integration boundary from one operator loop to a full runtime: tools, a routine library that grows, and a retrieval memory. Compared to ChatTS, it avoids alignment training entirely and keeps capability outside the model. The memory component is the clearest import from the agents literature (community 0) into time series (community 4), adding a cross-community edge to the library graph.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Language interface to sensor time series via training; contrast with TimeClaw's runtime-harness route.</span></li>
+  <li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">Maps the alignment-versus-tools design space TimeClaw sits in.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

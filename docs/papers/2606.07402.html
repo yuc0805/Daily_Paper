@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M3Exam — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>M3Exam: Benchmarking Multimodal Memory for Realistic User-Agent Interactions</h2>
+<p class="paper-meta">
+  Authors per arXiv listing &middot; arXiv 2026-06 &middot;
+  <a href="https://arxiv.org/abs/2606.07402" target="_blank" rel="noopener">arXiv:2606.07402</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>M3Exam is a query-centric benchmark for multimodal conversational memory, built on realistic user-agent interactions rather than synthetic dialogue. Evaluation is multi-dimensional and covers cross-modal grounding — recalling what the user showed, not only what the user said — and implicit information inference. This page is abstract-level; benchmark sizes and baseline numbers were not in accessible sources on the day of indexing.</p>
+
+<h3>Why</h3>
+<p>Agent memory mechanisms have multiplied — logs, vector stores, topic documents, latent state — but each is evaluated on its own private setup, so claims about what memory design works under realistic multimodal use cannot be compared. A shared, interaction-grounded benchmark is the missing measurement instrument.</p>
+
+<h3>How</h3>
+<p>The benchmark organizes evaluation around queries against an interaction history that mixes text and visual content. Dimensions include cross-modal grounding and implicit inference, which separate retrieval hit-rate from actual memory use: an agent can fetch the right snippet and still fail to connect it to what was shown earlier.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Catalogued the mechanisms this benchmark now measures on common ground.</span></li>
+  <li><a href="Z9WZPMNU.html">Agent AI: Surveying Multimodal Interaction (Durante 2024)</a><span class="lineage-note">Described the multimodal user-agent interaction setting the benchmark instantiates.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The surveys identified mechanisms and settings but left evaluation fragmented: each memory paper reports on incompatible private tests. M3Exam fixes the comparability failure by fixing the task distribution and the query types, so mechanism papers can be ranked on the same footing.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where the parent surveys are descriptive taxonomies, M3Exam is an instrument: query-centric construction from realistic interactions, with explicit dimensions for cross-modal grounding and implicit inference. It connects the agents-and-memory line (community 0) to vision-language (community 3) through the requirement that memory span modalities.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Agent planning line whose long interactions create the memory load this benchmark measures.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Tree-search agents; another producer of long multimodal interaction histories.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

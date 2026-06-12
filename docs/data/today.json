@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-11",
+  "date": "2026-06-12",
   "papers": [
     {
-      "zotero_key": "2606.11032",
-      "title": "U-TTT: Generalizable PET Image Denoising via Test-Time Training",
-      "authors": "Yang et al.",
+      "zotero_key": "2606.05404",
+      "title": "TimeClaw: Harnessing Generalist Agents for Contextualized Time Series",
+      "authors": "Li et al.",
       "year": 2026,
-      "what": "U-shaped denoiser with spatial and frequency test-time-training layers adapts per test instance; generalizes to unseen dose levels and scanners.",
-      "area_label": "Test-Time Training",
-      "area_slug": "test-time-training",
-      "builds_on": "TTT Layers (Sun 2024), TTT-Unet (Zhou 2024)"
+      "what": "Agentic harness gives a frozen LLM time-series-native tools, reusable analytical routines, and episodic multimodal memory for contextualized temporal reasoning.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "TS-Agent (Liu 2025), ChatTS (Xie 2025), Memory Mechanisms Survey (Huang 2026)"
     },
     {
-      "zotero_key": "2606.09821",
-      "title": "Rethinking the Divergence Regularization in LLM RL (DRPO)",
-      "authors": "Yao et al.",
+      "zotero_key": "2605.23904",
+      "title": "SkillOpt: Executive Strategy for Self-Evolving Agent Skills",
+      "authors": "Microsoft Research",
       "year": 2026,
-      "what": "Replaces DPPO's hard divergence mask with a smooth advantage-weighted regularizer; more stable off-policy LLM RL across scales.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025), Latent-GRPO (Deng 2026)"
-    },
-    {
-      "zotero_key": "2606.11052",
-      "title": "Attention Amnesia in Hybrid LLMs",
-      "authors": "Zhou et al.",
-      "year": 2026,
-      "what": "CoT fine-tuning collapses 256K recall in hybrid linear-attention models (67.2% to 9.4%); training-free QK-Restore reverts W_Q/W_K and recovers it.",
-      "area_label": "SSM / Hybrid Architectures",
-      "area_slug": "mamba",
-      "builds_on": "Chain-of-Thought (Wei 2023), TTT Layers (Sun 2024)"
-    },
-    {
-      "zotero_key": "2606.10677",
-      "title": "Infini Memory: Maintainable Topic Documents for Long-Term Agent Memory",
-      "authors": "See paper",
-      "year": 2026,
-      "what": "Agent memory as topic documents with revision semantics; targets contradiction, staleness, and unbounded growth in long-running agents.",
+      "what": "Text-space optimizer trains agent skill documents with validation-gated edits; +23.5 points on GPT-5.5 direct chat, zero inference overhead.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026)"
+      "builds_on": "ToolkenGPT (Hao 2024), Memory Mechanisms Survey (Huang 2026)"
+    },
+    {
+      "zotero_key": "2606.07402",
+      "title": "M3Exam: Benchmarking Multimodal Memory for Realistic User-Agent Interactions",
+      "authors": "See arXiv listing",
+      "year": 2026,
+      "what": "Query-centric benchmark scores agent memory on cross-modal grounding and implicit inference over realistic user-agent interactions.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "Memory Mechanisms Survey (Huang 2026), Agent AI Survey (Durante 2024)"
+    },
+    {
+      "zotero_key": "2606.04264",
+      "title": "UniCanvas: A Diffusion-based Unified Model for Text-in-Image Joint Generation",
+      "authors": "Yang et al.",
+      "year": 2026,
+      "what": "Diffusion model draws language as visual patterns on the pixel canvas, unifying text and image generation without a discrete token head.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "DDPM (Ho 2020), DALL-E 2 (Ramesh 2022)"
     }
   ]
 }

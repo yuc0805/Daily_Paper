@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillOpt — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>SkillOpt: Executive Strategy for Self-Evolving Agent Skills</h2>
+<p class="paper-meta">
+  Microsoft Research &middot; arXiv 2026-05 &middot;
+  <a href="https://arxiv.org/abs/2605.23904" target="_blank" rel="noopener">arXiv:2605.23904</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>SkillOpt is a text-space optimizer for agent skills: a separate optimizer model turns scored rollouts into bounded add/delete/replace edits on a single skill document, and an edit is accepted only when it strictly improves a held-out validation score. Across six benchmarks, seven target models, and three execution harnesses, it is best or tied in all 52 evaluated (model, benchmark, harness) cells; on GPT-5.5 it lifts no-skill accuracy by +23.5 points in direct chat, +24.8 in Codex, and +19.1 in Claude Code. Code: github.com/microsoft/SkillOpt.</p>
+
+<h3>Why</h3>
+<p>Current agent skills are hand-crafted, generated one-shot, or evolved through loosely controlled self-revision, and none of these reliably improves over its starting point under feedback. Skill text drifts, regressions go undetected, and improvements do not transfer across models or harnesses.</p>
+
+<h3>How</h3>
+<p>The optimizer applies bounded edits under a textual learning-rate budget, keeps a rejected-edit buffer so failed directions are not retried, and uses epoch-wise slow/meta updates for stability. Validation gating makes every accepted edit a strict improvement on held-out tasks. The trained artifact is a plain skill document, so deployment adds zero inference-time model calls.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Put tool knowledge into trained embeddings inside the model; SkillOpt moves the trainable object outside, into text.</span></li>
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Framed external text state as the maintainable form of agent capability; SkillOpt supplies a concrete write policy.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The failure mode of self-revision approaches is unverified drift: an agent rewrites its own instructions and quietly gets worse. SkillOpt fixes this with validation-gated acceptance — no edit lands unless it strictly improves a held-out score — turning skill editing from open-ended generation into a controlled optimization step.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where ToolkenGPT trains embeddings (model-internal, model-specific, inference-coupled), SkillOpt trains text (model-external, portable across seven target models and three harnesses, zero inference overhead). It extends the tool-using-agents bridge in the library (ToolkenGPT to PyVision): that bridge crossed static embeddings and dynamic code tooling; SkillOpt pushes it into optimization of the text artifact itself.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Dynamic tooling for agents; the other end of the bridge SkillOpt extends.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Search over agent trajectories at inference time; SkillOpt moves the search into training-time text edits.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
