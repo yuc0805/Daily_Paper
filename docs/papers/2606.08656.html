@@ -3,42 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MemoPilot — AI Knowledge Graph</title>
+<title>MemoPilot: RL over Memory for LLM Agents — AI Knowledge Graph</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <div class="paper-page">
 <a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
-<h2>MemoPilot: Enhancing Test-Time Learning of LLM Agents via Reinforcement Learning over Memory</h2>
-<p class="paper-meta">Authors (see paper) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.08656" target="_blank" rel="noopener">arXiv:2606.08656</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
-
-<h3>What</h3>
-<p>MemoPilot is a plug-in memory copilot that trains the memory-update process of a frozen LLM agent using multi-turn GRPO. It formulates memory updating as a sequential decision problem and optimizes it end-to-end, introducing turn-wise reward signals and context-independent advantage estimation for stable multi-turn training.</p>
-
-<h3>Why</h3>
-<p>LLM agents deployed in long-running settings need to improve through experience, typically by maintaining explicit memory. Most existing methods use hand-designed prompting rules for memory updates, making it difficult to align the updates with downstream objectives over multi-step horizons. There is no principled way to train the memory-update process itself.</p>
-
-<h3>How</h3>
-<p>MemoPilot separates the "player" (frozen base LLM) from the "copilot" (trainable memory-update policy). After each interaction turn, the copilot observes the outcome and decides how to modify the memory state. This is optimized via multi-turn GRPO with turn-level advantage estimation computed independently across rollouts for finer-grained credit assignment. The copilot is trained on sequential game-playing tasks and evaluated on Elo ratings against baselines.</p>
-
+<h2>From Player to Master: Enhancing Test-Time Learning of LLM Agents via Reinforcement Learning over Memory</h2>
+<p class="paper-meta">Cai, Guo, Huang, Du, Tang, Sun et al. &middot; arXiv 2026-06-07 &middot; ICML 2026 &middot; <a href="https://arxiv.org/abs/2606.08656" target="_blank" rel="noopener">arXiv:2606.08656</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3><p>The paper introduces MemoPilot, a plug-in memory copilot that learns how to update an LLM agent's explicit memory so a frozen base model improves over a long run of interactions. Memory updating is framed as a multi-turn decision problem and trained end-to-end with multi-turn GRPO, using a turn-wise reward and a context-independent, turn-level advantage estimate for finer credit assignment. On two repeated-game testbeds, Rock-Paper-Scissors and Limit Texas Hold'em, MemoPilot ranks first in Elo (1762 on Hold'em, 1590 on RPS) and beats hand-designed memory rules and proprietary models including DeepSeek-V3.2.</p>
+<h3>Why</h3><p>LLM agents are increasingly run in long-lived settings where they should improve from experience at test time. The common fix is to keep an explicit memory and update it after each interaction, but most methods update memory using hand-written prompting rules. Hand-written rules are hard to align with a downstream objective over many steps, so the memory may not store what actually helps later decisions.</p>
+<h3>How</h3><p>MemoPilot treats the memory-update process as a learned policy rather than a fixed rule. It formulates updating as a multi-turn decision problem and optimizes it with multi-turn GRPO. Two training choices support this: a turn-wise reward so feedback is attached to individual turns, and a context-independent, turn-level advantage estimate computed across rollouts, which gives finer credit assignment and more stable training over multi-step horizons. The base LLM stays frozen; only the memory-update policy is trained.</p>
 <h3>Builds on</h3>
 <ul class="lineage-list">
-<li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms (Huang 2026)</a><span class="lineage-note">Surveyed memory architectures for agents; MemoPilot implements a trainable memory-update policy.</span></li>
-<li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Optimized multi-step agent behavior via tree search over actions; MemoPilot optimizes the memory layer instead.</span></li>
+<li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Surveyed agent memory, most of it updated by hand-designed rules; MemoPilot replaces the rule with a learned policy.</span></li>
+<li><a href="Z5IWHZAE.html">DeepSeek-R1: Reasoning via RL (2025)</a><span class="lineage-note">Showed GRPO-style RL can train multi-step LLM behavior; MemoPilot extends GRPO to multi-turn memory updates.</span></li>
 </ul>
-
-<h3>Solves vs predecessors</h3>
-<p>The Memory Mechanisms survey (Huang 2026) identified a gap between hand-designed memory prompts and optimal memory policies. MemoPilot fills that gap by making the memory-update process trainable with RL. Where LATS searches over action trajectories at inference time, MemoPilot trains a separate policy that improves memory between turns, keeping the base LLM frozen and the approach modular.</p>
-
-<h3>Method vs predecessors</h3>
-<p>Compared to LATS, which uses Monte Carlo tree search over action sequences, MemoPilot uses GRPO over memory updates — a fundamentally different optimization target. Compared to hand-crafted memory prompts used in most agent systems, MemoPilot learns the update rule from data. The turn-wise reward signal and context-independent advantage estimation are the main technical novelties over standard GRPO, adapted for the multi-turn memory-update setting.</p>
-
+<h3>Solves vs predecessors</h3><p>The memory survey (Huang 2026) described update mechanisms that depend on hand-designed prompting rules, which cannot be tuned to a long-horizon objective. MemoPilot fixes that specific limitation by making the update an RL action optimized for downstream reward, so the agent learns what is worth writing to memory instead of following a fixed heuristic.</p>
+<h3>Method vs predecessors</h3><p>DeepSeek-R1 (2025) applied GRPO to a single reasoning trace. MemoPilot extends GRPO to a multi-turn setting and adds turn-level credit assignment so the reward attaches to the right memory edit rather than to a whole rollout. This paper also extends the DeepSeek-R1 to Chain-of-Thought bridge already in your library: it moves reasoning-via-RL from one-shot reasoning to long-horizon control of an external memory.</p>
 <h3>Related (semantically similar in your library)</h3>
 <ul class="lineage-list">
-<li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Decomposes tasks as-needed; MemoPilot addresses a different aspect of agent improvement: learning from sequential interactions.</span></li>
-<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Uses GRPO for reasoning; MemoPilot applies the same optimization family to the memory layer.</span></li>
+<li><a href="2JCKA7GI.html">DeepSeek-V3 Technical Report (2024)</a><span class="lineage-note">A strong baseline of the family MemoPilot compares against; differs by being a base model rather than a memory-update policy.</span></li>
 </ul>
-
 </div>
 </body>
 </html>

@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-12",
+  "date": "2026-06-13",
   "papers": [
     {
-      "zotero_key": "2606.05404",
-      "title": "TimeClaw: Harnessing Generalist Agents for Contextualized Time Series",
-      "authors": "Li et al.",
+      "zotero_key": "2606.09605",
+      "title": "Next-Token Prediction Learns Generalisable Representations of Sleep Physiology",
+      "authors": "Cai et al.",
       "year": 2026,
-      "what": "Agentic harness gives a frozen LLM time-series-native tools, reusable analytical routines, and episodic multimodal memory for contextualized temporal reasoning.",
+      "what": "Hypnos tokenizes eight physiological modalities with residual vector quantization and trains an autoregressive RQ-Transformer by next-token prediction, beating a dedicated ECG model at atrial-fibrillation detection.",
+      "area_label": "Self-Supervised / Bio-Signals",
+      "area_slug": "self-supervised",
+      "builds_on": "Foundation Models for Biosignals (Gu 2025), MAE Theory (Zhang 2023), Attention Is All You Need (Vaswani 2017)"
+    },
+    {
+      "zotero_key": "2606.10900",
+      "title": "Personalized Deep Learning for Short-Term Forecasting of Impending Atrial Fibrillation from Continuous Wearable ECG Signals",
+      "authors": "Suh et al.",
+      "year": 2026,
+      "what": "Per-patient fine-tuning of a global wearable-ECG model lifts impending-AF forecasting AUROC from 0.614 to 0.711 on ICENTIA11K, with gains that grow with adaptation data.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "TS-Agent (Liu 2025), ChatTS (Xie 2025), Memory Mechanisms Survey (Huang 2026)"
+      "builds_on": "Foundation Models for Biosignals (Gu 2025), LLMs are Few-Shot Health Learners (Liu 2023)"
     },
     {
-      "zotero_key": "2605.23904",
-      "title": "SkillOpt: Executive Strategy for Self-Evolving Agent Skills",
-      "authors": "Microsoft Research",
+      "zotero_key": "2606.08656",
+      "title": "From Player to Master: Enhancing Test-Time Learning of LLM Agents via Reinforcement Learning over Memory",
+      "authors": "Cai et al.",
       "year": 2026,
-      "what": "Text-space optimizer trains agent skill documents with validation-gated edits; +23.5 points on GPT-5.5 direct chat, zero inference overhead.",
+      "what": "MemoPilot trains an LLM agent's memory-update process with multi-turn GRPO, ranking first in Elo on Rock-Paper-Scissors and Limit Texas Hold'em over hand-designed memory rules.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "ToolkenGPT (Hao 2024), Memory Mechanisms Survey (Huang 2026)"
+      "builds_on": "Memory Mechanisms Survey (Huang 2026), DeepSeek-R1 (2025)"
     },
     {
-      "zotero_key": "2606.07402",
-      "title": "M3Exam: Benchmarking Multimodal Memory for Realistic User-Agent Interactions",
+      "zotero_key": "2606.06356",
+      "title": "Where Should Knowledge Enter? A Layered Framework for Knowledge Infusion in Multimodal Iterative Generative Models",
       "authors": "See arXiv listing",
       "year": 2026,
-      "what": "Query-centric benchmark scores agent memory on cross-modal grounding and implicit inference over realistic user-agent interactions.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026), Agent AI Survey (Durante 2024)"
-    },
-    {
-      "zotero_key": "2606.04264",
-      "title": "UniCanvas: A Diffusion-based Unified Model for Text-in-Image Joint Generation",
-      "authors": "Yang et al.",
-      "year": 2026,
-      "what": "Diffusion model draws language as visual patterns on the pixel canvas, unifying text and image generation without a discrete token head.",
+      "what": "A four-layer map (surface, trajectory, latent, parametric) for injecting knowledge into diffusion models cuts knowledge-violating outputs by 70.97% in a safety-alignment study.",
       "area_label": "Multi-Modal",
       "area_slug": "multi-modal",
-      "builds_on": "DDPM (Ho 2020), DALL-E 2 (Ramesh 2022)"
+      "builds_on": "DDPM (Ho 2020), DiT (Peebles 2023)"
     }
   ]
 }

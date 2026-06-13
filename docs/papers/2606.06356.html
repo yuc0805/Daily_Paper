@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layered Knowledge Infusion in Multimodal Generative Models — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+<h2>Where Should Knowledge Enter? A Layered Framework for Knowledge Infusion in Multimodal Iterative Generative Models</h2>
+<p class="paper-meta">See arXiv listing &middot; arXiv 2026-06-04 &middot; <a href="https://arxiv.org/abs/2606.06356" target="_blank" rel="noopener">arXiv:2606.06356</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+<h3>What</h3><p>The paper studies where external knowledge should be injected into iterative generative models such as diffusion when the output must respect structured, domain-specific, or safety-critical constraints. It identifies four places knowledge can act: the input/output boundary, the transition function, the intermediate state, and the model parameters, mapping these to four intervention layers named surface, trajectory, latent, and parametric infusion. In a controlled safety-alignment experiment with two diffusion backbones, each added layer addressed failure classes the earlier layers could not reach, cutting knowledge-violating outputs by 70.97% relative to plain generation.</p>
+<h3>Why</h3><p>Multimodal generative models can stay unreliable when generation must follow rules that are structured, domain-specific, or safety-critical. Prior fixes tend to inject knowledge at one point, for example by editing the prompt or filtering the output, and it is not clear that any single point can catch every kind of violation. The paper asks a more basic question: given a kind of knowledge constraint, where in the generative process should it be enforced.</p>
+<h3>How</h3><p>The authors decompose an iterative generative process into four structurally distinct components and define an infusion layer at each: surface (input/output boundary), trajectory (transition function), latent (intermediate state), and parametric (model parameters). They then run a controlled safety-alignment study on two diffusion backbones, adding the layers in turn and measuring how many knowledge-violating outputs remain. The layers turn out to be complementary, each removing violations the others miss.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="GX7WR7KA.html">Denoising Diffusion Probabilistic Models (Ho 2020)</a><span class="lineage-note">The iterative denoising transition and intermediate states this framework treats as injection points.</span></li>
+<li><a href="YJ9TK993.html">DiT: Scalable Diffusion Models with Transformers (Peebles 2023)</a><span class="lineage-note">A Transformer-backbone diffusion model of the kind used as a testbed.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>DDPM (Ho 2020) defined a fixed denoising transition with no place to enforce external constraints, so a single injection point such as the prompt cannot reach failures that arise inside the trajectory or the latent state. This paper fixes that by exposing the transition and intermediate states as injection points and showing that different constraint types need different layers.</p>
+<h3>Method vs predecessors</h3><p>Compared to DiT (Peebles 2023), which scaled the diffusion backbone but kept a single path for conditioning, this paper holds the backbone fixed and varies the infusion layer instead, treating "where knowledge enters" as the design variable. The result is a map from type of constraint to layer of intervention, rather than a new backbone.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Also a conditional multimodal generator; conditions at the input boundary rather than across multiple infusion layers.</span></li>
+</ul>
+</div>
+</body>
+</html>

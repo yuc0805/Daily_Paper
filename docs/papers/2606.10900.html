@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personalized Forecasting of Impending Atrial Fibrillation — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Personalized Deep Learning for Short-Term Forecasting of Impending Atrial Fibrillation from Continuous Wearable ECG Signals</h2>
+<p class="paper-meta">Suh, Kwon, Ko, Kim, Song, Choi, Rhee &middot; arXiv 2026-06-09 &middot; <a href="https://arxiv.org/abs/2606.10900" target="_blank" rel="noopener">arXiv:2606.10900</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3><p>The paper tests whether personalizing a global ECG model by fine-tuning on a single patient's own signals improves short-term forecasting of impending atrial fibrillation. A global model trained on the ICENTIA11K dataset is compared against personalized models fine-tuned across three cohorts (ICENTIA11K, IRIDIA-AF, and MobiCARE), using 60-second ECG segments to forecast over a five-minute horizon. Personalized models reach AUROCs of 0.711 versus 0.614 on ICENTIA11K and 0.686 versus 0.585 on MobiCARE, and feature attributions point to precursors such as premature atrial complexes and short supraventricular tachycardias.</p>
+<h3>Why</h3><p>Continuous wearable ECG is increasingly used for ambulatory arrhythmia surveillance, but forecasting impending atrial fibrillation is hard because ECG morphology varies a lot between patients. A single global model has to average over that variability, which limits how well it can flag an event for any one person. The paper asks whether adapting the model to the individual recovers the accuracy lost to inter-patient variability.</p>
+<h3>How</h3><p>A global model is first trained on the large ICENTIA11K dataset. For each patient, the global model is then fine-tuned on that patient's own ECG segments to produce a personalized model. The authors vary how much patient-specific data is used for adaptation and measure the effect on forecasting AUROC, and they analyze ECG features such as heart rate and RMSSD around pre-AF episodes. The benefit of personalization grows with the amount of patient-specific fine-tuning data.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Frames the global-pretraining approach this paper personalizes.</span></li>
+<li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">Established adapting a general model to individual health signals with little data.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>Biosignal foundation models (Gu 2025) aim for one global model usable across patients, but that design is exactly what inter-patient ECG variability degrades for impending-AF forecasting. This paper fixes the failure mode by adapting the global model per patient, recovering a large share of the lost AUROC rather than trying to build a larger or better global model.</p>
+<h3>Method vs predecessors</h3><p>Compared to few-shot health learning (Liu 2023), which adapts a general model to a health task with a small labeled set, this paper applies the same adaptation at the granularity of one patient's ECG and quantifies how the benefit scales with adaptation data. The technical move is plain fine-tuning for personalization rather than a new architecture, used as a form of test-time adaptation for a wearable signal.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Same modality and goal; differs by aiming for one global model rather than per-patient adaptation.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hypnos: Next-Token Prediction for Sleep Physiology — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/self-supervised.html" class="back-link">&larr; Back to Area</a>
+<h2>Next-Token Prediction Learns Generalisable Representations of Sleep Physiology</h2>
+<p class="paper-meta">Cai et al. &middot; arXiv 2026-06-08 &middot; <a href="https://arxiv.org/abs/2606.09605" target="_blank" rel="noopener">arXiv:2606.09605</a> &middot; Appears in: <a href="../areas/self-supervised.html">Self-Supervised / Bio-Signals</a></p>
+<h3>What</h3><p>The paper introduces Hypnos, a large autoregressive RQ-Transformer trained by multi-modal next-token prediction on physiological sensor streams. Each of eight modalities, including EEG, ECG, and respiratory signals, is converted into a stream of discrete tokens by residual vector quantization, and the model is trained to predict the next token across more than 20,000 overnight polysomnography recordings. The learned representations transfer to downstream health tasks, and the model generalizes beyond sleep to daytime physiology, where it surpasses a dedicated ECG foundation model at detecting atrial fibrillation.</p>
+<h3>Why</h3><p>Foundation models promise compact representations of multi-modal physiological signals for use across sleep medicine, cardiology, and neurology. The two standard self-supervised recipes do not fit the data well. Masked reconstruction assumes a signal that is largely predictable from surrounding context, which clashes with the stochastic nature of physiological recordings. Contrastive learning needs a definition of positive pairs, but the semantic invariances of physiological signals are not well understood, so that definition is hard to set. The paper looks for a single objective that avoids both problems.</p>
+<h3>How</h3><p>Each modality is tokenized with residual vector quantization, turning a continuous waveform into a sequence of discrete codes. A large autoregressive RQ-Transformer is then trained to predict the next token over the combined multi-modal stream, the same objective used to train language models. Because training only requires the raw sensor streams, the model can be applied to any subset of the supported modalities at inference time and to continuous recordings, including daytime data it was not specifically trained for.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Catalogued the masked-reconstruction and contrastive recipes that Hypnos argues against and replaces with next-token prediction.</span></li>
+<li><a href="6INGKIJV.html">How Mask Matters: MAE Theory (Zhang 2023)</a><span class="lineage-note">Explained why masked reconstruction works; Hypnos questions its fit for stochastic physiological signals.</span></li>
+<li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">The autoregressive Transformer that the next-token objective runs on.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>The biosignal survey (Gu 2025) presented masked reconstruction and contrastive learning as the main options for self-supervised pretraining on physiological data. Both carry assumptions that physiological signals break: reconstruction assumes predictability that stochastic signals lack, and contrastive learning assumes known invariances that physiology does not provide. Hypnos fixes this by removing both assumptions, using next-token prediction on quantized tokens, which needs neither a reconstruction target in signal space nor a positive-pair definition.</p>
+<h3>Method vs predecessors</h3><p>Compared to masked-autoencoder pretraining (Zhang 2023), which masks and reconstructs in the original signal space, Hypnos discretizes the signal first and then models it autoregressively, so the learning happens over tokens rather than raw amplitudes. Compared to the Transformer of Vaswani 2017 as used for language, the architecture is the same in spirit but the input is residual-vector-quantized physiological tokens across eight modalities rather than word pieces, which lets one model span sensors and the sleep/wake boundary.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">Also adapts general sequence models to physiological signals, but through prompting rather than autoregressive pretraining.</span></li>
+<li><a href="3LA8GNCU.html">HeAR: Health Acoustic Representations (Baur 2024)</a><span class="lineage-note">Another self-supervised health foundation model; uses acoustic masked modeling where Hypnos uses next-token prediction.</span></li>
+</ul>
+</div>
+</body>
+</html>
