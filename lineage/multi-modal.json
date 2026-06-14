@@ -78,6 +78,22 @@
       "target_label": "TIGER: Graph-Based Evidence Routing for Hallucination Repair (2026)",
       "relation": "builds_on",
       "note": "TIGER generalizes medical VQA hallucination analysis into a domain-agnostic claim-observation graph repair framework."
+    },
+    {
+      "source": "ho2020_ddpm",
+      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+      "target": "2606.06356",
+      "target_label": "Where Should Knowledge Enter? A Layered Framework for Knowledge Infusion in Multimodal Iterative Generative Models (2026)",
+      "relation": "builds_on",
+      "note": "Where DDPM defined a fixed denoising transition with no place for external constraints, this paper treats that transition and its intermediate states as injection points for knowledge."
+    },
+    {
+      "source": "peebles2023_dit",
+      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+      "target": "2606.06356",
+      "target_label": "Where Should Knowledge Enter? A Layered Framework for Knowledge Infusion in Multimodal Iterative Generative Models (2026)",
+      "relation": "builds_on",
+      "note": "Where DiT scaled the diffusion backbone without changing how knowledge enters, this paper holds the backbone fixed and varies the infusion layer instead."
     }
   ],
   "hyperedges": [],

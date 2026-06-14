@@ -680,6 +680,22 @@
       "target_label": "Bridging the Last Mile of Time Series Forecasting with LLM Agents",
       "relation": "builds_on",
       "note": "The last-mile agent wraps a foundation model forecast (like Sundial) and applies structured revisions using domain context."
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2606.10900",
+      "target_label": "Personalized Deep Learning for Short-Term Forecasting of Impending Atrial Fibrillation from Wearable ECG (2026)",
+      "relation": "builds_on",
+      "note": "Where biosignal foundation models aim for one global model across patients, this paper shows inter-patient ECG variability holds the global model back and per-patient fine-tuning recovers much of the lost accuracy."
+    },
+    {
+      "source": "liu2023_health_llm",
+      "source_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
+      "target": "2606.10900",
+      "target_label": "Personalized Deep Learning for Short-Term Forecasting of Impending Atrial Fibrillation from Wearable ECG (2026)",
+      "relation": "builds_on",
+      "note": "Where few-shot health learning adapted a general model to health tasks with small labeled sets, this paper applies the same idea at the level of a single patient's ECG and quantifies how the benefit scales with adaptation data."
     }
   ],
   "hyperedges": [
