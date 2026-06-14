@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brain-guided language models for robust reasoning — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Beyond representational alignment with brain-guided language models for robust reasoning</h2>
+<p class="paper-meta">Xiao, Du, Lin et al. &middot; arXiv 2026-06 &middot; <a href="https://arxiv.org/abs/2606.11893" target="_blank" rel="noopener">arXiv:2606.11893</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3>
+<p>The paper asks whether a language model's internal representations match human brain activity during deductive reasoning, and whether those brain signals can be used to make the model reason better. Using a task-specific fMRI dataset, the authors measure a neural-predictivity score and then steer model representations along directions defined by the joint structure of model and brain activity, both at inference and during fine-tuning. Across ten models from 1.5B to 72B parameters the method raises deductive-reasoning accuracy by up to 13 percentage points, with transfer across reasoning types.</p>
+<h3>Why</h3>
+<p>Language models reach strong scores on reasoning benchmarks but still fail on simple problems outside their training distribution, which raises the question of whether next-token prediction alone yields generalizable reasoning. Prior NeuroAI work compared model and brain representations as a measurement, a correlation reported as a "brain score", but did not use the brain signal to change the model. Improving reasoning has otherwise relied on prompting or reinforcement learning over the model's own text, both of which stay inside language. This paper looks for a supervision source that language alone cannot provide.</p>
+<h3>How</h3>
+<p>The authors first show that model representations explain roughly 76% of the explainable variance in aggregate neural responses across deductive-reasoning regions, but only about 27% within specific reasoning types, so the alignment is partial and selective for the reasoning network over language and multiple-demand regions. They then form steering directions from the shared structure of model and brain representations and apply them as an inference-time intervention and as a fine-tuning signal. The reported gains are orthogonal to language-only supervision and hold across model scales and reasoning types.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">The language-only reasoning baseline this paper tries to move past by changing internal representations rather than the prompt.</span></li>
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Improves reasoning with reinforcement learning over the model's own outputs; the brain-guided gains are reported as orthogonal to such language-only supervision.</span></li>
+<li><a href="M963842L.html">Brain Science Foundation Models</a><span class="lineage-note">The brain-signal side of the work, foundation modeling applied to neural data in your library.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Chain-of-Thought and DeepSeek-R1 both improve reasoning using signals that come from language: written intermediate steps in one case, reward over generated text in the other. Both leave a model that still misses simple out-of-distribution problems. This paper addresses that failure mode by adding a non-language signal, human neural activity from reasoning regions, and showing it lifts accuracy where language-only methods plateau, by up to 13 points across ten models.</p>
+<h3>Method vs predecessors</h3>
+<p>Chain-of-Thought edits the input text and DeepSeek-R1 edits the weights through reinforcement learning over outputs. This paper instead edits the representation directly, using directions derived from the joint model-brain structure, and can apply the edit at inference without any weight change. Compared to earlier NeuroAI work that stopped at reporting a brain score, the step here is from measuring alignment to using it as a control signal.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="NEKX3K3N.html">Machine Theory of Mind (Rabinowitz 2018)</a><span class="lineage-note">Earlier link between cognitive-science constructs and model internals, in the LLM Agents and Reasoning community.</span></li>
+<li><a href="EMXEJYHV.html">Latent Reasoning Survey</a><span class="lineage-note">Surveys reasoning that happens in representation space rather than in emitted text.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-13",
+  "date": "2026-06-14",
   "papers": [
     {
-      "zotero_key": "2606.09605",
-      "title": "Next-Token Prediction Learns Generalisable Representations of Sleep Physiology",
-      "authors": "Cai et al.",
+      "zotero_key": "2606.11893",
+      "title": "Beyond representational alignment with brain-guided language models for robust reasoning",
+      "authors": "Xiao et al.",
       "year": 2026,
-      "what": "Hypnos tokenizes eight physiological modalities with residual vector quantization and trains an autoregressive RQ-Transformer by next-token prediction, beating a dedicated ECG model at atrial-fibrillation detection.",
-      "area_label": "Self-Supervised / Bio-Signals",
-      "area_slug": "self-supervised",
-      "builds_on": "Foundation Models for Biosignals (Gu 2025), MAE Theory (Zhang 2023), Attention Is All You Need (Vaswani 2017)"
+      "what": "Human fMRI signals from reasoning regions are turned into steering directions that raise deductive-reasoning accuracy by up to 13 points across ten LLMs (1.5B-72B), with gains orthogonal to language-only training.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "Chain-of-Thought (Wei 2023), DeepSeek-R1 (2025), Brain Science Foundation Models"
     },
     {
-      "zotero_key": "2606.10900",
-      "title": "Personalized Deep Learning for Short-Term Forecasting of Impending Atrial Fibrillation from Continuous Wearable ECG Signals",
-      "authors": "Suh et al.",
-      "year": 2026,
-      "what": "Per-patient fine-tuning of a global wearable-ECG model lifts impending-AF forecasting AUROC from 0.614 to 0.711 on ICENTIA11K, with gains that grow with adaptation data.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "Foundation Models for Biosignals (Gu 2025), LLMs are Few-Shot Health Learners (Liu 2023)"
-    },
-    {
-      "zotero_key": "2606.08656",
-      "title": "From Player to Master: Enhancing Test-Time Learning of LLM Agents via Reinforcement Learning over Memory",
-      "authors": "Cai et al.",
-      "year": 2026,
-      "what": "MemoPilot trains an LLM agent's memory-update process with multi-turn GRPO, ranking first in Elo on Rock-Paper-Scissors and Limit Texas Hold'em over hand-designed memory rules.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026), DeepSeek-R1 (2025)"
-    },
-    {
-      "zotero_key": "2606.06356",
-      "title": "Where Should Knowledge Enter? A Layered Framework for Knowledge Infusion in Multimodal Iterative Generative Models",
+      "zotero_key": "2606.11680",
+      "title": "Organize then Retrieve: Hierarchical Memory Navigation for Efficient Agents",
       "authors": "See arXiv listing",
       "year": 2026,
-      "what": "A four-layer map (surface, trajectory, latent, parametric) for injecting knowledge into diffusion models cuts knowledge-violating outputs by 70.97% in a safety-alignment study.",
+      "what": "HORMA organizes agent experience into a file-system-like hierarchy with summaries pointing to raw trajectories, keeping detail reachable while holding the working context small on long-horizon tasks.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "Memory Mechanisms Survey (Huang 2026), Agent AI Survey (Durante 2024)"
+    },
+    {
+      "zotero_key": "2606.11854",
+      "title": "Fine-tuning Multi-modal LLMs with ART: Art-based Reinforcement Training",
+      "authors": "See arXiv listing",
+      "year": 2026,
+      "what": "ART specializes a frozen multimodal LLM by optimizing only its raw pixel input, keeping the model's computational graph untouched so it stays usable in high-throughput serving engines.",
       "area_label": "Multi-Modal",
       "area_slug": "multi-modal",
-      "builds_on": "DDPM (Ho 2020), DiT (Peebles 2023)"
+      "builds_on": "No direct library parent; closest neighbors SigLIP (Zhai 2023), PyVision (Zhao 2025)"
+    },
+    {
+      "zotero_key": "2606.11166",
+      "title": "Flaws in the LLM Automation Narrative",
+      "authors": "Perrett et al.",
+      "year": 2026,
+      "what": "A code-writing data-analysis benchmark with human expert baselines shows experts beat a frontier LLM on average and vary less, arguing benchmarks must report variance and error magnitude, not just mean accuracy.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "CounselBench (Li 2025), DeepSeek-R1 (2025)"
     }
   ]
 }

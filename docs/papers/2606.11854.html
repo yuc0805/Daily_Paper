@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ART: Art-based Reinforcement Training — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+<h2>Fine-tuning Multi-modal LLMs with ART: Art-based Reinforcement Training</h2>
+<p class="paper-meta">See arXiv listing &middot; arXiv 2026-06 &middot; <a href="https://arxiv.org/abs/2606.11854" target="_blank" rel="noopener">arXiv:2606.11854</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+<h3>What</h3>
+<p>ART adapts a frozen multimodal LLM by optimizing only its raw visual input. Gradients are backpropagated into a plain pixel array, so any fine-tuning objective can be used, and the optimized image ends up looking like task-relevant computational artwork. Because the model itself is untouched, the method stays usable inside high-throughput serving engines.</p>
+<h3>Why</h3>
+<p>The two common parameter-efficient fine-tuning methods both edit the model's computational graph: LoRA inserts extra weights between layers, and soft prompting inserts extra trainable tokens. That editing is not fully supported by precompiled, preoptimized engines like vLLM, so adapting a deployed model is awkward. The paper looks for a way to specialize a frozen multimodal model without changing anything inside it.</p>
+<h3>How</h3>
+<p>ART places all trainable parameters in the input image rather than the model. It optimizes the pixels directly through backpropagation against the chosen objective, combining adversarial reprogramming (repurposing a frozen model through its input) with parameter-efficient fine-tuning and reinforcement-style training for reasoning. After training, the only change at deployment is the image shown to the model, so the serving graph is preserved.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li>No direct predecessor in your library. The technique draws on adversarial reprogramming and visual prompt engineering, neither currently indexed.</li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>LoRA and soft prompting both require modifying a precompiled model, which blocks clean use in high-throughput engines. ART removes that requirement by moving the trainable parameters out of the model and into the pixels, so a frozen, already-served model can be specialized without graph surgery.</p>
+<h3>Method vs predecessors</h3>
+<p>Soft prompting learns extra input tokens; ART learns the input image instead, in raw pixel space. This keeps the soft-token idea but applies it where the model is frozen and precompiled, trading token-space adaptation for image-space adaptation.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Also adapts a frozen vision-capable model at the input and tool level rather than by retraining.</span></li>
+<li><a href="FPEC4PIH.html">Large Multimodal Reasoning Survey</a><span class="lineage-note">Surveys the multimodal-reasoning landscape ART's objective targets.</span></li>
+</ul>
+</div>
+</body>
+</html>
