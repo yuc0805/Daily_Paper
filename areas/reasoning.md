@@ -26,6 +26,7 @@
 2026-06 | HybridThinker (2606.03768) | CoT compression via memory tokens plus transient thought steps
 2026-06 | QUBRIC (2606.03968) | co-designed queries and rubrics extend RL beyond verifiable rewards
 2026-06 | NF-CoT (2606.06447) | normalizing flow head replaces explicit CoT with compact latent thought states
+2026-06 | PauseRec (2606.14142) | implicit pause-step reasoning for LLM generative recommendation; cheaper than explicit CoT
 ### Paper List
 
 [KNOWN] [2025] Shen et al. — CODI. zotero_key:FFWLYL3J.
@@ -52,11 +53,12 @@
 [2026] 2606.03768 — HybridThinker: Efficient Chain-of-Thought Reasoning via Compressed Memory and Transient Thought Steps. [https://arxiv.org/abs/2606.03768](https://arxiv.org/abs/2606.03768). external.
 [2026] 2606.03968 — QUBRIC: Co-Designing Queries and Rubrics for RL Beyond Verifiable Rewards. [https://arxiv.org/abs/2606.03968](https://arxiv.org/abs/2606.03968). external.
 [2026] 2606.06447 — Latent Reasoning with Normalizing Flows (NF-CoT). [https://arxiv.org/abs/2606.06447](https://arxiv.org/abs/2606.06447). external.
+[2026] 2606.14142 — PauseRec: Implicit Reasoning for LLM-based Generative Recommendation. [https://arxiv.org/abs/2606.14142](https://arxiv.org/abs/2606.14142). external.
 
 ### Recent Activity
 
+2026-06-17 | 2606.14142 added | implicit pause-step reasoning replaces explicit CoT for generative recommendation; up to +6.22% accuracy, 65% fewer GPU hours; Tier B
 2026-06-10 | 2606.06447 added | normalizing flow inside transformer backbone for latent reasoning; exact density; cuts CoT token cost; Tier A
 2026-06-06 | 2606.03965 added | MDP controller steers a frozen reasoner with budget-aware inference; Tier A
 2026-06-06 | 2606.03768 added | CoT compression via memory tokens plus transient thought retention; Tier B
 2026-06-06 | 2606.03968 added | co-designed queries and rubrics extend RL training to open-ended tasks; Tier B
-2026-06-05 | 2506.14965 added | 92K cross-domain RL corpus for LLM reasoning; transfer conditional on pretraining coverage; SOTA open RL models; Tier A

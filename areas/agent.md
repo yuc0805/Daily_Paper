@@ -23,6 +23,7 @@
 2026-06 | APB (2606.04874) | diagnostic benchmark separating planning sub-skills across 22 domains
 2026-06 | Vivaldi (2603.04142) | multi-agent physiological time-series interpretation
 2026-06 | MemoPilot (2606.08656) | plug-in memory copilot trained via multi-turn GRPO for agent test-time learning
+2026-06 | LLM-as-an-Investigator (2606.13220) | evidence-first reasoning for robust interactive problem diagnosis
 ### Paper List
 
 [KNOWN] [2018] Rabinowitz et al. — Machine Theory of Mind. zotero_key:NEKX3K3N.
@@ -50,10 +51,12 @@
 
 [2026] 2606.08656 — MemoPilot: Enhancing Test-Time Learning of LLM Agents via RL over Memory. [https://arxiv.org/abs/2606.08656](https://arxiv.org/abs/2606.08656). external.
 
+[2026] 2606.13220 — LLM-as-an-Investigator: Evidence-First Reasoning for Robust Interactive Problem Diagnosis. [https://arxiv.org/abs/2606.13220](https://arxiv.org/abs/2606.13220). external.
+
 ### Recent Activity
 
+2026-06-17 | 2606.13220 added | reorders the agent loop so evidence collection precedes hypothesis commitment; robustness when the first guess is wrong; Tier B
 2026-06-10 | 2606.08656 added | plug-in memory copilot with multi-turn GRPO for agent memory-update policy; Tier B
 2026-06-09 | 2603.04142 added | role-structured multi-agent system for physiological TS; agentic benefit is model-dependent; Tier B
 2026-06-08 | 2606.04874 added | diagnostic benchmark isolating planning sub-skills from execution across 22 domains; Tier B
 2026-06-07 | 2606.01041 added | latent experience retrieval replaces text-based few-shot with cross-attention; +6.8% over strongest baseline; Tier A
-2026-06-06 | 2606.03892 added | programmatic rewards for multi-step tool use trained on 13K stateful MCP trajectories; Tier B

@@ -94,6 +94,56 @@
       "target_label": "Where Should Knowledge Enter? A Layered Framework for Knowledge Infusion in Multimodal Iterative Generative Models (2026)",
       "relation": "builds_on",
       "note": "Where DiT scaled the diffusion backbone without changing how knowledge enters, this paper holds the backbone fixed and varies the infusion layer instead."
+    },
+    {
+      "source": "ramesh2022_dalle2",
+      "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+      "target": "2606.11188",
+      "target_label": "ARM: AutoRegressive Large Multimodal Model with Unified Discrete Representations (2026)",
+      "relation": "builds_on",
+      "note": "Where DALL-E 2 generates images through a separate diffusion path, ARM unifies understanding and generation as one next-token stream over discrete tokens."
+    },
+    {
+      "source": "peebles2023_dit",
+      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+      "target": "2606.11188",
+      "target_label": "ARM: AutoRegressive Large Multimodal Model with Unified Discrete Representations (2026)",
+      "relation": "builds_on",
+      "note": "Where DiT scales a diffusion backbone with iterative denoising, ARM replaces denoising with autoregressive next-token prediction over a shared discrete latent."
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2606.11188",
+      "target_label": "ARM: AutoRegressive Large Multimodal Model with Unified Discrete Representations (2026)",
+      "relation": "builds_on",
+      "note": "ARM reuses the next-token transformer backbone for both image understanding and generation in a single model.",
+      "cross_area": true
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2606.11188",
+      "target_label": "ARM: AutoRegressive Large Multimodal Model with Unified Discrete Representations (2026)",
+      "relation": "builds_on",
+      "note": "Where DeepSeek-R1 used reinforcement-learning post-training for text reasoning, ARM shows the same step transfers to image generation and editing.",
+      "cross_area": true
+    },
+    {
+      "source": "hong2026_deepeyesv2",
+      "source_label": "DeepEyesV2: Agentic Multimodal Model (Hong 2026)",
+      "target": "2606.13192",
+      "target_label": "Reasoning for Mobile User Experience with Multimodal LLMs (UXBench, 2026)",
+      "relation": "builds_on",
+      "note": "Where DeepEyesV2 reasons over general images with tools, UXBench fixes the image type to user interfaces and demands a checkable fault diagnosis."
+    },
+    {
+      "source": "zhao2025_pyvision",
+      "source_label": "PyVision: Agentic Vision with Dynamic Tooling (Zhao 2025)",
+      "target": "2606.13192",
+      "target_label": "Reasoning for Mobile User Experience with Multimodal LLMs (UXBench, 2026)",
+      "relation": "builds_on",
+      "note": "Where PyVision applies dynamic tooling to general vision, UXBench constrains the domain so the reasoning is measurable against ground truth."
     }
   ],
   "hyperedges": [],

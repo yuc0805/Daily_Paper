@@ -286,6 +286,23 @@
       "target_label": "Latent Reasoning with Normalizing Flows (NF-CoT)",
       "relation": "builds_on",
       "note": "Replaces GRPO reward-based approximation with normalizing-flow exact log-likelihoods in latent reasoning space."
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2606.14142",
+      "target_label": "PauseRec: Implicit Reasoning for LLM-based Generative Recommendation (2026)",
+      "relation": "builds_on",
+      "note": "Where Chain-of-Thought writes the reasoning out as text, PauseRec keeps the extra computation but drops the text through inserted pause steps."
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2606.14142",
+      "target_label": "PauseRec: Implicit Reasoning for LLM-based Generative Recommendation (2026)",
+      "relation": "builds_on",
+      "note": "Where DeepSeek-R1 trains long explicit reasoning traces, PauseRec reaches most of the benefit at lower training cost with implicit pauses.",
+      "cross_area": true
     }
   ],
   "hyperedges": [],

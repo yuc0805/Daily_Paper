@@ -361,6 +361,22 @@
       "relation": "builds_on",
       "note": "MemoPilot adapts the GRPO training recipe from R1 to optimize multi-turn memory updates.",
       "cross_area": true
+    },
+    {
+      "source": "prasad2023_adapt",
+      "source_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
+      "target": "2606.13220",
+      "target_label": "LLM-as-an-Investigator: Evidence-First Reasoning for Robust Interactive Problem Diagnosis (2026)",
+      "relation": "builds_on",
+      "note": "Where ADaPT decomposes a task into sub-plans on demand, this paper reorders the loop so evidence collection precedes commitment to a hypothesis."
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2606.13220",
+      "target_label": "LLM-as-an-Investigator: Evidence-First Reasoning for Robust Interactive Problem Diagnosis (2026)",
+      "relation": "builds_on",
+      "note": "Where LATS searches over action trees, this paper gathers evidence first to avoid the premature-hypothesis failure mode both planning and search inherit."
     }
   ],
   "hyperedges": [

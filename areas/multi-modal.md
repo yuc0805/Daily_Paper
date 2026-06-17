@@ -14,6 +14,8 @@
 
 2026-06 | TIGER (2606.00232) | graph-based evidence routing for multimodal hallucination repair
 2026-06 | Layered Knowledge Infusion (2606.06356) | maps four knowledge-injection points in iterative generative models to four intervention layers
+2026-06 | ARM (2606.11188) | unified autoregressive multimodal model over discrete tokens for understanding, generation, and editing
+2026-06 | UXBench (2606.13192) | multimodal benchmark for fine-grained user-interface experience diagnosis
 
 ### Paper List
 
@@ -30,10 +32,13 @@
 [2026] 2606.00232 — TIGER: Traceable Inference with Graph-Based Evidence Routing for Mitigating Hallucinations. [https://arxiv.org/abs/2606.00232](https://arxiv.org/abs/2606.00232). external.
 [2026] 2606.06356 — Where Should Knowledge Enter? A Layered Framework for Knowledge Infusion in Multimodal Iterative Generative Models. [https://arxiv.org/abs/2606.06356](https://arxiv.org/abs/2606.06356). external.
 
+[2026] 2606.11188 — ARM: An AutoRegressive Large Multimodal Model with Unified Discrete Representations. [https://arxiv.org/abs/2606.11188](https://arxiv.org/abs/2606.11188). external.
+[2026] 2606.13192 — Reasoning for Mobile User Experience with Multimodal LLMs: Task, Benchmark, and Approach. [https://arxiv.org/abs/2606.13192](https://arxiv.org/abs/2606.13192). external.
+
 ### Recent Activity
 
+2026-06-17 | 2606.11188 added | unified autoregressive multimodal model over discrete tokens; understanding, generation, and editing in one backbone with RL post-training; Tier A
+2026-06-17 | 2606.13192 added | UXBench: 2,000-sample multimodal benchmark for fine-grained user-interface experience diagnosis; Tier B
 2026-06-13 | 2606.06356 added | layered knowledge infusion into diffusion-style generation; complementary surface, trajectory, latent, and parametric layers cut knowledge-violating outputs by 70.97%; Tier B
 2026-06-09 | 2606.00232 added | inference-time hallucination repair via observation and claim graphs with risk-ranked repair budget; Tier B
 2026-05-31 | 2605.10120 added | attributed property graph grounds a multimodal LLM in microscopy images; Tier B
-2026-05-31 | 2605.28456 added | diffusion-LLM lip reading with confidence-ordered unmasking; 19.5% WER on LRS3; Tier B
-2026-05-14 | Area page seeded | 6 papers from Zotero, 1 from graphify seed.
