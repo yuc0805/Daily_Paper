@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PauseRec: Implicit Reasoning for LLM-based Generative Recommendation — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>PauseRec: Implicit Reasoning for LLM-based Generative Recommendation</h2>
+<p class="paper-meta">See arXiv listing &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.14142" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3>
+<p>PauseRec adds a lightweight implicit-reasoning step to LLM-based generative recommendation. Instead of writing out an explicit chain of thought before predicting the next item, the model reasons internally through inserted "pause" steps. The authors report up to 6.22% higher recommendation accuracy than explicit chain-of-thought prompting and up to 65% fewer GPU hours in training.</p>
+<h3>Why</h3>
+<p>Explicit chain-of-thought spends tokens writing reasoning out, which is slow to train and serve. For recommendation, where the output is a ranked item rather than an argument, the written rationale is largely overhead. The question is whether the computation behind reasoning can be kept while the text is dropped.</p>
+<h3>How</h3>
+<p>The model inserts "pause" steps that give it extra internal computation before it predicts the next item, without producing reasoning text. This implicit budget captures most of the benefit of explicit reasoning at lower cost, which the reported accuracy gain and GPU-hour reduction support.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Explicit step-by-step reasoning written as text.</span></li>
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Long explicit reasoning traces trained with reinforcement learning.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Where Chain-of-Thought and DeepSeek-R1 make the reasoning explicit and costly, PauseRec keeps the extra computation but removes the text, because for ranking the final item the rationale is overhead rather than signal. The result is comparable or better accuracy at lower training cost.</p>
+<h3>Method vs predecessors</h3>
+<p>The parents externalize reasoning as tokens the model must generate; PauseRec internalizes it as additional compute steps that emit no text. This is the same reasoning-budget idea applied without the language overhead, specialized to a ranking output.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Reasoning-budget training, here made implicit.</span></li>
+</ul>
+</div>
+</body>
+</html>

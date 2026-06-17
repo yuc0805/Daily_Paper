@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reasoning for Mobile User Experience with Multimodal LLMs — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+<h2>Reasoning for Mobile User Experience with Multimodal LLMs: Task, Benchmark, and Approach</h2>
+<p class="paper-meta">Mao et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.13192" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+<h3>What</h3>
+<p>The paper introduces UXBench, a multimodal benchmark of 2,000 visual-question-answering samples built on real-world user-interface screenshots. Eight tasks require fine-grained diagnosis of user-experience problems across layout relationships, visual hierarchy, and content consistency. The benchmark is paired with a reasoning approach tuned for screen understanding.</p>
+<h3>Why</h3>
+<p>Multimodal models can describe a screen, but describing is not diagnosing. Prior agentic multimodal work reasons over general images without a ground-truth answer for what is wrong, so progress is hard to measure. A constrained domain with labeled faults turns open-ended description into a checkable task.</p>
+<h3>How</h3>
+<p>UXBench fixes the image type to user interfaces and labels specific faults, so a model must localize and explain a design problem rather than caption the screen. The eight tasks span layout relationships, visual hierarchy, and content consistency, giving fine-grained targets. The accompanying approach is tuned for this screen-reasoning setting.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Agentic multimodal model that looks at images and acts with tools.</span></li>
+<li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Agentic vision with dynamic tooling over general images.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Where DeepEyesV2 and PyVision reason over general images without a fixed correct answer, this paper constrains the domain to user interfaces and supplies labeled faults, so the reasoning becomes measurable. The failure mode it addresses is unverifiable, open-ended description.</p>
+<h3>Method vs predecessors</h3>
+<p>The parents add tools and dynamic action to a vision model; this paper instead invests in a task and dataset that demand fine-grained localization plus explanation, with the method built to fit that target. The portable idea is the diagnostic benchmark design, not a new agent architecture.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2606.11188.html">ARM (Wang 2026)</a><span class="lineage-note">Multimodal model unifying understanding and generation; shares the perception side.</span></li>
+</ul>
+</div>
+</body>
+</html>

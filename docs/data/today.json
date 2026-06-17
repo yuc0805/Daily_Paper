@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-14",
+  "date": "2026-06-17",
   "papers": [
     {
-      "zotero_key": "2606.11893",
-      "title": "Beyond representational alignment with brain-guided language models for robust reasoning",
-      "authors": "Xiao et al.",
+      "zotero_key": "2606.11188",
+      "title": "ARM: An AutoRegressive Large Multimodal Model with Unified Discrete Representations",
+      "authors": "Wang et al.",
       "year": 2026,
-      "what": "Human fMRI signals from reasoning regions are turned into steering directions that raise deductive-reasoning accuracy by up to 13 points across ten LLMs (1.5B-72B), with gains orthogonal to language-only training.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "Chain-of-Thought (Wei 2023), DeepSeek-R1 (2025), Brain Science Foundation Models"
-    },
-    {
-      "zotero_key": "2606.11680",
-      "title": "Organize then Retrieve: Hierarchical Memory Navigation for Efficient Agents",
-      "authors": "See arXiv listing",
-      "year": 2026,
-      "what": "HORMA organizes agent experience into a file-system-like hierarchy with summaries pointing to raw trajectories, keeping detail reachable while holding the working context small on long-horizon tasks.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026), Agent AI Survey (Durante 2024)"
-    },
-    {
-      "zotero_key": "2606.11854",
-      "title": "Fine-tuning Multi-modal LLMs with ART: Art-based Reinforcement Training",
-      "authors": "See arXiv listing",
-      "year": 2026,
-      "what": "ART specializes a frozen multimodal LLM by optimizing only its raw pixel input, keeping the model's computational graph untouched so it stays usable in high-throughput serving engines.",
+      "what": "A 7B autoregressive model unifies image understanding, generation, and editing over discrete tokens; reinforcement-learning post-training raises WISE from 0.50 to 0.56 and GEdit-Bench-EN G_O from 5.75 to 6.68, with cross-task synergy between generation and editing.",
       "area_label": "Multi-Modal",
       "area_slug": "multi-modal",
-      "builds_on": "No direct library parent; closest neighbors SigLIP (Zhai 2023), PyVision (Zhao 2025)"
+      "builds_on": "DALL-E 2 (Ramesh 2022), DiT (Peebles 2023), Transformer (Vaswani 2017), DeepSeek-R1 (2025)"
     },
     {
-      "zotero_key": "2606.11166",
-      "title": "Flaws in the LLM Automation Narrative",
-      "authors": "Perrett et al.",
+      "zotero_key": "2606.13192",
+      "title": "Reasoning for Mobile User Experience with Multimodal LLMs: Task, Benchmark, and Approach",
+      "authors": "Mao et al.",
       "year": 2026,
-      "what": "A code-writing data-analysis benchmark with human expert baselines shows experts beat a frontier LLM on average and vary less, arguing benchmarks must report variance and error magnitude, not just mean accuracy.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "CounselBench (Li 2025), DeepSeek-R1 (2025)"
+      "what": "UXBench is a 2,000-sample multimodal benchmark over real UI screenshots with eight tasks that demand fine-grained diagnosis of user-experience faults across layout, visual hierarchy, and content consistency.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "DeepEyesV2 (Hong 2026), PyVision (Zhao 2025)"
+    },
+    {
+      "zotero_key": "2606.14142",
+      "title": "PauseRec: Implicit Reasoning for LLM-based Generative Recommendation",
+      "authors": "See arXiv listing",
+      "year": 2026,
+      "what": "PauseRec replaces explicit chain-of-thought with internal pause steps for generative recommendation, reporting up to 6.22% higher accuracy and up to 65% fewer GPU hours in training.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "Chain-of-Thought (Wei 2023), DeepSeek-R1 (2025)"
+    },
+    {
+      "zotero_key": "2606.13220",
+      "title": "LLM-as-an-Investigator: Evidence-First Reasoning for Robust Interactive Problem Diagnosis",
+      "authors": "See arXiv listing",
+      "year": 2026,
+      "what": "An agent that collects evidence before committing to a hypothesis, reordering the diagnosis loop so conclusions follow observations and the agent stays robust when its first guess is wrong.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "ADaPT (Prasad 2023), LATS (Zhou 2024)"
     }
   ]
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM-as-an-Investigator — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>LLM-as-an-Investigator: Evidence-First Reasoning for Robust Interactive Problem Diagnosis</h2>
+<p class="paper-meta">See arXiv listing &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.13220" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3>
+<p>The paper frames interactive problem diagnosis as evidence-gathering before conclusion. Rather than committing to a hypothesis and then justifying it, the agent is structured to collect evidence first and let the diagnosis follow from what it found. The setting is multi-turn interaction where the agent asks, observes, and revises.</p>
+<h3>Why</h3>
+<p>Planning and search agents tend to commit to an early hypothesis and then defend it, which fails when the first guess is wrong. In interactive diagnosis, where information arrives over several turns, an early wrong commitment is costly. The motivation is robustness against premature conclusions.</p>
+<h3>How</h3>
+<p>The agent reorders its loop so evidence collection precedes commitment: it gathers observations across turns and forms the diagnosis from accumulated evidence rather than from an initial guess. This evidence-first control is the structural change relative to plan-first or search-first agents.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">As-needed decomposition and planning of a task into sub-plans.</span></li>
+<li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Language agent tree search over action sequences.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Where ADaPT decomposes a task into sub-plans on demand and LATS searches over action trees, this paper reorders the loop so evidence collection precedes commitment, because premature hypotheses are the failure mode both planning and search inherit. The claim is robustness when the first guess is wrong.</p>
+<h3>Method vs predecessors</h3>
+<p>The parents optimize how to plan or search given a goal; this paper changes when the agent commits, putting evidence before hypothesis. It is a control-flow change to the agent loop rather than a new planner or search algorithm.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Tool-using agent that gathers observations before acting.</span></li>
+</ul>
+</div>
+</body>
+</html>
