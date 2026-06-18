@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uncertainty Quantification for Flow-Based VLA Models — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/generative-cv.html" class="back-link">&larr; Back to Area</a>
+<h2>Uncertainty Quantification for Flow-Based Vision-Language-Action Models</h2>
+<p class="paper-meta">See arXiv listing &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.18043" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/generative-cv.html">Generative CV</a></p>
+<h3>What</h3><p>This paper studies VLAs whose action head is a flow-matching generator trained on large robot datasets. It adds a way to quantify confidence in a generated action and to flag actions that may be unreliable, giving an out-of-distribution and low-confidence detector for flow-based action models.</p>
+<h3>Why</h3><p>Flow-based VLAs perform well on robotic manipulation but have no mechanism to report when a prediction is uncertain, which is a real risk in changing environments. Prior diffusion and flow work optimized sample quality, not calibrated confidence.</p>
+<h3>How</h3><p>The method attaches uncertainty estimates to the flow-matching action head so the model can signal low confidence and detect inputs outside its training distribution, without giving up the generative action quality the flow model provides.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Established denoising diffusion as a generative process; flow matching is the continuous-time relative.</span></li>
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Showed a Transformer can drive a diffusion model.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>DDPM and DiT produce realistic samples but say nothing about per-sample confidence. This paper fixes the missing-uncertainty failure for a deployed action model, where a confident wrong action is worse than an abstention.</p>
+<h3>Method vs predecessors</h3><p>Where DDPM and DiT define and scale the generative process, this work layers an uncertainty estimator on the flow-matching head, shifting the question from sample quality to calibrated confidence and out-of-distribution detection.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Direct parent; diffusion generative process.</span></li>
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Direct parent; Transformer diffusion backbone.</span></li>
+<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Same generative cluster (community 3).</span></li>
+</ul>
+</div>
+</body>
+</html>

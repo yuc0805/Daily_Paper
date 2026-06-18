@@ -3,43 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Infini Memory: Maintainable Topic Documents for Long-Term LLM Agent Memory — AI Knowledge Graph</title>
+<title>Infini Memory — AI Knowledge Graph</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <div class="paper-page">
-
 <a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
-
 <h2>Infini Memory: Maintainable Topic Documents for Long-Term LLM Agent Memory</h2>
-<p class="paper-meta">See paper &middot; arXiv 2026-06-09 &middot; <a href="https://arxiv.org/abs/2606.10677" target="_blank" rel="noopener">arXiv:2606.10677</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
-
-<h3>What</h3>
-<p>Infini Memory is a text-based persistent memory architecture for LLM agents: memory is a set of topic documents, each a semantic unit that collects related evidence, preserves metadata, and revises facts over time, instead of an append-only log or a vector store of isolated snippets.</p>
-
-<h3>Why</h3>
-<p>Agent memories that only append or only embed cannot express fact revision: when the world changes, stale and contradictory entries accumulate and retrieval quality decays over months of operation. The Huang 2026 survey flagged maintainability as an open problem; this paper is a direct answer.</p>
-
-<h3>How</h3>
-<p>Each topic document acts as the unit of both writing and retrieval. New evidence is routed to its topic, merged with existing content, and contradictions are resolved by revising the document rather than appending a competing entry. Metadata preserves provenance so revisions remain auditable. Summary is abstract-level; benchmark numbers were not available in accessible sources at digest time.</p>
-
+<p class="paper-meta">See arXiv listing &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.10677" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3><p>Infini Memory stores an agent's long-term memory as topic-structured text documents rather than a flat log or a vector store. Each topic document collects related evidence, keeps metadata, and is revised over time, so memory stays consistent and current across a long task.</p>
+<h3>Why</h3><p>Flat conversation logs grow without bound and vector stores lose factual consistency over long horizons, so an agent's memory becomes large, stale, and internally contradictory. The paper targets a memory structure that stays maintainable as the task runs.</p>
+<h3>How</h3><p>Memory is organized by topic. Each topic document acts as a semantic unit for collecting related evidence, preserving metadata, and revising facts as new information arrives, which supports more accurate retrieval than an undifferentiated store.</p>
 <h3>Builds on</h3>
 <ul class="lineage-list">
-  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Catalogued agent memory designs and flagged maintainability as the open problem this paper answers.</span></li>
+<li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Maps the design space of agent memory; Infini Memory commits to one point in it.</span></li>
 </ul>
-
-<h3>Solves vs predecessors</h3>
-<p>Append-only and embedding-only memories fail at fact revision: the agent retrieves both the old and the new version of a fact and cannot tell which holds. Topic documents with revision semantics fix this by making the current state of knowledge explicit and the history auditable.</p>
-
-<h3>Method vs predecessors</h3>
-<p>Where ExpWeaver and MemoPilot (yesterday's digest) move memory into latent space for efficiency, Infini Memory argues the opposite direction: plain text is what keeps long-term memory maintainable and inspectable. Where ToolkenGPT embedded knowledge into vocabulary, this approach keeps knowledge outside the model entirely.</p>
-
+<h3>Solves vs predecessors</h3><p>Where the survey describes categories of agent memory without choosing one, Infini Memory picks document-structured topic memory with revision, addressing the consistency failure that flat logs and vector stores both show on long-horizon tasks.</p>
+<h3>Method vs predecessors</h3><p>Instead of embedding-based retrieval over a flat store, the method keeps human-readable topic documents that can be revised in place, which makes stale-fact correction explicit rather than implicit in embedding similarity.</p>
 <h3>Related (semantically similar in your library)</h3>
 <ul class="lineage-list">
-  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Contrasting design point: knowledge embedded into the model rather than maintained outside it.</span></li>
-  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Community 0 anchor; memory documents serve as persistent context for reasoning chains.</span></li>
+<li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Direct parent; same agent-memory topic.</span></li>
+<li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Surveys multimodal agent interaction, including memory.</span></li>
 </ul>
-
 </div>
 </body>
 </html>

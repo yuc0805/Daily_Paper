@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-17",
+  "date": "2026-06-18",
   "papers": [
     {
-      "zotero_key": "2606.11188",
-      "title": "ARM: An AutoRegressive Large Multimodal Model with Unified Discrete Representations",
-      "authors": "Wang et al.",
+      "zotero_key": "2606.15714",
+      "title": "Beyond English: Uncovering the Multilingual Gap in Vision-Language-Action Models",
+      "authors": "Chen et al.",
       "year": 2026,
-      "what": "A 7B autoregressive model unifies image understanding, generation, and editing over discrete tokens; reinforcement-learning post-training raises WISE from 0.50 to 0.56 and GEdit-Bench-EN G_O from 5.75 to 6.68, with cross-task synergy between generation and editing.",
+      "what": "First systematic multilingual test for VLA models: translating LIBERO and SimplerEnv into four languages shows relative task success drops by about 28 to 47 points (up to 65 to 76 for weaker action heads) even with a multilingual backbone, and a principal-component alignment method (MPCA) recovers part of the gap.",
       "area_label": "Multi-Modal",
       "area_slug": "multi-modal",
-      "builds_on": "DALL-E 2 (Ramesh 2022), DiT (Peebles 2023), Transformer (Vaswani 2017), DeepSeek-R1 (2025)"
+      "builds_on": "DALL-E 2 (Ramesh 2022); SigLIP / SigLIP 2 (not in library)"
     },
     {
-      "zotero_key": "2606.13192",
-      "title": "Reasoning for Mobile User Experience with Multimodal LLMs: Task, Benchmark, and Approach",
-      "authors": "Mao et al.",
-      "year": 2026,
-      "what": "UXBench is a 2,000-sample multimodal benchmark over real UI screenshots with eight tasks that demand fine-grained diagnosis of user-experience faults across layout, visual hierarchy, and content consistency.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "DeepEyesV2 (Hong 2026), PyVision (Zhao 2025)"
-    },
-    {
-      "zotero_key": "2606.14142",
-      "title": "PauseRec: Implicit Reasoning for LLM-based Generative Recommendation",
+      "zotero_key": "2606.10677",
+      "title": "Infini Memory: Maintainable Topic Documents for Long-Term LLM Agent Memory",
       "authors": "See arXiv listing",
       "year": 2026,
-      "what": "PauseRec replaces explicit chain-of-thought with internal pause steps for generative recommendation, reporting up to 6.22% higher accuracy and up to 65% fewer GPU hours in training.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "Chain-of-Thought (Wei 2023), DeepSeek-R1 (2025)"
-    },
-    {
-      "zotero_key": "2606.13220",
-      "title": "LLM-as-an-Investigator: Evidence-First Reasoning for Robust Interactive Problem Diagnosis",
-      "authors": "See arXiv listing",
-      "year": 2026,
-      "what": "An agent that collects evidence before committing to a hypothesis, reordering the diagnosis loop so conclusions follow observations and the agent stays robust when its first guess is wrong.",
+      "what": "Stores agent long-term memory as topic-structured, revisable text documents instead of a flat log or vector store, keeping facts consistent and current across long tasks.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "ADaPT (Prasad 2023), LATS (Zhou 2024)"
+      "builds_on": "Memory Mechanisms Survey (Huang 2026)"
+    },
+    {
+      "zotero_key": "2606.07909",
+      "title": "MemToolAgent: Leveraging Memory for Tool-Using Agents Based on Environment and User Feedback",
+      "authors": "See arXiv listing",
+      "year": 2026,
+      "what": "Adds an extract-then-retrieve memory loop to a tool-using agent so tool choices are informed by past outcomes and feedback, reducing repeated tool-use mistakes across multi-turn interactions.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "ToolkenGPT (Hao 2024)"
+    },
+    {
+      "zotero_key": "2606.18043",
+      "title": "Uncertainty Quantification for Flow-Based Vision-Language-Action Models",
+      "authors": "See arXiv listing",
+      "year": 2026,
+      "what": "Adds confidence estimates and unreliability flags to a flow-matching action head, giving an out-of-distribution and low-confidence detector for flow-based action models.",
+      "area_label": "Generative CV",
+      "area_slug": "generative-cv",
+      "builds_on": "DDPM (Ho 2020), DiT (Peebles 2023)"
     }
   ]
 }

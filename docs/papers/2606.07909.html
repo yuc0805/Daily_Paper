@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MemToolAgent — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>MemToolAgent: Leveraging Memory for Tool-Using Agents Based on Environment and User Feedback</h2>
+<p class="paper-meta">See arXiv listing &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.07909" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3><p>MemToolAgent adds a memory loop to a tool-using agent. A memory-extraction module turns past tool calls, outcomes, and user or environment feedback into structured entries; a retrieval module selects a relevant subset before each decision. The aim is to stop the agent from repeating tool-use mistakes.</p>
+<h3>Why</h3><p>A tool-using agent that does not remember past results will repeat the same wrong tool choice in the same situation. Prior tool-calling methods treat tool selection as a stateless prediction, with no record of what worked before.</p>
+<h3>How</h3><p>The memory-extraction module processes past experiences and feedback into structured memory entries, and a retrieval module dynamically selects a relevant subset of those entries to condition the next tool choice across multi-turn interactions.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Represents each tool as a learned token so tool calls are part of generation; MemToolAgent adds an outer memory loop.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>ToolkenGPT made tool selection part of next-token prediction but kept it stateless. MemToolAgent fixes the repeated-mistake failure by conditioning on retrieved memory of past tool outcomes, because a static tool embedding cannot record that a tool failed in a given context.</p>
+<h3>Method vs predecessors</h3><p>Where ToolkenGPT encodes tools as fixed token embeddings, MemToolAgent wraps the policy in an extract-then-retrieve memory loop driven by environment and user feedback, turning a stateless selector into a feedback-driven one. This extends the graphify tool-use bridge from ToolkenGPT toward PyVision.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Direct parent; tool-use as generation.</span></li>
+<li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Cross-area bridge node for tool-using agents.</span></li>
+<li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Shares the agent-memory theme.</span></li>
+</ul>
+</div>
+</body>
+</html>

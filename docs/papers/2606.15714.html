@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond English: The Multilingual Gap in VLA Models — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+<h2>Beyond English: Uncovering the Multilingual Gap in Vision-Language-Action Models</h2>
+<p class="paper-meta">Chen, Li, Cao, Jiang, Wen, Huang, Guo, Wan &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.15714" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+<h3>What</h3><p>Vision-Language-Action (VLA) models turn an image and a written instruction into robot actions, but are almost always trained and tested with English instructions. This paper builds the first systematic multilingual test for VLAs. It translates two robot benchmarks, LIBERO and SimplerEnv, into Chinese, French, Russian, and Arabic, adds a code-switching setting, and measures task success relative to English across several recent VLAs. It then proposes Multilingual Principal Component Alignment (MPCA) to reduce the gap.</p>
+<h3>Why</h3><p>Most VLA research uses English as the default instruction language, even though the language backbone is often multilingual. It was unknown whether that multilingual ability survives the fine-tuning step that aligns the model to a robot action space. Prior work measured instruction following and visual grounding under English only, so the multilingual behavior of deployed VLAs was untested.</p>
+<h3>How</h3><p>An evaluation adapter swaps the instruction language with a single line of code, so every model is judged under identical conditions. The authors evaluate OpenVLA-OFT, the pi family, ABot-M0, Qwen-VL based policies, and a world-model policy, Cosmos. They report relative success against English, then analyze hidden representations to locate the cause. MPCA runs Principal Component Analysis on the hidden states and aligns the projected multilingual representations onto the same principal-component subspace as English.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Closest in-library neighbor in the vision-language and generative cluster (community 3); builds a shared image-text representation space.</span></li>
+<li>SigLIP / SigLIP 2 (Zhai 2023, Tschannen 2025)<span class="lineage-note">Canonical vision-language encoder parents and graphify anchors. <em>Not in library yet.</em></span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>Where DALL-E 2 and the SigLIP line build a single shared image-text representation space, this paper shows that space is fragile under downstream alignment. After a VLA is fine-tuned to produce actions, the non-English part of the representation drifts from the English manifold, and relative task success drops by about 28 to 47 points for most models, and 65 to 76 points for weaker action heads. The drop persists with a multilingual backbone, which places the cause in action alignment. MPCA recovers part of the gap without hurting English.</p>
+<h3>Method vs predecessors</h3><p>Prior vision-language work builds the shared representation; it does not study what happens to that representation after task-specific fine-tuning. This paper measures the drift quantitatively and fixes it with a principal-component subspace alignment rather than retraining the encoder or collecting multilingual action data.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Same vision-language and generative community.</span></li>
+<li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Agentic vision model; shares the multimodal-instruction theme.</span></li>
+<li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Agentic multimodal model conditioned on instructions.</span></li>
+</ul>
+</div>
+</body>
+</html>
