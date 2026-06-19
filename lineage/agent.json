@@ -377,6 +377,22 @@
       "target_label": "LLM-as-an-Investigator: Evidence-First Reasoning for Robust Interactive Problem Diagnosis (2026)",
       "relation": "builds_on",
       "note": "Where LATS searches over action trees, this paper gathers evidence first to avoid the premature-hypothesis failure mode both planning and search inherit."
+    },
+    {
+      "source": "hao2024_toolkengpt",
+      "source_label": "ToolkenGPT: Tool Embeddings for LLMs (Hao 2024)",
+      "target": "2606.07909",
+      "target_label": "MemToolAgent: Leveraging Memory for Tool-Using Agents Based on Environment and User Feedback (2026)",
+      "relation": "builds_on",
+      "note": "Where ToolkenGPT makes tool selection part of next-token prediction with a static tool embedding, MemToolAgent adds an outer memory loop so the choice is also informed by past tool-call outcomes and feedback."
+    },
+    {
+      "source": "huang2026_memory",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "2606.10677",
+      "target_label": "Infini Memory: Maintainable Topic Documents for Long-Term LLM Agent Memory (2026)",
+      "relation": "builds_on",
+      "note": "Where the survey maps the design space of agent memory, Infini Memory commits to one design point: topic-structured text documents revised over time instead of a flat log or a vector store."
     }
   ],
   "hyperedges": [

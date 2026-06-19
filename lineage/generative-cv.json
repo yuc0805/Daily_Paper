@@ -172,6 +172,22 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "ho2020_ddpm",
+      "source_label": "DDPM: Denoising Diffusion Probabilistic Models (Ho 2020)",
+      "target": "2606.18043",
+      "target_label": "Uncertainty Quantification for Flow-Based Vision-Language-Action Models (2026)",
+      "relation": "builds_on",
+      "note": "Where DDPM established the denoising-diffusion generative process, this paper treats flow matching as its continuous-time relative and asks how confident each generated action is rather than only how realistic it looks."
+    },
+    {
+      "source": "peebles2023_dit",
+      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+      "target": "2606.18043",
+      "target_label": "Uncertainty Quantification for Flow-Based Vision-Language-Action Models (2026)",
+      "relation": "builds_on",
+      "note": "Where DiT showed a Transformer backbone can drive a diffusion model for sample quality, this paper adds calibrated uncertainty and an out-of-distribution detector on top of the flow-based action head."
     }
   ],
   "hyperedges": [],

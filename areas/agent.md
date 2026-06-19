@@ -24,6 +24,8 @@
 2026-06 | Vivaldi (2603.04142) | multi-agent physiological time-series interpretation
 2026-06 | MemoPilot (2606.08656) | plug-in memory copilot trained via multi-turn GRPO for agent test-time learning
 2026-06 | LLM-as-an-Investigator (2606.13220) | evidence-first reasoning for robust interactive problem diagnosis
+2026-06 | MemToolAgent (2606.07909) | memory loop records past tool-call outcomes and feedback to inform later tool choice
+2026-06 | Infini Memory (2606.10677) | topic-structured, revisable memory documents for long-horizon agent memory
 ### Paper List
 
 [KNOWN] [2018] Rabinowitz et al. — Machine Theory of Mind. zotero_key:NEKX3K3N.
@@ -53,10 +55,13 @@
 
 [2026] 2606.13220 — LLM-as-an-Investigator: Evidence-First Reasoning for Robust Interactive Problem Diagnosis. [https://arxiv.org/abs/2606.13220](https://arxiv.org/abs/2606.13220). external.
 
+[2026] 2606.07909 — MemToolAgent: Leveraging Memory for Tool-Using Agents Based on Environment and User Feedback. [https://arxiv.org/abs/2606.07909](https://arxiv.org/abs/2606.07909). external.
+[2026] 2606.10677 — Infini Memory: Maintainable Topic Documents for Long-Term LLM Agent Memory. [https://arxiv.org/abs/2606.10677](https://arxiv.org/abs/2606.10677). external.
+
 ### Recent Activity
 
+2026-06-18 | 2606.07909 added | memory loop turns past tool calls, outcomes, and feedback into retrievable entries so the agent avoids repeating tool-use mistakes; Tier B
+2026-06-18 | 2606.10677 added | topic-structured memory documents revised over time, an alternative to flat logs and vector stores for long-horizon memory; Tier B
 2026-06-17 | 2606.13220 added | reorders the agent loop so evidence collection precedes hypothesis commitment; robustness when the first guess is wrong; Tier B
 2026-06-10 | 2606.08656 added | plug-in memory copilot with multi-turn GRPO for agent memory-update policy; Tier B
 2026-06-09 | 2603.04142 added | role-structured multi-agent system for physiological TS; agentic benefit is model-dependent; Tier B
-2026-06-08 | 2606.04874 added | diagnostic benchmark isolating planning sub-skills from execution across 22 domains; Tier B
-2026-06-07 | 2606.01041 added | latent experience retrieval replaces text-based few-shot with cross-attention; +6.8% over strongest baseline; Tier A

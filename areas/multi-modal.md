@@ -16,6 +16,7 @@
 2026-06 | Layered Knowledge Infusion (2606.06356) | maps four knowledge-injection points in iterative generative models to four intervention layers
 2026-06 | ARM (2606.11188) | unified autoregressive multimodal model over discrete tokens for understanding, generation, and editing
 2026-06 | UXBench (2606.13192) | multimodal benchmark for fine-grained user-interface experience diagnosis
+2026-06 | Multilingual VLA Gap (2606.15714) | first multilingual test for vision-language-action models; MPCA realigns non-English representations after action fine-tuning
 
 ### Paper List
 
@@ -34,11 +35,12 @@
 
 [2026] 2606.11188 — ARM: An AutoRegressive Large Multimodal Model with Unified Discrete Representations. [https://arxiv.org/abs/2606.11188](https://arxiv.org/abs/2606.11188). external.
 [2026] 2606.13192 — Reasoning for Mobile User Experience with Multimodal LLMs: Task, Benchmark, and Approach. [https://arxiv.org/abs/2606.13192](https://arxiv.org/abs/2606.13192). external.
+[2026] 2606.15714 — Beyond English: Uncovering the Multilingual Gap in Vision-Language-Action Models. [https://arxiv.org/abs/2606.15714](https://arxiv.org/abs/2606.15714). external.
 
 ### Recent Activity
 
+2026-06-18 | 2606.15714 added | non-English VLA representations drift after action fine-tuning, dropping relative success 28-47 points; MPCA re-aligns them via shared principal components; Tier A
 2026-06-17 | 2606.11188 added | unified autoregressive multimodal model over discrete tokens; understanding, generation, and editing in one backbone with RL post-training; Tier A
 2026-06-17 | 2606.13192 added | UXBench: 2,000-sample multimodal benchmark for fine-grained user-interface experience diagnosis; Tier B
 2026-06-13 | 2606.06356 added | layered knowledge infusion into diffusion-style generation; complementary surface, trajectory, latent, and parametric layers cut knowledge-violating outputs by 70.97%; Tier B
 2026-06-09 | 2606.00232 added | inference-time hallucination repair via observation and claim graphs with risk-ranked repair budget; Tier B
-2026-05-31 | 2605.10120 added | attributed property graph grounds a multimodal LLM in microscopy images; Tier B
