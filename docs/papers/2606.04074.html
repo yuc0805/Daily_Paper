@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adaptive Patching Is Harder Than It Looks for Time-Series Forecasting — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Adaptive Patching Is Harder Than It Looks for Time-Series Forecasting</h2>
+<p class="paper-meta">Authors per arXiv listing &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.04074" target="_blank" rel="noopener">paper</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+
+<h3>What</h3>
+<p>The paper tests when content-adaptive patching, which places finer patches where a series looks locally complex, beats a tuned uniform patch size. It runs a controlled study on three architectures, swapping each adaptive mechanism for a uniform patch-size sweep while holding the backbone, data, and training fixed. On standard long-horizon benchmarks the validation-selected uniform baseline matches the adaptive versions, with effects near zero and no consistent direction once aggregated by dataset.</p>
+
+<h3>Why</h3>
+<p>Adaptive or dynamic patching has been proposed as an improvement over fixed patches, on the intuition that complex regions deserve finer resolution. But "looks informative" and "finer patching lowers the loss" are different claims, and prior work did not isolate the adaptive mechanism from confounds such as larger models or longer training.</p>
+
+<h3>How</h3>
+<p>For each architecture the adaptive routing is removed and replaced with a single fixed patch length selected on validation, keeping everything else constant. The EntroPE comparison contrasts entropy-guided segmentation with a matched fixed-length alternative inside one architecture, and the TimeMosaic comparison removes the per-region routing decision. The paper adds a theoretical account: adaptivity helps only when the routing signal aligns with regions where extra resolution truly reduces loss, and that headroom collapses under modest misalignment.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="YY67LF3R.html">PatchTST</a><span class="lineage-note">Established fixed-length patch tokenization for time series transformers; this paper defends the tuned uniform version of that idea.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>PatchTST fixed a single patch length and showed patching helps; later adaptive methods assumed varying the length by local complexity should help more. This paper shows that the adaptive step does not give a reliable gain once the uniform baseline is properly tuned, correcting an over-claim rather than the original PatchTST result.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where adaptive methods such as EntroPE, TimeMosaic, and HDMixer add a routing module that chooses patch boundaries or lengths, this work strips the routing out and compares against a uniform sweep under identical conditions, then explains with theory why a scalar local-complexity signal cannot by itself produce a non-uniform optimum without a coupling constraint across time steps.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="QBX2TI2X.html">iTransformer</a><span class="lineage-note">Alternative tokenization (channel-as-token) that sidesteps the patch-length question.</span></li>
+<li><a href="HLTA8MDK.html">TimesNet</a><span class="lineage-note">Captures multi-scale temporal structure without adaptive patch routing.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

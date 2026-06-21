@@ -3,37 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARM: An AutoRegressive Large Multimodal Model — AI Knowledge Graph</title>
+<title>ARM: An AutoRegressive Large Multimodal Model with Unified Discrete Representations — AI Knowledge Graph</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <div class="paper-page">
 <a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
 <h2>ARM: An AutoRegressive Large Multimodal Model with Unified Discrete Representations</h2>
-<p class="paper-meta">Wang, Wang, Pan, et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.11188" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+<p class="paper-meta">Wang et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.11188" target="_blank" rel="noopener">paper</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a>, <a href="../areas/generative-cv.html">Generative CV</a></p>
+
 <h3>What</h3>
-<p>ARM is a 7B autoregressive model that handles image understanding, text-to-image generation, and instruction-guided editing within one next-token prediction framework. A discrete semantic visual tokenizer maps an image into a short token sequence, trained against three objectives at once: semantic discriminability, language alignment, and faithful reconstruction. The single transformer backbone is then trained over interleaved text and image tokens, and a reinforcement-learning stage optimizes task-level rewards for visual quality, instruction adherence, and edit consistency.</p>
+<p>ARM is a 7B autoregressive model that performs image understanding, generation, and editing in one next-token-prediction framework. A semantic visual tokenizer maps images into a compact discrete token sequence, trained for discriminability, language alignment, and reconstruction at the same time. Text and image tokens are interleaved and modeled by a single transformer, after which reinforcement learning optimizes task rewards, raising WISE overall from 0.50 to 0.56 and GEdit-Bench-EN from 5.75 to 6.68 with cross-task gains.</p>
+
 <h3>Why</h3>
-<p>Unified vision-language models face a split: autoregressive models reason well across modalities but generate weak images, while diffusion models generate strong images but reason and edit poorly. Prior unified attempts kept understanding and generation in separate sub-models or bolted a diffusion decoder onto a language model, which limits parameter sharing and cross-task transfer. The question this paper takes on is whether a single next-token model can carry all three abilities at once.</p>
+<p>Many multimodal models keep separate machinery for understanding and for generation, often pairing a language model with a diffusion decoder. That split makes it hard to share representations and to transfer skill between generation and editing. A single discrete representation and one objective would let both tasks reinforce each other.</p>
+
 <h3>How</h3>
-<p>The discrete tokenizer puts perception and generation in a shared latent space, so the same token vocabulary serves reading and writing of images. A 7B transformer is trained with plain next-token prediction over large-scale text and image token sequences. After pretraining, reinforcement learning optimizes rewards that the pretraining loss does not capture directly: visual quality, instruction adherence, and edit consistency. The reported effect is both higher target-task scores and cross-task synergy, where reward optimization on generation also improves editing.</p>
+<p>Images become discrete tokens through a tokenizer supervised by several objectives at once, then those tokens are interleaved with text and modeled by next-token prediction. On top of the pretrained model, reinforcement learning optimizes task-level objectives such as visual quality, instruction adherence, and edit consistency, which is the step that produces measurable cross-task synergy between text-to-image generation and instruction-guided editing.</p>
+
 <h3>Builds on</h3>
 <ul class="lineage-list">
-<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Text-to-image generation through a diffusion path, kept separate from understanding.</span></li>
-<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Transformer-backbone diffusion for scalable image generation.</span></li>
-<li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">The next-token transformer backbone ARM reuses for both reading and writing images.</span></li>
-<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Reinforcement-learning post-training that ARM adapts from text reasoning to image tasks.</span></li>
-<li>SigLIP (Zhai 2023)<span class="lineage-note">Sigmoid-loss vision-language alignment, the closest parent. <em>Not in library yet.</em></span></li>
+<li><a href="PHB9VRVM.html">Attention Is All You Need</a><span class="lineage-note">Transformer backbone and next-token prediction that ARM reuses for both modalities.</span></li>
+<li><a href="DUERBZGM.html">DALL-E 2</a><span class="lineage-note">Text-to-image generation through learned visual representations; ARM replaces its separate decoder with a shared discrete vocabulary.</span></li>
+<li><a href="SC8KWYVK.html">Flamingo</a><span class="lineage-note">Interleaved image and text tokens in one sequence; ARM folds both into a single autoregressive model.</span></li>
 </ul>
+
 <h3>Solves vs predecessors</h3>
-<p>Where DALL-E 2 and DiT generate pixels through iterative denoising and keep understanding in a separate model, ARM does understanding and generation as one next-token stream over discrete tokens, so a single 7B parameter set serves perception, generation, and editing. The reinforcement-learning stage raises WISE overall from 0.50 to 0.56 and GEdit-Bench-EN G_O from 5.75 to 6.68, and the gains on generation and editing reinforce each other rather than trade off.</p>
+<p>DALL-E 2 used a separate diffusion-style decoder over CLIP latents and Flamingo kept vision and language in distinct modules joined by cross-attention, so generation and understanding did not share parameters. ARM removes that split by putting both modalities in one discrete vocabulary and one objective, which lets editing and generation skill transfer between each other.</p>
+
 <h3>Method vs predecessors</h3>
-<p>The diffusion parents model a continuous denoising process; ARM models a discrete token sequence with autoregression, which lets it inherit the language-model toolchain, including reinforcement-learning post-training from the DeepSeek-R1 line. The novel piece relative to both lines is the tokenizer trained jointly for discriminability, alignment, and reconstruction, which is what makes one latent space usable for both reading and writing images.</p>
+<p>Where the original transformer predicted text tokens only, ARM predicts a unified text-plus-image token stream and adds reinforcement learning on task rewards. The novel pieces are the single discrete tokenizer trained for several objectives at once and the reward optimization stage, not the autoregressive idea itself.</p>
+
 <h3>Related (semantically similar in your library)</h3>
 <ul class="lineage-list">
-<li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Agentic multimodal model sharing the understanding-plus-action goal.</span></li>
-<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Reinforcement-learning post-training applied to a different modality.</span></li>
+<li><a href="DUERBZGM.html">DALL-E 2</a><span class="lineage-note">Closest generation anchor in the library (Community 3).</span></li>
+<li><a href="SC8KWYVK.html">Flamingo</a><span class="lineage-note">Interleaved multimodal sequence modeling.</span></li>
 </ul>
+
 </div>
 </body>
 </html>

@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-18",
+  "date": "2026-06-21",
   "papers": [
     {
-      "zotero_key": "2606.15714",
-      "title": "Beyond English: Uncovering the Multilingual Gap in Vision-Language-Action Models",
-      "authors": "Chen et al.",
+      "zotero_key": "2606.08262",
+      "title": "Causal Semantic Alignment for LLM-based Time Series Forecasting (CVAformer)",
+      "authors": "See arXiv listing",
       "year": 2026,
-      "what": "First systematic multilingual test for VLA models: translating LIBERO and SimplerEnv into four languages shows relative task success drops by about 28 to 47 points (up to 65 to 76 for weaker action heads) even with a multilingual backbone, and a principal-component alignment method (MPCA) recovers part of the gap.",
+      "what": "Splits each variable into invariant and dynamic parts before aligning a time series with language model embeddings, then applies a causal backdoor intervention so the dynamic part does not bias the alignment.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "Time-LLM (MKICLA63); GPT4TS (6QQNUTL7); iTransformer (QBX2TI2X); Causal Inference Intro (BB78CC56)"
+    },
+    {
+      "zotero_key": "2606.04074",
+      "title": "Adaptive Patching Is Harder Than It Looks for Time-Series Forecasting",
+      "authors": "See arXiv listing",
+      "year": 2026,
+      "what": "Shows that a tuned uniform patch size matches content-adaptive patching on long-horizon benchmarks, and explains in theory why a scalar local-complexity signal cannot by itself justify non-uniform patches.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "PatchTST (YY67LF3R)"
+    },
+    {
+      "zotero_key": "2606.11188",
+      "title": "ARM: An AutoRegressive Large Multimodal Model with Unified Discrete Representations",
+      "authors": "Wang et al.",
+      "year": 2026,
+      "what": "A 7B autoregressive model that does image understanding, generation, and editing with one shared discrete token vocabulary and next-token prediction, then uses reinforcement learning to lift task rewards (WISE 0.50 to 0.56, GEdit-Bench-EN 5.75 to 6.68).",
       "area_label": "Multi-Modal",
       "area_slug": "multi-modal",
-      "builds_on": "DALL-E 2 (Ramesh 2022); SigLIP / SigLIP 2 (not in library)"
+      "builds_on": "Attention Is All You Need (PHB9VRVM); DALL-E 2 (DUERBZGM); Flamingo (SC8KWYVK)"
     },
     {
-      "zotero_key": "2606.10677",
-      "title": "Infini Memory: Maintainable Topic Documents for Long-Term LLM Agent Memory",
+      "zotero_key": "2506.14245",
+      "title": "RLVR Implicitly Incentivizes Correct Reasoning in Base LLMs",
       "authors": "See arXiv listing",
       "year": 2026,
-      "what": "Stores agent long-term memory as topic-structured, revisable text documents instead of a flat log or vector store, keeping facts consistent and current across long tasks.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026)"
-    },
-    {
-      "zotero_key": "2606.07909",
-      "title": "MemToolAgent: Leveraging Memory for Tool-Using Agents Based on Environment and User Feedback",
-      "authors": "See arXiv listing",
-      "year": 2026,
-      "what": "Adds an extract-then-retrieve memory loop to a tool-using agent so tool choices are informed by past outcomes and feedback, reducing repeated tool-use mistakes across multi-turn interactions.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "ToolkenGPT (Hao 2024)"
-    },
-    {
-      "zotero_key": "2606.18043",
-      "title": "Uncertainty Quantification for Flow-Based Vision-Language-Action Models",
-      "authors": "See arXiv listing",
-      "year": 2026,
-      "what": "Adds confidence estimates and unreliability flags to a flow-matching action head, giving an out-of-distribution and low-confidence detector for flow-based action models.",
-      "area_label": "Generative CV",
-      "area_slug": "generative-cv",
-      "builds_on": "DDPM (Ho 2020), DiT (Peebles 2023)"
+      "what": "Introduces CoT-Pass@K, which scores a sample as correct only when both the answer and the reasoning steps are right, and uses it to show reinforcement learning with verifiable rewards extends the reasoning boundary, not just answer selection.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "DeepSeek-R1 (Z5IWHZAE); Chain-of-Thought (HBLPTRMY)"
     }
   ]
 }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RLVR Implicitly Incentivizes Correct Reasoning in Base LLMs — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs</h2>
+<p class="paper-meta">Authors per arXiv listing &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2506.14245" target="_blank" rel="noopener">paper</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+
+<h3>What</h3>
+<p>The paper studies reinforcement learning with verifiable rewards (RLVR) for language model reasoning, building on the GRPO algorithm used by DeepSeek-R1. It points out that rewarding only the final answer can credit wrong reasoning that happens to reach the right number, and introduces CoT-Pass@K, a metric that counts a sample as a success only when both the answer and the intermediate steps are correct. Under this metric RLVR is shown to extend the reasoning boundary for math and coding, not only to sharpen answer selection.</p>
+
+<h3>Why</h3>
+<p>Final-answer reward is the common signal in RLVR, but it cannot tell correct reasoning from a lucky guess, which makes it hard to know whether training improves reasoning or only answer matching. A metric that scores the trace is needed to settle this.</p>
+
+<h3>How</h3>
+<p>The authors define CoT-Pass@K, which requires both the final answer and the chain-of-thought steps to be correct across K samples, and use it to re-evaluate RLVR-trained models. The analysis separates gains in reasoning quality from gains in answer selection and shows the boundary of solvable problems widens for mathematics and coding.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1</a><span class="lineage-note">Introduced GRPO-based reinforcement learning with verifiable rewards; this paper measures whether that training improves the reasoning trace itself.</span></li>
+<li><a href="HBLPTRMY.html">Chain-of-Thought</a><span class="lineage-note">Established explicit intermediate steps; this paper makes step correctness the measured quantity.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 trained with verifiable rewards and judged success by the final answer, which leaves open whether the reasoning steps are right. This paper supplies the missing measurement by scoring the trace, and finds that RLVR does credit correct reasoning, not just correct answers.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where Chain-of-Thought treated the trace as a prompting device and DeepSeek-R1 rewarded outcomes, this work turns trace correctness into the evaluation target through CoT-Pass@K. This extends the cross-area bridge already in the library between reasoning-via-reinforcement-learning and reasoning-via-prompting toward measuring the trace directly.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2BGP9QJL.html">Verifiable Physio Reasoning</a><span class="lineage-note">Applies verifiable reasoning to physiological data; a candidate target for CoT-Pass@K-style scoring.</span></li>
+<li><a href="EMXEJYHV.html">Latent Reasoning Survey</a><span class="lineage-note">Surveys reasoning methods, including reward-shaped traces.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

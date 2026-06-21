@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Causal Semantic Alignment for LLM-based Time Series Forecasting (CVAformer) — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Causal Semantic Alignment for LLM-based Time Series Forecasting (CVAformer)</h2>
+<p class="paper-meta">Authors per arXiv listing &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.08262" target="_blank" rel="noopener">paper</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>, <a href="../areas/causal-inference.html">Causal Inference</a></p>
+
+<h3>What</h3>
+<p>CVAformer (Causal Variable-level Alignment Transformer) forecasts time series with a pretrained language model backbone. It splits each input variable into an invariant component (stable semantics) and a dynamic component (short-term fluctuation) before aligning the series with word embeddings, then applies a causal backdoor intervention so the dynamic component does not bias the alignment. The result is a less spurious mapping between temporal patterns and the language model embedding space.</p>
+
+<h3>Why</h3>
+<p>Language-model-based forecasters align temporal patterns with pretrained word embeddings, but most treat each series as a single entangled signal. Dynamic fluctuations and invariant semantics are mixed, and the dynamic part acts as a confounder: it influences both the invariant embedding and the aligned output, which introduces spurious correlation. Prior alignment methods did not separate these components or remove the confounding.</p>
+
+<h3>How</h3>
+<p>The method disentangles each variable into invariant and dynamic parts just before alignment, then uses backdoor adjustment to block the confounding path from the dynamic component to the aligned embedding. Alignment is done at the variable level rather than per time step, following the channel-as-token view, so each channel is summarized before being matched to the embedding space.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="MKICLA63.html">Time-LLM</a><span class="lineage-note">Established alignment of time series patches with frozen language model embeddings; CVAformer adds a causal step to that alignment.</span></li>
+<li><a href="6QQNUTL7.html">GPT4TS</a><span class="lineage-note">Showed a frozen pretrained transformer can serve as a general time series backbone; CVAformer keeps the frozen-backbone idea.</span></li>
+<li><a href="QBX2TI2X.html">iTransformer</a><span class="lineage-note">Introduced variable-level tokenization; CVAformer aligns at the variable level on top of this.</span></li>
+<li><a href="BB78CC56.html">Causal Inference Intro (Pearl)</a><span class="lineage-note">Provides the backdoor adjustment used to remove the dynamic confounder.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Time-LLM and GPT4TS align raw temporal patterns with language embeddings but leave invariant semantics and dynamic fluctuation entangled, so the alignment can latch onto spurious correlation driven by the dynamics. CVAformer fixes this failure mode by separating the two components and removing the confounding path with a backdoor intervention, giving an alignment that depends on stable semantics rather than transient noise.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where iTransformer made the channel the unit of tokenization and Time-LLM matched patches to word embeddings, CVAformer keeps the variable-level view but inserts a causal model: invariant and dynamic factors are modeled explicitly and the dynamic factor is intervened on. This brings Pearl-style backdoor adjustment, from the causal inference part of the library, into the time-series-plus-LLM alignment pipeline, a combination not present in the three time-series parents.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="YY67LF3R.html">PatchTST</a><span class="lineage-note">Patch tokenization for time series transformers; shares the tokenization concerns CVAformer builds on.</span></li>
+<li><a href="BB78CC56.html">Causal Inference Intro</a><span class="lineage-note">Source of the backdoor adjustment method.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
