@@ -696,6 +696,51 @@
       "target_label": "Personalized Deep Learning for Short-Term Forecasting of Impending Atrial Fibrillation from Wearable ECG (2026)",
       "relation": "builds_on",
       "note": "Where few-shot health learning adapted a general model to health tasks with small labeled sets, this paper applies the same idea at the level of a single patient's ECG and quantifies how the benefit scales with adaptation data."
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie et al. 2023)",
+      "target": "2606.04074",
+      "target_label": "Adaptive Patching Is Harder Than It Looks for Time-Series Forecasting (2026)",
+      "relation": "builds_on",
+      "note": "Where PatchTST fixed a single patch length for long-horizon forecasting, this paper tests content-adaptive patch lengths and shows a validation-tuned uniform size matches them.",
+      "cross_area": false
+    },
+    {
+      "source": "MKICLA63",
+      "source_label": "Time-LLM (Jin et al. 2024)",
+      "target": "2606.08262",
+      "target_label": "CVAformer: Causal Semantic Alignment for LLM-based Time Series Forecasting (2026)",
+      "relation": "builds_on",
+      "note": "Where Time-LLM aligns raw temporal patterns with frozen language-model embeddings, CVAformer first separates each variable into invariant and dynamic components before alignment.",
+      "cross_area": false
+    },
+    {
+      "source": "6QQNUTL7",
+      "source_label": "GPT4TS (Zhou et al. 2024)",
+      "target": "2606.08262",
+      "target_label": "CVAformer: Causal Semantic Alignment for LLM-based Time Series Forecasting (2026)",
+      "relation": "builds_on",
+      "note": "Where GPT4TS uses a frozen pretrained transformer as a general time-series backbone, CVAformer keeps that backbone and adds a causal alignment step on top of it.",
+      "cross_area": false
+    },
+    {
+      "source": "QBX2TI2X",
+      "source_label": "iTransformer (Liu et al. 2024)",
+      "target": "2606.08262",
+      "target_label": "CVAformer: Causal Semantic Alignment for LLM-based Time Series Forecasting (2026)",
+      "relation": "builds_on",
+      "note": "Where iTransformer made the channel the unit of tokenization, CVAformer keeps the variable-level view and adds a causal adjustment over it.",
+      "cross_area": false
+    },
+    {
+      "source": "pearl2010_causal",
+      "source_label": "Introduction to Causal Inference (Pearl 2010)",
+      "target": "2606.08262",
+      "target_label": "CVAformer: Causal Semantic Alignment for LLM-based Time Series Forecasting (2026)",
+      "relation": "builds_on",
+      "note": "CVAformer imports Pearl-style backdoor adjustment to remove the dynamic component as a confounder during LLM alignment, connecting time series and causal inference.",
+      "cross_area": true
     }
   ],
   "hyperedges": [

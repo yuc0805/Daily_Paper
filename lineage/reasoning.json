@@ -303,6 +303,24 @@
       "relation": "builds_on",
       "note": "Where DeepSeek-R1 trains long explicit reasoning traces, PauseRec reaches most of the benefit at lower training cost with implicit pauses.",
       "cross_area": true
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2506.14245",
+      "target_label": "RLVR Implicitly Incentivizes Correct Reasoning in Base LLMs (2026)",
+      "relation": "builds_on",
+      "note": "Where DeepSeek-R1 measured success by the final answer under verifiable-reward RL, this paper introduces CoT-Pass@K to score the correctness of the intermediate steps directly.",
+      "cross_area": false
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2506.14245",
+      "target_label": "RLVR Implicitly Incentivizes Correct Reasoning in Base LLMs (2026)",
+      "relation": "builds_on",
+      "note": "Where Chain-of-Thought treated the reasoning trace as a prompting device, this paper treats trace correctness as the quantity the reward implicitly shapes.",
+      "cross_area": false
     }
   ],
   "hyperedges": [],

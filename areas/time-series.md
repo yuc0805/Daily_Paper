@@ -45,6 +45,8 @@
 2026-06 | Vivaldi (2603.04142) | multi-agent framework for interpreting multivariate physiological time series
 2026-06 | Last-Mile Forecasting (2606.02497) | LLM agent revises foundation model forecasts with business context
 2026-06 | Personalized AF Forecasting (2606.10900) | per-patient fine-tuning of a global ECG model to forecast impending atrial fibrillation
+2026-06 | Adaptive Patching Caution (2606.04074) | a validation-tuned uniform patch size matches content-adaptive patching on long-horizon benchmarks; negative result
+2026-06 | CVAformer (2606.08262) | splits each variable into invariant and dynamic parts, then backdoor-adjusts the dynamic confounder before aligning with a frozen LLM
 ### Paper List
 
 [KNOWN] [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.
@@ -112,10 +114,12 @@
 [2026] 2606.02497 — Bridging the Last Mile of Time Series Forecasting with LLM Agents. [https://arxiv.org/abs/2606.02497](https://arxiv.org/abs/2606.02497). external.
 [2026] 2606.10900 — Personalized Deep Learning for Short-Term Forecasting of Impending Atrial Fibrillation from Continuous Wearable ECG Signals. [https://arxiv.org/abs/2606.10900](https://arxiv.org/abs/2606.10900). external.
 
+[2026] 2606.04074 — Adaptive Patching Is Harder Than It Looks for Time-Series Forecasting. [https://arxiv.org/abs/2606.04074](https://arxiv.org/abs/2606.04074). external.
+[2026] 2606.08262 — Causal Semantic Alignment for LLM-based Time Series Forecasting (CVAformer). [https://arxiv.org/abs/2606.08262](https://arxiv.org/abs/2606.08262). external.
 ### Recent Activity
 
+2026-06-21 | 2606.08262 added | CVAformer splits each variable into invariant and dynamic parts, then backdoor-adjusts the dynamic confounder before aligning with a frozen LLM; Tier A
+2026-06-21 | 2606.04074 added | a validation-tuned uniform patch size matches content-adaptive patching on long-horizon benchmarks; negative result plus a theory of when adaptivity helps; Tier B
 2026-06-13 | 2606.10900 added | per-patient fine-tuning beats a global ECG model for impending-AF forecasting (AUROC 0.711 vs 0.614); test-time personalization over a bigger global model; Tier B
 2026-06-10 | 2606.02497 added | LLM agent wraps foundation model forecast with contextual revision; directly in TS+LLM integration area; Tier B
 2026-06-09 | 2603.04142 added | multi-agent physiological TS interpretation; agentic pipeline benefit is model-dependent; Tier B
-2026-06-07 | 2606.04135 added | retrieval-augmented forecasting with stationarity-aware selection and aggregation; Tier B
-2026-06-05 | 2506.23424 added | parameter-efficient TTA for TS foundation models; low-rank adapters with frequency-domain loss; Tier B
