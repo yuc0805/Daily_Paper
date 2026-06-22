@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wavelet-Driven Masked Multiscale Reconstruction for PPG Foundation Models (MMR) — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Wavelet-Driven Masked Multiscale Reconstruction for PPG Foundation Models (MMR)</h2>
+<p class="paper-meta">
+  Thukral, Tanade, Lee, Lee, Zhou, Chun, Gwak, Nathan, Rahman, Zhu, Morshed, Venkatraman, Arcot Desai &middot; arXiv 2026-01 &middot;
+  <a href="https://arxiv.org/abs/2601.12215" target="_blank" rel="noopener">arXiv:2601.12215</a> &middot;
+  Appears in: <a href="../areas/llm-health.html">LLM-Health</a>
+</p>
+
+<h3>What</h3>
+<p>MMR is a self-supervised pretraining framework for photoplethysmography (PPG) foundation models. It decomposes each PPG segment with a discrete wavelet transform into multiple time-frequency bands and trains a Transformer encoder to reconstruct randomly masked wavelet coefficients across those scales. The model is pretrained on about 17 million 10-second segments (roughly 48,000 hours) from about 32,000 smartwatch users and evaluated on 19 downstream health-related tasks.</p>
+
+<h3>Why</h3>
+<p>PPG is embedded in nearly every consumer wearable and already supports deployed models for blood pressure, arrhythmia, and stress. The authors note that physiological rhythms in PPG unfold across several frequency bands: beat-level morphology lives at fine scales, while heart-rate variability and rhythm live at coarse scales. Existing PPG foundation models work in the time domain or attach a fixed-window Fourier branch with late fusion, which does not capture the adaptive, hierarchical time-frequency structure of a non-stationary signal, so downstream tasks that need multi-scale features are underserved.</p>
+
+<h3>How</h3>
+<p>Raw PPG is decomposed with a discrete wavelet transform into multiple resolution bands. The pretraining task masks coefficients across scales and trains the Transformer encoder to reconstruct them, forcing the model to combine fine and coarse time-frequency information rather than treating the domains separately. Ablations vary the wavelet family, the number of decomposition scales, and the patch size. On 17 of 19 downstream tasks the model matches or beats state-of-the-art open PPG foundation models, time-series foundation models, and other self-supervised baselines, and embedding analysis shows the learned features are physiologically grounded.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Frames the goal of transferable biosignal encoders; MMR supplies a concrete PPG pretraining objective.</span></li>
+  <li><a href="6INGKIJV.html">How Mask Matters: Masked Autoencoders Theory (Zhang 2023)</a><span class="lineage-note">Source of the masked-reconstruction objective, here applied to wavelet coefficients instead of raw signal.</span></li>
+  <li><a href="3LA8GNCU.html">HeAR: Health Acoustic Representations (Baur 2024)</a><span class="lineage-note">Earlier bet that spectral structure carries health-relevant features; MMR uses adaptive wavelets in place of fixed spectral views.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Prior PPG foundation models either model only the time domain or fuse a fixed-window Fourier view late in the network. The failure mode is that a single fixed time-frequency resolution cannot represent both fine waveform morphology and slow rhythm at once for a non-stationary signal. MMR fixes this by masking and reconstructing wavelet coefficients across resolution levels, so the encoder must integrate cross-scale information rather than collapse it into one fixed view.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where masked-autoencoder methods (Zhang 2023) reconstruct raw signal patches, MMR reconstructs wavelet coefficients, which moves the supervision into a multi-resolution domain matched to PPG. Where HeAR used a spectral representation for acoustic health signals, MMR uses a discrete wavelet transform that adaptively trades time against frequency resolution. Relative to the Gu 2025 survey's general framing, MMR is a specific recipe with ablations isolating the value of the wavelet basis.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">Health representation learning from physiological signals; downstream consumer of stronger PPG encoders.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When Is Compositional Reasoning Learnable from Verifiable Rewards? — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+
+<h2>When Is Compositional Reasoning Learnable from Verifiable Rewards?</h2>
+<p class="paper-meta">
+  Barzilai, Wolf, Basri &middot; arXiv 2026-02 &middot;
+  <a href="https://arxiv.org/abs/2602.07992" target="_blank" rel="noopener">arXiv:2602.07992</a> &middot;
+  Appears in: <a href="../areas/reasoning.html">Reasoning</a>
+</p>
+
+<h3>What</h3>
+<p>The paper is a theoretical study of which compositional reasoning problems a language model can learn under reinforcement learning with verifiable rewards (RLVR), where the only feedback is a verifier's check on the final answer. It defines the "task-advantage ratio", a joint property of the problem and the base model, and uses it to characterize learnable versus non-learnable cases.</p>
+
+<h3>Why</h3>
+<p>RLVR has driven much of the recent gain in step-by-step reasoning, but it remains unclear which compositional problems are actually learnable from outcome-level feedback alone. Empirical results (for example DeepSeek-R1) show RLVR works, yet they do not say when it will fail. Without a condition that separates the two regimes, practitioners cannot predict whether outcome-only rewards will reinforce correct intermediate steps or settle on a shortcut.</p>
+
+<h3>How</h3>
+<p>The authors model an autoregressive policy that performs sequential task selection at each chain-of-thought step and receives reward only at the end. They prove that when correct intermediate steps clearly raise the probability of a verified answer, the task-advantage ratio is favorable and the problem is efficiently learnable. When that structural advantage is absent, RLVR can converge to a suboptimal composition, and in some cases the base model's quality alone determines whether the advantage exists at all.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Introduced intermediate reasoning steps; this paper asks when such steps are recoverable from rewards alone.</span></li>
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1: Reasoning via RL (2025)</a><span class="lineage-note">Showed empirically that RL with a verifier grows reasoning; this paper supplies the theory for when that holds.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 demonstrated that outcome-only RL can extend reasoning ability, but it did not explain the conditions under which the gain appears or fails. This paper fixes the gap by isolating the structural property a task must have for outcome-level feedback to reinforce correct intermediate steps, turning an empirical observation into a checkable condition.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where Chain-of-Thought and DeepSeek-R1 are empirical, this work is analytical: it abstracts RLVR into sequential task selection and derives the task-advantage ratio as the deciding quantity. It extends the reasoning-via-RL versus prompting bridge in the library (DeepSeek-R1 to Chain-of-Thought) by giving a formal boundary between problems where RL with verifiers succeeds and where it converges to a suboptimal solution.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Tool-selection agent whose operator calls play the role of intermediate steps; a candidate domain for the task-advantage analysis.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

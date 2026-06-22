@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-21",
+  "date": "2026-06-22",
   "papers": [
     {
-      "zotero_key": "2606.08262",
-      "title": "Causal Semantic Alignment for LLM-based Time Series Forecasting (CVAformer)",
-      "authors": "See arXiv listing",
+      "zotero_key": "2603.10961",
+      "title": "Bio-Inspired Self-Supervised Learning for Wrist-worn IMU Signals (Bio-PM)",
+      "authors": "Tarale et al.",
       "year": 2026,
-      "what": "Splits each variable into invariant and dynamic parts before aligning a time series with language model embeddings, then applies a causal backdoor intervention so the dynamic part does not bias the alignment.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "Time-LLM (MKICLA63); GPT4TS (6QQNUTL7); iTransformer (QBX2TI2X); Causal Inference Intro (BB78CC56)"
+      "what": "Tokenizes wrist accelerometer signals into motion-aligned movement segments instead of fixed windows, then pretrains a Transformer by masked reconstruction, improving HAR macro-F1 by an average of 6 percent over same-corpus self-supervised baselines.",
+      "area_label": "Self-Supervised Framework",
+      "area_slug": "self-supervised",
+      "builds_on": "SSL for HAR 700K Person-days (Yuan 2024, RTMH75VW); Masked Autoencoders Theory (Zhang 2023, 6INGKIJV); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF)"
     },
     {
-      "zotero_key": "2606.04074",
-      "title": "Adaptive Patching Is Harder Than It Looks for Time-Series Forecasting",
-      "authors": "See arXiv listing",
+      "zotero_key": "2601.12215",
+      "title": "Wavelet-Driven Masked Multiscale Reconstruction for PPG Foundation Models (MMR)",
+      "authors": "Thukral et al.",
       "year": 2026,
-      "what": "Shows that a tuned uniform patch size matches content-adaptive patching on long-horizon benchmarks, and explains in theory why a scalar local-complexity signal cannot by itself justify non-uniform patches.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "PatchTST (YY67LF3R)"
+      "what": "Pretrains a PPG foundation model by reconstructing masked wavelet coefficients across time-frequency scales, matching or beating prior PPG and time-series foundation models on 17 of 19 health tasks.",
+      "area_label": "LLM-Health",
+      "area_slug": "llm-health",
+      "builds_on": "Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); Masked Autoencoders Theory (Zhang 2023, 6INGKIJV); HeAR (Baur 2024, 3LA8GNCU)"
     },
     {
-      "zotero_key": "2606.11188",
-      "title": "ARM: An AutoRegressive Large Multimodal Model with Unified Discrete Representations",
-      "authors": "Wang et al.",
+      "zotero_key": "2606.20014",
+      "title": "Hierarchical Control in Multi-Agent Games: LLM-based Planning and RL Execution",
+      "authors": "Hösch et al.",
       "year": 2026,
-      "what": "A 7B autoregressive model that does image understanding, generation, and editing with one shared discrete token vocabulary and next-token prediction, then uses reinforcement learning to lift task rewards (WISE 0.50 to 0.56, GEdit-Bench-EN 5.75 to 6.68).",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "Attention Is All You Need (PHB9VRVM); DALL-E 2 (DUERBZGM); Flamingo (SC8KWYVK)"
+      "what": "Uses a pretrained LLM as a strategic controller that selects among pretrained RL skill policies, reaching a win rate statistically equal to a hand-built behavior tree (46.4 vs 51.5 percent) while both beat flat RL.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "Agent AI Survey (Durante 2024, Z9WZPMNU); LATS (Zhou 2024, 77ERE7HA); Offline RL (Levine 2020, ZULLM3UF)"
     },
     {
-      "zotero_key": "2506.14245",
-      "title": "RLVR Implicitly Incentivizes Correct Reasoning in Base LLMs",
-      "authors": "See arXiv listing",
+      "zotero_key": "2602.07992",
+      "title": "When Is Compositional Reasoning Learnable from Verifiable Rewards?",
+      "authors": "Barzilai, Wolf, Basri",
       "year": 2026,
-      "what": "Introduces CoT-Pass@K, which scores a sample as correct only when both the answer and the reasoning steps are right, and uses it to show reinforcement learning with verifiable rewards extends the reasoning boundary, not just answer selection.",
+      "what": "Defines a task-advantage ratio that characterizes which compositional problems RLVR can learn from outcome-only feedback, proving learnability when correct intermediate steps raise verification probability and suboptimal convergence otherwise.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (Z5IWHZAE); Chain-of-Thought (HBLPTRMY)"
+      "builds_on": "Chain-of-Thought (Wei 2023, HBLPTRMY); DeepSeek-R1 (2025, Z5IWHZAE)"
     }
   ]
 }

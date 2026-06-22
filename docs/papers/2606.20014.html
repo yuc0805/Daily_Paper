@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hierarchical Control in Multi-Agent Games: LLM-based Planning and RL Execution — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Hierarchical Control in Multi-Agent Games: LLM-based Planning and RL Execution</h2>
+<p class="paper-meta">
+  Hösch, Sestini, Fuchs, Baghi, Bergdahl, Tollmar, Barrette-LaPierre, Gisslén &middot; arXiv 2026-06-18 &middot;
+  <a href="https://arxiv.org/abs/2606.20014" target="_blank" rel="noopener">arXiv:2606.20014</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>The paper proposes a two-level control architecture for multi-agent games. A pretrained large language model acts as a central strategic controller that selects among a fixed set of pretrained reinforcement learning skill policies for a team of agents, while the RL policies handle low-level reactive execution. The system is evaluated in a competitive 2v2 King of the Hill environment against a hand-built behavior tree and a flat RL baseline trained without skill decomposition.</p>
+
+<h3>Why</h3>
+<p>Reinforcement learning performs well on single-agent sequential decisions but is hard to scale to multi-agent settings with sparse rewards, large state-action spaces, and the need for coordinated strategy. Behavior trees give controllable, believable behavior but require manual rule engineering. The paper asks whether a pretrained LLM can supply the strategic coordination that flat RL fails to learn and that behavior trees obtain only through hand-written rules.</p>
+
+<h3>How</h3>
+<p>Low-level skills are trained as separate RL policies. At decision points the LLM reads the game state and chooses which skill each agent should run, acting as a centralized planner over a discrete skill library; the chosen RL policies then execute reactively. The LLM-plus-RL system reaches a win rate statistically equal to the hand-built behavior tree (46.4 percent versus 51.5 percent, p = 0.103), and both clearly beat flat RL. A user study with 15 participants found 60 percent rated the LLM-plus-RL agents as the most human-like (p = 0.027), citing behavioral adaptability and tactical variability.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z9WZPMNU.html">Agent AI: Surveying Multimodal Interaction (Durante 2024)</a><span class="lineage-note">Surveyed LLM-based agents acting in interactive environments; this paper is a concrete hierarchical instance.</span></li>
+  <li><a href="77ERE7HA.html">LATS: Language Agent Tree Search (Zhou 2024)</a><span class="lineage-note">Used an LLM to plan by searching over its own action steps; here the LLM instead selects among learned RL skills.</span></li>
+  <li><a href="ZULLM3UF.html">Offline Reinforcement Learning (Levine 2020)</a><span class="lineage-note">Anchor for the low-level RL skill policies the LLM orchestrates.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>LATS showed an LLM can plan by searching over token-level reasoning steps, but it keeps both planning and acting inside language space, which does not produce reactive low-level motor control. This paper fixes that by delegating execution to trained RL policies, so the LLM handles only strategic skill selection while the policies handle fast control. It also addresses the failure mode of flat RL, which could not learn coordinated multi-agent strategy without skill decomposition.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to LATS and the Agent AI survey, the integration boundary moves: the LLM does not act in the environment directly but selects among pretrained skills, which pairs symbolic planning with learned motor control. Compared to Offline RL, which learns a single policy from data, this work composes several skill policies under an LLM controller. The result follows the planning-decomposition bridge in the library (ADaPT to LATS) and pushes it toward planning over learned skills rather than over more planning.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Also an LLM controller selecting among a fixed library of operators; a candidate target for porting the LLM-plus-skills pattern to time series.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

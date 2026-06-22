@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bio-Inspired Self-Supervised Learning for Wrist-worn IMU Signals (Bio-PM) — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/self-supervised.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Bio-Inspired Self-Supervised Learning for Wrist-worn IMU Signals (Bio-PM)</h2>
+<p class="paper-meta">
+  Tarale, Chu, Varghese, Liu, Xu, Iyyer, Lee &middot; arXiv 2026-03 &middot;
+  <a href="https://arxiv.org/abs/2603.10961" target="_blank" rel="noopener">arXiv:2603.10961</a> &middot;
+  Appears in: <a href="../areas/self-supervised.html">Self-Supervised Framework</a>
+</p>
+
+<h3>What</h3>
+<p>Bio-PM is a self-supervised encoder for wrist accelerometer signals. Rather than splitting the stream into fixed-length windows, it tokenizes the signal into "movement segments" defined by acceleration zero-crossings, a unit motivated by the submovement theory of motor control. Each segment is resampled, encoded by a small 1D CNN, tagged with its axis and duration, and ordered in time; a 5-layer Transformer with time-aware positional encodings then models the segment sequence under a masked-reconstruction objective. The encoder is pretrained on the NHANES corpus (about 28,000 hours, 11,000 participants, 10 million windows).</p>
+
+<h3>Why</h3>
+<p>Labels for human activity recognition are scarce, so self-supervised learning is the standard route to representations from unlabeled wearable data. The authors argue that existing methods share a hidden weakness: they treat the accelerometer stream as an unstructured time series and choose token boundaries by arbitrary rules, so the model spends capacity on local waveform shape and never learns how movements compose into activities. Prior objectives (contrastive learning, augmentation prediction, raw masked reconstruction) all leave the tokenizer untouched, which the paper identifies as the actual bottleneck.</p>
+
+<h3>How</h3>
+<p>Token boundaries are placed at acceleration zero-crossings after a 0.5 Hz high-pass filter and a two-stage hysteresis to suppress noise crossings. Each segment is resampled to length 32, passed through a 1D CNN, and concatenated with a learned axis embedding and its duration. Tokens from all three axes are merged and sorted by time, then fed to a 5-layer Transformer with absolute and relative time-aware positional encodings. Pretraining masks half the segments under a hybrid random-plus-contiguous policy and also corrupts a fraction of visible tokens to block trivial copying; an L1 loss reconstructs the masked segment waveforms. Downstream, the frozen encoder is linear-probed with the low-frequency gravity component re-added for posture context. Across six subject-disjoint benchmarks, macro-F1 improves by an average of 6 percent (range 4 to 12 percent) over baselines pretrained on the same corpus.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="RTMH75VW.html">SSL for HAR with 700K Person-days (Yuan 2024)</a><span class="lineage-note">Established large-scale self-supervised pretraining for wearable HAR using augmentation prediction over fixed windows; serves as a baseline here.</span></li>
+  <li><a href="6INGKIJV.html">How Mask Matters: Masked Autoencoders Theory (Zhang 2023)</a><span class="lineage-note">Source of the masked-reconstruction objective that Bio-PM applies to motion-aligned tokens.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Frames the broader goal of general biosignal encoders that this paper advances on the accelerometer side.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Yuan 2024 reached strong wearable HAR with a fixed-window augmentation-prediction objective, but the model never had pressure to learn event boundaries because the windows were fixed. Bio-PM fixes the specific failure mode that representations focus on local waveform morphology rather than on the compositional structure of movement. By forcing tokens to align to movement events, the objective rewards modeling the temporal relations among meaningful units, which is what the downstream activity labels depend on.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to Yuan 2024 and to a same-paper equal-length-chunk baseline, Bio-PM holds the masked-reconstruction objective fixed and changes only the tokenization, which isolates the gain to the input unit rather than to the objective or the corpus. Compared to Zhang 2023, which reconstructs masked raw patches, Bio-PM reconstructs masked movement segments, so the prediction target carries an event boundary. Compared to generic time-series foundation models (Chronos, Moment) used as reference points, the domain-aware tokenization gives a representation better matched to wrist motion.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Also targets wearable HAR; differs by changing the sequence backbone (Mamba) rather than the tokenization.</span></li>
+  <li><a href="ICD9EG8Q.html">GLOBEM (Xu 2023)</a><span class="lineage-note">Wearable behavior modeling in the same sensing community; downstream consumer of better activity representations.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
