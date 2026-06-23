@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond Entropy: Token-Level Distributional Deviations for LLM Reasoning — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning</h2>
+<p class="paper-meta">Feng, Li, Liu, Li, Jiang, Guo, Guo, Zhang, Guo &middot; arXiv 2026-06-18 &middot; <a href="https://arxiv.org/abs/2606.19771" target="_blank" rel="noopener">arXiv:2606.19771</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3>
+<p>The paper introduces Independent Combinatorial Tokens (ICT), a reinforcement-learning rule that updates only the roughly 10 percent of tokens whose logit distributions deviate most, measured by Jensen-Shannon divergence. These tokens are treated as the branching points that matter for exploration. On Qwen2.5 models (0.5B, 1.5B, 7B), ICT reports an average pass@4 gain of 4.58 percent and a maximum of 14.9 percent over GRPO and entropy-control baselines across seven math, commonsense, and Olympiad benchmarks.</p>
+<h3>Why</h3>
+<p>RLVR has a known instability: uniform token updates cause entropy collapse and premature convergence, while pushing Shannon entropy up causes entropy explosion and incoherent chains. Methods that control a single scalar entropy term must be tuned carefully and still swing between these two failure modes. The paper looks for a rule that stabilizes training without a hand-set entropy coefficient.</p>
+<h3>How</h3>
+<p>ICT shifts the focus from scalar uncertainty to the shape of each token's logit distribution. It computes Jensen-Shannon divergence between token logit distributions to find distinctive tokens, then restricts gradient updates to those. The paper proves, using Shannon and second-order Renyi entropy, that this selective update lowers overall distribution uncertainty while controlling probability concentration, which keeps exploration alive without destabilizing training.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Provides the RLVR and GRPO-style objective that ICT modifies at the token-selection level.</span></li>
+<li><a href="U4ZPM5DN.html">Latent-GRPO</a><span class="lineage-note">Another GRPO variant in the library that reworks credit assignment for reasoning.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 and standard GRPO apply one outcome reward across all tokens, which the paper ties to entropy collapse or explosion. ICT fixes the instability by changing which tokens receive the update, not the reward, removing the need for a separate entropy schedule that the predecessors depend on.</p>
+<h3>Method vs predecessors</h3>
+<p>Where GRPO weights all tokens by a shared advantage and tunes exploration through an entropy term, ICT selects a small set of high-divergence tokens and proves a dual effect on two entropy measures. It is a targeted credit-assignment rule layered on the same RLVR objective rather than a new reward or rollout structure.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Shares the goal of coherent multi-step reasoning, reached here by training rather than prompting.</span></li>
+</ul>
+</div>
+</body>
+</html>

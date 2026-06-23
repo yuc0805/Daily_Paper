@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-22",
+  "date": "2026-06-23",
   "papers": [
     {
-      "zotero_key": "2603.10961",
-      "title": "Bio-Inspired Self-Supervised Learning for Wrist-worn IMU Signals (Bio-PM)",
-      "authors": "Tarale et al.",
+      "zotero_key": "2606.13316",
+      "title": "ReSum: Synergizing LLM Reasoning and Summarization with Reinforcement Learning",
+      "authors": "Wang et al.",
       "year": 2026,
-      "what": "Tokenizes wrist accelerometer signals into motion-aligned movement segments instead of fixed windows, then pretrains a Transformer by masked reconstruction, improving HAR macro-F1 by an average of 6 percent over same-corpus self-supervised baselines.",
-      "area_label": "Self-Supervised Framework",
-      "area_slug": "self-supervised",
-      "builds_on": "SSL for HAR 700K Person-days (Yuan 2024, RTMH75VW); Masked Autoencoders Theory (Zhang 2023, 6INGKIJV); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF)"
-    },
-    {
-      "zotero_key": "2601.12215",
-      "title": "Wavelet-Driven Masked Multiscale Reconstruction for PPG Foundation Models (MMR)",
-      "authors": "Thukral et al.",
-      "year": 2026,
-      "what": "Pretrains a PPG foundation model by reconstructing masked wavelet coefficients across time-frequency scales, matching or beating prior PPG and time-series foundation models on 17 of 19 health tasks.",
-      "area_label": "LLM-Health",
-      "area_slug": "llm-health",
-      "builds_on": "Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); Masked Autoencoders Theory (Zhang 2023, 6INGKIJV); HeAR (Baur 2024, 3LA8GNCU)"
-    },
-    {
-      "zotero_key": "2606.20014",
-      "title": "Hierarchical Control in Multi-Agent Games: LLM-based Planning and RL Execution",
-      "authors": "Hösch et al.",
-      "year": 2026,
-      "what": "Uses a pretrained LLM as a strategic controller that selects among pretrained RL skill policies, reaching a win rate statistically equal to a hand-built behavior tree (46.4 vs 51.5 percent) while both beat flat RL.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Agent AI Survey (Durante 2024, Z9WZPMNU); LATS (Zhou 2024, 77ERE7HA); Offline RL (Levine 2020, ZULLM3UF)"
-    },
-    {
-      "zotero_key": "2602.07992",
-      "title": "When Is Compositional Reasoning Learnable from Verifiable Rewards?",
-      "authors": "Barzilai, Wolf, Basri",
-      "year": 2026,
-      "what": "Defines a task-advantage ratio that characterizes which compositional problems RLVR can learn from outcome-only feedback, proving learnability when correct intermediate steps raise verification probability and suboptimal convergence otherwise.",
+      "what": "Trains a model under verifiable rewards to summarize its own reasoning mid-trace and continue from the summary, cutting rollout length 18.6 percent while raising accuracy 4 percent.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "Chain-of-Thought (Wei 2023, HBLPTRMY); DeepSeek-R1 (2025, Z5IWHZAE)"
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought (Wei 2023, HBLPTRMY)"
+    },
+    {
+      "zotero_key": "2606.19771",
+      "title": "Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning",
+      "authors": "Feng et al.",
+      "year": 2026,
+      "what": "Updates only the ~10 percent of tokens with the most distinctive logit distributions (by Jensen-Shannon divergence), giving an average pass@4 gain of 4.58 percent over GRPO without a hand-tuned entropy term.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Latent-GRPO (U4ZPM5DN)"
+    },
+    {
+      "zotero_key": "2606.20068",
+      "title": "Process-Verified Reinforcement Learning for Theorem Proving via Lean",
+      "authors": "Kim, Yun",
+      "year": 2026,
+      "what": "Uses the Lean proof assistant as a dense, type-checked process reward (per-tactic soundness and first failing step) instead of a single binary outcome reward, beating outcome-only RLVR on MiniF2F and ProofNet.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought (Wei 2023, HBLPTRMY)"
+    },
+    {
+      "zotero_key": "2606.01801",
+      "title": "MetaForge: A Self-Evolving Multimodal Agent that Retrieves, Adapts, and Forges Tools On Demand",
+      "authors": "Wei et al.",
+      "year": 2026,
+      "what": "A multimodal agent that retrieves, adapts, or writes new tools on demand and retains them for reuse, so its tool set grows across tasks instead of resetting each time.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "PyVision (Zhao 2025, XQTY5MPI); ToolkenGPT (Hao 2024, 6RDHVVA2); DeepEyesV2 (Hong 2026, 4XXXYXS9)"
     }
   ]
 }

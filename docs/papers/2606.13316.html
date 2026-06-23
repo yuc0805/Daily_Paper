@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReSum: Synergizing LLM Reasoning and Summarization with RL — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>ReSum: Synergizing LLM Reasoning and Summarization with Reinforcement Learning</h2>
+<p class="paper-meta">Wang, Ma, Wang, Yang, Huang, Li, Wang, Chu &middot; arXiv 2026-06-11 &middot; <a href="https://arxiv.org/abs/2606.13316" target="_blank" rel="noopener">arXiv:2606.13316</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3>
+<p>ReSum is a reinforcement-learning method that trains a language model to compress its own reasoning trace through self-summarization. During training with verifiable rewards, the model learns when to stop, write a short summary of the work so far, and continue from that summary instead of the full transcript. A summarization-aware adaptive rollout creates contrastive branches (masking the summary phrase where the model produced one, injecting it where it did not) and a summarization-aware advantage compares them. Reported results are an average accuracy gain of 4 percent with an 18.6 percent reduction in rollout length.</p>
+<h3>Why</h3>
+<p>Reinforcement learning with verifiable rewards (RLVR) is the standard way to train long-horizon reasoning, but it tends to reward ever longer rollouts. Long traces exhaust the context budget and let an early error propagate through the rest of the chain. Prior fixes for long-context organization rely on external scaffolds that manage the rollout from outside the model, rather than letting the model manage its own trajectory. The paper's goal is to give the model an internal, learned way to keep its reasoning short and coherent.</p>
+<h3>How</h3>
+<p>Pilot studies show that self-summarization lowers token-level entropy and that inserting a summarization phrase reduces errors carried from a wrong prefix. ReSum builds on this: when the model spontaneously summarizes, the method masks that phrase to form a contrastive branch; at non-summarization points it randomly injects the phrase to form a matched branch. A summarization-aware advantage then scores whether summarizing helped, and the RLVR update rewards summarization only when it improves the trajectory.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Established that RLVR alone can drive long-horizon reasoning; ReSum keeps that setup and adds length control.</span></li>
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Origin of explicit step-by-step reasoning that ReSum learns to compress.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 produces long reasoning chains but has no mechanism to bound their length, so the context budget fills and early mistakes propagate. ReSum fixes that specific failure mode by teaching the model to summarize and restart from the summary, cutting rollout length 18.6 percent while raising accuracy 4 percent. It addresses the "trace grows without limit" problem that DeepSeek-R1 leaves open.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared to DeepSeek-R1's outcome-reward RLVR, ReSum adds a learned control action (self-summarization) and a contrastive advantage that isolates the value of that action, rather than changing the reward itself. Compared to Chain-of-Thought, which fixes a single forward natural-language trace, ReSum lets the model re-anchor its trace partway through. This extends the DeepSeek-R1 to Chain-of-Thought bridge in the library (reasoning-via-RL versus prompting) toward learned management of reasoning length.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="U4ZPM5DN.html">Latent-GRPO</a><span class="lineage-note">Also reworks the RLVR objective for reasoning; ReSum changes the rollout structure where Latent-GRPO changes credit assignment.</span></li>
+</ul>
+</div>
+</body>
+</html>

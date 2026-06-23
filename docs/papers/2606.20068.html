@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Process-Verified RL for Theorem Proving via Lean — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Process-Verified Reinforcement Learning for Theorem Proving via Lean</h2>
+<p class="paper-meta">Kim, Yun &middot; arXiv 2026-06-18 &middot; <a href="https://arxiv.org/abs/2606.20068" target="_blank" rel="noopener">arXiv:2606.20068</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3>
+<p>This work uses the Lean proof assistant as a process-level reward oracle for reinforcement learning, not only as an end-of-episode pass/fail checker. A proof attempt is parsed into a sequence of tactics; Lean's elaboration marks the locally sound steps and the earliest failing step, giving a dense, type-checked credit signal. These rewards feed a GRPO-style objective with first-error propagation and first-token credit. With STP-Lean and DeepSeek-Prover-V1.5, tactic-level supervision beats outcome-only baselines on MiniF2F and ProofNet.</p>
+<h3>Why</h3>
+<p>RLVR usually relies on one binary verification signal per attempt. For formal proofs that signal is sound but sparse: a long correct prefix that ends in one bad step receives the same zero reward as a proof that was wrong from the start, so credit is lost. Symbolic proof assistants already compute rich structured feedback; the paper argues this feedback should be used during training, not only at evaluation.</p>
+<h3>How</h3>
+<p>Proof attempts are split into tactics, and Lean's elaborator labels each step as sound or as the first failure, rooted in type theory. The method propagates credit up to the first error and assigns first-token credit, then balances outcome-level and process-level advantages inside a GRPO-style update. The verifier therefore supplies a dense, sound reward without a learned critic.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Set the single binary verifiable-reward template that this paper argues is too coarse and replaces with dense process rewards.</span></li>
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Intermediate reasoning steps, here made checkable tactic by tactic.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1's one-reward-per-attempt scheme discards information about which step failed. This paper fixes that by reading Lean's per-tactic elaboration, marking the earliest failing step and giving credit for the sound prefix, turning a sparse outcome reward into a dense one while keeping it sound.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared to outcome-only RLVR, the method adds a symbolic process oracle and a first-error/first-token credit rule on top of a GRPO objective. The reward source is type theory rather than a trained reward model, so the dense signal does not introduce the noise that learned process critics can.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="U4ZPM5DN.html">Latent-GRPO</a><span class="lineage-note">Both modify the GRPO credit-assignment path; this paper sources the signal from a symbolic verifier.</span></li>
+</ul>
+</div>
+</body>
+</html>
