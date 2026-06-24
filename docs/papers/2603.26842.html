@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAN-AD — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>VAN-AD: Visual Masked Autoencoder with Normalizing Flow for Time Series Anomaly Detection</h2>
+<p class="paper-meta">Authors et al. &middot; arXiv 2026-03 &middot; <a href="https://arxiv.org/abs/2603.26842" target="_blank" rel="noopener">arXiv:2603.26842</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3>
+<p>VAN-AD detects anomalies in multivariate time series by rendering the series as an image-like input, masking it with a checkerboard pattern, and reconstructing it with a masked autoencoder. Reconstruction error signals an anomaly. A statistical-space mapping pushes the reconstructed sequence back into the distribution of the original to widen the gap on abnormal windows, and a normalizing-flow module models the probability density of the current window so the anomaly score is a calibrated likelihood rather than a raw error.</p>
+<h3>Why</h3>
+<p>Reconstruction-based anomaly detectors flag points by reconstruction error, but a raw error is not a probability and is hard to threshold consistently across signals. Prior masked-autoencoder anomaly methods inherit this calibration problem. VAN-AD wants both the representational strength of masked reconstruction and a principled, density-based anomaly score.</p>
+<h3>How</h3>
+<p>A forward module reshapes the time series for the masked autoencoder; a reconstruction module masks and rebuilds it; a statistical mapping amplifies reconstruction discrepancies; and a normalizing-flow module assigns a likelihood to each window. The anomaly score combines the amplified reconstruction signal with the flow likelihood, so windows that are both hard to reconstruct and low-likelihood under the learned density are flagged.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="A5HBRQB9.html">MAE (Masked Autoencoders)</a><span class="lineage-note">Provides the masked-patch reconstruction objective that VAN-AD reuses as an anomaly signal.</span></li>
+  <li><a href="6INGKIJV.html">How Mask Matters (MAE theory)</a><span class="lineage-note">Explains why masked reconstruction learns useful structure, the basis VAN-AD relies on.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>MAE learns image representations by reconstructing masked patches but produces no calibrated anomaly score on its own. VAN-AD fixes the specific failure mode "reconstruction error is not a probability" by adding a normalizing-flow density head and a statistical-space step that widens the normal-versus-abnormal gap, turning a representation learner into a usable anomaly detector for time series.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared with MAE, VAN-AD keeps masked reconstruction but moves the application from image pretraining to time-series anomaly scoring and pairs it with a density model. Compared with the biosignal foundation-model work in your library (Foundation Models for Biosignals), which uses the same masked-reconstruction family for representation learning, VAN-AD targets detection and adds an explicit likelihood model rather than a downstream classifier.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Same masked-reconstruction family applied to physiological signals; representation focus rather than anomaly scoring.</span></li>
+  <li><a href="6INGKIJV.html">How Mask Matters (MAE theory)</a><span class="lineage-note">Theory behind why the masked objective VAN-AD reuses works.</span></li>
+</ul>
+</div>
+</body>
+</html>

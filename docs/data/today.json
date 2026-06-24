@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-23",
+  "date": "2026-06-24",
   "papers": [
     {
-      "zotero_key": "2606.13316",
-      "title": "ReSum: Synergizing LLM Reasoning and Summarization with Reinforcement Learning",
-      "authors": "Wang et al.",
+      "zotero_key": "2606.03988",
+      "title": "Imaginative Perception Tokens Enhance Spatial Reasoning in Multimodal Language Models",
+      "authors": "Bigverdi et al.",
       "year": 2026,
-      "what": "Trains a model under verifiable rewards to summarize its own reasoning mid-trace and continue from the summary, cutting rollout length 18.6 percent while raising accuracy 4 percent.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought (Wei 2023, HBLPTRMY)"
+      "what": "Trains a vision-language model to emit perceptual intermediate representations of unseen viewpoints; on Multiview Counting it gains 3.4 percent and beats textual chain-of-thought, which can hurt.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "Chain-of-Thought Prompting (Wei 2023, HBLPTRMY)"
     },
     {
-      "zotero_key": "2606.19771",
-      "title": "Beyond Entropy: Learning from Token-Level Distributional Deviations for LLM Reasoning",
-      "authors": "Feng et al.",
+      "zotero_key": "2603.26842",
+      "title": "VAN-AD: Visual Masked Autoencoder with Normalizing Flow for Time Series Anomaly Detection",
+      "authors": "Authors et al.",
       "year": 2026,
-      "what": "Updates only the ~10 percent of tokens with the most distinctive logit distributions (by Jensen-Shannon divergence), giving an average pass@4 gain of 4.58 percent over GRPO without a hand-tuned entropy term.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Latent-GRPO (U4ZPM5DN)"
+      "what": "Ports masked-autoencoder reconstruction to time-series anomaly detection and adds a normalizing-flow density head so the anomaly score is a calibrated likelihood, not a raw error.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "MAE (A5HBRQB9); How Mask Matters (6INGKIJV)"
     },
     {
-      "zotero_key": "2606.20068",
-      "title": "Process-Verified Reinforcement Learning for Theorem Proving via Lean",
-      "authors": "Kim, Yun",
+      "zotero_key": "2603.12109",
+      "title": "On Information Self-Locking in Reinforcement Learning for Active Reasoning of LLM Agents",
+      "authors": "Zou et al.",
       "year": 2026,
-      "what": "Uses the Lean proof assistant as a dense, type-checked process reward (per-tactic soundness and first failing step) instead of a single binary outcome reward, beating outcome-only RLVR on MiniF2F and ProofNet.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought (Wei 2023, HBLPTRMY)"
-    },
-    {
-      "zotero_key": "2606.01801",
-      "title": "MetaForge: A Self-Evolving Multimodal Agent that Retrieves, Adapts, and Forges Tools On Demand",
-      "authors": "Wei et al.",
-      "year": 2026,
-      "what": "A multimodal agent that retrieves, adapts, or writes new tools on demand and retains them for reuse, so its tool set grows across tasks instead of resetting each time.",
+      "what": "Names a training trap where a question-asking agent stops exploring, traces it to coupled action-selection and belief-tracking weakness, and breaks it with cheap directional critiques.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "PyVision (Zhao 2025, XQTY5MPI); ToolkenGPT (Hao 2024, 6RDHVVA2); DeepEyesV2 (Hong 2026, 4XXXYXS9)"
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE)"
+    },
+    {
+      "zotero_key": "2606.06448",
+      "title": "Agent Memory: Characterization and System Implications of Stateful Long-Horizon Workloads",
+      "authors": "Authors et al.",
+      "year": 2026,
+      "what": "Profiles agent-memory patterns (flat retrieval, LLM extraction, fact stores, agentic control) at runtime to show which are expensive to serve at scale.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "Memory Mechanisms Survey (Huang 2026, BDY3HUCV)"
     }
   ]
 }
