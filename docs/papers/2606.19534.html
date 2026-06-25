@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PerceptionDLM: Parallel Region Perception with Multimodal Diffusion Language Models — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+
+<h2>PerceptionDLM: Parallel Region Perception with Multimodal Diffusion Language Models</h2>
+<p class="paper-meta">
+  ByteDance, Peking University MSALab &middot; arXiv 2026-06 &middot;
+  <a href="http://arxiv.org/abs/2606.19534" target="_blank" rel="noopener">arXiv:2606.19534</a> &middot;
+  Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a>
+</p>
+
+<h3>What</h3>
+<p>PerceptionDLM is a multimodal model built on a discrete diffusion language backbone that decodes tokens in parallel rather than autoregressively. On top of a strong diffusion multimodal baseline, it adds prompting and structured attention masking so the model can describe several masked image regions at once, at both the sequence and token level. The result is an inference-efficiency gain over models that handle regions one after another, while keeping competitive perception quality.</p>
+
+<h3>Why</h3>
+<p>Most multimodal language models generate text autoregressively, one token at a time. That is slow when a task asks for captions of many image regions, because each region is processed in sequence. Prior region-perception models inherit this autoregressive bottleneck, so throughput drops as the number of regions grows. The paper sets out to use the parallel-decoding property of diffusion language models to remove that bottleneck.</p>
+
+<h3>How</h3>
+<p>The backbone is a discrete diffusion multimodal model that integrates a pretrained vision encoder with a diffusion language model through visual instruction tuning, and decodes many tokens together rather than left to right. PerceptionDLM adds an efficient prompting scheme and a structured attention mask so that several masked regions are perceived simultaneously, producing region descriptions in parallel. This converts the per-region sequential cost into a single parallel pass.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="YJ9TK993.html">DiT: Scalable Diffusion Models with Transformers (Peebles 2023)</a><span class="lineage-note">Showed diffusion can run on a transformer backbone; PerceptionDLM carries the idea to the language side of a multimodal model.</span></li>
+  <li><span class="lineage-note">No multimodal diffusion language model previously in your library; nearest anchors are the diffusion nodes (DiT, DDPM) in the Vision-Language and Generative community.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DiT applied diffusion to image generation, where the output is pixels. Autoregressive multimodal models apply transformers to perception, where the output is text but produced one token at a time. PerceptionDLM fixes the throughput failure of the autoregressive route by moving the diffusion-with-transformer idea onto the language output, so many regions are described in one parallel pass.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to DiT, the diffusion runs over discrete language tokens for perception rather than over pixels for synthesis. Compared to autoregressive multimodal models, decoding is parallel and guided by structured attention masking that isolates each region, rather than sequential. The contribution is the structured-masking-plus-prompting layer that lets the parallel decoder address several regions at once.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Diffusion on a transformer backbone; same generative family, different output (pixels vs language tokens).</span></li>
+</ul>
+
+</div>
+</body>
+</html>

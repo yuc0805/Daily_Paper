@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uncertainty-Aware Foundation Models for Clinical Data — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Uncertainty-Aware Foundation Models for Clinical Data</h2>
+<p class="paper-meta">
+  arXiv 2026-04 &middot;
+  <a href="http://arxiv.org/abs/2604.04175" target="_blank" rel="noopener">arXiv:2604.04175</a> &middot;
+  Appears in: <a href="../areas/llm-health.html">LLM-Health</a>
+</p>
+
+<h3>What</h3>
+<p>The paper builds a clinical foundation model that represents each patient as a distribution over plausible latent states rather than a single point embedding. It learns set-valued representations and enforces agreement across partial views of the same patient, so the model captures what can be invariantly inferred and explicitly encodes the rest as epistemic uncertainty. The objective combines reconstruction, contrastive alignment, and distributional regularization inside a multimodal encoder.</p>
+
+<h3>Why</h3>
+<p>Clinical foundation models inherited the "large pretraining, single deterministic embedding" recipe from language and vision. But clinical observations are sparse, irregular, and modality-dependent measurements of a hidden physiologic state, so a single deterministic embedding is an overconfident summary of an incomplete record. Prior work emphasizes scale and point representations and does not model what was not observed, which leaves predictions poorly calibrated under missing data.</p>
+
+<h3>How</h3>
+<p>Each patient is encoded as a distribution, not a point. Consistency is enforced across partial views of the same patient, which teaches the model what is invariantly inferable from any subset of the data while widening the distribution where evidence is thin. The training objective mixes reconstruction, contrastive alignment, and a distributional regularizer, integrated with multimodal encoders and scalable self-supervised objectives. Across diverse clinical tasks the approach reports better prediction, better robustness under missing data, and better-calibrated uncertainty than strong point-embedding baselines.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Maps clinical foundation models, which mostly emit point embeddings; this paper changes the output object.</span></li>
+  <li><a href="A5HBRQB9.html">MAE (He et al.)</a><span class="lineage-note">Reconstruction-based self-supervised objective the model retains.</span></li>
+  <li><a href="6INGKIJV.html">How Mask Matters / MAE Theory (Zhang 2023)</a><span class="lineage-note">What masked reconstruction learns; same Health AI and Self-Supervised community.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The biosignals survey describes clinical foundation models that produce a single deterministic embedding, which is overconfident when the record is partial. This paper fixes that failure mode by making the representation set-valued and uncertainty-aware, so missingness widens the distribution instead of being silently averaged into a point. The reported gain in calibration under missing data is the direct evidence that the fix addresses the right problem.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to MAE-style point-embedding pretraining, this work keeps reconstruction and contrastive alignment but adds a distributional regularizer and a set-valued output, and enforces consistency across partial patient views rather than across augmentations of a complete input. The change is in the representation geometry: a distribution over latent states rather than a single vector.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Same clinical foundation-model area; this paper is the uncertainty-aware variant.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

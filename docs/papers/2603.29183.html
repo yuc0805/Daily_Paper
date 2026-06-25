@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMPACT: Influence Modeling for Open-Set Time Series Anomaly Detection — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
+<h2>IMPACT: Influence Modeling for Open-Set Time Series Anomaly Detection</h2>
+<p class="paper-meta">
+  mala-lab &middot; arXiv 2026-03 &middot; ICML 2026 &middot;
+  <a href="http://arxiv.org/abs/2603.29183" target="_blank" rel="noopener">arXiv:2603.29183</a> &middot;
+  Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>
+</p>
+
+<h3>What</h3>
+<p>IMPACT is a framework for open-set anomaly detection on time series, the setting where a few labeled anomalies seen in training must help catch both those seen types and unseen ones at test time. It quantifies how much each training sample changes test risk, then uses those influence scores in two ways: it relabels contaminated training points by flipping labels that raise risk, and it synthesizes realistic unseen anomalies by perturbing features in the direction influence says matters. It was accepted at ICML 2026.</p>
+
+<h3>Why</h3>
+<p>Open-set anomaly detection methods carried over from other domains fail on time series because they do not preserve sequence structure. As a result the synthetic anomalies they generate are trivial or unrealistic, and the detector either overfits the seen anomaly types or flags ordinary variation. The paper's motivation is to keep synthetic anomalies on the data manifold and to clean label contamination, both driven by a single principled signal rather than heuristics.</p>
+
+<h3>How</h3>
+<p>The method estimates the influence of each training sample on test risk. Influence then drives two operations. First, decontamination: training points whose presence raises test risk have their labels flipped, which removes mislabeled or misleading examples. Second, synthesis: features are perturbed in the direction influence indicates, producing realistic unseen anomalies that preserve the sequential nature of the signal. Detection then proceeds on the cleaned and augmented training set, improving recognition of unseen anomaly types without losing the seen ones.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><span class="lineage-note">No direct parent in your library. Influence functions for data attribution are not in your collection yet.</span></li>
+  <li><a href="2603.26842.html">VAN-AD (2026-06-24 note)</a><span class="lineage-note">Closest neighbor: also time-series anomaly detection, but through masked-autoencoder reconstruction plus a normalizing-flow density head.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>VAN-AD attacks the anomaly score, making it a calibrated likelihood from reconstruction error and density. IMPACT works one level earlier, at the training data, fixing the failure mode where imported open-set methods build unrealistic synthetic anomalies that ignore sequence structure. Where VAN-AD makes the score honest, IMPACT makes the training set and the synthetic anomalies honest.</p>
+
+<h3>Method vs predecessors</h3>
+<p>VAN-AD is a model-side method: it changes how the score is computed at inference. IMPACT is a data-side method: it changes which training points are trusted and what synthetic anomalies look like, using influence as the common signal for both. The two are complementary rather than competing, and could in principle be stacked.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2603.26842.html">VAN-AD</a><span class="lineage-note">Time-series anomaly detection via reconstruction and density; different route to the same goal.</span></li>
+  <li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">Surveys the broader time-series modeling landscape this sits within.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

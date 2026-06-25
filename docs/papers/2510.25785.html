@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HiMAE: Hierarchical Masked Autoencoders for Wearable Time Series — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
+<h2>HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series</h2>
+<p class="paper-meta">
+  Lee, Tanade, Zhou, Lee, Thukral, et al. (Samsung Research America) &middot; arXiv 2025-10-28 &middot;
+  <a href="http://arxiv.org/abs/2510.25785" target="_blank" rel="noopener">arXiv:2510.25785</a> &middot;
+  Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>
+</p>
+
+<h3>What</h3>
+<p>HiMAE is a self-supervised framework for wearable physiological time series. It pairs masked autoencoding with a hierarchical convolutional encoder-decoder shaped like a U-Net, so it produces several embeddings at once, one per temporal scale, instead of a single collapsed embedding. Linear probes on each level then measure which resolution carries predictive signal for a given task, which turns resolution from a hyperparameter into a measurement tool. The model is small enough to run entirely on a smartwatch-class CPU with sub-millisecond inference.</p>
+
+<h3>Why</h3>
+<p>Wearable sensors produce long signals, but the field does not know which temporal scales carry the structure that downstream health tasks depend on. Most self-supervised models pick one resolution and collapse everything to it, which hides the question rather than answering it. Clinically meaningful events can arise at second-level timescales while other outcomes depend on slow dynamics, so a single universal resolution is an assumption rather than a finding. The paper sets out to test whether resolution is a real axis of representation learning and to build a model that exposes scale-specific structure instead of averaging it away.</p>
+
+<h3>How</h3>
+<p>The encoder is a hierarchy of convolutional stages, each producing an embedding at a coarser temporal granularity, trained by masked reconstruction of the input signal. The convolutional bias is deliberate: the authors argue wearable signals are long but low-dimensional and highly structured, so a transformer can overfit and blur scale-specific structure rather than reveal it. After pretraining, a linear probe at each hierarchy level reports how much predictive signal that scale holds, across 14 classification and regression tasks plus generative benchmarks. HiMAE reports state-of-the-art accuracy while being orders of magnitude smaller than foundation models that collapse scale.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="A5HBRQB9.html">MAE (He et al.)</a><span class="lineage-note">Source of the masked-reconstruction pretraining objective HiMAE adapts to 1D physiological signals.</span></li>
+  <li><a href="6INGKIJV.html">How Mask Matters / MAE Theory (Zhang 2023)</a><span class="lineage-note">Studied what masking ratio and structure buy; HiMAE keeps the objective and changes the encoder shape.</span></li>
+  <li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Pursued wearable efficiency through a state-space backbone; the efficiency alternative HiMAE argues against.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Maps the wearable foundation-model landscape, including the "one universal resolution" default HiMAE challenges.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>MAE and How Mask Matters produce a single embedding from a flat encoder, which answers "how do I compress the signal" but not "at which temporal scale does this outcome live". HiMAE fixes that specific gap: by making each hierarchy level a distinct resolution and probing each one, it converts the masked-autoencoder into a discovery tool that names the scale carrying predictive signal. Relative to HARMamba, which also targets efficient wearable modeling, HiMAE solves the additional problem of interpretability across scales, which the state-space backbone does not address.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to flat MAE, HiMAE replaces the single encoder with a U-Net-style convolutional hierarchy and reads out one embedding per level rather than one global embedding. Compared to HARMamba's state-space sequence model, HiMAE uses convolutional receptive-field growth for efficiency and adds a per-level linear probe as an explicit measurement instrument. It sits in the same Health AI and Self-Supervised community as the SSL-for-HAR anchor in the library, but where that work scaled the dataset, HiMAE scales the analysis of which resolution matters.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Same area map; HiMAE is one more point on it that argues against collapsing scale.</span></li>
+  <li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Alternative efficient wearable encoder; different inductive bias (SSM vs convolutional hierarchy).</span></li>
+</ul>
+
+</div>
+</body>
+</html>
