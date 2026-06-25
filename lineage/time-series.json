@@ -741,6 +741,24 @@
       "relation": "builds_on",
       "note": "CVAformer imports Pearl-style backdoor adjustment to remove the dynamic component as a confounder during LLM alignment, connecting time series and causal inference.",
       "cross_area": true
+    },
+    {
+      "source": "A5HBRQB9",
+      "source_label": "Masked Autoencoders Are Scalable Vision Learners (MAE, He 2022)",
+      "target": "2603.26842",
+      "target_label": "VAN-AD: Visual Masked Autoencoder with Normalizing Flow for Time Series Anomaly Detection (2026)",
+      "relation": "builds_on",
+      "note": "Where MAE learns image representations by reconstructing masked patches, VAN-AD reuses the masked-reconstruction objective as an anomaly score for multivariate time series.",
+      "cross_area": true
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2603.26842",
+      "target_label": "VAN-AD: Visual Masked Autoencoder with Normalizing Flow for Time Series Anomaly Detection (2026)",
+      "relation": "builds_on",
+      "note": "VAN-AD relies on the masked-reconstruction principle this theory work analyzes, then adds a normalizing-flow density model because reconstruction error alone does not give a calibrated probability of abnormality.",
+      "cross_area": false
     }
   ],
   "hyperedges": [

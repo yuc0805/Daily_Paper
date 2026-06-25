@@ -168,6 +168,15 @@
       "target_label": "Beyond English: Uncovering the Multilingual Gap in Vision-Language-Action Models (2026)",
       "relation": "builds_on",
       "note": "DALL-E 2 is the closest in-library neighbor in the vision-language community; where it builds a shared image-text space for generation, this paper measures how that space degrades for non-English inputs after task-specific alignment."
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2606.03988",
+      "target_label": "Imaginative Perception Tokens Enhance Spatial Reasoning in Multimodal Language Models (2026)",
+      "relation": "builds_on",
+      "note": "Where Chain-of-Thought puts the reasoning trace in natural-language steps, IPT moves the trace into a perceptual representation in the visual modality, and reports that for spatial tasks the text trace can lower performance rather than help.",
+      "cross_area": true
     }
   ],
   "hyperedges": [],

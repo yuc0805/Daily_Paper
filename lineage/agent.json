@@ -393,6 +393,24 @@
       "target_label": "Infini Memory: Maintainable Topic Documents for Long-Term LLM Agent Memory (2026)",
       "relation": "builds_on",
       "note": "Where the survey maps the design space of agent memory, Infini Memory commits to one design point: topic-structured text documents revised over time instead of a flat log or a vector store."
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2603.12109",
+      "target_label": "On Information Self-Locking in Reinforcement Learning for Active Reasoning of LLM Agents (2026)",
+      "relation": "builds_on",
+      "note": "Where DeepSeek-R1 shows reinforcement learning can produce strong single-pass reasoning, this paper studies the multi-turn information-gathering case and shows the same training can collapse exploration, then patches it with a reallocated learning signal.",
+      "cross_area": true
+    },
+    {
+      "source": "huang2026_memory",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "2606.06448",
+      "target_label": "Agent Memory: Characterization and System Implications of Stateful Long-Horizon Workloads (2026)",
+      "relation": "builds_on",
+      "note": "Where the survey organizes agent memory mechanisms by what they do, this paper measures what they cost when deployed, adding a runtime systems view to a mostly modeling-focused literature.",
+      "cross_area": false
     }
   ],
   "hyperedges": [

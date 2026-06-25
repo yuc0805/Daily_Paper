@@ -26,6 +26,8 @@
 2026-06 | LLM-as-an-Investigator (2606.13220) | evidence-first reasoning for robust interactive problem diagnosis
 2026-06 | MemToolAgent (2606.07909) | memory loop records past tool-call outcomes and feedback to inform later tool choice
 2026-06 | Infini Memory (2606.10677) | topic-structured, revisable memory documents for long-horizon agent memory
+2026-06 | Information Self-Locking (2603.12109) | names and patches an exploration-collapse trap in reinforcement-learning training of question-asking agents
+2026-06 | Agent Memory Systems (2606.06448) | systems-level cost and latency map of long-horizon agent memory patterns
 ### Paper List
 
 [KNOWN] [2018] Rabinowitz et al. — Machine Theory of Mind. zotero_key:NEKX3K3N.
@@ -57,11 +59,13 @@
 
 [2026] 2606.07909 — MemToolAgent: Leveraging Memory for Tool-Using Agents Based on Environment and User Feedback. [https://arxiv.org/abs/2606.07909](https://arxiv.org/abs/2606.07909). external.
 [2026] 2606.10677 — Infini Memory: Maintainable Topic Documents for Long-Term LLM Agent Memory. [https://arxiv.org/abs/2606.10677](https://arxiv.org/abs/2606.10677). external.
+[2026] 2603.12109 — On Information Self-Locking in Reinforcement Learning for Active Reasoning of LLM Agents. [https://arxiv.org/abs/2603.12109](https://arxiv.org/abs/2603.12109). external.
+[2026] 2606.06448 — Agent Memory: Characterization and System Implications of Stateful Long-Horizon Workloads. [https://arxiv.org/abs/2606.06448](https://arxiv.org/abs/2606.06448). external.
 
 ### Recent Activity
 
+2026-06-24 | 2603.12109 added | reinforcement-learning training of question-asking agents can collapse exploration; cheap directional critiques break the self-locking loop; Tier B
+2026-06-24 | 2606.06448 added | systems-level characterization of long-horizon agent memory patterns and their serving cost and latency; Tier B
 2026-06-18 | 2606.07909 added | memory loop turns past tool calls, outcomes, and feedback into retrievable entries so the agent avoids repeating tool-use mistakes; Tier B
 2026-06-18 | 2606.10677 added | topic-structured memory documents revised over time, an alternative to flat logs and vector stores for long-horizon memory; Tier B
 2026-06-17 | 2606.13220 added | reorders the agent loop so evidence collection precedes hypothesis commitment; robustness when the first guess is wrong; Tier B
-2026-06-10 | 2606.08656 added | plug-in memory copilot with multi-turn GRPO for agent memory-update policy; Tier B
-2026-06-09 | 2603.04142 added | role-structured multi-agent system for physiological TS; agentic benefit is model-dependent; Tier B
