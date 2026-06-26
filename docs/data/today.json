@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-25",
+  "date": "2026-06-26",
   "papers": [
     {
-      "zotero_key": "2510.25785",
-      "title": "HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series",
-      "authors": "Lee et al.",
-      "year": 2025,
-      "what": "Masked autoencoding with a hierarchical convolutional encoder gives one embedding per temporal scale, turning resolution into a probe; it beats scale-collapsing foundation models while running on-watch with sub-millisecond inference.",
+      "zotero_key": "2603.03331",
+      "title": "PulseLM: A Foundation Dataset and Benchmark for PPG-Text Learning",
+      "authors": "Pham et al.",
+      "year": 2026,
+      "what": "A large-scale PPG-text benchmark: fifteen sources harmonized into twelve question-answering tasks, 1.31M standardized 10-second segments and 3.15M closed-ended question-answer pairs, with baseline PPG-aware language models.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "MAE (He, A5HBRQB9); How Mask Matters (Zhang 2023, 6INGKIJV); HARMamba (Li 2024, HE9X47KN)"
+      "builds_on": "Sensor2Text (Chen 2024, ELYUE3NF); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); TS-Agent (Liu 2025, I2CIT4I7)"
     },
     {
-      "zotero_key": "2603.29183",
-      "title": "IMPACT: Influence Modeling for Open-Set Time Series Anomaly Detection",
-      "authors": "mala-lab",
+      "zotero_key": "2601.21031",
+      "title": "SIGMA-PPG: Statistical-prior Informed Generative Masking Architecture for PPG Foundation Model",
+      "authors": "Guo et al.",
       "year": 2026,
-      "what": "Uses influence on test risk to relabel contaminated training points and synthesize realistic unseen anomalies, improving open-set detection of unseen anomaly types without losing the seen ones.",
+      "what": "Replaces random masking in PPG pretraining with a reinforcement-learning teacher that uses amplitude and skewness priors to build hard masking curricula, because random masking is trivial on quasi-periodic signals.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "Closest neighbor: VAN-AD (2603.26842)"
+      "builds_on": "How Mask Matters (Zhang 2023, 6INGKIJV); MAE (He, A5HBRQB9)"
     },
     {
-      "zotero_key": "2604.04175",
-      "title": "Uncertainty-Aware Foundation Models for Clinical Data",
-      "authors": "Authors et al.",
+      "zotero_key": "2606.03988",
+      "title": "Imaginative Perception Tokens Enhance Spatial Reasoning in Multimodal Language Models",
+      "authors": "Bigverdi, Krishna et al.",
       "year": 2026,
-      "what": "Represents each patient as a distribution over latent states instead of a point embedding, encoding epistemic uncertainty and improving calibration and robustness under missing clinical data.",
-      "area_label": "LLM-Health",
-      "area_slug": "llm-health",
-      "builds_on": "Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); MAE (A5HBRQB9)"
-    },
-    {
-      "zotero_key": "2606.19534",
-      "title": "PerceptionDLM: Parallel Region Perception with Multimodal Diffusion Language Models",
-      "authors": "ByteDance, Peking University",
-      "year": 2026,
-      "what": "A discrete diffusion multimodal model with structured attention masking describes several image regions in one parallel pass, gaining inference efficiency over autoregressive region perception.",
+      "what": "Introduces perceptual intermediate tokens that externalize what a VLM would see under an unseen viewpoint; beats textual chain-of-thought and raises multiview-counting accuracy by 3.4% with no image generated at inference.",
       "area_label": "Multi-Modal",
       "area_slug": "multi-modal",
-      "builds_on": "DiT (Peebles 2023, YJ9TK993)"
+      "builds_on": "Chain-of-Thought (Wei 2023, HBLPTRMY)"
+    },
+    {
+      "zotero_key": "2603.12109",
+      "title": "On Information Self-Locking in Reinforcement Learning for Active Reasoning of LLM agents",
+      "authors": "Zou, Chen et al.",
+      "year": 2026,
+      "what": "Names a failure mode where outcome-reward RL agents stop asking informative questions; decomposes active reasoning into Action Selection and Belief Tracking and shows weak versions of both trap the agent in a low-information loop.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "DeepSeek-R1 (Z5IWHZAE); LATS (Zhou 2024, 77ERE7HA); Chain-of-Thought (Wei 2023, HBLPTRMY)"
     }
   ]
 }

@@ -9,25 +9,28 @@
 <body>
 <div class="paper-page">
 <a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
-<h2>On Information Self-Locking in Reinforcement Learning for Active Reasoning of LLM Agents</h2>
-<p class="paper-meta">Zou, Chen, Feng, Li, Gong, Cheng &middot; arXiv 2026-03-12 &middot; <a href="https://arxiv.org/abs/2603.12109" target="_blank" rel="noopener">arXiv:2603.12109</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h2>On Information Self-Locking in Reinforcement Learning for Active Reasoning of LLM agents</h2>
+<p class="paper-meta">Zou, Chen et al. &middot; arXiv 2026-03 &middot; <a href="https://arxiv.org/abs/2603.12109" target="_blank" rel="noopener">arXiv:2603.12109</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
 <h3>What</h3>
-<p>The paper identifies and fixes "information self-locking" in reinforcement-learning training of question-asking agents. Under self-locking the agent stops asking informative questions and stops internalizing evidence it already has, settling into a low-information loop. The authors decompose active reasoning into action selection (which queries to issue) and belief tracking (how to update from answers), show that weakness in either one starves exploration during training, and inject cheap directional critiques to break the loop, which measurably reduces self-locking.</p>
+<p>The paper identifies "information self-locking": LLM agents trained with outcome-reward reinforcement learning stop asking informative questions and fail to use evidence they already hold in active-reasoning settings. It decomposes active reasoning into Action Selection, which determines the observation stream through queries, and Belief Tracking, which updates the agent's belief from collected evidence, and explains how weak versions of both trap the agent in a low-information state.</p>
 <h3>Why</h3>
-<p>Reinforcement learning has improved single-pass reasoning, but multi-turn agents that must gather information behave differently: a weak policy explores little, little exploration gives a weak training signal, and the two reinforce each other. Prior reasoning-RL work does not address this interactive trap.</p>
+<p>Reinforcement learning with outcome rewards trains strong reasoning on closed tasks, but active reasoning is different: the agent must ask questions to gather information before it can answer. Outcome rewards do not credit the act of asking a good question, so the agent has no direct signal to keep exploring. Prior RL reasoning work does not explain why agents collapse to non-informative behavior in this setting.</p>
 <h3>How</h3>
-<p>The authors analyze the feedback loop between action selection and belief tracking and show each limits the other during training. Their remedy reallocates the learning signal by adding easy-to-obtain directional critiques that tell the agent which direction of behavior would raise information gain, pulling it out of the locked regime without an expensive reward redesign.</p>
+<p>The authors analyze the two capabilities separately. They show that deficient Action Selection and Belief Tracking limit information exploration during RL training, and that insufficient exploration in turn prevents either capability from improving. This creates a feedback loop that locks the agent in a low-information regime. The decomposition gives a diagnosis of where the standard training recipe breaks rather than a single new reward term.</p>
 <h3>Builds on</h3>
 <ul class="lineage-list">
-  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Trains reasoning through reinforcement learning with verifiable rewards; the single-pass case this paper extends to multi-turn information gathering.</span></li>
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Established outcome-reward RL for strong static reasoning; this paper shows the same recipe fails under active information seeking.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Added explicit tree search for active exploration; this paper explains why a plain RL agent fails to explore on its own.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Text-trace reasoning baseline that active reasoning extends to interactive, multi-turn settings.</span></li>
 </ul>
 <h3>Solves vs predecessors</h3>
-<p>DeepSeek-R1 shows reinforcement learning can produce strong reasoning in a single pass, where the reward applies to a final answer. In the interactive setting that signal collapses exploration: the agent stops querying and stops updating. This paper fixes that specific failure mode by reallocating the learning signal with directional critiques, restoring exploration so action selection and belief tracking can improve together.</p>
+<p>DeepSeek-R1 produces strong reasoning when the full problem is given up front. This paper addresses the failure that appears when the problem is partly hidden and the agent must query for the rest: outcome-reward RL then locks into non-informative behavior. The contribution is naming and decomposing that failure, which DeepSeek-R1 style training does not surface.</p>
 <h3>Method vs predecessors</h3>
-<p>Compared with DeepSeek-R1, the work keeps reinforcement learning as the training method but shifts the target from one-shot answers to multi-turn evidence gathering, and adds a diagnosis (the action-selection / belief-tracking loop) plus a lightweight critique signal that R1-style outcome rewards lack. It extends the graphify cross-area bridge from DeepSeek-R1 to Chain-of-Thought toward interactive, question-asking agents.</p>
+<p>Where LATS bolts on a search procedure to force exploration, this paper keeps the plain RL agent and analyzes the coupled dynamics of Action Selection and Belief Tracking, showing that both must improve together. The approach is diagnostic and structural rather than a new search algorithm or reward shaping recipe.</p>
 <h3>Related (semantically similar in your library)</h3>
 <ul class="lineage-list">
-  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">The prompting-based reasoning end of the bridge that DeepSeek-R1 and this paper sit opposite to.</span></li>
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Reasoning-via-RL anchor; this paper extends the reasoning-via-RL versus prompting bridge into interactive settings.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Active-exploration agent in the same community.</span></li>
 </ul>
 </div>
 </body>

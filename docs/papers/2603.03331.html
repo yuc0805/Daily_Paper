@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PulseLM: A Foundation Dataset and Benchmark for PPG-Text Learning — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>PulseLM: A Foundation Dataset and Benchmark for PPG-Text Learning</h2>
+<p class="paper-meta">Pham et al. &middot; arXiv 2026-06 &middot; <a href="https://arxiv.org/abs/2603.03331" target="_blank" rel="noopener">arXiv:2603.03331</a> &middot; Appears in: <a href="../areas/time-series.html">Signal (Time Series)</a></p>
+<h3>What</h3>
+<p>PulseLM is a large-scale dataset and benchmark that pairs raw photoplethysmography (PPG) waveforms with natural-language question-answer items. It aggregates recordings from fifteen public sources, standardizes them into 10-second segments, and harmonizes the labels into twelve common physiological question-answering tasks. The release contains 1.31 million segments and 3.15 million closed-ended question-answer pairs, together with fixed preprocessing and evaluation protocols and baseline PPG-aware language models.</p>
+<h3>Why</h3>
+<p>PPG is the signal most wearables already collect, but public PPG datasets supply only numerical measurements or task-specific labels. That form of supervision does not support language-based reasoning over the waveform, so it is hard to train or test a model that answers natural-language questions about a PPG segment. Prior datasets are also fragmented, with mismatched annotations that prevent cross-dataset comparison. PulseLM sets out to give the field one shared dataset and one shared protocol.</p>
+<h3>How</h3>
+<p>The authors collect PPG from fifteen sources spanning clinical, laboratory, and in-the-wild settings, resample every record into a standardized 10-second segment, and map the heterogeneous labels onto twelve common question types. Each segment is paired with closed-ended question-answer items, so a model is scored on multiple-choice physiological questions rather than free text. They fix the preprocessing, supervision, and evaluation steps and build baseline models that combine a dedicated PPG encoder with an instruction-tuned language backbone.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Produced natural-language descriptions from wearable sensor streams; PulseLM scales the same waveform-to-language pairing and turns it into a graded benchmark.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Mapped the design space for biosignal foundation models; PulseLM supplies the standardized data and evaluation those models need.</span></li>
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Framed signals as objects queried in language; PulseLM converts that framing into a fixed, reproducible test.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Sensor2Text demonstrated waveform-to-language on a single activity-tracking setting but had no shared scoring protocol, so results could not be compared across datasets. PulseLM fixes that gap: it harmonizes fifteen sources into one closed-ended benchmark with three million pairs, so that a PPG-language model can be measured against a fixed standard instead of a one-off demonstration.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared with Sensor2Text's free-text generation, PulseLM uses closed-ended question answering, which trades open description for graded, reproducible accuracy. Compared with the biosignals survey, which is descriptive, PulseLM is constructive: it delivers data, protocol, and baseline encoders-plus-language-backbone models. The technical core is the harmonization of twelve question types across heterogeneous sources rather than a new model architecture.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Same bio-sensing-to-language family; bridges the time-series and LLM-health communities.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Health AI community anchor for PPG foundation models.</span></li>
+</ul>
+</div>
+</body>
+</html>

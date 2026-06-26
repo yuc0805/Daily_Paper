@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIGMA-PPG: Statistical-prior Informed Generative Masking for PPG — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>SIGMA-PPG: Statistical-prior Informed Generative Masking Architecture for PPG Foundation Model</h2>
+<p class="paper-meta">Guo et al. &middot; arXiv 2026-01 &middot; <a href="https://arxiv.org/abs/2601.21031" target="_blank" rel="noopener">arXiv:2601.21031</a> &middot; Appears in: <a href="../areas/time-series.html">Signal (Time Series)</a></p>
+<h3>What</h3>
+<p>SIGMA-PPG is a generative foundation model for PPG that replaces random masking in self-supervised pretraining with a learned masking policy. A reinforcement-learning teacher uses statistical priors of the signal, specifically amplitude and skewness, to build a curriculum of hard masks in a teacher-student game, so the student cannot reconstruct the signal trivially. The method reports better transfer to downstream PPG tasks than standard masked reconstruction.</p>
+<h3>Why</h3>
+<p>Masked autoencoding pretrains a model by hiding part of the input and asking it to reconstruct the rest. PPG is close to periodic, so a random mask leaves a gap the model can fill by copying a neighboring beat, which teaches little about the waveform. Standard masked reconstruction therefore transfers poorly for PPG. The paper sets out to make the masking task hard enough that the encoder has to learn real structure.</p>
+<h3>How</h3>
+<p>SIGMA-PPG formulates mask generation as a teacher-student game. The teacher network is driven by reinforcement learning and uses statistical priors of the signal to produce adversarial masking policies that target hard-to-reconstruct regions, a scheme the authors call Prior-Guided Adversarial Masking. The student learns to reconstruct under these masks, building a dynamic curriculum that grows harder as the student improves, rather than a fixed random ratio.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="6INGKIJV.html">How Mask Matters / MAE Theory (Zhang 2023)</a><span class="lineage-note">Analyzed how the mask ratio controls what a masked autoencoder learns; SIGMA-PPG turns that knob into a learned policy.</span></li>
+  <li><a href="A5HBRQB9.html">Masked Autoencoders (He 2022)</a><span class="lineage-note">Established high-ratio random masking; SIGMA-PPG argues random masking is wrong for quasi-periodic signals.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Masked autoencoding works for images because a random high-ratio mask removes enough context to force learning. For PPG that assumption fails: periodicity makes a random gap easy to fill. SIGMA-PPG fixes the trivial-reconstruction failure by learning where and how hard to mask, so the pretext task stays informative on near-periodic signals.</p>
+<h3>Method vs predecessors</h3>
+<p>Where MAE picks masks at random with a fixed ratio, SIGMA-PPG learns a masking policy with a reinforcement-learning teacher guided by signal statistics. The contribution is the adversarial, curriculum-style masking driven by amplitude and skewness, rather than a new reconstruction objective or backbone.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="6INGKIJV.html">How Mask Matters (Zhang 2023)</a><span class="lineage-note">Same masked-pretraining family; SIGMA-PPG operationalizes its mask-difficulty argument.</span></li>
+</ul>
+</div>
+</body>
+</html>
