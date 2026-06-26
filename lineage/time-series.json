@@ -759,6 +759,51 @@
       "relation": "builds_on",
       "note": "VAN-AD relies on the masked-reconstruction principle this theory work analyzes, then adds a normalizing-flow density model because reconstruction error alone does not give a calibrated probability of abnormality.",
       "cross_area": false
+    },
+    {
+      "source": "A5HBRQB9",
+      "source_label": "Masked Autoencoders Are Scalable Vision Learners (MAE, He 2022)",
+      "target": "2510.25785",
+      "target_label": "HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series (2026)",
+      "relation": "builds_on",
+      "note": "Where MAE reconstructs masked image patches with a flat encoder, HiMAE keeps the masked-reconstruction objective but uses a U-Net-style hierarchical convolutional encoder so each level corresponds to a distinct temporal scale of a wearable signal.",
+      "cross_area": true
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2510.25785",
+      "target_label": "HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series (2026)",
+      "relation": "builds_on",
+      "note": "HiMAE keeps the masked-reconstruction principle this theory work analyzes, then adds a per-level linear probe to measure which temporal resolution carries the predictive signal for a given task.",
+      "cross_area": false
+    },
+    {
+      "source": "li2024_harmamba",
+      "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+      "target": "2510.25785",
+      "target_label": "HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series (2026)",
+      "relation": "builds_on",
+      "note": "Where HARMamba seeks wearable efficiency through a state-space backbone, HiMAE reaches efficiency through convolutional hierarchy and adds a resolution probe that HARMamba lacks.",
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals Survey (Gu 2025)",
+      "target": "2510.25785",
+      "target_label": "HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series (2026)",
+      "relation": "builds_on",
+      "note": "HiMAE extends the wearable foundation-model landscape this survey maps, contributing a per-scale analysis rather than added dataset scale.",
+      "cross_area": false
+    },
+    {
+      "source": "2603.26842",
+      "source_label": "VAN-AD: Visual Masked Autoencoder with Normalizing Flow for Time Series Anomaly Detection (2026)",
+      "target": "2603.29183",
+      "target_label": "IMPACT: Influence Modeling for Open-Set Time Series Anomaly Detection (2026)",
+      "relation": "related_to",
+      "note": "VAN-AD attacks the anomaly score itself as a calibrated likelihood from reconstruction error and density, while IMPACT works one level earlier at the training data, using influence scores to decontaminate labels and to synthesize on-manifold unseen anomalies. Added as a nearest-neighbor link because IMPACT has no direct parent in Leo's library.",
+      "cross_area": false
     }
   ],
   "hyperedges": [

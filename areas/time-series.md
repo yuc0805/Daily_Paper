@@ -48,6 +48,8 @@
 2026-06 | Adaptive Patching Caution (2606.04074) | a validation-tuned uniform patch size matches content-adaptive patching on long-horizon benchmarks; negative result
 2026-06 | CVAformer (2606.08262) | splits each variable into invariant and dynamic parts, then backdoor-adjusts the dynamic confounder before aligning with a frozen LLM
 2026-06 | VAN-AD (2603.26842) | masked autoencoder plus a normalizing-flow density head for calibrated time-series anomaly scores
+2026-06 | HiMAE (2510.25785) | hierarchical masked autoencoder gives one embedding per temporal scale for wearable signals, with a per-level resolution probe
+2026-06 | IMPACT (2603.29183) | influence scores relabel contaminated training points and synthesize realistic unseen anomalies for open-set time-series anomaly detection
 ### Paper List
 
 [KNOWN] [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.
@@ -118,10 +120,12 @@
 [2026] 2606.04074 — Adaptive Patching Is Harder Than It Looks for Time-Series Forecasting. [https://arxiv.org/abs/2606.04074](https://arxiv.org/abs/2606.04074). external.
 [2026] 2606.08262 — Causal Semantic Alignment for LLM-based Time Series Forecasting (CVAformer). [https://arxiv.org/abs/2606.08262](https://arxiv.org/abs/2606.08262). external.
 [2026] 2603.26842 — VAN-AD: Visual Masked Autoencoder with Normalizing Flow for Time Series Anomaly Detection. [https://arxiv.org/abs/2603.26842](https://arxiv.org/abs/2603.26842). external.
+[2026] 2510.25785 — HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series. [https://arxiv.org/abs/2510.25785](https://arxiv.org/abs/2510.25785). external.
+[2026] 2603.29183 — IMPACT: Influence Modeling for Open-Set Time Series Anomaly Detection. [https://arxiv.org/abs/2603.29183](https://arxiv.org/abs/2603.29183). external.
 ### Recent Activity
 
+2026-06-25 | 2510.25785 added | HiMAE uses a U-Net-style hierarchical convolutional encoder so each level is a temporal scale, with a per-level linear probe to find which resolution carries a physiological signal; runs on a smartwatch CPU; Tier A
+2026-06-25 | 2603.29183 added | IMPACT uses influence scores to relabel contaminated training points and to synthesize on-manifold unseen anomalies for open-set time-series anomaly detection; ICML 2026; Tier B
 2026-06-24 | 2603.26842 added | ports the masked-autoencoder recipe to time-series anomaly detection and adds a normalizing-flow density head for calibrated scores; Tier B
 2026-06-21 | 2606.08262 added | CVAformer splits each variable into invariant and dynamic parts, then backdoor-adjusts the dynamic confounder before aligning with a frozen LLM; Tier A
 2026-06-21 | 2606.04074 added | a validation-tuned uniform patch size matches content-adaptive patching on long-horizon benchmarks; negative result plus a theory of when adaptivity helps; Tier B
-2026-06-13 | 2606.10900 added | per-patient fine-tuning beats a global ECG model for impending-AF forecasting (AUROC 0.711 vs 0.614); test-time personalization over a bigger global model; Tier B
-2026-06-10 | 2606.02497 added | LLM agent wraps foundation model forecast with contextual revision; directly in TS+LLM integration area; Tier B

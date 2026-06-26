@@ -177,6 +177,15 @@
       "relation": "builds_on",
       "note": "Where Chain-of-Thought puts the reasoning trace in natural-language steps, IPT moves the trace into a perceptual representation in the visual modality, and reports that for spatial tasks the text trace can lower performance rather than help.",
       "cross_area": true
+    },
+    {
+      "source": "peebles2023_dit",
+      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+      "target": "2606.19534",
+      "target_label": "PerceptionDLM: Parallel Region Perception with Multimodal Diffusion Language Models (2026)",
+      "relation": "builds_on",
+      "note": "Where DiT runs a diffusion model on a transformer backbone for image generation, PerceptionDLM carries the diffusion-with-transformer idea onto the language side of a multimodal model and uses parallel decoding to describe several masked regions at once rather than to denoise pixels.",
+      "cross_area": false
     }
   ],
   "hyperedges": [],

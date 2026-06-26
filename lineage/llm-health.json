@@ -336,6 +336,33 @@
       "target_label": "Vivaldi: Multi-Agent Physiological TS Interpretation (2026)",
       "relation": "builds_on",
       "note": "Where Sensor2Text trains a sensor-language bridge, Vivaldi avoids alignment training by distributing interpretation across agents."
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals Survey (Gu 2025)",
+      "target": "2604.04175",
+      "target_label": "Uncertainty-Aware Foundation Models for Clinical Data (2026)",
+      "relation": "builds_on",
+      "note": "Where the biosignals survey describes clinical foundation models that emit a single deterministic embedding, this paper changes the output object from a point to a set-valued distribution that marks unobserved structure as epistemic uncertainty.",
+      "cross_area": false
+    },
+    {
+      "source": "A5HBRQB9",
+      "source_label": "Masked Autoencoders Are Scalable Vision Learners (MAE, He 2022)",
+      "target": "2604.04175",
+      "target_label": "Uncertainty-Aware Foundation Models for Clinical Data (2026)",
+      "relation": "builds_on",
+      "note": "This paper keeps the MAE-style reconstruction objective but combines it with contrastive alignment and a distributional regularizer so the patient representation is a distribution rather than a point.",
+      "cross_area": true
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2604.04175",
+      "target_label": "Uncertainty-Aware Foundation Models for Clinical Data (2026)",
+      "relation": "builds_on",
+      "note": "The reconstruction term this theory work analyzes is retained, while the model adds a distributional regularizer because sparse, irregular clinical data make a single deterministic embedding overconfident.",
+      "cross_area": false
     }
   ],
   "hyperedges": [

@@ -19,6 +19,7 @@
 2026-06 | Multilingual VLA Gap (2606.15714) | first multilingual test for vision-language-action models; MPCA realigns non-English representations after action fine-tuning
 2026-06 | IPT (2606.03988) | imaginative perception tokens carry the reasoning trace into a perceptual modality instead of text for spatial tasks
 
+2026-06 | PerceptionDLM (2606.19534) | discrete diffusion language backbone decodes tokens in parallel to describe several masked image regions at once
 ### Paper List
 
 [KNOWN] [2021] Dosovitskiy et al. — ViT. zotero_key:B7F2Q998.
@@ -39,10 +40,11 @@
 [2026] 2606.15714 — Beyond English: Uncovering the Multilingual Gap in Vision-Language-Action Models. [https://arxiv.org/abs/2606.15714](https://arxiv.org/abs/2606.15714). external.
 [2026] 2606.03988 — Imaginative Perception Tokens Enhance Spatial Reasoning in Multimodal Language Models. [https://arxiv.org/abs/2606.03988](https://arxiv.org/abs/2606.03988). external.
 
+[2026] 2606.19534 — PerceptionDLM: Parallel Region Perception with Multimodal Diffusion Language Models. [https://arxiv.org/abs/2606.19534](https://arxiv.org/abs/2606.19534). external.
 ### Recent Activity
 
+2026-06-25 | 2606.19534 added | multimodal model on a discrete diffusion language backbone; parallel token decoding with structured masking describes several regions at once for an inference-efficiency gain; Tier B
 2026-06-24 | 2606.03988 added | imaginative perception tokens supervise a native-modality spatial trace; it often beats textual chain-of-thought, which can lower performance; Tier A
 2026-06-18 | 2606.15714 added | non-English VLA representations drift after action fine-tuning, dropping relative success 28-47 points; MPCA re-aligns them via shared principal components; Tier A
 2026-06-17 | 2606.11188 added | unified autoregressive multimodal model over discrete tokens; understanding, generation, and editing in one backbone with RL post-training; Tier A
 2026-06-17 | 2606.13192 added | UXBench: 2,000-sample multimodal benchmark for fine-grained user-interface experience diagnosis; Tier B
-2026-06-13 | 2606.06356 added | layered knowledge infusion into diffusion-style generation; complementary surface, trajectory, latent, and parametric layers cut knowledge-violating outputs by 70.97%; Tier B
