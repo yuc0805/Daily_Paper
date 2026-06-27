@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation</h2>
+<p class="paper-meta">El-Ghoussani, De Vita, Naumann, Belagiannis &middot; arXiv 2606.11990 2026 &middot; <a href="https://arxiv.org/abs/2606.11990" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3><p>The paper freezes a pretrained time-series foundation model (Chronos-2) and trains only a small regression head to predict remaining useful life from multivariate sensor streams. The frozen-backbone embeddings beat recurrent, convolutional, Transformer, and gradient-boosting baselines, and accuracy improves as the input history grows. The message is that a general time-series foundation model carries enough structure that a light head is competitive with task-specific architectures.</p>
+<h3>Why</h3><p>Remaining-useful-life models are usually trained from scratch with task-specific architectures, which is costly and does not reuse general time-series knowledge. It was unclear whether a general foundation model's embeddings, with no fine-tuning, carry enough signal for a regression task on industrial sensor data. The paper tests the plainest version of transfer to settle that.</p>
+<h3>How</h3><p>A pretrained time-series foundation model is frozen and used only as a feature extractor; a small regression head is trained on its embeddings to predict remaining useful life. The authors vary the length of input history and compare against recurrent, convolutional, Transformer, and gradient-boosting baselines.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">Catalogue of ways to attach foundation or language models to time series; Community 4.</span></li>
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Used a foundation model as a reasoning agent over time series; Community 4.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Survey of biosignal foundation models; Community 1.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>Where the survey catalogued attachment methods and TS-Agent built an agent on top of a foundation model, this paper removes everything except a frozen backbone and a one-layer head, which fixes the open question of whether the embeddings alone transfer. The clean ablation shows they do, beating task-specific baselines without fine-tuning.</p>
+<h3>Method vs predecessors</h3><p>The technical approach is deliberately minimal: no fine-tuning, no agent, no prompting, just frozen embeddings plus a linear regression head. This contrasts with TS-Agent's heavier agentic stack and gives a baseline recipe that any added complexity must beat.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">Aligns time series with language models; adjacent Community 4 method.</span></li>
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Foundation-model-based time-series reasoning baseline.</span></li>
+</ul>
+</div>
+</body>
+</html>

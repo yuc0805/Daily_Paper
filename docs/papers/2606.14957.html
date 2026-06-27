@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neuro-JEPA: Learning a Sparse Latent Predictive Foundation Model for Multimodal Neuroimaging — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/self-supervised.html" class="back-link">&larr; Back to Area</a>
+<h2>Neuro-JEPA: Learning a Sparse Latent Predictive Foundation Model for Multimodal Neuroimaging</h2>
+<p class="paper-meta">Neuro-JEPA authors &middot; arXiv 2606.14957 2026 &middot; <a href="https://arxiv.org/abs/2606.14957" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/self-supervised.html">Self-supervised</a></p>
+<h3>What</h3><p>Neuro-JEPA pretrains a foundation model on multimodal neuroimaging by predicting in a learned latent space rather than reconstructing the raw signal, and it enforces sparsity in that latent so the representation stays compact. The joint-embedding predictive setup avoids spending capacity on voxel-level detail that does not help downstream tasks. The result is one model that produces transferable representations across imaging modalities.</p>
+<h3>Why</h3><p>Masked-reconstruction pretraining forces a model to predict raw signal, which on neuroimaging spends capacity on noise and fine detail that downstream tasks do not need. A latent-predictive objective should keep the useful structure while dropping the rest, but it had not been combined with a sparsity constraint for multimodal brain data. The paper builds and tests that combination.</p>
+<h3>How</h3><p>The model uses a joint-embedding predictive architecture: an online encoder and a target encoder produce latent representations, and the model predicts target latents from context rather than reconstructing inputs. A sparsity constraint on the latent keeps the representation compact. Pretraining runs across multiple neuroimaging modalities so the encoder transfers.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="6INGKIJV.html">How Mask Matters / MAE Theory (Zhang 2023)</a><span class="lineage-note">Why masked reconstruction works for self-supervised learning; Community 1.</span></li>
+  <li>SSL for HAR with 700K Person-days (Yuan 2024)<span class="lineage-note">Scaled self-supervised pretraining on sensor data; Community 1.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Biosignal foundation-model survey; Community 1.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>Where MAE-style methods reconstruct masked input, Neuro-JEPA predicts in latent space, which fixes the waste of modeling raw neuroimaging noise. The sparsity constraint addresses a second failure of dense latents being hard to transfer, by keeping the representation compact.</p>
+<h3>Method vs predecessors</h3><p>The technical shift is from reconstruction to joint-embedding latent prediction, plus an added sparsity penalty that neither MAE theory nor the HAR self-supervised work used. It sits on the latent-predictive branch of biosignal foundation models rather than the reconstructive branch surveyed by Gu 2025.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="M963842L.html">Brain Science Foundation Models</a><span class="lineage-note">Foundation models for brain signals; nearest neuroimaging neighbor in the library.</span></li>
+  <li><a href="3LA8GNCU.html">HeAR (Baur 2024)</a><span class="lineage-note">Health-acoustic self-supervised representations; adjacent biosignal SSL effort.</span></li>
+</ul>
+</div>
+</body>
+</html>

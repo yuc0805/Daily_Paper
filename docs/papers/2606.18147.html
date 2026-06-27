@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WEQA: Wearable hEalth Question Answering with Query-Adaptive Agentic Reasoning — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>WEQA: Wearable hEalth Question Answering with Query-Adaptive Agentic Reasoning</h2>
+<p class="paper-meta">Zhang, Xia, Emmerich, Wu, Spathis, Liu, McDuff, Mascolo &middot; arXiv 2606.18147 2026 &middot; <a href="https://arxiv.org/abs/2606.18147" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3><p>WEQA answers plain-language questions about wearable health data. A language-model controller writes an execution plan for each question and routes it to a matching set of tools (signal-analysis routines and pretrained wearable models), then composes the tool outputs into a natural-language answer. The routing is query-adaptive, so a sleep question and a cardiac question call different tools. The framework reports 24% higher accuracy than baseline approaches with clinician-judged clinical soundness.</p>
+<h3>Why</h3><p>Wearable streams are continuous, high-dimensional, and longitudinal, so they do not align with the text-heavy data language models were trained on. Feeding raw signals or simple summary statistics into a language model loses the structure that matters for a clinical answer, and a single fixed pipeline applies the same tools to every question regardless of type. Prior work either described sensor windows or built one general agent, but did not match each question to the right analytical tool.</p>
+<h3>How</h3><p>A language-model controller synthesises a per-query execution plan and routes the question to a combination of signal-analysis routines and pretrained wearable models. The selected tools run, and the controller composes their outputs into a natural-language answer. Because routing depends on the query, different question types invoke different tools rather than a shared pipeline.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Framed time-series reasoning as a language-model agent that calls analysis tools; Community 4 (Time Series + LLM).</span></li>
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Turned wearable sensor windows into natural-language descriptions; Community 5 (Wearable Sensing).</span></li>
+  <li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">Showed language models can read health signals with few examples; Community 1.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Plan-and-search control for language agents; Community 0 (LLM Agents).</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>Sensor2Text stops at a description of a sensor window; WEQA goes further to answer a specific clinical question, because a description is not yet an answer. TS-Agent applied a fixed set of analysis tools; WEQA adds query-adaptive routing so the tool set changes with the question, which fixes the failure where one pipeline is wrong for some question types. The reported 24% relative accuracy gain comes from this routing step.</p>
+<h3>Method vs predecessors</h3><p>Where TS-Agent and LATS use a controller to plan over web, code, or generic analysis actions, WEQA points the controller at sensor-analysis routines and pretrained wearable models. It extends the cross-area bridge Sensor2Text to Health-LLM (bio-sensing to LLM-health) by adding agentic tool routing, so the bridge now reaches the agent community rather than ending at single-pass captioning.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Survey of the biosignal foundation models WEQA can route to.</span></li>
+  <li><a href="ICD9EG8Q.html">GLOBEM (Xu 2023)</a><span class="lineage-note">Multi-year behavioral sensing data of the kind WEQA answers questions over.</span></li>
+  <li><a href="K4PR34NU.html">MindScape (Nepal 2024)</a><span class="lineage-note">LLM plus behavioral sensing for journaling; adjacent wearable-LLM use case.</span></li>
+</ul>
+</div>
+</body>
+</html>

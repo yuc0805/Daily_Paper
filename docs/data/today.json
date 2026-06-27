@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-26",
+  "date": "2026-06-27",
   "papers": [
     {
-      "zotero_key": "2603.03331",
-      "title": "PulseLM: A Foundation Dataset and Benchmark for PPG-Text Learning",
-      "authors": "Pham et al.",
+      "zotero_key": "2606.18147",
+      "title": "WEQA: Wearable hEalth Question Answering with Query-Adaptive Agentic Reasoning",
+      "authors": "Zhang et al.",
       "year": 2026,
-      "what": "A large-scale PPG-text benchmark: fifteen sources harmonized into twelve question-answering tasks, 1.31M standardized 10-second segments and 3.15M closed-ended question-answer pairs, with baseline PPG-aware language models.",
+      "what": "An agent framework with a language-model controller that routes each wearable-health question to a matching set of signal-analysis routines and pretrained models, reporting 24% higher accuracy than baselines with clinician-judged soundness.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "Sensor2Text (Chen 2024, ELYUE3NF); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); TS-Agent (Liu 2025, I2CIT4I7)"
+      "builds_on": "TS-Agent (Liu 2025, I2CIT4I7); Sensor2Text (Chen 2024, ELYUE3NF); LLMs are Few-Shot Health Learners (Liu 2023, JX3X3KH5); LATS (Zhou 2024, 77ERE7HA)"
     },
     {
-      "zotero_key": "2601.21031",
-      "title": "SIGMA-PPG: Statistical-prior Informed Generative Masking Architecture for PPG Foundation Model",
-      "authors": "Guo et al.",
+      "zotero_key": "2606.19534",
+      "title": "PerceptionDLM: Parallel Region Perception with Multimodal Diffusion Language Models",
+      "authors": "PerceptionDLM authors",
       "year": 2026,
-      "what": "Replaces random masking in PPG pretraining with a reinforcement-learning teacher that uses amplitude and skewness priors to build hard masking curricula, because random masking is trivial on quasi-periodic signals.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "How Mask Matters (Zhang 2023, 6INGKIJV); MAE (He, A5HBRQB9)"
-    },
-    {
-      "zotero_key": "2606.03988",
-      "title": "Imaginative Perception Tokens Enhance Spatial Reasoning in Multimodal Language Models",
-      "authors": "Bigverdi, Krishna et al.",
-      "year": 2026,
-      "what": "Introduces perceptual intermediate tokens that externalize what a VLM would see under an unseen viewpoint; beats textual chain-of-thought and raises multiview-counting accuracy by 3.4% with no image generated at inference.",
+      "what": "A multimodal diffusion language model that decodes captions for several image regions in parallel via structured attention masking, beating LLaDA-V on 15 of 16 benchmarks while staying competitive with autoregressive vision-language models.",
       "area_label": "Multi-Modal",
       "area_slug": "multi-modal",
-      "builds_on": "Chain-of-Thought (Wei 2023, HBLPTRMY)"
+      "builds_on": "DiT (Peebles 2023, YJ9TK993); DDPM (Ho 2020, GX7WR7KA); DALL-E 2 (Ramesh 2022, DUERBZGM)"
     },
     {
-      "zotero_key": "2603.12109",
-      "title": "On Information Self-Locking in Reinforcement Learning for Active Reasoning of LLM agents",
-      "authors": "Zou, Chen et al.",
+      "zotero_key": "2606.11990",
+      "title": "Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation",
+      "authors": "El-Ghoussani et al.",
       "year": 2026,
-      "what": "Names a failure mode where outcome-reward RL agents stop asking informative questions; decomposes active reasoning into Action Selection and Belief Tracking and shows weak versions of both trap the agent in a low-information loop.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "DeepSeek-R1 (Z5IWHZAE); LATS (Zhou 2024, 77ERE7HA); Chain-of-Thought (Wei 2023, HBLPTRMY)"
+      "what": "Freezes a pretrained time-series foundation model (Chronos-2) and trains only a small regression head, showing the frozen embeddings beat recurrent, convolutional, Transformer, and gradient-boosting baselines for remaining-useful-life prediction.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "LLMs for Time Series Survey (Zhang 2024, N2JLZBY3); TS-Agent (Liu 2025, I2CIT4I7); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF)"
+    },
+    {
+      "zotero_key": "2606.14957",
+      "title": "Neuro-JEPA: Learning a Sparse Latent Predictive Foundation Model for Multimodal Neuroimaging",
+      "authors": "Neuro-JEPA authors",
+      "year": 2026,
+      "what": "Pretrains a multimodal neuroimaging foundation model by predicting in a sparse learned latent space instead of reconstructing raw signal, producing transferable representations across imaging modalities.",
+      "area_label": "Self-supervised",
+      "area_slug": "self-supervised",
+      "builds_on": "MAE Theory (Zhang 2023, 6INGKIJV); SSL for HAR (Yuan 2024, RTMH75VW); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF)"
     }
   ]
 }
