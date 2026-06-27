@@ -50,6 +50,8 @@
 2026-06 | VAN-AD (2603.26842) | masked autoencoder plus a normalizing-flow density head for calibrated time-series anomaly scores
 2026-06 | HiMAE (2510.25785) | hierarchical masked autoencoder gives one embedding per temporal scale for wearable signals, with a per-level resolution probe
 2026-06 | IMPACT (2603.29183) | influence scores relabel contaminated training points and synthesize realistic unseen anomalies for open-set time-series anomaly detection
+2026-06 | PulseLM (2603.03331) | dataset and benchmark pairing 1.31M PPG segments with 3.15M closed-ended question-answer pairs across twelve physiological tasks
+2026-06 | SIGMA-PPG (2601.21031) | replaces random masking in PPG pretraining with a reinforcement-learning teacher that learns where and how hard to mask from signal statistics
 ### Paper List
 
 [KNOWN] [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.
@@ -122,10 +124,14 @@
 [2026] 2603.26842 — VAN-AD: Visual Masked Autoencoder with Normalizing Flow for Time Series Anomaly Detection. [https://arxiv.org/abs/2603.26842](https://arxiv.org/abs/2603.26842). external.
 [2026] 2510.25785 — HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series. [https://arxiv.org/abs/2510.25785](https://arxiv.org/abs/2510.25785). external.
 [2026] 2603.29183 — IMPACT: Influence Modeling for Open-Set Time Series Anomaly Detection. [https://arxiv.org/abs/2603.29183](https://arxiv.org/abs/2603.29183). external.
+
+[2026] 2603.03331 — PulseLM: A Foundation Dataset and Benchmark for PPG-Text Learning. [https://arxiv.org/abs/2603.03331](https://arxiv.org/abs/2603.03331). external.
+[2026] 2601.21031 — SIGMA-PPG: Statistical-prior Informed Generative Masking Architecture for PPG Foundation Model. [https://arxiv.org/abs/2601.21031](https://arxiv.org/abs/2601.21031). external.
+
 ### Recent Activity
 
+2026-06-26 | 2603.03331 added | PulseLM standardizes 1.31M PPG segments into 3.15M closed-ended question-answer pairs and a fixed benchmark, importing the vision-language question-answering format into PPG; Tier A
+2026-06-26 | 2601.21031 added | SIGMA-PPG replaces random masking with a reinforcement-learning teacher that learns a hard-mask curriculum from amplitude and skewness priors; Tier B
 2026-06-25 | 2510.25785 added | HiMAE uses a U-Net-style hierarchical convolutional encoder so each level is a temporal scale, with a per-level linear probe to find which resolution carries a physiological signal; runs on a smartwatch CPU; Tier A
 2026-06-25 | 2603.29183 added | IMPACT uses influence scores to relabel contaminated training points and to synthesize on-manifold unseen anomalies for open-set time-series anomaly detection; ICML 2026; Tier B
 2026-06-24 | 2603.26842 added | ports the masked-autoencoder recipe to time-series anomaly detection and adds a normalizing-flow density head for calibrated scores; Tier B
-2026-06-21 | 2606.08262 added | CVAformer splits each variable into invariant and dynamic parts, then backdoor-adjusts the dynamic confounder before aligning with a frozen LLM; Tier A
-2026-06-21 | 2606.04074 added | a validation-tuned uniform patch size matches content-adaptive patching on long-horizon benchmarks; negative result plus a theory of when adaptivity helps; Tier B

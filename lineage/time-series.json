@@ -804,6 +804,51 @@
       "relation": "related_to",
       "note": "VAN-AD attacks the anomaly score itself as a calibrated likelihood from reconstruction error and density, while IMPACT works one level earlier at the training data, using influence scores to decontaminate labels and to synthesize on-manifold unseen anomalies. Added as a nearest-neighbor link because IMPACT has no direct parent in Leo's library.",
       "cross_area": false
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "target": "2603.03331",
+      "target_label": "PulseLM: A Foundation Dataset and Benchmark for PPG-Text Learning (2026)",
+      "relation": "builds_on",
+      "note": "Where Sensor2Text produced free text from a sensor stream in one activity-tracking setting, PulseLM performs the same waveform-to-language pairing at dataset scale and fixes it into a graded closed-ended benchmark with a shared scoring protocol.",
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2603.03331",
+      "target_label": "PulseLM: A Foundation Dataset and Benchmark for PPG-Text Learning (2026)",
+      "relation": "builds_on",
+      "note": "Where the biosignals survey described what a PPG foundation model should look like, PulseLM supplies the standardized data, 1.31 million segments and 3.15 million question-answer pairs, and the evaluation protocol those models need.",
+      "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2603.03331",
+      "target_label": "PulseLM: A Foundation Dataset and Benchmark for PPG-Text Learning (2026)",
+      "relation": "builds_on",
+      "note": "PulseLM follows the TS-Agent view of signals as objects queried in language, but turns it into a fixed, reproducible benchmark rather than an agent demonstration.",
+      "cross_area": false
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2601.21031",
+      "target_label": "SIGMA-PPG: Statistical-prior Informed Generative Masking Architecture for PPG Foundation Model (2026)",
+      "relation": "builds_on",
+      "note": "Where this theory work shows a high random mask ratio drives masked-autoencoder learning for images, SIGMA-PPG argues random masking is the wrong choice for quasi-periodic signals because the model fills a random gap by copying a neighboring beat, so it learns the mask as a policy and shifts the design knob from how much to mask to where and how hard to mask.",
+      "cross_area": false
+    },
+    {
+      "source": "A5HBRQB9",
+      "source_label": "MAE: Masked Autoencoders Are Scalable Vision Learners (He 2021)",
+      "target": "2601.21031",
+      "target_label": "SIGMA-PPG: Statistical-prior Informed Generative Masking Architecture for PPG Foundation Model (2026)",
+      "relation": "builds_on",
+      "note": "Where MAE established high-ratio random masking for representation learning, SIGMA-PPG replaces the fixed random mask with a reinforcement-learning teacher that builds a curriculum of hard masks from signal statistics such as amplitude and skewness.",
+      "cross_area": true
     }
   ],
   "hyperedges": [
