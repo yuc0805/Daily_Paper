@@ -52,6 +52,8 @@
 2026-06 | IMPACT (2603.29183) | influence scores relabel contaminated training points and synthesize realistic unseen anomalies for open-set time-series anomaly detection
 2026-06 | PulseLM (2603.03331) | dataset and benchmark pairing 1.31M PPG segments with 3.15M closed-ended question-answer pairs across twelve physiological tasks
 2026-06 | SIGMA-PPG (2601.21031) | replaces random masking in PPG pretraining with a reinforcement-learning teacher that learns where and how hard to mask from signal statistics
+2026-06 | RUL FM Embeddings (2606.11990) | frozen time-series foundation model embeddings with a light regression head predict remaining useful life
+2026-06 | WEQA (2606.18147) | a language-model controller writes a per-question plan and routes wearable health questions to matching analysis tools
 ### Paper List
 
 [KNOWN] [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.
@@ -127,11 +129,13 @@
 
 [2026] 2603.03331 — PulseLM: A Foundation Dataset and Benchmark for PPG-Text Learning. [https://arxiv.org/abs/2603.03331](https://arxiv.org/abs/2603.03331). external.
 [2026] 2601.21031 — SIGMA-PPG: Statistical-prior Informed Generative Masking Architecture for PPG Foundation Model. [https://arxiv.org/abs/2601.21031](https://arxiv.org/abs/2601.21031). external.
+[2026] 2606.11990 — Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation. [https://arxiv.org/abs/2606.11990](https://arxiv.org/abs/2606.11990). external.
+[2026] 2606.18147 — WEQA: Wearable hEalth Question Answering with Query-Adaptive Agentic Reasoning. [https://arxiv.org/abs/2606.18147](https://arxiv.org/abs/2606.18147). external.
 
 ### Recent Activity
 
+2026-06-27 | 2606.18147 added | frames wearable health question answering as query-adaptive tool routing; a language-model controller plans each question and composes signal-analysis and pretrained-model tool outputs, reporting 24% higher accuracy than baselines; Tier A
+2026-06-27 | 2606.11990 added | freezes a pretrained time-series foundation model and trains only a small regression head; the frozen embeddings beat recurrent, convolutional, transformer, and gradient-boosting baselines for remaining useful life; Tier B
 2026-06-26 | 2603.03331 added | PulseLM standardizes 1.31M PPG segments into 3.15M closed-ended question-answer pairs and a fixed benchmark, importing the vision-language question-answering format into PPG; Tier A
 2026-06-26 | 2601.21031 added | SIGMA-PPG replaces random masking with a reinforcement-learning teacher that learns a hard-mask curriculum from amplitude and skewness priors; Tier B
 2026-06-25 | 2510.25785 added | HiMAE uses a U-Net-style hierarchical convolutional encoder so each level is a temporal scale, with a per-level linear probe to find which resolution carries a physiological signal; runs on a smartwatch CPU; Tier A
-2026-06-25 | 2603.29183 added | IMPACT uses influence scores to relabel contaminated training points and to synthesize on-manifold unseen anomalies for open-set time-series anomaly detection; ICML 2026; Tier B
-2026-06-24 | 2603.26842 added | ports the masked-autoencoder recipe to time-series anomaly detection and adds a normalizing-flow density head for calibrated scores; Tier B

@@ -15,6 +15,7 @@
 2026-06 | CLAMP (2506.13717) | contrastive SSL recast as manifold packing via jammed-particle physics loss
 2026-06 | Predict and Reconstruct (2606.05173) | joint JEPA latent prediction + MLM reconstruction on shared encoder
 2026-06 | Hypnos (2606.09605) | autoregressive next-token prediction over RVQ tokens of eight physiological modalities
+2026-06 | Neuro-JEPA (2606.14957) | joint-embedding predictive pretraining on multimodal neuroimaging with a sparsity constraint on the latent
 ### Paper List
 
 [KNOWN] [2017] Vaswani et al. — Attention Is All You Need. zotero_key:PHB9VRVM.
@@ -30,11 +31,12 @@
 [2026] 2506.13717 — CLAMP: Contrastive Self-Supervised Learning As Neural Manifold Packing. [https://arxiv.org/abs/2506.13717](https://arxiv.org/abs/2506.13717). external.
 [2026] 2606.05173 — Predict and Reconstruct: Joint Objectives for Self-Supervised Language Representation Learning. [https://arxiv.org/abs/2606.05173](https://arxiv.org/abs/2606.05173). external.
 [2026] 2606.09605 — Next-Token Prediction Learns Generalisable Representations of Sleep Physiology (Hypnos). [https://arxiv.org/abs/2606.09605](https://arxiv.org/abs/2606.09605). external.
+[2026] 2606.14957 — Neuro-JEPA: Learning a Sparse Latent Predictive Foundation Model for Multimodal Neuroimaging. [https://arxiv.org/abs/2606.14957](https://arxiv.org/abs/2606.14957). external.
 
 ### Recent Activity
 
+2026-06-27 | 2606.14957 added | Neuro-JEPA predicts in a learned latent space instead of reconstructing raw neuroimaging and enforces latent sparsity, producing transferable representations across imaging modalities; Tier B
 2026-06-13 | 2606.09605 added | autoregressive next-token prediction on RVQ tokens of physiology transfers across modalities and beats a dedicated ECG model at atrial fibrillation detection; Tier A
 2026-06-07 | 2606.05173 added | hybrid JEPA+MLM objective yields more uniform embeddings; transfer to sensor data is the open opportunity; Tier B
 2026-06-03 | 2506.13717 added | contrastive SSL recast as manifold packing; physics-inspired loss with interpretable geometry; Tier B
 2026-05-28 | 2605.00973 added | imports masked autoencoding into biosignals with a physiology ordering constraint; Tier A
-2026-05-28 | 2605.08296 added | benchmark of SSL paradigms for HAR; hybrid reconstruction plus contrastive generalizes best; Tier B

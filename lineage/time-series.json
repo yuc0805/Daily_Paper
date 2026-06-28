@@ -849,6 +849,69 @@
       "relation": "builds_on",
       "note": "Where MAE established high-ratio random masking for representation learning, SIGMA-PPG replaces the fixed random mask with a reinforcement-learning teacher that builds a curriculum of hard masks from signal statistics such as amplitude and skewness.",
       "cross_area": true
+    },
+    {
+      "source": "zhang2024_llm_ts_survey",
+      "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "target": "2606.11990",
+      "target_label": "Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation (2026)",
+      "relation": "builds_on",
+      "note": "Where the survey catalogued ways to attach foundation or language models to time series, this paper takes the plainest version: freeze a pretrained time-series foundation model and train a one-layer regression head, then show the frozen embeddings transfer to remaining-useful-life prediction.",
+      "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2606.11990",
+      "target_label": "Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation (2026)",
+      "relation": "builds_on",
+      "note": "Where TS-Agent built a reasoning agent on top of a time-series foundation model, this paper drops the agent and probes the frozen backbone with a light regression head, showing the embeddings alone are competitive with task-specific architectures.",
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2606.11990",
+      "target_label": "Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation (2026)",
+      "relation": "builds_on",
+      "note": "Where the biosignal foundation-model survey mapped the design space, this paper supplies a concrete frozen-backbone probing baseline that bio-sensing work can copy before building anything heavier.",
+      "cross_area": true
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2606.18147",
+      "target_label": "WEQA: Wearable Health Question Answering with Query-Adaptive Agentic Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "Where TS-Agent treated time-series reasoning as an agent calling a fixed set of analysis tools, WEQA adds query-adaptive routing so a sleep question and a cardiac question call different tools.",
+      "cross_area": false
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "target": "2606.18147",
+      "target_label": "WEQA: Wearable Health Question Answering with Query-Adaptive Agentic Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "Where Sensor2Text produced a natural-language description of a sensor window, WEQA produces an answer to a specific question, extending the sensor-to-language bridge toward agentic tool routing.",
+      "cross_area": true
+    },
+    {
+      "source": "liu2023_health_llm",
+      "source_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
+      "target": "2606.18147",
+      "target_label": "WEQA: Wearable Health Question Answering with Query-Adaptive Agentic Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "Where Health-LLM showed language models can read health signals from a few examples, WEQA wraps that ability in a controller that plans and routes each wearable-health question to matching tools.",
+      "cross_area": true
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2606.18147",
+      "target_label": "WEQA: Wearable Health Question Answering with Query-Adaptive Agentic Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "WEQA borrows the plan-and-control idea from LATS but applies the controller to signal-analysis and wearable-model tools rather than to web or code actions.",
+      "cross_area": true
     }
   ],
   "hyperedges": [

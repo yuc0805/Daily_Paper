@@ -202,6 +202,33 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": true
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2606.14957",
+      "target_label": "Neuro-JEPA: Learning a Sparse Latent Predictive Foundation Model for Multimodal Neuroimaging (2026)",
+      "relation": "builds_on",
+      "note": "Where MAE theory explained why masked reconstruction works, Neuro-JEPA swaps reconstruction for prediction in a learned latent space, because reconstructing raw neuroimaging spends capacity on noise.",
+      "cross_area": false
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "target": "2606.14957",
+      "target_label": "Neuro-JEPA: Learning a Sparse Latent Predictive Foundation Model for Multimodal Neuroimaging (2026)",
+      "relation": "builds_on",
+      "note": "Where SSL for HAR scaled masked self-supervised pretraining on 700K person-days of sensor data, Neuro-JEPA keeps the large-scale pretraining but moves the objective to latent prediction with a sparsity constraint.",
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2606.14957",
+      "target_label": "Neuro-JEPA: Learning a Sparse Latent Predictive Foundation Model for Multimodal Neuroimaging (2026)",
+      "relation": "builds_on",
+      "note": "Neuro-JEPA sits near the biosignal foundation-model survey as a biosignal effort, but on the latent-predictive rather than reconstructive branch.",
+      "cross_area": true
     }
   ],
   "hyperedges": [],
