@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLIP: Learning Transferable Sensor Models via Language-Informed Pretraining — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Learning Transferable Sensor Models via Language-Informed Pretraining (SLIP)</h2>
+<p class="paper-meta">SLIP authors &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2603.11950" target="_blank" rel="noopener">arXiv:2603.11950</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3>
+<p>SLIP pretrains a sensor encoder so its representations align with language and transfer across different sensor setups. It combines contrastive alignment between signals and text with a sensor-conditioned captioning task, reuses a frozen decoder-only language model through cross-attention, and uses a patch embedder that accepts variable sequence lengths and sampling rates at inference without retraining. Across 11 datasets it reaches 77.14% average linear-probe accuracy (a 5.93% relative gain over the strongest baseline) and 64.83% accuracy on sensor question answering.</p>
+<h3>Why</h3>
+<p>Most sensor self-supervised methods optimize reconstruction or forecasting, which the authors argue does not capture the semantic structure needed for classification. Recent sensor-language alignment methods help but assume a fixed sensor configuration: a set channel layout, signal length, or sampling rate. That assumption breaks when a deployment changes devices or resolutions, so the learned model does not transfer. SLIP targets configuration-agnostic, language-aligned representations.</p>
+<h3>How</h3>
+<p>SLIP trains two objectives together: a contrastive loss that pulls signal and text embeddings together, and a captioning loss where the frozen language model, attached through cross-attention, describes the signal. The patch embedder maps variable-length, variable-rate inputs into tokens, so one model handles many configurations at inference. The combination supports zero-shot transfer, signal captioning, and question answering from a single pretrained encoder.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Aligns one fixed sensor configuration with language; SLIP removes the fixed-configuration limit.</span></li>
+  <li><a href="RTMH75VW.html">SSL for HAR (Yuan 2024)</a><span class="lineage-note">Self-supervised pretraining without language; SLIP adds a language target for semantic structure.</span></li>
+  <li><a href="MKICLA63.html">Time-LLM (Jin 2024)</a><span class="lineage-note">Reprograms a frozen LLM for forecasting; SLIP reuses a frozen LLM via cross-attention for alignment and captioning.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Sensor2Text aligns signals with language but ties the model to one channel set, length, and rate, so it does not transfer when the sensor setup changes. SLIP fixes that failure mode with a patch embedder that accepts variable configurations at inference, so a single pretrained encoder serves new setups without retraining. It also addresses the gap in SSL for HAR, where reconstruction-style objectives miss the semantic structure that helps classification, by adding the language alignment and captioning targets.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared to Sensor2Text, SLIP keeps the signal-language alignment idea but replaces fixed input handling with a flexible patch embedder and adds a captioning objective. Compared to SSL for HAR, it shifts from purely self-supervised reconstruction to contrastive language alignment. Compared to Time-LLM, which reprograms the LLM input for forecasting, SLIP attaches the frozen LLM through cross-attention and uses it for both discriminative alignment and generative captioning.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">Also aligns time series with an LLM; differs in fixed-configuration assumptions.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Surveys the pretraining families SLIP draws from for biosignals.</span></li>
+</ul>
+</div>
+</body>
+</html>

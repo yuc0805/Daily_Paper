@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-27",
+  "date": "2026-06-28",
   "papers": [
     {
-      "zotero_key": "2606.18147",
-      "title": "WEQA: Wearable hEalth Question Answering with Query-Adaptive Agentic Reasoning",
-      "authors": "Zhang et al.",
+      "zotero_key": "2603.06638",
+      "title": "HEARTS: Benchmarking LLM Reasoning on Health Time Series",
+      "authors": "Yang et al.",
       "year": 2026,
-      "what": "An agent framework with a language-model controller that routes each wearable-health question to a matching set of signal-analysis routines and pretrained models, reporting 24% higher accuracy than baselines with clinician-judged soundness.",
+      "what": "A benchmark of 110 tasks over 16 health datasets and 20 signal types showing that 14 current LLMs underperform specialized models and degrade as temporal reasoning steps grow.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "TS-Agent (Liu 2025, I2CIT4I7); Sensor2Text (Chen 2024, ELYUE3NF); LLMs are Few-Shot Health Learners (Liu 2023, JX3X3KH5); LATS (Zhou 2024, 77ERE7HA)"
+      "builds_on": "TS-Agent (Liu 2025, I2CIT4I7); LLMs are Few-Shot Health Learners (Liu 2023, JX3X3KH5); ChatTS (Xie 2025, VSCNJG5J); LLMs for Time Series Survey (Zhang 2024, N2JLZBY3)"
     },
     {
-      "zotero_key": "2606.19534",
-      "title": "PerceptionDLM: Parallel Region Perception with Multimodal Diffusion Language Models",
-      "authors": "PerceptionDLM authors",
+      "zotero_key": "2603.11950",
+      "title": "Learning Transferable Sensor Models via Language-Informed Pretraining (SLIP)",
+      "authors": "SLIP authors",
       "year": 2026,
-      "what": "A multimodal diffusion language model that decodes captions for several image regions in parallel via structured attention masking, beating LLaDA-V on 15 of 16 benchmarks while staying competitive with autoregressive vision-language models.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "DiT (Peebles 2023, YJ9TK993); DDPM (Ho 2020, GX7WR7KA); DALL-E 2 (Ramesh 2022, DUERBZGM)"
-    },
-    {
-      "zotero_key": "2606.11990",
-      "title": "Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation",
-      "authors": "El-Ghoussani et al.",
-      "year": 2026,
-      "what": "Freezes a pretrained time-series foundation model (Chronos-2) and trains only a small regression head, showing the frozen embeddings beat recurrent, convolutional, Transformer, and gradient-boosting baselines for remaining-useful-life prediction.",
+      "what": "A sensor encoder pretrained with contrastive signal-language alignment plus captioning and a variable-resolution patch embedder, reaching 77.14% linear-probe accuracy across 11 datasets while transferring across sensor configurations.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "LLMs for Time Series Survey (Zhang 2024, N2JLZBY3); TS-Agent (Liu 2025, I2CIT4I7); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF)"
+      "builds_on": "Sensor2Text (Chen 2024, ELYUE3NF); SSL for HAR (Yuan 2024, RTMH75VW); Time-LLM (Jin 2024, MKICLA63)"
     },
     {
-      "zotero_key": "2606.14957",
-      "title": "Neuro-JEPA: Learning a Sparse Latent Predictive Foundation Model for Multimodal Neuroimaging",
-      "authors": "Neuro-JEPA authors",
+      "zotero_key": "2606.06906",
+      "title": "EASE-TTT: Evidence-Aligned Selective Test-Time Training for Long-Context Question Answering",
+      "authors": "Yuan et al.",
       "year": 2026,
-      "what": "Pretrains a multimodal neuroimaging foundation model by predicting in a sparse learned latent space instead of reconstructing raw signal, producing transferable representations across imaging modalities.",
-      "area_label": "Self-supervised",
-      "area_slug": "self-supervised",
-      "builds_on": "MAE Theory (Zhang 2023, 6INGKIJV); SSL for HAR (Yuan 2024, RTMH75VW); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF)"
+      "what": "A test-time training method that turns retrieved evidence into a soft attention target to adapt query-side parameters, giving the best macro-average over full-context, retrieval-only, and query-only TTT baselines on six LongBench QA tasks.",
+      "area_label": "Test-Time Training",
+      "area_slug": "test-time-training",
+      "builds_on": "TTT Layers (Sun 2024, JEGI4IS7); TTT for Abstract Reasoning (Akyurek 2024, W7RPRTCH)"
+    },
+    {
+      "zotero_key": "2604.05926",
+      "title": "FEEL: Quantifying Heterogeneity in Physiological Signals for Generalizable Emotion Recognition",
+      "authors": "FEEL authors",
+      "year": 2026,
+      "what": "A cross-dataset benchmark of emotion recognition from EDA and PPG over 19 datasets and 16 models, finding contrastive signal-language models score highest but handcrafted features still beat raw-signal models under noise.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); SSL for HAR (Yuan 2024, RTMH75VW); HeAR (Baur 2024, 3LA8GNCU)"
     }
   ]
 }

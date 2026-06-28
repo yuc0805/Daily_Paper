@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EASE-TTT: Evidence-Aligned Selective Test-Time Training — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/test-time-training.html" class="back-link">&larr; Back to Area</a>
+<h2>EASE-TTT: Evidence-Aligned Selective Test-Time Training for Long-Context Question Answering</h2>
+<p class="paper-meta">Yuan, Wang, Wang, Yang, Wang, Dong &middot; arXiv 2026-06-05 &middot; <a href="https://arxiv.org/abs/2606.06906" target="_blank" rel="noopener">arXiv:2606.06906</a> &middot; Appears in: <a href="../areas/test-time-training.html">Test-Time Training</a></p>
+<h3>What</h3>
+<p>EASE-TTT adapts a language model at inference time to answer questions over long contexts. It selects evidence chunks for the question, turns them into a soft target over token positions that says where attention should go, trains only the query-side attention parameters at test time against that target, and then generates the answer from the original full context. On six LongBench QA tasks with three small decoder-only models, it gives the best macro-average over full-context inference, retrieval-only baselines, and query-only test-time training.</p>
+<h3>Why</h3>
+<p>Long-context QA stays hard for smaller models even when the answer is present in the input. Within-context retrieval methods locate candidate evidence but stop at exposing it; they do not change how the model allocates attention. Query-only test-time training adapts the model but uses generic self-supervised objectives that do not identify which positions support the current answer. The paper targets the missing link: tell test-time adaptation where the evidence is.</p>
+<h3>How</h3>
+<p>EASE-TTT converts retrieved evidence chunks into an attention-supervision target over their token positions, then uses that target to guide query-side adaptation. Rather than replacing the context with retrieved chunks, the adapted model reads the full original context to produce the answer, so it keeps information that pure retrieval would discard. The method is light enough to run per query on small models.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="JEGI4IS7.html">TTT Layers (Sun 2024)</a><span class="lineage-note">Makes the hidden state a small model updated by self-supervised learning; EASE-TTT supplies a targeted, evidence-aligned objective instead of a generic one.</span></li>
+  <li><a href="W7RPRTCH.html">TTT for Abstract Reasoning (Akyurek 2024)</a><span class="lineage-note">Shows test-time training raises accuracy on hard unseen tasks; EASE-TTT directs that adaptation at question-specific evidence.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>TTT Layers and TTT for Abstract Reasoning adapt the model with self-supervised objectives that do not know which input positions matter for a given question. On long-context QA this wastes adaptation on irrelevant text. EASE-TTT fixes that by deriving an attention target from retrieved evidence, so adaptation focuses on the positions that carry the answer, while the model still reads the full context at generation time.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared to generic test-time training, EASE-TTT changes the objective from position-agnostic self-supervision to an evidence-aligned attention target. Compared to retrieval-only methods, it does not swap the context for retrieved chunks; it uses retrieval only to steer query-side attention adaptation. The combination is what lets a small model find and use evidence in a long input.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="JEGI4IS7.html">TTT Layers (Sun 2024)</a><span class="lineage-note">Core test-time training mechanism this paper specializes for QA.</span></li>
+</ul>
+</div>
+</body>
+</html>

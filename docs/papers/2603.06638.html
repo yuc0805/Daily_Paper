@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEARTS: Benchmarking LLM Reasoning on Health Time Series — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>HEARTS: Benchmarking LLM Reasoning on Health Time Series</h2>
+<p class="paper-meta">Yang et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2603.06638" target="_blank" rel="noopener">arXiv:2603.06638</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3>
+<p>HEARTS is a benchmark for testing how well large language models reason over health time series. It gathers 16 real-world datasets across 12 health domains and 20 signal types (ECG, EEG, PPG, EMG, audio, eye tracking, CGM, and others), with sampling rates from daily aggregates up to 48 kHz and sequence lengths from tens of points to over one million. It defines 110 tasks grouped into four capabilities &mdash; perception, inference, generation, and deduction &mdash; and evaluates 14 current LLMs on more than 20,000 test samples.</p>
+<h3>Why</h3>
+<p>Earlier work proposed individual methods to make LLMs reason over series (TS-Agent, ChatTS) or argued LLMs are capable few-shot health learners (Liu 2023), but each reported results on its own chosen datasets. There was no shared, graded test set that spans modalities and task types, so claims about LLM time-series reasoning could not be compared. HEARTS exists to provide that common yardstick and to ask whether any current LLM actually reasons over health signals rather than matching surface patterns.</p>
+<h3>How</h3>
+<p>The benchmark organizes tasks by a taxonomy of four capabilities and runs every model on the same samples, with metrics reported per capability and per modality. The headline finding is that LLMs fall well short of specialized models, lean on simple heuristics, and degrade as the number of temporal reasoning steps grows. General reasoning scores predict health-time-series scores only weakly, and similar failure modes recur within model families, which indicates that scaling alone does not close the gap.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">A method to make an LLM reason over raw numeric series via tool calls; HEARTS turns method claims into a graded test.</span></li>
+  <li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">Set the expectation that LLMs handle health signals; HEARTS tests that expectation at scale.</span></li>
+  <li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">Trains an LLM to answer questions about a series; one of the approaches HEARTS measures.</span></li>
+  <li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">Maps the method families HEARTS uses as baselines.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>TS-Agent and ChatTS each fix a piece of LLM time-series reasoning and report wins on their own benchmarks, which makes cross-method comparison impossible and hides shared failure modes. HEARTS fixes the evaluation gap: it builds one taxonomy and one large test set so that every method and model is scored on the same tasks. It shows that the strong single-method numbers do not carry over to multi-step reasoning across modalities, which the per-method papers could not reveal.</p>
+<h3>Method vs predecessors</h3>
+<p>HEARTS is a benchmark, not a model, so its contribution is the measurement design rather than a new architecture. Compared to the survey by Zhang 2024, which catalogues methods, HEARTS grades them on a common axis of temporal reasoning difficulty. Compared to TS-Agent and ChatTS, it does not change how a model reads a series; it changes how the field decides whether a model reasoned, by tying scores to a capability taxonomy and to temporal complexity.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Bridges sensor data and language; shares the bio-sensing to llm-health link HEARTS spans.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Surveys the biosignal model families whose reasoning HEARTS now stress-tests.</span></li>
+</ul>
+</div>
+</body>
+</html>
