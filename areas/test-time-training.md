@@ -8,6 +8,7 @@
 2024 | TTT-Unet (Zhou et al.) | 
 
 2026-06 | PETSA (2506.23424) | parameter-efficient test-time adaptation for TS forecasting with spectral and structural losses
+2026-06 | EASE-TTT (2606.06906) | evidence-aligned selective test-time training for long-context QA; supervises query-side attention with retrieved evidence
 
 ### Paper List
 
@@ -17,8 +18,10 @@
 [KNOWN] [2024] Zhou et al. — TTT-Unet. zotero_key:K9AZKZB2.
 
 [2026] 2506.23424 — PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting. [https://arxiv.org/abs/2506.23424](https://arxiv.org/abs/2506.23424). external.
+[2026] 2606.06906 — EASE-TTT: Evidence-Aligned Selective Test-Time Training for Long-Context Question Answering. [https://arxiv.org/abs/2606.06906](https://arxiv.org/abs/2606.06906). external.
 
 ### Recent Activity
 
+2026-06-28 | 2606.06906 added | EASE-TTT turns retrieved evidence into a soft attention target and trains only query-side attention at test time, beating full-context, retrieval-only, and query-only test-time training on six LongBench QA tasks; Tier B
 2026-06-05 | 2506.23424 added | parameter-efficient TTA for TS foundation models; low-rank adapters with frequency-domain and patch-wise structural losses; Tier B
 2026-05-14 | Area page seeded | 4 papers from Zotero, 1 from graphify seed.

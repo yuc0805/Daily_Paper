@@ -52,6 +52,30 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": true
+    },
+    {
+      "source": "JEGI4IS7",
+      "source_label": "TTT Layers (Sun 2024)",
+      "target": "2606.06906",
+      "target_label": "EASE-TTT: Evidence-Aligned Selective Test-Time Training for Long-Context Question Answering",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "note": "EASE-TTT replaces the generic self-supervised objective of TTT Layers with an evidence-aligned attention target for the specific question.",
+      "date_added": "2026-06-28"
+    },
+    {
+      "source": "W7RPRTCH",
+      "source_label": "TTT for Abstract Reasoning (Akyurek 2024)",
+      "target": "2606.06906",
+      "target_label": "EASE-TTT: Evidence-Aligned Selective Test-Time Training for Long-Context Question Answering",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "note": "EASE-TTT points test-time adaptation at evidence positions rather than using the position-agnostic objective of Akyurek 2024.",
+      "date_added": "2026-06-28"
     }
   ],
   "hyperedges": [

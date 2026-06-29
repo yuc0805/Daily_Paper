@@ -54,6 +54,9 @@
 2026-06 | SIGMA-PPG (2601.21031) | replaces random masking in PPG pretraining with a reinforcement-learning teacher that learns where and how hard to mask from signal statistics
 2026-06 | RUL FM Embeddings (2606.11990) | frozen time-series foundation model embeddings with a light regression head predict remaining useful life
 2026-06 | WEQA (2606.18147) | a language-model controller writes a per-question plan and routes wearable health questions to matching analysis tools
+2026-06 | HEARTS (2603.06638) | benchmark of LLM reasoning over health time series; 16 datasets, 20 signal types, 110 tasks, 14 models
+2026-06 | SLIP (2603.11950) | language-informed sensor pretraining with a variable-rate patch embedder that transfers across sensor setups
+2026-06 | FEEL (2604.05926) | benchmark of EDA and PPG emotion recognition across 19 datasets and 16 models, with cross-dataset tests
 ### Paper List
 
 [KNOWN] [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.
@@ -131,11 +134,14 @@
 [2026] 2601.21031 — SIGMA-PPG: Statistical-prior Informed Generative Masking Architecture for PPG Foundation Model. [https://arxiv.org/abs/2601.21031](https://arxiv.org/abs/2601.21031). external.
 [2026] 2606.11990 — Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation. [https://arxiv.org/abs/2606.11990](https://arxiv.org/abs/2606.11990). external.
 [2026] 2606.18147 — WEQA: Wearable hEalth Question Answering with Query-Adaptive Agentic Reasoning. [https://arxiv.org/abs/2606.18147](https://arxiv.org/abs/2606.18147). external.
+[2026] 2603.06638 — HEARTS: Benchmarking LLM Reasoning on Health Time Series. [https://arxiv.org/abs/2603.06638](https://arxiv.org/abs/2603.06638). external.
+[2026] 2603.11950 — SLIP: Learning Transferable Sensor Models via Language-Informed Pretraining. [https://arxiv.org/abs/2603.11950](https://arxiv.org/abs/2603.11950). external.
+[2026] 2604.05926 — FEEL: Quantifying Heterogeneity in Physiological Signals for Generalizable Emotion Recognition. [https://arxiv.org/abs/2604.05926](https://arxiv.org/abs/2604.05926). external.
 
 ### Recent Activity
 
+2026-06-28 | 2603.06638 added | HEARTS grades 14 LLMs on 110 health-time-series tasks across 20 signal types; LLMs fall short of specialized models and get worse as reasoning steps grow; Tier A
+2026-06-28 | 2603.11950 added | SLIP aligns a sensor encoder with language and adds a variable-rate patch embedder, reaching 77.14% linear-probe accuracy across 11 datasets without retraining for new configurations; Tier B
+2026-06-28 | 2604.05926 added | FEEL benchmarks 16 emotion-recognition models on 19 EDA and PPG datasets; handcrafted-feature models stay competitive and beat raw-signal models under noise; Tier B
 2026-06-27 | 2606.18147 added | frames wearable health question answering as query-adaptive tool routing; a language-model controller plans each question and composes signal-analysis and pretrained-model tool outputs, reporting 24% higher accuracy than baselines; Tier A
 2026-06-27 | 2606.11990 added | freezes a pretrained time-series foundation model and trains only a small regression head; the frozen embeddings beat recurrent, convolutional, transformer, and gradient-boosting baselines for remaining useful life; Tier B
-2026-06-26 | 2603.03331 added | PulseLM standardizes 1.31M PPG segments into 3.15M closed-ended question-answer pairs and a fixed benchmark, importing the vision-language question-answering format into PPG; Tier A
-2026-06-26 | 2601.21031 added | SIGMA-PPG replaces random masking with a reinforcement-learning teacher that learns a hard-mask curriculum from amplitude and skewness priors; Tier B
-2026-06-25 | 2510.25785 added | HiMAE uses a U-Net-style hierarchical convolutional encoder so each level is a temporal scale, with a per-level linear probe to find which resolution carries a physiological signal; runs on a smartwatch CPU; Tier A
