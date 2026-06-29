@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foundation Models for Sensor-based HAR: Survey — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Foundation Models Defining A New Era In Sensor-based Human Activity Recognition: A Survey And Outlook</h2>
+<p class="paper-meta">survey authors &middot; arXiv 2026 (ACM IMWUT, conditional) &middot; <a href="https://arxiv.org/abs/2604.02711" target="_blank" rel="noopener">arXiv:2604.02711</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3><p>This survey reviews 132 papers on foundation models for sensor-based human activity recognition and organizes the field with a lifecycle taxonomy across input design, pretraining, adaptation, and utilization, structured along nine technical and operational axes. It names three dominant directions: HAR-specific foundation models built from scratch, general time-series and multimodal foundation models adapted to sensor data, and large language models used for reasoning, annotation, and human-AI interaction. It lists open challenges in data curation, multimodal alignment, on-device personalization, and responsible deployment.</p>
+<h3>Why</h3><p>Foundation models for sensor HAR have grown quickly but without a shared structure to compare input choices, pretraining objectives, and adaptation strategies. Earlier HAR surveys predate the foundation-model shift. The paper sets out to give one taxonomy and a curated reference base so the field can be navigated and compared.</p>
+<h3>How</h3><p>The authors collect 132 representative papers and place each on a lifecycle of input design, pretraining, adaptation, and utilization, with nine axes. They group the work into the three directions above and use the taxonomy to read off where the open problems sit. A companion repository indexes the surveyed models.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">A sequence-model encoder for HAR; one point the survey places on its pretraining and adaptation axes.</span></li>
+<li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Example of the "LLMs for interaction" direction the survey names.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>Individual HAR papers in your library (SSL for HAR, HARMamba, Sensor2Text) are points without a shared coordinate system. The survey fixes the orientation problem: it tells you which axis each occupies and where the gaps are, which a single method paper cannot do.</p>
+<h3>Method vs predecessors</h3><p>This is a survey, so the contribution is organization rather than a model. Its three named directions line up with graphify communities 1 (self-supervised), 4 (time series plus LLM), and 5 (wearable sensing) in your library, which makes it a useful index over the HAR papers you already hold.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2605.08296.html">BenchHAR (2026)</a><span class="lineage-note">Empirical benchmark counterpart to this taxonomy.</span></li>
+<li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Cited as an instance of LLM-for-interaction HAR.</span></li>
+</ul>
+</div>
+</body>
+</html>

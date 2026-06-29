@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-28",
+  "date": "2026-06-29",
   "papers": [
     {
-      "zotero_key": "2603.06638",
-      "title": "HEARTS: Benchmarking LLM Reasoning on Health Time Series",
-      "authors": "Yang et al.",
+      "zotero_key": "2604.00767",
+      "title": "ActivityNarrated: An Open-Ended Narrative Paradigm for Wearable Human Activity Understanding",
+      "authors": "ActivityNarrated authors",
       "year": 2026,
-      "what": "A benchmark of 110 tasks over 16 health datasets and 20 signal types showing that 14 current LLMs underperform specialized models and degrade as temporal reasoning steps grow.",
+      "what": "Reframes wearable HAR around open-ended natural-language narratives with a multi-position IMU dataset, a sensor-language retrieval evaluation, and the ActNarrator model, which nearly doubles Macro-F1 over closed-set baselines as a downstream task.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "TS-Agent (Liu 2025, I2CIT4I7); LLMs are Few-Shot Health Learners (Liu 2023, JX3X3KH5); ChatTS (Xie 2025, VSCNJG5J); LLMs for Time Series Survey (Zhang 2024, N2JLZBY3)"
+      "builds_on": "Sensor2Text (Chen 2024, ELYUE3NF); SSL for HAR (Yuan 2024, RTMH75VW)"
     },
     {
-      "zotero_key": "2603.11950",
-      "title": "Learning Transferable Sensor Models via Language-Informed Pretraining (SLIP)",
-      "authors": "SLIP authors",
+      "zotero_key": "2511.01747",
+      "title": "AnyPPG: An ECG-Guided PPG Foundation Model Trained on Over 100,000 Hours of Recordings",
+      "authors": "AnyPPG authors",
+      "year": 2025,
+      "what": "A PPG foundation model pretrained on over 100,000 hours of synchronized PPG-ECG from 58,796 participants, using ECG as guidance; it gains 12.8% on regression and 9.1% on classification over the next-best model across 11 tasks and screens 1,014 ICD-10 categories.",
+      "area_label": "LLM-Health",
+      "area_slug": "llm-health",
+      "builds_on": "Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); HeAR (Baur 2024, 3LA8GNCU)"
+    },
+    {
+      "zotero_key": "2603.09940",
+      "title": "SignalMC-MED: A Multimodal Benchmark for Evaluating Biosignal Foundation Models on Single-Lead ECG and PPG",
+      "authors": "Gustafsson et al. (Oxford)",
       "year": 2026,
-      "what": "A sensor encoder pretrained with contrastive signal-language alignment plus captioning and a variable-resolution patch embedder, reaching 77.14% linear-probe accuracy across 11 datasets while transferring across sensor configurations.",
+      "what": "A benchmark of 22,256 visits with paired 10-minute ECG and PPG over 20 clinical tasks, finding domain-specific models beat general time-series models, ECG+PPG fusion helps, longer signals help, bigger models do not reliably help, and hand-crafted features stay competitive.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "Sensor2Text (Chen 2024, ELYUE3NF); SSL for HAR (Yuan 2024, RTMH75VW); Time-LLM (Jin 2024, MKICLA63)"
+      "builds_on": "Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); HeAR (Baur 2024, 3LA8GNCU)"
     },
     {
-      "zotero_key": "2606.06906",
-      "title": "EASE-TTT: Evidence-Aligned Selective Test-Time Training for Long-Context Question Answering",
-      "authors": "Yuan et al.",
+      "zotero_key": "2604.02711",
+      "title": "Foundation Models Defining A New Era In Sensor-based Human Activity Recognition: A Survey And Outlook",
+      "authors": "survey authors",
       "year": 2026,
-      "what": "A test-time training method that turns retrieved evidence into a soft attention target to adapt query-side parameters, giving the best macro-average over full-context, retrieval-only, and query-only TTT baselines on six LongBench QA tasks.",
-      "area_label": "Test-Time Training",
-      "area_slug": "test-time-training",
-      "builds_on": "TTT Layers (Sun 2024, JEGI4IS7); TTT for Abstract Reasoning (Akyurek 2024, W7RPRTCH)"
-    },
-    {
-      "zotero_key": "2604.05926",
-      "title": "FEEL: Quantifying Heterogeneity in Physiological Signals for Generalizable Emotion Recognition",
-      "authors": "FEEL authors",
-      "year": 2026,
-      "what": "A cross-dataset benchmark of emotion recognition from EDA and PPG over 19 datasets and 16 models, finding contrastive signal-language models score highest but handcrafted features still beat raw-signal models under noise.",
+      "what": "Reviews 132 papers on foundation models for sensor-based HAR with a lifecycle taxonomy across input, pretraining, adaptation, and utilization, naming three directions: HAR-specific models, adapted general time-series and multimodal models, and LLMs for reasoning and interaction.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); SSL for HAR (Yuan 2024, RTMH75VW); HeAR (Baur 2024, 3LA8GNCU)"
+      "builds_on": "HARMamba (Li 2024, HE9X47KN); Sensor2Text (Chen 2024, ELYUE3NF)"
     }
   ]
 }

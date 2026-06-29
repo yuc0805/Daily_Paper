@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ActivityNarrated — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>ActivityNarrated: An Open-Ended Narrative Paradigm for Wearable Human Activity Understanding</h2>
+<p class="paper-meta">ActivityNarrated authors &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2604.00767" target="_blank" rel="noopener">arXiv:2604.00767</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3><p>ActivityNarrated reframes wearable human activity recognition (HAR) away from a fixed label set toward open-ended natural-language narratives of behavior. It contributes a dataset of unscripted multi-position IMU recordings with time-aligned narration, an evaluation framework based on sensor-language retrieval that generalizes closed-set classification, and a model, ActNarrator, that maps variable-duration and partially observed sensor streams to text. ActNarrator reports near doubling of Macro-F1 over closed-set HAR baselines when classification is run as a downstream task.</p>
+<h3>Why</h3><p>Standard HAR fixes a small activity vocabulary and a single sensor position, which does not match real wearable use that is long-tailed, personalized, and made of overlapping activities. Prior sensor-to-language work produced descriptions tied to a closed taxonomy, so it could not score understanding of behavior outside that taxonomy. The paper sets out to measure activity understanding by semantic alignment between motion and free-text narration instead of top-1 accuracy over fixed classes.</p>
+<h3>How</h3><p>The dataset pairs multi-position IMU streams with time-aligned natural-language narration of unscripted behavior. ActNarrator aligns motion representations with these narratives and supports sequence-to-text inference over variable-duration, heterogeneous, partially observed sensor placements. Evaluation uses sensor-language retrieval, which generalizes closed-set classification and gives metrics beyond accuracy and F1; when classification is evaluated as a downstream task, the learned alignment nearly doubles Macro-F1 against closed-set baselines.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Established natural-language interaction with activity-tracking sensor data via a trained sensor-to-language bridge; this paper removes its closed vocabulary and moves to open-ended narration. Sensor2Text is the time-series to llm-health bridge node in your library.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>Sensor2Text produces fixed natural-language descriptions tied to a closed activity vocabulary and a single sensor position. It fails the specific case where the activity is not in the taxonomy or the sensor placement varies. ActivityNarrated fixes this by removing the predefined taxonomy: it models open-ended narratives over multi-position, partially observed streams and scores them by sensor-language retrieval, so out-of-vocabulary and overlapping activities are measurable rather than collapsed into a wrong label.</p>
+<h3>Method vs predecessors</h3><p>Where Sensor2Text trains a bridge to caption within a fixed scheme, ActNarrator keeps the sensor-language alignment idea but supervises it with retrieval against free-text narration and handles heterogeneous, partially observed placements. The change of integration boundary is from "describe within a closed scheme" to "retrieve the matching open narrative", which imports the contrastive-retrieval evaluation style from vision-language learning into IMU HAR.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2605.08296.html">BenchHAR (2026)</a><span class="lineage-note">Benchmarks self-supervised HAR generalization; complementary closed-set view of the same problem.</span></li>
+<li><a href="2605.22759.html">General Intelligence and Interface for Wearable Health Data (2026)</a><span class="lineage-note">Also targets open interaction with wearable streams via language.</span></li>
+</ul>
+</div>
+</body>
+</html>

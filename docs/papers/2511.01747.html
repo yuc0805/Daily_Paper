@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AnyPPG — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+<h2>AnyPPG: An ECG-Guided PPG Foundation Model Trained on Over 100,000 Hours of Recordings</h2>
+<p class="paper-meta">AnyPPG authors &middot; arXiv 2025 &middot; <a href="https://arxiv.org/abs/2511.01747" target="_blank" rel="noopener">arXiv:2511.01747</a> &middot; Appears in: <a href="../areas/llm-health.html">LLM-Health</a></p>
+<h3>What</h3><p>AnyPPG is a foundation model for photoplethysmography (PPG) pretrained on over 100,000 hours of synchronized PPG and ECG from 58,796 participants across five public datasets. It aligns PPG and ECG in a shared embedding space so the PPG encoder learns physiologically meaningful features from unlabeled signals. Across eleven physiological analysis tasks over six datasets it reports average gains of 12.8% on regression and 9.1% on classification over the next-best model, and on a disease screen across 1,014 ICD-10 categories, 13 reach AUC above 0.8 and 137 above 0.7, including non-cardiac conditions such as Parkinson's disease (AUC 0.78) and chronic kidney disease (AUC 0.74).</p>
+<h3>Why</h3><p>PPG is cheap and ubiquitous in wearables but noisy, so a representation learned from PPG alone is unstable. ECG carries a cleaner cardiac timing signal. Prior single-modality biosignal foundation models did not exploit the fact that PPG and ECG are often recorded together, leaving a cleaner teaching signal unused. The paper sets out to use synchronized ECG to constrain what the PPG representation should capture.</p>
+<h3>How</h3><p>During pretraining the model aligns PPG and ECG representations in a shared space, using ECG as guidance for the PPG encoder, on large-scale paired recordings. After pretraining the PPG encoder is evaluated on conventional physiological tasks (heart-rate and blood-pressure estimation, affect recognition, atrial-fibrillation detection, signal-quality assessment) and on multi-organ disease screening, with the reported state-of-the-art margins above.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Survey that framed the biosignal foundation-model program AnyPPG instantiates for PPG.</span></li>
+<li><a href="3LA8GNCU.html">HeAR (Baur 2024)</a><span class="lineage-note">Single-modality biosignal foundation model; AnyPPG adds cross-signal ECG guidance instead of training PPG alone.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>HeAR and other single-modality biosignal models learn from one signal, so a noisy modality like PPG has no external anchor and the representation drifts on low-quality segments. AnyPPG fixes this by using synchronized ECG as a supervisory anchor during pretraining, so the PPG encoder is pulled toward cardiac structure that PPG alone would not reliably recover.</p>
+<h3>Method vs predecessors</h3><p>Where the Gu 2025 survey described single-modality pretraining and HeAR built one for acoustics, AnyPPG adds a paired-modality alignment objective and scales to over 100,000 hours. The technical move is cross-modal supervision (a clean modality teaching a noisy one), common in vision-language, applied here ECG-to-PPG. The downstream evaluation protocol stays close to prior biosignal foundation-model practice.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="3LA8GNCU.html">HeAR (Baur 2024)</a><span class="lineage-note">Same biosignal foundation-model class, single modality.</span></li>
+<li><a href="2510.25785.html">HiMAE (2026)</a><span class="lineage-note">Masked-autoencoder pretraining on wearable time series; related representation-learning route.</span></li>
+</ul>
+</div>
+</body>
+</html>
