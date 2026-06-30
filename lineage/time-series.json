@@ -1032,6 +1032,90 @@
       "cross_area": true,
       "note": "FEEL benchmarks the signal foundation-model family HeAR represents against classical and deep baselines on EDA and PPG.",
       "date_added": "2026-06-28"
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text (Chen 2024)",
+      "target": "2604.00767",
+      "target_label": "ActivityNarrated: An Open-Ended Narrative Paradigm for Wearable Human Activity Understanding",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "note": "Where Sensor2Text produced fixed descriptions tied to a closed activity vocabulary, ActivityNarrated removes the taxonomy and narrates open-ended behavior over multi-position partially observed streams.",
+      "date_added": "2026-06-29"
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "SSL for HAR (Yuan 2024)",
+      "target": "2604.00767",
+      "target_label": "ActivityNarrated: An Open-Ended Narrative Paradigm for Wearable Human Activity Understanding",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "ActivityNarrated keeps the self-supervised representation idea from SSL for HAR but supervises it by retrieval against free-text narration rather than probing it with a closed classifier.",
+      "date_added": "2026-06-29"
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals (Gu 2025)",
+      "target": "2603.09940",
+      "target_label": "SignalMC-MED: A Multimodal Benchmark for Evaluating Biosignal Foundation Models on Single-Lead ECG and PPG",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "SignalMC-MED supplies the shared multimodal clinical benchmark the Gu survey called for, fixing paired ECG and PPG tasks so biosignal foundation models can be compared.",
+      "date_added": "2026-06-29"
+    },
+    {
+      "source": "baur2024_hear",
+      "source_label": "HeAR (Baur 2024)",
+      "target": "2603.09940",
+      "target_label": "SignalMC-MED: A Multimodal Benchmark for Evaluating Biosignal Foundation Models on Single-Lead ECG and PPG",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "SignalMC-MED evaluates the single-modality biosignal foundation-model family HeAR represents and reports that larger variants do not reliably beat smaller ones.",
+      "date_added": "2026-06-29"
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "SSL for HAR (Yuan 2024)",
+      "target": "2604.02711",
+      "target_label": "Foundation Models Defining A New Era In Sensor-based Human Activity Recognition: A Survey And Outlook",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "The survey places SSL for HAR as a central example of the from-scratch HAR foundation-model direction within its lifecycle taxonomy.",
+      "date_added": "2026-06-29"
+    },
+    {
+      "source": "li2024_harmamba",
+      "source_label": "HARMamba (Li 2024)",
+      "target": "2604.02711",
+      "target_label": "Foundation Models Defining A New Era In Sensor-based Human Activity Recognition: A Survey And Outlook",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "The survey locates HARMamba among sequence-model encoders adapted to sensor data within its input-to-utilization taxonomy.",
+      "date_added": "2026-06-29"
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text (Chen 2024)",
+      "target": "2604.02711",
+      "target_label": "Foundation Models Defining A New Era In Sensor-based Human Activity Recognition: A Survey And Outlook",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "note": "The survey names Sensor2Text as an example of the language-model interaction direction for sensor HAR.",
+      "date_added": "2026-06-29"
     }
   ],
   "hyperedges": [

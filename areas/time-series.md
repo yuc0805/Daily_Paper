@@ -57,6 +57,9 @@
 2026-06 | HEARTS (2603.06638) | benchmark of LLM reasoning over health time series; 16 datasets, 20 signal types, 110 tasks, 14 models
 2026-06 | SLIP (2603.11950) | language-informed sensor pretraining with a variable-rate patch embedder that transfers across sensor setups
 2026-06 | FEEL (2604.05926) | benchmark of EDA and PPG emotion recognition across 19 datasets and 16 models, with cross-dataset tests
+2026-06 | ActivityNarrated (2604.00767) | open-ended narrative wearable HAR over multi-position partially observed IMU, scored by sensor-language retrieval
+2026-06 | SignalMC-MED (2603.09940) | paired ECG and PPG benchmark of 22,256 visits and 20 clinical tasks; fusion and the full window help, larger models do not reliably
+2026-06 | HAR Foundation Models Survey (2604.02711) | 132-paper lifecycle taxonomy of sensor-HAR foundation models across input, pretraining, adaptation, and utilization
 ### Paper List
 
 [KNOWN] [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.
@@ -137,11 +140,14 @@
 [2026] 2603.06638 — HEARTS: Benchmarking LLM Reasoning on Health Time Series. [https://arxiv.org/abs/2603.06638](https://arxiv.org/abs/2603.06638). external.
 [2026] 2603.11950 — SLIP: Learning Transferable Sensor Models via Language-Informed Pretraining. [https://arxiv.org/abs/2603.11950](https://arxiv.org/abs/2603.11950). external.
 [2026] 2604.05926 — FEEL: Quantifying Heterogeneity in Physiological Signals for Generalizable Emotion Recognition. [https://arxiv.org/abs/2604.05926](https://arxiv.org/abs/2604.05926). external.
+[2026] 2604.00767 — ActivityNarrated: An Open-Ended Narrative Paradigm for Wearable Human Activity Understanding. [https://arxiv.org/abs/2604.00767](https://arxiv.org/abs/2604.00767). external.
+[2026] 2603.09940 — SignalMC-MED: A Multimodal Benchmark for Evaluating Biosignal Foundation Models on Single-Lead ECG and PPG. [https://arxiv.org/abs/2603.09940](https://arxiv.org/abs/2603.09940). external.
+[2026] 2604.02711 — Foundation Models Defining A New Era In Sensor-based Human Activity Recognition: A Survey And Outlook. [https://arxiv.org/abs/2604.02711](https://arxiv.org/abs/2604.02711). external.
 
 ### Recent Activity
 
+2026-06-29 | 2604.00767 added | ActivityNarrated drops the fixed label set and scores wearable activity by sensor-language retrieval over multi-position partially observed IMU, nearly doubling Macro-F1 over closed-set HAR baselines when classification is run downstream; Tier A
+2026-06-29 | 2603.09940 added | SignalMC-MED fixes a paired ECG and PPG benchmark of 22,256 visits and 20 clinical tasks, finding modality fusion and the full 10-minute window help while larger models do not reliably beat smaller ones and hand-crafted features stay competitive; Tier B
+2026-06-29 | 2604.02711 added | a survey of 132 sensor-HAR foundation-model papers organized by a four-stage lifecycle taxonomy on nine axes, naming from-scratch, adapted-general, and language-model interaction directions; Tier B
 2026-06-28 | 2603.06638 added | HEARTS grades 14 LLMs on 110 health-time-series tasks across 20 signal types; LLMs fall short of specialized models and get worse as reasoning steps grow; Tier A
 2026-06-28 | 2603.11950 added | SLIP aligns a sensor encoder with language and adds a variable-rate patch embedder, reaching 77.14% linear-probe accuracy across 11 datasets without retraining for new configurations; Tier B
-2026-06-28 | 2604.05926 added | FEEL benchmarks 16 emotion-recognition models on 19 EDA and PPG datasets; handcrafted-feature models stay competitive and beat raw-signal models under noise; Tier B
-2026-06-27 | 2606.18147 added | frames wearable health question answering as query-adaptive tool routing; a language-model controller plans each question and composes signal-analysis and pretrained-model tool outputs, reporting 24% higher accuracy than baselines; Tier A
-2026-06-27 | 2606.11990 added | freezes a pretrained time-series foundation model and trains only a small regression head; the frozen embeddings beat recurrent, convolutional, transformer, and gradient-boosting baselines for remaining useful life; Tier B

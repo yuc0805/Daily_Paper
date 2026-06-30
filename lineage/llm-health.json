@@ -363,6 +363,30 @@
       "relation": "builds_on",
       "note": "The reconstruction term this theory work analyzes is retained, while the model adds a distributional regularizer because sparse, irregular clinical data make a single deterministic embedding overconfident.",
       "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals (Gu 2025)",
+      "target": "2511.01747",
+      "target_label": "AnyPPG: An ECG-Guided PPG Foundation Model Trained on Over 100,000 Hours of Recordings",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "note": "Where the Gu survey laid out single-modality biosignal pretraining, AnyPPG adds cross-signal guidance by using synchronized ECG to supervise the PPG encoder at scale.",
+      "date_added": "2026-06-29"
+    },
+    {
+      "source": "baur2024_hear",
+      "source_label": "HeAR (Baur 2024)",
+      "target": "2511.01747",
+      "target_label": "AnyPPG: An ECG-Guided PPG Foundation Model Trained on Over 100,000 Hours of Recordings",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "note": "AnyPPG extends the single-modality biosignal foundation-model approach of HeAR to paired PPG and ECG, using the cleaner ECG timing to constrain the noisier PPG representation.",
+      "date_added": "2026-06-29"
     }
   ],
   "hyperedges": [
