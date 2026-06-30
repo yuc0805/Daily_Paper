@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TimeMaster — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>TimeMaster: Training Time-Series Multimodal LLMs to Reason via Reinforcement Learning</h2>
+<p class="paper-meta">Zhang, Feng, Guo, Wu, Dong, Xu &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2506.13705" target="_blank" rel="noopener">arXiv:2506.13705</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3>
+<p>TimeMaster trains a multimodal LLM to reason over time series rendered as images, classify them, and add a domain-specific explanation. It produces a three-part structured output (reasoning, classification, extension) and is trained in two stages: supervised fine-tuning for a starting point, then Group Relative Policy Optimization (GRPO) at the token level. A composite reward scores format adherence, prediction accuracy, and the quality of the open-ended explanation together. On the TimerBed benchmark with six real-world classification tasks, built on Qwen2.5-VL-3B-Instruct, it outperforms classical time-series models by more than 14.6 percent and few-shot GPT-4o by more than 7.3 percent.</p>
+<h3>Why</h3>
+<p>Time-series reasoning is hard for multimodal LLMs because temporal patterns are dynamic, the semantics are ambiguous, and the models hold no temporal priors. Prompt-based methods are flexible but shallow, and supervised alignment methods need paired data and still do not produce auditable reasoning. The paper sets out to obtain structured, interpretable time-series reasoning without relying on prompting alone and without collecting large paired explanation datasets.</p>
+<h3>How</h3>
+<p>A time series is plotted as an image and passed to a vision-language model together with the task prompt. Supervised fine-tuning first teaches the required output format. Then GRPO, the reinforcement-learning method from DeepSeek-R1, optimizes the model against a composite reward: a format term for following the reasoning-classification-extension structure, an accuracy term for the predicted label, and an insight term for the open-ended explanation. The result is a model that reaches state-of-the-art classification accuracy and also generates context-aware explanations, shown on tasks such as EMG waveform interpretation.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Source of the GRPO reinforcement-learning recipe that TimeMaster ports from text reasoning into the time-series domain.</span></li>
+  <li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">Prior approach that aligns time series with an LLM through training; TimeMaster instead renders the series as an image and shapes reasoning with RL.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Origin of the intermediate-reasoning idea, which TimeMaster turns into a trained, rewarded output format.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 showed that GRPO can train reasoning, but only over text inputs where the model reads tokens. On time series this fails because a model has no reliable way to read a raw numeric sequence. TimeMaster fixes that specific failure mode by rendering the series as an image a vision-language backbone can see, and by adding an explanation reward so the output is not only a label but a justified one. Against ChatTS, which needs paired alignment training and outputs an answer without an auditable reasoning trace, TimeMaster produces a visible reasoning-classification-extension structure that a reviewer can check.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared to DeepSeek-R1, TimeMaster keeps GRPO but changes the input modality to plotted images and adds an open-ended insight term to the reward, so the policy is rewarded for useful explanations rather than only correct tokens. Compared to ChatTS and other alignment methods in the same area, TimeMaster moves the integration boundary from supervised series-to-language alignment to reward-driven reasoning over a visual rendering, which removes the need for large paired explanation data while keeping the output interpretable.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Also targets verifiable time-series reasoning, but through tool calls and an evidence log rather than RL over images.</span></li>
+  <li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">Surveys the LLM-for-time-series landscape, including reasoning approaches like this one.</span></li>
+</ul>
+</div>
+</body>
+</html>

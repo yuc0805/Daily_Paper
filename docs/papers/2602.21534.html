@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARLArena — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>ARLArena: A Unified Framework for Stable Agentic Reinforcement Learning</h2>
+<p class="paper-meta">ARLArena authors &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2602.21534" target="_blank" rel="noopener">arXiv:2602.21534</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3>
+<p>ARLArena is a framework for training LLM agents with reinforcement learning in a stable way. It standardizes the environment interface, reward bookkeeping, and policy-update loop so that agentic RL runs do not diverge or collapse. This summary is based on the paper abstract; the full text was not retrievable at digest time.</p>
+<h3>Why</h3>
+<p>Training an LLM agent that both acts and learns from sparse, late rewards is unstable: small changes in reward shaping or rollout collection can make training diverge. That instability is a common reason agentic RL stays at the prototype stage. ARLArena targets the engineering and algorithmic sources of that instability.</p>
+<h3>How</h3>
+<p>The framework unifies how environments expose observations and rewards, how trajectories are collected, and how the policy is updated, so that the moving parts are consistent across tasks. With a single interface and consistent credit assignment, runs are reported to be more stable across different agentic tasks.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Showed RL with a simple reward can train reasoning; ARLArena extends RL training to the multi-turn agent setting.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Improved agents through tree search at inference; ARLArena instead changes how the policy is trained.</span></li>
+  <li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Decomposed tasks during planning; ARLArena addresses the training stability that such multi-step agents need.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 applied RL to single-turn reasoning, where credit assignment is short. ARLArena targets the multi-turn case, where rewards arrive late and a small instability compounds across steps. Against LATS and ADaPT, which improve behavior at inference time through search and decomposition, ARLArena fixes the training-time failure mode in which the agent policy collapses, so the gains can be learned rather than searched for at test time.</p>
+<h3>Method vs predecessors</h3>
+<p>Where the predecessor agents act through search or planning over a fixed model, ARLArena changes the training loop itself, standardizing environment, reward, and update so that policy optimization stays stable. The contribution is infrastructure and stability rather than a new planning algorithm.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Tool-using agents like this one are a target for stable end-to-end RL training.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic Reasoning for Large Language Models — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Agentic Reasoning for Large Language Models</h2>
+<p class="paper-meta">Agentic Reasoning authors &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2601.12538" target="_blank" rel="noopener">arXiv:2601.12538</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3>
+<p>This paper frames reasoning as an agentic loop. Instead of producing one chain of thought, the model plans, calls tools or sub-routines, reads back the results, and revises. It argues that hard problems are solved better by interleaving reasoning with action than by longer single-pass traces. This summary is based on the paper abstract; the full text was not retrievable at digest time.</p>
+<h3>Why</h3>
+<p>A single chain of thought cannot check its own intermediate claims; once a step is wrong, the rest of the trace inherits the error. Longer traces do not fix this, because they add more unverified text. The paper argues that letting the model act and observe between reasoning steps gives it a way to correct course with evidence.</p>
+<h3>How</h3>
+<p>The model runs an observe-think-act loop: it reasons about the next step, takes an action such as a tool call, reads the result, and reasons again, repeating until it can answer. Reasoning becomes a control policy over actions rather than a single text output.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Introduced intermediate reasoning steps; this paper moves them into an action loop.</span></li>
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Trained long reasoning traces with RL; this paper argues for interleaving action with reasoning instead of longer traces.</span></li>
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Added tool calls to an LLM; this paper makes tool use part of a reasoning policy.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Chain-of-Thought and DeepSeek-R1 keep reasoning inside one text trace, so a wrong intermediate step cannot be checked against the world. This paper fixes that failure mode by letting the model act and observe between steps, so evidence can correct a mistaken claim rather than carrying it forward. Against ToolkenGPT, where tool use is a capability bolted on, here the tool call is chosen by the reasoning policy itself.</p>
+<h3>Method vs predecessors</h3>
+<p>The predecessors produce a single reasoning output or a one-off tool call. This paper restructures reasoning into a loop where action and observation are interleaved with thinking, turning a static trace into a control process. The change is structural rather than a new prompt or reward.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Uses the same observe-think-act loop for time-series reasoning.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Search over agent actions, a related way to structure multi-step reasoning.</span></li>
+</ul>
+</div>
+</body>
+</html>

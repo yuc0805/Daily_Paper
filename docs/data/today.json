@@ -1,45 +1,45 @@
 {
-  "date": "2026-06-29",
+  "date": "2026-06-30",
   "papers": [
     {
-      "zotero_key": "2604.00767",
-      "title": "ActivityNarrated: An Open-Ended Narrative Paradigm for Wearable Human Activity Understanding",
-      "authors": "ActivityNarrated authors",
+      "zotero_key": "2506.13705",
+      "title": "TimeMaster: Training Time-Series Multimodal LLMs to Reason via Reinforcement Learning",
+      "authors": "Zhang et al.",
       "year": 2026,
-      "what": "Reframes wearable HAR around open-ended natural-language narratives with a multi-position IMU dataset, a sensor-language retrieval evaluation, and the ActNarrator model, which nearly doubles Macro-F1 over closed-set baselines as a downstream task.",
+      "what": "Trains a time-series multimodal LLM to reason over plotted series and classify them, using SFT then GRPO with a composite reward; beats classical models by over 14.6% and few-shot GPT-4o by over 7.3% on the TimerBed benchmark.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "Sensor2Text (Chen 2024, ELYUE3NF); SSL for HAR (Yuan 2024, RTMH75VW)"
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); ChatTS (Xie 2025, VSCNJG5J); Chain-of-Thought (Wei 2023, HBLPTRMY)"
     },
     {
-      "zotero_key": "2511.01747",
-      "title": "AnyPPG: An ECG-Guided PPG Foundation Model Trained on Over 100,000 Hours of Recordings",
-      "authors": "AnyPPG authors",
-      "year": 2025,
-      "what": "A PPG foundation model pretrained on over 100,000 hours of synchronized PPG-ECG from 58,796 participants, using ECG as guidance; it gains 12.8% on regression and 9.1% on classification over the next-best model across 11 tasks and screens 1,014 ICD-10 categories.",
-      "area_label": "LLM-Health",
-      "area_slug": "llm-health",
-      "builds_on": "Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); HeAR (Baur 2024, 3LA8GNCU)"
-    },
-    {
-      "zotero_key": "2603.09940",
-      "title": "SignalMC-MED: A Multimodal Benchmark for Evaluating Biosignal Foundation Models on Single-Lead ECG and PPG",
-      "authors": "Gustafsson et al. (Oxford)",
+      "zotero_key": "2602.14200",
+      "title": "TS-Haystack: A Multi-Scale Retrieval Benchmark for Time Series Language Models",
+      "authors": "TS-Haystack authors",
       "year": 2026,
-      "what": "A benchmark of 22,256 visits with paired 10-minute ECG and PPG over 20 clinical tasks, finding domain-specific models beat general time-series models, ECG+PPG fusion helps, longer signals help, bigger models do not reliably help, and hand-crafted features stay competitive.",
+      "what": "A needle-in-a-haystack benchmark for time-series language models that tests whether a model can locate a target pattern inside a long signal across several scales.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); HeAR (Baur 2024, 3LA8GNCU)"
+      "builds_on": "ChatTS (Xie 2025, VSCNJG5J); TS-Agent (Liu 2025, I2CIT4I7)"
     },
     {
-      "zotero_key": "2604.02711",
-      "title": "Foundation Models Defining A New Era In Sensor-based Human Activity Recognition: A Survey And Outlook",
-      "authors": "survey authors",
+      "zotero_key": "2602.21534",
+      "title": "ARLArena: A Unified Framework for Stable Agentic Reinforcement Learning",
+      "authors": "ARLArena authors",
       "year": 2026,
-      "what": "Reviews 132 papers on foundation models for sensor-based HAR with a lifecycle taxonomy across input, pretraining, adaptation, and utilization, naming three directions: HAR-specific models, adapted general time-series and multimodal models, and LLMs for reasoning and interaction.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "HARMamba (Li 2024, HE9X47KN); Sensor2Text (Chen 2024, ELYUE3NF)"
+      "what": "A framework that standardizes the environment, reward, and update loop for training LLM agents with reinforcement learning so that agentic RL runs stay stable.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); LATS (Zhou 2024, 77ERE7HA)"
+    },
+    {
+      "zotero_key": "2601.12538",
+      "title": "Agentic Reasoning for Large Language Models",
+      "authors": "Agentic Reasoning authors",
+      "year": 2026,
+      "what": "Frames reasoning as an observe-think-act loop where the model plans, calls tools, reads results, and revises, arguing this beats longer single-pass chains of thought.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "Chain-of-Thought (Wei 2023, HBLPTRMY); DeepSeek-R1 (2025, Z5IWHZAE)"
     }
   ]
 }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TS-Haystack — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>TS-Haystack: A Multi-Scale Retrieval Benchmark for Time Series Language Models</h2>
+<p class="paper-meta">TS-Haystack authors &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2602.14200" target="_blank" rel="noopener">arXiv:2602.14200</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3>
+<p>TS-Haystack is a benchmark that tests whether a time-series language model can locate a specific pattern inside a long signal. It poses retrieval at several scales, from a short local motif to a long-range trend, so a model cannot pass by attending only to a small window. This summary is based on the paper abstract; the full text was not retrievable at digest time.</p>
+<h3>Why</h3>
+<p>Existing evaluations of time-series LLMs mostly use short clips and reward pattern recognition, not long-context search. That leaves a gap: for long recordings with rare events, the property that matters is whether the model can find the right segment at all. TS-Haystack isolates that skill.</p>
+<h3>How</h3>
+<p>The benchmark places a target pattern (the "needle") at controlled positions inside long series (the "haystack") and varies the scale of the target, then measures whether the model retrieves it. It reports performance as a function of context length and target scale, in the style of needle-in-a-haystack tests used for text models.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">Built a time-series-aware LLM; TS-Haystack measures whether such models can retrieve over long context.</span></li>
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Reasons over a series via operator calls; the benchmark tests the retrieval such agents depend on.</span></li>
+  <li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">Flagged evaluation gaps that this benchmark targets.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Prior time-series LLM benchmarks reward short-window pattern recognition and do not separate retrieval from reasoning. TS-Haystack fixes that by forcing the model to find a target whose position and scale are controlled, so a high score cannot come from attending to a single short clip. It measures the long-context retrieval failure mode that the survey named but earlier benchmarks did not test.</p>
+<h3>Method vs predecessors</h3>
+<p>Where ChatTS and TS-Agent contribute models, TS-Haystack contributes measurement. It adapts the text-domain needle-in-a-haystack protocol to time series and adds a multi-scale axis, so the benchmark probes both where the target sits and how large it is, rather than testing a single fixed window.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Aligns sensor data with language; retrieval over long sensor streams is the skill this benchmark isolates.</span></li>
+</ul>
+</div>
+</body>
+</html>
