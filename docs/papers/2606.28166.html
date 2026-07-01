@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tandem Reinforcement Learning with Verifiable Rewards — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Tandem Reinforcement Learning with Verifiable Rewards</h2>
+<p class="paper-meta">Jiao, Singhal, West, Anderson &middot; arXiv 2026-06-26 &middot; <a href="https://arxiv.org/abs/2606.28166" target="_blank" rel="noopener">arXiv:2606.28166</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3>
+<p>Tandem Reinforcement Learning (TRL) trains a strong "senior" model together with a frozen weaker "junior". The two alternate stochastically to co-generate each reasoning rollout, the joint output is scored by a verifiable reward, and the standard GRPO loss updates only the senior. This pushes the senior to reason in a way the junior can continue. Training Qwen3-4B-Instruct on competition math, TRL matches plain GRPO on solo accuracy while producing stronger handoff to the junior, less distributional drift from the junior, and a chain of thought the junior finds more legible.</p>
+<h3>Why</h3>
+<p>Reinforcement learning with verifiable rewards (RLVR) makes large models strong at math and code, but the reasoning it produces drifts toward idiosyncratic traces with poor readability and language mixing. Such traces are hard for weaker models and people to follow, which limits multi-model communication and human compatibility. Tandem training had targeted this compatibility problem only in proof-of-concept settings, leaving open whether it scales to the long chains of thought of a modern RLVR pipeline.</p>
+<h3>How</h3>
+<p>In each rollout the senior and the frozen junior alternate stochastically to produce the reasoning tokens, so the trace is co-authored. The full generation is then scored by the verifiable reward, and GRPO updates only the senior against that reward. Because the junior must be able to continue the trace, the senior is pushed toward reasoning the junior can follow. Three properties emerge together from this single rollout structure: handoff robustness, reduced distributional drift, and legibility to the junior.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Source of the reward-only GRPO recipe; TRL adds a frozen junior to the rollout and rewards the pair.</span></li>
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Asked for legible reasoning by prompting; TRL restores legibility as an emergent training effect.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 optimized a single model for correctness and let the reasoning style drift toward unreadable, mixed-language traces. TRL fixes the specific failure that a correct trace can be unusable by a weaker model or a person, by rewarding a senior-junior pair so the senior must reason in a way the junior can continue. The correctness of DeepSeek-R1 is retained while compatibility is added.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared to DeepSeek-R1, TRL changes the rollout: instead of one model generating the full trace, a senior and a frozen junior alternate, and only the senior is updated by GRPO. Compared to Chain-of-Thought, which requested legible steps through a prompt, TRL makes legibility a byproduct of the training structure rather than an instruction. The reward and optimizer are unchanged; the generation process is the new part.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Base-model line behind the RLVR reasoning work TRL modifies.</span></li>
+<li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Reasoning-as-loop for time series; a candidate target for tandem training on-device.</span></li>
+</ul>
+</div>
+</body>
+</html>

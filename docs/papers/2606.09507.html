@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prisma-World: Camera-Controllable Multi-Agent Video World Model — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/generative-cv.html" class="back-link">&larr; Back to Area</a>
+<h2>Prisma-World: Camera-Controllable Multi-Agent Video World Model</h2>
+<p class="paper-meta">Sun, Peng, Wu, Wang, Liao, Wang, Zeng, Jin, Li, Cao, Liu, Li &middot; arXiv 2026-06-08 &middot; <a href="https://arxiv.org/abs/2606.09507" target="_blank" rel="noopener">arXiv:2606.09507</a> &middot; Appears in: <a href="../areas/generative-cv.html">Generative CV</a></p>
+<h3>What</h3>
+<p>Prisma-World generates multi-agent video where overlapping views must agree on one shared scene. It processes all agent videos in a single full-attention sequence, uses a multi-agent rotary position (RoPE) design to keep agent identities separate while sharing a synchronized time axis, and injects relative camera geometry into attention so overlapping viewpoints are biased toward the same scene evidence. Training uses an overlap-decaying curriculum and minimap-conditioned structural guidance. The authors release PrismaDataset, a synthetic (UE5) set with panoramic capture and precise camera and action labels. One model then generates high-fidelity multi-agent video with flexible agent counts, camera control, and improved cross-view consistency.</p>
+<h3>Why</h3>
+<p>Most video world models simulate the world from a single observer. When each agent's future is generated independently, overlapping views may instantiate different objects, layouts, and appearances for the same scene. Conventional camera conditioning controls individual trajectories but does not explicitly couple views that should agree under shared scene geometry, so cross-view consistency is not enforced.</p>
+<h3>How</h3>
+<p>All agent videos are placed in one full-attention sequence. A multi-agent RoPE design distinguishes agent identities while preserving synchronized temporal coordinates. Relative camera geometry is injected into attention so that overlapping viewpoints attend to shared scene evidence, formulating multi-agent generation as a joint geometry-aware denoising process. An overlap-decaying curriculum and minimap-conditioned guidance strengthen global spatial consistency, and PrismaDataset supplies exact camera and action labels for training and evaluation.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="YJ9TK993.html">DiT: Scalable Diffusion Models with Transformers (Peebles 2023)</a><span class="lineage-note">Transformer diffusion backbone and full-attention design that Prisma-World extends across agents.</span></li>
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">The denoising process, here made joint and geometry-aware across views.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>A DiT with conventional camera conditioning controls one trajectory at a time but does not couple views that should agree, so overlapping viewpoints diverge. Prisma-World fixes this by making the denoising joint and geometry-aware: relative camera geometry biases attention so overlapping views share scene evidence, which enforces cross-view consistency that per-trajectory conditioning could not.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared to DiT and DDPM, Prisma-World runs a single full-attention sequence over all views, adds multi-agent RoPE and relative-camera-geometry injection, and trains with an overlap-decaying curriculum on a synthetic labeled dataset. Compared to MetaWorld, released the same month, Prisma-World uses geometry-conditioned full attention and exact synthetic camera labels, while MetaWorld learns cross-view coupling from real single-view video.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2606.02753.html">MetaWorld (Hu 2026)</a><span class="lineage-note">Matched pair this month: same consistency goal, learned cross-view attention from real data instead of geometry conditioning.</span></li>
+<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Earlier conditional generation in the same diffusion lineage.</span></li>
+</ul>
+</div>
+</body>
+</html>

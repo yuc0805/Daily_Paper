@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAP: Towards PPG Universal Representation Learning with Patient-level Supervision — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+<h2>CAP: Towards PPG Universal Representation Learning with Patient-level Supervision</h2>
+<p class="paper-meta">He, Shao, Huang, Zhang, Jing, Ding &middot; KDD 2026 &middot; <a href="https://arxiv.org/abs/2606.15284" target="_blank" rel="noopener">arXiv:2606.15284</a> &middot; Appears in: <a href="../areas/llm-health.html">LLM-Health</a></p>
+<h3>What</h3>
+<p>CAP learns a reusable encoder for photoplethysmography (PPG) signals by anchoring them to patient-level clinical text rather than to the signal alone. The authors build a paired PPG plus electronic health record (EHR) dataset for 2,279 patients, where a pretrained language model distills fragmented diagnosis codes and notes into one coherent patient-level record. Pretraining runs cross-modal contrastive alignment between the PPG encoder and this clinical text, together with a morphological reconstruction loss and a physiological stability loss. On four downstream tasks it reports an average relative gain of +26.7 percent, and up to +87.6 percent relative on respiratory rate over the best prior method.</p>
+<h3>Why</h3>
+<p>A reusable PPG encoder would serve many downstream health tasks, but existing self-supervised PPG methods learn from the signal alone. They align samples by waveform shape, so two morphologically similar segments are pulled together even when they come from patients in different physiological states. They also train on short windows (5 to 30 seconds), which cannot capture chronic conditions or long-horizon drift, and common augmentations such as masking or morphological transforms can destroy fine structure that carries clinical meaning. Prior work therefore leaves the patient's underlying state out of the objective.</p>
+<h3>How</h3>
+<p>For each patient, long PPG segments are paired with a language-model-distilled patient-level EHR. During pretraining, CAP performs cross-modal contrastive alignment that ties PPG representations to the patient-level clinical semantics, alongside a morphological reconstruction loss and a physiological stability loss. Longer segments widen the temporal field of view. At fine-tune time, a local morphology encoder and a clinical-semantic encoder are combined with gated fusion before a prediction head. The design turns supervision from waveform similarity into patient clinical state.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Surveyed signal-only self-supervised encoders for PPG and ECG; CAP is the patient-text-anchored successor.</span></li>
+<li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Aligned wearable sensor data with natural language; CAP uses the same signal-to-language alignment but anchors to clinical EHR semantics.</span></li>
+<li><a href="6INGKIJV.html">How Mask Matters (Zhang 2023)</a><span class="lineage-note">Analyzed masked-autoencoder reconstruction; CAP keeps a morphological reconstruction loss in this spirit.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Signal-only encoders (surveyed by Gu 2025) fail in the specific way that morphologically similar PPG segments from different physiological states are pulled together, so the representation does not separate patients by health state. CAP fixes this by anchoring the encoder to patient-level clinical text, so the training signal is the patient's clinical state rather than waveform geometry. It also replaces short-window training with longer segments, addressing the failure to capture chronic conditions and long-horizon drift.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared to Sensor2Text, which aligned activity sensors to natural-language activity descriptions, CAP aligns PPG to structured patient-level EHR semantics distilled by a language model, a more clinical supervision target. Compared to signal-only self-supervised methods, CAP adds a cross-modal contrastive loss and a physiological stability loss on top of masked reconstruction, and it widens the temporal window. The integration boundary moves from signal-internal pretext tasks to signal-to-clinical-text grounding.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">Clinical-language side of the bio-sensing to health-LLM bridge that CAP extends.</span></li>
+<li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Different integration strategy for physiological reasoning: tool calls over a raw series rather than contrastive alignment to text.</span></li>
+</ul>
+</div>
+</body>
+</html>
