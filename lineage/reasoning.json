@@ -321,6 +321,33 @@
       "relation": "builds_on",
       "note": "Where Chain-of-Thought treated the reasoning trace as a prompting device, this paper treats trace correctness as the quantity the reward implicitly shapes.",
       "cross_area": false
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2601.12538",
+      "target_label": "Agentic Reasoning for Large Language Models (2026)",
+      "relation": "builds_on",
+      "note": "Where Chain-of-Thought keeps reasoning inside one text trace, this paper moves to an act-observe-reason loop so a wrong step can be corrected by evidence.",
+      "cross_area": false
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2601.12538",
+      "target_label": "Agentic Reasoning for Large Language Models (2026)",
+      "relation": "builds_on",
+      "note": "Where DeepSeek-R1 trained long single-pass reasoning traces, this paper frames reasoning as an agentic control loop rather than one output.",
+      "cross_area": false
+    },
+    {
+      "source": "hao2024_toolkengpt",
+      "source_label": "ToolkenGPT: Tool Embeddings for LLMs (Hao 2024)",
+      "target": "2601.12538",
+      "target_label": "Agentic Reasoning for Large Language Models (2026)",
+      "relation": "builds_on",
+      "note": "Where ToolkenGPT added tool calls as a capability, this paper makes the tool call part of a reasoning policy.",
+      "cross_area": true
     }
   ],
   "hyperedges": [],

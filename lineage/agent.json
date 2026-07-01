@@ -411,6 +411,33 @@
       "relation": "builds_on",
       "note": "Where the survey organizes agent memory mechanisms by what they do, this paper measures what they cost when deployed, adding a runtime systems view to a mostly modeling-focused literature.",
       "cross_area": false
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2602.21534",
+      "target_label": "ARLArena: A Unified Framework for Stable Agentic Reinforcement Learning (2026)",
+      "relation": "builds_on",
+      "note": "Where DeepSeek-R1 applied reinforcement learning to single-turn reasoning, ARLArena targets the multi-turn agent setting where rewards arrive late and credit assignment is the hard part.",
+      "cross_area": true
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2602.21534",
+      "target_label": "ARLArena: A Unified Framework for Stable Agentic Reinforcement Learning (2026)",
+      "relation": "builds_on",
+      "note": "Where LATS improved planning through tree search at inference time, ARLArena instead changes how the policy is trained for stable updates.",
+      "cross_area": false
+    },
+    {
+      "source": "prasad2023_adapt",
+      "source_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
+      "target": "2602.21534",
+      "target_label": "ARLArena: A Unified Framework for Stable Agentic Reinforcement Learning (2026)",
+      "relation": "builds_on",
+      "note": "Where ADaPT decomposed a task into sub-tasks at inference time, ARLArena focuses on stable training infrastructure rather than a better search.",
+      "cross_area": false
     }
   ],
   "hyperedges": [

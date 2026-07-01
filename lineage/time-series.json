@@ -1116,6 +1116,60 @@
       "cross_area": false,
       "note": "The survey names Sensor2Text as an example of the language-model interaction direction for sensor HAR.",
       "date_added": "2026-06-29"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2506.13705",
+      "target_label": "TimeMaster: Training Time-Series Multimodal LLMs to Reason via Reinforcement Learning (2026)",
+      "relation": "builds_on",
+      "note": "Where DeepSeek-R1 used GRPO to train text-only reasoning, TimeMaster applies the same reward-based recipe to time-series classification and adds a reward term for explanation quality.",
+      "cross_area": true
+    },
+    {
+      "source": "xie2025_chatts",
+      "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
+      "target": "2506.13705",
+      "target_label": "TimeMaster: Training Time-Series Multimodal LLMs to Reason via Reinforcement Learning (2026)",
+      "relation": "builds_on",
+      "note": "Where ChatTS aligned a numeric series with language through supervised training, TimeMaster renders the series as an image for a vision-language backbone and shapes the reasoning trace with reinforcement learning.",
+      "cross_area": false
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2506.13705",
+      "target_label": "TimeMaster: Training Time-Series Multimodal LLMs to Reason via Reinforcement Learning (2026)",
+      "relation": "builds_on",
+      "note": "Where Chain-of-Thought produced reasoning steps by prompting alone, TimeMaster makes those steps a trained, rewarded output format.",
+      "cross_area": true
+    },
+    {
+      "source": "xie2025_chatts",
+      "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
+      "target": "2602.14200",
+      "target_label": "TS-Haystack: A Multi-Scale Retrieval Benchmark for Time Series Language Models (2026)",
+      "relation": "builds_on",
+      "note": "Where ChatTS shows an LLM can answer questions about a series, TS-Haystack tests whether it can locate the right part of a long series at all.",
+      "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2602.14200",
+      "target_label": "TS-Haystack: A Multi-Scale Retrieval Benchmark for Time Series Language Models (2026)",
+      "relation": "builds_on",
+      "note": "Where TS-Agent reasons over a series with analysis operators, TS-Haystack measures long-context retrieval as an isolated skill.",
+      "cross_area": false
+    },
+    {
+      "source": "zhang2024_llm_ts_survey",
+      "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "target": "2602.14200",
+      "target_label": "TS-Haystack: A Multi-Scale Retrieval Benchmark for Time Series Language Models (2026)",
+      "relation": "builds_on",
+      "note": "TS-Haystack targets the evaluation gap the survey flagged, namely that existing tests reward short-clip pattern recognition and do not test long-context retrieval.",
+      "cross_area": false
     }
   ],
   "hyperedges": [

@@ -28,6 +28,7 @@
 2026-06 | NF-CoT (2606.06447) | normalizing flow head replaces explicit CoT with compact latent thought states
 2026-06 | PauseRec (2606.14142) | implicit pause-step reasoning for LLM generative recommendation; cheaper than explicit CoT
 2026-06 | RLVR Correct Reasoning (2506.14245) | CoT-Pass@K scores intermediate-step correctness, not only the final answer; RLVR extends the reasoning boundary
+2026-06 | Agentic Reasoning (2601.12538) | reasoning framed as a plan-act-observe-revise loop rather than one chain of thought
 ### Paper List
 
 [KNOWN] [2025] Shen et al. — CODI. zotero_key:FFWLYL3J.
@@ -57,10 +58,12 @@
 [2026] 2606.14142 — PauseRec: Implicit Reasoning for LLM-based Generative Recommendation. [https://arxiv.org/abs/2606.14142](https://arxiv.org/abs/2606.14142). external.
 
 [2026] 2506.14245 — Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs. [https://arxiv.org/abs/2506.14245](https://arxiv.org/abs/2506.14245). external.
+
+[2026] 2601.12538 — Agentic Reasoning for Large Language Models. [https://arxiv.org/abs/2601.12538](https://arxiv.org/abs/2601.12538). external.
 ### Recent Activity
 
+2026-06-30 | 2601.12538 added | reasoning framed as an agentic loop where the model plans, calls tools, reads results, and revises, arguing hard problems are solved better by interleaving reasoning with action than by longer single-pass traces; Tier B
 2026-06-21 | 2506.14245 added | CoT-Pass@K scores intermediate-step correctness, not only the final answer; RLVR extends the reasoning boundary for math and code; Tier B
 2026-06-17 | 2606.14142 added | implicit pause-step reasoning replaces explicit CoT for generative recommendation; up to +6.22% accuracy, 65% fewer GPU hours; Tier B
 2026-06-10 | 2606.06447 added | normalizing flow inside transformer backbone for latent reasoning; exact density; cuts CoT token cost; Tier A
 2026-06-06 | 2606.03965 added | MDP controller steers a frozen reasoner with budget-aware inference; Tier A
-2026-06-06 | 2606.03768 added | CoT compression via memory tokens plus transient thought retention; Tier B
