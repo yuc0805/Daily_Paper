@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AtomiMed — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+<h2>AtomiMed: Hierarchical Atomic Fact-Checking for Universal Clinical-Aware Medical Report Evaluation</h2>
+<p class="paper-meta">Wang, Chang, Jiang, Gao, Zhang, Yuan, Cao, Shi, Zhang, Liu, Zhang (Zhejiang University) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.31292" target="_blank" rel="noopener">arXiv:2606.31292</a> &middot; Appears in: <a href="../areas/llm-health.html">LLM-Health</a> (bridge: <a href="../areas/hallucination.html">Hallucination</a>)</p>
+<h3>What</h3>
+<p>AtomiMed is a modality-agnostic evaluation framework for generated medical reports. It decomposes a report into a hierarchy of atomic clinical facts &mdash; disease-level entities and attribute-level descriptors such as location, morphology, and severity &mdash; and runs an agentic cross-verification loop between the ground-truth and predicted reports, imitating a multi-radiologist peer review. This decouples detection accuracy from descriptive accuracy. The authors release MRGEvalKit for automated hierarchical extraction and OmniMRG-Bench, a benchmark covering X-ray, CT, MRI, and ultrasound.</p>
+<h3>Why</h3>
+<p>Traditional medical-report-generation metrics rely on surface-level n-gram overlap, which does not capture clinical factual accuracy and can overlook catastrophic diagnostic errors. A report-level overlap score also cannot say which specific claim is wrong. The paper's goal is an evaluation that aligns with radiologist judgment and localizes errors to individual clinical facts.</p>
+<h3>How</h3>
+<p>Reports are parsed into the atomic-fact hierarchy, and an agentic cross-verification loop checks each predicted fact against the ground-truth report and vice versa, separating whether a finding was detected from whether it was described correctly. Across expert-annotated reader studies, AtomiMed correlates with radiologist judgment better than traditional and model-based metrics.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="ATEFZQA4.html">Med-VQA Hallucination (Wu 2024)</a><span class="lineage-note">Showed medical vision-language models assert findings not supported by the image; AtomiMed turns fact-checking into an evaluation metric.</span></li>
+  <li><a href="2BGP9QJL.html">Verifiable Physio Reasoning (Wang 2026)</a><span class="lineage-note">Argued for checkable outputs in health models; AtomiMed applies verifiability to evaluation.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Med-VQA Hallucination measured hallucination on question answering, not on full report generation, and left evaluation of generated reports to overlap metrics that miss factual errors. AtomiMed fixes the specific failure &mdash; "an overlap score cannot tell which clinical claim is wrong" &mdash; by decomposing the report into atomic facts and verifying each with a cross-verification loop, giving a fact-localized, clinically aligned score.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared to n-gram and model-based metrics, AtomiMed replaces a single similarity score with hierarchical atomic-fact extraction plus agentic peer-review verification. Compared to Verifiable Physio Reasoning, which built verifiability into generation, AtomiMed moves the same principle to the evaluation side and makes it modality-agnostic across four imaging types.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2BGP9QJL.html">Verifiable Physio Reasoning (Wang 2026)</a><span class="lineage-note">Same push for checkable clinical outputs, applied to generation rather than evaluation.</span></li>
+  <li><a href="ATEFZQA4.html">Med-VQA Hallucination (Wu 2024)</a><span class="lineage-note">Closest neighbor on measuring clinical factuality in medical vision-language models.</span></li>
+</ul>
+</div>
+</body>
+</html>

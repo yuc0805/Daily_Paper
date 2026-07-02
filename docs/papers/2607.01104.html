@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CausalMix: Data Mixture as Causal Inference for Language Model Training — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>CausalMix: Data Mixture as Causal Inference for Language Model Training</h2>
+<p class="paper-meta">Tang, Zhang, Zheng, Pan, Pei, Jin, Zhou, Wang, Huang (Tsinghua University) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.01104" target="_blank" rel="noopener">arXiv:2607.01104</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a> (bridge: <a href="../areas/causal-inference.html">Causal Inference</a>)</p>
+<h3>What</h3>
+<p>CausalMix selects the mixture of training-data domains for a language model by casting mixture optimization as a causal-inference problem. The statistical features of the data pool are treated as covariates and the domain mixture as the treatment. A causal model is fit on 512 training runs of Qwen2.5-0.5B to estimate the Conditional Average Treatment Effect (CATE) of a mixture on the training outcome. The estimated optimal mixture is then extrapolated to an 800K-example pool and used to train a 7B model, and the same framework is applied to selecting long chain-of-thought data on Qwen3-4B-Base. A CATE interpreter gives a visual read-out of the learned strategy.</p>
+<h3>Why</h3>
+<p>The mix of data domains strongly affects a trained model. Recent methods learn mixture weights with small proxy models but assume a fixed data pool, so when the pool changes or the model is scaled the fitted function no longer holds and the search has to be rerun from scratch. This prevents carrying a good mixture from small scale to a larger pool or a larger model. CausalMix aims to make the mixture decision transfer across pool sizes and model scales.</p>
+<h3>How</h3>
+<p>By conditioning the causal model on pool features rather than memorizing one fixed pool, CausalMix estimates how much a given mixture changes the outcome given the current pool state, and it isolates confounding bias so the estimate reflects the mixture rather than correlated pool properties. This state-conditioning lets the mixture found on a 0.5B model and a small pool extrapolate to a 7B model and an 800K pool. The mixture chosen this way improves downstream performance over RegMix and other baselines, and the method also transfers to the long chain-of-thought setting.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="BB78CC56.html">Causal Inference Intro (Pearl 2010)</a><span class="lineage-note">Source of the treatment, covariate, and treatment-effect (CATE) framing that CausalMix applies to data mixing.</span></li>
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Established long chain-of-thought traces as valuable training data, whose quantity CausalMix's CoT-mixing extension chooses.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Pearl's framework estimates the effect of a treatment on an outcome in a fixed observational setting; it does not predict outcomes for unseen treatments applied to unseen populations. CausalMix fixes the specific failure of prior mixture methods &mdash; "the fitted mixture-to-loss function breaks when the pool changes" &mdash; by conditioning on pool state and estimating CATE, so an optimal mixture can be predicted for a new pool and a new model scale without a from-scratch rerun.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared to RegMix-style proxy fitting (external to this library), CausalMix replaces a static mixture-to-loss regression with a causal model that treats the mixture as a treatment and conditions on covariates describing the pool, which is what enables extrapolation across scales. Compared to Pearl's causal-inference setup, the novelty is the mapping: mixture as treatment, training outcome as response, pool statistics as covariates, plus a CATE interpreter for a readable strategy.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Supplies the long chain-of-thought data whose mixing CausalMix optimizes in its second experiment.</span></li>
+  <li><a href="BB78CC56.html">Causal Inference Intro (Pearl 2010)</a><span class="lineage-note">The causal-inference anchor this paper connects to the LLM-training area for the first time in your library.</span></li>
+</ul>
+</div>
+</body>
+</html>

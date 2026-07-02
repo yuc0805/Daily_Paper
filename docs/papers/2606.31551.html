@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoTrainess — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>AutoTrainess: Teaching Language Models to Improve Language Models Autonomously</h2>
+<p class="paper-meta">Yu, Yin, Gao, He, Cai, Zhang &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.31551" target="_blank" rel="noopener">arXiv:2606.31551</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3>
+<p>AutoTrainess is a language-model agent for autonomous post-training. It exposes the operations of a training pipeline &mdash; planning, data preparation, training, evaluation, and logging &mdash; as a repository of agent-computer interfaces with explicit workflows, rules, and execution constraints, rather than leaving the agent in a raw command-line environment. On PostTrainBench it scores 26.94 on average with GPT-5.4 (Codex) versus 23.21 for a command-line-only baseline, and it transfers across harnesses, lifting DeepSeek-V4-Flash (OpenCode) from 12.13 to 19.58.</p>
+<h3>Why</h3>
+<p>Training a model is still mostly manual even as agents get good at software tasks, because autonomous post-training is more than coding: the agent must plan iterations, build benchmark-aligned data, run stable training jobs, evaluate checkpoints, and keep experiment state across many hours. A raw command line leaves the action space underspecified, so agents drift or fail on these long-horizon runs. The paper externalizes prior human experience so the agent has reliable operations to work with.</p>
+<h3>How</h3>
+<p>Each pipeline operation is wrapped as a named interface that constrains what the agent can do and encodes the human workflow for that step. The agent plans over these interfaces instead of free-form shell commands, which keeps long training runs repeatable and preserves state across the interaction. The result is higher and more reliable scores than a command-line-only agent on the same tasks, and the gains hold across different base models and agent harnesses.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">As-needed decomposition and planning for agents; AutoTrainess decomposes the training pipeline into fixed operations.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Language-agent tree search; the planning-decomposition bridge partner of ADaPT in your library.</span></li>
+  <li><a href="6RDHVVA2.html">ToolkenGPT (2024)</a><span class="lineage-note">Tool-calling as learned tokens; AutoTrainess extends tool use to driving a full training workflow.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>ADaPT decomposed tasks on demand and LATS searched over action trees, but both leave the low-level action space open, which is unreliable for a multi-hour training run where one bad command wastes the run. AutoTrainess fixes that by fixing the action space ahead of time as constrained, named interfaces, so the agent's long-horizon behavior becomes repeatable and its experiment state survives across hours.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared to ADaPT and LATS, the technical move is to trade open-ended search for a curated interface layer that encodes human workflow and execution constraints. Compared to ToolkenGPT's atomic tool calls, AutoTrainess operates at the workflow level, chaining planning, data, training, evaluation, and logging into one autonomous loop with preserved state.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (2024)</a><span class="lineage-note">Surveys the agent designs this work instantiates for the training-pipeline setting.</span></li>
+  <li><a href="6RDHVVA2.html">ToolkenGPT (2024)</a><span class="lineage-note">Tool-using agent; differs by operating on atomic tools rather than a multi-hour workflow.</span></li>
+</ul>
+</div>
+</body>
+</html>

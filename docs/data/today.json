@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-01",
+  "date": "2026-07-02",
   "papers": [
     {
-      "zotero_key": "2606.15284",
-      "title": "CAP: Towards PPG Universal Representation Learning with Patient-level Supervision",
-      "authors": "He et al.",
+      "zotero_key": "2607.01104",
+      "title": "CausalMix: Data Mixture as Causal Inference for Language Model Training",
+      "authors": "Tang et al.",
       "year": 2026,
-      "what": "Learns a PPG encoder by contrastively anchoring the signal to patient-level clinical text distilled from EHRs for 2,279 patients; average +26.7% relative over baselines across four cardiorespiratory tasks, up to +87.6% on respiratory rate.",
+      "what": "Casts training-data mixture selection as causal inference: pool statistics are covariates and the mixture is the treatment. A CATE model fit on 512 Qwen2.5-0.5B runs extrapolates the optimal mixture to an 800K pool and a 7B model, beating RegMix across downstream tasks.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "Causal Inference Intro (Pearl 2010, BB78CC56); DeepSeek-R1 (2025, Z5IWHZAE)"
+    },
+    {
+      "zotero_key": "2607.01191",
+      "title": "Perceive-to-Reason: Decoupling Perception and Reasoning for Fine-Grained Visual Reasoning",
+      "authors": "Li et al.",
+      "year": 2026,
+      "what": "Splits fine-grained visual reasoning into a Perceiver that localizes evidence and a Reasoner that answers, trained with Perception-Reasoning Alternating GRPO using only final-answer supervision; P2R-4B reaches 93.2% on V-Star and 81.9%/80.5% on HR-Bench-4K/8K.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "Latent-GRPO (Deng 2026, U4ZPM5DN); DeepSeek-R1 (2025, Z5IWHZAE); Large Multimodal Reasoning Survey (Li 2025, FPEC4PIH)"
+    },
+    {
+      "zotero_key": "2606.31551",
+      "title": "AutoTrainess: Teaching Language Models to Improve Language Models Autonomously",
+      "authors": "Yu et al.",
+      "year": 2026,
+      "what": "An LM agent that exposes the training pipeline (plan, data, train, evaluate, log) as constrained agent-computer interfaces instead of a raw CLI; scores 26.94 vs 23.21 (CLI-only) on PostTrainBench with GPT-5.4 and generalizes across harnesses.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "ADaPT (Prasad 2023, J8DYBKW2); LATS (Zhou 2024, 77ERE7HA); ToolkenGPT (2024, 6RDHVVA2)"
+    },
+    {
+      "zotero_key": "2606.31292",
+      "title": "AtomiMed: Hierarchical Atomic Fact-Checking for Universal Clinical-Aware Medical Report Evaluation",
+      "authors": "Wang et al.",
+      "year": 2026,
+      "what": "Evaluates generated medical reports by decomposing them into atomic clinical facts and running an agentic cross-verification loop that mimics multi-radiologist review, decoupling detection from description; correlates with radiologist judgment better than n-gram and model-based metrics across X-ray, CT, MRI, and ultrasound.",
       "area_label": "LLM-Health",
       "area_slug": "llm-health",
-      "builds_on": "Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); Sensor2Text (Chen 2024, ELYUE3NF); How Mask Matters (Zhang 2023, 6INGKIJV)"
-    },
-    {
-      "zotero_key": "2606.28166",
-      "title": "Tandem Reinforcement Learning with Verifiable Rewards",
-      "authors": "Jiao et al.",
-      "year": 2026,
-      "what": "Co-generates each reasoning rollout with a trained senior and a frozen weaker junior, rewards the pair, and applies GRPO to the senior; matches solo accuracy while making the chain of thought legible and transferable to the junior.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought (Wei 2023, HBLPTRMY)"
-    },
-    {
-      "zotero_key": "2606.02753",
-      "title": "MetaWorld: Scaling Multi-Agent Video World Models from Single-view Video Data",
-      "authors": "Hu et al.",
-      "year": 2026,
-      "what": "Trains multi-agent video world models from single-view clips by decomposing ego-motion from subject trajectory, and couples views with per-frame cross-attention in a video DiT to keep the shared 3D world consistent.",
-      "area_label": "Generative CV",
-      "area_slug": "generative-cv",
-      "builds_on": "DiT (Peebles 2023, YJ9TK993); DDPM (Ho 2020, GX7WR7KA)"
-    },
-    {
-      "zotero_key": "2606.09507",
-      "title": "Prisma-World: Camera-Controllable Multi-Agent Video World Model",
-      "authors": "Sun et al.",
-      "year": 2026,
-      "what": "Generates consistent multi-agent video via a single full-attention sequence with multi-agent RoPE and relative-camera-geometry injection, plus a synthetic UE5 dataset with exact camera labels; the geometry-conditioned counterpart to MetaWorld.",
-      "area_label": "Generative CV",
-      "area_slug": "generative-cv",
-      "builds_on": "DiT (Peebles 2023, YJ9TK993); DDPM (Ho 2020, GX7WR7KA)"
+      "builds_on": "Med-VQA Hallucination (Wu 2024, ATEFZQA4); Verifiable Physio Reasoning (Wang 2026, 2BGP9QJL)"
     }
   ]
 }
