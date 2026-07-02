@@ -387,6 +387,42 @@
       "cross_area": false,
       "note": "AnyPPG extends the single-modality biosignal foundation-model approach of HeAR to paired PPG and ECG, using the cleaner ECG timing to constrain the noisier PPG representation.",
       "date_added": "2026-06-29"
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2606.15284",
+      "target_label": "CAP: Towards PPG Universal Representation Learning with Patient-level Supervision (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "note": "Where the biosignal survey learned PPG representations from the signal alone, CAP adds patient-level clinical text as the supervision anchor, because similar waveforms can come from patients in different physiological states.",
+      "date_added": "2026-07-01"
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "target": "2606.15284",
+      "target_label": "CAP: Towards PPG Universal Representation Learning with Patient-level Supervision (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "note": "Where Sensor2Text aligned activity sensors to natural-language activity descriptions, CAP aligns PPG to structured patient-level clinical semantics distilled from records.",
+      "date_added": "2026-07-01"
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2606.15284",
+      "target_label": "CAP: Towards PPG Universal Representation Learning with Patient-level Supervision (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "CAP keeps a masked reconstruction objective in the spirit of the masked-autoencoder analysis, but pairs it with clinical anchoring and a longer temporal window.",
+      "date_added": "2026-07-01"
     }
   ],
   "hyperedges": [

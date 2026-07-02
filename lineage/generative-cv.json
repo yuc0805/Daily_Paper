@@ -188,6 +188,38 @@
       "target_label": "Uncertainty Quantification for Flow-Based Vision-Language-Action Models (2026)",
       "relation": "builds_on",
       "note": "Where DiT showed a Transformer backbone can drive a diffusion model for sample quality, this paper adds calibrated uncertainty and an out-of-distribution detector on top of the flow-based action head."
+    },
+    {
+      "source": "peebles2023_dit",
+      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+      "target": "2606.02753",
+      "target_label": "MetaWorld: Scaling Multi-Agent Video World Models from Single-view Video Data (2026)",
+      "relation": "builds_on",
+      "note": "Where DiT denoises a single latent stream for one view, MetaWorld runs coupled streams tied with per-frame cross-attention so several views of one world stay geometrically consistent."
+    },
+    {
+      "source": "ho2020_ddpm",
+      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+      "target": "2606.02753",
+      "target_label": "MetaWorld: Scaling Multi-Agent Video World Models from Single-view Video Data (2026)",
+      "relation": "builds_on",
+      "note": "MetaWorld runs the DDPM denoising process across coupled views and adds a monocular decomposition step, so multi-view training data can be recovered from single-view footage."
+    },
+    {
+      "source": "peebles2023_dit",
+      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+      "target": "2606.09507",
+      "target_label": "Prisma-World: Camera-Controllable Multi-Agent Video World Model (2026)",
+      "relation": "builds_on",
+      "note": "Where DiT denoises one view, Prisma-World puts all views in one full-attention sequence and injects relative camera geometry so the denoising is joint and geometry-aware."
+    },
+    {
+      "source": "ho2020_ddpm",
+      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+      "target": "2606.09507",
+      "target_label": "Prisma-World: Camera-Controllable Multi-Agent Video World Model (2026)",
+      "relation": "builds_on",
+      "note": "Prisma-World makes the DDPM denoising geometry-aware and joint across views, trained on a synthetic dataset with exact camera labels."
     }
   ],
   "hyperedges": [],

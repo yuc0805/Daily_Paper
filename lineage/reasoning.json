@@ -348,6 +348,24 @@
       "relation": "builds_on",
       "note": "Where ToolkenGPT added tool calls as a capability, this paper makes the tool call part of a reasoning policy.",
       "cross_area": true
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2606.28166",
+      "target_label": "Tandem Reinforcement Learning with Verifiable Rewards (2026)",
+      "relation": "builds_on",
+      "note": "Where DeepSeek-R1 optimized a single model for correctness and let the reasoning style drift, Tandem RL adds a frozen weak junior to the rollout and rewards the pair so the trace stays legible.",
+      "cross_area": false
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2606.28166",
+      "target_label": "Tandem Reinforcement Learning with Verifiable Rewards (2026)",
+      "relation": "builds_on",
+      "note": "Where Chain-of-Thought asked for legible steps through prompting, Tandem RL makes legibility an emergent property of the training structure rather than a prompt instruction.",
+      "cross_area": false
     }
   ],
   "hyperedges": [],

@@ -29,6 +29,7 @@
 2026-06 | PauseRec (2606.14142) | implicit pause-step reasoning for LLM generative recommendation; cheaper than explicit CoT
 2026-06 | RLVR Correct Reasoning (2506.14245) | CoT-Pass@K scores intermediate-step correctness, not only the final answer; RLVR extends the reasoning boundary
 2026-06 | Agentic Reasoning (2601.12538) | reasoning framed as a plan-act-observe-revise loop rather than one chain of thought
+2026-07 | Tandem RL (2606.28166) | strong senior co-generates with a frozen weak junior so the reasoning trace stays legible and transferable
 ### Paper List
 
 [KNOWN] [2025] Shen et al. — CODI. zotero_key:FFWLYL3J.
@@ -60,10 +61,13 @@
 [2026] 2506.14245 — Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs. [https://arxiv.org/abs/2506.14245](https://arxiv.org/abs/2506.14245). external.
 
 [2026] 2601.12538 — Agentic Reasoning for Large Language Models. [https://arxiv.org/abs/2601.12538](https://arxiv.org/abs/2601.12538). external.
+
+[2026] 2606.28166 — Tandem Reinforcement Learning with Verifiable Rewards. [https://arxiv.org/abs/2606.28166](https://arxiv.org/abs/2606.28166). external.
+
 ### Recent Activity
 
+2026-07-01 | 2606.28166 added | a trained strong senior and a frozen weak junior alternate to co-generate each reasoning rollout under a verifiable reward; the senior keeps solo accuracy while its chain of thought stays legible to the junior; Tier B
 2026-06-30 | 2601.12538 added | reasoning framed as an agentic loop where the model plans, calls tools, reads results, and revises, arguing hard problems are solved better by interleaving reasoning with action than by longer single-pass traces; Tier B
 2026-06-21 | 2506.14245 added | CoT-Pass@K scores intermediate-step correctness, not only the final answer; RLVR extends the reasoning boundary for math and code; Tier B
 2026-06-17 | 2606.14142 added | implicit pause-step reasoning replaces explicit CoT for generative recommendation; up to +6.22% accuracy, 65% fewer GPU hours; Tier B
 2026-06-10 | 2606.06447 added | normalizing flow inside transformer backbone for latent reasoning; exact density; cuts CoT token cost; Tier A
-2026-06-06 | 2606.03965 added | MDP controller steers a frozen reasoner with budget-aware inference; Tier A

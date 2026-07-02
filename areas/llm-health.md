@@ -23,6 +23,7 @@
 2026-06 | Vivaldi (2603.04142) | multi-agent physiological TS interpretation with clinical evaluation
 2026-06 | Uncertainty-Aware Clinical FM (2604.04175) | represents each patient as a distribution over latent states and marks the unobserved part as epistemic uncertainty
 2026-06 | AnyPPG (2511.01747) | ECG-guided PPG foundation model pretrained on over 100,000 hours of synchronized PPG and ECG
+2026-07 | CAP (2606.15284) | PPG encoder anchored to patient-level clinical text rather than the signal alone
 ### Paper List
 
 [KNOWN] [2023] Xu et al. — GLOBEM. zotero_key:ICD9EG8Q.
@@ -46,10 +47,13 @@
 [2026] 2603.04142 — Vivaldi: A Multi-Agent Framework for Interpreting Multivariate Physiological Time Series. [https://arxiv.org/abs/2603.04142](https://arxiv.org/abs/2603.04142). external.
 [2026] 2604.04175 — Uncertainty-Aware Foundation Models for Clinical Data. [https://arxiv.org/abs/2604.04175](https://arxiv.org/abs/2604.04175). external.
 [2026] 2511.01747 — AnyPPG: An ECG-Guided PPG Foundation Model Trained on Over 100,000 Hours of Recordings. [https://arxiv.org/abs/2511.01747](https://arxiv.org/abs/2511.01747). external.
+
+[2026] 2606.15284 — CAP: Towards PPG Universal Representation Learning with Patient-level Supervision. [https://arxiv.org/abs/2606.15284](https://arxiv.org/abs/2606.15284). external.
+
 ### Recent Activity
 
+2026-07-01 | 2606.15284 added | CAP anchors a PPG encoder to patient-level clinical text distilled from records rather than to the waveform alone, reporting an average relative gain of +26.7 percent across four cardiorespiratory tasks; Tier A
 2026-06-29 | 2511.01747 added | AnyPPG uses synchronized ECG to guide a PPG encoder pretrained on over 100,000 hours of paired recordings from 58,796 participants, reporting average gains of 12.8% on regression and 9.1% on classification across eleven physiological tasks; Tier B
 2026-06-25 | 2604.04175 added | clinical foundation model that emits a set-valued distribution per patient rather than a point embedding, mixing reconstruction, contrastive, and distributional terms; better calibration under missing data; Tier B
 2026-06-09 | 2603.04142 added | role-structured multi-agent system for physiological TS explanation; validated with EM clinicians; Tier B
 2026-06-04 | 2605.09579 added | Multi-modal Masked Autoencoder on 3.4M paired ECG and PPG segments; cross-modal contrastive + reconstruction; AUROC 0.97; Tier B
-2026-06-03 | 2605.13816 added | smartwatch anomaly detection for psychotic relapse via forecasting uncertainty; multi-task cardiac+sleep+motion fusion; Tier B
