@@ -423,6 +423,28 @@
       "cross_area": true,
       "note": "CAP keeps a masked reconstruction objective in the spirit of the masked-autoencoder analysis, but pairs it with clinical anchoring and a longer temporal window.",
       "date_added": "2026-07-01"
+    },
+    {
+      "source": "ATEFZQA4",
+      "source_label": "Med-VQA Hallucination (Wu 2024)",
+      "target": "2606.31292",
+      "target_label": "AtomiMed: Hierarchical Atomic Fact-Checking for Medical Report Evaluation (2026)",
+      "relation": "builds_on",
+      "note": "Where Med-VQA Hallucination measured hallucination on question answering, AtomiMed turns fact-level checking into an evaluation metric for full report generation, decomposing a report into atomic clinical facts and verifying each.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
+    },
+    {
+      "source": "2BGP9QJL",
+      "source_label": "Verifiable Physio Reasoning (Wang 2026)",
+      "target": "2606.31292",
+      "target_label": "AtomiMed: Hierarchical Atomic Fact-Checking for Medical Report Evaluation (2026)",
+      "relation": "builds_on",
+      "note": "Verifiable Physio Reasoning pushed checkable outputs on the generation side; AtomiMed applies the same make-each-claim-checkable principle to the evaluation side.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [

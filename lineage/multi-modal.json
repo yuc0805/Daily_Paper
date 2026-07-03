@@ -186,6 +186,39 @@
       "relation": "builds_on",
       "note": "Where DiT runs a diffusion model on a transformer backbone for image generation, PerceptionDLM carries the diffusion-with-transformer idea onto the language side of a multimodal model and uses parallel decoding to describe several masked regions at once rather than to denoise pixels.",
       "cross_area": false
+    },
+    {
+      "source": "U4ZPM5DN",
+      "source_label": "Latent-GRPO (Deng 2026)",
+      "target": "2607.01191",
+      "target_label": "Perceive-to-Reason: Decoupling Perception and Reasoning for Fine-Grained Visual Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "Latent-GRPO is a GRPO variant; PRA-GRPO is a role-aware GRPO variant that alternates perception-focused and reasoning-focused updates so a single reward does not conflate finding the evidence with reasoning over it.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2607.01191",
+      "target_label": "Perceive-to-Reason: Decoupling Perception and Reasoning for Fine-Grained Visual Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 supplied the reward-based reasoning optimizer (GRPO/RLVR) that P2R builds on, extended here to alternate between perception and reasoning rewards.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
+    },
+    {
+      "source": "FPEC4PIH",
+      "source_label": "Large Multimodal Reasoning Survey (Li 2025)",
+      "target": "2607.01191",
+      "target_label": "Perceive-to-Reason: Decoupling Perception and Reasoning for Fine-Grained Visual Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "The survey maps the multimodal-reasoning landscape; P2R refines it by making the perceive-then-reason split explicit and training it end to end from final-answer reward alone.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [],

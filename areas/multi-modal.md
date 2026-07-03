@@ -20,6 +20,7 @@
 2026-06 | IPT (2606.03988) | imaginative perception tokens carry the reasoning trace into a perceptual modality instead of text for spatial tasks
 
 2026-06 | PerceptionDLM (2606.19534) | discrete diffusion language backbone decodes tokens in parallel to describe several masked image regions at once
+2026-07 | Perceive-to-Reason (2607.01191) | splits fine-grained visual reasoning into a Perceiver that localizes the region and a Reasoner that answers over the crop
 ### Paper List
 
 [KNOWN] [2021] Dosovitskiy et al. — ViT. zotero_key:B7F2Q998.
@@ -41,10 +42,11 @@
 [2026] 2606.03988 — Imaginative Perception Tokens Enhance Spatial Reasoning in Multimodal Language Models. [https://arxiv.org/abs/2606.03988](https://arxiv.org/abs/2606.03988). external.
 
 [2026] 2606.19534 — PerceptionDLM: Parallel Region Perception with Multimodal Diffusion Language Models. [https://arxiv.org/abs/2606.19534](https://arxiv.org/abs/2606.19534). external.
+[2026] 2607.01191 — Perceive-to-Reason: Decoupling Perception and Reasoning for Fine-Grained Visual Reasoning. [https://arxiv.org/abs/2607.01191](https://arxiv.org/abs/2607.01191). external.
 ### Recent Activity
 
+2026-07-02 | 2607.01191 added | P2R separates a Perceiver that localizes the question-relevant region from a Reasoner that answers over the crop, trained with alternating PRA-GRPO from final-answer reward alone and no bounding-box labels, reaching 93.2% on V-Star and 80.5% on HR-Bench-8K; Tier B
 2026-06-25 | 2606.19534 added | multimodal model on a discrete diffusion language backbone; parallel token decoding with structured masking describes several regions at once for an inference-efficiency gain; Tier B
 2026-06-24 | 2606.03988 added | imaginative perception tokens supervise a native-modality spatial trace; it often beats textual chain-of-thought, which can lower performance; Tier A
 2026-06-18 | 2606.15714 added | non-English VLA representations drift after action fine-tuning, dropping relative success 28-47 points; MPCA re-aligns them via shared principal components; Tier A
 2026-06-17 | 2606.11188 added | unified autoregressive multimodal model over discrete tokens; understanding, generation, and editing in one backbone with RL post-training; Tier A
-2026-06-17 | 2606.13192 added | UXBench: 2,000-sample multimodal benchmark for fine-grained user-interface experience diagnosis; Tier B

@@ -14,6 +14,7 @@
 2026-06 | KVarN (2606.03458) | calibration-free KV-cache quantizer with Hadamard rotation and dual-scaling variance normalization
 2026-06 | SparDA (2606.04511) | fourth Forecast projection enables lookahead KV-cache prefetch for 1.7x decode speedup
 2026-06 | Compress-Distill (2606.05988) | compressed reasoning traces yield 2-7.6x training speedup at up to 96% raw accuracy
+2026-07 | CausalMix (2607.01104) | selects the training-data domain mixture by treating mixture choice as causal treatment-effect estimation
 ### Paper List
 
 [KNOWN] [2024] DeepSeek-AI et al. — DeepSeek-V2. zotero_key:743XA29Y.
@@ -30,11 +31,12 @@
 [2026] 2606.04511 — SparDA: Sparse Decoupled Attention for Efficient Long-Context LLM Inference. [https://arxiv.org/abs/2606.04511](https://arxiv.org/abs/2606.04511). external.
 
 [2026] 2606.05988 — Compress-Distill: Reasoning Trace Compression for Efficient Knowledge Distillation. [https://arxiv.org/abs/2606.05988](https://arxiv.org/abs/2606.05988). external.
+[2026] 2607.01104 — CausalMix: Data Mixture as Causal Inference for Language Model Training. [https://arxiv.org/abs/2607.01104](https://arxiv.org/abs/2607.01104). external.
 
 ### Recent Activity
 
+2026-07-02 | 2607.01104 added | CausalMix treats the domain mixture as a treatment and the training result as an outcome, fits a causal model on 512 runs of a 0.5B model to estimate the effect of an unseen mixture, then extrapolates the optimal mixture to an 800K pool and a 7B model; Tier A
 2026-06-08 | 2606.05988 added | compressing CoT traces before distillation gives 2-7.6x training speedup at up to 96% raw accuracy; Tier B
 2026-06-08 | 2606.04511 added | fourth Forecast projection for lookahead KV-cache prefetch; 1.7x decode speedup; Tier A
 2026-06-07 | 2606.03458 added | calibration-free 2-bit KV-cache quantization with FP16-level accuracy on reasoning benchmarks; Tier B
 2026-06-04 | 2605.26099 added | Sleep-like consolidation converts recent context into persistent SSM fast weights via learned local update rule, then cl; Tier A
-2026-06-01 | 2605.23071 added | treats quadratic attention cost as an explicit budget optimized against accuracy; a systems-side complement to MemReread; Tier B

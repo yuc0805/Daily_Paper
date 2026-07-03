@@ -142,6 +142,28 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "BB78CC56",
+      "source_label": "Causal Inference Intro (Pearl 2010)",
+      "target": "2607.01104",
+      "target_label": "CausalMix: Data Mixture as Causal Inference for Language Model Training (2026)",
+      "relation": "builds_on",
+      "note": "Where Pearl's framework estimates the effect of a treatment on an outcome in a fixed observational setting, CausalMix makes the data mixture the treatment and the training result the outcome, conditioning on pool features so it can predict the effect of an unseen mixture on an unseen pool.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2607.01104",
+      "target_label": "CausalMix: Data Mixture as Causal Inference for Language Model Training (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 established long chain-of-thought traces as valuable training data; CausalMix chooses the quantity of that long-CoT data in a principled way through treatment-effect estimation.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [],
