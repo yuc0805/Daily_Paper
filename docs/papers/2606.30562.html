@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morphing into Hybrid Attention Models (FlashMorph) — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/mamba.html" class="back-link">&larr; Back to Area</a>
+<h2>Morphing into Hybrid Attention Models (FlashMorph)</h2>
+<p class="paper-meta">Lan, Zheng, Ren, Xia, Wang, Xiao, Qiu, Cheng &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.30562" target="_blank" rel="noopener">arXiv:2606.30562</a> &middot; Appears in: <a href="../areas/mamba.html">Mamba / SSM</a></p>
+<h3>What</h3>
+<p>FlashMorph decides which layers of a Transformer should keep full attention and which should be converted to linear attention, under a fixed full-attention budget. It frames hybrid layer selection as a budget-constrained subset optimization problem. It builds a morphable model where each full-attention layer also has a linear-attention branch, freezes the weights, and jointly learns per-layer gates on synthetic long-context retrieval data with a regularizer that favors linear attention. The gates are discretized under the budget, then distillation and long-context fine-tuning follow.</p>
+<h3>Why</h3>
+<p>Hybrid attention models cut long-context cost by keeping full attention in only a subset of layers, but their quality depends heavily on which layers are chosen. Existing methods use fixed placement patterns or score layers one at a time, which treats layer importance as isolated and ignores that layers interact under a global hybrid configuration. That leaves quality on the table and makes selection expensive.</p>
+<h3>How</h3>
+<p>The morphable model equips every full-attention layer with a converted linear-attention branch. With all weights frozen, layerwise gates are optimized together on synthetic long-context retrieval data, and a linearization regularizer pushes the model to lean on linear attention for efficiency. The learned continuous gates are then discretized to meet the preset full-attention budget, instantiating the hybrid architecture, which is finished with logits distillation and long-context fine-tuning.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="XNI34DQX.html">Mamba (Gu 2024)</a><span class="lineage-note">Supplies the efficient linear-time state space alternative to attention that fills the converted layers.</span></li>
+<li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">The full-attention Transformer that hybrid conversion starts from.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Mamba replaces attention wholesale, which is efficient but gives up the recall that full attention provides on some layers. Fixed-pattern or per-layer-score hybrid methods pick layers without accounting for how layers interact. FlashMorph fixes that by optimizing all the gates jointly under a budget, which it reports finds better hybrid configurations at lower selection cost while keeping long-context recall.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared with Mamba's uniform replacement, FlashMorph keeps a chosen subset of full-attention layers and converts only the rest. Compared with heuristic hybrid selection, it treats the choice as a single global optimization with a differentiable gate per layer, rather than scoring layers independently.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Applies a Mamba stack to activity signals; a candidate target for FlashMorph-style layer budgeting.</span></li>
+<li><a href="J34W7WZC.html">Vision Mamba (Zhu 2024)</a><span class="lineage-note">Another domain adaptation of state space models versus attention.</span></li>
+</ul>
+</div>
+</body>
+</html>

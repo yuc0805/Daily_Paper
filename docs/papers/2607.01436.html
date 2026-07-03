@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discrete Diffusion for Radiology Report Drafting — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+<h2>Discrete Diffusion Language Models for Interactive Radiology Report Drafting</h2>
+<p class="paper-meta">Van Puyvelde, Gulluk, Van Criekinge, Gevaert &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.01436" target="_blank" rel="noopener">arXiv:2607.01436</a> &middot; Appears in: <a href="../areas/llm-health.html">LLM-Health</a></p>
+<h3>What</h3>
+<p>The paper fine-tunes a diffusion language model (DiffusionGemma-26B, a mixture-of-experts model with 3.8B active parameters) for medical visual question answering and compares it head-to-head against its autoregressive sibling Gemma-4-26B under an identical LoRA recipe. Diffusion matches or beats autoregression on VQA-RAD, SLAKE, and VQA-Med, decodes 3.5 to 4.4 times faster, and adds any-order infill: a radiologist can pin fixed report fragments and have the model fill the text between them using context from both sides.</p>
+<h3>Why</h3>
+<p>Medical foundation models are almost entirely autoregressive, which emits text strictly left to right and is poor at filling gaps between known fragments. Real radiology reports are terse and inconsistent across clinicians, so a drafting tool that lets a human fix what they know and fill the rest is useful. Prior diffusion language work showed parity with autoregression on open-domain text but had not been tested this cleanly on a clinical task.</p>
+<h3>How</h3>
+<p>A diffusion language model writes text by denoising a whole token canvas instead of one token at a time. The authors adapt DiffusionGemma with LoRA on medical VQA data and score outputs with a verbosity-robust LLM judge, holding the backbone, vision tower, data, and LoRA targets identical to the autoregressive baseline so the generative paradigm is nearly the only variable. Interactive infill is training-free: fixed fragments are clamped at each denoising step and the model fills the gaps using both-sided context.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">The denoising diffusion formulation adapted here from image pixels to discrete text tokens.</span></li>
+<li><a href="9UA578GP.html">DDIM (Song 2022)</a><span class="lineage-note">Faster deterministic diffusion sampling, the line behind the speed advantage.</span></li>
+<li><a href="PZATM3SC.html">LoRA (Hu 2021)</a><span class="lineage-note">The parameter-efficient fine-tuning recipe held identical across both models.</span></li>
+<li><a href="ATEFZQA4.html">Med-VQA Hallucination (Wu 2024)</a><span class="lineage-note">Prior evidence on medical VQA answer quality, the benchmark setting.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DDPM and DDIM denoise continuous image pixels and were not shown to be competitive with autoregression on a clinical text task. This paper works in discrete token space and shows parity or better on medical VQA under a matched recipe, while adding a capability autoregression lacks off the shelf: filling text between fixed fragments. That directly addresses the drafting workflow that a strictly left-to-right model handles poorly.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared with pixel diffusion (DDPM, DDIM), the denoising target is a token canvas rather than an image, and sampling is optimized for text decoding speed. Compared with the autoregressive medical norm, the only change is the generative paradigm, held fair by the identical LoRA setup; the payoff is faster decoding and training-free bidirectional infill.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Another diffusion-based generative system, in the generative-CV community this paper draws from.</span></li>
+<li><a href="ATEFZQA4.html">Med-VQA Hallucination (Wu 2024)</a><span class="lineage-note">Shares the medical VQA evaluation setting.</span></li>
+</ul>
+</div>
+</body>
+</html>

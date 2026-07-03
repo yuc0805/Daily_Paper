@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgenticSTS: Bounded-Memory Testbed — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>AgenticSTS: A Bounded-Memory Testbed for Long-Horizon LLM Agents</h2>
+<p class="paper-meta">Cheng, Jiang, Sun, Li, Li, Cao, Liu, Zhang, Jin, Zhang &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.02255" target="_blank" rel="noopener">arXiv:2607.02255</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3>
+<p>AgenticSTS studies how memory should be handed to a long-horizon LLM agent. Instead of appending the whole past transcript to every prompt, it uses a bounded contract: each decision starts from a fresh prompt assembled by typed retrieval, so the prompt stays a fixed size and each memory layer can be turned off on its own. It is tested in Slay the Spire 2, a stochastic deck-building game needing hundreds of decisions per run, and ships 298 tagged trajectories as a reusable testbed.</p>
+<h3>Why</h3>
+<p>The simplest agent memory appends past observations, tool calls, and reflections to every prompt. That grows without bound and mixes everything together, so the effect of any single memory component cannot be isolated, and long runs blow past context limits. Prior memory surveys catalog designs but do not measure them under one controlled harness, so the field lacks clean ablations of what memory actually helps.</p>
+<h3>How</h3>
+<p>Every decision is made from a fresh user message built by typed retrieval, with no raw cross-decision transcript appended, so prompt length is bounded across runs of any length and any single layer can be ablated in isolation. The authors instantiate this in Slay the Spire 2 and run ablations; a fixed-A0 ablation with triggered strategic skills enabled shows the largest observed difference, moving the no-store baseline from 3/10 to 6/10 wins, which they call directional rather than statistically decisive at that sample size (Fisher exact p about 0.37).</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Catalogs memory designs for foundation agents; AgenticSTS turns that taxonomy into an ablatable harness.</span></li>
+<li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Tree-search agent that accumulates and reuses search context; a prior structured-memory approach.</span></li>
+<li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">As-needed task decomposition; related view on organizing long-horizon behavior.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>The Memory Mechanisms Survey describes many memory designs but does not measure them under one controlled setup, so it cannot say which layer helps. AgenticSTS fixes that by building a harness where each memory layer can be ablated in isolation, and it reports the effect and its weak significance rather than overselling.</p>
+<h3>Method vs predecessors</h3>
+<p>Where LATS and ADaPT grow or branch their context as the task proceeds, AgenticSTS keeps the prompt bounded by rebuilding it through typed retrieval at each step. The contract framing &mdash; what each decision is allowed to see &mdash; makes memory an explicit, testable variable rather than an ever-growing transcript.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Agentic multimodal model in the same LLM-agents community.</span></li>
+<li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Broad survey of multimodal agent interaction.</span></li>
+</ul>
+</div>
+</body>
+</html>

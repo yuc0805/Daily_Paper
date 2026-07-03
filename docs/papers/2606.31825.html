@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breaking Failure Cascades (MRPO) — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+<h2>Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning (MRPO)</h2>
+<p class="paper-meta">Jung, Jeong, Lim, Sung, Yun, Roh, Sung, Kang &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.31825" target="_blank" rel="noopener">arXiv:2606.31825</a> &middot; Appears in: <a href="../areas/llm-health.html">LLM-Health</a></p>
+<h3>What</h3>
+<p>MRPO (Medical Reasoning-aware Policy Optimization) is a reinforcement learning method for multimodal models that answer questions about clinical images. It adds step-wise process rewards to the GRPO objective: when the final answer is wrong, it assigns exponentially larger penalties to tokens in the earlier invalid reasoning steps, so the model learns to fix the root of a reasoning cascade rather than the surface. Across three multimodal backbones it beats standard GRPO, and on Qwen3-VL-8B it surpasses the much larger HuatuoGPT-Vision-34B by 2.79 points while cutting early-stage reasoning failures from 64.0% to 13.0%.</p>
+<h3>Why</h3>
+<p>Post-training for medical multimodal models is usually outcome-centric: the reward comes only from whether the final answer is correct. That signal is sparse and does not say which reasoning step failed. The authors show that on medical visual question answering, most wrong answers trace back to an error in an early step that then propagates. Outcome-only methods such as DeepSeek-R1-style RL and standard GRPO cannot target that early step directly, so they optimize the reasoning process weakly.</p>
+<h3>How</h3>
+<p>MRPO keeps the GRPO framework but changes credit assignment. When a trajectory ends in a wrong answer, tokens in earlier reasoning steps receive exponentially larger penalties than later ones, breaking the failure cascade without punishing successful paths. The method is applied across three multimodal LLM backbones and evaluated on medical VQA benchmarks, with code and models released.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Established outcome-reward RL for step-by-step reasoning; MRPO argues that outcome-only credit is too sparse for clinical chains and adds process-level rewards.</span></li>
+<li><a href="U4ZPM5DN.html">Latent-GRPO (Deng 2026)</a><span class="lineage-note">Recent GRPO variant; MRPO modifies the GRPO objective and uses GRPO as its main baseline.</span></li>
+<li><a href="ATEFZQA4.html">Med-VQA Hallucination (Wu 2024)</a><span class="lineage-note">Documented confident-but-wrong medical VQA answers, the failure mode MRPO reduces.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 showed that RL on outcome rewards can train strong reasoning, but the reward gives no information about which step went wrong, so on clinical images the model keeps making the same early mistakes. MRPO fixes the specific failure mode &mdash; an early invalid step poisons the rest of the chain &mdash; by pushing the penalty onto those early tokens, which drops early-stage failures from 64.0% to 13.0%.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared with standard GRPO, which spreads the penalty evenly over a failed trajectory, MRPO weights earlier invalid steps exponentially more, because the early error is the cause of the later ones. Compared with DeepSeek-R1's outcome-only RL, MRPO adds explicit process-level supervision inside a multimodal medical setting. The change is in the reward shaping, not the backbone, so it transfers across the three models tested.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2BGP9QJL.html">Verifiable Physio Reasoning (Wang 2026)</a><span class="lineage-note">Also targets verifiable, step-checkable reasoning in a health setting.</span></li>
+<li><a href="ATEFZQA4.html">Med-VQA Hallucination (Wu 2024)</a><span class="lineage-note">Shares the medical VQA evaluation setting and the hallucination concern.</span></li>
+</ul>
+</div>
+</body>
+</html>

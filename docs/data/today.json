@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-02",
+  "date": "2026-07-03",
   "papers": [
     {
-      "zotero_key": "2607.01104",
-      "title": "CausalMix: Data Mixture as Causal Inference for Language Model Training",
-      "authors": "Tang et al.",
+      "zotero_key": "2606.31825",
+      "title": "Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning (MRPO)",
+      "authors": "Jung et al.",
       "year": 2026,
-      "what": "Casts training-data mixture selection as causal inference: pool statistics are covariates and the mixture is the treatment. A CATE model fit on 512 Qwen2.5-0.5B runs extrapolates the optimal mixture to an 800K pool and a 7B model, beating RegMix across downstream tasks.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "Causal Inference Intro (Pearl 2010, BB78CC56); DeepSeek-R1 (2025, Z5IWHZAE)"
-    },
-    {
-      "zotero_key": "2607.01191",
-      "title": "Perceive-to-Reason: Decoupling Perception and Reasoning for Fine-Grained Visual Reasoning",
-      "authors": "Li et al.",
-      "year": 2026,
-      "what": "Splits fine-grained visual reasoning into a Perceiver that localizes evidence and a Reasoner that answers, trained with Perception-Reasoning Alternating GRPO using only final-answer supervision; P2R-4B reaches 93.2% on V-Star and 81.9%/80.5% on HR-Bench-4K/8K.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "Latent-GRPO (Deng 2026, U4ZPM5DN); DeepSeek-R1 (2025, Z5IWHZAE); Large Multimodal Reasoning Survey (Li 2025, FPEC4PIH)"
-    },
-    {
-      "zotero_key": "2606.31551",
-      "title": "AutoTrainess: Teaching Language Models to Improve Language Models Autonomously",
-      "authors": "Yu et al.",
-      "year": 2026,
-      "what": "An LM agent that exposes the training pipeline (plan, data, train, evaluate, log) as constrained agent-computer interfaces instead of a raw CLI; scores 26.94 vs 23.21 (CLI-only) on PostTrainBench with GPT-5.4 and generalizes across harnesses.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "ADaPT (Prasad 2023, J8DYBKW2); LATS (Zhou 2024, 77ERE7HA); ToolkenGPT (2024, 6RDHVVA2)"
-    },
-    {
-      "zotero_key": "2606.31292",
-      "title": "AtomiMed: Hierarchical Atomic Fact-Checking for Universal Clinical-Aware Medical Report Evaluation",
-      "authors": "Wang et al.",
-      "year": 2026,
-      "what": "Evaluates generated medical reports by decomposing them into atomic clinical facts and running an agentic cross-verification loop that mimics multi-radiologist review, decoupling detection from description; correlates with radiologist judgment better than n-gram and model-based metrics across X-ray, CT, MRI, and ultrasound.",
+      "what": "Adds step-wise process rewards to GRPO for medical multimodal reasoning: when the answer is wrong, earlier invalid reasoning steps get exponentially larger penalties. Cuts early-stage reasoning failures from 64.0% to 13.0% and lets Qwen3-VL-8B beat HuatuoGPT-Vision-34B by 2.79 points.",
       "area_label": "LLM-Health",
       "area_slug": "llm-health",
-      "builds_on": "Med-VQA Hallucination (Wu 2024, ATEFZQA4); Verifiable Physio Reasoning (Wang 2026, 2BGP9QJL)"
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Latent-GRPO (Deng 2026, U4ZPM5DN); Med-VQA Hallucination (Wu 2024, ATEFZQA4)"
+    },
+    {
+      "zotero_key": "2607.01436",
+      "title": "Discrete Diffusion Language Models for Interactive Radiology Report Drafting",
+      "authors": "Van Puyvelde et al.",
+      "year": 2026,
+      "what": "Fine-tunes a diffusion language model (DiffusionGemma-26B, 3.8B active) for medical VQA against its autoregressive sibling under an identical LoRA recipe. Diffusion matches or beats autoregression, decodes 3.5-4.4x faster, and adds training-free any-order infill so a radiologist can pin fragments and have the model fill the gaps.",
+      "area_label": "LLM-Health",
+      "area_slug": "llm-health",
+      "builds_on": "DDPM (Ho 2020, GX7WR7KA); DDIM (Song 2022, 9UA578GP); LoRA (Hu 2021, PZATM3SC)"
+    },
+    {
+      "zotero_key": "2607.02255",
+      "title": "AgenticSTS: A Bounded-Memory Testbed for Long-Horizon LLM Agents",
+      "authors": "Cheng et al.",
+      "year": 2026,
+      "what": "Replaces the ever-growing agent transcript with a bounded contract: each decision is built from a fresh prompt via typed retrieval, so prompt size stays fixed and each memory layer can be ablated in isolation. Tested in Slay the Spire 2; a triggered skill layer moves wins from 3/10 to 6/10 (directional, p~0.37). Releases 298 tagged trajectories.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "Memory Mechanisms Survey (Huang 2026, BDY3HUCV); LATS (Zhou 2024, 77ERE7HA); ADaPT (Prasad 2023, J8DYBKW2)"
+    },
+    {
+      "zotero_key": "2606.30562",
+      "title": "Morphing into Hybrid Attention Models (FlashMorph)",
+      "authors": "Lan et al.",
+      "year": 2026,
+      "what": "Frames hybrid full-vs-linear attention layer selection as budget-constrained subset optimization. A morphable model gives each full-attention layer a linear branch; frozen weights and jointly learned per-layer gates on synthetic long-context data pick the hybrid config at lower cost while keeping long-context recall.",
+      "area_label": "Mamba / SSM",
+      "area_slug": "mamba",
+      "builds_on": "Mamba (Gu 2024, XNI34DQX); Attention Is All You Need (Vaswani 2017, PHB9VRVM)"
     }
   ]
 }
