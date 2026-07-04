@@ -25,6 +25,8 @@
 2026-06 | AnyPPG (2511.01747) | ECG-guided PPG foundation model pretrained on over 100,000 hours of synchronized PPG and ECG
 2026-07 | CAP (2606.15284) | PPG encoder anchored to patient-level clinical text rather than the signal alone
 2026-07 | AtomiMed (2606.31292) | hierarchical atomic fact-checking evaluation for generated medical reports across X-ray, CT, MRI, and ultrasound
+2026-07 | MRPO (2606.31825) | step-wise process rewards that penalize early invalid reasoning steps for medical multimodal RL
+2026-07 | Diffusion Radiology Drafting (2607.01436) | discrete diffusion LM for medical VQA with any-order report infill, faster than autoregression
 ### Paper List
 
 [KNOWN] [2023] Xu et al. — GLOBEM. zotero_key:ICD9EG8Q.
@@ -52,10 +54,13 @@
 [2026] 2606.15284 — CAP: Towards PPG Universal Representation Learning with Patient-level Supervision. [https://arxiv.org/abs/2606.15284](https://arxiv.org/abs/2606.15284). external.
 [2026] 2606.31292 — AtomiMed: Hierarchical Atomic Fact-Checking for Universal Clinical-Aware Medical Report Evaluation. [https://arxiv.org/abs/2606.31292](https://arxiv.org/abs/2606.31292). external.
 
+[2026] 2606.31825 — Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning (MRPO). [https://arxiv.org/abs/2606.31825](https://arxiv.org/abs/2606.31825). external.
+[2026] 2607.01436 — Discrete Diffusion Language Models for Interactive Radiology Report Drafting. [https://arxiv.org/abs/2607.01436](https://arxiv.org/abs/2607.01436). external.
+
 ### Recent Activity
 
+2026-07-03 | 2606.31825 added | MRPO adds step-wise process rewards to medical multimodal RL, giving exponentially larger penalties to earlier invalid reasoning steps; early-stage reasoning failures drop from 64.0% to 13.0% and an 8B model beats a 34B medical model by 2.79 points; Tier A
+2026-07-03 | 2607.01436 added | a discrete diffusion language model fine-tuned for medical VQA under an identical LoRA recipe matches or beats its autoregressive sibling, decodes 3.5 to 4.4 times faster, and adds any-order report infill; Tier B
 2026-07-02 | 2606.31292 added | AtomiMed decomposes a generated medical report into a hierarchy of atomic clinical facts and runs an agentic cross-verification loop between ground-truth and predicted reports, separating detection accuracy from descriptive accuracy and correlating with radiologist judgment better than n-gram and model-based metrics; Tier B
 2026-07-01 | 2606.15284 added | CAP anchors a PPG encoder to patient-level clinical text distilled from records rather than to the waveform alone, reporting an average relative gain of +26.7 percent across four cardiorespiratory tasks; Tier A
 2026-06-29 | 2511.01747 added | AnyPPG uses synchronized ECG to guide a PPG encoder pretrained on over 100,000 hours of paired recordings from 58,796 participants, reporting average gains of 12.8% on regression and 9.1% on classification across eleven physiological tasks; Tier B
-2026-06-25 | 2604.04175 added | clinical foundation model that emits a set-valued distribution per patient rather than a point embedding, mixing reconstruction, contrastive, and distributional terms; better calibration under missing data; Tier B
-2026-06-09 | 2603.04142 added | role-structured multi-agent system for physiological TS explanation; validated with EM clinicians; Tier B

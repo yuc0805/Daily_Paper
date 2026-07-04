@@ -92,6 +92,30 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2606.30562",
+      "target_label": "Morphing into Hybrid Attention Models (FlashMorph, 2026)",
+      "relation": "builds_on",
+      "note": "Where the Transformer uses full attention in every layer, FlashMorph keeps full attention in only a chosen subset and converts the rest to linear attention, selecting the subset by joint gate optimization under a budget.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-03"
+    },
+    {
+      "source": "XNI34DQX",
+      "source_label": "Mamba (Gu 2024)",
+      "target": "2606.30562",
+      "target_label": "Morphing into Hybrid Attention Models (FlashMorph, 2026)",
+      "relation": "builds_on",
+      "note": "Where Mamba replaces attention wholesale with a state space model, FlashMorph keeps a chosen subset of full-attention layers and converts only the rest, treating the choice as a joint optimization rather than a fixed pattern.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-03"
     }
   ],
   "hyperedges": [

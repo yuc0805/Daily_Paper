@@ -445,6 +445,90 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2606.31825",
+      "target_label": "MRPO: Step-Aware RL for Medical Multimodal Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "Where DeepSeek-R1 rewards only the final outcome, MRPO shapes the reward at the level of individual reasoning steps, because outcome-only credit assignment is too sparse for clinical images.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-07-03"
+    },
+    {
+      "source": "U4ZPM5DN",
+      "source_label": "Latent-GRPO (2026)",
+      "target": "2606.31825",
+      "target_label": "MRPO: Step-Aware RL for Medical Multimodal Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "Where standard GRPO treats all tokens in a wrong trajectory equally, MRPO weights earlier invalid steps more heavily, because an early mistake is what makes the later steps wrong.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-03"
+    },
+    {
+      "source": "ATEFZQA4",
+      "source_label": "Med-VQA Hallucination (Wu 2024)",
+      "target": "2606.31825",
+      "target_label": "MRPO: Step-Aware RL for Medical Multimodal Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "Med-VQA Hallucination measured confident but wrong statements in medical VQA; MRPO targets that failure mode by fixing the early reasoning step that starts the cascade, dropping early-stage failures from 64.0% to 13.0%.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-07-03"
+    },
+    {
+      "source": "ho2020_ddpm",
+      "source_label": "DDPM (Ho 2020)",
+      "target": "2607.01436",
+      "target_label": "Discrete Diffusion Language Models for Radiology Report Drafting (2026)",
+      "relation": "builds_on",
+      "note": "Where DDPM denoises continuous image pixels, this paper denoises in the discrete token space of text and shows the approach is competitive with autoregression on medical VQA.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-07-03"
+    },
+    {
+      "source": "9UA578GP",
+      "source_label": "DDIM (2021)",
+      "target": "2607.01436",
+      "target_label": "Discrete Diffusion Language Models for Radiology Report Drafting (2026)",
+      "relation": "builds_on",
+      "note": "The faster deterministic sampling of DDIM is the line of work behind the 3.5 to 4.4 times decode speedup reported here.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-07-03"
+    },
+    {
+      "source": "PZATM3SC",
+      "source_label": "LoRA (Hu 2021)",
+      "target": "2607.01436",
+      "target_label": "Discrete Diffusion Language Models for Radiology Report Drafting (2026)",
+      "relation": "builds_on",
+      "note": "LoRA is held identical across the diffusion and autoregressive models so the generative paradigm is the only variable in the comparison.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-07-03"
+    },
+    {
+      "source": "ATEFZQA4",
+      "source_label": "Med-VQA Hallucination (Wu 2024)",
+      "target": "2607.01436",
+      "target_label": "Discrete Diffusion Language Models for Radiology Report Drafting (2026)",
+      "relation": "builds_on",
+      "note": "Med-VQA Hallucination is the prior evidence on medical VQA answer quality that sets the benchmark setting for this comparison.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-07-03"
     }
   ],
   "hyperedges": [

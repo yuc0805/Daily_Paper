@@ -30,6 +30,7 @@
 2026-06 | Agent Memory Systems (2606.06448) | systems-level cost and latency map of long-horizon agent memory patterns
 2026-06 | ARLArena (2602.21534) | unified framework for stable agentic reinforcement learning; standardizes the environment, reward bookkeeping, and policy-update loop
 2026-07 | AutoTrainess (2606.31551) | LLM agent for autonomous post-training; wraps the training pipeline as named agent-computer interfaces
+2026-07 | AgenticSTS (2607.02255) | bounded-memory agent testbed with fixed-size prompts built by typed retrieval
 ### Paper List
 
 [KNOWN] [2018] Rabinowitz et al. — Machine Theory of Mind. zotero_key:NEKX3K3N.
@@ -67,10 +68,12 @@
 [2026] 2602.21534 — ARLArena: A Unified Framework for Stable Agentic Reinforcement Learning. [https://arxiv.org/abs/2602.21534](https://arxiv.org/abs/2602.21534). external.
 [2026] 2606.31551 — AutoTrainess: Teaching Language Models to Improve Language Models Autonomously. [https://arxiv.org/abs/2606.31551](https://arxiv.org/abs/2606.31551). external.
 
+[2026] 2607.02255 — AgenticSTS: A Bounded-Memory Testbed for Long-Horizon LLM Agents. [https://arxiv.org/abs/2607.02255](https://arxiv.org/abs/2607.02255). external.
+
 ### Recent Activity
 
+2026-07-03 | 2607.02255 added | AgenticSTS keeps the prompt of a long-horizon agent bounded by rebuilding it through typed retrieval each step instead of appending a growing transcript; released as 298 tagged Slay the Spire 2 trajectories; a triggered skill layer moves wins from 3/10 to 6/10 (Fisher exact p about 0.37); Tier B
 2026-07-02 | 2606.31551 added | AutoTrainess exposes the operations of a training pipeline as explicit agent-computer interfaces with workflows and constraints rather than a raw command line, scoring 26.94 on average with GPT-5.4 on PostTrainBench versus 23.21 for a command-line-only baseline; Tier B
 2026-06-30 | 2602.21534 added | ARLArena standardizes the environment interface, reward bookkeeping, and policy-update loop so agentic RL runs do not diverge or collapse under sparse multi-turn rewards; Tier B
 2026-06-24 | 2603.12109 added | reinforcement-learning training of question-asking agents can collapse exploration; cheap directional critiques break the self-locking loop; Tier B
 2026-06-24 | 2606.06448 added | systems-level characterization of long-horizon agent memory patterns and their serving cost and latency; Tier B
-2026-06-18 | 2606.07909 added | memory loop turns past tool calls, outcomes, and feedback into retrievable entries so the agent avoids repeating tool-use mistakes; Tier B

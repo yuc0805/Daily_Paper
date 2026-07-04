@@ -471,6 +471,42 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "huang2026_memory",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "2607.02255",
+      "target_label": "AgenticSTS: A Bounded-Memory Testbed for Long-Horizon LLM Agents (2026)",
+      "relation": "builds_on",
+      "note": "Where the Memory Mechanisms Survey catalogs memory designs but does not measure them under one controlled setup, AgenticSTS turns the taxonomy into a harness where each memory layer can be ablated in isolation.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-03"
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2607.02255",
+      "target_label": "AgenticSTS: A Bounded-Memory Testbed for Long-Horizon LLM Agents (2026)",
+      "relation": "builds_on",
+      "note": "Where LATS grows and reuses search context as the task proceeds, AgenticSTS keeps the prompt bounded by rebuilding it through typed retrieval each step.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-03"
+    },
+    {
+      "source": "prasad2023_adapt",
+      "source_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
+      "target": "2607.02255",
+      "target_label": "AgenticSTS: A Bounded-Memory Testbed for Long-Horizon LLM Agents (2026)",
+      "relation": "builds_on",
+      "note": "Where ADaPT decomposes a task as needed and lets context grow, AgenticSTS holds the prompt at a fixed size so each memory layer can be turned off on its own.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-03"
     }
   ],
   "hyperedges": [

@@ -21,6 +21,7 @@
 2024 | Vision Mamba (Zhu et al.) | 
 
 2026-06 | Language Models Need Sleep (2605.26099) | sleep consolidation distills attention context into SSM fast weights
+2026-07 | FlashMorph (2606.30562) | selects which layers keep full attention via budget-constrained joint gate optimization for hybrid models
 ### Paper List
 
 [KNOWN] [2020] Gu et al. — HiPPO. zotero_key:5YQ4IKMA.
@@ -42,7 +43,10 @@
 [KNOWN] [2024] Zhu et al. — Vision Mamba. zotero_key:J34W7WZC.
 
 [2605] 2605.26099 — Language Models Need Sleep. [https://arxiv.org/abs/2605.26099](https://arxiv.org/abs/2605.26099). external.
+
+[2026] 2606.30562 — Morphing into Hybrid Attention Models (FlashMorph). [https://arxiv.org/abs/2606.30562](https://arxiv.org/abs/2606.30562). external.
 ### Recent Activity
 
+2026-07-03 | 2606.30562 added | FlashMorph makes hybrid-attention layer selection a budget-constrained joint optimization over per-layer gates rather than a fixed pattern or one-at-a-time scoring, then discretizes under a full-attention budget and distills; Tier B
 2026-06-04 | 2605.26099 added | Sleep-like consolidation converts recent context into persistent SSM fast weights via learned local update rule, then cl; Tier A
 2026-05-14 | Area page seeded | 17 papers from Zotero, 3 from graphify seed.
