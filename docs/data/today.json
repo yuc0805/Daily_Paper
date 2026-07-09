@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-03",
+  "date": "2026-07-09",
   "papers": [
     {
-      "zotero_key": "2606.31825",
-      "title": "Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning (MRPO)",
-      "authors": "Jung et al.",
+      "zotero_key": "2607.02980",
+      "title": "HiLS-Attention: Hierarchical Sparse Attention Done Right",
+      "authors": "Hu et al.",
       "year": 2026,
-      "what": "Adds step-wise process rewards to GRPO for medical multimodal reasoning: when the answer is wrong, earlier invalid reasoning steps get exponentially larger penalties. Cuts early-stage reasoning failures from 64.0% to 13.0% and lets Qwen3-VL-8B beat HuatuoGPT-Vision-34B by 2.79 points.",
-      "area_label": "LLM-Health",
-      "area_slug": "llm-health",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Latent-GRPO (Deng 2026, U4ZPM5DN); Med-VQA Hallucination (Wu 2024, ATEFZQA4)"
+      "what": "A chunk-wise sparse attention that learns which chunks to read end-to-end under the language-modeling loss, matching full attention while extrapolating beyond 64x the training context length.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "Attention Is All You Need (Vaswani 2017); HARMamba (Li 2024)"
     },
     {
-      "zotero_key": "2607.01436",
-      "title": "Discrete Diffusion Language Models for Interactive Radiology Report Drafting",
-      "authors": "Van Puyvelde et al.",
+      "zotero_key": "2607.02920",
+      "title": "CLeaD: Layer-wise Cross-Lingual Depression Detection from Speech",
+      "authors": "Pattanayak et al.",
       "year": 2026,
-      "what": "Fine-tunes a diffusion language model (DiffusionGemma-26B, 3.8B active) for medical VQA against its autoregressive sibling under an identical LoRA recipe. Diffusion matches or beats autoregression, decodes 3.5-4.4x faster, and adds training-free any-order infill so a radiologist can pin fragments and have the model fill the gaps.",
+      "what": "Aligns English and Mandarin WavLM speech embeddings into one clinical space for depression detection, and shows speaker leakage had inflated prior cross-lingual scores.",
       "area_label": "LLM-Health",
       "area_slug": "llm-health",
-      "builds_on": "DDPM (Ho 2020, GX7WR7KA); DDIM (Song 2022, 9UA578GP); LoRA (Hu 2021, PZATM3SC)"
+      "builds_on": "HeAR (Baur 2024); Foundation Models for Biosignals (Gu 2025); LLMs Few-Shot Health Learners (Liu 2023)"
     },
     {
-      "zotero_key": "2607.02255",
-      "title": "AgenticSTS: A Bounded-Memory Testbed for Long-Horizon LLM Agents",
-      "authors": "Cheng et al.",
+      "zotero_key": "2607.03451",
+      "title": "SkillOpt-Lite: Agent Self-evolution via Zeroth-Order Optimization",
+      "authors": "Shen et al.",
       "year": 2026,
-      "what": "Replaces the ever-growing agent transcript with a bounded contract: each decision is built from a fresh prompt via typed retrieval, so prompt size stays fixed and each memory layer can be ablated in isolation. Tested in Slay the Spire 2; a triggered skill layer moves wins from 3/10 to 6/10 (directional, p~0.37). Releases 298 tagged trajectories.",
+      "what": "Casts agent skill self-evolution as zeroth-order optimization with three justified steps, letting a small model with optimized skills pass a larger model on math and spreadsheet benchmarks.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026, BDY3HUCV); LATS (Zhou 2024, 77ERE7HA); ADaPT (Prasad 2023, J8DYBKW2)"
+      "builds_on": "ADaPT (Prasad 2023); LATS (Zhou 2024); ToolkenGPT (Hao 2024)"
     },
     {
-      "zotero_key": "2606.30562",
-      "title": "Morphing into Hybrid Attention Models (FlashMorph)",
-      "authors": "Lan et al.",
+      "zotero_key": "2607.06560",
+      "title": "Vision as Unified Multimodal Generation (SenseNova-Vision)",
+      "authors": "Han et al.",
       "year": 2026,
-      "what": "Frames hybrid full-vs-linear attention layer selection as budget-constrained subset optimization. A morphable model gives each full-attention layer a linear branch; frozen weights and jointly learned per-layer gates on synthetic long-context data pick the hybrid config at lower cost while keeping long-context recall.",
-      "area_label": "Mamba / SSM",
-      "area_slug": "mamba",
-      "builds_on": "Mamba (Gu 2024, XNI34DQX); Attention Is All You Need (Vaswani 2017, PHB9VRVM)"
+      "what": "Poses detection, segmentation, depth, and pose as one generation problem inside a unified multimodal model, matching task-specialized systems without per-task heads.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "DALL-E 2 (Ramesh 2022); DiT (Peebles 2023)"
     }
   ]
 }

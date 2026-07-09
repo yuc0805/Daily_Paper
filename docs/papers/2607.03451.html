@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillOpt-Lite: Agent Self-evolution via Zeroth-Order Optimization — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>SkillOpt-Lite: Better and Faster Agent Self-evolution via One Line of Vibe</h2>
+<p class="paper-meta">Shen, Li, Zhang (LMMs-Lab) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.03451" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a>, <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3>
+<p>SkillOpt-Lite reframes agent skill self-evolution as zeroth-order optimization and reduces the pipeline to three parts, each justified by theory or need: file-system trajectory exploration, consensus attribute mining, and independent validation gating. It converges faster than the full SkillOpt method and improves LiveMath by 8.8 points on GPT-5.5 and 25.4 points on GPT-5.4-nano, letting the nano model pass the larger standard GPT-5.4. Extended to full harness optimization, it reaches 0.7758 on SpreadsheetBench with GPT-5.4-nano, above GPT-5.5 at 0.7620.</p>
+<h3>Why</h3>
+<p>Methods that let agents improve their own skills have grown complex, with many components whose contribution is unclear. The paper asks what a minimal viable pipeline for skill optimization looks like, where every part earns its place. Prior planning and search methods act per episode and do not produce a reusable, improvable skill library, so they leave open how to optimize the skills and harness themselves.</p>
+<h3>How</h3>
+<p>Skill optimization is cast as zeroth-order optimization, mapping classical ideas (central difference, trust regions) to agent skills, with the twist that skill trajectories give interpretable feedback rather than blind numerical perturbations. Grounded in PAC learning, three principles are kept: explore trajectories on the file system, mine attributes that recur across successful runs, and gate accepted changes with independent validation. Because every agent component is treated as editable code, the same loop extends to full harness optimization.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">As-needed task decomposition for agents.</span></li>
+<li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Language agent tree search at inference time.</span></li>
+<li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Tool use through learned tool embeddings.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>ADaPT and LATS improve behavior within a single episode (decompose now, search now) but discard what they learned afterward. SkillOpt-Lite instead persists and optimizes reusable skills across episodes, so a small model armed with improved skills can pass a larger model that runs a standard pipeline. It also cuts the pipeline overhead that full SkillOpt carried, converging faster.</p>
+<h3>Method vs predecessors</h3>
+<p>Where the parents plan or search over actions, SkillOpt-Lite optimizes the skills and harness as code through a numerical-optimization loop with convergence and generalization arguments. Interpretable trajectories play the role that gradients play in first-order methods, which is a different mechanism from tree search or on-demand decomposition.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1</a><span class="lineage-note">Self-improvement of reasoning through reinforcement rather than skill-code optimization.</span></li>
+</ul>
+</div>
+</body>
+</html>

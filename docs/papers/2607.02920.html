@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLeaD: Cross-Lingual Depression Detection from Speech — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+<h2>CLeaD: Layer-wise Cross-Lingual Depression Detection from Speech</h2>
+<p class="paper-meta">Pattanayak, Kang, Chou, Narayanan, Kadiri &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.02920" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm-health.html">LLM-Health</a>, <a href="../areas/audio.html">Audio</a></p>
+<h3>What</h3>
+<p>CLeaD is a supervised contrastive alignment framework that maps WavLM speech embeddings from English and Mandarin into one shared clinical space for depression detection, without parallel data or target-language fine-tuning. On 52 Mandarin speakers under leave-one-speaker-out evaluation it beats the baseline modestly (F1 0.640 versus 0.622) and improves depressed-class recall at encoder layers 7 to 8. The paper also documents that segment-level random splits leak speaker identity and had inflated earlier Mandarin F1 to 0.954.</p>
+<h3>Why</h3>
+<p>Speech-based depression detection works well within one language but transfers poorly across languages, and prior evaluations were optimistic because they split data at the segment level without grouping by speaker, letting models memorize voices instead of detecting the condition. The work needs a method that aligns representations across languages and an evaluation that removes identity leakage, so reported gains reflect clinical signal rather than speaker recall.</p>
+<h3>How</h3>
+<p>Frozen WavLM embeddings from both languages are pulled into a shared space with a supervised contrastive objective, so same-label examples across languages sit close together. Evaluation uses leave-one-speaker-out to block identity leakage. Two robust findings emerge: scaling the speech model up degrades cross-lingual transfer while improving monolingual English, and the authors reproduce and quantify the speaker-leakage artifact that produced the earlier 0.954 figure.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="3LA8GNCU.html">HeAR (Baur 2024)</a><span class="lineage-note">Health-acoustic representations learned self-supervised inside one language.</span></li>
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Surveys within-domain biosignal foundation models.</span></li>
+<li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">Treats physiological signals as tokens for a language model.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Where HeAR and the Biosignals survey established strong within-language, within-domain representations, they left the cross-lingual transfer question open and did not confront speaker-leakage in evaluation. CLeaD fixes the evaluation (speaker-grouped splits) and shows the true, smaller cross-lingual gain, correcting an over-optimistic prior result rather than adding raw accuracy.</p>
+<h3>Method vs predecessors</h3>
+<p>HeAR pretrained representations; CLeaD keeps those representation encoders frozen and adds a supervised contrastive alignment across two languages, a step aimed at transfer rather than at learning features from scratch. The layer-wise analysis (gains concentrated at middle layers 7 to 8) is a diagnostic that the parent works did not provide.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="7RHTW5L3.html">Health-LLM</a><span class="lineage-note">Language-model interface to health signals; shares the clinical-prediction goal.</span></li>
+</ul>
+</div>
+</body>
+</html>

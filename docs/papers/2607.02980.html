@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HiLS-Attention: Hierarchical Sparse Attention Done Right — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>HiLS-Attention: Hierarchical Sparse Attention Done Right</h2>
+<p class="paper-meta">Hu, Wei, Gu, Zhang, Liang, Li, Zhu et al. (Tencent Hunyuan) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.02980" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a>, <a href="../areas/mamba.html">MAMBA</a></p>
+<h3>What</h3>
+<p>Hierarchical Landmark Sparse (HiLS) Attention is a chunk-wise sparse attention mechanism that learns chunk selection end-to-end under the language-modeling loss. Each query attends independently to each retrieved chunk to extract chunk-specific information, and the per-chunk outputs are fused according to chunk retrieval scores. Because those retrieval scores enter the forward attention computation, they are trained directly by the LM loss, giving native sparse training and a differentiable retriever rather than a bolt-on heuristic.</p>
+<h3>Why</h3>
+<p>Scaling language models to long context is limited by dense attention: its cost grows with the square of sequence length, and it extrapolates poorly beyond the training length. Chunk-wise sparse attention is cheaper, but prior methods select chunks inaccurately and therefore stay below full attention in quality. The paper targets a mechanism that is both cheaper and at least as accurate, and that keeps working far past the training context length.</p>
+<h3>How</h3>
+<p>Attention is factorized hierarchically. For each query, the model retrieves a small set of chunks, attends to each retrieved chunk separately, and combines the results weighted by learned retrieval scores. Folding the scores into the forward pass makes retrieval trainable end-to-end. Reported results: HiLS matches or beats full attention at in-domain lengths, extrapolates beyond 64 times the training context with 90% retrieval accuracy, and can be added to an existing full-attention model through lightweight continued pretraining while preserving in-domain quality.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">Established dense self-attention as the sole sequence-mixing operator, at quadratic cost.</span></li>
+<li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Represents the Mamba / state-space line that cuts attention cost with a fixed-size recurrent state.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Against the Transformer, HiLS removes the quadratic dependence on sequence length by reading only selected chunks, and it extrapolates well past the training length where full attention degrades. Against Mamba-style state-space models, which drop content-based random access by compressing history into a fixed state, HiLS keeps the ability to reach back to a specific distant chunk, because it retrieves chunks by learned relevance rather than summarizing everything into one vector.</p>
+<h3>Method vs predecessors</h3>
+<p>Where the Transformer makes attention dense and Mamba replaces it with a recurrence, HiLS makes attention sparse but differentiable: the retriever is part of the model and is trained by the same loss, not a separate stage. The hierarchical factorization (per-chunk attention, then score-weighted fusion) is what lets the retrieval signal flow back through the attention computation, which earlier chunk-selection methods did not achieve.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="AVTJLZIR.html">Bi-Mamba+ (time series)</a><span class="lineage-note">Another sub-quadratic long-sequence model, aimed at signals rather than text.</span></li>
+<li><a href="2JCKA7GI.html">DeepSeek-V3</a><span class="lineage-note">Large-scale LLM whose long-context serving faces the same efficiency trade-off.</span></li>
+</ul>
+</div>
+</body>
+</html>
