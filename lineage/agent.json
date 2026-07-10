@@ -507,6 +507,39 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-07-03"
+    },
+    {
+      "source": "prasad2023_adapt",
+      "source_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
+      "target": "2607.03451",
+      "target_label": "SkillOpt-Lite: Agent Self-evolution via Zeroth-Order Optimization (2026)",
+      "relation": "builds_on",
+      "note": "Where ADaPT decomposed tasks on demand per episode, SkillOpt-Lite optimizes the reusable skills and harness themselves offline through a numerical-optimization loop.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2607.03451",
+      "target_label": "SkillOpt-Lite: Agent Self-evolution via Zeroth-Order Optimization (2026)",
+      "relation": "builds_on",
+      "note": "Where LATS searched over action trees at inference per episode, SkillOpt-Lite treats a skill as editable code updated offline with convergence and generalization arguments from zeroth-order optimization.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "hao2024_toolkengpt",
+      "source_label": "ToolkenGPT: Tool Use via Learned Embeddings (Hao 2024)",
+      "target": "2607.03451",
+      "target_label": "SkillOpt-Lite: Agent Self-evolution via Zeroth-Order Optimization (2026)",
+      "relation": "builds_on",
+      "note": "Where ToolkenGPT learned tool embeddings for tool use, SkillOpt-Lite optimizes the persistent skill library and harness that call such tools.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [
