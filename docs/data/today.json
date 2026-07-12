@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-09",
+  "date": "2026-07-12",
   "papers": [
     {
-      "zotero_key": "2607.02980",
-      "title": "HiLS-Attention: Hierarchical Sparse Attention Done Right",
-      "authors": "Hu et al.",
+      "zotero_key": "2607.04919",
+      "title": "When Do Foundation Models Pay Off? A Break-Even Analysis of Pretrained Time Series Forecasters",
+      "authors": "Tan Jerome and Simon",
       "year": 2026,
-      "what": "A chunk-wise sparse attention that learns which chunks to read end-to-end under the language-modeling loss, matching full attention while extrapolating beyond 64x the training context length.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "Attention Is All You Need (Vaswani 2017); HARMamba (Li 2024)"
+      "what": "Measures the task-data threshold at which a pretrained time-series foundation model beats XGBoost and ARIMA across 30 datasets, and distills a training-free rule: series under 700 points with seasonality should use the foundation model zero-shot.",
+      "area_label": "Signal (Time Series)",
+      "area_slug": "time-series",
+      "builds_on": "Chronos (Ansari 2024); Moirai (Woo 2024); PatchTST (Nie 2023)"
     },
     {
-      "zotero_key": "2607.02920",
-      "title": "CLeaD: Layer-wise Cross-Lingual Depression Detection from Speech",
-      "authors": "Pattanayak et al.",
+      "zotero_key": "2607.05291",
+      "title": "Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks",
+      "authors": "Brini",
       "year": 2026,
-      "what": "Aligns English and Mandarin WavLM speech embeddings into one clinical space for depression detection, and shows speaker leakage had inflated prior cross-lingual scores.",
-      "area_label": "LLM-Health",
-      "area_slug": "llm-health",
-      "builds_on": "HeAR (Baur 2024); Foundation Models for Biosignals (Gu 2025); LLMs Few-Shot Health Learners (Liu 2023)"
+      "what": "Finds that zero-shot time-series foundation models do not uniformly beat the HAR econometric family on realized volatility once per-asset loss ratios and scale recalibration are used; only Tiny Time Mixers wins, and narrowly.",
+      "area_label": "Signal (Time Series)",
+      "area_slug": "time-series",
+      "builds_on": "Chronos (Ansari 2024); PatchTST (Nie 2023)"
     },
     {
-      "zotero_key": "2607.03451",
-      "title": "SkillOpt-Lite: Agent Self-evolution via Zeroth-Order Optimization",
-      "authors": "Shen et al.",
+      "zotero_key": "2607.05804",
+      "title": "TurnOPD: Making On-Policy Distillation Turn-Aware for Efficient Long-Horizon Agent Training",
+      "authors": "Zhou, Zheng et al.",
       "year": 2026,
-      "what": "Casts agent skill self-evolution as zeroth-order optimization with three justified steps, letting a small model with optimized skills pass a larger model on math and spreadsheet benchmarks.",
+      "what": "Adds turn-level rollout-depth and turn-normalized loss budgeting to on-policy distillation so deep decision turns are not starved, improving accuracy-per-wall-clock on ALFWorld, WebShop, and Multi-Hop Search.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "ADaPT (Prasad 2023); LATS (Zhou 2024); ToolkenGPT (Hao 2024)"
+      "builds_on": "DeepSeek-R1 (2025); LATS (Zhou 2024); PPO (Schulman 2017)"
     },
     {
-      "zotero_key": "2607.06560",
-      "title": "Vision as Unified Multimodal Generation (SenseNova-Vision)",
-      "authors": "Han et al.",
+      "zotero_key": "2607.02515",
+      "title": "PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation",
+      "authors": "Xu et al.",
       "year": 2026,
-      "what": "Poses detection, segmentation, depth, and pose as one generation problem inside a unified multimodal model, matching task-specialized systems without per-task heads.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "DALL-E 2 (Ramesh 2022); DiT (Peebles 2023)"
+      "what": "A plain ViT diffusion transformer that denoises raw 3D point-map patches in pixel space conditioned on DINOv3 tokens, beating latent-diffusion baselines without a point-map tokenizer.",
+      "area_label": "Generative CV",
+      "area_slug": "generative-cv",
+      "builds_on": "DiT (Peebles 2023); DDPM (Ho 2020); ViT (Dosovitskiy 2021)"
     }
   ]
 }

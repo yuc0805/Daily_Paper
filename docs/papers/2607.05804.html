@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TurnOPD: Making On-Policy Distillation Turn-Aware for Efficient Long-Horizon Agent Training — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>TurnOPD: Making On-Policy Distillation Turn-Aware for Efficient Long-Horizon Agent Training</h2>
+<p class="paper-meta">Zhou, Zheng, Li, Peng, Xu, Chen &middot; Tencent Hunyuan &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.05804" target="_blank" rel="noopener">arXiv:2607.05804</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3><p>The paper improves on-policy distillation, where a student agent is trained to match a stronger teacher on the student's own rollouts, for long-horizon tasks. It adds two turn-level budget controllers so training spends time and loss where they help most.</p>
+<h3>Why</h3><p>Vanilla agent on-policy distillation has two inefficiencies: full-horizon rollouts waste wall-clock time on tail turns that give weak, noisy KL supervision, and trajectory-level KL objectives concentrate loss on shallow early tokens, leaving deep decision turns under-trained once early behavior is aligned. Prior work applied on-policy distillation without accounting for the multi-turn structure of agent tasks.</p>
+<h3>How</h3><p>TurnOPD introduces adaptive rollout-depth budgeting, which uses probe-based turn statistics to decide how many turns to collect, and progressive turn-normalized loss budgeting, which gradually shifts KL weighting from token-level toward turn-balanced supervision. On ALFWorld, WebShop, and Multi-Hop Search with task-specialized teachers it advances the accuracy-versus-time frontier over vanilla on-policy distillation.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1</a><span class="lineage-note">Established reinforcement-learning post-training of reasoning models, the on-policy family this method refines.</span></li>
+  <li><a href="77ERE7HA.html">LATS</a><span class="lineage-note">Language-agent tree search over multi-step trajectories, the long-horizon setting TurnOPD trains for.</span></li>
+  <li><a href="KQTIJC4U.html">PPO</a><span class="lineage-note">On-policy optimization foundation whose per-step credit problem the turn-normalized loss addresses.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>Vanilla on-policy distillation under-trains deep decision turns because uniform token weighting starves the steps that matter in long rollouts. TurnOPD fixes this specific failure by normalizing loss per turn and budgeting rollout depth, so supervision reaches the deep turns under a fixed wall-clock budget.</p>
+<h3>Method vs predecessors</h3><p>Where PPO optimizes on-policy at the token level and DeepSeek-R1 trains on outcome rewards, TurnOPD changes the unit of accounting from token to turn. Where LATS spends inference-time search to find good trajectories, TurnOPD spends training-time budget to distill a teacher efficiently. This extends the library's DeepSeek-R1 to Chain-of-Thought bridge toward multi-turn agent distillation.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">A multi-turn reasoning agent where turn-level credit assignment would transfer directly.</span></li>
+  <li><a href="6RDHVVA2.html">ToolkenGPT</a><span class="lineage-note">Tool-using agent line that shares the long-horizon decision structure.</span></li>
+</ul>
+</div>
+</body>
+</html>

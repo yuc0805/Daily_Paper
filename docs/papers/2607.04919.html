@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When Do Foundation Models Pay Off? A Break-Even Analysis of Pretrained Time Series Forecasters — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>When Do Foundation Models Pay Off? A Break-Even Analysis of Pretrained Time Series Forecasters</h2>
+<p class="paper-meta">Tan Jerome, Simon &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.04919" target="_blank" rel="noopener">arXiv:2607.04919</a> &middot; Appears in: <a href="../areas/time-series.html">Signal (Time Series)</a></p>
+<h3>What</h3><p>The paper measures when a pretrained time-series foundation model beats a classical forecaster as a function of task-data size. Across 30 benchmark datasets it compares zero-shot and LoRA fine-tuned foundation models (Chronos, Moirai, Lag-Llama) against Naive, ETS, ARIMA, and XGBoost at six training fractions from 2 to 100 percent, and reports the break-even sample count for each dataset.</p>
+<h3>Why</h3><p>Practitioners face a binary choice with asymmetric cost: deploy a foundation model, which needs GPU infrastructure and has opaque failure modes, or keep XGBoost, which runs on CPU and is interpretable. Prior foundation-model papers reported aggregate zero-shot wins but did not tell a practitioner at what data volume the choice flips, so the decision was made on intuition rather than a measured threshold.</p>
+<h3>How</h3><p>For each dataset the authors sweep training-set size and fit scaling curves for foundation models and classical baselines, then locate the break-even sample count where the ranking changes. They correlate break-even with dataset features (length, seasonality strength) and extract a training-free rule: series with fewer than 700 points and non-negligible seasonality should use the foundation model zero-shot without fine-tuning. They report that LoRA fine-tuning degrades accuracy on short series.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="72DFULQQ.html">Chronos</a><span class="lineage-note">One of the three foundation models evaluated; tokenizes a series and forecasts with a language-model backbone.</span></li>
+  <li><a href="CFG6FEIF.html">Moirai</a><span class="lineage-note">One of the three evaluated; a masked-encoder universal forecaster trained across domains.</span></li>
+  <li><a href="YY67LF3R.html">PatchTST</a><span class="lineage-note">Patch-transformer forecaster representing the supervised neural baseline the foundation models are measured against.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>Chronos and Moirai each argued their own case with aggregate zero-shot scores, which hide the data volume at which a classical model catches up. This paper fixes that failure mode by reporting per-dataset break-even points rather than a pooled win rate, so the output is an actionable threshold instead of an average.</p>
+<h3>Method vs predecessors</h3><p>Instead of proposing a new architecture, the method fixes the decision procedure: measure scaling curves, locate the crossing point, and reduce it to a two-feature rule (length and seasonality) plus an optional small pilot. Where the parents contribute forecasting models, this work contributes the protocol for choosing between them.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Also studies when to trust a model on a series; uses tool-based evidence rather than data-volume scaling.</span></li>
+  <li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">Adjacent time-series-plus-LLM work in the same community.</span></li>
+</ul>
+</div>
+</body>
+</html>
