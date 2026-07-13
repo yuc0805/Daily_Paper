@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MentalThink: Shaping Thoughts in Mental SVG World — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>MentalThink: Shaping Thoughts in Mental SVG World</h2>
+<p class="paper-meta">Lin, Yin, Li, Yu et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.03530" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a>, <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+<h3>What</h3>
+<p>MentalThink equips a multimodal language model with an executable drawing surface for reasoning. The model writes Scalable Vector Graphics (SVG) code as an intermediate step, renders it deterministically into an image, reads that image back, and revises the code across several turns. Training combines supervised fine-tuning for SVG syntax with multi-turn reinforcement learning that rewards inspection and revision of the drawn hypothesis. It reports 55.1% on VSIBench and 76.0% on MindCube.</p>
+<h3>Why</h3>
+<p>Multimodal models usually reason about an image by writing text about it. For spatial tasks such as folding, rotation, or path selection, text is a poor scratchpad because the model cannot look at its own intermediate guess and check whether it is geometrically consistent. Prior text-only reasoning methods have no mechanism to render and inspect a hypothesis, so errors in spatial imagination go uncorrected.</p>
+<h3>How</h3>
+<p>The method makes the intermediate reasoning object executable. Because a sketch is written as SVG code, it can be rendered exactly and then re-read, which turns each reasoning step into something the model can verify and edit. The two-stage training first teaches valid SVG generation, then uses reinforcement learning to encourage iterative revision: the model draws a spatial hypothesis, inspects the rendered result, and refines it, mimicking human mental imagery within a constrained geometric space.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Introduced externalizing reasoning as a chain of text tokens; MentalThink replaces the textual thought with an executable visual one.</span></li>
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Established reasoning trained by reinforcement learning; MentalThink keeps this outer loop and rewards revision of a rendered sketch.</span></li>
+<li><a href="FPEC4PIH.html">Large Multimodal Reasoning Survey (Li 2025)</a><span class="lineage-note">Maps the multimodal reasoning landscape this paper contributes to.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Chain-of-Thought and DeepSeek-R1 both reason in text, so a wrong spatial assumption cannot be checked against a picture. MentalThink fixes this failure by producing a re-renderable intermediate: the model can inspect its own drawing and catch geometric errors before committing to an answer, which is why the gains concentrate on perspective-taking and scene-construction tasks.</p>
+<h3>Method vs predecessors</h3>
+<p>Where Chain-of-Thought adds a textual intermediate and DeepSeek-R1 adds a reinforcement-learning reward on final answers, MentalThink combines both but changes the medium: the intermediate is executable SVG rather than natural language, and the reinforcement-learning reward targets the quality of visual revision rather than only the final token sequence. This extends the R1-to-Chain-of-Thought bridge (reasoning via reinforcement learning versus via prompting) toward verifiable multimodal reasoning.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="FPEC4PIH.html">Large Multimodal Reasoning Survey (Li 2025)</a><span class="lineage-note">Same multimodal-reasoning community.</span></li>
+<li><a href="B7F2Q998.html">ViT (2021)</a><span class="lineage-note">Vision backbone class underlying multimodal reasoning models.</span></li>
+</ul>
+</div>
+</body>
+</html>

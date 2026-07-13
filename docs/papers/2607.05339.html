@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TREK: Distill to Explore, Reinforce to Refine — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>TREK: Distill to Explore, Reinforce to Refine</h2>
+<p class="paper-meta">Xu, Zhou, Behdin et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.05339" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a>, <a href="../areas/world-model-rl.html">World Model / RL</a></p>
+<h3>What</h3>
+<p>TREK (Teacher-Routed Exploration via Forward KL) is a staged training procedure for reasoning models. It identifies prompts where the student has near-zero pass rate, queries a teacher for verified correct solutions, keeps the top candidates ranked by student likelihood, runs a short forward-KL phase to pull those solution modes into the student's sampling range, then returns to on-policy Group Relative Policy Optimization. With DeepSeek-V4 proposals, Qwen3-8B improves AIME 2025 from 36.9 to 40.3 and AIME 2024 from 47.9 to 51.1; ALFWorld rises from 75.8 to 82.8 and ScienceWorld from 12.5 to 26.7.</p>
+<h3>Why</h3>
+<p>Group Relative Policy Optimization only improves a model on prompts where it already samples some correct trajectories. On hard prompts whose correct solutions lie outside the model's current support, there is nothing to reward, so training stalls. Prior on-policy reinforcement learning cannot escape this because it never sees a correct answer to reinforce.</p>
+<h3>How</h3>
+<p>The method uses distillation for exploration rather than imitation. It consumes only verified output trajectories, so the teacher can be an external black-box model, a white-box model, or the same model given extra inference-time context. A short forward-KL phase pulls verified off-support solutions into the student's range, after which standard on-policy refinement takes over. Because it only needs verified outputs, it can also select which hard prompts are most worth consolidating without access to teacher internals.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Reinforcement-learning-for-reasoning that rewards on-policy trajectories; TREK fixes its stall on off-support prompts.</span></li>
+<li><a href="U4ZPM5DN.html">Latent-GRPO (2026)</a><span class="lineage-note">A Group Relative Policy Optimization variant in the same family TREK augments.</span></li>
+<li><a href="KQTIJC4U.html">PPO (2017)</a><span class="lineage-note">The policy-optimization grandparent behind GRPO.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 and other GRPO methods cannot improve on prompts where the model never samples a correct solution, because the reward signal is empty there. TREK solves exactly this failure mode by importing verified correct modes through a brief distillation step before reinforcement, converting previously unlearnable prompts into learnable ones.</p>
+<h3>Method vs predecessors</h3>
+<p>Where the parents run reinforcement learning directly on whatever the policy samples, TREK inserts a targeted forward-KL warm start that expands the support first, then reinforces. Distillation here is not used to copy the teacher wholesale but to seed exploration only on the hardest prompts, which keeps the on-policy refinement stage intact while removing its blind spot.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="U4ZPM5DN.html">Latent-GRPO (2026)</a><span class="lineage-note">Closest reasoning-reinforcement-learning neighbor.</span></li>
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Shares the GRPO training family.</span></li>
+</ul>
+</div>
+</body>
+</html>

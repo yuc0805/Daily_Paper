@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSpark: Confidence-Scheduled Speculative Decoding — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>DSpark: Confidence-Scheduled Speculative Decoding with Semi-Autoregressive Generation</h2>
+<p class="paper-meta">Cheng, Yu, Shao et al. (DeepSeek) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.05147" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a></p>
+<h3>What</h3>
+<p>DSpark is a speculative-decoding framework for high-concurrency serving. It couples a parallel drafter with a lightweight sequential module so drafted blocks carry within-block dependencies, and it schedules verification length per request from estimated prefix-survival probabilities. Inside DeepSeek-V4's live serving system it accelerates per-user generation by 60 to 85 percent at matched throughput versus the production multi-token-prediction baseline.</p>
+<h3>Why</h3>
+<p>Parallel drafters propose many tokens in one forward pass but their later tokens suffer rapid acceptance decay because they lack inter-token dependencies. Worse, indiscriminately verifying long low-quality blocks wastes batch capacity on tokens with high rejection risk, which degrades throughput when many users are served at once. Prior speculative-decoding methods optimize draft speed without accounting for this verification waste under load.</p>
+<h3>How</h3>
+<p>DSpark attacks both problems. A semi-autoregressive architecture pairs the parallel backbone with a small sequential head that introduces intra-block dependency modeling, mitigating suffix decay. Confidence-scheduled verification then tailors the verification length for each request based on estimated prefix-survival probabilities and the engine's throughput profile, so compute is not spent verifying tokens likely to be rejected. The result shifts the Pareto frontier of the serving system under strict interactivity constraints.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Its multi-token-prediction module is the production baseline DSpark competes against.</span></li>
+<li><a href="743XA29Y.html">DeepSeek-V2 (2024)</a><span class="lineage-note">Upstream architecture in the same model family.</span></li>
+<li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">The autoregressive Transformer backbone that speculative decoding accelerates.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-V3's multi-token prediction drafts several tokens in parallel but loses acceptance on later tokens and does not adapt verification to server load. DSpark restores within-block dependency with the sequential head and adds load-aware verification scheduling, fixing the throughput collapse that the parallel-draft baseline shows under high concurrency.</p>
+<h3>Method vs predecessors</h3>
+<p>Where the parent works at the model-quality layer (a fixed multi-token-prediction head), DSpark intervenes at the serving-systems layer: it changes how much each request drafts and verifies based on live estimates of survival probability and engine throughput. The technical novelty is treating verification budget as an adaptive, per-request resource rather than a fixed block length.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Same model family and decoding baseline.</span></li>
+<li><a href="743XA29Y.html">DeepSeek-V2 (2024)</a><span class="lineage-note">Shared architecture lineage.</span></li>
+</ul>
+</div>
+</body>
+</html>

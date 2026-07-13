@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-12",
+  "date": "2026-07-13",
   "papers": [
     {
-      "zotero_key": "2607.04919",
-      "title": "When Do Foundation Models Pay Off? A Break-Even Analysis of Pretrained Time Series Forecasters",
-      "authors": "Tan Jerome and Simon",
+      "zotero_key": "2607.03530",
+      "title": "MentalThink: Shaping Thoughts in Mental SVG World",
+      "authors": "Lin, Yin, Li, Yu et al.",
       "year": 2026,
-      "what": "Measures the task-data threshold at which a pretrained time-series foundation model beats XGBoost and ARIMA across 30 datasets, and distills a training-free rule: series under 700 points with seasonality should use the foundation model zero-shot.",
-      "area_label": "Signal (Time Series)",
-      "area_slug": "time-series",
-      "builds_on": "Chronos (Ansari 2024); Moirai (Woo 2024); PatchTST (Nie 2023)"
+      "what": "Lets a multimodal model reason by writing executable SVG code as an intermediate step, rendering it, and revising it over several turns, reaching 55.1% on VSIBench and 76.0% on MindCube.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "Chain-of-Thought (Wei 2023); DeepSeek-R1 (2025)"
     },
     {
-      "zotero_key": "2607.05291",
-      "title": "Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks",
-      "authors": "Brini",
+      "zotero_key": "2607.05339",
+      "title": "TREK: Distill to Explore, Reinforce to Refine",
+      "authors": "Xu, Zhou, Behdin et al.",
       "year": 2026,
-      "what": "Finds that zero-shot time-series foundation models do not uniformly beat the HAR econometric family on realized volatility once per-asset loss ratios and scale recalibration are used; only Tiny Time Mixers wins, and narrowly.",
-      "area_label": "Signal (Time Series)",
-      "area_slug": "time-series",
-      "builds_on": "Chronos (Ansari 2024); PatchTST (Nie 2023)"
+      "what": "Fixes GRPO stalling on hard prompts by using a short distillation phase to pull verified off-support solutions into the student's range before on-policy reinforcement learning; raises Qwen3-8B AIME 2025 from 36.9 to 40.3.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "DeepSeek-R1 (2025); Latent-GRPO (2026); PPO (2017)"
     },
     {
-      "zotero_key": "2607.05804",
-      "title": "TurnOPD: Making On-Policy Distillation Turn-Aware for Efficient Long-Horizon Agent Training",
-      "authors": "Zhou, Zheng et al.",
+      "zotero_key": "2607.05147",
+      "title": "DSpark: Confidence-Scheduled Speculative Decoding with Semi-Autoregressive Generation",
+      "authors": "Cheng, Yu, Shao et al. (DeepSeek)",
       "year": 2026,
-      "what": "Adds turn-level rollout-depth and turn-normalized loss budgeting to on-policy distillation so deep decision turns are not starved, improving accuracy-per-wall-clock on ALFWorld, WebShop, and Multi-Hop Search.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "DeepSeek-R1 (2025); LATS (Zhou 2024); PPO (Schulman 2017)"
+      "what": "Speculative decoding for high-concurrency serving: a sequential head restores within-block dependency and confidence-scheduled verification cuts waste, giving 60 to 85 percent faster per-user generation in DeepSeek-V4's serving system.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "DeepSeek-V3 (2024); DeepSeek-V2 (2024); Transformer (Vaswani 2017)"
     },
     {
-      "zotero_key": "2607.02515",
-      "title": "PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation",
-      "authors": "Xu et al.",
+      "zotero_key": "2607.05722",
+      "title": "Nemotron-Labs-Diffusion: A Tri-Mode Language Model Unifying Autoregressive, Diffusion, and Self-Speculation Decoding",
+      "authors": "Fu, Whalen, Garg et al. (NVIDIA)",
       "year": 2026,
-      "what": "A plain ViT diffusion transformer that denoises raw 3D point-map patches in pixel space conditioned on DINOv3 tokens, beating latent-diffusion baselines without a point-map tokenizer.",
-      "area_label": "Generative CV",
-      "area_slug": "generative-cv",
-      "builds_on": "DiT (Peebles 2023); DDPM (Ho 2020); ViT (Dosovitskiy 2021)"
+      "what": "Trains one model under a joint autoregressive-diffusion objective so it switches decoding modes; the 8B model decodes 6x more tokens per forward pass than Qwen3-8B at comparable accuracy.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "Transformer (Vaswani 2017); DDPM (Ho 2020); DeepSeek-V3 (2024)"
     }
   ]
 }

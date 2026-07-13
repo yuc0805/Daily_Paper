@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nemotron-Labs-Diffusion: A Tri-Mode Language Model — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>Nemotron-Labs-Diffusion: A Tri-Mode Language Model Unifying Autoregressive, Diffusion, and Self-Speculation Decoding</h2>
+<p class="paper-meta">Fu, Whalen, Garg et al. (NVIDIA) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.05722" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a></p>
+<h3>What</h3>
+<p>Nemotron-Labs-Diffusion trains one network with a joint autoregressive-plus-diffusion objective so it can switch decoding modes at deployment. Diffusion supplies lookahead planning; autoregression supplies left-to-right language priors. In self-speculation mode diffusion drafts and autoregression verifies. At 3B, 8B, and 14B parameters it reports higher accuracy and speed than open autoregressive and diffusion baselines; the 8B model decodes 6x more tokens per forward pass than Qwen3-8B at comparable accuracy, giving 4x throughput on one benchmark.</p>
+<h3>Why</h3>
+<p>Autoregressive language models decode one token at a time, which caps throughput, while diffusion language models decode in parallel but lack strong left-to-right priors. Running them as separate systems forces a choice between planning quality and linguistic fidelity, and existing multi-token-prediction speculation does not exploit diffusion's parallelism for drafting.</p>
+<h3>How</h3>
+<p>A single model is trained under both objectives so the two become complementary inside one set of weights. The study shows diffusion improves lookahead planning while autoregression provides linguistic priors, and in self-speculation mode diffusion drafts while autoregression verifies, beating multi-token prediction on acceptance rate and real-device efficiency. A speed-of-light analysis reports up to 76.5% more tokens per forward pass than self-speculation under an optimal sampler.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">The autoregressive Transformer lineage this model retains for verification.</span></li>
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">The denoising-diffusion lineage this model brings into language decoding.</span></li>
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">The multi-token-prediction decoding baseline it displaces in self-speculation.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Pure autoregressive models (the Transformer lineage) are throughput-limited, and pure diffusion language models lack left-to-right priors. Nemotron fixes both by training one model under a joint objective so it switches modes, and it beats the DeepSeek-V3 multi-token-prediction baseline on acceptance rate by using diffusion as the drafter.</p>
+<h3>Method vs predecessors</h3>
+<p>Where DDPM applies diffusion to continuous images and the Transformer decodes text token by token, this paper trains a single model under both objectives so diffusion handles parallel lookahead and autoregression handles verification. It joins two lineages that rarely meet in one model, and it uses diffusion for drafting rather than the separate small drafter that speculative-decoding baselines use.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Shared decoding-efficiency baseline.</span></li>
+<li><a href="MVWM4TZJ.html">Diffusion Beats GANs (2021)</a><span class="lineage-note">Diffusion-modeling neighbor in the generative-CV area.</span></li>
+</ul>
+</div>
+</body>
+</html>
