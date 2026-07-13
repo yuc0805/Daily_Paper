@@ -540,6 +540,39 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2607.05804",
+      "target_label": "TurnOPD: Making On-Policy Distillation Turn-Aware for Efficient Long-Horizon Agent Training (2026)",
+      "relation": "builds_on",
+      "note": "Where DeepSeek-R1 trained reasoning with outcome-reward reinforcement learning, TurnOPD keeps on-policy training but shifts credit from token to turn for multi-turn agent distillation.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2607.05804",
+      "target_label": "TurnOPD: Making On-Policy Distillation Turn-Aware for Efficient Long-Horizon Agent Training (2026)",
+      "relation": "builds_on",
+      "note": "Where LATS spent inference-time tree search to reach good long-horizon trajectories, TurnOPD spends training-time budget to distill a teacher into the student efficiently.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "KQTIJC4U",
+      "source_label": "PPO (Schulman et al. 2017)",
+      "target": "2607.05804",
+      "target_label": "TurnOPD: Making On-Policy Distillation Turn-Aware for Efficient Long-Horizon Agent Training (2026)",
+      "relation": "builds_on",
+      "note": "Where PPO optimized on-policy at the token level, TurnOPD addresses its per-step credit problem with a turn-normalized loss.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [

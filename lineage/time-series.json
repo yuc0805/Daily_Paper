@@ -1170,6 +1170,61 @@
       "relation": "builds_on",
       "note": "TS-Haystack targets the evaluation gap the survey flagged, namely that existing tests reward short-clip pattern recognition and do not test long-context retrieval.",
       "cross_area": false
+    },
+    {
+      "source": "72DFULQQ",
+      "source_label": "Chronos (Ansari et al. 2024)",
+      "target": "2607.04919",
+      "target_label": "When Do Foundation Models Pay Off? A Break-Even Analysis of Pretrained Time Series Forecasters (2026)",
+      "relation": "builds_on",
+      "note": "Where Chronos argued for its own model by reporting aggregate zero-shot wins, this paper measures the task-data size at which a foundation model beats XGBoost.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "CFG6FEIF",
+      "source_label": "Moirai (Woo et al. 2024)",
+      "target": "2607.04919",
+      "target_label": "When Do Foundation Models Pay Off? A Break-Even Analysis of Pretrained Time Series Forecasters (2026)",
+      "relation": "builds_on",
+      "note": "Where Moirai reported broad zero-shot gains, this paper fixes the deployment decision and asks when the foundation model earns its cost over classical forecasters.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie et al. 2023)",
+      "target": "2607.04919",
+      "target_label": "When Do Foundation Models Pay Off? A Break-Even Analysis of Pretrained Time Series Forecasters (2026)",
+      "relation": "builds_on",
+      "note": "Where PatchTST fixed the supervised architecture, this work fixes the decision procedure and reports the sample size at which the choice flips.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "72DFULQQ",
+      "source_label": "Chronos (Ansari et al. 2024)",
+      "target": "2607.05291",
+      "target_label": "Forecasting Realized Volatility with Time Series Foundation Models (2026)",
+      "relation": "builds_on",
+      "note": "Where Chronos reported broad zero-shot wins, this paper puts the same model class against HAR econometric baselines on realized volatility and finds the advantage mostly disappears after per-asset averaging.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie et al. 2023)",
+      "target": "2607.05291",
+      "target_label": "Forecasting Realized Volatility with Time Series Foundation Models (2026)",
+      "relation": "builds_on",
+      "note": "Where PatchTST set the neural supervised line, this work tests whether its zero-shot foundation-model descendants beat well-specified econometric benchmarks.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [

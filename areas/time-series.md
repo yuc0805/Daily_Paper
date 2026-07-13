@@ -62,6 +62,8 @@
 2026-06 | HAR Foundation Models Survey (2604.02711) | 132-paper lifecycle taxonomy of sensor-HAR foundation models across input, pretraining, adaptation, and utilization
 2026-06 | TimeMaster (2506.13705) | RL (GRPO) trains a multimodal LLM to classify and explain image-rendered time series
 2026-06 | TS-Haystack (2602.14200) | multi-scale retrieval benchmark testing whether time-series language models can locate a pattern inside a long signal
+2026-07 | TS FM Break-Even (2607.04919) | measures the task-data size at which a pretrained forecaster beats classical methods
+2026-07 | RV FM vs HAR (2607.05291) | zero-shot forecasters barely beat HAR econometric baselines on realized volatility once per-asset losses are averaged
 ### Paper List
 
 [KNOWN] [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.
@@ -148,11 +150,13 @@
 
 [2026] 2506.13705 — TimeMaster: Training Time-Series Multimodal LLMs to Reason via Reinforcement Learning. [https://arxiv.org/abs/2506.13705](https://arxiv.org/abs/2506.13705). external.
 [2026] 2602.14200 — TS-Haystack: A Multi-Scale Retrieval Benchmark for Time Series Language Models. [https://arxiv.org/abs/2602.14200](https://arxiv.org/abs/2602.14200). external.
+[2026] 2607.04919 — When Do Foundation Models Pay Off? A Break-Even Analysis of Pretrained Time Series Forecasters. [https://arxiv.org/abs/2607.04919](https://arxiv.org/abs/2607.04919). external.
+[2026] 2607.05291 — Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks. [https://arxiv.org/abs/2607.05291](https://arxiv.org/abs/2607.05291). external.
 
 ### Recent Activity
 
+2026-07-12 | 2607.04919 added | a break-even study across 30 datasets giving a training-free rule: with fewer than 700 points and clear seasonality use the foundation model zero-shot and skip fine-tuning, since LoRA can lower accuracy on short series; Tier A
+2026-07-12 | 2607.05291 added | nine zero-shot foundation models against eight econometric specifications on realized volatility; only Tiny Time Mixers beats Log-HAR at every horizon and a Mincer-Zarnowitz check shows most short-horizon gain is scaling, not better dynamics; Tier B
 2026-06-30 | 2506.13705 added | TimeMaster ports the DeepSeek-R1 GRPO recipe to time series, training a multimodal LLM to classify and explain image-rendered series; it beats classical models by more than 14.6% and few-shot GPT-4o by more than 7.3% on TimerBed; Tier A
 2026-06-30 | 2602.14200 added | TS-Haystack tests long-context retrieval for time-series language models across scales, from a local motif to a long-range trend, targeting the failure mode short-clip benchmarks miss; Tier B
 2026-06-29 | 2604.00767 added | ActivityNarrated drops the fixed label set and scores wearable activity by sensor-language retrieval over multi-position partially observed IMU, nearly doubling Macro-F1 over closed-set HAR baselines when classification is run downstream; Tier A
-2026-06-29 | 2603.09940 added | SignalMC-MED fixes a paired ECG and PPG benchmark of 22,256 visits and 20 clinical tasks, finding modality fusion and the full 10-minute window help while larger models do not reliably beat smaller ones and hand-crafted features stay competitive; Tier B
-2026-06-29 | 2604.02711 added | a survey of 132 sensor-HAR foundation-model papers organized by a four-stage lifecycle taxonomy on nine axes, naming from-scratch, adapted-general, and language-model interaction directions; Tier B

@@ -220,6 +220,39 @@
       "target_label": "Prisma-World: Camera-Controllable Multi-Agent Video World Model (2026)",
       "relation": "builds_on",
       "note": "Prisma-World makes the DDPM denoising geometry-aware and joint across views, trained on a synthetic dataset with exact camera labels."
+    },
+    {
+      "source": "peebles2023_dit",
+      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+      "target": "2607.02515",
+      "target_label": "PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation (2026)",
+      "relation": "builds_on",
+      "note": "Where DiT applied a plain diffusion transformer to image latents, PointDiT applies the same denoiser to raw point-map patches for monocular geometry.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "ho2020_ddpm",
+      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+      "target": "2607.02515",
+      "target_label": "PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation (2026)",
+      "relation": "builds_on",
+      "note": "Where DDPM defined the denoising diffusion objective for image synthesis, PointDiT reuses that objective to denoise 3D point maps directly in pixel space.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "B7F2Q998",
+      "source_label": "ViT (Dosovitskiy et al. 2021)",
+      "target": "2607.02515",
+      "target_label": "PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation (2026)",
+      "relation": "builds_on",
+      "note": "Where ViT set the plain vision transformer backbone, PointDiT keeps it unchanged and conditions the denoiser on DINOv3 image tokens.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [],

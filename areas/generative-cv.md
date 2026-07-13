@@ -30,6 +30,7 @@
 2026-06 | UQ for Flow-Based VLA (2606.18043) | calibrated confidence and out-of-distribution flags for flow-matching action generators
 2026-07 | MetaWorld (2606.02753) | multi-agent video world model trained from single-view video via monocular ego-motion and subject decomposition
 2026-07 | Prisma-World (2606.09507) | camera-controllable multi-agent video with geometry-conditioned full attention and a synthetic dataset
+2026-07 | PointDiT (2607.02515) | pixel-space diffusion transformer denoises raw point maps for monocular geometry, no latent tokenizer
 ### Paper List
 
 [KNOWN] [2014] Goodfellow et al. — GAN. zotero_key:GG7GSYUJ.
@@ -61,11 +62,12 @@
 
 [2026] 2606.02753 — MetaWorld: Scaling Multi-Agent Video World Models from Single-view Video Data. [https://arxiv.org/abs/2606.02753](https://arxiv.org/abs/2606.02753). external.
 [2026] 2606.09507 — Prisma-World: Camera-Controllable Multi-Agent Video World Model. [https://arxiv.org/abs/2606.09507](https://arxiv.org/abs/2606.09507). external.
+[2026] 2607.02515 — PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation. [https://arxiv.org/abs/2607.02515](https://arxiv.org/abs/2607.02515). external.
 
 ### Recent Activity
 
+2026-07-12 | 2607.02515 added | PointDiT drops the latent tokenizer and denoises raw 3D point-map patches in pixel space with a plain DiT conditioned on DINOv3 features, reporting sharper geometry than latent-diffusion baselines; Tier B
 2026-07-01 | 2606.02753 added | MetaWorld trains multi-agent video world models from ordinary single-view video by decomposing each clip into camera ego-motion and subject trajectory, then couples views with per-frame cross-attention for cross-view consistency; Tier B
 2026-07-01 | 2606.09507 added | Prisma-World generates camera-controllable multi-agent video by processing all views in one full-attention sequence with injected relative camera geometry, trained on a synthetic UE5 dataset with exact camera labels; Tier B
 2026-06-18 | 2606.18043 added | confidence estimate plus out-of-distribution and low-confidence detector for flow-matching action heads; portable to wearable signal generators; Tier B
 2026-06-02 | 2605.26108 added | reward-tilted KL splits into matching and reward terms; 4-step distilled FLUX.2 beats 50-step teacher; Tier B
-2026-06-01 | 2605.19995 added | inserts a reasoning stage ahead of the diffusion backbone to read underspecified prompts; Tier B
