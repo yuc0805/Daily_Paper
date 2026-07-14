@@ -252,6 +252,28 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": true
+    },
+    {
+      "source": "FPEC4PIH",
+      "source_label": "Large Multimodal Reasoning Survey (Li 2025)",
+      "target": "2607.03530",
+      "target_label": "MentalThink: Shaping Thoughts in Mental SVG World (2026)",
+      "relation": "builds_on",
+      "note": "Where the multimodal reasoning survey mapped existing methods, MentalThink adds reasoning over an executable SVG surface the model renders and revises.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2607.03530",
+      "target_label": "MentalThink: Shaping Thoughts in Mental SVG World (2026)",
+      "relation": "builds_on",
+      "note": "The reinforcement-learning-for-reasoning recipe carries over, but the textual thought becomes a visual, executable one rendered and inspected each turn.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
     }
   ],
   "hyperedges": [],

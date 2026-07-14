@@ -31,6 +31,7 @@
 2026-07 | MetaWorld (2606.02753) | multi-agent video world model trained from single-view video via monocular ego-motion and subject decomposition
 2026-07 | Prisma-World (2606.09507) | camera-controllable multi-agent video with geometry-conditioned full attention and a synthetic dataset
 2026-07 | PointDiT (2607.02515) | pixel-space diffusion transformer denoises raw point maps for monocular geometry, no latent tokenizer
+2026-07 | Nemotron-Labs-Diffusion (2607.05722) | joins the image-diffusion and autoregressive-Transformer lineages in one language model through a joint training objective
 ### Paper List
 
 [KNOWN] [2014] Goodfellow et al. — GAN. zotero_key:GG7GSYUJ.
@@ -64,10 +65,12 @@
 [2026] 2606.09507 — Prisma-World: Camera-Controllable Multi-Agent Video World Model. [https://arxiv.org/abs/2606.09507](https://arxiv.org/abs/2606.09507). external.
 [2026] 2607.02515 — PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation. [https://arxiv.org/abs/2607.02515](https://arxiv.org/abs/2607.02515). external.
 
+[2026] 2607.05722 — Nemotron-Labs-Diffusion: A Tri-Mode Language Model Unifying Autoregressive, Diffusion, and Self-Speculation Decoding. [https://arxiv.org/abs/2607.05722](https://arxiv.org/abs/2607.05722). external.
+
 ### Recent Activity
 
+2026-07-13 | 2607.05722 added | trains one network under a joint denoising-diffusion and autoregressive objective so diffusion supplies parallel lookahead while autoregression verifies, joining two lineages that rarely meet in a single model; Tier B
 2026-07-12 | 2607.02515 added | PointDiT drops the latent tokenizer and denoises raw 3D point-map patches in pixel space with a plain DiT conditioned on DINOv3 features, reporting sharper geometry than latent-diffusion baselines; Tier B
 2026-07-01 | 2606.02753 added | MetaWorld trains multi-agent video world models from ordinary single-view video by decomposing each clip into camera ego-motion and subject trajectory, then couples views with per-frame cross-attention for cross-view consistency; Tier B
 2026-07-01 | 2606.09507 added | Prisma-World generates camera-controllable multi-agent video by processing all views in one full-attention sequence with injected relative camera geometry, trained on a synthetic UE5 dataset with exact camera labels; Tier B
 2026-06-18 | 2606.18043 added | confidence estimate plus out-of-distribution and low-confidence detector for flow-matching action heads; portable to wearable signal generators; Tier B
-2026-06-02 | 2605.26108 added | reward-tilted KL splits into matching and reward terms; 4-step distilled FLUX.2 beats 50-step teacher; Tier B

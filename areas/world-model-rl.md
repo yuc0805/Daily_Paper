@@ -30,6 +30,7 @@
 
 2026-06 | GURU (2506.14965) | 92K cross-domain RL corpus; domain-conditional transfer for LLM reasoning
 
+2026-07 | TREK (2607.05339) | a staged forward-KL warm start on verified off-support solutions precedes on-policy reinforcement learning, fixing the exploration stall of GRPO on hard prompts
 ### Paper List
 
 [KNOWN] [1999] Sutton et al. — Policy Gradient. zotero_key:DAGWCZ67.
@@ -66,7 +67,10 @@
 
 [2026] 2506.14965 — GURU: Revisiting RL for LLM Reasoning from A Cross-Domain Perspective. [https://arxiv.org/abs/2506.14965](https://arxiv.org/abs/2506.14965). external.
 
+[2026] 2607.05339 — TREK: Distill to Explore, Reinforce to Refine. [https://arxiv.org/abs/2607.05339](https://arxiv.org/abs/2607.05339). external.
+
 ### Recent Activity
 
+2026-07-13 | 2607.05339 added | targets the exploration failure of Group Relative Policy Optimization on hard prompts by importing verified off-support solutions through a short distillation phase before returning to on-policy updates; ScienceWorld rises 12.5 to 26.7; Tier B
 2026-06-05 | 2506.14965 added | 92K cross-domain RL corpus; RL is a domain-conditional skill activator; GURU-7B/32B SOTA among open RL-trained models; Tier A
 2026-05-14 | Area page seeded | 31 papers from Zotero, 3 from graphify seed.

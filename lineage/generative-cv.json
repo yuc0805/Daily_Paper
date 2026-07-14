@@ -253,6 +253,17 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "ho2020_ddpm",
+      "source_label": "DDPM (Ho 2020)",
+      "target": "2607.05722",
+      "target_label": "Nemotron-Labs-Diffusion: Tri-Mode Language Model (2026)",
+      "relation": "builds_on",
+      "note": "Where DDPM applies denoising diffusion to continuous images, Nemotron-Labs-Diffusion trains the same objective jointly with autoregression so diffusion supplies parallel lookahead in a language model.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
     }
   ],
   "hyperedges": [],

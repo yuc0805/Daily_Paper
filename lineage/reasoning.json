@@ -366,6 +366,61 @@
       "relation": "builds_on",
       "note": "Where Chain-of-Thought asked for legible steps through prompting, Tandem RL makes legibility an emergent property of the training structure rather than a prompt instruction.",
       "cross_area": false
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2607.03530",
+      "target_label": "MentalThink: Shaping Thoughts in Mental SVG World (2026)",
+      "relation": "builds_on",
+      "note": "Where Chain-of-Thought externalizes reasoning as text tokens, MentalThink externalizes each step as executable SVG that is rendered and inspected before revision.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2607.03530",
+      "target_label": "MentalThink: Shaping Thoughts in Mental SVG World (2026)",
+      "relation": "builds_on",
+      "note": "Where DeepSeek-R1 rewards correct final answers, MentalThink keeps the reinforcement-learning outer loop but rewards useful inspection and revision of a rendered drawing.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "FPEC4PIH",
+      "source_label": "Large Multimodal Reasoning Survey (Li 2025)",
+      "target": "2607.03530",
+      "target_label": "MentalThink: Shaping Thoughts in Mental SVG World (2026)",
+      "relation": "builds_on",
+      "note": "Where the survey mapped the space of multimodal reasoning methods, MentalThink adds an executable-sketch reasoning mode with a checkable intermediate representation.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2607.05339",
+      "target_label": "TREK: Distill to Explore, Reinforce to Refine (2026)",
+      "relation": "builds_on",
+      "note": "Where DeepSeek-R1 rewards trajectories the model already samples, TREK first imports verified off-support solutions through a short distillation phase, then reinforces.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "U4ZPM5DN",
+      "source_label": "Latent-GRPO (Deng 2026)",
+      "target": "2607.05339",
+      "target_label": "TREK: Distill to Explore, Reinforce to Refine (2026)",
+      "relation": "builds_on",
+      "note": "TREK targets the exploration stall the Group Relative Policy Optimization family shares by warming up on verified off-support solutions before on-policy reinforcement.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
     }
   ],
   "hyperedges": [],
