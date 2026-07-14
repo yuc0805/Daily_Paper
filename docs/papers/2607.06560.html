@@ -3,34 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vision as Unified Multimodal Generation (SenseNova-Vision) — AI Knowledge Graph</title>
+<title>Vision as Unified Multimodal Generation — AI Knowledge Graph</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <div class="paper-page">
 <a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
 <h2>Vision as Unified Multimodal Generation (SenseNova-Vision)</h2>
-<p class="paper-meta">Han, Li, Deng, Chen, Shi, Cai, Liu, Lin, Wang et al. (SenseNova) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.06560" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+<p class="paper-meta">Han, Li, Deng, Chen, Shi et al. (SenseNova) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.06560" target="_blank" rel="noopener">arXiv:2607.06560</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+
 <h3>What</h3>
-<p>SenseNova-Vision poses many computer-vision tasks (detection, OCR, keypoints, segmentation, depth, surface normals, point maps, camera pose) as one generation problem inside a unified multimodal model. Natural-language instructions and optional visual prompts specify the task, region, and decoding convention; outputs are text for symbolic answers, images for dense spatial predictions, or mixed text-and-image for compositional tasks, with no task-specific heads. A single model matches leading task-specialized systems across structured understanding, dense geometric prediction, segmentation, and multi-view geometry.</p>
+<p>SenseNova-Vision casts every computer-vision task as text-and-image generation inside one multimodal model, with no task-specific heads. Natural-language instructions plus optional visual prompts specify the task, the target region, and the output convention; the model then emits text for symbolic answers, images for dense predictions, or a mix for compositional tasks. One model covers detection, OCR, keypoints, segmentation, depth, surface normals, point maps, and camera pose, and matches task-specialized systems across these groups.</p>
+
 <h3>Why</h3>
-<p>Computer vision is usually solved with a separate architecture and prediction head per task, which does not scale to a general-purpose foundation model. Prior generative multimodal models produced images from text but were not used to emit structured or dense predictions. The paper seeks one interface that covers perception, understanding, and generation without per-task engineering.</p>
+<p>Computer vision is usually served by separate models with task-specific prediction heads, one per task. That fragments engineering and blocks a single general model from covering the whole stack. Prior unified attempts still leaned on per-task heads or narrow output spaces. The open question is whether one generation formulation can express symbolic, dense-spatial, and compositional outputs at once.</p>
+
 <h3>How</h3>
-<p>Diverse vision annotations are converted into instruction-response examples that live in the model's native text and image generation spaces, producing the 50M-example SenseNova-Vision Corpus. Starting from an off-the-shelf pretrained unified multimodal model, training runs mainly on this corpus with auxiliary multimodal data as a capability-preserving mixture, and needs no new prediction heads or architecture changes. Dense outputs such as depth and segmentation are produced as generated images.</p>
+<p>The authors express heterogeneous tasks in the native text and image generation spaces of a unified multimodal model. They convert many vision annotations into instruction-response examples (the SenseNova-Vision Corpus, spanning text, image, and mixed targets), then continue training an off-the-shelf pretrained unified model mainly on this corpus, with auxiliary multimodal data mixed in to preserve general capability. No task-specific heads or architecture changes are added; the output channel is generation itself.</p>
+
 <h3>Builds on</h3>
 <ul class="lineage-list">
-<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Hierarchical text-conditional image generation.</span></li>
-<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Transformer backbone for diffusion image generation.</span></li>
-<li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">The shared Transformer architecture underneath.</span></li>
+  <li><a href="QTFCR4G9.html">DETR (Carion 2020)</a><span class="lineage-note">Removed hand-built detection components by casting detection as set prediction; SenseNova removes task-specific heads for the whole vision stack.</span></li>
+  <li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Showed a transformer can drive image generation; SenseNova reuses that generation space as the output channel for dense predictions.</span></li>
 </ul>
+
 <h3>Solves vs predecessors</h3>
-<p>DALL-E 2 and DiT generated images as the end product. SenseNova-Vision reuses that generative image space to solve perception tasks, so one model replaces a stack of task-specific detectors, segmenters, and depth networks. The failure mode it addresses is the per-task head: by making every output a generated text or image, adding a task becomes a data-conversion step, not an architecture change.</p>
+<p>DETR removed hand-built parts for one task, detection, but each vision task still had its own model and head. SenseNova-Vision removes the per-task head problem across the whole stack by turning each task into generation, so a single model spans detection through camera-pose estimation without architectural forks.</p>
+
 <h3>Method vs predecessors</h3>
-<p>The parents optimized image fidelity from text prompts; this work keeps a similar generator but changes the training target, turning labeled vision datasets into instruction-response pairs so the same next-token or image-generation objective covers detection, segmentation, and geometry. The contribution is the reformulation and corpus, not a new sampler.</p>
+<p>DETR framed detection as set prediction with a fixed decoder; DiT used a transformer to generate images from noise. SenseNova-Vision combines the two ideas at a higher level: it uses a unified model's text-and-image generation space as the universal output format and drives task behavior through instructions and visual prompts plus a purpose-built instruction-response corpus, rather than through separate decoders.</p>
+
 <h3>Related (semantically similar in your library)</h3>
 <ul class="lineage-list">
-<li><a href="SC8KWYVK.html">Flamingo</a><span class="lineage-note">Early unified vision-language model interleaving image and text.</span></li>
-<li><a href="2606.11188.html">ARM: AutoRegressive Large Multimodal Model</a><span class="lineage-note">Shares the one-model-for-understanding-generation-editing goal.</span></li>
+  <li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Text-conditional image generation; SenseNova generalizes conditional generation to cover perception tasks.</span></li>
 </ul>
 </div>
 </body>

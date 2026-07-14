@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light-Omni: Reflex over Reasoning in Agentic Video Understanding with Long-Term Memory — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+<h2>Light-Omni: Reflex over Reasoning in Agentic Video Understanding with Long-Term Memory</h2>
+<p class="paper-meta">Nie, Wei, Feng, Fu, Shan (Nanjing University) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.05511" target="_blank" rel="noopener">arXiv:2607.05511</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+
+<h3>What</h3>
+<p>Light-Omni is a multimodal agent for long video streams that answers reflexively instead of through slow iterative reasoning. It keeps two states built in a single forward pass: a global state, a fixed-size multimodal script consolidated from episodic memory by hierarchical merging, and a parametric latent state, conditioned on the global context, that drives actions and produces retrieval embeddings. Against M3-Agent it reports a 2.4% average accuracy gain, a 12.1x speedup, and 2.6x better GPU memory use, with near-constant ~2.3s latency regardless of video length. It also works as a plug-in memory system for existing multimodal LLMs.</p>
+
+<h3>Why</h3>
+<p>Agentic video models keep long-term memory but usually rely on detective-style iterative reasoning, searching then aggregating evidence, which is slow and expensive. The paper argues that heavy reasoning is mostly compensating for missing global context and poor retrieval alignment. If the global context and retrieval were built directly, the iterative loop would be unnecessary, cutting latency and memory cost.</p>
+
+<h3>How</h3>
+<p>Light-Omni maintains a global state, a finite-sized multimodal script continuously consolidated from episodic memory through hierarchical merging that keeps recent detail and summarizes past events. Conditioned on this global context, it generates a parametric latent state that directly drives autonomous actions and produces retrieval embeddings with low latency. The coupled design yields semantically aligned retrieval and reflexive answers in one forward pass, and the same memory module can be attached to existing multimodal LLMs to raise their accuracy and efficiency.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Mapped the space of agent memory designs; Light-Omni commits to one concrete global-plus-latent design.</span></li>
+  <li><a href="RYGRHCG3.html">Video Action Survey (Zhu 2020)</a><span class="lineage-note">Catalogued short-clip classification; Light-Omni handles hour-scale streams via a bounded summarized state.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Iterative-reasoning video agents pay prohibitive latency and memory cost that grow with stream length. Light-Omni removes the search-then-aggregate loop by building global context and retrieval directly, so latency stays near-constant (~2.3s) regardless of video length while accuracy rises against M3-Agent.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where the Memory Mechanisms Survey described many possible memory schemes, Light-Omni fixes one: a consolidated global script plus a latent action state trained to drive both actions and retrieval. Where short-clip action-recognition methods encode a fixed window, Light-Omni compresses an unbounded stream into a fixed-size state through hierarchical merging, trading exact recall of old frames for constant-time response.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Both concern multimodal interactive agents; Light-Omni supplies a concrete memory mechanism for them.</span></li>
+</ul>
+</div>
+</body>
+</html>

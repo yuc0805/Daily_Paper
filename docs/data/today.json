@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-13",
+  "date": "2026-07-14",
   "papers": [
     {
-      "zotero_key": "2607.03530",
-      "title": "MentalThink: Shaping Thoughts in Mental SVG World",
-      "authors": "Lin, Yin, Li, Yu et al.",
+      "zotero_key": "2607.02980",
+      "title": "Hierarchical Sparse Attention Done Right: Toward Infinite Context Modeling (HiLS-Attention)",
+      "authors": "Hu et al.",
       "year": 2026,
-      "what": "Lets a multimodal model reason by writing executable SVG code as an intermediate step, rendering it, and revising it over several turns, reaching 55.1% on VSIBench and 76.0% on MindCube.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "Chain-of-Thought (Wei 2023); DeepSeek-R1 (2025)"
-    },
-    {
-      "zotero_key": "2607.05339",
-      "title": "TREK: Distill to Explore, Reinforce to Refine",
-      "authors": "Xu, Zhou, Behdin et al.",
-      "year": 2026,
-      "what": "Fixes GRPO stalling on hard prompts by using a short distillation phase to pull verified off-support solutions into the student's range before on-policy reinforcement learning; raises Qwen3-8B AIME 2025 from 36.9 to 40.3.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025); Latent-GRPO (2026); PPO (2017)"
-    },
-    {
-      "zotero_key": "2607.05147",
-      "title": "DSpark: Confidence-Scheduled Speculative Decoding with Semi-Autoregressive Generation",
-      "authors": "Cheng, Yu, Shao et al. (DeepSeek)",
-      "year": 2026,
-      "what": "Speculative decoding for high-concurrency serving: a sequential head restores within-block dependency and confidence-scheduled verification cuts waste, giving 60 to 85 percent faster per-user generation in DeepSeek-V4's serving system.",
+      "what": "Learns chunk-wise sparse attention end-to-end from the language-modeling loss, matching full attention in-domain and extrapolating past 64x the training context length with 90% retrieval accuracy and sparse key-value access.",
       "area_label": "LLM",
       "area_slug": "llm",
-      "builds_on": "DeepSeek-V3 (2024); DeepSeek-V2 (2024); Transformer (Vaswani 2017)"
+      "builds_on": "Attention Is All You Need (Vaswani 2017); iTransformer"
     },
     {
-      "zotero_key": "2607.05722",
-      "title": "Nemotron-Labs-Diffusion: A Tri-Mode Language Model Unifying Autoregressive, Diffusion, and Self-Speculation Decoding",
-      "authors": "Fu, Whalen, Garg et al. (NVIDIA)",
+      "zotero_key": "2607.05804",
+      "title": "TurnOPD: Making On-Policy Distillation Turn-Aware for Efficient Long-Horizon Agent Training",
+      "authors": "Zhou et al.",
       "year": 2026,
-      "what": "Trains one model under a joint autoregressive-diffusion objective so it switches decoding modes; the 8B model decodes 6x more tokens per forward pass than Qwen3-8B at comparable accuracy.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "Transformer (Vaswani 2017); DDPM (Ho 2020); DeepSeek-V3 (2024)"
+      "what": "Budgets on-policy distillation across agent turns with adaptive rollout depth and turn-normalized loss, raising accuracy for the same wall-clock budget on ALFWorld, WebShop, and Multi-Hop Search.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "DeepSeek-R1 (2025); ADaPT (Prasad 2023)"
+    },
+    {
+      "zotero_key": "2607.06560",
+      "title": "Vision as Unified Multimodal Generation (SenseNova-Vision)",
+      "authors": "Han et al.",
+      "year": 2026,
+      "what": "Casts every vision task as text-and-image generation in one multimodal model with no task-specific heads, matching specialized systems on detection, OCR, segmentation, depth, and camera pose.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "DETR (Carion 2020); DiT (Peebles 2023)"
+    },
+    {
+      "zotero_key": "2607.05511",
+      "title": "Light-Omni: Reflex over Reasoning in Agentic Video Understanding with Long-Term Memory",
+      "authors": "Nie et al.",
+      "year": 2026,
+      "what": "Replaces iterative video-agent reasoning with a consolidated global state plus a latent action state built in one forward pass, giving 12.1x speedup and near-constant latency over M3-Agent.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "Memory Mechanisms Survey (Huang 2026); Video Action Survey (Zhu 2020)"
     }
   ]
 }
