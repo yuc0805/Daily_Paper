@@ -274,6 +274,28 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": true
+    },
+    {
+      "source": "BDY3HUCV",
+      "source_label": "Memory Mechanisms Survey (Huang 2026)",
+      "target": "2607.05511",
+      "target_label": "Light-Omni: Reflex over Reasoning in Agentic Video Understanding with Long-Term Memory (2026)",
+      "relation": "builds_on",
+      "note": "Where the Memory Mechanisms Survey mapped the space of agent memory designs, Light-Omni commits to one design, a consolidated global script plus a latent action state, and shows it removes the need for iterative search.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
+    },
+    {
+      "source": "RYGRHCG3",
+      "source_label": "Video Action Survey (Zhu 2020)",
+      "target": "2607.05511",
+      "target_label": "Light-Omni: Reflex over Reasoning in Agentic Video Understanding with Long-Term Memory (2026)",
+      "relation": "builds_on",
+      "note": "Where the Video Action Survey covered short-clip classification, Light-Omni handles hour-scale streams by summarizing them into a bounded state, because fixed-size memory keeps latency flat as the video grows.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
     }
   ],
   "hyperedges": [],
