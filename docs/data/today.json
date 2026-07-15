@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-14",
+  "date": "2026-07-15",
   "papers": [
     {
-      "zotero_key": "2607.02980",
-      "title": "Hierarchical Sparse Attention Done Right: Toward Infinite Context Modeling (HiLS-Attention)",
-      "authors": "Hu et al.",
+      "zotero_key": "2607.03089",
+      "title": "STELLA: Efficient Sensor-to-LLM Translation for On-Device Human Activity Recognition",
+      "authors": "Bao et al.",
       "year": 2026,
-      "what": "Learns chunk-wise sparse attention end-to-end from the language-modeling loss, matching full attention in-domain and extrapolating past 64x the training context length with 90% retrieval accuracy and sparse key-value access.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "Attention Is All You Need (Vaswani 2017); iTransformer"
+      "what": "Reframes LLM-based activity recognition as sensor tokenization: a light hierarchical tokenizer turns wearable streams into activity-aware tokens for a frozen LLM, with on-device personalization, keeping recognition private and real-time on edge hardware.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "Sensor2Text (Chen 2024); SSL for HAR (Yuan 2024); LLMs are Few-Shot Health Learners (Liu 2023)"
     },
     {
-      "zotero_key": "2607.05804",
-      "title": "TurnOPD: Making On-Policy Distillation Turn-Aware for Efficient Long-Horizon Agent Training",
-      "authors": "Zhou et al.",
+      "zotero_key": "2607.11886",
+      "title": "Read It Back: Pretrained MLLMs Are Zero-Shot Reward Models for Text-to-Image Generation",
+      "authors": "Huang et al.",
       "year": 2026,
-      "what": "Budgets on-policy distillation across agent turns with adaptive rollout depth and turn-normalized loss, raising accuracy for the same wall-clock budget on ALFWorld, WebShop, and Multi-Hop Search.",
+      "what": "SpectraReward is a training-free RL reward for image generators: it grades an image by how well the prompt can be recovered from it in one forward pass, reusing a frozen MLLM's alignment with no labels or reward-model training.",
+      "area_label": "Generative CV",
+      "area_slug": "generative-cv",
+      "builds_on": "DDPM (Ho 2020); DiT (Peebles 2023)"
+    },
+    {
+      "zotero_key": "2606.02355",
+      "title": "SIRI: Self-Internalizing Reinforcement Learning with Intrinsic Skills for LLM Agent Training",
+      "authors": "Xiamen/Meituan et al.",
+      "year": 2026,
+      "what": "A three-phase RL method that lets an agent mine skills from its own successful rollouts, validate them against skill-free runs, and distill only helpful action tokens into weights, so no skill bank or extra context is needed at inference.",
       "area_label": "Agent",
       "area_slug": "agent",
       "builds_on": "DeepSeek-R1 (2025); ADaPT (Prasad 2023)"
     },
     {
-      "zotero_key": "2607.06560",
-      "title": "Vision as Unified Multimodal Generation (SenseNova-Vision)",
-      "authors": "Han et al.",
+      "zotero_key": "2607.11614",
+      "title": "Extending LLM Context via Associative Recurrent Memory",
+      "authors": "Rodkin et al.",
       "year": 2026,
-      "what": "Casts every vision task as text-and-image generation in one multimodal model with no task-specific heads, matching specialized systems on detection, OCR, segmentation, depth, and camera pose.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "DETR (Carion 2020); DiT (Peebles 2023)"
-    },
-    {
-      "zotero_key": "2607.05511",
-      "title": "Light-Omni: Reflex over Reasoning in Agentic Video Understanding with Long-Term Memory",
-      "authors": "Nie et al.",
-      "year": 2026,
-      "what": "Replaces iterative video-agent reasoning with a consolidated global state plus a latent action state built in one forward pass, giving 12.1x speedup and near-constant latency over M3-Agent.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026); Video Action Survey (Zhu 2020)"
+      "what": "A recipe that extends usable context by placing associative recurrent memory in selected layers and training with a long-context curriculum, processing inputs past the original limit without full quadratic attention.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "Attention Is All You Need (Vaswani 2017); Memory Mechanisms Survey (Huang 2026)"
     }
   ]
 }

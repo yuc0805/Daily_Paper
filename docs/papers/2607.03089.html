@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STELLA: Efficient Sensor-to-LLM Translation for On-Device HAR — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>STELLA: Efficient Sensor-to-LLM Translation for On-Device Human Activity Recognition</h2>
+<p class="paper-meta">Bao et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.03089" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3><p>STELLA runs human activity recognition by translating raw wearable sensor streams into compact, activity-aware tokens that a frozen large language model then reads. A light hierarchical tokenizer does the translation, and a local personalization step adapts the system to one user on the device. The design keeps the language model frozen so that recognition can run in real time on a phone or watch without shipping private data off the device.</p>
+<h3>Why</h3><p>Earlier language-model approaches to activity recognition either fed sensor data through long text prompts or fine-tuned large backbones, both of which are too heavy for edge hardware and both of which risk moving private physiological data to a server. Prior sensor-to-text systems produced good descriptions but relied on trainable backbones that do not fit an edge compute budget. The problem STELLA sets up is to keep the language model's reasoning while cutting the cost enough to run on-device.</p>
+<h3>How</h3><p>STELLA reframes the task as sensor tokenization: a hierarchical tokenizer turns multi-scale sensor windows into activity-aware tokens, which are passed to a frozen language model, and a per-user personalization layer adapts the tokenizer locally. Only the tokenizer and personalization layer are learned, so the language model's weights never change. The paper reports that this produces stronger sensor representations than generic time-series tokenizers and stays practical for real-time on-device use.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Established natural-language interaction with wearable activity data; STELLA keeps the sensor-to-language idea but freezes the model and moves work into the tokenizer.</span></li>
+<li><a href="RTMH75VW.html">SSL for HAR (Yuan 2024)</a><span class="lineage-note">Self-supervised sensor encoders on 700K person-days; STELLA feeds a frozen LLM instead of fine-tuning an encoder.</span></li>
+<li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">Showed a general language model can read physiological signals with few examples; STELLA makes that practical on-device.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>Sensor2Text produced language from sensors with heavy trainable backbones that do not fit an edge device. STELLA fixes that by freezing the language model and learning only a small hierarchical tokenizer plus a personalization layer, which cuts compute and memory enough for real-time on-device recognition while keeping user data local. It also produces stronger sensor tokens than generic time-series tokenizers, which was the failure mode of naive prompting.</p>
+<h3>Method vs predecessors</h3><p>Where SSL for HAR pretrained an encoder to be fine-tuned downstream, STELLA never fine-tunes the language model and instead treats the whole problem as learning activity-aware tokens for a frozen reader. This extends the Sensor2Text to LLMs-Few-Shot-Health bridge already in the library, pushing the sensor-to-language line toward a cost budget a watch can meet rather than toward larger models.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Same bio-sensing plus language family, community 4.</span></li>
+<li><a href="RTMH75VW.html">SSL for HAR (Yuan 2024)</a><span class="lineage-note">Wearable self-supervised representation learning, community 1.</span></li>
+</ul>
+</div>
+</body>
+</html>

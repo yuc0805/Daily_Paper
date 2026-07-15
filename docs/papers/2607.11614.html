@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extending LLM Context via Associative Recurrent Memory — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>Extending LLM Context via Associative Recurrent Memory</h2>
+<p class="paper-meta">Rodkin et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.11614" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a></p>
+<h3>What</h3><p>The paper gives a training recipe for extending the usable context of a language model using an associative recurrent memory transformer. It combines continued pre-training, synthetic long-context data, curriculum learning, and selective placement of associative memory into chosen layers rather than all of them. The augmented model processes inputs well past its original context limit while keeping the added memory machinery in only a few layers.</p>
+<h3>Why</h3><p>Standard attention has a fixed window and quadratic cost, so very long inputs either do not fit or become expensive. Adding recurrent memory everywhere is heavy and hard to train. The paper looks for a recipe that extends context reliably without paying full attention over everything and without destabilizing training.</p>
+<h3>How</h3><p>The method carries a compressed associative memory state across input segments and injects that memory into selected layers only. Training proceeds through continued pre-training on synthetic long-context data with a curriculum that grows input length gradually. The reported finding is that layer placement and the data curriculum matter more than adding memory to every layer.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">The attention architecture whose fixed window and quadratic cost this work extends.</span></li>
+<li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Catalogued memory mechanisms for foundation agents; this paper commits to one and supplies the training curriculum.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>The Transformer holds all information inside a fixed window, so long inputs overflow it. This paper adds a recurrent associative memory that carries compressed state across segments, extending effective context without full quadratic attention. Where the memory survey only catalogued options, this work turns one option into a working recipe that holds up past the original limit.</p>
+<h3>Method vs predecessors</h3><p>Rather than enlarging the attention window or adding memory to all layers, the method places memory selectively and relies on a length curriculum during continued pre-training. That selective-layer choice is the main technical difference from both plain attention and uniform memory augmentation.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Foundation-agent memory, community 0.</span></li>
+<li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">Attention architecture, community 2.</span></li>
+</ul>
+</div>
+</body>
+</html>

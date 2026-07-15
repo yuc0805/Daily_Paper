@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read It Back: MLLMs Are Zero-Shot Reward Models — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/generative-cv.html" class="back-link">&larr; Back to Area</a>
+<h2>Read It Back: Pretrained MLLMs Are Zero-Shot Reward Models for Text-to-Image Generation</h2>
+<p class="paper-meta">Huang et al. (ByteDance Seed) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.11886" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/generative-cv.html">Generative CV</a></p>
+<h3>What</h3><p>The paper introduces SpectraReward, a training-free reward for reinforcement-learning fine-tuning of text-to-image generators. Rather than scoring an image directly, it measures how well the original prompt can be recovered from the generated image in one image-conditioned, teacher-forced forward pass, and uses the average prompt log-likelihood as the reward. It reuses a pretrained multimodal language model's image-text alignment with no preference labels and no reward-model training, and is tested across two diffusion models, three RL algorithms, nine backbones from 4B to 235B parameters, and five out-of-distribution benchmarks.</p>
+<h3>Why</h3><p>Reinforcement learning for image generation needs a reward, and prior rewards either fine-tuned a scorer on collected human preferences or asked the model to answer decomposed verification questions. Both add cost and can transfer poorly out of distribution. The paper argues that a well-aligned multimodal model already contains the signal needed to grade an image, so a separate reward model is unnecessary.</p>
+<h3>How</h3><p>SpectraReward feeds the generated image plus the prompt back through a frozen multimodal model with teacher forcing and reads off the average image-conditioned log-likelihood of the prompt tokens. A higher recovery likelihood means the image matches the prompt, so that likelihood serves as the reward for the RL update on the diffusion generator. A self-referential variant, Self-SpectraReward, uses the generator's own multimodal model. The reward needs no labels and no fine-tuning of the scorer.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">The denoising diffusion base these generators descend from; SpectraReward supplies the RL reward that fine-tunes such models.</span></li>
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Transformer-backbone diffusion, the class of model being fine-tuned here.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>DDPM and DiT define how to sample images but say nothing about how to grade them during RL fine-tuning. Prior reward methods filled that gap with a trained scorer or a question-decomposition pipeline, both of which add labeling or engineering cost and can be brittle on new prompts. SpectraReward removes the trained scorer entirely by reading the prompt back out of the image, which the reported experiments show is more consistent across nine backbones and five out-of-distribution benchmarks.</p>
+<h3>Method vs predecessors</h3><p>Where earlier work treated the reward as a separate learned function, this paper makes the reward a frozen model's own likelihood, so no reward parameters are trained. That is a different technical stance: alignment already present from pretraining is used directly as a graded signal rather than distilled into a new head. SigLIP, the natural image-text-alignment anchor, is not in the library yet, so the closest tracked neighbors are the community-3 generative anchors DDPM and DiT.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Transformer diffusion, community 3.</span></li>
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Diffusion generative base, community 3.</span></li>
+</ul>
+</div>
+</body>
+</html>

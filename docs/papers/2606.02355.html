@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIRI: Self-Internalizing RL with Intrinsic Skills — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>SIRI: Self-Internalizing Reinforcement Learning with Intrinsic Skills for LLM Agent Training</h2>
+<p class="paper-meta">Authors from Xiamen University, Meituan, Macao Polytechnic &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2606.02355" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3><p>SIRI is a three-phase reinforcement-learning method that lets a long-horizon agent discover, validate, and absorb reusable skills without any external skill generator and without a skill bank at inference time. It warms up the policy to collect successful skill-free trajectories, then has the policy summarize compact skills from its own successful rollouts and validate them by comparing skill-augmented against skill-free runs, and finally distills only the helpful skill-guided action tokens back into the plain policy. The deployed agent keeps the benefit of skills while carrying no extra context or retrieval cost.</p>
+<h3>Why</h3><p>Skill-based agents usually depend on an external module to generate skills during training or on a retrieval step to pull skills at inference. Both raise engineering complexity, lengthen the context, and add deployment latency. The paper aims to keep the accuracy gains of reusable skills while removing the external generator and the runtime skill bank.</p>
+<h3>How</h3><p>Phase one warms up the policy with a group-relative RL update to acquire basic interaction ability and gather successful plain trajectories. Phase two is self-skill mining: the current policy summarizes short skills from its own successful rollouts and checks each by running paired skill-augmented and skill-free episodes. Phase three distills only the skill-guided action tokens that measurably help, using trajectory-level utility and action-level advantage, so the useful behavior moves into the plain policy weights.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Reinforcement learning to bring out reasoning behavior; SIRI turns RL toward mining and internalizing skills.</span></li>
+<li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">As-needed decomposition with an external planner; SIRI removes the external module and mines skills from the policy's own rollouts.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>DeepSeek-R1 produces long reasoning traces but does not compress recurring procedure into reusable, cheap-to-run skill; ADaPT structures tasks but leans on an external decomposition module. SIRI fixes the runtime cost by validating self-mined skills against a skill-free baseline and distilling only the beneficial action tokens into weights, so nothing extra is retrieved or prompted at inference.</p>
+<h3>Method vs predecessors</h3><p>Where ADaPT keeps planning external and R1 keeps reasoning in-context, SIRI internalizes procedure into the policy through a measured self-distillation loop. This sits next to the DeepSeek-R1 to Chain-of-Thought bridge already in the library, which contrasted reasoning-via-RL with reasoning-via-prompting; SIRI extends the RL side from eliciting reasoning to compressing and reusing skill.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Planning and decomposition agents, community 0.</span></li>
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Reasoning via reinforcement learning, community 0.</span></li>
+</ul>
+</div>
+</body>
+</html>
