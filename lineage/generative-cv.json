@@ -1,277 +1,299 @@
 {
-  "_generated": "2026-05-14",
-  "_source": "graphify_seed/graph.json + zotero_index.json",
-  "area": "generative-cv.md",
-  "edges": [
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "peebles2023_dit",
-      "target_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "peebles2023_dit",
-      "target_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": false
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "ramesh2022_dalle2",
-      "target_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "zhu2020_cyclegan",
-      "target_label": "CycleGAN: Unpaired Image Translation (Zhu 2020)",
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.6,
-      "cross_area": false
-    },
-    {
-      "source": "kingma2017_adam",
-      "source_label": "Adam Optimizer (Kingma & Ba 2017)",
-      "target": "zhu2020_cyclegan",
-      "target_label": "CycleGAN: Unpaired Image Translation (Zhu 2020)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "ramesh2022_dalle2",
-      "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
-      "target": "2605.26111",
-      "target_label": "Squeezing Capacity from Multimodal Large Language Models for Subject-driven Generation",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "peebles2023_dit",
-      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-      "target": "2605.26111",
-      "target_label": "Squeezing Capacity from Multimodal Large Language Models for Subject-driven Generation",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "2605.26111",
-      "target_label": "Squeezing Capacity from Multimodal Large Language Models for Subject-driven Generation",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "2605.26230",
-      "target_label": "GARD: Geometry-Aware Representation Denoising for Robust Multi-view 3D Reconstruction",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "peebles2023_dit",
-      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-      "target": "2605.26230",
-      "target_label": "GARD: Geometry-Aware Representation Denoising for Robust Multi-view 3D Reconstruction",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "peebles2023_dit",
-      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-      "target": "2605.02641",
-      "target_label": "Mamoda2.5: Enhancing a Unified Multimodal Model with DiT-MoE",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "2605.02641",
-      "target_label": "Mamoda2.5: Enhancing a Unified Multimodal Model with DiT-MoE",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "peebles2023_dit",
-      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-      "target": "2605.19995",
-      "target_label": "CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "2605.19995",
-      "target_label": "CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2605.19995",
-      "target_label": "CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "2605.26108",
-      "target_label": "Reinforcing Few-step Generators via Reward-Tilted Distribution Matching (RTDMD)",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "peebles2023_dit",
-      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-      "target": "2605.26108",
-      "target_label": "Reinforcing Few-step Generators via Reward-Tilted Distribution Matching (RTDMD)",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "DDPM: Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "2606.18043",
-      "target_label": "Uncertainty Quantification for Flow-Based Vision-Language-Action Models (2026)",
-      "relation": "builds_on",
-      "note": "Where DDPM established the denoising-diffusion generative process, this paper treats flow matching as its continuous-time relative and asks how confident each generated action is rather than only how realistic it looks."
-    },
-    {
-      "source": "peebles2023_dit",
-      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-      "target": "2606.18043",
-      "target_label": "Uncertainty Quantification for Flow-Based Vision-Language-Action Models (2026)",
-      "relation": "builds_on",
-      "note": "Where DiT showed a Transformer backbone can drive a diffusion model for sample quality, this paper adds calibrated uncertainty and an out-of-distribution detector on top of the flow-based action head."
-    },
-    {
-      "source": "peebles2023_dit",
-      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-      "target": "2606.02753",
-      "target_label": "MetaWorld: Scaling Multi-Agent Video World Models from Single-view Video Data (2026)",
-      "relation": "builds_on",
-      "note": "Where DiT denoises a single latent stream for one view, MetaWorld runs coupled streams tied with per-frame cross-attention so several views of one world stay geometrically consistent."
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "2606.02753",
-      "target_label": "MetaWorld: Scaling Multi-Agent Video World Models from Single-view Video Data (2026)",
-      "relation": "builds_on",
-      "note": "MetaWorld runs the DDPM denoising process across coupled views and adds a monocular decomposition step, so multi-view training data can be recovered from single-view footage."
-    },
-    {
-      "source": "peebles2023_dit",
-      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-      "target": "2606.09507",
-      "target_label": "Prisma-World: Camera-Controllable Multi-Agent Video World Model (2026)",
-      "relation": "builds_on",
-      "note": "Where DiT denoises one view, Prisma-World puts all views in one full-attention sequence and injects relative camera geometry so the denoising is joint and geometry-aware."
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "2606.09507",
-      "target_label": "Prisma-World: Camera-Controllable Multi-Agent Video World Model (2026)",
-      "relation": "builds_on",
-      "note": "Prisma-World makes the DDPM denoising geometry-aware and joint across views, trained on a synthetic dataset with exact camera labels."
-    },
-    {
-      "source": "peebles2023_dit",
-      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-      "target": "2607.02515",
-      "target_label": "PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation (2026)",
-      "relation": "builds_on",
-      "note": "Where DiT applied a plain diffusion transformer to image latents, PointDiT applies the same denoiser to raw point-map patches for monocular geometry.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "2607.02515",
-      "target_label": "PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation (2026)",
-      "relation": "builds_on",
-      "note": "Where DDPM defined the denoising diffusion objective for image synthesis, PointDiT reuses that objective to denoise 3D point maps directly in pixel space.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "B7F2Q998",
-      "source_label": "ViT (Dosovitskiy et al. 2021)",
-      "target": "2607.02515",
-      "target_label": "PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation (2026)",
-      "relation": "builds_on",
-      "note": "Where ViT set the plain vision transformer backbone, PointDiT keeps it unchanged and conditions the denoiser on DINOv3 image tokens.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "DDPM (Ho 2020)",
-      "target": "2607.05722",
-      "target_label": "Nemotron-Labs-Diffusion: Tri-Mode Language Model (2026)",
-      "relation": "builds_on",
-      "note": "Where DDPM applies denoising diffusion to continuous images, Nemotron-Labs-Diffusion trains the same objective jointly with autoregression so diffusion supplies parallel lookahead in a language model.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    }
-  ],
-  "hyperedges": [],
-  "cross_area_bridges": [
-    {
-      "from": "cyclegan_zhu2020",
-      "to": "ho2020_ddpm",
-      "reason": "semantically_similar (generative-cv)"
-    }
-  ]
+ "_generated": "2026-05-14",
+ "_source": "graphify_seed/graph.json + zotero_index.json",
+ "area": "generative-cv.md",
+ "edges": [
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "peebles2023_dit",
+   "target_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "peebles2023_dit",
+   "target_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": false
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "ramesh2022_dalle2",
+   "target_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "zhu2020_cyclegan",
+   "target_label": "CycleGAN: Unpaired Image Translation (Zhu 2020)",
+   "relation": "semantically_similar_to",
+   "confidence": "INFERRED",
+   "confidence_score": 0.6,
+   "cross_area": false
+  },
+  {
+   "source": "kingma2017_adam",
+   "source_label": "Adam Optimizer (Kingma & Ba 2017)",
+   "target": "zhu2020_cyclegan",
+   "target_label": "CycleGAN: Unpaired Image Translation (Zhu 2020)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "ramesh2022_dalle2",
+   "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+   "target": "2605.26111",
+   "target_label": "Squeezing Capacity from Multimodal Large Language Models for Subject-driven Generation",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "target": "2605.26111",
+   "target_label": "Squeezing Capacity from Multimodal Large Language Models for Subject-driven Generation",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "2605.26111",
+   "target_label": "Squeezing Capacity from Multimodal Large Language Models for Subject-driven Generation",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "2605.26230",
+   "target_label": "GARD: Geometry-Aware Representation Denoising for Robust Multi-view 3D Reconstruction",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "target": "2605.26230",
+   "target_label": "GARD: Geometry-Aware Representation Denoising for Robust Multi-view 3D Reconstruction",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "target": "2605.02641",
+   "target_label": "Mamoda2.5: Enhancing a Unified Multimodal Model with DiT-MoE",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "2605.02641",
+   "target_label": "Mamoda2.5: Enhancing a Unified Multimodal Model with DiT-MoE",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "target": "2605.19995",
+   "target_label": "CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "2605.19995",
+   "target_label": "CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2605.19995",
+   "target_label": "CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "2605.26108",
+   "target_label": "Reinforcing Few-step Generators via Reward-Tilted Distribution Matching (RTDMD)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "target": "2605.26108",
+   "target_label": "Reinforcing Few-step Generators via Reward-Tilted Distribution Matching (RTDMD)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "DDPM: Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "2606.18043",
+   "target_label": "Uncertainty Quantification for Flow-Based Vision-Language-Action Models (2026)",
+   "relation": "builds_on",
+   "note": "Where DDPM established the denoising-diffusion generative process, this paper treats flow matching as its continuous-time relative and asks how confident each generated action is rather than only how realistic it looks."
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "target": "2606.18043",
+   "target_label": "Uncertainty Quantification for Flow-Based Vision-Language-Action Models (2026)",
+   "relation": "builds_on",
+   "note": "Where DiT showed a Transformer backbone can drive a diffusion model for sample quality, this paper adds calibrated uncertainty and an out-of-distribution detector on top of the flow-based action head."
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "target": "2606.02753",
+   "target_label": "MetaWorld: Scaling Multi-Agent Video World Models from Single-view Video Data (2026)",
+   "relation": "builds_on",
+   "note": "Where DiT denoises a single latent stream for one view, MetaWorld runs coupled streams tied with per-frame cross-attention so several views of one world stay geometrically consistent."
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "2606.02753",
+   "target_label": "MetaWorld: Scaling Multi-Agent Video World Models from Single-view Video Data (2026)",
+   "relation": "builds_on",
+   "note": "MetaWorld runs the DDPM denoising process across coupled views and adds a monocular decomposition step, so multi-view training data can be recovered from single-view footage."
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "target": "2606.09507",
+   "target_label": "Prisma-World: Camera-Controllable Multi-Agent Video World Model (2026)",
+   "relation": "builds_on",
+   "note": "Where DiT denoises one view, Prisma-World puts all views in one full-attention sequence and injects relative camera geometry so the denoising is joint and geometry-aware."
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "2606.09507",
+   "target_label": "Prisma-World: Camera-Controllable Multi-Agent Video World Model (2026)",
+   "relation": "builds_on",
+   "note": "Prisma-World makes the DDPM denoising geometry-aware and joint across views, trained on a synthetic dataset with exact camera labels."
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "target": "2607.02515",
+   "target_label": "PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation (2026)",
+   "relation": "builds_on",
+   "note": "Where DiT applied a plain diffusion transformer to image latents, PointDiT applies the same denoiser to raw point-map patches for monocular geometry.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "2607.02515",
+   "target_label": "PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation (2026)",
+   "relation": "builds_on",
+   "note": "Where DDPM defined the denoising diffusion objective for image synthesis, PointDiT reuses that objective to denoise 3D point maps directly in pixel space.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "B7F2Q998",
+   "source_label": "ViT (Dosovitskiy et al. 2021)",
+   "target": "2607.02515",
+   "target_label": "PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation (2026)",
+   "relation": "builds_on",
+   "note": "Where ViT set the plain vision transformer backbone, PointDiT keeps it unchanged and conditions the denoiser on DINOv3 image tokens.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "DDPM (Ho 2020)",
+   "target": "2607.05722",
+   "target_label": "Nemotron-Labs-Diffusion: Tri-Mode Language Model (2026)",
+   "relation": "builds_on",
+   "note": "Where DDPM applies denoising diffusion to continuous images, Nemotron-Labs-Diffusion trains the same objective jointly with autoregression so diffusion supplies parallel lookahead in a language model.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "2607.11886",
+   "target_label": "Read It Back: Pretrained MLLMs Are Zero-Shot Reward Models for Text-to-Image Generation (2026)",
+   "relation": "builds_on",
+   "note": "Where DDPM defines how to sample images, SpectraReward defines how to grade them during reinforcement-learning fine-tuning, using prompt-recovery likelihood rather than a trained scorer.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion with Transformers (Peebles 2023)",
+   "target": "2607.11886",
+   "target_label": "Read It Back: Pretrained MLLMs Are Zero-Shot Reward Models for Text-to-Image Generation (2026)",
+   "relation": "builds_on",
+   "note": "Where DiT sets the transformer-backbone diffusion class being fine-tuned, SpectraReward supplies a label-free reward from a frozen multimodal model's own image-conditioned prompt log-likelihood.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  }
+ ],
+ "hyperedges": [],
+ "cross_area_bridges": [
+  {
+   "from": "cyclegan_zhu2020",
+   "to": "ho2020_ddpm",
+   "reason": "semantically_similar (generative-cv)"
+  }
+ ]
 }

@@ -1,254 +1,276 @@
 {
-  "_generated": "2026-05-14",
-  "_source": "graphify_seed/graph.json + zotero_index.json",
-  "area": "llm.md",
-  "edges": [
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "deepseek2025_r1",
-      "target_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "cross_area": true
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "deepseek2024_v3",
-      "target_label": "DeepSeek-V3 Technical Report (2024)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2605.06638",
-      "target_label": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2605.06638",
-      "target_label": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2605.07153",
-      "target_label": "Beyond Reasoning: Reinforcement Learning Unlocks Parametric Knowledge in LLMs",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2605.23071",
-      "target_label": "The Efficiency Frontier: A Unified Framework for Cost-Performance Optimization in LLM Context Management",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2605.26099",
-      "target_label": "Language Models Need Sleep",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "li2024_harmamba",
-      "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
-      "target": "2605.26099",
-      "target_label": "Language Models Need Sleep",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "liu2024_swinumamba",
-      "source_label": "Swin-UMamba: Mamba-based UNet (Liu 2024)",
-      "target": "2605.26099",
-      "target_label": "Language Models Need Sleep",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2024_v3",
-      "source_label": "DeepSeek-V3 Technical Report (2024)",
-      "target": "2606.03458",
-      "target_label": "KVarN: Variance-Normalized KV-Cache Quantization",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2606.03458",
-      "target_label": "KVarN: Variance-Normalized KV-Cache Quantization",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2606.04511",
-      "target_label": "SparDA: Sparse Decoupled Attention for Efficient Long-Context LLM Inference",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2606.05988",
-      "target_label": "Compress-Distill: Reasoning Trace Compression for Efficient Knowledge Distillation",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2606.05988",
-      "target_label": "Compress-Distill: Reasoning Trace Compression for Efficient Knowledge Distillation",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "BB78CC56",
-      "source_label": "Causal Inference Intro (Pearl 2010)",
-      "target": "2607.01104",
-      "target_label": "CausalMix: Data Mixture as Causal Inference for Language Model Training (2026)",
-      "relation": "builds_on",
-      "note": "Where Pearl's framework estimates the effect of a treatment on an outcome in a fixed observational setting, CausalMix makes the data mixture the treatment and the training result the outcome, conditioning on pool features so it can predict the effect of an unseen mixture on an unseen pool.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2607.01104",
-      "target_label": "CausalMix: Data Mixture as Causal Inference for Language Model Training (2026)",
-      "relation": "builds_on",
-      "note": "DeepSeek-R1 established long chain-of-thought traces as valuable training data; CausalMix chooses the quantity of that long-CoT data in a principled way through treatment-effect estimation.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2607.02980",
-      "target_label": "HiLS-Attention: Hierarchical Sparse Attention Done Right (2026)",
-      "relation": "builds_on",
-      "note": "Where the Transformer read every token pair at quadratic cost, HiLS keeps content-based addressing but only over chunks it learns to retrieve under the language-modeling loss, so the retrieval scores enter the attention computation directly and selection is differentiable.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "li2024_harmamba",
-      "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
-      "target": "2607.02980",
-      "target_label": "HiLS-Attention: Hierarchical Sparse Attention Done Right (2026)",
-      "relation": "builds_on",
-      "note": "Where Mamba compressed history into a fixed recurrent state and lost content-based random access, HiLS keeps attention's content addressing over selected chunks while still cutting cost below quadratic.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "deepseek2024_v3",
-      "source_label": "DeepSeek-V3 (2024)",
-      "target": "2607.05147",
-      "target_label": "DSpark: Confidence-Scheduled Speculative Decoding (2026)",
-      "relation": "builds_on",
-      "note": "Where DeepSeek-V3's multi-token prediction drafts several tokens in parallel but loses acceptance on later ones, DSpark restores within-block dependency with a small sequential head and schedules verification by load.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "743XA29Y",
-      "source_label": "DeepSeek-V2 (2024)",
-      "target": "2607.05147",
-      "target_label": "DSpark: Confidence-Scheduled Speculative Decoding (2026)",
-      "relation": "builds_on",
-      "note": "DeepSeek-V2 is the upstream architecture whose high-concurrency serving stack DSpark accelerates.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2607.05147",
-      "target_label": "DSpark: Confidence-Scheduled Speculative Decoding (2026)",
-      "relation": "builds_on",
-      "note": "The autoregressive Transformer is the backbone DSpark speeds up at the serving-systems layer rather than the model-quality layer.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2607.05722",
-      "target_label": "Nemotron-Labs-Diffusion: Tri-Mode Language Model (2026)",
-      "relation": "builds_on",
-      "note": "The autoregressive Transformer supplies left-to-right language priors and verification in the joint objective.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2024_v3",
-      "source_label": "DeepSeek-V3 (2024)",
-      "target": "2607.05722",
-      "target_label": "Nemotron-Labs-Diffusion: Tri-Mode Language Model (2026)",
-      "relation": "builds_on",
-      "note": "Where DeepSeek-V3 decodes with multi-token prediction, Nemotron-Labs-Diffusion displaces it with diffusion drafting plus autoregressive verification in self-speculation mode.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    }
-  ],
-  "hyperedges": [],
-  "cross_area_bridges": [
-    {
-      "from": "deepseek2025_r1",
-      "to": "wei2023_cot",
-      "reason": "semantically_similar (reasoning-via-rl vs prompting)"
-    }
-  ]
+ "_generated": "2026-05-14",
+ "_source": "graphify_seed/graph.json + zotero_index.json",
+ "area": "llm.md",
+ "edges": [
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "deepseek2025_r1",
+   "target_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "relation": "semantically_similar_to",
+   "confidence": "INFERRED",
+   "confidence_score": 0.75,
+   "cross_area": true
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "deepseek2024_v3",
+   "target_label": "DeepSeek-V3 Technical Report (2024)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2605.06638",
+   "target_label": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2605.06638",
+   "target_label": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2605.07153",
+   "target_label": "Beyond Reasoning: Reinforcement Learning Unlocks Parametric Knowledge in LLMs",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2605.23071",
+   "target_label": "The Efficiency Frontier: A Unified Framework for Cost-Performance Optimization in LLM Context Management",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2605.26099",
+   "target_label": "Language Models Need Sleep",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "li2024_harmamba",
+   "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+   "target": "2605.26099",
+   "target_label": "Language Models Need Sleep",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "liu2024_swinumamba",
+   "source_label": "Swin-UMamba: Mamba-based UNet (Liu 2024)",
+   "target": "2605.26099",
+   "target_label": "Language Models Need Sleep",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2024_v3",
+   "source_label": "DeepSeek-V3 Technical Report (2024)",
+   "target": "2606.03458",
+   "target_label": "KVarN: Variance-Normalized KV-Cache Quantization",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2606.03458",
+   "target_label": "KVarN: Variance-Normalized KV-Cache Quantization",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2606.04511",
+   "target_label": "SparDA: Sparse Decoupled Attention for Efficient Long-Context LLM Inference",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2606.05988",
+   "target_label": "Compress-Distill: Reasoning Trace Compression for Efficient Knowledge Distillation",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2606.05988",
+   "target_label": "Compress-Distill: Reasoning Trace Compression for Efficient Knowledge Distillation",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "BB78CC56",
+   "source_label": "Causal Inference Intro (Pearl 2010)",
+   "target": "2607.01104",
+   "target_label": "CausalMix: Data Mixture as Causal Inference for Language Model Training (2026)",
+   "relation": "builds_on",
+   "note": "Where Pearl's framework estimates the effect of a treatment on an outcome in a fixed observational setting, CausalMix makes the data mixture the treatment and the training result the outcome, conditioning on pool features so it can predict the effect of an unseen mixture on an unseen pool.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2607.01104",
+   "target_label": "CausalMix: Data Mixture as Causal Inference for Language Model Training (2026)",
+   "relation": "builds_on",
+   "note": "DeepSeek-R1 established long chain-of-thought traces as valuable training data; CausalMix chooses the quantity of that long-CoT data in a principled way through treatment-effect estimation.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2607.02980",
+   "target_label": "HiLS-Attention: Hierarchical Sparse Attention Done Right (2026)",
+   "relation": "builds_on",
+   "note": "Where the Transformer read every token pair at quadratic cost, HiLS keeps content-based addressing but only over chunks it learns to retrieve under the language-modeling loss, so the retrieval scores enter the attention computation directly and selection is differentiable.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "li2024_harmamba",
+   "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+   "target": "2607.02980",
+   "target_label": "HiLS-Attention: Hierarchical Sparse Attention Done Right (2026)",
+   "relation": "builds_on",
+   "note": "Where Mamba compressed history into a fixed recurrent state and lost content-based random access, HiLS keeps attention's content addressing over selected chunks while still cutting cost below quadratic.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "deepseek2024_v3",
+   "source_label": "DeepSeek-V3 (2024)",
+   "target": "2607.05147",
+   "target_label": "DSpark: Confidence-Scheduled Speculative Decoding (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-V3's multi-token prediction drafts several tokens in parallel but loses acceptance on later ones, DSpark restores within-block dependency with a small sequential head and schedules verification by load.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "743XA29Y",
+   "source_label": "DeepSeek-V2 (2024)",
+   "target": "2607.05147",
+   "target_label": "DSpark: Confidence-Scheduled Speculative Decoding (2026)",
+   "relation": "builds_on",
+   "note": "DeepSeek-V2 is the upstream architecture whose high-concurrency serving stack DSpark accelerates.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2607.05147",
+   "target_label": "DSpark: Confidence-Scheduled Speculative Decoding (2026)",
+   "relation": "builds_on",
+   "note": "The autoregressive Transformer is the backbone DSpark speeds up at the serving-systems layer rather than the model-quality layer.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2607.05722",
+   "target_label": "Nemotron-Labs-Diffusion: Tri-Mode Language Model (2026)",
+   "relation": "builds_on",
+   "note": "The autoregressive Transformer supplies left-to-right language priors and verification in the joint objective.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2024_v3",
+   "source_label": "DeepSeek-V3 (2024)",
+   "target": "2607.05722",
+   "target_label": "Nemotron-Labs-Diffusion: Tri-Mode Language Model (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-V3 decodes with multi-token prediction, Nemotron-Labs-Diffusion displaces it with diffusion drafting plus autoregressive verification in self-speculation mode.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2607.11614",
+   "target_label": "Extending LLM Context via Associative Recurrent Memory (2026)",
+   "relation": "builds_on",
+   "note": "Where the Transformer keeps information inside a fixed-length attention window, this work adds a recurrent associative memory that carries a compressed state across segments, so effective context grows without full quadratic attention over everything.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "huang2026_memory",
+   "source_label": "Memory Mechanisms Survey (Huang 2026)",
+   "target": "2607.11614",
+   "target_label": "Extending LLM Context via Associative Recurrent Memory (2026)",
+   "relation": "builds_on",
+   "note": "Where the memory survey catalogued mechanisms, this work commits to one and supplies the training curriculum and selective-layer placement that make it hold past the original context limit.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  }
+ ],
+ "hyperedges": [],
+ "cross_area_bridges": [
+  {
+   "from": "deepseek2025_r1",
+   "to": "wei2023_cot",
+   "reason": "semantically_similar (reasoning-via-rl vs prompting)"
+  }
+ ]
 }
