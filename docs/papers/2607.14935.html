@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VideoChat3 — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+<h2>VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding</h2>
+<p class="paper-meta">Li, Zhu, Zeng, Dong, Wu, Zhang, Yang, Wang et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.14935" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+<h3>What</h3>
+<p>VideoChat3 is a fully open video multimodal LLM aimed at broad generalization at low cost. It adds an Inflated 3D Vision Transformer and an adaptive frame-resolution scheme for streaming perception, and it releases a video data synthesis pipeline with three training sets covering general, long-form, and streaming video. With 4B parameters it reports beating prior open-source models of equal or larger size on general, long-form, and streaming benchmarks, and releases code, data, and weights.</p>
+<h3>Why</h3>
+<p>Open-source video models tend to work only in narrow domains, cost too much to run because video makes many tokens, and ship only partially, with training code or datasets withheld. That mix blocks reproducibility and slows shared progress. A generalist, efficient, and fully open model is needed so the community can build on a common base rather than re-deriving each piece.</p>
+<h3>How</h3>
+<p>For efficiency, the Inflated 3D Vision Transformer extends a 2D image encoder to model space and time together, and Adaptive Frame Resolution for Streaming Video Perception lowers the cost of processing frames during training and inference. For effectiveness, a scalable synthesis pipeline curates three datasets (Academic2M, LV116K, OL617K) spanning general, long-form, and streaming video. Combining these, the 4B model reaches a balance of generalization and efficiency and surpasses larger open-source baselines on the reported benchmarks.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="B7F2Q998.html">ViT (Dosovitskiy 2021)</a><span class="lineage-note">The image Vision Transformer that VideoChat3 inflates into a 3D spatiotemporal encoder.</span></li>
+<li><a href="SC8KWYVK.html">Flamingo (Alayrac 2022)</a><span class="lineage-note">Established connecting a frozen vision encoder to a language model for multimodal understanding.</span></li>
+<li><a href="4N5WXKPI.html">BLIP-2 (Li 2023)</a><span class="lineage-note">Lightweight bridging between a vision encoder and an LLM.</span></li>
+<li><a href="RYGRHCG3.html">Deep Video Action Recognition Survey (Zhu 2020)</a><span class="lineage-note">Reference frame for the video understanding tasks evaluated.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Flamingo and BLIP-2 attach a frozen 2D vision encoder to an LLM, which handles images well but makes long video expensive and domain-narrow. VideoChat3 fixes the token-cost and generalization problem by inflating the encoder to 3D and adding adaptive frame resolution, reaching stronger video results at only 4B parameters while releasing the full stack.</p>
+<h3>Method vs predecessors</h3>
+<p>Where ViT tokenizes a single image and earlier video MLLMs freeze a 2D encoder and sample frames uniformly, VideoChat3 builds a spatiotemporal tokenizer from an inflated Vision Transformer and varies frame resolution for streaming input. The other lever is data: a synthesis pipeline produces general, long-form, and streaming training sets rather than relying on a single-domain corpus.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Vision-language generative model in the same community.</span></li>
+<li><a href="64H6TK5Y.html">FLIP (Li 2022)</a><span class="lineage-note">Efficiency-focused vision-language pretraining.</span></li>
+</ul>
+</div>
+</body>
+</html>

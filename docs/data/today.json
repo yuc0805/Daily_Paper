@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-15",
+  "date": "2026-07-17",
   "papers": [
     {
-      "zotero_key": "2607.03089",
-      "title": "STELLA: Efficient Sensor-to-LLM Translation for On-Device Human Activity Recognition",
-      "authors": "Bao et al.",
+      "zotero_key": "2607.14777",
+      "title": "SEED: Self-Evolving On-Policy Distillation for Agentic Reinforcement Learning",
+      "authors": "Wu et al.",
       "year": 2026,
-      "what": "Reframes LLM-based activity recognition as sensor tokenization: a light hierarchical tokenizer turns wearable streams into activity-aware tokens for a frozen LLM, with on-device personalization, keeping recognition private and real-time on edge hardware.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "Sensor2Text (Chen 2024); SSL for HAR (Yuan 2024); LLMs are Few-Shot Health Learners (Liu 2023)"
-    },
-    {
-      "zotero_key": "2607.11886",
-      "title": "Read It Back: Pretrained MLLMs Are Zero-Shot Reward Models for Text-to-Image Generation",
-      "authors": "Huang et al.",
-      "year": 2026,
-      "what": "SpectraReward is a training-free RL reward for image generators: it grades an image by how well the prompt can be recovered from it in one forward pass, reusing a frozen MLLM's alignment with no labels or reward-model training.",
-      "area_label": "Generative CV",
-      "area_slug": "generative-cv",
-      "builds_on": "DDPM (Ho 2020); DiT (Peebles 2023)"
-    },
-    {
-      "zotero_key": "2606.02355",
-      "title": "SIRI: Self-Internalizing Reinforcement Learning with Intrinsic Skills for LLM Agent Training",
-      "authors": "Xiamen/Meituan et al.",
-      "year": 2026,
-      "what": "A three-phase RL method that lets an agent mine skills from its own successful rollouts, validate them against skill-free runs, and distill only helpful action tokens into weights, so no skill bank or extra context is needed at inference.",
+      "what": "Turns an agent's own finished trajectories into natural-language hindsight skills, then re-scores actions with and without those skills to build a dense token-level self-distillation signal that is trained jointly with outcome-based reinforcement learning.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "DeepSeek-R1 (2025); ADaPT (Prasad 2023)"
+      "builds_on": "DeepSeek-R1 (2025); ADaPT (Prasad 2023); LATS (Zhou 2024)"
     },
     {
-      "zotero_key": "2607.11614",
-      "title": "Extending LLM Context via Associative Recurrent Memory",
-      "authors": "Rodkin et al.",
+      "zotero_key": "2607.13399",
+      "title": "Demystifying On-Policy Distillation: Roles, Pathologies, and Regulations",
+      "authors": "Wang et al.",
       "year": 2026,
-      "what": "A recipe that extends usable context by placing associative recurrent memory in selected layers and training with a long-context curriculum, processing inputs past the original limit without full quadratic attention.",
+      "what": "Shows on-policy distillation acts as an exploration catalyst whose success depends on signal quality, names two failure modes (student-teacher mismatch, length exploitation), and fixes them with advantage clipping and log-scale compression.",
       "area_label": "LLM",
       "area_slug": "llm",
-      "builds_on": "Attention Is All You Need (Vaswani 2017); Memory Mechanisms Survey (Huang 2026)"
+      "builds_on": "DeepSeek-R1 (2025); Chain-of-Thought (Wei 2023)"
+    },
+    {
+      "zotero_key": "2607.14935",
+      "title": "VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding",
+      "authors": "Li et al.",
+      "year": 2026,
+      "what": "A fully open 4B video multimodal LLM that inflates a Vision Transformer to 3D and adds adaptive frame resolution for streaming, beating larger open-source models on general, long-form, and streaming video benchmarks.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "ViT (Dosovitskiy 2021); Flamingo (Alayrac 2022); BLIP-2 (Li 2023)"
+    },
+    {
+      "zotero_key": "2607.14076",
+      "title": "From Pixels to States: Rethinking Interactive World Models as Game Engines",
+      "authors": "Li et al.",
+      "year": 2026,
+      "what": "Reframes interactive world models around a game engine's explicit action-state-observation loop, argues persistent explicit state matters more than pixel prediction, and releases a 90-hour Black Myth: Wukong dataset with ground-truth states.",
+      "area_label": "World Model / RL",
+      "area_slug": "world-model-rl",
+      "builds_on": "World Models (Ha & Schmidhuber 2018); Navigation World Models; Offline RL (Levine 2020)"
     }
   ]
 }

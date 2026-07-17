@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demystifying On-Policy Distillation — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>Demystifying On-Policy Distillation: Roles, Pathologies, and Regulations</h2>
+<p class="paper-meta">Wang, Wang, Chen, Xue, Fang, Yu, Wong &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.13399" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a></p>
+<h3>What</h3>
+<p>This paper is a systematic study of on-policy distillation in LLM post-training. It frames on-policy distillation as an exploration catalyst that steers a student toward correct reasoning paths through dense token-level guidance, without raising the student's capability ceiling. It then names two failure modes and tests two lightweight regularizers that keep the guiding signal faithful.</p>
+<h3>Why</h3>
+<p>On-policy distillation has become a common post-training paradigm, but its training dynamics were poorly understood, so practitioners could not say when it helps or why it sometimes fails. Without that understanding, teams scale the teacher and hope, or watch the student game the objective. The paper argues that signal quality, not teacher size, decides the outcome, and that this needs to be shown rather than assumed.</p>
+<h3>How</h3>
+<p>The authors first establish the role of on-policy distillation by showing that prompt diversity matters more than per-problem sampling count, and that effectiveness depends on the quality of the guiding signal. They then isolate two pathologies: student-teacher mismatch, where a large distributional gap makes the signal misalign with task correctness, and length exploitation, where the aggregated token-level objective rewards padding or truncation instead of reasoning. To tame these, they apply advantage clipping and log-scale compression. Across seven benchmarks these regulations remove length hacking and stably beat plain on-policy distillation and reinforcement-learning-with-verifiable-rewards baselines.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Reinforcement-learning-with-verifiable-rewards baseline this study compares against.</span></li>
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Reasoning paths are the target behavior that distillation tries to transfer.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1's verifiable-reward training gives a correct-or-not signal but no account of how a dense distillation signal shapes exploration. This paper supplies that account and shows two concrete ways the dense signal breaks, then fixes them, so distillation stably surpasses the verifiable-reward baseline rather than matching it unpredictably.</p>
+<h3>Method vs predecessors</h3>
+<p>Where prior work treated a larger teacher as the lever for better distillation, this paper shows the lever is signal fidelity, achieved with two cheap operations on the advantage rather than a bigger model. It reframes on-policy distillation as exploration guidance, which is a different claim from the usual "compress the teacher" framing behind classic knowledge distillation.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Large model whose post-training pipeline motivates the distillation setting.</span></li>
+</ul>
+</div>
+</body>
+</html>

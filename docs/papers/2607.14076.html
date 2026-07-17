@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Pixels to States — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/world-model-rl.html" class="back-link">&larr; Back to Area</a>
+<h2>From Pixels to States: Rethinking Interactive World Models as Game Engines</h2>
+<p class="paper-meta">Li, Meng, Shi, Zhai, Tan, Li, Zhang &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.14076" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/world-model-rl.html">World Model / RL</a></p>
+<h3>What</h3>
+<p>This paper reviews interactive world models through the lens of a conventional game engine, which runs a recurrent action-state-observation loop: player actions update an explicit game state by fixed rules, and observations are rendered from that state. It organizes existing methods along four axes (player action control, game state dynamics, state-observation persistence, and real-time generation) and discusses the trade-offs of each family. It also releases a data engine for Black Myth: Wukong with over 90 hours of gameplay carrying frame-aligned actions, ground-truth states, and observations.</p>
+<h3>Why</h3>
+<p>Video generative models can predict future frames from user actions and are increasingly viewed as next-generation game engines, but a real interactive world needs outcomes that follow rules over evolving conditions, consequences that persist over long horizons, and a loop that runs in real time. Models that predict pixels directly tend to drift and forget, because they carry no explicit state. The field lacked both a clear organizing framework and a dataset with ground-truth states to train and measure against.</p>
+<h3>How</h3>
+<p>The paper takes the game engine's action-state-observation loop as an organizing lens and, for each of the four dimensions, states the capability an interactive world needs, groups existing approaches into families, and weighs their strengths and costs. It complements this with a scalable data engine that records Black Myth: Wukong gameplay, aligning each frame with the player action, the ground-truth game state, and the visual observation, plus structured and semantic annotations, so models can be trained toward explicit, persistent state rather than pixel reconstruction alone.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="938DAXZT.html">World Models (Ha &amp; Schmidhuber 2018)</a><span class="lineage-note">Introduced a compact latent recurrent state predicting future observations; this paper argues that state should be explicit and rule-following.</span></li>
+<li><a href="JQ7JD8AR.html">Navigation World Models</a><span class="lineage-note">Applied learned world models to action-conditioned navigation.</span></li>
+<li><a href="ZULLM3UF.html">Offline Reinforcement Learning (Levine 2020)</a><span class="lineage-note">Learning policies from logged interaction, relevant to the released gameplay dataset.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>The original World Models keep an implicit latent state, and recent generative world models predict pixels directly; neither maintains an explicit rule-following state, so long-horizon consequences are not guaranteed to persist. This paper reframes the target as the game engine's explicit state loop and supplies a dataset with ground-truth states, so persistence can be trained and measured rather than hoped for.</p>
+<h3>Method vs predecessors</h3>
+<p>Where prior world models compress dynamics into a learned latent or into a pixel predictor, this work treats the explicit game state as the object to model and evaluate, and it frames the whole space along four engine-inspired axes. The contribution is an organizing framework plus a state-annotated dataset, not a single new architecture.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="P92FLHJ2.html">World Model Evaluation</a><span class="lineage-note">Shares the concern of measuring world-model quality beyond pixel error.</span></li>
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Transformer diffusion backbone of the video generators discussed.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEED: Self-Evolving On-Policy Distillation for Agentic RL — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>SEED: Self-Evolving On-Policy Distillation for Agentic Reinforcement Learning</h2>
+<p class="paper-meta">Wu, Yang, Lu, Zhang, Shen, Feng, Luo, Lian, Zhang, Wen, Tao &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.14777" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3>
+<p>SEED trains an LLM agent for long-horizon tasks by turning its own finished trajectories into training-time hindsight skills and distilling their effect back into the policy. The current policy both collects trajectories and analyzes them, writing natural-language rules that capture reusable workflows, decisive observations, or failure-avoidance heuristics. It then re-scores sampled actions under plain and skill-augmented contexts and converts the resulting probability shift into a dense token-level signal, optimized jointly with ordinary outcome-based reinforcement learning.</p>
+<h3>Why</h3>
+<p>Outcome-based reinforcement learning gives an agent one reward per episode, which says little about which intermediate decisions were good. That leaves a supervision gap between episode-level outcomes and token-level policy learning, so long multi-turn tasks with tool use and environment feedback are slow to improve and unstable. Prior agent methods add planning or search structure at inference time to compensate, but that structure is external and does not become part of the model.</p>
+<h3>How</h3>
+<p>SEED first fine-tunes the policy to read a completed trajectory and produce natural-language skills. During reinforcement learning the same policy plays two roles: it collects trajectories and it analyzes them into hindsight skills, so the analyzer improves as the policy improves. SEED re-scores each sampled action under an ordinary context and under a skill-augmented context; the difference in action probability becomes a dense token-level on-policy distillation signal, which is added to the outcome reward. Because the analyzer is the current policy, the auxiliary signal stays matched to the current trajectory distribution. Reported results on text and vision agentic benchmarks show gains in accuracy and sample efficiency and transfer to unseen scenarios.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Reasoning trained purely from outcome-based reinforcement learning; SEED keeps this reward and adds a dense token-level signal.</span></li>
+<li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">As-needed decomposition and planning for agents; SEED replaces external planning with internalized hindsight skills.</span></li>
+<li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Tree search over agent actions at inference; SEED moves the improvement into the weights instead.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1's single trajectory-level reward cannot tell the model which mid-episode decisions mattered. SEED fixes that by re-scoring actions with and without self-written skills, so intermediate steps receive dense guidance. Against ADaPT and LATS, which need a planning routine or a search tree at test time, SEED distills the benefit into the policy so nothing extra is required at inference.</p>
+<h3>Method vs predecessors</h3>
+<p>Earlier agent methods either optimize a sparse outcome reward or bolt on an external search or planning module. SEED instead builds its own dense supervision from completed rollouts: the probability shift induced by skill-augmented context is the training signal. Because the policy is also the skill analyzer, the supervision co-evolves with the policy rather than coming from a frozen teacher, which is what keeps the distillation on-policy.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Reasoning-path elicitation; SEED's cross-area bridge to DeepSeek-R1 spans prompting versus reinforcement learning.</span></li>
+<li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Tool-using agents in the same community.</span></li>
+</ul>
+</div>
+</body>
+</html>
