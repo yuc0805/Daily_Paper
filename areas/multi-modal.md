@@ -24,6 +24,7 @@
 2026-07 | SenseNova-Vision (2607.06560) | poses detection, OCR, segmentation, depth, and pose as one generation problem in a unified multimodal model
 2026-07 | MentalThink (2607.03530) | a multimodal model reasons over an executable SVG drawing surface it renders and revises across turns
 2026-07 | Light-Omni (2607.05511) | dual-state memory (consolidated global script plus latent action state) gives reflexive long-video answers in near-constant time
+2026-07 | VideoChat3 (2607.14935) | fully open 4B video MLLM with an inflated 3D ViT and adaptive frame resolution for cheaper streaming perception
 ### Paper List
 
 [KNOWN] [2021] Dosovitskiy et al. — ViT. zotero_key:B7F2Q998.
@@ -50,9 +51,11 @@
 
 [2026] 2607.03530 — MentalThink: Shaping Thoughts in Mental SVG World. [https://arxiv.org/abs/2607.03530](https://arxiv.org/abs/2607.03530). external.
 [2026] 2607.05511 — Light-Omni: Reflex over Reasoning in Agentic Video Understanding with Long-Term Memory. [https://arxiv.org/abs/2607.05511](https://arxiv.org/abs/2607.05511). external.
+[2026] 2607.14935 — VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding. [https://arxiv.org/abs/2607.14935](https://arxiv.org/abs/2607.14935). external.
 
 ### Recent Activity
 
+2026-07-17 | 2607.14935 added | VideoChat3 is a fully open 4B video multimodal LLM that introduces an Inflated 3D Vision Transformer and Adaptive Frame Resolution to cut the cost of turning video into tokens, releases a video data synthesis pipeline plus general, long-form, and streaming training sets, and reports beating prior open-source models of equal or larger size across those benchmarks; Tier B
 2026-07-14 | 2607.05511 added | Light-Omni keeps two states in one forward pass, a consolidated global script from hierarchical memory merging and a latent action state, so it answers long-video questions reflexively without search-then-aggregate loops; against M3-Agent it reports a 2.4% accuracy gain, a 12.1x speedup, 2.6x better GPU memory use, and near-constant ~2.3s latency regardless of video length; Tier B
 2026-07-13 | 2607.03530 added | a multimodal model writes SVG code as an intermediate reasoning step, renders it deterministically, reads the image back, and revises over several turns under reinforcement learning; reports 55.1% on VSIBench and 76.0% on MindCube; Tier A
 2026-07-09 | 2607.06560 added | SenseNova-Vision poses many vision tasks (detection, OCR, keypoints, segmentation, depth, normals, camera pose) as one generation problem with no task-specific heads, training on a 50M instruction-response corpus converted from standard annotations and matching leading task-specialized systems; Tier B

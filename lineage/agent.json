@@ -595,6 +595,39 @@
    "confidence": "INFERRED",
    "confidence_score": 0.9,
    "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2607.14777",
+   "target_label": "SEED: Self-Evolving On-Policy Distillation (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-R1 gives a single trajectory-level reward, SEED adds a dense token-level signal by re-scoring each action with and without self-written hindsight skills, so intermediate decisions receive guidance sparse outcome rewards cannot supply.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "prasad2023_adapt",
+   "source_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
+   "target": "2607.14777",
+   "target_label": "SEED: Self-Evolving On-Policy Distillation (2026)",
+   "relation": "builds_on",
+   "note": "Where ADaPT adds task decomposition and planning at inference time, SEED internalizes the improvement into the weights during reinforcement learning, so no external skill bank is needed at test time.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "zhou2024_lats",
+   "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+   "target": "2607.14777",
+   "target_label": "SEED: Self-Evolving On-Policy Distillation (2026)",
+   "relation": "builds_on",
+   "note": "Where LATS runs explicit tree search over actions at inference, SEED converts self-written skills into a dense training signal, so decision quality improves in the weights rather than through test-time search.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
   }
  ],
  "hyperedges": [

@@ -19,6 +19,7 @@
 2026-07 | DSpark (2607.05147) | speculative decoding with a sequential head over a parallel drafter plus load-aware verification scheduling; 60 to 85 percent faster per-user generation
 2026-07 | Nemotron-Labs-Diffusion (2607.05722) | one network trained under a joint autoregressive-plus-diffusion objective switches decoding modes; 8B decodes 6x more tokens per forward pass than Qwen3-8B
 2026-07 | Associative Recurrent Memory (2607.11614) | extends context by placing associative recurrent memory in a few chosen layers, trained with synthetic long-context data and a curriculum
+2026-07 | On-Policy Distillation Pathologies (2607.13399) | frames on-policy distillation as an exploration catalyst and adds advantage clipping plus log-scale compression to stop length hacking
 ### Paper List
 
 [KNOWN] [2024] DeepSeek-AI et al. — DeepSeek-V2. zotero_key:743XA29Y.
@@ -42,9 +43,11 @@
 [2026] 2607.05147 — DSpark: Confidence-Scheduled Speculative Decoding with Semi-Autoregressive Generation. [https://arxiv.org/abs/2607.05147](https://arxiv.org/abs/2607.05147). external.
 [2026] 2607.05722 — Nemotron-Labs-Diffusion: A Tri-Mode Language Model Unifying Autoregressive, Diffusion, and Self-Speculation Decoding. [https://arxiv.org/abs/2607.05722](https://arxiv.org/abs/2607.05722). external.
 [2026] 2607.11614 — Extending LLM Context via Associative Recurrent Memory. [https://arxiv.org/abs/2607.11614](https://arxiv.org/abs/2607.11614). external.
+[2026] 2607.13399 — Demystifying On-Policy Distillation: Roles, Pathologies, and Regulations. [https://arxiv.org/abs/2607.13399](https://arxiv.org/abs/2607.13399). external.
 
 ### Recent Activity
 
+2026-07-17 | 2607.13399 added | frames on-policy distillation as an exploration catalyst that guides a student toward correct reasoning paths without raising its capability ceiling, names two failure modes (student-teacher mismatch and length exploitation), and adds advantage clipping plus log-scale compression that stop length hacking and beat plain on-policy distillation and RLVR baselines across seven benchmarks; Tier B
 2026-07-15 | 2607.11614 added | a training recipe that extends usable context with an associative recurrent memory transformer, combining continued pre-training, synthetic long-context data, curriculum learning, and selective placement of memory in chosen layers rather than all of them; Tier B
 2026-07-13 | 2607.05147 added | a small sequential head lets drafted blocks keep within-block dependencies and verification length is scheduled per request from prefix-survival estimates, giving 60 to 85 percent faster per-user generation at matched throughput inside DeepSeek-V4 serving; Tier B
 2026-07-13 | 2607.05722 added | a single network trained under a joint autoregressive-plus-diffusion objective switches decoding modes at deployment, with diffusion drafting and autoregression verifying in self-speculation; the 8B model decodes 6x more tokens per forward pass than Qwen3-8B at comparable accuracy; Tier B

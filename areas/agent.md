@@ -34,6 +34,7 @@
 2026-07 | SkillOpt-Lite (2607.03451) | reframes agent skill self-evolution as zeroth-order optimization over reusable skills and harness
 2026-07 | TurnOPD (2607.05804) | turn-aware on-policy distillation budgets rollout depth and shifts KL weight toward deep decision turns
 2026-07 | SIRI (2606.02355) | three-phase RL that mines reusable skills from its own successful rollouts and distills only useful skill tokens back, carrying nothing extra at inference
+2026-07 | SEED (2607.14777) | self-evolving on-policy distillation turns an agent's own trajectories into hindsight skills and distills their effect into the policy
 ### Paper List
 
 [KNOWN] [2018] Rabinowitz et al. — Machine Theory of Mind. zotero_key:NEKX3K3N.
@@ -76,9 +77,11 @@
 [2026] 2607.03451 — SkillOpt-Lite: Agent Self-evolution via Zeroth-Order Optimization. [https://arxiv.org/abs/2607.03451](https://arxiv.org/abs/2607.03451). external.
 [2026] 2607.05804 — TurnOPD: Making On-Policy Distillation Turn-Aware for Efficient Long-Horizon Agent Training. [https://arxiv.org/abs/2607.05804](https://arxiv.org/abs/2607.05804). external.
 [2026] 2606.02355 — SIRI: Self-Internalizing Reinforcement Learning with Intrinsic Skills for LLM Agent Training. [https://arxiv.org/abs/2606.02355](https://arxiv.org/abs/2606.02355). external.
+[2026] 2607.14777 — SEED: Self-Evolving On-Policy Distillation for Agentic Reinforcement Learning. [https://arxiv.org/abs/2607.14777](https://arxiv.org/abs/2607.14777). external.
 
 ### Recent Activity
 
+2026-07-17 | 2607.14777 added | SEED has the current policy write natural-language hindsight skills from its own finished trajectories, re-scores sampled actions under plain and skill-augmented contexts, and turns the probability shift into a dense token-level signal optimized jointly with outcome-based reinforcement learning, improving both accuracy and sample efficiency on text and vision agentic benchmarks; Tier A
 2026-07-15 | 2606.02355 added | SIRI warms up a policy on skill-free trajectories, has the policy summarize and validate skills from its own successful rollouts, then distills only the helpful skill-guided tokens back into the plain policy, so no skill bank or extra context is needed at inference; Tier B
 2026-07-12 | 2607.05804 added | TurnOPD makes on-policy distillation turn-aware with adaptive rollout-depth budgeting and progressive turn-normalized loss, reaching higher validation accuracy than vanilla distillation under equal wall-clock on ALFWorld, WebShop, and Multi-Hop Search; Tier B
 2026-07-09 | 2607.03451 added | SkillOpt-Lite treats skill self-evolution as zeroth-order optimization with three justified parts (file-system trajectory exploration, consensus attribute mining, independent validation gating), converging faster than full SkillOpt and improving LiveMath by 8.8 points on GPT-5.5 and 25.4 points on GPT-5.4-nano; Tier B

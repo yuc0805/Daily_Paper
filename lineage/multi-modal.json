@@ -1,303 +1,347 @@
 {
-  "_generated": "2026-05-14",
-  "_source": "graphify_seed/graph.json + zotero_index.json",
-  "area": "multi-modal.md",
-  "edges": [
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "ramesh2022_dalle2",
-      "target_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "ramesh2022_dalle2",
-      "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
-      "target": "zhai2023_siglip",
-      "target_label": "SigLIP: Sigmoid Loss for Language Image Pre-Training (Zhai 2023)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "ramesh2022_dalle2",
-      "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
-      "target": "2605.10120",
-      "target_label": "MicroWorld: Bridging the Microscopic Domain Gap for Multimodal LLMs",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "chen2023_pathology",
-      "source_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
-      "target": "2605.10120",
-      "target_label": "MicroWorld: Bridging the Microscopic Domain Gap for Multimodal LLMs",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "2605.28456",
-      "target_label": "Diffusion Large Language Models for Visual Speech Recognition (DLLM-VSR)",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "erol2024_audiomamba",
-      "source_label": "Audio Mamba: Bidirectional SSM for Audio (Erol 2024)",
-      "target": "2605.28456",
-      "target_label": "Diffusion Large Language Models for Visual Speech Recognition (DLLM-VSR)",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "GAP6JAK9",
-      "source_label": "Permutation Self-Consistency (Tang 2024)",
-      "target": "2606.00232",
-      "target_label": "TIGER: Graph-Based Evidence Routing for Hallucination Repair (2026)",
-      "relation": "builds_on",
-      "note": "Where Permutation Self-Consistency detects hallucinations via output consistency, TIGER adds active repair through explicit evidence graphs."
-    },
-    {
-      "source": "ATEFZQA4",
-      "source_label": "Med-VQA Hallucination (Wu 2024)",
-      "target": "2606.00232",
-      "target_label": "TIGER: Graph-Based Evidence Routing for Hallucination Repair (2026)",
-      "relation": "builds_on",
-      "note": "TIGER generalizes medical VQA hallucination analysis into a domain-agnostic claim-observation graph repair framework."
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "2606.06356",
-      "target_label": "Where Should Knowledge Enter? A Layered Framework for Knowledge Infusion in Multimodal Iterative Generative Models (2026)",
-      "relation": "builds_on",
-      "note": "Where DDPM defined a fixed denoising transition with no place for external constraints, this paper treats that transition and its intermediate states as injection points for knowledge."
-    },
-    {
-      "source": "peebles2023_dit",
-      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-      "target": "2606.06356",
-      "target_label": "Where Should Knowledge Enter? A Layered Framework for Knowledge Infusion in Multimodal Iterative Generative Models (2026)",
-      "relation": "builds_on",
-      "note": "Where DiT scaled the diffusion backbone without changing how knowledge enters, this paper holds the backbone fixed and varies the infusion layer instead."
-    },
-    {
-      "source": "ramesh2022_dalle2",
-      "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
-      "target": "2606.11188",
-      "target_label": "ARM: AutoRegressive Large Multimodal Model with Unified Discrete Representations (2026)",
-      "relation": "builds_on",
-      "note": "Where DALL-E 2 generates images through a separate diffusion path, ARM unifies understanding and generation as one next-token stream over discrete tokens."
-    },
-    {
-      "source": "peebles2023_dit",
-      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-      "target": "2606.11188",
-      "target_label": "ARM: AutoRegressive Large Multimodal Model with Unified Discrete Representations (2026)",
-      "relation": "builds_on",
-      "note": "Where DiT scales a diffusion backbone with iterative denoising, ARM replaces denoising with autoregressive next-token prediction over a shared discrete latent."
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2606.11188",
-      "target_label": "ARM: AutoRegressive Large Multimodal Model with Unified Discrete Representations (2026)",
-      "relation": "builds_on",
-      "note": "ARM reuses the next-token transformer backbone for both image understanding and generation in a single model.",
-      "cross_area": true
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2606.11188",
-      "target_label": "ARM: AutoRegressive Large Multimodal Model with Unified Discrete Representations (2026)",
-      "relation": "builds_on",
-      "note": "Where DeepSeek-R1 used reinforcement-learning post-training for text reasoning, ARM shows the same step transfers to image generation and editing.",
-      "cross_area": true
-    },
-    {
-      "source": "hong2026_deepeyesv2",
-      "source_label": "DeepEyesV2: Agentic Multimodal Model (Hong 2026)",
-      "target": "2606.13192",
-      "target_label": "Reasoning for Mobile User Experience with Multimodal LLMs (UXBench, 2026)",
-      "relation": "builds_on",
-      "note": "Where DeepEyesV2 reasons over general images with tools, UXBench fixes the image type to user interfaces and demands a checkable fault diagnosis."
-    },
-    {
-      "source": "zhao2025_pyvision",
-      "source_label": "PyVision: Agentic Vision with Dynamic Tooling (Zhao 2025)",
-      "target": "2606.13192",
-      "target_label": "Reasoning for Mobile User Experience with Multimodal LLMs (UXBench, 2026)",
-      "relation": "builds_on",
-      "note": "Where PyVision applies dynamic tooling to general vision, UXBench constrains the domain so the reasoning is measurable against ground truth."
-    },
-    {
-      "source": "zhai2023_siglip",
-      "source_label": "SigLIP (Zhai 2023)",
-      "target": "2606.15714",
-      "target_label": "Beyond English: Uncovering the Multilingual Gap in Vision-Language-Action Models (2026)",
-      "relation": "builds_on",
-      "note": "Where SigLIP builds a single shared image-text representation space, this paper shows that space is fragile under action fine-tuning, with non-English representations drifting away from the English manifold."
-    },
-    {
-      "source": "tschannen2025_siglip2",
-      "source_label": "SigLIP 2: Multilingual Vision-Language Encoders (Tschannen 2025)",
-      "target": "2606.15714",
-      "target_label": "Beyond English: Uncovering the Multilingual Gap in Vision-Language-Action Models (2026)",
-      "relation": "builds_on",
-      "note": "Where SigLIP 2 adds multilingual pretraining to the encoder, this paper finds a multilingual backbone is not enough: the gap persists after action alignment, which locates the problem in the action head rather than the base model."
-    },
-    {
-      "source": "ramesh2022_dalle2",
-      "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
-      "target": "2606.15714",
-      "target_label": "Beyond English: Uncovering the Multilingual Gap in Vision-Language-Action Models (2026)",
-      "relation": "builds_on",
-      "note": "DALL-E 2 is the closest in-library neighbor in the vision-language community; where it builds a shared image-text space for generation, this paper measures how that space degrades for non-English inputs after task-specific alignment."
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2606.03988",
-      "target_label": "Imaginative Perception Tokens Enhance Spatial Reasoning in Multimodal Language Models (2026)",
-      "relation": "builds_on",
-      "note": "Where Chain-of-Thought puts the reasoning trace in natural-language steps, IPT moves the trace into a perceptual representation in the visual modality, and reports that for spatial tasks the text trace can lower performance rather than help.",
-      "cross_area": true
-    },
-    {
-      "source": "peebles2023_dit",
-      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-      "target": "2606.19534",
-      "target_label": "PerceptionDLM: Parallel Region Perception with Multimodal Diffusion Language Models (2026)",
-      "relation": "builds_on",
-      "note": "Where DiT runs a diffusion model on a transformer backbone for image generation, PerceptionDLM carries the diffusion-with-transformer idea onto the language side of a multimodal model and uses parallel decoding to describe several masked regions at once rather than to denoise pixels.",
-      "cross_area": false
-    },
-    {
-      "source": "U4ZPM5DN",
-      "source_label": "Latent-GRPO (Deng 2026)",
-      "target": "2607.01191",
-      "target_label": "Perceive-to-Reason: Decoupling Perception and Reasoning for Fine-Grained Visual Reasoning (2026)",
-      "relation": "builds_on",
-      "note": "Latent-GRPO is a GRPO variant; PRA-GRPO is a role-aware GRPO variant that alternates perception-focused and reasoning-focused updates so a single reward does not conflate finding the evidence with reasoning over it.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2607.01191",
-      "target_label": "Perceive-to-Reason: Decoupling Perception and Reasoning for Fine-Grained Visual Reasoning (2026)",
-      "relation": "builds_on",
-      "note": "DeepSeek-R1 supplied the reward-based reasoning optimizer (GRPO/RLVR) that P2R builds on, extended here to alternate between perception and reasoning rewards.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "FPEC4PIH",
-      "source_label": "Large Multimodal Reasoning Survey (Li 2025)",
-      "target": "2607.01191",
-      "target_label": "Perceive-to-Reason: Decoupling Perception and Reasoning for Fine-Grained Visual Reasoning (2026)",
-      "relation": "builds_on",
-      "note": "The survey maps the multimodal-reasoning landscape; P2R refines it by making the perceive-then-reason split explicit and training it end to end from final-answer reward alone.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "ramesh2022_dalle2",
-      "source_label": "DALL-E 2 (Ramesh 2022)",
-      "target": "2607.06560",
-      "target_label": "Vision as Unified Multimodal Generation (SenseNova-Vision) (2026)",
-      "relation": "builds_on",
-      "note": "Where DALL-E 2 generated pixels from text for their own sake, SenseNova-Vision reuses the same generative image space to emit dense predictions such as depth and segmentation.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "peebles2023_dit",
-      "source_label": "DiT: Diffusion Transformer (Peebles 2023)",
-      "target": "2607.06560",
-      "target_label": "Vision as Unified Multimodal Generation (SenseNova-Vision) (2026)",
-      "relation": "builds_on",
-      "note": "Where DiT provided a Transformer backbone for diffusion image generation, SenseNova-Vision poses perception as conditional image generation on top of that generative machinery.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2607.06560",
-      "target_label": "Vision as Unified Multimodal Generation (SenseNova-Vision) (2026)",
-      "relation": "builds_on",
-      "note": "The shared Transformer architecture is the common backbone; SenseNova-Vision converts diverse vision labels into instruction-response pairs and trains one model on all of them.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "FPEC4PIH",
-      "source_label": "Large Multimodal Reasoning Survey (Li 2025)",
-      "target": "2607.03530",
-      "target_label": "MentalThink: Shaping Thoughts in Mental SVG World (2026)",
-      "relation": "builds_on",
-      "note": "Where the multimodal reasoning survey mapped existing methods, MentalThink adds reasoning over an executable SVG surface the model renders and revises.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2607.03530",
-      "target_label": "MentalThink: Shaping Thoughts in Mental SVG World (2026)",
-      "relation": "builds_on",
-      "note": "The reinforcement-learning-for-reasoning recipe carries over, but the textual thought becomes a visual, executable one rendered and inspected each turn.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "BDY3HUCV",
-      "source_label": "Memory Mechanisms Survey (Huang 2026)",
-      "target": "2607.05511",
-      "target_label": "Light-Omni: Reflex over Reasoning in Agentic Video Understanding with Long-Term Memory (2026)",
-      "relation": "builds_on",
-      "note": "Where the Memory Mechanisms Survey mapped the space of agent memory designs, Light-Omni commits to one design, a consolidated global script plus a latent action state, and shows it removes the need for iterative search.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "RYGRHCG3",
-      "source_label": "Video Action Survey (Zhu 2020)",
-      "target": "2607.05511",
-      "target_label": "Light-Omni: Reflex over Reasoning in Agentic Video Understanding with Long-Term Memory (2026)",
-      "relation": "builds_on",
-      "note": "Where the Video Action Survey covered short-clip classification, Light-Omni handles hour-scale streams by summarizing them into a bounded state, because fixed-size memory keeps latency flat as the video grows.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    }
-  ],
-  "hyperedges": [],
-  "cross_area_bridges": []
+ "_generated": "2026-05-14",
+ "_source": "graphify_seed/graph.json + zotero_index.json",
+ "area": "multi-modal.md",
+ "edges": [
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "ramesh2022_dalle2",
+   "target_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "ramesh2022_dalle2",
+   "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+   "target": "zhai2023_siglip",
+   "target_label": "SigLIP: Sigmoid Loss for Language Image Pre-Training (Zhai 2023)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "ramesh2022_dalle2",
+   "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+   "target": "2605.10120",
+   "target_label": "MicroWorld: Bridging the Microscopic Domain Gap for Multimodal LLMs",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "chen2023_pathology",
+   "source_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
+   "target": "2605.10120",
+   "target_label": "MicroWorld: Bridging the Microscopic Domain Gap for Multimodal LLMs",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "2605.28456",
+   "target_label": "Diffusion Large Language Models for Visual Speech Recognition (DLLM-VSR)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "erol2024_audiomamba",
+   "source_label": "Audio Mamba: Bidirectional SSM for Audio (Erol 2024)",
+   "target": "2605.28456",
+   "target_label": "Diffusion Large Language Models for Visual Speech Recognition (DLLM-VSR)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "GAP6JAK9",
+   "source_label": "Permutation Self-Consistency (Tang 2024)",
+   "target": "2606.00232",
+   "target_label": "TIGER: Graph-Based Evidence Routing for Hallucination Repair (2026)",
+   "relation": "builds_on",
+   "note": "Where Permutation Self-Consistency detects hallucinations via output consistency, TIGER adds active repair through explicit evidence graphs."
+  },
+  {
+   "source": "ATEFZQA4",
+   "source_label": "Med-VQA Hallucination (Wu 2024)",
+   "target": "2606.00232",
+   "target_label": "TIGER: Graph-Based Evidence Routing for Hallucination Repair (2026)",
+   "relation": "builds_on",
+   "note": "TIGER generalizes medical VQA hallucination analysis into a domain-agnostic claim-observation graph repair framework."
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "2606.06356",
+   "target_label": "Where Should Knowledge Enter? A Layered Framework for Knowledge Infusion in Multimodal Iterative Generative Models (2026)",
+   "relation": "builds_on",
+   "note": "Where DDPM defined a fixed denoising transition with no place for external constraints, this paper treats that transition and its intermediate states as injection points for knowledge."
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "target": "2606.06356",
+   "target_label": "Where Should Knowledge Enter? A Layered Framework for Knowledge Infusion in Multimodal Iterative Generative Models (2026)",
+   "relation": "builds_on",
+   "note": "Where DiT scaled the diffusion backbone without changing how knowledge enters, this paper holds the backbone fixed and varies the infusion layer instead."
+  },
+  {
+   "source": "ramesh2022_dalle2",
+   "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+   "target": "2606.11188",
+   "target_label": "ARM: AutoRegressive Large Multimodal Model with Unified Discrete Representations (2026)",
+   "relation": "builds_on",
+   "note": "Where DALL-E 2 generates images through a separate diffusion path, ARM unifies understanding and generation as one next-token stream over discrete tokens."
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "target": "2606.11188",
+   "target_label": "ARM: AutoRegressive Large Multimodal Model with Unified Discrete Representations (2026)",
+   "relation": "builds_on",
+   "note": "Where DiT scales a diffusion backbone with iterative denoising, ARM replaces denoising with autoregressive next-token prediction over a shared discrete latent."
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2606.11188",
+   "target_label": "ARM: AutoRegressive Large Multimodal Model with Unified Discrete Representations (2026)",
+   "relation": "builds_on",
+   "note": "ARM reuses the next-token transformer backbone for both image understanding and generation in a single model.",
+   "cross_area": true
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2606.11188",
+   "target_label": "ARM: AutoRegressive Large Multimodal Model with Unified Discrete Representations (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-R1 used reinforcement-learning post-training for text reasoning, ARM shows the same step transfers to image generation and editing.",
+   "cross_area": true
+  },
+  {
+   "source": "hong2026_deepeyesv2",
+   "source_label": "DeepEyesV2: Agentic Multimodal Model (Hong 2026)",
+   "target": "2606.13192",
+   "target_label": "Reasoning for Mobile User Experience with Multimodal LLMs (UXBench, 2026)",
+   "relation": "builds_on",
+   "note": "Where DeepEyesV2 reasons over general images with tools, UXBench fixes the image type to user interfaces and demands a checkable fault diagnosis."
+  },
+  {
+   "source": "zhao2025_pyvision",
+   "source_label": "PyVision: Agentic Vision with Dynamic Tooling (Zhao 2025)",
+   "target": "2606.13192",
+   "target_label": "Reasoning for Mobile User Experience with Multimodal LLMs (UXBench, 2026)",
+   "relation": "builds_on",
+   "note": "Where PyVision applies dynamic tooling to general vision, UXBench constrains the domain so the reasoning is measurable against ground truth."
+  },
+  {
+   "source": "zhai2023_siglip",
+   "source_label": "SigLIP (Zhai 2023)",
+   "target": "2606.15714",
+   "target_label": "Beyond English: Uncovering the Multilingual Gap in Vision-Language-Action Models (2026)",
+   "relation": "builds_on",
+   "note": "Where SigLIP builds a single shared image-text representation space, this paper shows that space is fragile under action fine-tuning, with non-English representations drifting away from the English manifold."
+  },
+  {
+   "source": "tschannen2025_siglip2",
+   "source_label": "SigLIP 2: Multilingual Vision-Language Encoders (Tschannen 2025)",
+   "target": "2606.15714",
+   "target_label": "Beyond English: Uncovering the Multilingual Gap in Vision-Language-Action Models (2026)",
+   "relation": "builds_on",
+   "note": "Where SigLIP 2 adds multilingual pretraining to the encoder, this paper finds a multilingual backbone is not enough: the gap persists after action alignment, which locates the problem in the action head rather than the base model."
+  },
+  {
+   "source": "ramesh2022_dalle2",
+   "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+   "target": "2606.15714",
+   "target_label": "Beyond English: Uncovering the Multilingual Gap in Vision-Language-Action Models (2026)",
+   "relation": "builds_on",
+   "note": "DALL-E 2 is the closest in-library neighbor in the vision-language community; where it builds a shared image-text space for generation, this paper measures how that space degrades for non-English inputs after task-specific alignment."
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2606.03988",
+   "target_label": "Imaginative Perception Tokens Enhance Spatial Reasoning in Multimodal Language Models (2026)",
+   "relation": "builds_on",
+   "note": "Where Chain-of-Thought puts the reasoning trace in natural-language steps, IPT moves the trace into a perceptual representation in the visual modality, and reports that for spatial tasks the text trace can lower performance rather than help.",
+   "cross_area": true
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "target": "2606.19534",
+   "target_label": "PerceptionDLM: Parallel Region Perception with Multimodal Diffusion Language Models (2026)",
+   "relation": "builds_on",
+   "note": "Where DiT runs a diffusion model on a transformer backbone for image generation, PerceptionDLM carries the diffusion-with-transformer idea onto the language side of a multimodal model and uses parallel decoding to describe several masked regions at once rather than to denoise pixels.",
+   "cross_area": false
+  },
+  {
+   "source": "U4ZPM5DN",
+   "source_label": "Latent-GRPO (Deng 2026)",
+   "target": "2607.01191",
+   "target_label": "Perceive-to-Reason: Decoupling Perception and Reasoning for Fine-Grained Visual Reasoning (2026)",
+   "relation": "builds_on",
+   "note": "Latent-GRPO is a GRPO variant; PRA-GRPO is a role-aware GRPO variant that alternates perception-focused and reasoning-focused updates so a single reward does not conflate finding the evidence with reasoning over it.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2607.01191",
+   "target_label": "Perceive-to-Reason: Decoupling Perception and Reasoning for Fine-Grained Visual Reasoning (2026)",
+   "relation": "builds_on",
+   "note": "DeepSeek-R1 supplied the reward-based reasoning optimizer (GRPO/RLVR) that P2R builds on, extended here to alternate between perception and reasoning rewards.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "FPEC4PIH",
+   "source_label": "Large Multimodal Reasoning Survey (Li 2025)",
+   "target": "2607.01191",
+   "target_label": "Perceive-to-Reason: Decoupling Perception and Reasoning for Fine-Grained Visual Reasoning (2026)",
+   "relation": "builds_on",
+   "note": "The survey maps the multimodal-reasoning landscape; P2R refines it by making the perceive-then-reason split explicit and training it end to end from final-answer reward alone.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "ramesh2022_dalle2",
+   "source_label": "DALL-E 2 (Ramesh 2022)",
+   "target": "2607.06560",
+   "target_label": "Vision as Unified Multimodal Generation (SenseNova-Vision) (2026)",
+   "relation": "builds_on",
+   "note": "Where DALL-E 2 generated pixels from text for their own sake, SenseNova-Vision reuses the same generative image space to emit dense predictions such as depth and segmentation.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Diffusion Transformer (Peebles 2023)",
+   "target": "2607.06560",
+   "target_label": "Vision as Unified Multimodal Generation (SenseNova-Vision) (2026)",
+   "relation": "builds_on",
+   "note": "Where DiT provided a Transformer backbone for diffusion image generation, SenseNova-Vision poses perception as conditional image generation on top of that generative machinery.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2607.06560",
+   "target_label": "Vision as Unified Multimodal Generation (SenseNova-Vision) (2026)",
+   "relation": "builds_on",
+   "note": "The shared Transformer architecture is the common backbone; SenseNova-Vision converts diverse vision labels into instruction-response pairs and trains one model on all of them.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "FPEC4PIH",
+   "source_label": "Large Multimodal Reasoning Survey (Li 2025)",
+   "target": "2607.03530",
+   "target_label": "MentalThink: Shaping Thoughts in Mental SVG World (2026)",
+   "relation": "builds_on",
+   "note": "Where the multimodal reasoning survey mapped existing methods, MentalThink adds reasoning over an executable SVG surface the model renders and revises.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2607.03530",
+   "target_label": "MentalThink: Shaping Thoughts in Mental SVG World (2026)",
+   "relation": "builds_on",
+   "note": "The reinforcement-learning-for-reasoning recipe carries over, but the textual thought becomes a visual, executable one rendered and inspected each turn.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "BDY3HUCV",
+   "source_label": "Memory Mechanisms Survey (Huang 2026)",
+   "target": "2607.05511",
+   "target_label": "Light-Omni: Reflex over Reasoning in Agentic Video Understanding with Long-Term Memory (2026)",
+   "relation": "builds_on",
+   "note": "Where the Memory Mechanisms Survey mapped the space of agent memory designs, Light-Omni commits to one design, a consolidated global script plus a latent action state, and shows it removes the need for iterative search.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "RYGRHCG3",
+   "source_label": "Video Action Survey (Zhu 2020)",
+   "target": "2607.05511",
+   "target_label": "Light-Omni: Reflex over Reasoning in Agentic Video Understanding with Long-Term Memory (2026)",
+   "relation": "builds_on",
+   "note": "Where the Video Action Survey covered short-clip classification, Light-Omni handles hour-scale streams by summarizing them into a bounded state, because fixed-size memory keeps latency flat as the video grows.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "B7F2Q998",
+   "source_label": "ViT (Dosovitskiy 2021)",
+   "target": "2607.14935",
+   "target_label": "VideoChat3: Fully Open Video MLLM (2026)",
+   "relation": "builds_on",
+   "note": "Where ViT processes a single image, VideoChat3 inflates the Vision Transformer to three dimensions so tokens carry time, forming an I3D-ViT streaming encoder.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "SC8KWYVK",
+   "source_label": "Flamingo (Alayrac 2022)",
+   "target": "2607.14935",
+   "target_label": "VideoChat3: Fully Open Video MLLM (2026)",
+   "relation": "builds_on",
+   "note": "Where Flamingo attaches a frozen 2D vision encoder to a language model, VideoChat3 trades that recipe for an efficiency-first spatiotemporal tokenizer with adaptive frame resolution.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "4N5WXKPI",
+   "source_label": "BLIP-2 (Li 2023)",
+   "target": "2607.14935",
+   "target_label": "VideoChat3: Fully Open Video MLLM (2026)",
+   "relation": "builds_on",
+   "note": "Where BLIP-2 bridges a frozen vision encoder to an LLM lightly, VideoChat3 keeps a light bridge but reaches stronger video benchmarks at 4B parameters through cheaper time-aware tokenization.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "RYGRHCG3",
+   "source_label": "Deep Video Action Recognition Survey (Zhu 2020)",
+   "target": "2607.14935",
+   "target_label": "VideoChat3: Fully Open Video MLLM (2026)",
+   "relation": "builds_on",
+   "note": "The Deep Video Action Recognition Survey frames the video understanding tasks; VideoChat3 is measured on general, long-form, and streaming video benchmarks drawn from that space.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  }
+ ],
+ "hyperedges": [],
+ "cross_area_bridges": []
 }

@@ -263,6 +263,28 @@
    "confidence": "INFERRED",
    "confidence_score": 0.9,
    "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2607.13399",
+   "target_label": "Demystifying On-Policy Distillation (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-R1 trains reasoning from verifiable outcome rewards, this paper studies the dense token-level signal of on-policy distillation and shows it acts as an exploration catalyst rather than a higher capability ceiling, then adds two regularizers to keep the signal faithful.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2607.13399",
+   "target_label": "Demystifying On-Policy Distillation (2026)",
+   "relation": "builds_on",
+   "note": "Where Chain-of-Thought elicits reasoning paths by prompting, this paper treats those paths as the behavior on-policy distillation transfers and names two failure modes, student-teacher mismatch and length exploitation, that break the transfer.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
   }
  ],
  "hyperedges": [],

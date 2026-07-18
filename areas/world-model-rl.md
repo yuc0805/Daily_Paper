@@ -31,6 +31,7 @@
 2026-06 | GURU (2506.14965) | 92K cross-domain RL corpus; domain-conditional transfer for LLM reasoning
 
 2026-07 | TREK (2607.05339) | a staged forward-KL warm start on verified off-support solutions precedes on-policy reinforcement learning, fixing the exploration stall of GRPO on hard prompts
+2026-07 | Pixels to States (2607.14076) | reframes interactive world models as a game engine with an explicit persistent state; releases a Black Myth: Wukong dataset with ground-truth states
 ### Paper List
 
 [KNOWN] [1999] Sutton et al. — Policy Gradient. zotero_key:DAGWCZ67.
@@ -68,9 +69,11 @@
 [2026] 2506.14965 — GURU: Revisiting RL for LLM Reasoning from A Cross-Domain Perspective. [https://arxiv.org/abs/2506.14965](https://arxiv.org/abs/2506.14965). external.
 
 [2026] 2607.05339 — TREK: Distill to Explore, Reinforce to Refine. [https://arxiv.org/abs/2607.05339](https://arxiv.org/abs/2607.05339). external.
+[2026] 2607.14076 — From Pixels to States: Rethinking Interactive World Models as Game Engines. [https://arxiv.org/abs/2607.14076](https://arxiv.org/abs/2607.14076). external.
 
 ### Recent Activity
 
+2026-07-17 | 2607.14076 added | reviews interactive world models through the lens of a game engine's action-state-observation loop, organizes methods along four axes (action control, state dynamics, state-observation persistence, real-time generation), and releases a Black Myth: Wukong data engine with over 90 hours of gameplay carrying frame-aligned actions and ground-truth states; Tier B
 2026-07-13 | 2607.05339 added | targets the exploration failure of Group Relative Policy Optimization on hard prompts by importing verified off-support solutions through a short distillation phase before returning to on-policy updates; ScienceWorld rises 12.5 to 26.7; Tier B
 2026-06-05 | 2506.14965 added | 92K cross-domain RL corpus; RL is a domain-conditional skill activator; GURU-7B/32B SOTA among open RL-trained models; Tier A
 2026-05-14 | Area page seeded | 31 papers from Zotero, 3 from graphify seed.

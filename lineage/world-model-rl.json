@@ -1,60 +1,93 @@
 {
-  "_generated": "2026-05-14",
-  "_source": "graphify_seed/graph.json + zotero_index.json",
-  "area": "world-model-rl.md",
-  "edges": [
-    {
-      "source": "levine2020_offline_rl",
-      "source_label": "Offline Reinforcement Learning Tutorial (Levine 2020)",
-      "target": "voloshin2021_ope",
-      "target_label": "Off-Policy Policy Evaluation Study (Voloshin 2021)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": false
-    },
-    {
-      "source": "levine2020_offline_rl",
-      "source_label": "Offline Reinforcement Learning Tutorial (Levine 2020)",
-      "target": "pinneri2020_cem",
-      "target_label": "Sample-efficient Cross-Entropy Method (Pinneri 2020)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": false
-    },
-    {
-      "source": "voloshin2021_ope",
-      "source_label": "Off-Policy Policy Evaluation Study (Voloshin 2021)",
-      "target": "pinneri2020_cem",
-      "target_label": "Sample-efficient Cross-Entropy Method (Pinneri 2020)",
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.7,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2506.14965",
-      "target_label": "GURU: Revisiting RL for LLM Reasoning from A Cross-Domain Perspective",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "KQTIJC4U",
-      "source_label": "PPO (Schulman 2017)",
-      "target": "2607.05339",
-      "target_label": "TREK: Distill to Explore, Reinforce to Refine (2026)",
-      "relation": "builds_on",
-      "note": "PPO is the policy-optimization grandparent; TREK adds a staged forward-KL warm start on verified off-support solutions before returning to on-policy updates.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    }
-  ],
-  "hyperedges": [],
-  "cross_area_bridges": []
+ "_generated": "2026-05-14",
+ "_source": "graphify_seed/graph.json + zotero_index.json",
+ "area": "world-model-rl.md",
+ "edges": [
+  {
+   "source": "levine2020_offline_rl",
+   "source_label": "Offline Reinforcement Learning Tutorial (Levine 2020)",
+   "target": "voloshin2021_ope",
+   "target_label": "Off-Policy Policy Evaluation Study (Voloshin 2021)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": false
+  },
+  {
+   "source": "levine2020_offline_rl",
+   "source_label": "Offline Reinforcement Learning Tutorial (Levine 2020)",
+   "target": "pinneri2020_cem",
+   "target_label": "Sample-efficient Cross-Entropy Method (Pinneri 2020)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": false
+  },
+  {
+   "source": "voloshin2021_ope",
+   "source_label": "Off-Policy Policy Evaluation Study (Voloshin 2021)",
+   "target": "pinneri2020_cem",
+   "target_label": "Sample-efficient Cross-Entropy Method (Pinneri 2020)",
+   "relation": "semantically_similar_to",
+   "confidence": "INFERRED",
+   "confidence_score": 0.7,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2506.14965",
+   "target_label": "GURU: Revisiting RL for LLM Reasoning from A Cross-Domain Perspective",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "KQTIJC4U",
+   "source_label": "PPO (Schulman 2017)",
+   "target": "2607.05339",
+   "target_label": "TREK: Distill to Explore, Reinforce to Refine (2026)",
+   "relation": "builds_on",
+   "note": "PPO is the policy-optimization grandparent; TREK adds a staged forward-KL warm start on verified off-support solutions before returning to on-policy updates.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "938DAXZT",
+   "source_label": "World Models (Ha 2018)",
+   "target": "2607.14076",
+   "target_label": "From Pixels to States: World Models as Game Engines (2026)",
+   "relation": "builds_on",
+   "note": "Where World Models learn an implicit latent recurrent state to predict observations, this paper argues for an explicit rule-following game state that persists over long horizons and supplies ground-truth states to train and measure against.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "JQ7JD8AR",
+   "source_label": "Navigation World Models (Bar 2024)",
+   "target": "2607.14076",
+   "target_label": "From Pixels to States: World Models as Game Engines (2026)",
+   "relation": "builds_on",
+   "note": "Where Navigation World Models condition prediction on actions for navigation, this paper reframes the target as a game engine's action-state-observation loop and releases a dataset with ground-truth states.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "levine2020_offline_rl",
+   "source_label": "Offline Reinforcement Learning Tutorial (Levine 2020)",
+   "target": "2607.14076",
+   "target_label": "From Pixels to States: World Models as Game Engines (2026)",
+   "relation": "builds_on",
+   "note": "Offline RL is the reference for learning from logged interaction without live rollouts; this paper supplies over 90 hours of logged gameplay with frame-aligned actions and ground-truth states for state-aware world modeling.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  }
+ ],
+ "hyperedges": [],
+ "cross_area_bridges": []
 }
