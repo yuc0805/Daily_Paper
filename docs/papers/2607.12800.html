@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UniVR — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+<h2>UniVR: Thinking in Visual Space for Unified Visual Reasoning</h2>
+<p class="paper-meta">Ren, Wei, Zhao, Gong, Liu, Wang, Li, Jin (ByteDance) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.12800" target="_blank" rel="noopener">arXiv:2607.12800</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+<h3>What</h3>
+<p>UniVR learns complex reasoning, fine-grained physical dynamics, and long-horizon planning from pure visual demonstrations, without image-text pairs. Its core is VR-GRPO, a reinforcement learning scheme with two complementary rewards: a global reward for final-answer correctness and a step-level reward that enforces logical and physical consistency along the reasoning process. The authors build VR-X, a benchmark from 16 sources covering long-horizon manipulation, spatial puzzles, and physical reasoning, evaluated under a purely visual protocol.</p>
+<h3>Why</h3>
+<p>Learning world knowledge directly from raw visual data is a basic capability that current multimodal reasoners obtain indirectly, through image-text alignment. Text-only rewards cannot check whether an intermediate visual state is physically plausible, and task-specific heuristics do not generalize across manipulation, puzzles, and physical reasoning. UniVR aims to reason inside visual space itself, with rewards that judge each step, not only the final answer.</p>
+<h3>How</h3>
+<p>VR-GRPO applies group-relative policy optimization with a global reward on the final answer and a step-level reward that enforces logical coherence and physical consistency at each reasoning step, without task-specific heuristics or image-text pairs. Training and evaluation use VR-X. UniVR reports up to a 25% improvement on VR-X, and the improved visual reasoning also raises scores on standard multimodal understanding benchmarks. Code, data, and models are released.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Established reasoning trained by reinforcement learning with a rule-based reward; UniVR retargets this from text to visual space.</span></li>
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Established step-by-step reasoning in language; UniVR moves the reasoning trace into pixels and rewards each step.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 rewards a correct final answer in text and Chain-of-Thought produces the reasoning trace in language tokens. Neither can verify whether an intermediate visual state is physically plausible, so on tasks defined by images the reasoning can drift from physics while still reaching a lucky answer. UniVR fixes this by scoring each step for logical and physical consistency in visual space, so the intermediate states, not only the final answer, are constrained.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared to DeepSeek-R1's single final-answer reward, VR-GRPO splits the reward into a global term and a per-step physical-consistency term. Compared to Chain-of-Thought's language-space trace, UniVR reasons over raw visual demonstrations and removes the need for image-text pairs. The reinforcement-learning-for-reasoning recipe is the same in spirit; the input space and the reward structure are what change.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Agentic vision with dynamic tooling; shares the goal of visual reasoning but uses tools rather than in-space RL rewards.</span></li>
+<li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Agentic multimodal reasoning; contrasts tool-driven perception with UniVR's reward-driven visual reasoning.</span></li>
+</ul>
+</div>
+</body>
+</html>

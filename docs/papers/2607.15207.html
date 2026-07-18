@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BadWAM — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/world-model-rl.html" class="back-link">&larr; Back to Area</a>
+<h2>BadWAM: When World-Action Models Dream Right but Act Wrong</h2>
+<p class="paper-meta">Qi Li, Xingyi Yang, Xinchao Wang &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.15207" target="_blank" rel="noopener">arXiv:2607.15207</a> &middot; Appears in: <a href="../areas/world-model-rl.html">World Model / RL</a></p>
+<h3>What</h3>
+<p>BadWAM is a unified framework for modeling and evaluating World-Action Drift Attacks against world-action models (WAMs), which couple action generation with prediction of the future world. Small visual perturbations break the alignment between what a WAM imagines and what it executes. An action-only variant maximizes disruption by driving the model toward task-failing actions; an imagination-preserving variant keeps the predicted future close to the clean imagination while still inducing a harmful action shift.</p>
+<h3>Why</h3>
+<p>The coupling of action and imagination in WAMs is often assumed to bring robustness, interpretability, and safety, because a robot's action can in principle be checked against its imagined future. The paper shows this assumption is fragile: if imagination and action are only loosely coupled, an adversary can keep the imagination looking correct while the action is already wrong, so the safety check fails silently. Prior WAM work did not characterize this attack surface.</p>
+<h3>How</h3>
+<p>BadWAM characterizes the attack along two criteria, strength and stealthiness, and instantiates the two variants as optimization objectives over small visual perturbations. It evaluates them across different WAM variants under closed-loop execution. The action-only attack reduces success from 96.5% to 43.1% in one setting. The imagination-preserving attack shows that moderate future-preserving regularization maintains strong attack performance while keeping imagination drift low, exposing a WAM-specific desynchronization between imagined future and executed action.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="938DAXZT.html">World Models (Ha and Schmidhuber 2018)</a><span class="lineage-note">Established learned latent world models for control that WAMs extend by coupling action generation.</span></li>
+<li><a href="JQ7JD8AR.html">Navigation World Models</a><span class="lineage-note">World models for navigation and planning; BadWAM treats the same coupling as an attack surface.</span></li>
+<li><a href="2607.14076.html">From Pixels to States (Li 2026)</a><span class="lineage-note">Argued explicit persistent state matters more than pixel prediction; BadWAM shows loose action-imagination coupling breaks that safety story.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>World Models and Navigation World Models treat the learned model as a source of robustness and planning ability. BadWAM does not improve their accuracy; it exposes a failure mode they left unexamined &mdash; that a plausible imagined future can coexist with a hijacked action. It fixes the missing analysis rather than the model, giving a concrete measure (success-rate drop under closed-loop attack) of how fragile the coupling is.</p>
+<h3>Method vs predecessors</h3>
+<p>Where the predecessor world models are evaluated on task success and prediction quality, BadWAM adds an adversarial evaluation axis: it optimizes perturbations against the action head while optionally regularizing the imagination head to stay clean. This two-objective framing (strength versus stealth) is new relative to the predecessors, which had no adversarial protocol for the action-imagination link.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2607.14076.html">From Pixels to States (Li 2026)</a><span class="lineage-note">Complementary view: one argues explicit state helps control, the other shows loose coupling of imagination and action is exploitable.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SearchOS-V1 — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>SearchOS-V1: Towards Robust Open-Domain Information-Seeking Agent Collaboration</h2>
+<p class="paper-meta">Zhang, Gao, Wu, Fan, Zhang, Ma, Yao, et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.15257" target="_blank" rel="noopener">arXiv:2607.15257</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3>
+<p>SearchOS is a multi-agent framework for open-domain information seeking. It turns fragile, implicit search progress into explicit, persistent, and shared state. The task is reframed as relational schema completion with grounded citations: agents discover entities, populate attributes across linked tables, and anchor each value to source evidence. Search-Oriented Context Management (SOCM) externalizes the evolving state into four structures &mdash; a Frontier Task, an Evidence Graph, a Coverage Map, and a Failure Memory &mdash; and a Search Tool Middleware Harness records grounded evidence and reacts to stalls or budget exhaustion.</p>
+<h3>Why</h3>
+<p>Tool-using LLM agents can call web search, but as interaction histories grow they lose track of task progress. When searches fail to return useful evidence, single- and multi-agent systems fall into repetitive loops that waste the search budget and leave the final output incomplete. Prior systems keep progress implicitly inside a long context window, which is fragile and hard to share across agents. The paper's aim is to make progress explicit and persistent so failures are not repeated.</p>
+<h3>How</h3>
+<p>On top of the four externalized state structures, SearchOS applies a pipeline-parallel scheduler that overlaps sub-agents and continuously refills freed slots with tasks targeting unresolved coverage gaps, raising utilization and throughput. The middleware harness intercepts model-tool interactions to record evidence and provides a reusable hierarchical skill system (strategy and access skills) so failed search patterns are not repeated across runs. On WideSearch and GISA the system leads all reported metrics among the single- and multi-agent baselines evaluated.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="J8DYBKW2.html">ADaPT: As-Needed Decomposition and Planning (Prasad 2023)</a><span class="lineage-note">Source of on-demand task decomposition, which SearchOS externalizes into a Frontier Task and Coverage Map.</span></li>
+<li><a href="77ERE7HA.html">LATS: Language Agent Tree Search (Zhou 2024)</a><span class="lineage-note">Search over agent actions at inference time; SearchOS replaces the implicit search state with a persistent Evidence Graph and Failure Memory.</span></li>
+<li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Frames multimodal agent interaction and coordination that SearchOS operationalizes across sub-agents.</span></li>
+<li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Surveys agent memory stores; SearchOS makes such a store shared and structured rather than per-agent.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>ADaPT and LATS improve how an agent plans and searches, but both keep the record of progress inside the reasoning trace, so a long history causes the agent to lose track and re-issue failed queries. SearchOS fixes the specific failure mode &mdash; "the agent forgets what it already tried and loops" &mdash; by writing a Coverage Map and a Failure Memory outside the context window, so unresolved gaps and known dead ends are read back explicitly rather than reconstructed from a transcript.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared to LATS, which searches a tree of actions at inference time, SearchOS keeps persistent external state that outlives any single step and lets several sub-agents coordinate through a shared Evidence Graph. Compared to the memory-agent line, which keeps a running store for one agent, SearchOS structures the store (schema completion with grounded citations) and adds a scheduler that assigns sub-agents to uncovered gaps. The integration boundary moves from "better reasoning" to "better shared bookkeeping."</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Agentic multimodal model with dynamic tool use; shares the tool-orchestration setting but not the externalized-state design.</span></li>
+<li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Tool-using LLMs; SearchOS adds explicit failure and coverage state around tool calls.</span></li>
+</ul>
+</div>
+</body>
+</html>

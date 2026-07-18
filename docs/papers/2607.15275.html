@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoboTTT — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/test-time-training.html" class="back-link">&larr; Back to Area</a>
+<h2>RoboTTT: Context Scaling for Robot Policies</h2>
+<p class="paper-meta">Jiang, Chebotar, Zheng, Hu, Ge, Wu, Dai, Reed, Fei-Fei, Zhu, Fan (NVIDIA) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.15275" target="_blank" rel="noopener">arXiv:2607.15275</a> &middot; Appears in: <a href="../areas/test-time-training.html">Test-Time Training</a></p>
+<h3>What</h3>
+<p>RoboTTT is a robot policy and training recipe that scales visuomotor context to 8,000 timesteps, three orders of magnitude beyond typical single-step or short-history policies, without growing inference latency. It integrates Test-Time Training into a Vision-Language-Action policy so the recurrent state is a set of fast weights &mdash; parameters updated by gradient descent during both training and inference &mdash; that compress history into weight space and retrieve context for long-horizon conditioning.</p>
+<h3>Why</h3>
+<p>Recent robot foundation models operate with single-step or short-history context, which limits them on multi-stage, long-horizon tasks and prevents one-shot imitation from long human-video demonstrations. Growing a token window raises latency and cost. The paper seeks long-context conditioning at constant inference latency, and asks whether context length is itself a useful scaling axis for robot policies.</p>
+<h3>How</h3>
+<p>The recurrent state is fast weights updated by gradient descent at every step, so thousands of timesteps are folded into the weights rather than kept as tokens. To train at long context, the recipe combines sequence action forcing with truncated backpropagation through time. On real-robot manipulation the method improves overall performance by 87% over a single-step baseline, fully completes a five-minute ten-stage assembly task that no baseline finishes, and an 8K-timestep model outperforms the same model pretrained at 1K by 62%, with steady closed-loop gains as pretraining context length grows.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="SFYVQXEG.html">Test-Time Training (TTT)</a><span class="lineage-note">Source of the fast-weight, gradient-at-test-time mechanism; RoboTTT reuses it as a scalable recurrent memory rather than a one-shot adaptation.</span></li>
+<li><a href="2606.18043.html">Uncertainty Quantification for Flow-Based Vision-Language-Action Models</a><span class="lineage-note">Recent VLA policy work; RoboTTT adds long-context conditioning to the VLA family.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Standard TTT adapts a model to a single test instance with one or a few gradient steps, which does not give a policy any long-term memory. RoboTTT fixes the specific limitation &mdash; "the policy only sees the last step or two" &mdash; by running the fast-weight update continuously across thousands of steps, so minutes of interaction are retained without a growing token window or added latency.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared to the original TTT, the update is not a one-off adaptation but the policy's working memory, applied at both training and inference. Compared to standard VLA policies that condition on a short frame history, RoboTTT changes the memory mechanism from a bounded token window to fast weights, and adds a training recipe (sequence action forcing plus truncated backpropagation through time) that makes 8K-step context trainable.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2606.11032.html">U-TTT: Generalizable PET Image Denoising via Test-Time Training</a><span class="lineage-note">Another TTT application; contrasts one-shot adaptation with RoboTTT's use of fast weights as long-horizon memory.</span></li>
+<li><a href="2606.18043.html">Flow-Based VLA Models</a><span class="lineage-note">Same policy family; differs by context length and memory design.</span></li>
+</ul>
+</div>
+</body>
+</html>

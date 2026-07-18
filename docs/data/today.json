@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-17",
+  "date": "2026-07-18",
   "papers": [
     {
-      "zotero_key": "2607.14777",
-      "title": "SEED: Self-Evolving On-Policy Distillation for Agentic Reinforcement Learning",
-      "authors": "Wu et al.",
+      "zotero_key": "2607.15257",
+      "title": "SearchOS-V1: Towards Robust Open-Domain Information-Seeking Agent Collaboration",
+      "authors": "Zhang et al.",
       "year": 2026,
-      "what": "Turns an agent's own finished trajectories into natural-language hindsight skills, then re-scores actions with and without those skills to build a dense token-level self-distillation signal that is trained jointly with outcome-based reinforcement learning.",
+      "what": "A multi-agent search framework that externalizes progress into an Evidence Graph, Coverage Map, and Failure Memory, then schedules sub-agents against uncovered gaps so failed search patterns are not repeated.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "DeepSeek-R1 (2025); ADaPT (Prasad 2023); LATS (Zhou 2024)"
+      "builds_on": "ADaPT (Prasad 2023); LATS (Zhou 2024); Memory Mechanisms Survey (Huang 2026)"
     },
     {
-      "zotero_key": "2607.13399",
-      "title": "Demystifying On-Policy Distillation: Roles, Pathologies, and Regulations",
-      "authors": "Wang et al.",
-      "year": 2026,
-      "what": "Shows on-policy distillation acts as an exploration catalyst whose success depends on signal quality, names two failure modes (student-teacher mismatch, length exploitation), and fixes them with advantage clipping and log-scale compression.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "DeepSeek-R1 (2025); Chain-of-Thought (Wei 2023)"
-    },
-    {
-      "zotero_key": "2607.14935",
-      "title": "VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding",
+      "zotero_key": "2607.15207",
+      "title": "BadWAM: When World-Action Models Dream Right but Act Wrong",
       "authors": "Li et al.",
       "year": 2026,
-      "what": "A fully open 4B video multimodal LLM that inflates a Vision Transformer to 3D and adds adaptive frame resolution for streaming, beating larger open-source models on general, long-form, and streaming video benchmarks.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "ViT (Dosovitskiy 2021); Flamingo (Alayrac 2022); BLIP-2 (Li 2023)"
-    },
-    {
-      "zotero_key": "2607.14076",
-      "title": "From Pixels to States: Rethinking Interactive World Models as Game Engines",
-      "authors": "Li et al.",
-      "year": 2026,
-      "what": "Reframes interactive world models around a game engine's explicit action-state-observation loop, argues persistent explicit state matters more than pixel prediction, and releases a 90-hour Black Myth: Wukong dataset with ground-truth states.",
+      "what": "Defines World-Action Drift Attacks in which small visual perturbations desynchronize a world-action model's imagined future from its executed action, dropping one task's success from 96.5% to 43.1% while an imagination-preserving variant keeps the forecast looking clean.",
       "area_label": "World Model / RL",
       "area_slug": "world-model-rl",
-      "builds_on": "World Models (Ha & Schmidhuber 2018); Navigation World Models; Offline RL (Levine 2020)"
+      "builds_on": "World Models (Ha & Schmidhuber 2018); Navigation World Models; From Pixels to States (Li 2026)"
+    },
+    {
+      "zotero_key": "2607.15275",
+      "title": "RoboTTT: Context Scaling for Robot Policies",
+      "authors": "Jiang et al. (NVIDIA)",
+      "year": 2026,
+      "what": "Puts Test-Time Training inside a Vision-Language-Action policy so fast weights hold 8,000 timesteps of history at flat latency, improving performance 87% over a single-step baseline and completing a ten-stage assembly task no baseline finishes.",
+      "area_label": "Test-Time Training",
+      "area_slug": "test-time-training",
+      "builds_on": "Test-Time Training (TTT); Flow-Based VLA Models (2606.18043)"
+    },
+    {
+      "zotero_key": "2607.12800",
+      "title": "UniVR: Thinking in Visual Space for Unified Visual Reasoning",
+      "authors": "Ren et al. (ByteDance)",
+      "year": 2026,
+      "what": "Learns reasoning, physical dynamics, and planning from pure visual demonstrations using VR-GRPO, a reinforcement learning scheme with a global answer reward plus a step-level physical-consistency reward, giving up to 25% gains on the new VR-X benchmark.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "DeepSeek-R1 (2025); Chain-of-Thought (Wei 2023)"
     }
   ]
 }
