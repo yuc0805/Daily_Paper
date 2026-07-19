@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-18",
+  "date": "2026-07-19",
   "papers": [
     {
-      "zotero_key": "2607.15257",
-      "title": "SearchOS-V1: Towards Robust Open-Domain Information-Seeking Agent Collaboration",
-      "authors": "Zhang et al.",
+      "zotero_key": "2607.14777",
+      "title": "SEED: Self-Evolving On-Policy Distillation for Agentic Reinforcement Learning",
+      "authors": "Wu et al.",
       "year": 2026,
-      "what": "A multi-agent search framework that externalizes progress into an Evidence Graph, Coverage Map, and Failure Memory, then schedules sub-agents against uncovered gaps so failed search patterns are not repeated.",
+      "what": "Keeps outcome-based RL but adds a self-distillation loop: one policy checkpoint acts, writes natural-language skills from its own completed trajectories, and distills the skill-induced probability shift back into the policy, closing the sparse-reward supervision gap.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "ADaPT (Prasad 2023); LATS (Zhou 2024); Memory Mechanisms Survey (Huang 2026)"
+      "builds_on": "DeepSeek-R1 (2025); Chain-of-Thought (Wei 2023); Memory Mechanisms Survey (Huang 2026)"
     },
     {
-      "zotero_key": "2607.15207",
-      "title": "BadWAM: When World-Action Models Dream Right but Act Wrong",
-      "authors": "Li et al.",
+      "zotero_key": "2607.14935",
+      "title": "VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding",
+      "authors": "MCG-NJU",
       "year": 2026,
-      "what": "Defines World-Action Drift Attacks in which small visual perturbations desynchronize a world-action model's imagined future from its executed action, dropping one task's success from 96.5% to 43.1% while an imagination-preserving variant keeps the forecast looking clean.",
-      "area_label": "World Model / RL",
-      "area_slug": "world-model-rl",
-      "builds_on": "World Models (Ha & Schmidhuber 2018); Navigation World Models; From Pixels to States (Li 2026)"
-    },
-    {
-      "zotero_key": "2607.15275",
-      "title": "RoboTTT: Context Scaling for Robot Policies",
-      "authors": "Jiang et al. (NVIDIA)",
-      "year": 2026,
-      "what": "Puts Test-Time Training inside a Vision-Language-Action policy so fast weights hold 8,000 timesteps of history at flat latency, improving performance 87% over a single-step baseline and completing a ten-stage assembly task no baseline finishes.",
-      "area_label": "Test-Time Training",
-      "area_slug": "test-time-training",
-      "builds_on": "Test-Time Training (TTT); Flow-Based VLA Models (2606.18043)"
-    },
-    {
-      "zotero_key": "2607.12800",
-      "title": "UniVR: Thinking in Visual Space for Unified Visual Reasoning",
-      "authors": "Ren et al. (ByteDance)",
-      "year": 2026,
-      "what": "Learns reasoning, physical dynamics, and planning from pure visual demonstrations using VR-GRPO, a reinforcement learning scheme with a global answer reward plus a step-level physical-consistency reward, giving up to 25% gains on the new VR-X benchmark.",
+      "what": "A fully open 4B video MLLM covering short motion, hour-long video, temporal grounding, and streaming, using an Inflated 3D Vision Transformer (I3D-ViT) and Adaptive Frame Resolution to beat larger open-source models.",
       "area_label": "Multi-Modal",
       "area_slug": "multi-modal",
-      "builds_on": "DeepSeek-R1 (2025); Chain-of-Thought (Wei 2023)"
+      "builds_on": "I3D (Carreira 2017); Flamingo (Alayrac 2022); BLIP-2 (Li 2023)"
+    },
+    {
+      "zotero_key": "2607.01204",
+      "title": "TiRex-2: Generalizing TiRex to Multivariate Data and Streaming",
+      "authors": "NX-AI",
+      "year": 2026,
+      "what": "An xLSTM-based time-series foundation model that forecasts multivariate targets with future-known covariates in a streaming, zero-shot fashion at constant per-patch cost, avoiding the quadratic recompute of Transformer forecasters.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "HARMamba (Li 2024); Bi-Mamba+; LLMs for Time Series Survey (Zhang 2024)"
+    },
+    {
+      "zotero_key": "2607.13188",
+      "title": "Concurrent Image Understanding and Generation: Self-Correcting Coupled Markov Jump Processes",
+      "authors": "Le et al. (Google)",
+      "year": 2026,
+      "what": "Unifies image understanding and generation as two coupled Markov jump processes that run together and correct each other, so the generation side fixes its errors mid-process using the understanding side's read of the image.",
+      "area_label": "Generative CV",
+      "area_slug": "generative-cv",
+      "builds_on": "DDPM (Ho 2020); DiT (Peebles 2023)"
     }
   ]
 }

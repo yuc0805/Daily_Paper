@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TiRex-2 — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>TiRex-2: Generalizing TiRex to Multivariate Data and Streaming</h2>
+<p class="paper-meta">NX-AI &middot; arXiv 2026-07-01 &middot; <a href="https://arxiv.org/abs/2607.01204" target="_blank" rel="noopener">arXiv:2607.01204</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3>
+<p>TiRex-2 is an xLSTM-based time-series foundation model that forecasts one or many target series directly from their history, optionally conditioned on past and future-known covariates, in a streaming fashion and zero-shot. Its recurrent, memory-centric design keeps cost per new patch constant as observations arrive. It pairs a bidirectional time mixer with an asymmetric grouped-attention variate mixer that mixes across variables while keeping strict causality on the target variables.</p>
+<h3>Why</h3>
+<p>Transformer-based time-series foundation models capture cross-variate dependencies but incur quadratic cost in context length and must recompute the full history each time a new observation arrives, which makes them awkward for streaming use. A model that keeps multivariate cross-series information while updating at constant per-step cost has been missing.</p>
+<h3>How</h3>
+<p>TiRex-2 uses an xLSTM recurrent backbone so state carries forward and per-patch cost stays flat under streaming. The bidirectional time mixer reads temporal structure, and the asymmetric grouped-attention variate mixer integrates future-known covariates without breaking causality on the targets. To pretrain at scale, the authors compose synthetic multivariate samples on the fly from large univariate corpora, giving cross-series structure without requiring large aligned multivariate datasets. The model runs zero-shot with no task-specific fine-tuning.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Bidirectional recurrent state-space backbone at linear cost; TiRex-2 shares the constant-per-step goal with an xLSTM backbone.</span></li>
+<li><a href="AVTJLZIR.html">Bi-Mamba+</a><span class="lineage-note">Bidirectional recurrent model for time-series forecasting; TiRex-2 extends the recurrent line to multivariate streaming with covariates.</span></li>
+<li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">Maps the LLM-integration branch; TiRex-2 stays on the native-numeric branch instead.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Transformer time-series foundation models pay quadratic context cost and recompute full history under streaming. TiRex-2 fixes this by using a recurrent xLSTM backbone that updates at constant per-patch cost, while still handling multivariate targets and future-known covariates that univariate recurrent models such as the original TiRex could not.</p>
+<h3>Method vs predecessors</h3>
+<p>Where HARMamba and Bi-Mamba+ applied recurrent state-space backbones to activity recognition and univariate or paired forecasting, TiRex-2 keeps the recurrent constant-cost idea but adds an asymmetric grouped-attention variate mixer for cross-series and covariate integration and a synthetic multivariate pretraining pipeline. Where the survey framed time-series ability as something to add by attaching an LLM, TiRex-2 stays fully numeric.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Reasoning over series via tool calls; complementary to TiRex-2's native forecasting and a candidate controller on top of it.</span></li>
+<li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">Context for where native-forecasting foundation models sit against LLM-integration methods.</span></li>
+</ul>
+</div>
+</body>
+</html>

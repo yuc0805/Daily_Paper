@@ -10,28 +10,27 @@
 <div class="paper-page">
 <a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
 <h2>VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding</h2>
-<p class="paper-meta">Li, Zhu, Zeng, Dong, Wu, Zhang, Yang, Wang et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.14935" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+<p class="paper-meta">MCG-NJU &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.14935" target="_blank" rel="noopener">arXiv:2607.14935</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
 <h3>What</h3>
-<p>VideoChat3 is a fully open video multimodal LLM aimed at broad generalization at low cost. It adds an Inflated 3D Vision Transformer and an adaptive frame-resolution scheme for streaming perception, and it releases a video data synthesis pipeline with three training sets covering general, long-form, and streaming video. With 4B parameters it reports beating prior open-source models of equal or larger size on general, long-form, and streaming benchmarks, and releases code, data, and weights.</p>
+<p>VideoChat3 is a fully open 4B-parameter video multimodal LLM built to handle short motion, hour-long video, temporal grounding, and live streaming in a single model. It introduces an Inflated 3D Vision Transformer (I3D-ViT) for spatiotemporal features and an Adaptive Frame Resolution scheme for streaming perception. It is trained with a scalable video data-synthesis pipeline that produces three datasets covering general, long-form, and streaming scenarios (Academic2M, LV116K, OL617K).</p>
 <h3>Why</h3>
-<p>Open-source video models tend to work only in narrow domains, cost too much to run because video makes many tokens, and ship only partially, with training code or datasets withheld. That mix blocks reproducibility and slows shared progress. A generalist, efficient, and fully open model is needed so the community can build on a common base rather than re-deriving each piece.</p>
+<p>Open-source video MLLMs struggle to cover short motion, very long video, and live streams at once, and processing many frames is expensive. Fixed frame-sampling schemes inherited from image-language models waste compute on redundant frames and still miss fine motion, so an efficient and generalist open model has been missing.</p>
 <h3>How</h3>
-<p>For efficiency, the Inflated 3D Vision Transformer extends a 2D image encoder to model space and time together, and Adaptive Frame Resolution for Streaming Video Perception lowers the cost of processing frames during training and inference. For effectiveness, a scalable synthesis pipeline curates three datasets (Academic2M, LV116K, OL617K) spanning general, long-form, and streaming video. Combining these, the 4B model reaches a balance of generalization and efficiency and surpasses larger open-source baselines on the reported benchmarks.</p>
+<p>The model inflates a 2D Vision Transformer into an I3D-ViT to read spatiotemporal structure, then applies Adaptive Frame Resolution so that streaming and long inputs are processed at a resolution matched to their information content, holding cost down. A data-synthesis pipeline curates the three training corpora. The reported result is that VideoChat3 surpasses prior open-source video MLLMs of equal or larger parameter count using only 4B parameters and higher efficiency.</p>
 <h3>Builds on</h3>
 <ul class="lineage-list">
-<li><a href="B7F2Q998.html">ViT (Dosovitskiy 2021)</a><span class="lineage-note">The image Vision Transformer that VideoChat3 inflates into a 3D spatiotemporal encoder.</span></li>
-<li><a href="SC8KWYVK.html">Flamingo (Alayrac 2022)</a><span class="lineage-note">Established connecting a frozen vision encoder to a language model for multimodal understanding.</span></li>
-<li><a href="4N5WXKPI.html">BLIP-2 (Li 2023)</a><span class="lineage-note">Lightweight bridging between a vision encoder and an LLM.</span></li>
-<li><a href="RYGRHCG3.html">Deep Video Action Recognition Survey (Zhu 2020)</a><span class="lineage-note">Reference frame for the video understanding tasks evaluated.</span></li>
+<li><a href="WYQSCSRF.html">I3D (Carreira &amp; Zisserman 2017)</a><span class="lineage-note">Inflated 2D convolutions into 3D to read motion; VideoChat3 inflates a Vision Transformer the same way.</span></li>
+<li><a href="SC8KWYVK.html">Flamingo (Alayrac 2022)</a><span class="lineage-note">Bridged a frozen vision encoder to an LLM for image-and-text dialogue.</span></li>
+<li><a href="4N5WXKPI.html">BLIP-2 (Li 2023)</a><span class="lineage-note">Connected a frozen image encoder and LLM through a lightweight query transformer.</span></li>
 </ul>
 <h3>Solves vs predecessors</h3>
-<p>Flamingo and BLIP-2 attach a frozen 2D vision encoder to an LLM, which handles images well but makes long video expensive and domain-narrow. VideoChat3 fixes the token-cost and generalization problem by inflating the encoder to 3D and adding adaptive frame resolution, reaching stronger video results at only 4B parameters while releasing the full stack.</p>
+<p>Flamingo and BLIP-2 handled images or short clips with fixed frame sampling, which becomes too costly for hour-long or live video and misses fine motion. VideoChat3 fixes this by adding streaming-aware adaptive frame resolution and an inflated-transformer video encoder, so one model covers short, long, and streaming video without a separate design per regime.</p>
 <h3>Method vs predecessors</h3>
-<p>Where ViT tokenizes a single image and earlier video MLLMs freeze a 2D encoder and sample frames uniformly, VideoChat3 builds a spatiotemporal tokenizer from an inflated Vision Transformer and varies frame resolution for streaming input. The other lever is data: a synthesis pipeline produces general, long-form, and streaming training sets rather than relying on a single-domain corpus.</p>
+<p>Where I3D inflated ConvNets, VideoChat3 carries the inflation trick to transformers, giving I3D-ViT. Where Flamingo and BLIP-2 kept a fixed sampling front end, VideoChat3 varies frame resolution with the input, which is what makes constant-cost streaming perception possible at 4B parameters.</p>
 <h3>Related (semantically similar in your library)</h3>
 <ul class="lineage-list">
-<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Vision-language generative model in the same community.</span></li>
-<li><a href="64H6TK5Y.html">FLIP (Li 2022)</a><span class="lineage-note">Efficiency-focused vision-language pretraining.</span></li>
+<li><a href="9QCZ3A32.html">VideoMAE</a><span class="lineage-note">Self-supervised video representation; a different route to spatiotemporal features than inflated attention.</span></li>
+<li><a href="2HU6MLMN.html">TimeSformer</a><span class="lineage-note">Transformer for video; VideoChat3 differs by inflating a 2D ViT and adding streaming resolution control.</span></li>
 </ul>
 </div>
 </body>

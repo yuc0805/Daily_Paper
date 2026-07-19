@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concurrent Image Understanding and Generation — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/generative-cv.html" class="back-link">&larr; Back to Area</a>
+<h2>Concurrent Image Understanding and Generation: Self-Correcting Coupled Markov Jump Processes</h2>
+<p class="paper-meta">Le, Comas, Lattas et al. (Google) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.13188" target="_blank" rel="noopener">arXiv:2607.13188</a> &middot; Appears in: <a href="../areas/generative-cv.html">Generative CV</a></p>
+<h3>What</h3>
+<p>This model unifies image understanding and image generation as two coupled Markov jump processes that run at the same time and correct each other, rather than as two separate heads or two separate passes. The coupling lets the generation process use the understanding process's current read of the image to fix its own errors mid-way, giving a single model that both reads and draws while staying consistent.</p>
+<h3>Why</h3>
+<p>Diffusion generators run a one-way denoising process with no built-in channel to check whether what they are drawing matches a reading of the image, and unified understanding-and-generation models usually bolt the two abilities together as separate modules. Neither lets the two directions correct each other during inference, so generation errors go unchecked.</p>
+<h3>How</h3>
+<p>The method models understanding and generation as two coupled continuous-time Markov jump processes over discrete image states. The two processes evolve concurrently and exchange information, so the understanding side steers the generation side and the generation side updates what the understanding side sees. This coupling produces a self-correction loop within a single unified model.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Defined generation as fixed forward-and-reverse diffusion; this paper replaces continuous diffusion with coupled jump processes and adds self-correction.</span></li>
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Showed a transformer can be the diffusion backbone; this work keeps a transformer-style backbone but changes the stochastic process.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DDPM's one-way denoiser has no way to verify its output against a reading of the image, so errors accumulate. This paper fixes that by coupling an understanding process to the generation process, letting the model catch and correct its own generation errors during inference instead of only at the end.</p>
+<h3>Method vs predecessors</h3>
+<p>Where DDPM used continuous Gaussian diffusion and DiT swapped in a transformer backbone, this work replaces the process itself with coupled Markov jump processes and runs two of them together for self-correction, moving generative-CV from single-process denoising toward concurrent understanding-and-generation.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Text-conditional generation; a separate-module design rather than coupled understanding-and-generation.</span></li>
+</ul>
+</div>
+</body>
+</html>
