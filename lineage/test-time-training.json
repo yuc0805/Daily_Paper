@@ -1,98 +1,122 @@
 {
-  "_generated": "2026-05-14",
-  "_source": "graphify_seed/graph.json + zotero_index.json",
-  "area": "test-time-training.md",
-  "edges": [
-    {
-      "source": "yuan2024_ssl_har",
-      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
-      "target": "chen2023_pathology",
-      "target_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.65,
-      "cross_area": false
-    },
-    {
-      "source": "chen2023_pathology",
-      "source_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
-      "target": "zhang2023_mae",
-      "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "W7RPRTCH",
-      "source_label": "TTT for Abstract Reasoning (Akyurek 2024)",
-      "target": "2506.23424",
-      "target_label": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "YY67LF3R",
-      "source_label": "PatchTST (Nie 2023)",
-      "target": "2506.23424",
-      "target_label": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "4QQTVIYC",
-      "source_label": "Sundial (Liu 2025)",
-      "target": "2506.23424",
-      "target_label": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "JEGI4IS7",
-      "source_label": "TTT Layers (Sun 2024)",
-      "target": "2606.06906",
-      "target_label": "EASE-TTT: Evidence-Aligned Selective Test-Time Training for Long-Context Question Answering",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "note": "EASE-TTT replaces the generic self-supervised objective of TTT Layers with an evidence-aligned attention target for the specific question.",
-      "date_added": "2026-06-28"
-    },
-    {
-      "source": "W7RPRTCH",
-      "source_label": "TTT for Abstract Reasoning (Akyurek 2024)",
-      "target": "2606.06906",
-      "target_label": "EASE-TTT: Evidence-Aligned Selective Test-Time Training for Long-Context Question Answering",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "note": "EASE-TTT points test-time adaptation at evidence positions rather than using the position-agnostic objective of Akyurek 2024.",
-      "date_added": "2026-06-28"
-    }
-  ],
-  "hyperedges": [
-    {
-      "id": "self_supervised_pretraining",
-      "label": "Self-Supervised Pretraining Methods",
-      "nodes": [
-        "yuan2024_ssl_har",
-        "chen2023_pathology",
-        "zhang2023_mae",
-        "baur2024_hear",
-        "concept_self_supervised"
-      ],
-      "relation": "implement",
-      "confidence": "EXTRACTED",
-      "confidence_score": 0.9
-    }
-  ],
-  "cross_area_bridges": []
+ "_generated": "2026-05-14",
+ "_source": "graphify_seed/graph.json + zotero_index.json",
+ "area": "test-time-training.md",
+ "edges": [
+  {
+   "source": "yuan2024_ssl_har",
+   "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+   "target": "chen2023_pathology",
+   "target_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
+   "relation": "semantically_similar_to",
+   "confidence": "INFERRED",
+   "confidence_score": 0.65,
+   "cross_area": false
+  },
+  {
+   "source": "chen2023_pathology",
+   "source_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
+   "target": "zhang2023_mae",
+   "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "W7RPRTCH",
+   "source_label": "TTT for Abstract Reasoning (Akyurek 2024)",
+   "target": "2506.23424",
+   "target_label": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "YY67LF3R",
+   "source_label": "PatchTST (Nie 2023)",
+   "target": "2506.23424",
+   "target_label": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "4QQTVIYC",
+   "source_label": "Sundial (Liu 2025)",
+   "target": "2506.23424",
+   "target_label": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "JEGI4IS7",
+   "source_label": "TTT Layers (Sun 2024)",
+   "target": "2606.06906",
+   "target_label": "EASE-TTT: Evidence-Aligned Selective Test-Time Training for Long-Context Question Answering",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "note": "EASE-TTT replaces the generic self-supervised objective of TTT Layers with an evidence-aligned attention target for the specific question.",
+   "date_added": "2026-06-28"
+  },
+  {
+   "source": "W7RPRTCH",
+   "source_label": "TTT for Abstract Reasoning (Akyurek 2024)",
+   "target": "2606.06906",
+   "target_label": "EASE-TTT: Evidence-Aligned Selective Test-Time Training for Long-Context Question Answering",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "note": "EASE-TTT points test-time adaptation at evidence positions rather than using the position-agnostic objective of Akyurek 2024.",
+   "date_added": "2026-06-28"
+  },
+  {
+   "source": "SFYVQXEG",
+   "source_label": "Test-Time Training (TTT)",
+   "target": "2607.15275",
+   "target_label": "RoboTTT: Context Scaling for Robot Policies (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "note": "Where standard TTT adapts a model to a single test instance with a few gradient steps, RoboTTT uses the same fast-weight update as a policy's working memory across thousands of steps.",
+   "date_added": "2026-07-18"
+  },
+  {
+   "source": "2606.18043",
+   "source_label": "Uncertainty Quantification for Flow-Based Vision-Language-Action Models (2026)",
+   "target": "2607.15275",
+   "target_label": "RoboTTT: Context Scaling for Robot Policies (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "note": "Building on recent Vision-Language-Action policy work in the library, RoboTTT embeds Test-Time Training inside the VLA policy to hold long visuomotor history in weight space.",
+   "date_added": "2026-07-18"
+  }
+ ],
+ "hyperedges": [
+  {
+   "id": "self_supervised_pretraining",
+   "label": "Self-Supervised Pretraining Methods",
+   "nodes": [
+    "yuan2024_ssl_har",
+    "chen2023_pathology",
+    "zhang2023_mae",
+    "baur2024_hear",
+    "concept_self_supervised"
+   ],
+   "relation": "implement",
+   "confidence": "EXTRACTED",
+   "confidence_score": 0.9
+  }
+ ],
+ "cross_area_bridges": []
 }

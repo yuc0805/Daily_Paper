@@ -340,6 +340,30 @@
    "confidence": "INFERRED",
    "confidence_score": 0.9,
    "cross_area": true
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2607.12800",
+   "target_label": "UniVR: Thinking in Visual Space for Unified Visual Reasoning (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "note": "Where DeepSeek-R1 rewards a correct final answer in text, UniVR moves both the reasoning and the reward into visual space and adds a per-step physical-consistency reward.",
+   "date_added": "2026-07-18"
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2607.12800",
+   "target_label": "UniVR: Thinking in Visual Space for Unified Visual Reasoning (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "note": "Where Chain-of-Thought produces the reasoning trace in language tokens, UniVR carries the trace through raw visual states checked for physical plausibility.",
+   "date_added": "2026-07-18"
   }
  ],
  "hyperedges": [],

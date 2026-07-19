@@ -628,6 +628,54 @@
    "confidence": "INFERRED",
    "confidence_score": 0.9,
    "cross_area": false
+  },
+  {
+   "source": "prasad2023_adapt",
+   "source_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
+   "target": "2607.15257",
+   "target_label": "SearchOS-V1: Open-Domain Information-Seeking Agent Collaboration (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "note": "Where ADaPT decomposes a task on demand inside the reasoning trace, SearchOS moves the working state into persistent external structures shared across sub-agents.",
+   "date_added": "2026-07-18"
+  },
+  {
+   "source": "zhou2024_lats",
+   "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+   "target": "2607.15257",
+   "target_label": "SearchOS-V1: Open-Domain Information-Seeking Agent Collaboration (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "note": "Where LATS searches a tree of actions at inference time, SearchOS externalizes progress into an Evidence Graph and Failure Memory so coverage is tracked rather than re-searched.",
+   "date_added": "2026-07-18"
+  },
+  {
+   "source": "durante2024_agentai",
+   "source_label": "Agent AI: Surveying Multimodal Interaction (Durante 2024)",
+   "target": "2607.15257",
+   "target_label": "SearchOS-V1: Open-Domain Information-Seeking Agent Collaboration (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "note": "The Agent AI survey frames multi-agent coordination; SearchOS supplies a concrete shared-state scheme (Coverage Map plus Failure Memory) for coordinating information-seeking sub-agents.",
+   "date_added": "2026-07-18"
+  },
+  {
+   "source": "huang2026_memory",
+   "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+   "target": "2607.15257",
+   "target_label": "SearchOS-V1: Open-Domain Information-Seeking Agent Collaboration (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "note": "Where the memory line keeps a running store for a single agent, SearchOS makes that store shared and structured so several sub-agents coordinate coverage without repeating dead ends.",
+   "date_added": "2026-07-18"
   }
  ],
  "hyperedges": [

@@ -86,6 +86,42 @@
    "confidence": "INFERRED",
    "confidence_score": 0.9,
    "cross_area": false
+  },
+  {
+   "source": "938DAXZT",
+   "source_label": "World Models (Ha 2018)",
+   "target": "2607.15207",
+   "target_label": "BadWAM: When World-Action Models Dream Right but Act Wrong (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "note": "Where World Models treat the learned model as a source of control and robustness, BadWAM treats the coupling of imagination and action as an attack surface.",
+   "date_added": "2026-07-18"
+  },
+  {
+   "source": "JQ7JD8AR",
+   "source_label": "Navigation World Models (Bar 2024)",
+   "target": "2607.15207",
+   "target_label": "BadWAM: When World-Action Models Dream Right but Act Wrong (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "note": "Navigation World Models condition planning on predicted futures; BadWAM shows small perturbations can hijack the action while the predicted future still looks correct.",
+   "date_added": "2026-07-18"
+  },
+  {
+   "source": "2607.14076",
+   "source_label": "From Pixels to States: World Models as Game Engines (2026)",
+   "target": "2607.15207",
+   "target_label": "BadWAM: When World-Action Models Dream Right but Act Wrong (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "note": "Where From Pixels to States argues explicit state improves control, BadWAM shows that if imagination and action are only loosely coupled the imagination can look right while the action is already wrong.",
+   "date_added": "2026-07-18"
   }
  ],
  "hyperedges": [],
