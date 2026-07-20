@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On-Policy Delta Distillation — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>On-Policy Delta Distillation (OPD&sup2;)</h2>
+<p class="paper-meta">Heo, Hwang, Yun, Han (NAVER AI Lab) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.15161" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a></p>
+<h3>What</h3><p>On-policy distillation transfers a teacher's reasoning by giving token-level supervision on the student's own rollouts, which avoids the need for a reward model. OPD&sup2; changes the target: instead of imitating the teacher's full output distribution, it distills the delta signal, the difference between the reasoning-tuned teacher and its base model before instruction tuning. Across mathematics, science, and code-reasoning benchmarks OPD&sup2; beats standard on-policy distillation, with gains holding across several Qwen3 sizes and transferring to Gemma 4.</p>
+<h3>Why</h3><p>On-policy distillation has been applied widely, but its core design (imitate the teacher distribution) is underexplored. Copying the whole teacher distribution also copies base-model behavior the student already has, which dilutes the signal that matters, namely the reasoning ability added by tuning. A target that isolates that added ability should transfer more directly.</p>
+<h3>How</h3><p>The delta signal is defined as the difference between the reasoning-tuned teacher and its base model prior to instruction tuning, so it captures the change induced by reasoning tuning. OPD&sup2; uses this delta, rather than the raw teacher output, as the distillation reward on the student's on-policy rollouts. Experiments span math, science, and code reasoning across multiple Qwen3 sizes in thinking and non-thinking modes, plus a Gemma 4 transfer check.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Produced reasoning ability through RL, leaving an expensive teacher to distill.</span></li>
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Established the reasoning-trace behavior that distillation transfers.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>DeepSeek-R1 produced a costly reasoning teacher; standard distillation of that teacher wastes capacity re-copying base behavior. OPD&sup2; transfers only the reasoning delta, reaching strong performance with a short post-training period, which lowers the cost of moving reasoning from a large teacher to a small student.</p>
+<h3>Method vs predecessors</h3><p>Where prior on-policy distillation imitated the teacher's full distribution, OPD&sup2; subtracts the base model from the tuned teacher and distills the difference. This is the same "measure what tuning added" move that the day's chess study makes by comparing fine-tuned and post-RL policies, applied here as a transfer signal rather than an analysis tool.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Base-model line whose difference from a reasoning-tuned teacher defines the delta.</span></li>
+</ul>
+</div>
+</body>
+</html>

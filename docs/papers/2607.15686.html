@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S1-Omni: Unified Multimodal Reasoning for Science — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+<h2>S1-Omni: A Unified Multimodal Reasoning Model for Scientific Understanding, Prediction, and Generation</h2>
+<p class="paper-meta">Zhao, Liu, Xu, Xu, Wang et al. (ScienceOne-AI) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.15686" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+<h3>What</h3><p>S1-Omni maps heterogeneous scientific objects (crystal structure files, molecular SMILES strings, protein sequences, spectra, scientific images) plus natural-language instructions into one shared representation, then uses task-specific decoders for property prediction, spectrum-to-molecule generation, protein site and structure prediction, and scientific image generation and editing. It is trained on a corpus covering 200 scientific tasks with millions of reasoning samples and evaluated on more than 60 benchmarks, reportedly outperforming GPT-5.5 and Gemini-3.1-Pro on most and matching domain-specific models on several.</p>
+<h3>Why</h3><p>AI for science has advanced through domain-specific models, tool-augmented language models, and scientific language models, but capabilities stay fragmented, which limits joint modeling of heterogeneous data, scientific laws, and expert knowledge. A single reasoning model that consolidates these would let one system move across data types and tasks that today require separate narrow tools.</p>
+<h3>How</h3><p>The architecture has three parts: a unified representation that maps instructions and scientific objects into a shared space; alignment that folds scientific laws and expert knowledge into data construction and training; and task-specific decoding that produces domain-native outputs. Training uses the S1-Omni-Corpus of 200 tasks with millions of reasoning samples, and evaluation spans over 60 benchmarks across nine disciplines.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">Aligned text and images in one embedding space.</span></li>
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Showed a transformer backbone can drive diffusion generation.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>DALL-E 2 and DiT handle a single generative modality (images). S1-Omni addresses the fragmentation problem across many scientific modalities at once, so one model both predicts properties and generates structures, which separate domain tools could not do jointly.</p>
+<h3>Method vs predecessors</h3><p>Where DALL-E 2 used a shared text-image space and DiT used one pixel-oriented decoder, S1-Omni keeps the shared-space idea but attaches domain-native decoders, because a spectrum or a protein sequence needs a decoder that speaks its own format rather than a pixel decoder. No scientific-modality parent sits in the library yet, so these two vision-language anchors in community 3 are the closest predecessors.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Diffusion generation that underlies the image-generation decoder branch.</span></li>
+</ul>
+</div>
+</body>
+</html>

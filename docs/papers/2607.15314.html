@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cura 1T: Specialized Model for Agentic Healthcare — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+<h2>Cura 1T: Specialized Model for Agentic Healthcare</h2>
+<p class="paper-meta">actAVA AI, Chen, Qi, Brown, Metelski, Xia, Lee, Wang, Riley, Wang, Yao &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.15314" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm-health.html">LLM-Health</a></p>
+<h3>What</h3><p>Cura 1T is a healthcare-specialized language model trained through a human-gated self-evolution loop. In each round a training agent picks a target capability, trains the model, reads the benchmark trajectories, and rewrites the data mixture from the observed failures, rather than doing one generic medical-data update. Across a healthcare evaluation suite it ranks at or near the top among frontier baselines while staying competitive on out-of-domain reasoning and agentic benchmarks.</p>
+<h3>Why</h3><p>A healthcare model must handle patient consultation, clinical reasoning over text and images, interactive diagnosis, and electronic health record tool use. These capabilities fail in different ways, and a narrow update aimed at one task can degrade another. A single generic medical fine-tune therefore cannot cover the full workflow without regressing some skill, which motivates a data-centered loop that targets observed failures.</p>
+<h3>How</h3><p>The training agent runs rounds: plan a target capability, train, evaluate benchmark trajectories, and refine the data mixture from where the model failed, using targeted synthetic and curated examples. A human gate controls each round. The loop improves the model through repeated failure-driven data edits rather than one static update.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">Showed a general model answers health questions from a few examples.</span></li>
+<li><a href="GST6E6A6.html">CounselBench (Li 2025)</a><span class="lineage-note">Measured where language models fail in mental-health advice.</span></li>
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Surveyed static biosignal foundation models.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>Liu 2023 showed few-shot health competence and CounselBench measured failure modes, but neither closed the loop between measured failures and the next training round. Cura 1T turns those failures into the training signal itself, addressing the regression problem where fixing one healthcare skill degrades another.</p>
+<h3>Method vs predecessors</h3><p>Where Gu 2025 catalogued fixed biosignal encoders, Cura 1T is an agentic system whose data mixture changes each round, placing it on the self-improving-system branch rather than the fixed-encoder branch. Where earlier health models did one supervised fine-tune, Cura 1T runs iterative, failure-targeted data construction under a human gate.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="BDY3HUCV.html">Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Shares the self-improving-agent framing applied here to healthcare training.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-19",
+  "date": "2026-07-20",
   "papers": [
     {
-      "zotero_key": "2607.14777",
-      "title": "SEED: Self-Evolving On-Policy Distillation for Agentic Reinforcement Learning",
-      "authors": "Wu et al.",
+      "zotero_key": "2607.16097",
+      "title": "Understanding Reasoning from Pretraining to Post-Training",
+      "authors": "Shen et al.",
       "year": 2026,
-      "what": "Keeps outcome-based RL but adds a self-distillation loop: one policy checkpoint acts, writes natural-language skills from its own completed trajectories, and distills the skill-induced probability shift back into the policy, closing the sparse-reward supervision gap.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "DeepSeek-R1 (2025); Chain-of-Thought (Wei 2023); Memory Mechanisms Survey (Huang 2026)"
+      "what": "Uses chess as a controlled testbed to separate pretraining from RL, finding that pretraining loss predicts post-RL reasoning performance and that pretraining tokens set the slope of the RL reward curve.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "Chain-of-Thought (Wei 2023); DeepSeek-R1 (2025)"
     },
     {
-      "zotero_key": "2607.14935",
-      "title": "VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding",
-      "authors": "MCG-NJU",
+      "zotero_key": "2607.15314",
+      "title": "Cura 1T: Specialized Model for Agentic Healthcare",
+      "authors": "actAVA AI et al.",
       "year": 2026,
-      "what": "A fully open 4B video MLLM covering short motion, hour-long video, temporal grounding, and streaming, using an Inflated 3D Vision Transformer (I3D-ViT) and Adaptive Frame Resolution to beat larger open-source models.",
+      "what": "A healthcare language model trained through a human-gated self-evolution loop that rewrites its own data mixture from observed benchmark failures, covering consultation, clinical reasoning, diagnosis, and EHR tool use without regressing one skill for another.",
+      "area_label": "LLM-Health",
+      "area_slug": "llm-health",
+      "builds_on": "Few-Shot Health Learners (Liu 2023); CounselBench (Li 2025); Foundation Models for Biosignals (Gu 2025)"
+    },
+    {
+      "zotero_key": "2607.15161",
+      "title": "On-Policy Delta Distillation",
+      "authors": "Heo et al. (NAVER AI Lab)",
+      "year": 2026,
+      "what": "Distills the delta signal (the difference between a reasoning-tuned teacher and its base model) instead of the full teacher distribution, transferring reasoning ability more directly and beating standard on-policy distillation across math, science, and code.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "DeepSeek-R1 (2025); Chain-of-Thought (Wei 2023)"
+    },
+    {
+      "zotero_key": "2607.15686",
+      "title": "S1-Omni: A Unified Multimodal Reasoning Model for Scientific Understanding, Prediction, and Generation",
+      "authors": "Zhao et al. (ScienceOne-AI)",
+      "year": 2026,
+      "what": "Maps heterogeneous scientific objects (structures, SMILES, protein sequences, spectra, images) plus instructions into one shared space with domain-native decoders, spanning 200 scientific tasks and reportedly beating GPT-5.5 and Gemini-3.1-Pro on most of 60+ benchmarks.",
       "area_label": "Multi-Modal",
       "area_slug": "multi-modal",
-      "builds_on": "I3D (Carreira 2017); Flamingo (Alayrac 2022); BLIP-2 (Li 2023)"
-    },
-    {
-      "zotero_key": "2607.01204",
-      "title": "TiRex-2: Generalizing TiRex to Multivariate Data and Streaming",
-      "authors": "NX-AI",
-      "year": 2026,
-      "what": "An xLSTM-based time-series foundation model that forecasts multivariate targets with future-known covariates in a streaming, zero-shot fashion at constant per-patch cost, avoiding the quadratic recompute of Transformer forecasters.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "HARMamba (Li 2024); Bi-Mamba+; LLMs for Time Series Survey (Zhang 2024)"
-    },
-    {
-      "zotero_key": "2607.13188",
-      "title": "Concurrent Image Understanding and Generation: Self-Correcting Coupled Markov Jump Processes",
-      "authors": "Le et al. (Google)",
-      "year": 2026,
-      "what": "Unifies image understanding and generation as two coupled Markov jump processes that run together and correct each other, so the generation side fixes its errors mid-process using the understanding side's read of the image.",
-      "area_label": "Generative CV",
-      "area_slug": "generative-cv",
-      "builds_on": "DDPM (Ho 2020); DiT (Peebles 2023)"
+      "builds_on": "DALL-E 2 (Ramesh 2022); DiT (Peebles 2023)"
     }
   ]
 }

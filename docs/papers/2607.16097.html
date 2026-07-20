@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Understanding Reasoning from Pretraining to Post-Training — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Understanding Reasoning from Pretraining to Post-Training</h2>
+<p class="paper-meta">Shen, Li, Rahman, Sun, Goldblum, Telgarsky, Izmailov &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.16097" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3><p>The paper uses chess as a controlled testbed to study reasoning across the full language-model pipeline: pretraining on human games (5M to 1B parameters), supervised fine-tuning on synthetic reasoning traces, then reinforcement learning on chess puzzles with a verifiable reward. Because the domain is closed and the reward is exact, behaviors can be attributed to pretraining versus RL, and both stages can be swept. The main findings are that post-RL performance at a given RL compute level is well predicted by the pretraining loss, and that the slope of the RL reward curve rises roughly linearly with the number of pretraining tokens.</p>
+<h3>Why</h3><p>RL has become the standard way to raise a model's reasoning score, but it is almost always studied on its own, cut off from the pretraining that precedes it. Ordinary language models cannot answer how pretraining shapes the returns to RL, because their pretraining corpora are enormous and uncontrolled, so a behavior cannot be traced to one stage, and full compute sweeps across both stages cost too much. A controlled domain is needed to separate the two.</p>
+<h3>How</h3><p>Models are pretrained on human chess games, fine-tuned on synthetic reasoning traces, then trained with RL on puzzles whose reward is exact (the move is right or wrong). Sweeping model size and pretraining tokens lets the authors relate pretraining loss to post-RL reward. They also analyze what RL changes: on easy puzzles it amplifies correct moves the fine-tuned policy already preferred, while on hard puzzles it surfaces correct moves nearly absent before RL. The key test is repeated on a 1B model trained on mathematics text.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Elicited reasoning from a fixed pretrained model through prompting.</span></li>
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Trained reasoning directly through RL with verifiable rewards.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>Chain-of-Thought and DeepSeek-R1 each showed a way to obtain reasoning (prompting a frozen model, or RL on a fixed one) but neither measured how the earlier pretraining decides the ceiling and speed of that step. This paper fixes that gap: it produces a predictive relationship where pretraining loss forecasts post-RL reward and pretraining tokens set the RL slope, turning "RL just works" into a quantitative account.</p>
+<h3>Method vs predecessors</h3><p>Where DeepSeek-R1 ran RL on a full-scale, uncontrolled language model, this paper trades scale for control: a closed chess domain with an exact reward lets it attribute behavior to pretraining versus RL and sweep both stages, which is impossible in the standard setting. It extends the DeepSeek-R1 to Chain-of-Thought bridge (reasoning-via-RL vs reasoning-via-prompting) into the science-of-scaling direction.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Base-model scaling that precedes the RL reasoning stage studied here.</span></li>
+</ul>
+</div>
+</body>
+</html>
