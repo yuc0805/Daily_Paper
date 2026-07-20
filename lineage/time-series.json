@@ -1,1328 +1,1361 @@
 {
- "_generated": "2026-05-14",
- "_source": "graphify_seed/graph.json + zotero_index.json",
- "area": "time-series.md",
- "edges": [
-  {
-   "source": "vaswani2017_transformer",
-   "source_label": "Attention Is All You Need (Vaswani 2017)",
-   "target": "liu2021_swin",
-   "target_label": "Swin Transformer (Liu 2021)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": true
-  },
-  {
-   "source": "vaswani2017_transformer",
-   "source_label": "Attention Is All You Need (Vaswani 2017)",
-   "target": "carion2020_detr",
-   "target_label": "DETR: End-to-End Object Detection with Transformers (Carion 2020)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": true
-  },
-  {
-   "source": "vaswani2017_transformer",
-   "source_label": "Attention Is All You Need (Vaswani 2017)",
-   "target": "peebles2023_dit",
-   "target_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": true
-  },
-  {
-   "source": "vaswani2017_transformer",
-   "source_label": "Attention Is All You Need (Vaswani 2017)",
-   "target": "zhai2023_siglip",
-   "target_label": "SigLIP: Sigmoid Loss for Language Image Pre-Training (Zhai 2023)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": true
-  },
-  {
-   "source": "vaswani2017_transformer",
-   "source_label": "Attention Is All You Need (Vaswani 2017)",
-   "target": "li2024_harmamba",
-   "target_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": false
-  },
-  {
-   "source": "vaswani2017_transformer",
-   "source_label": "Attention Is All You Need (Vaswani 2017)",
-   "target": "erol2024_audiomamba",
-   "target_label": "Audio Mamba: Bidirectional SSM for Audio (Erol 2024)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": true
-  },
-  {
-   "source": "vaswani2017_transformer",
-   "source_label": "Attention Is All You Need (Vaswani 2017)",
-   "target": "chen2024_sensor2text",
-   "target_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": false
-  },
-  {
-   "source": "vaswani2017_transformer",
-   "source_label": "Attention Is All You Need (Vaswani 2017)",
-   "target": "yuan2024_ssl_har",
-   "target_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": false
-  },
-  {
-   "source": "vaswani2017_transformer",
-   "source_label": "Attention Is All You Need (Vaswani 2017)",
-   "target": "gu2025_biosignals",
-   "target_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": false
-  },
-  {
-   "source": "vaswani2017_transformer",
-   "source_label": "Attention Is All You Need (Vaswani 2017)",
-   "target": "zhang2023_mae",
-   "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": false
-  },
-  {
-   "source": "wei2023_cot",
-   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-   "target": "liu2025_tsagent",
-   "target_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": true
-  },
-  {
-   "source": "liu2025_tsagent",
-   "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
-   "target": "zhang2024_llm_ts_survey",
-   "target_label": "LLMs for Time Series: A Survey (Zhang 2024)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": false
-  },
-  {
-   "source": "liu2025_tsagent",
-   "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
-   "target": "xie2025_chatts",
-   "target_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
-   "relation": "semantically_similar_to",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "liu2025_tsagent",
-   "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
-   "target": "chen2024_sensor2text",
-   "target_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
-   "relation": "semantically_similar_to",
-   "confidence": "INFERRED",
-   "confidence_score": 0.7,
-   "cross_area": false
-  },
-  {
-   "source": "xie2025_chatts",
-   "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
-   "target": "zhang2024_llm_ts_survey",
-   "target_label": "LLMs for Time Series: A Survey (Zhang 2024)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": false
-  },
-  {
-   "source": "xie2025_chatts",
-   "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
-   "target": "chen2024_sensor2text",
-   "target_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
-   "relation": "semantically_similar_to",
-   "confidence": "INFERRED",
-   "confidence_score": 0.75,
-   "cross_area": false
-  },
-  {
-   "source": "chen2024_sensor2text",
-   "source_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
-   "target": "liu2023_health_llm",
-   "target_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
-   "relation": "semantically_similar_to",
-   "confidence": "INFERRED",
-   "confidence_score": 0.7,
-   "cross_area": false
-  },
-  {
-   "source": "li2024_harmamba",
-   "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
-   "target": "yuan2024_ssl_har",
-   "target_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": false
-  },
-  {
-   "source": "li2024_harmamba",
-   "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
-   "target": "erol2024_audiomamba",
-   "target_label": "Audio Mamba: Bidirectional SSM for Audio (Erol 2024)",
-   "relation": "semantically_similar_to",
-   "confidence": "INFERRED",
-   "confidence_score": 0.85,
-   "cross_area": false
-  },
-  {
-   "source": "li2024_harmamba",
-   "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
-   "target": "liu2024_swinumamba",
-   "target_label": "Swin-UMamba: Mamba-based UNet (Liu 2024)",
-   "relation": "semantically_similar_to",
-   "confidence": "INFERRED",
-   "confidence_score": 0.75,
-   "cross_area": false
-  },
-  {
-   "source": "yuan2024_ssl_har",
-   "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
-   "target": "gu2025_biosignals",
-   "target_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": false
-  },
-  {
-   "source": "yuan2024_ssl_har",
-   "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
-   "target": "chen2023_pathology",
-   "target_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
-   "relation": "semantically_similar_to",
-   "confidence": "INFERRED",
-   "confidence_score": 0.65,
-   "cross_area": false
-  },
-  {
-   "source": "yuan2024_ssl_har",
-   "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
-   "target": "baur2024_hear",
-   "target_label": "HeAR: Health Acoustic Representations (Baur 2024)",
-   "relation": "semantically_similar_to",
-   "confidence": "INFERRED",
-   "confidence_score": 0.7,
-   "cross_area": false
-  },
-  {
-   "source": "xu2023_globem",
-   "source_label": "GLOBEM: Multi-Year Human Behavior Datasets (Xu 2023)",
-   "target": "kingma2017_adam",
-   "target_label": "Adam Optimizer (Kingma & Ba 2017)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": true
-  },
-  {
-   "source": "xu2023_globem",
-   "source_label": "GLOBEM: Multi-Year Human Behavior Datasets (Xu 2023)",
-   "target": "nepal2024_mindscape",
-   "target_label": "MindScape: LLM + Behavioral Sensing Journaling (Nepal 2024)",
-   "relation": "semantically_similar_to",
-   "confidence": "INFERRED",
-   "confidence_score": 0.75,
-   "cross_area": false
-  },
-  {
-   "source": "gu2025_biosignals",
-   "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-   "target": "baur2024_hear",
-   "target_label": "HeAR: Health Acoustic Representations (Baur 2024)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": false
-  },
-  {
-   "source": "gu2025_biosignals",
-   "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-   "target": "liu2023_health_llm",
-   "target_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
-   "relation": "semantically_similar_to",
-   "confidence": "INFERRED",
-   "confidence_score": 0.8,
-   "cross_area": false
-  },
-  {
-   "source": "chen2023_pathology",
-   "source_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
-   "target": "zhang2023_mae",
-   "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-   "relation": "cites",
-   "confidence": "EXTRACTED",
-   "confidence_score": 1.0,
-   "cross_area": true
-  },
-  {
-   "source": "YY67LF3R",
-   "source_label": "PatchTST (Nie 2023)",
-   "target": "2605.05151",
-   "target_label": "Superposition Is Not Necessary: Mechanistic Interpretability of Transformer Representations for Time Series Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "4QRHV2JG",
-   "source_label": "DLinear (Zeng 2023)",
-   "target": "2605.05151",
-   "target_label": "Superposition Is Not Necessary: Mechanistic Interpretability of Transformer Representations for Time Series Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "xie2025_chatts",
-   "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
-   "target": "2605.20268",
-   "target_label": "Chronicle: A Multimodal Foundation Model for Joint Language and Time Series Understanding",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "liu2025_tsagent",
-   "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
-   "target": "2605.20268",
-   "target_label": "Chronicle: A Multimodal Foundation Model for Joint Language and Time Series Understanding",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "gu2025_biosignals",
-   "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-   "target": "2605.22759",
-   "target_label": "Towards a General Intelligence and Interface for Wearable Health Data",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "xu2023_globem",
-   "source_label": "GLOBEM: Multi-Year Human Behavior Datasets (Xu 2023)",
-   "target": "2605.22759",
-   "target_label": "Towards a General Intelligence and Interface for Wearable Health Data",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "chen2024_sensor2text",
-   "source_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
-   "target": "2605.22759",
-   "target_label": "Towards a General Intelligence and Interface for Wearable Health Data",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "zhang2023_mae",
-   "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-   "target": "2605.00973",
-   "target_label": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "gu2025_biosignals",
-   "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-   "target": "2605.00973",
-   "target_label": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "baur2024_hear",
-   "source_label": "HeAR: Health Acoustic Representations (Baur 2024)",
-   "target": "2605.00973",
-   "target_label": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "yuan2024_ssl_har",
-   "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
-   "target": "2605.08296",
-   "target_label": "BenchHAR: Benchmarking Self-Supervised Learning for Generalizable Sensor-based Activity Recognition",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "6QQNUTL7",
-   "source_label": "GPT4TS (Zhou 2024)",
-   "target": "2605.20449",
-   "target_label": "LLM Pretraining Shapes a Generalizable Manifold: Cross-Modal Transfer to Time Series",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "3AA4F4KC",
-   "source_label": "FPT (Lu 2022)",
-   "target": "2605.20449",
-   "target_label": "LLM Pretraining Shapes a Generalizable Manifold: Cross-Modal Transfer to Time Series",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "MKICLA63",
-   "source_label": "Time-LLM (Jin 2024)",
-   "target": "2605.20449",
-   "target_label": "LLM Pretraining Shapes a Generalizable Manifold: Cross-Modal Transfer to Time Series",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "zhang2023_mae",
-   "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-   "target": "2605.20449",
-   "target_label": "LLM Pretraining Shapes a Generalizable Manifold: Cross-Modal Transfer to Time Series",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "zhang2024_llm_ts_survey",
-   "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
-   "target": "2605.24381",
-   "target_label": "Assessing the Operational Viability of Foundation Models for Time Series Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "liu2025_tsagent",
-   "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
-   "target": "2605.24381",
-   "target_label": "Assessing the Operational Viability of Foundation Models for Time Series Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "liu2025_tsagent",
-   "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
-   "target": "2605.27668",
-   "target_label": "Aligning LLMs with Human Uncertainty: A Beta-Bernoulli Calibrator for LLM Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "zhang2024_llm_ts_survey",
-   "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
-   "target": "2605.27668",
-   "target_label": "Aligning LLMs with Human Uncertainty: A Beta-Bernoulli Calibrator for LLM Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "YY67LF3R",
-   "source_label": "PatchTST (Nie 2023)",
-   "target": "2506.06482",
-   "target_label": "TimeRecipe: Module-Level Benchmarking for TS Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "QBX2TI2X",
-   "source_label": "iTransformer (Liu 2024)",
-   "target": "2506.06482",
-   "target_label": "TimeRecipe: Module-Level Benchmarking for TS Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "HLTA8MDK",
-   "source_label": "TimesNet (Wu 2023)",
-   "target": "2506.06482",
-   "target_label": "TimeRecipe: Module-Level Benchmarking for TS Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "Z5IWHZAE",
-   "source_label": "DeepSeek-R1 (DeepSeek-AI 2025)",
-   "target": "2506.10630",
-   "target_label": "Time-R1: RL Fine-Tuning for Slow-Thinking TS Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": true
-  },
-  {
-   "source": "I2CIT4I7",
-   "source_label": "TS-Agent (Liu 2025)",
-   "target": "2506.10630",
-   "target_label": "Time-R1: RL Fine-Tuning for Slow-Thinking TS Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "VSCNJG5J",
-   "source_label": "ChatTS (Xie 2025)",
-   "target": "2506.10630",
-   "target_label": "Time-R1: RL Fine-Tuning for Slow-Thinking TS Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "gu2025_biosignals",
-   "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-   "target": "2605.09579",
-   "target_label": "Biosignal Fingerprinting: A Cross-Modal PPG-ECG Foundation Model",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "yuan2024_ssl_har",
-   "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
-   "target": "2605.09579",
-   "target_label": "Biosignal Fingerprinting: A Cross-Modal PPG-ECG Foundation Model",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "zhang2023_mae",
-   "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-   "target": "2605.09579",
-   "target_label": "Biosignal Fingerprinting: A Cross-Modal PPG-ECG Foundation Model",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "baur2024_hear",
-   "source_label": "HeAR: Health Acoustic Representations (Baur 2024)",
-   "target": "2605.09579",
-   "target_label": "Biosignal Fingerprinting: A Cross-Modal PPG-ECG Foundation Model",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "YY67LF3R",
-   "source_label": "PatchTST (Nie 2023)",
-   "target": "2506.23424",
-   "target_label": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "W7RPRTCH",
-   "source_label": "TTT for Abstract Reasoning (Akyurek 2024)",
-   "target": "2506.23424",
-   "target_label": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": true
-  },
-  {
-   "source": "4QQTVIYC",
-   "source_label": "Sundial (Liu 2025)",
-   "target": "2506.23424",
-   "target_label": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "zhang2024_llm_ts_survey",
-   "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
-   "target": "2606.04135",
-   "target_label": "SARAF: Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "QBX2TI2X",
-   "source_label": "iTransformer (Liu 2024)",
-   "target": "2606.04135",
-   "target_label": "SARAF: Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "YY67LF3R",
-   "source_label": "PatchTST (Nie 2023)",
-   "target": "2606.04135",
-   "target_label": "SARAF: Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "liu2025_tsagent",
-   "source_label": "TS-Agent (Liu 2025)",
-   "target": "2603.04142",
-   "target_label": "Vivaldi: Multi-Agent Physiological TS Interpretation (2026)",
-   "relation": "builds_on",
-   "note": "Vivaldi extends single-agent TS reasoning to a multi-agent architecture with specialized clinical roles."
-  },
-  {
-   "source": "gu2025_biosignals",
-   "source_label": "Foundation Models for Biosignals Survey (Gu 2025)",
-   "target": "2603.04142",
-   "target_label": "Vivaldi: Multi-Agent Physiological TS Interpretation (2026)",
-   "relation": "builds_on",
-   "note": "Vivaldi operationalizes biosignal FM concepts via a cooperative multi-agent pipeline for clinical interpretation."
-  },
-  {
-   "source": "chen2024_sensor2text",
-   "source_label": "Sensor2Text (Chen 2024)",
-   "target": "2603.04142",
-   "target_label": "Vivaldi: Multi-Agent Physiological TS Interpretation (2026)",
-   "relation": "builds_on",
-   "note": "Where Sensor2Text trains a sensor-language bridge, Vivaldi avoids alignment training by distributing interpretation across agents."
-  },
-  {
-   "source": "liu2025_tsagent",
-   "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
-   "target": "2606.02497",
-   "target_label": "Bridging the Last Mile of Time Series Forecasting with LLM Agents",
-   "relation": "builds_on",
-   "note": "Extends TS-Agent from analysis/reasoning to forecast correction via tool-augmented contextual revision."
-  },
-  {
-   "source": "zhang2024_llm_ts_survey",
-   "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
-   "target": "2606.02497",
-   "target_label": "Bridging the Last Mile of Time Series Forecasting with LLM Agents",
-   "relation": "builds_on",
-   "note": "Fills the deployment gap the survey identified between zero-shot foundation models and usable forecasts."
-  },
-  {
-   "source": "4QQTVIYC",
-   "source_label": "Sundial (Liu 2025)",
-   "target": "2606.02497",
-   "target_label": "Bridging the Last Mile of Time Series Forecasting with LLM Agents",
-   "relation": "builds_on",
-   "note": "The last-mile agent wraps a foundation model forecast (like Sundial) and applies structured revisions using domain context."
-  },
-  {
-   "source": "gu2025_biosignals",
-   "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-   "target": "2606.10900",
-   "target_label": "Personalized Deep Learning for Short-Term Forecasting of Impending Atrial Fibrillation from Wearable ECG (2026)",
-   "relation": "builds_on",
-   "note": "Where biosignal foundation models aim for one global model across patients, this paper shows inter-patient ECG variability holds the global model back and per-patient fine-tuning recovers much of the lost accuracy."
-  },
-  {
-   "source": "liu2023_health_llm",
-   "source_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
-   "target": "2606.10900",
-   "target_label": "Personalized Deep Learning for Short-Term Forecasting of Impending Atrial Fibrillation from Wearable ECG (2026)",
-   "relation": "builds_on",
-   "note": "Where few-shot health learning adapted a general model to health tasks with small labeled sets, this paper applies the same idea at the level of a single patient's ECG and quantifies how the benefit scales with adaptation data."
-  },
-  {
-   "source": "YY67LF3R",
-   "source_label": "PatchTST (Nie et al. 2023)",
-   "target": "2606.04074",
-   "target_label": "Adaptive Patching Is Harder Than It Looks for Time-Series Forecasting (2026)",
-   "relation": "builds_on",
-   "note": "Where PatchTST fixed a single patch length for long-horizon forecasting, this paper tests content-adaptive patch lengths and shows a validation-tuned uniform size matches them.",
-   "cross_area": false
-  },
-  {
-   "source": "MKICLA63",
-   "source_label": "Time-LLM (Jin et al. 2024)",
-   "target": "2606.08262",
-   "target_label": "CVAformer: Causal Semantic Alignment for LLM-based Time Series Forecasting (2026)",
-   "relation": "builds_on",
-   "note": "Where Time-LLM aligns raw temporal patterns with frozen language-model embeddings, CVAformer first separates each variable into invariant and dynamic components before alignment.",
-   "cross_area": false
-  },
-  {
-   "source": "6QQNUTL7",
-   "source_label": "GPT4TS (Zhou et al. 2024)",
-   "target": "2606.08262",
-   "target_label": "CVAformer: Causal Semantic Alignment for LLM-based Time Series Forecasting (2026)",
-   "relation": "builds_on",
-   "note": "Where GPT4TS uses a frozen pretrained transformer as a general time-series backbone, CVAformer keeps that backbone and adds a causal alignment step on top of it.",
-   "cross_area": false
-  },
-  {
-   "source": "QBX2TI2X",
-   "source_label": "iTransformer (Liu et al. 2024)",
-   "target": "2606.08262",
-   "target_label": "CVAformer: Causal Semantic Alignment for LLM-based Time Series Forecasting (2026)",
-   "relation": "builds_on",
-   "note": "Where iTransformer made the channel the unit of tokenization, CVAformer keeps the variable-level view and adds a causal adjustment over it.",
-   "cross_area": false
-  },
-  {
-   "source": "pearl2010_causal",
-   "source_label": "Introduction to Causal Inference (Pearl 2010)",
-   "target": "2606.08262",
-   "target_label": "CVAformer: Causal Semantic Alignment for LLM-based Time Series Forecasting (2026)",
-   "relation": "builds_on",
-   "note": "CVAformer imports Pearl-style backdoor adjustment to remove the dynamic component as a confounder during LLM alignment, connecting time series and causal inference.",
-   "cross_area": true
-  },
-  {
-   "source": "A5HBRQB9",
-   "source_label": "Masked Autoencoders Are Scalable Vision Learners (MAE, He 2022)",
-   "target": "2603.26842",
-   "target_label": "VAN-AD: Visual Masked Autoencoder with Normalizing Flow for Time Series Anomaly Detection (2026)",
-   "relation": "builds_on",
-   "note": "Where MAE learns image representations by reconstructing masked patches, VAN-AD reuses the masked-reconstruction objective as an anomaly score for multivariate time series.",
-   "cross_area": true
-  },
-  {
-   "source": "zhang2023_mae",
-   "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-   "target": "2603.26842",
-   "target_label": "VAN-AD: Visual Masked Autoencoder with Normalizing Flow for Time Series Anomaly Detection (2026)",
-   "relation": "builds_on",
-   "note": "VAN-AD relies on the masked-reconstruction principle this theory work analyzes, then adds a normalizing-flow density model because reconstruction error alone does not give a calibrated probability of abnormality.",
-   "cross_area": false
-  },
-  {
-   "source": "A5HBRQB9",
-   "source_label": "Masked Autoencoders Are Scalable Vision Learners (MAE, He 2022)",
-   "target": "2510.25785",
-   "target_label": "HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series (2026)",
-   "relation": "builds_on",
-   "note": "Where MAE reconstructs masked image patches with a flat encoder, HiMAE keeps the masked-reconstruction objective but uses a U-Net-style hierarchical convolutional encoder so each level corresponds to a distinct temporal scale of a wearable signal.",
-   "cross_area": true
-  },
-  {
-   "source": "zhang2023_mae",
-   "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-   "target": "2510.25785",
-   "target_label": "HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series (2026)",
-   "relation": "builds_on",
-   "note": "HiMAE keeps the masked-reconstruction principle this theory work analyzes, then adds a per-level linear probe to measure which temporal resolution carries the predictive signal for a given task.",
-   "cross_area": false
-  },
-  {
-   "source": "li2024_harmamba",
-   "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
-   "target": "2510.25785",
-   "target_label": "HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series (2026)",
-   "relation": "builds_on",
-   "note": "Where HARMamba seeks wearable efficiency through a state-space backbone, HiMAE reaches efficiency through convolutional hierarchy and adds a resolution probe that HARMamba lacks.",
-   "cross_area": false
-  },
-  {
-   "source": "gu2025_biosignals",
-   "source_label": "Foundation Models for Biosignals Survey (Gu 2025)",
-   "target": "2510.25785",
-   "target_label": "HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series (2026)",
-   "relation": "builds_on",
-   "note": "HiMAE extends the wearable foundation-model landscape this survey maps, contributing a per-scale analysis rather than added dataset scale.",
-   "cross_area": false
-  },
-  {
-   "source": "2603.26842",
-   "source_label": "VAN-AD: Visual Masked Autoencoder with Normalizing Flow for Time Series Anomaly Detection (2026)",
-   "target": "2603.29183",
-   "target_label": "IMPACT: Influence Modeling for Open-Set Time Series Anomaly Detection (2026)",
-   "relation": "related_to",
-   "note": "VAN-AD attacks the anomaly score itself as a calibrated likelihood from reconstruction error and density, while IMPACT works one level earlier at the training data, using influence scores to decontaminate labels and to synthesize on-manifold unseen anomalies. Added as a nearest-neighbor link because IMPACT has no direct parent in Leo's library.",
-   "cross_area": false
-  },
-  {
-   "source": "chen2024_sensor2text",
-   "source_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
-   "target": "2603.03331",
-   "target_label": "PulseLM: A Foundation Dataset and Benchmark for PPG-Text Learning (2026)",
-   "relation": "builds_on",
-   "note": "Where Sensor2Text produced free text from a sensor stream in one activity-tracking setting, PulseLM performs the same waveform-to-language pairing at dataset scale and fixes it into a graded closed-ended benchmark with a shared scoring protocol.",
-   "cross_area": false
-  },
-  {
-   "source": "gu2025_biosignals",
-   "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-   "target": "2603.03331",
-   "target_label": "PulseLM: A Foundation Dataset and Benchmark for PPG-Text Learning (2026)",
-   "relation": "builds_on",
-   "note": "Where the biosignals survey described what a PPG foundation model should look like, PulseLM supplies the standardized data, 1.31 million segments and 3.15 million question-answer pairs, and the evaluation protocol those models need.",
-   "cross_area": false
-  },
-  {
-   "source": "liu2025_tsagent",
-   "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
-   "target": "2603.03331",
-   "target_label": "PulseLM: A Foundation Dataset and Benchmark for PPG-Text Learning (2026)",
-   "relation": "builds_on",
-   "note": "PulseLM follows the TS-Agent view of signals as objects queried in language, but turns it into a fixed, reproducible benchmark rather than an agent demonstration.",
-   "cross_area": false
-  },
-  {
-   "source": "zhang2023_mae",
-   "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-   "target": "2601.21031",
-   "target_label": "SIGMA-PPG: Statistical-prior Informed Generative Masking Architecture for PPG Foundation Model (2026)",
-   "relation": "builds_on",
-   "note": "Where this theory work shows a high random mask ratio drives masked-autoencoder learning for images, SIGMA-PPG argues random masking is the wrong choice for quasi-periodic signals because the model fills a random gap by copying a neighboring beat, so it learns the mask as a policy and shifts the design knob from how much to mask to where and how hard to mask.",
-   "cross_area": false
-  },
-  {
-   "source": "A5HBRQB9",
-   "source_label": "MAE: Masked Autoencoders Are Scalable Vision Learners (He 2021)",
-   "target": "2601.21031",
-   "target_label": "SIGMA-PPG: Statistical-prior Informed Generative Masking Architecture for PPG Foundation Model (2026)",
-   "relation": "builds_on",
-   "note": "Where MAE established high-ratio random masking for representation learning, SIGMA-PPG replaces the fixed random mask with a reinforcement-learning teacher that builds a curriculum of hard masks from signal statistics such as amplitude and skewness.",
-   "cross_area": true
-  },
-  {
-   "source": "zhang2024_llm_ts_survey",
-   "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
-   "target": "2606.11990",
-   "target_label": "Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation (2026)",
-   "relation": "builds_on",
-   "note": "Where the survey catalogued ways to attach foundation or language models to time series, this paper takes the plainest version: freeze a pretrained time-series foundation model and train a one-layer regression head, then show the frozen embeddings transfer to remaining-useful-life prediction.",
-   "cross_area": false
-  },
-  {
-   "source": "liu2025_tsagent",
-   "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
-   "target": "2606.11990",
-   "target_label": "Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation (2026)",
-   "relation": "builds_on",
-   "note": "Where TS-Agent built a reasoning agent on top of a time-series foundation model, this paper drops the agent and probes the frozen backbone with a light regression head, showing the embeddings alone are competitive with task-specific architectures.",
-   "cross_area": false
-  },
-  {
-   "source": "gu2025_biosignals",
-   "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-   "target": "2606.11990",
-   "target_label": "Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation (2026)",
-   "relation": "builds_on",
-   "note": "Where the biosignal foundation-model survey mapped the design space, this paper supplies a concrete frozen-backbone probing baseline that bio-sensing work can copy before building anything heavier.",
-   "cross_area": true
-  },
-  {
-   "source": "liu2025_tsagent",
-   "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
-   "target": "2606.18147",
-   "target_label": "WEQA: Wearable Health Question Answering with Query-Adaptive Agentic Reasoning (2026)",
-   "relation": "builds_on",
-   "note": "Where TS-Agent treated time-series reasoning as an agent calling a fixed set of analysis tools, WEQA adds query-adaptive routing so a sleep question and a cardiac question call different tools.",
-   "cross_area": false
-  },
-  {
-   "source": "chen2024_sensor2text",
-   "source_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
-   "target": "2606.18147",
-   "target_label": "WEQA: Wearable Health Question Answering with Query-Adaptive Agentic Reasoning (2026)",
-   "relation": "builds_on",
-   "note": "Where Sensor2Text produced a natural-language description of a sensor window, WEQA produces an answer to a specific question, extending the sensor-to-language bridge toward agentic tool routing.",
-   "cross_area": true
-  },
-  {
-   "source": "liu2023_health_llm",
-   "source_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
-   "target": "2606.18147",
-   "target_label": "WEQA: Wearable Health Question Answering with Query-Adaptive Agentic Reasoning (2026)",
-   "relation": "builds_on",
-   "note": "Where Health-LLM showed language models can read health signals from a few examples, WEQA wraps that ability in a controller that plans and routes each wearable-health question to matching tools.",
-   "cross_area": true
-  },
-  {
-   "source": "zhou2024_lats",
-   "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
-   "target": "2606.18147",
-   "target_label": "WEQA: Wearable Health Question Answering with Query-Adaptive Agentic Reasoning (2026)",
-   "relation": "builds_on",
-   "note": "WEQA borrows the plan-and-control idea from LATS but applies the controller to signal-analysis and wearable-model tools rather than to web or code actions.",
-   "cross_area": true
-  },
-  {
-   "source": "liu2025_tsagent",
-   "source_label": "TS-Agent (Liu 2025)",
-   "target": "2603.06638",
-   "target_label": "HEARTS: Benchmarking LLM Reasoning on Health Time Series",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false,
-   "note": "HEARTS builds a shared graded benchmark where TS-Agent proposed a single reasoning method, and shows the method-specific wins do not carry over to multi-step reasoning.",
-   "date_added": "2026-06-28"
-  },
-  {
-   "source": "JX3X3KH5",
-   "source_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
-   "target": "2603.06638",
-   "target_label": "HEARTS: Benchmarking LLM Reasoning on Health Time Series",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": true,
-   "note": "HEARTS tests at scale the few-shot health-learning promise and shows it does not extend to multi-step temporal reasoning.",
-   "date_added": "2026-06-28"
-  },
-  {
-   "source": "xie2025_chatts",
-   "source_label": "ChatTS (Xie 2025)",
-   "target": "2603.06638",
-   "target_label": "HEARTS: Benchmarking LLM Reasoning on Health Time Series",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false,
-   "note": "HEARTS measures across many modalities and task types rather than the single benchmark ChatTS reported on.",
-   "date_added": "2026-06-28"
-  },
-  {
-   "source": "zhang2024_llm_ts_survey",
-   "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
-   "target": "2603.06638",
-   "target_label": "HEARTS: Benchmarking LLM Reasoning on Health Time Series",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false,
-   "note": "HEARTS turns the methods cataloged by the survey into measured baselines on a common test set.",
-   "date_added": "2026-06-28"
-  },
-  {
-   "source": "chen2024_sensor2text",
-   "source_label": "Sensor2Text (Chen 2024)",
-   "target": "2603.11950",
-   "target_label": "SLIP: Learning Transferable Sensor Models via Language-Informed Pretraining",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false,
-   "note": "SLIP removes the fixed-configuration limit of Sensor2Text with a variable-rate patch embedder so one model serves many sensor setups.",
-   "date_added": "2026-06-28"
-  },
-  {
-   "source": "yuan2024_ssl_har",
-   "source_label": "SSL for HAR (Yuan 2024)",
-   "target": "2603.11950",
-   "target_label": "SLIP: Learning Transferable Sensor Models via Language-Informed Pretraining",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": true,
-   "note": "SLIP adds a language target to the self-supervised recipe to capture semantics that reconstruction misses for classification.",
-   "date_added": "2026-06-28"
-  },
-  {
-   "source": "MKICLA63",
-   "source_label": "Time-LLM (Jin 2024)",
-   "target": "2603.11950",
-   "target_label": "SLIP: Learning Transferable Sensor Models via Language-Informed Pretraining",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false,
-   "note": "SLIP reuses the frozen language model through cross-attention for alignment and captioning rather than reprogramming it for forecasting.",
-   "date_added": "2026-06-28"
-  },
-  {
-   "source": "gu2025_biosignals",
-   "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-   "target": "2604.05926",
-   "target_label": "FEEL: Quantifying Heterogeneity in Physiological Signals for Generalizable Emotion Recognition",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": true,
-   "note": "FEEL measures the biosignal foundation-model families the survey describes on 19 shared datasets with cross-dataset transfer.",
-   "date_added": "2026-06-28"
-  },
-  {
-   "source": "yuan2024_ssl_har",
-   "source_label": "SSL for HAR (Yuan 2024)",
-   "target": "2604.05926",
-   "target_label": "FEEL: Quantifying Heterogeneity in Physiological Signals for Generalizable Emotion Recognition",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": true,
-   "note": "FEEL evaluates the self-supervised pretraining recipe as one model family and finds handcrafted features stay competitive under noise.",
-   "date_added": "2026-06-28"
-  },
-  {
-   "source": "baur2024_hear",
-   "source_label": "HeAR (Baur 2024)",
-   "target": "2604.05926",
-   "target_label": "FEEL: Quantifying Heterogeneity in Physiological Signals for Generalizable Emotion Recognition",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": true,
-   "note": "FEEL benchmarks the signal foundation-model family HeAR represents against classical and deep baselines on EDA and PPG.",
-   "date_added": "2026-06-28"
-  },
-  {
-   "source": "chen2024_sensor2text",
-   "source_label": "Sensor2Text (Chen 2024)",
-   "target": "2604.00767",
-   "target_label": "ActivityNarrated: An Open-Ended Narrative Paradigm for Wearable Human Activity Understanding",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false,
-   "note": "Where Sensor2Text produced fixed descriptions tied to a closed activity vocabulary, ActivityNarrated removes the taxonomy and narrates open-ended behavior over multi-position partially observed streams.",
-   "date_added": "2026-06-29"
-  },
-  {
-   "source": "yuan2024_ssl_har",
-   "source_label": "SSL for HAR (Yuan 2024)",
-   "target": "2604.00767",
-   "target_label": "ActivityNarrated: An Open-Ended Narrative Paradigm for Wearable Human Activity Understanding",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": true,
-   "note": "ActivityNarrated keeps the self-supervised representation idea from SSL for HAR but supervises it by retrieval against free-text narration rather than probing it with a closed classifier.",
-   "date_added": "2026-06-29"
-  },
-  {
-   "source": "gu2025_biosignals",
-   "source_label": "Foundation Models for Biosignals (Gu 2025)",
-   "target": "2603.09940",
-   "target_label": "SignalMC-MED: A Multimodal Benchmark for Evaluating Biosignal Foundation Models on Single-Lead ECG and PPG",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": true,
-   "note": "SignalMC-MED supplies the shared multimodal clinical benchmark the Gu survey called for, fixing paired ECG and PPG tasks so biosignal foundation models can be compared.",
-   "date_added": "2026-06-29"
-  },
-  {
-   "source": "baur2024_hear",
-   "source_label": "HeAR (Baur 2024)",
-   "target": "2603.09940",
-   "target_label": "SignalMC-MED: A Multimodal Benchmark for Evaluating Biosignal Foundation Models on Single-Lead ECG and PPG",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": true,
-   "note": "SignalMC-MED evaluates the single-modality biosignal foundation-model family HeAR represents and reports that larger variants do not reliably beat smaller ones.",
-   "date_added": "2026-06-29"
-  },
-  {
-   "source": "yuan2024_ssl_har",
-   "source_label": "SSL for HAR (Yuan 2024)",
-   "target": "2604.02711",
-   "target_label": "Foundation Models Defining A New Era In Sensor-based Human Activity Recognition: A Survey And Outlook",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": true,
-   "note": "The survey places SSL for HAR as a central example of the from-scratch HAR foundation-model direction within its lifecycle taxonomy.",
-   "date_added": "2026-06-29"
-  },
-  {
-   "source": "li2024_harmamba",
-   "source_label": "HARMamba (Li 2024)",
-   "target": "2604.02711",
-   "target_label": "Foundation Models Defining A New Era In Sensor-based Human Activity Recognition: A Survey And Outlook",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": true,
-   "note": "The survey locates HARMamba among sequence-model encoders adapted to sensor data within its input-to-utilization taxonomy.",
-   "date_added": "2026-06-29"
-  },
-  {
-   "source": "chen2024_sensor2text",
-   "source_label": "Sensor2Text (Chen 2024)",
-   "target": "2604.02711",
-   "target_label": "Foundation Models Defining A New Era In Sensor-based Human Activity Recognition: A Survey And Outlook",
-   "relation": "builds_on",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false,
-   "note": "The survey names Sensor2Text as an example of the language-model interaction direction for sensor HAR.",
-   "date_added": "2026-06-29"
-  },
-  {
-   "source": "deepseek2025_r1",
-   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-   "target": "2506.13705",
-   "target_label": "TimeMaster: Training Time-Series Multimodal LLMs to Reason via Reinforcement Learning (2026)",
-   "relation": "builds_on",
-   "note": "Where DeepSeek-R1 used GRPO to train text-only reasoning, TimeMaster applies the same reward-based recipe to time-series classification and adds a reward term for explanation quality.",
-   "cross_area": true
-  },
-  {
-   "source": "xie2025_chatts",
-   "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
-   "target": "2506.13705",
-   "target_label": "TimeMaster: Training Time-Series Multimodal LLMs to Reason via Reinforcement Learning (2026)",
-   "relation": "builds_on",
-   "note": "Where ChatTS aligned a numeric series with language through supervised training, TimeMaster renders the series as an image for a vision-language backbone and shapes the reasoning trace with reinforcement learning.",
-   "cross_area": false
-  },
-  {
-   "source": "wei2023_cot",
-   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-   "target": "2506.13705",
-   "target_label": "TimeMaster: Training Time-Series Multimodal LLMs to Reason via Reinforcement Learning (2026)",
-   "relation": "builds_on",
-   "note": "Where Chain-of-Thought produced reasoning steps by prompting alone, TimeMaster makes those steps a trained, rewarded output format.",
-   "cross_area": true
-  },
-  {
-   "source": "xie2025_chatts",
-   "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
-   "target": "2602.14200",
-   "target_label": "TS-Haystack: A Multi-Scale Retrieval Benchmark for Time Series Language Models (2026)",
-   "relation": "builds_on",
-   "note": "Where ChatTS shows an LLM can answer questions about a series, TS-Haystack tests whether it can locate the right part of a long series at all.",
-   "cross_area": false
-  },
-  {
-   "source": "liu2025_tsagent",
-   "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
-   "target": "2602.14200",
-   "target_label": "TS-Haystack: A Multi-Scale Retrieval Benchmark for Time Series Language Models (2026)",
-   "relation": "builds_on",
-   "note": "Where TS-Agent reasons over a series with analysis operators, TS-Haystack measures long-context retrieval as an isolated skill.",
-   "cross_area": false
-  },
-  {
-   "source": "zhang2024_llm_ts_survey",
-   "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
-   "target": "2602.14200",
-   "target_label": "TS-Haystack: A Multi-Scale Retrieval Benchmark for Time Series Language Models (2026)",
-   "relation": "builds_on",
-   "note": "TS-Haystack targets the evaluation gap the survey flagged, namely that existing tests reward short-clip pattern recognition and do not test long-context retrieval.",
-   "cross_area": false
-  },
-  {
-   "source": "72DFULQQ",
-   "source_label": "Chronos (Ansari et al. 2024)",
-   "target": "2607.04919",
-   "target_label": "When Do Foundation Models Pay Off? A Break-Even Analysis of Pretrained Time Series Forecasters (2026)",
-   "relation": "builds_on",
-   "note": "Where Chronos argued for its own model by reporting aggregate zero-shot wins, this paper measures the task-data size at which a foundation model beats XGBoost.",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "CFG6FEIF",
-   "source_label": "Moirai (Woo et al. 2024)",
-   "target": "2607.04919",
-   "target_label": "When Do Foundation Models Pay Off? A Break-Even Analysis of Pretrained Time Series Forecasters (2026)",
-   "relation": "builds_on",
-   "note": "Where Moirai reported broad zero-shot gains, this paper fixes the deployment decision and asks when the foundation model earns its cost over classical forecasters.",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "YY67LF3R",
-   "source_label": "PatchTST (Nie et al. 2023)",
-   "target": "2607.04919",
-   "target_label": "When Do Foundation Models Pay Off? A Break-Even Analysis of Pretrained Time Series Forecasters (2026)",
-   "relation": "builds_on",
-   "note": "Where PatchTST fixed the supervised architecture, this work fixes the decision procedure and reports the sample size at which the choice flips.",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "72DFULQQ",
-   "source_label": "Chronos (Ansari et al. 2024)",
-   "target": "2607.05291",
-   "target_label": "Forecasting Realized Volatility with Time Series Foundation Models (2026)",
-   "relation": "builds_on",
-   "note": "Where Chronos reported broad zero-shot wins, this paper puts the same model class against HAR econometric baselines on realized volatility and finds the advantage mostly disappears after per-asset averaging.",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "YY67LF3R",
-   "source_label": "PatchTST (Nie et al. 2023)",
-   "target": "2607.05291",
-   "target_label": "Forecasting Realized Volatility with Time Series Foundation Models (2026)",
-   "relation": "builds_on",
-   "note": "Where PatchTST set the neural supervised line, this work tests whether its zero-shot foundation-model descendants beat well-specified econometric benchmarks.",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "chen2024_sensor2text",
-   "source_label": "Sensor2Text (Chen 2024)",
-   "target": "2607.03089",
-   "target_label": "STELLA: Efficient Sensor-to-LLM Translation for On-Device HAR (2026)",
-   "relation": "builds_on",
-   "note": "Where Sensor2Text produced language from sensors with heavy trainable backbones, STELLA freezes the language model and moves the work into a small hierarchical tokenizer that emits activity-aware tokens, so the system fits on an edge device.",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "yuan2024_ssl_har",
-   "source_label": "SSL for HAR with 700K Person-days (Yuan 2024)",
-   "target": "2607.03089",
-   "target_label": "STELLA: Efficient Sensor-to-LLM Translation for On-Device HAR (2026)",
-   "relation": "builds_on",
-   "note": "Where SSL for HAR pretrained a sensor encoder for later fine-tuning, STELLA does not fine-tune the language model and instead learns only the tokenizer plus a per-user personalization layer, keeping compute and private data on the device.",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  },
-  {
-   "source": "liu2023_health_llm",
-   "source_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
-   "target": "2607.03089",
-   "target_label": "STELLA: Efficient Sensor-to-LLM Translation for On-Device HAR (2026)",
-   "relation": "builds_on",
-   "note": "Where LLMs are Few-Shot Health Learners showed a general language model can read physiological signals with few examples, STELLA supplies a learned hierarchical tokenizer that feeds sensor streams to a frozen model on-device.",
-   "confidence": "INFERRED",
-   "confidence_score": 0.9,
-   "cross_area": false
-  }
- ],
- "hyperedges": [
-  {
-   "id": "mamba_ssm_family",
-   "label": "Mamba/SSM Architecture Applications",
-   "nodes": [
-    "li2024_harmamba",
-    "erol2024_audiomamba",
-    "liu2024_swinumamba",
-    "concept_mamba_ssm"
-   ],
-   "relation": "implement",
-   "confidence": "EXTRACTED",
-   "confidence_score": 0.9
-  },
-  {
-   "id": "ts_llm_reasoning_pipeline",
-   "label": "Time Series + LLM Reasoning Ecosystem",
-   "nodes": [
-    "xie2025_chatts",
-    "liu2025_tsagent",
-    "zhang2024_llm_ts_survey",
-    "chen2024_sensor2text",
-    "concept_ts_llm"
-   ],
-   "relation": "form",
-   "confidence": "INFERRED",
-   "confidence_score": 0.85
-  },
-  {
-   "id": "wearable_health_sensing",
-   "label": "Wearable Sensing for Health & Behavior",
-   "nodes": [
-    "yuan2024_ssl_har",
-    "xu2023_globem",
-    "nepal2024_mindscape",
-    "gu2025_biosignals",
-    "baur2024_hear",
-    "chen2024_sensor2text"
-   ],
-   "relation": "participate_in",
-   "confidence": "INFERRED",
-   "confidence_score": 0.85
-  },
-  {
-   "id": "self_supervised_pretraining",
-   "label": "Self-Supervised Pretraining Methods",
-   "nodes": [
-    "yuan2024_ssl_har",
-    "chen2023_pathology",
-    "zhang2023_mae",
-    "baur2024_hear",
-    "concept_self_supervised"
-   ],
-   "relation": "implement",
-   "confidence": "EXTRACTED",
-   "confidence_score": 0.9
-  }
- ],
- "cross_area_bridges": [
-  {
-   "from": "chen2024_sensor2text",
-   "to": "liu2023_few_shot_health",
-   "reason": "semantically_similar (bio-sensing + llm-health bridge)"
-  }
- ]
+  "_generated": "2026-05-14",
+  "_source": "graphify_seed/graph.json + zotero_index.json",
+  "area": "time-series.md",
+  "edges": [
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "liu2021_swin",
+      "target_label": "Swin Transformer (Liu 2021)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "carion2020_detr",
+      "target_label": "DETR: End-to-End Object Detection with Transformers (Carion 2020)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "peebles2023_dit",
+      "target_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "zhai2023_siglip",
+      "target_label": "SigLIP: Sigmoid Loss for Language Image Pre-Training (Zhai 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "li2024_harmamba",
+      "target_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "erol2024_audiomamba",
+      "target_label": "Audio Mamba: Bidirectional SSM for Audio (Erol 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "chen2024_sensor2text",
+      "target_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "yuan2024_ssl_har",
+      "target_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "gu2025_biosignals",
+      "target_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "zhang2023_mae",
+      "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "liu2025_tsagent",
+      "target_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "zhang2024_llm_ts_survey",
+      "target_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "xie2025_chatts",
+      "target_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "chen2024_sensor2text",
+      "target_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "cross_area": false
+    },
+    {
+      "source": "xie2025_chatts",
+      "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
+      "target": "zhang2024_llm_ts_survey",
+      "target_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "xie2025_chatts",
+      "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
+      "target": "chen2024_sensor2text",
+      "target_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "cross_area": false
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "target": "liu2023_health_llm",
+      "target_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "cross_area": false
+    },
+    {
+      "source": "li2024_harmamba",
+      "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+      "target": "yuan2024_ssl_har",
+      "target_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "li2024_harmamba",
+      "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+      "target": "erol2024_audiomamba",
+      "target_label": "Audio Mamba: Bidirectional SSM for Audio (Erol 2024)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "cross_area": false
+    },
+    {
+      "source": "li2024_harmamba",
+      "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+      "target": "liu2024_swinumamba",
+      "target_label": "Swin-UMamba: Mamba-based UNet (Liu 2024)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "cross_area": false
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "target": "gu2025_biosignals",
+      "target_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "target": "chen2023_pathology",
+      "target_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "cross_area": false
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "target": "baur2024_hear",
+      "target_label": "HeAR: Health Acoustic Representations (Baur 2024)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "cross_area": false
+    },
+    {
+      "source": "xu2023_globem",
+      "source_label": "GLOBEM: Multi-Year Human Behavior Datasets (Xu 2023)",
+      "target": "kingma2017_adam",
+      "target_label": "Adam Optimizer (Kingma & Ba 2017)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "xu2023_globem",
+      "source_label": "GLOBEM: Multi-Year Human Behavior Datasets (Xu 2023)",
+      "target": "nepal2024_mindscape",
+      "target_label": "MindScape: LLM + Behavioral Sensing Journaling (Nepal 2024)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "baur2024_hear",
+      "target_label": "HeAR: Health Acoustic Representations (Baur 2024)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "liu2023_health_llm",
+      "target_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "cross_area": false
+    },
+    {
+      "source": "chen2023_pathology",
+      "source_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
+      "target": "zhang2023_mae",
+      "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "cross_area": true
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie 2023)",
+      "target": "2605.05151",
+      "target_label": "Superposition Is Not Necessary: Mechanistic Interpretability of Transformer Representations for Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "4QRHV2JG",
+      "source_label": "DLinear (Zeng 2023)",
+      "target": "2605.05151",
+      "target_label": "Superposition Is Not Necessary: Mechanistic Interpretability of Transformer Representations for Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "xie2025_chatts",
+      "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
+      "target": "2605.20268",
+      "target_label": "Chronicle: A Multimodal Foundation Model for Joint Language and Time Series Understanding",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2605.20268",
+      "target_label": "Chronicle: A Multimodal Foundation Model for Joint Language and Time Series Understanding",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2605.22759",
+      "target_label": "Towards a General Intelligence and Interface for Wearable Health Data",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "xu2023_globem",
+      "source_label": "GLOBEM: Multi-Year Human Behavior Datasets (Xu 2023)",
+      "target": "2605.22759",
+      "target_label": "Towards a General Intelligence and Interface for Wearable Health Data",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "target": "2605.22759",
+      "target_label": "Towards a General Intelligence and Interface for Wearable Health Data",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2605.00973",
+      "target_label": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2605.00973",
+      "target_label": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "baur2024_hear",
+      "source_label": "HeAR: Health Acoustic Representations (Baur 2024)",
+      "target": "2605.00973",
+      "target_label": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "target": "2605.08296",
+      "target_label": "BenchHAR: Benchmarking Self-Supervised Learning for Generalizable Sensor-based Activity Recognition",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "6QQNUTL7",
+      "source_label": "GPT4TS (Zhou 2024)",
+      "target": "2605.20449",
+      "target_label": "LLM Pretraining Shapes a Generalizable Manifold: Cross-Modal Transfer to Time Series",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "3AA4F4KC",
+      "source_label": "FPT (Lu 2022)",
+      "target": "2605.20449",
+      "target_label": "LLM Pretraining Shapes a Generalizable Manifold: Cross-Modal Transfer to Time Series",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "MKICLA63",
+      "source_label": "Time-LLM (Jin 2024)",
+      "target": "2605.20449",
+      "target_label": "LLM Pretraining Shapes a Generalizable Manifold: Cross-Modal Transfer to Time Series",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2605.20449",
+      "target_label": "LLM Pretraining Shapes a Generalizable Manifold: Cross-Modal Transfer to Time Series",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "zhang2024_llm_ts_survey",
+      "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "target": "2605.24381",
+      "target_label": "Assessing the Operational Viability of Foundation Models for Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2605.24381",
+      "target_label": "Assessing the Operational Viability of Foundation Models for Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2605.27668",
+      "target_label": "Aligning LLMs with Human Uncertainty: A Beta-Bernoulli Calibrator for LLM Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "zhang2024_llm_ts_survey",
+      "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "target": "2605.27668",
+      "target_label": "Aligning LLMs with Human Uncertainty: A Beta-Bernoulli Calibrator for LLM Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie 2023)",
+      "target": "2506.06482",
+      "target_label": "TimeRecipe: Module-Level Benchmarking for TS Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "QBX2TI2X",
+      "source_label": "iTransformer (Liu 2024)",
+      "target": "2506.06482",
+      "target_label": "TimeRecipe: Module-Level Benchmarking for TS Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "HLTA8MDK",
+      "source_label": "TimesNet (Wu 2023)",
+      "target": "2506.06482",
+      "target_label": "TimeRecipe: Module-Level Benchmarking for TS Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "Z5IWHZAE",
+      "source_label": "DeepSeek-R1 (DeepSeek-AI 2025)",
+      "target": "2506.10630",
+      "target_label": "Time-R1: RL Fine-Tuning for Slow-Thinking TS Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
+    },
+    {
+      "source": "I2CIT4I7",
+      "source_label": "TS-Agent (Liu 2025)",
+      "target": "2506.10630",
+      "target_label": "Time-R1: RL Fine-Tuning for Slow-Thinking TS Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "VSCNJG5J",
+      "source_label": "ChatTS (Xie 2025)",
+      "target": "2506.10630",
+      "target_label": "Time-R1: RL Fine-Tuning for Slow-Thinking TS Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2605.09579",
+      "target_label": "Biosignal Fingerprinting: A Cross-Modal PPG-ECG Foundation Model",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "target": "2605.09579",
+      "target_label": "Biosignal Fingerprinting: A Cross-Modal PPG-ECG Foundation Model",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2605.09579",
+      "target_label": "Biosignal Fingerprinting: A Cross-Modal PPG-ECG Foundation Model",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "baur2024_hear",
+      "source_label": "HeAR: Health Acoustic Representations (Baur 2024)",
+      "target": "2605.09579",
+      "target_label": "Biosignal Fingerprinting: A Cross-Modal PPG-ECG Foundation Model",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie 2023)",
+      "target": "2506.23424",
+      "target_label": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "W7RPRTCH",
+      "source_label": "TTT for Abstract Reasoning (Akyurek 2024)",
+      "target": "2506.23424",
+      "target_label": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true
+    },
+    {
+      "source": "4QQTVIYC",
+      "source_label": "Sundial (Liu 2025)",
+      "target": "2506.23424",
+      "target_label": "PETSA: Parameter-Efficient Test-Time Adaptation for Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "zhang2024_llm_ts_survey",
+      "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "target": "2606.04135",
+      "target_label": "SARAF: Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "QBX2TI2X",
+      "source_label": "iTransformer (Liu 2024)",
+      "target": "2606.04135",
+      "target_label": "SARAF: Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie 2023)",
+      "target": "2606.04135",
+      "target_label": "SARAF: Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent (Liu 2025)",
+      "target": "2603.04142",
+      "target_label": "Vivaldi: Multi-Agent Physiological TS Interpretation (2026)",
+      "relation": "builds_on",
+      "note": "Vivaldi extends single-agent TS reasoning to a multi-agent architecture with specialized clinical roles."
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals Survey (Gu 2025)",
+      "target": "2603.04142",
+      "target_label": "Vivaldi: Multi-Agent Physiological TS Interpretation (2026)",
+      "relation": "builds_on",
+      "note": "Vivaldi operationalizes biosignal FM concepts via a cooperative multi-agent pipeline for clinical interpretation."
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text (Chen 2024)",
+      "target": "2603.04142",
+      "target_label": "Vivaldi: Multi-Agent Physiological TS Interpretation (2026)",
+      "relation": "builds_on",
+      "note": "Where Sensor2Text trains a sensor-language bridge, Vivaldi avoids alignment training by distributing interpretation across agents."
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2606.02497",
+      "target_label": "Bridging the Last Mile of Time Series Forecasting with LLM Agents",
+      "relation": "builds_on",
+      "note": "Extends TS-Agent from analysis/reasoning to forecast correction via tool-augmented contextual revision."
+    },
+    {
+      "source": "zhang2024_llm_ts_survey",
+      "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "target": "2606.02497",
+      "target_label": "Bridging the Last Mile of Time Series Forecasting with LLM Agents",
+      "relation": "builds_on",
+      "note": "Fills the deployment gap the survey identified between zero-shot foundation models and usable forecasts."
+    },
+    {
+      "source": "4QQTVIYC",
+      "source_label": "Sundial (Liu 2025)",
+      "target": "2606.02497",
+      "target_label": "Bridging the Last Mile of Time Series Forecasting with LLM Agents",
+      "relation": "builds_on",
+      "note": "The last-mile agent wraps a foundation model forecast (like Sundial) and applies structured revisions using domain context."
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2606.10900",
+      "target_label": "Personalized Deep Learning for Short-Term Forecasting of Impending Atrial Fibrillation from Wearable ECG (2026)",
+      "relation": "builds_on",
+      "note": "Where biosignal foundation models aim for one global model across patients, this paper shows inter-patient ECG variability holds the global model back and per-patient fine-tuning recovers much of the lost accuracy."
+    },
+    {
+      "source": "liu2023_health_llm",
+      "source_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
+      "target": "2606.10900",
+      "target_label": "Personalized Deep Learning for Short-Term Forecasting of Impending Atrial Fibrillation from Wearable ECG (2026)",
+      "relation": "builds_on",
+      "note": "Where few-shot health learning adapted a general model to health tasks with small labeled sets, this paper applies the same idea at the level of a single patient's ECG and quantifies how the benefit scales with adaptation data."
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie et al. 2023)",
+      "target": "2606.04074",
+      "target_label": "Adaptive Patching Is Harder Than It Looks for Time-Series Forecasting (2026)",
+      "relation": "builds_on",
+      "note": "Where PatchTST fixed a single patch length for long-horizon forecasting, this paper tests content-adaptive patch lengths and shows a validation-tuned uniform size matches them.",
+      "cross_area": false
+    },
+    {
+      "source": "MKICLA63",
+      "source_label": "Time-LLM (Jin et al. 2024)",
+      "target": "2606.08262",
+      "target_label": "CVAformer: Causal Semantic Alignment for LLM-based Time Series Forecasting (2026)",
+      "relation": "builds_on",
+      "note": "Where Time-LLM aligns raw temporal patterns with frozen language-model embeddings, CVAformer first separates each variable into invariant and dynamic components before alignment.",
+      "cross_area": false
+    },
+    {
+      "source": "6QQNUTL7",
+      "source_label": "GPT4TS (Zhou et al. 2024)",
+      "target": "2606.08262",
+      "target_label": "CVAformer: Causal Semantic Alignment for LLM-based Time Series Forecasting (2026)",
+      "relation": "builds_on",
+      "note": "Where GPT4TS uses a frozen pretrained transformer as a general time-series backbone, CVAformer keeps that backbone and adds a causal alignment step on top of it.",
+      "cross_area": false
+    },
+    {
+      "source": "QBX2TI2X",
+      "source_label": "iTransformer (Liu et al. 2024)",
+      "target": "2606.08262",
+      "target_label": "CVAformer: Causal Semantic Alignment for LLM-based Time Series Forecasting (2026)",
+      "relation": "builds_on",
+      "note": "Where iTransformer made the channel the unit of tokenization, CVAformer keeps the variable-level view and adds a causal adjustment over it.",
+      "cross_area": false
+    },
+    {
+      "source": "pearl2010_causal",
+      "source_label": "Introduction to Causal Inference (Pearl 2010)",
+      "target": "2606.08262",
+      "target_label": "CVAformer: Causal Semantic Alignment for LLM-based Time Series Forecasting (2026)",
+      "relation": "builds_on",
+      "note": "CVAformer imports Pearl-style backdoor adjustment to remove the dynamic component as a confounder during LLM alignment, connecting time series and causal inference.",
+      "cross_area": true
+    },
+    {
+      "source": "A5HBRQB9",
+      "source_label": "Masked Autoencoders Are Scalable Vision Learners (MAE, He 2022)",
+      "target": "2603.26842",
+      "target_label": "VAN-AD: Visual Masked Autoencoder with Normalizing Flow for Time Series Anomaly Detection (2026)",
+      "relation": "builds_on",
+      "note": "Where MAE learns image representations by reconstructing masked patches, VAN-AD reuses the masked-reconstruction objective as an anomaly score for multivariate time series.",
+      "cross_area": true
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2603.26842",
+      "target_label": "VAN-AD: Visual Masked Autoencoder with Normalizing Flow for Time Series Anomaly Detection (2026)",
+      "relation": "builds_on",
+      "note": "VAN-AD relies on the masked-reconstruction principle this theory work analyzes, then adds a normalizing-flow density model because reconstruction error alone does not give a calibrated probability of abnormality.",
+      "cross_area": false
+    },
+    {
+      "source": "A5HBRQB9",
+      "source_label": "Masked Autoencoders Are Scalable Vision Learners (MAE, He 2022)",
+      "target": "2510.25785",
+      "target_label": "HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series (2026)",
+      "relation": "builds_on",
+      "note": "Where MAE reconstructs masked image patches with a flat encoder, HiMAE keeps the masked-reconstruction objective but uses a U-Net-style hierarchical convolutional encoder so each level corresponds to a distinct temporal scale of a wearable signal.",
+      "cross_area": true
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2510.25785",
+      "target_label": "HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series (2026)",
+      "relation": "builds_on",
+      "note": "HiMAE keeps the masked-reconstruction principle this theory work analyzes, then adds a per-level linear probe to measure which temporal resolution carries the predictive signal for a given task.",
+      "cross_area": false
+    },
+    {
+      "source": "li2024_harmamba",
+      "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+      "target": "2510.25785",
+      "target_label": "HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series (2026)",
+      "relation": "builds_on",
+      "note": "Where HARMamba seeks wearable efficiency through a state-space backbone, HiMAE reaches efficiency through convolutional hierarchy and adds a resolution probe that HARMamba lacks.",
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals Survey (Gu 2025)",
+      "target": "2510.25785",
+      "target_label": "HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series (2026)",
+      "relation": "builds_on",
+      "note": "HiMAE extends the wearable foundation-model landscape this survey maps, contributing a per-scale analysis rather than added dataset scale.",
+      "cross_area": false
+    },
+    {
+      "source": "2603.26842",
+      "source_label": "VAN-AD: Visual Masked Autoencoder with Normalizing Flow for Time Series Anomaly Detection (2026)",
+      "target": "2603.29183",
+      "target_label": "IMPACT: Influence Modeling for Open-Set Time Series Anomaly Detection (2026)",
+      "relation": "related_to",
+      "note": "VAN-AD attacks the anomaly score itself as a calibrated likelihood from reconstruction error and density, while IMPACT works one level earlier at the training data, using influence scores to decontaminate labels and to synthesize on-manifold unseen anomalies. Added as a nearest-neighbor link because IMPACT has no direct parent in Leo's library.",
+      "cross_area": false
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "target": "2603.03331",
+      "target_label": "PulseLM: A Foundation Dataset and Benchmark for PPG-Text Learning (2026)",
+      "relation": "builds_on",
+      "note": "Where Sensor2Text produced free text from a sensor stream in one activity-tracking setting, PulseLM performs the same waveform-to-language pairing at dataset scale and fixes it into a graded closed-ended benchmark with a shared scoring protocol.",
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2603.03331",
+      "target_label": "PulseLM: A Foundation Dataset and Benchmark for PPG-Text Learning (2026)",
+      "relation": "builds_on",
+      "note": "Where the biosignals survey described what a PPG foundation model should look like, PulseLM supplies the standardized data, 1.31 million segments and 3.15 million question-answer pairs, and the evaluation protocol those models need.",
+      "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2603.03331",
+      "target_label": "PulseLM: A Foundation Dataset and Benchmark for PPG-Text Learning (2026)",
+      "relation": "builds_on",
+      "note": "PulseLM follows the TS-Agent view of signals as objects queried in language, but turns it into a fixed, reproducible benchmark rather than an agent demonstration.",
+      "cross_area": false
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2601.21031",
+      "target_label": "SIGMA-PPG: Statistical-prior Informed Generative Masking Architecture for PPG Foundation Model (2026)",
+      "relation": "builds_on",
+      "note": "Where this theory work shows a high random mask ratio drives masked-autoencoder learning for images, SIGMA-PPG argues random masking is the wrong choice for quasi-periodic signals because the model fills a random gap by copying a neighboring beat, so it learns the mask as a policy and shifts the design knob from how much to mask to where and how hard to mask.",
+      "cross_area": false
+    },
+    {
+      "source": "A5HBRQB9",
+      "source_label": "MAE: Masked Autoencoders Are Scalable Vision Learners (He 2021)",
+      "target": "2601.21031",
+      "target_label": "SIGMA-PPG: Statistical-prior Informed Generative Masking Architecture for PPG Foundation Model (2026)",
+      "relation": "builds_on",
+      "note": "Where MAE established high-ratio random masking for representation learning, SIGMA-PPG replaces the fixed random mask with a reinforcement-learning teacher that builds a curriculum of hard masks from signal statistics such as amplitude and skewness.",
+      "cross_area": true
+    },
+    {
+      "source": "zhang2024_llm_ts_survey",
+      "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "target": "2606.11990",
+      "target_label": "Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation (2026)",
+      "relation": "builds_on",
+      "note": "Where the survey catalogued ways to attach foundation or language models to time series, this paper takes the plainest version: freeze a pretrained time-series foundation model and train a one-layer regression head, then show the frozen embeddings transfer to remaining-useful-life prediction.",
+      "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2606.11990",
+      "target_label": "Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation (2026)",
+      "relation": "builds_on",
+      "note": "Where TS-Agent built a reasoning agent on top of a time-series foundation model, this paper drops the agent and probes the frozen backbone with a light regression head, showing the embeddings alone are competitive with task-specific architectures.",
+      "cross_area": false
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2606.11990",
+      "target_label": "Time-Series Foundation Model Embeddings for Remaining Useful Life Estimation (2026)",
+      "relation": "builds_on",
+      "note": "Where the biosignal foundation-model survey mapped the design space, this paper supplies a concrete frozen-backbone probing baseline that bio-sensing work can copy before building anything heavier.",
+      "cross_area": true
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2606.18147",
+      "target_label": "WEQA: Wearable Health Question Answering with Query-Adaptive Agentic Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "Where TS-Agent treated time-series reasoning as an agent calling a fixed set of analysis tools, WEQA adds query-adaptive routing so a sleep question and a cardiac question call different tools.",
+      "cross_area": false
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "target": "2606.18147",
+      "target_label": "WEQA: Wearable Health Question Answering with Query-Adaptive Agentic Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "Where Sensor2Text produced a natural-language description of a sensor window, WEQA produces an answer to a specific question, extending the sensor-to-language bridge toward agentic tool routing.",
+      "cross_area": true
+    },
+    {
+      "source": "liu2023_health_llm",
+      "source_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
+      "target": "2606.18147",
+      "target_label": "WEQA: Wearable Health Question Answering with Query-Adaptive Agentic Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "Where Health-LLM showed language models can read health signals from a few examples, WEQA wraps that ability in a controller that plans and routes each wearable-health question to matching tools.",
+      "cross_area": true
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2606.18147",
+      "target_label": "WEQA: Wearable Health Question Answering with Query-Adaptive Agentic Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "WEQA borrows the plan-and-control idea from LATS but applies the controller to signal-analysis and wearable-model tools rather than to web or code actions.",
+      "cross_area": true
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent (Liu 2025)",
+      "target": "2603.06638",
+      "target_label": "HEARTS: Benchmarking LLM Reasoning on Health Time Series",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "note": "HEARTS builds a shared graded benchmark where TS-Agent proposed a single reasoning method, and shows the method-specific wins do not carry over to multi-step reasoning.",
+      "date_added": "2026-06-28"
+    },
+    {
+      "source": "JX3X3KH5",
+      "source_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
+      "target": "2603.06638",
+      "target_label": "HEARTS: Benchmarking LLM Reasoning on Health Time Series",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "HEARTS tests at scale the few-shot health-learning promise and shows it does not extend to multi-step temporal reasoning.",
+      "date_added": "2026-06-28"
+    },
+    {
+      "source": "xie2025_chatts",
+      "source_label": "ChatTS (Xie 2025)",
+      "target": "2603.06638",
+      "target_label": "HEARTS: Benchmarking LLM Reasoning on Health Time Series",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "note": "HEARTS measures across many modalities and task types rather than the single benchmark ChatTS reported on.",
+      "date_added": "2026-06-28"
+    },
+    {
+      "source": "zhang2024_llm_ts_survey",
+      "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "target": "2603.06638",
+      "target_label": "HEARTS: Benchmarking LLM Reasoning on Health Time Series",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "note": "HEARTS turns the methods cataloged by the survey into measured baselines on a common test set.",
+      "date_added": "2026-06-28"
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text (Chen 2024)",
+      "target": "2603.11950",
+      "target_label": "SLIP: Learning Transferable Sensor Models via Language-Informed Pretraining",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "note": "SLIP removes the fixed-configuration limit of Sensor2Text with a variable-rate patch embedder so one model serves many sensor setups.",
+      "date_added": "2026-06-28"
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "SSL for HAR (Yuan 2024)",
+      "target": "2603.11950",
+      "target_label": "SLIP: Learning Transferable Sensor Models via Language-Informed Pretraining",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "SLIP adds a language target to the self-supervised recipe to capture semantics that reconstruction misses for classification.",
+      "date_added": "2026-06-28"
+    },
+    {
+      "source": "MKICLA63",
+      "source_label": "Time-LLM (Jin 2024)",
+      "target": "2603.11950",
+      "target_label": "SLIP: Learning Transferable Sensor Models via Language-Informed Pretraining",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "note": "SLIP reuses the frozen language model through cross-attention for alignment and captioning rather than reprogramming it for forecasting.",
+      "date_added": "2026-06-28"
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2604.05926",
+      "target_label": "FEEL: Quantifying Heterogeneity in Physiological Signals for Generalizable Emotion Recognition",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "FEEL measures the biosignal foundation-model families the survey describes on 19 shared datasets with cross-dataset transfer.",
+      "date_added": "2026-06-28"
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "SSL for HAR (Yuan 2024)",
+      "target": "2604.05926",
+      "target_label": "FEEL: Quantifying Heterogeneity in Physiological Signals for Generalizable Emotion Recognition",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "FEEL evaluates the self-supervised pretraining recipe as one model family and finds handcrafted features stay competitive under noise.",
+      "date_added": "2026-06-28"
+    },
+    {
+      "source": "baur2024_hear",
+      "source_label": "HeAR (Baur 2024)",
+      "target": "2604.05926",
+      "target_label": "FEEL: Quantifying Heterogeneity in Physiological Signals for Generalizable Emotion Recognition",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "FEEL benchmarks the signal foundation-model family HeAR represents against classical and deep baselines on EDA and PPG.",
+      "date_added": "2026-06-28"
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text (Chen 2024)",
+      "target": "2604.00767",
+      "target_label": "ActivityNarrated: An Open-Ended Narrative Paradigm for Wearable Human Activity Understanding",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "note": "Where Sensor2Text produced fixed descriptions tied to a closed activity vocabulary, ActivityNarrated removes the taxonomy and narrates open-ended behavior over multi-position partially observed streams.",
+      "date_added": "2026-06-29"
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "SSL for HAR (Yuan 2024)",
+      "target": "2604.00767",
+      "target_label": "ActivityNarrated: An Open-Ended Narrative Paradigm for Wearable Human Activity Understanding",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "ActivityNarrated keeps the self-supervised representation idea from SSL for HAR but supervises it by retrieval against free-text narration rather than probing it with a closed classifier.",
+      "date_added": "2026-06-29"
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals (Gu 2025)",
+      "target": "2603.09940",
+      "target_label": "SignalMC-MED: A Multimodal Benchmark for Evaluating Biosignal Foundation Models on Single-Lead ECG and PPG",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "SignalMC-MED supplies the shared multimodal clinical benchmark the Gu survey called for, fixing paired ECG and PPG tasks so biosignal foundation models can be compared.",
+      "date_added": "2026-06-29"
+    },
+    {
+      "source": "baur2024_hear",
+      "source_label": "HeAR (Baur 2024)",
+      "target": "2603.09940",
+      "target_label": "SignalMC-MED: A Multimodal Benchmark for Evaluating Biosignal Foundation Models on Single-Lead ECG and PPG",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "SignalMC-MED evaluates the single-modality biosignal foundation-model family HeAR represents and reports that larger variants do not reliably beat smaller ones.",
+      "date_added": "2026-06-29"
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "SSL for HAR (Yuan 2024)",
+      "target": "2604.02711",
+      "target_label": "Foundation Models Defining A New Era In Sensor-based Human Activity Recognition: A Survey And Outlook",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "The survey places SSL for HAR as a central example of the from-scratch HAR foundation-model direction within its lifecycle taxonomy.",
+      "date_added": "2026-06-29"
+    },
+    {
+      "source": "li2024_harmamba",
+      "source_label": "HARMamba (Li 2024)",
+      "target": "2604.02711",
+      "target_label": "Foundation Models Defining A New Era In Sensor-based Human Activity Recognition: A Survey And Outlook",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "note": "The survey locates HARMamba among sequence-model encoders adapted to sensor data within its input-to-utilization taxonomy.",
+      "date_added": "2026-06-29"
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text (Chen 2024)",
+      "target": "2604.02711",
+      "target_label": "Foundation Models Defining A New Era In Sensor-based Human Activity Recognition: A Survey And Outlook",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "note": "The survey names Sensor2Text as an example of the language-model interaction direction for sensor HAR.",
+      "date_added": "2026-06-29"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2506.13705",
+      "target_label": "TimeMaster: Training Time-Series Multimodal LLMs to Reason via Reinforcement Learning (2026)",
+      "relation": "builds_on",
+      "note": "Where DeepSeek-R1 used GRPO to train text-only reasoning, TimeMaster applies the same reward-based recipe to time-series classification and adds a reward term for explanation quality.",
+      "cross_area": true
+    },
+    {
+      "source": "xie2025_chatts",
+      "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
+      "target": "2506.13705",
+      "target_label": "TimeMaster: Training Time-Series Multimodal LLMs to Reason via Reinforcement Learning (2026)",
+      "relation": "builds_on",
+      "note": "Where ChatTS aligned a numeric series with language through supervised training, TimeMaster renders the series as an image for a vision-language backbone and shapes the reasoning trace with reinforcement learning.",
+      "cross_area": false
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2506.13705",
+      "target_label": "TimeMaster: Training Time-Series Multimodal LLMs to Reason via Reinforcement Learning (2026)",
+      "relation": "builds_on",
+      "note": "Where Chain-of-Thought produced reasoning steps by prompting alone, TimeMaster makes those steps a trained, rewarded output format.",
+      "cross_area": true
+    },
+    {
+      "source": "xie2025_chatts",
+      "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
+      "target": "2602.14200",
+      "target_label": "TS-Haystack: A Multi-Scale Retrieval Benchmark for Time Series Language Models (2026)",
+      "relation": "builds_on",
+      "note": "Where ChatTS shows an LLM can answer questions about a series, TS-Haystack tests whether it can locate the right part of a long series at all.",
+      "cross_area": false
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2602.14200",
+      "target_label": "TS-Haystack: A Multi-Scale Retrieval Benchmark for Time Series Language Models (2026)",
+      "relation": "builds_on",
+      "note": "Where TS-Agent reasons over a series with analysis operators, TS-Haystack measures long-context retrieval as an isolated skill.",
+      "cross_area": false
+    },
+    {
+      "source": "zhang2024_llm_ts_survey",
+      "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "target": "2602.14200",
+      "target_label": "TS-Haystack: A Multi-Scale Retrieval Benchmark for Time Series Language Models (2026)",
+      "relation": "builds_on",
+      "note": "TS-Haystack targets the evaluation gap the survey flagged, namely that existing tests reward short-clip pattern recognition and do not test long-context retrieval.",
+      "cross_area": false
+    },
+    {
+      "source": "72DFULQQ",
+      "source_label": "Chronos (Ansari et al. 2024)",
+      "target": "2607.04919",
+      "target_label": "When Do Foundation Models Pay Off? A Break-Even Analysis of Pretrained Time Series Forecasters (2026)",
+      "relation": "builds_on",
+      "note": "Where Chronos argued for its own model by reporting aggregate zero-shot wins, this paper measures the task-data size at which a foundation model beats XGBoost.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "CFG6FEIF",
+      "source_label": "Moirai (Woo et al. 2024)",
+      "target": "2607.04919",
+      "target_label": "When Do Foundation Models Pay Off? A Break-Even Analysis of Pretrained Time Series Forecasters (2026)",
+      "relation": "builds_on",
+      "note": "Where Moirai reported broad zero-shot gains, this paper fixes the deployment decision and asks when the foundation model earns its cost over classical forecasters.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie et al. 2023)",
+      "target": "2607.04919",
+      "target_label": "When Do Foundation Models Pay Off? A Break-Even Analysis of Pretrained Time Series Forecasters (2026)",
+      "relation": "builds_on",
+      "note": "Where PatchTST fixed the supervised architecture, this work fixes the decision procedure and reports the sample size at which the choice flips.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "72DFULQQ",
+      "source_label": "Chronos (Ansari et al. 2024)",
+      "target": "2607.05291",
+      "target_label": "Forecasting Realized Volatility with Time Series Foundation Models (2026)",
+      "relation": "builds_on",
+      "note": "Where Chronos reported broad zero-shot wins, this paper puts the same model class against HAR econometric baselines on realized volatility and finds the advantage mostly disappears after per-asset averaging.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie et al. 2023)",
+      "target": "2607.05291",
+      "target_label": "Forecasting Realized Volatility with Time Series Foundation Models (2026)",
+      "relation": "builds_on",
+      "note": "Where PatchTST set the neural supervised line, this work tests whether its zero-shot foundation-model descendants beat well-specified econometric benchmarks.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text (Chen 2024)",
+      "target": "2607.03089",
+      "target_label": "STELLA: Efficient Sensor-to-LLM Translation for On-Device HAR (2026)",
+      "relation": "builds_on",
+      "note": "Where Sensor2Text produced language from sensors with heavy trainable backbones, STELLA freezes the language model and moves the work into a small hierarchical tokenizer that emits activity-aware tokens, so the system fits on an edge device.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "SSL for HAR with 700K Person-days (Yuan 2024)",
+      "target": "2607.03089",
+      "target_label": "STELLA: Efficient Sensor-to-LLM Translation for On-Device HAR (2026)",
+      "relation": "builds_on",
+      "note": "Where SSL for HAR pretrained a sensor encoder for later fine-tuning, STELLA does not fine-tune the language model and instead learns only the tokenizer plus a per-user personalization layer, keeping compute and private data on the device.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "liu2023_health_llm",
+      "source_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
+      "target": "2607.03089",
+      "target_label": "STELLA: Efficient Sensor-to-LLM Translation for On-Device HAR (2026)",
+      "relation": "builds_on",
+      "note": "Where LLMs are Few-Shot Health Learners showed a general language model can read physiological signals with few examples, STELLA supplies a learned hierarchical tokenizer that feeds sensor streams to a frozen model on-device.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "li2024_harmamba",
+      "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+      "target": "2607.01204",
+      "target_label": "TiRex-2: Generalizing TiRex to Multivariate Data and Streaming (2026)",
+      "relation": "builds_on",
+      "note": "Where HARMamba uses a bidirectional recurrent state-space backbone at constant cost per step for activity recognition, TiRex-2 keeps the constant-per-patch recurrent idea but moves to an xLSTM backbone and extends it to multivariate forecasting with future-known covariates and streaming updates.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "AVTJLZIR",
+      "source_label": "Bi-Mamba+ (Liang 2024)",
+      "target": "2607.01204",
+      "target_label": "TiRex-2: Generalizing TiRex to Multivariate Data and Streaming (2026)",
+      "relation": "builds_on",
+      "note": "Where Bi-Mamba+ applies a bidirectional Mamba to time-series forecasting, TiRex-2 replaces the state-space backbone with an xLSTM backbone and adds an asymmetric grouped-attention variate mixer that mixes across variables while keeping strict causality on the targets.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    },
+    {
+      "source": "zhang2024_llm_ts_survey",
+      "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "target": "2607.01204",
+      "target_label": "TiRex-2: Generalizing TiRex to Multivariate Data and Streaming (2026)",
+      "relation": "builds_on",
+      "note": "Where the survey frames time-series ability as something to obtain by attaching an LLM, TiRex-2 stays fully numeric and recurrent, sitting on the native-forecasting branch rather than the LLM-integration branch.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "mamba_ssm_family",
+      "label": "Mamba/SSM Architecture Applications",
+      "nodes": [
+        "li2024_harmamba",
+        "erol2024_audiomamba",
+        "liu2024_swinumamba",
+        "concept_mamba_ssm"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9
+    },
+    {
+      "id": "ts_llm_reasoning_pipeline",
+      "label": "Time Series + LLM Reasoning Ecosystem",
+      "nodes": [
+        "xie2025_chatts",
+        "liu2025_tsagent",
+        "zhang2024_llm_ts_survey",
+        "chen2024_sensor2text",
+        "concept_ts_llm"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85
+    },
+    {
+      "id": "wearable_health_sensing",
+      "label": "Wearable Sensing for Health & Behavior",
+      "nodes": [
+        "yuan2024_ssl_har",
+        "xu2023_globem",
+        "nepal2024_mindscape",
+        "gu2025_biosignals",
+        "baur2024_hear",
+        "chen2024_sensor2text"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85
+    },
+    {
+      "id": "self_supervised_pretraining",
+      "label": "Self-Supervised Pretraining Methods",
+      "nodes": [
+        "yuan2024_ssl_har",
+        "chen2023_pathology",
+        "zhang2023_mae",
+        "baur2024_hear",
+        "concept_self_supervised"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9
+    }
+  ],
+  "cross_area_bridges": [
+    {
+      "from": "chen2024_sensor2text",
+      "to": "liu2023_few_shot_health",
+      "reason": "semantically_similar (bio-sensing + llm-health bridge)"
+    }
+  ]
 }
