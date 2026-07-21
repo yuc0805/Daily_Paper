@@ -26,6 +26,7 @@
 2026-07 | Light-Omni (2607.05511) | dual-state memory (consolidated global script plus latent action state) gives reflexive long-video answers in near-constant time
 2026-07 | VideoChat3 (2607.14935) | fully open 4B video MLLM with an inflated 3D ViT and adaptive frame resolution for cheaper streaming perception
 2026-07 | UniVR (2607.12800) | reasoning, dynamics, and planning learned from pure visual demonstrations with a step-level physical-consistency reward
+2026-07 | S1-Omni (2607.15686) | maps many scientific modalities plus instructions into one shared space with task-specific decoders for prediction and generation
 ### Paper List
 
 [KNOWN] [2021] Dosovitskiy et al. — ViT. zotero_key:B7F2Q998.
@@ -54,13 +55,12 @@
 [2026] 2607.05511 — Light-Omni: Reflex over Reasoning in Agentic Video Understanding with Long-Term Memory. [https://arxiv.org/abs/2607.05511](https://arxiv.org/abs/2607.05511). external.
 [2026] 2607.14935 — VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding. [https://arxiv.org/abs/2607.14935](https://arxiv.org/abs/2607.14935). external.
 [2026] 2607.12800 — UniVR: Thinking in Visual Space for Unified Visual Reasoning. [https://arxiv.org/abs/2607.12800](https://arxiv.org/abs/2607.12800). external.
+[2026] 2607.15686 — S1-Omni: A Unified Multimodal Reasoning Model for Scientific Understanding, Prediction, and Generation. [https://arxiv.org/abs/2607.15686](https://arxiv.org/abs/2607.15686). external.
 
 ### Recent Activity
 
+2026-07-20 | 2607.15686 added | S1-Omni maps heterogeneous scientific objects (crystal structures, SMILES strings, protein sequences, spectra, scientific images) plus instructions into one shared representation, then uses task-specific decoders for property prediction, spectrum-to-molecule generation, protein site and structure prediction, and scientific image generation; trained on 200 scientific tasks and evaluated on more than 60 benchmarks, it reportedly outperforms GPT-5.5 and Gemini-3.1-Pro on most; Tier B
 2026-07-18 | 2607.12800 added | UniVR moves both the reasoning trace and the reward into visual space with VR-GRPO, adding a step-level reward that checks physical consistency of intermediate visual states rather than scoring only the final answer, and reports up to 25% improvement on its VR-X benchmark; Tier B
 2026-07-17 | 2607.14935 added | VideoChat3 is a fully open 4B video multimodal LLM that introduces an Inflated 3D Vision Transformer and Adaptive Frame Resolution to cut the cost of turning video into tokens, releases a video data synthesis pipeline plus general, long-form, and streaming training sets, and reports beating prior open-source models of equal or larger size across those benchmarks; Tier B
 2026-07-14 | 2607.05511 added | Light-Omni keeps two states in one forward pass, a consolidated global script from hierarchical memory merging and a latent action state, so it answers long-video questions reflexively without search-then-aggregate loops; against M3-Agent it reports a 2.4% accuracy gain, a 12.1x speedup, 2.6x better GPU memory use, and near-constant ~2.3s latency regardless of video length; Tier B
 2026-07-13 | 2607.03530 added | a multimodal model writes SVG code as an intermediate reasoning step, renders it deterministically, reads the image back, and revises over several turns under reinforcement learning; reports 55.1% on VSIBench and 76.0% on MindCube; Tier A
-2026-07-09 | 2607.06560 added | SenseNova-Vision poses many vision tasks (detection, OCR, keypoints, segmentation, depth, normals, camera pose) as one generation problem with no task-specific heads, training on a 50M instruction-response corpus converted from standard annotations and matching leading task-specialized systems; Tier B
-2026-07-02 | 2607.01191 added | P2R separates a Perceiver that localizes the question-relevant region from a Reasoner that answers over the crop, trained with alternating PRA-GRPO from final-answer reward alone and no bounding-box labels, reaching 93.2% on V-Star and 80.5% on HR-Bench-8K; Tier B
-2026-06-25 | 2606.19534 added | multimodal model on a discrete diffusion language backbone; parallel token decoding with structured masking describes several regions at once for an inference-efficiency gain; Tier B

@@ -28,6 +28,7 @@
 2026-07 | MRPO (2606.31825) | step-wise process rewards that penalize early invalid reasoning steps for medical multimodal RL
 2026-07 | Diffusion Radiology Drafting (2607.01436) | discrete diffusion LM for medical VQA with any-order report infill, faster than autoregression
 2026-07 | CLeaD (2607.02920) | supervised contrastive alignment maps English and Mandarin speech embeddings into one clinical space for depression detection
+2026-07 | Cura 1T (2607.15314) | healthcare LLM trained by a human-gated self-evolution loop that rewrites the data mixture from observed benchmark failures
 ### Paper List
 
 [KNOWN] [2023] Xu et al. — GLOBEM. zotero_key:ICD9EG8Q.
@@ -59,11 +60,12 @@
 [2026] 2607.01436 — Discrete Diffusion Language Models for Interactive Radiology Report Drafting. [https://arxiv.org/abs/2607.01436](https://arxiv.org/abs/2607.01436). external.
 
 [2026] 2607.02920 — CLeaD: Layer-wise Cross-Lingual Depression Detection from Speech. [https://arxiv.org/abs/2607.02920](https://arxiv.org/abs/2607.02920). external.
+[2026] 2607.15314 — Cura 1T: Specialized Model for Agentic Healthcare. [https://arxiv.org/abs/2607.15314](https://arxiv.org/abs/2607.15314). external.
 
 ### Recent Activity
 
+2026-07-20 | 2607.15314 added | Cura 1T trains a healthcare-specialized language model through a human-gated self-evolution loop where a training agent picks a target capability, reads benchmark trajectories, and rewrites the data mixture from observed failures rather than doing one generic medical update, aiming to stop the usual problem where fixing one healthcare skill degrades another; it ranks at or near the top of a healthcare evaluation suite while staying competitive on out-of-domain reasoning; Tier B
 2026-07-09 | 2607.02920 added | CLeaD aligns WavLM speech embeddings from English and Mandarin into one shared clinical space through supervised contrastive learning, without parallel data or target-language fine-tuning, beating the baseline modestly (F1 0.640 versus 0.622) and exposing that segment-level random splits leak speaker identity and inflate earlier numbers; Tier B
 2026-07-03 | 2606.31825 added | MRPO adds step-wise process rewards to medical multimodal RL, giving exponentially larger penalties to earlier invalid reasoning steps; early-stage reasoning failures drop from 64.0% to 13.0% and an 8B model beats a 34B medical model by 2.79 points; Tier A
 2026-07-03 | 2607.01436 added | a discrete diffusion language model fine-tuned for medical VQA under an identical LoRA recipe matches or beats its autoregressive sibling, decodes 3.5 to 4.4 times faster, and adds any-order report infill; Tier B
 2026-07-02 | 2606.31292 added | AtomiMed decomposes a generated medical report into a hierarchy of atomic clinical facts and runs an agentic cross-verification loop between ground-truth and predicted reports, separating detection accuracy from descriptive accuracy and correlating with radiologist judgment better than n-gram and model-based metrics; Tier B
-2026-07-01 | 2606.15284 added | CAP anchors a PPG encoder to patient-level clinical text distilled from records rather than to the waveform alone, reporting an average relative gain of +26.7 percent across four cardiorespiratory tasks; Tier A

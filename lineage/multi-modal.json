@@ -364,6 +364,30 @@
    "cross_area": true,
    "note": "Where Chain-of-Thought produces the reasoning trace in language tokens, UniVR carries the trace through raw visual states checked for physical plausibility.",
    "date_added": "2026-07-18"
+  },
+  {
+   "source": "ramesh2022_dalle2",
+   "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+   "target": "2607.15686",
+   "target_label": "S1-Omni: Unified Multimodal Reasoning for Science (2026)",
+   "relation": "builds_on",
+   "note": "Where DALL-E 2 aligned text and images in one shared embedding space, S1-Omni does the same shared-space move across many scientific modalities at once, then routes to domain-native decoders instead of a single pixel decoder.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-20"
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "target": "2607.15686",
+   "target_label": "S1-Omni: Unified Multimodal Reasoning for Science (2026)",
+   "relation": "builds_on",
+   "note": "Where DiT showed a transformer backbone can drive diffusion generation, S1-Omni uses a shared representation feeding task-specific decoders for scientific prediction and generation across spectra, molecules, proteins, and images.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-20"
   }
  ],
  "hyperedges": [],

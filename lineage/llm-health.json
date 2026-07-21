@@ -562,6 +562,42 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "source": "liu2023_health_llm",
+      "source_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
+      "target": "2607.15314",
+      "target_label": "Cura 1T: Specialized Model for Agentic Healthcare (2026)",
+      "relation": "builds_on",
+      "note": "Where Liu 2023 showed a general model answers health questions from a few examples, Cura 1T builds a healthcare-specialized model whose data mixture is rewritten each round from its own benchmark failures.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-20"
+    },
+    {
+      "source": "li2025_counselbench",
+      "source_label": "CounselBench: LLM Benchmarking in Mental Health (Li 2025)",
+      "target": "2607.15314",
+      "target_label": "Cura 1T: Specialized Model for Agentic Healthcare (2026)",
+      "relation": "builds_on",
+      "note": "Where CounselBench measured where language models fail in mental-health advice, Cura 1T turns such measured failures into the training signal itself through a closed human-gated self-evolution loop.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-20"
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2607.15314",
+      "target_label": "Cura 1T: Specialized Model for Agentic Healthcare (2026)",
+      "relation": "builds_on",
+      "note": "Where Gu 2025 catalogued fixed biosignal encoders, Cura 1T is an agentic system whose data mixture changes each round, placing it on the self-improving-system branch rather than the fixed-encoder branch.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-20"
     }
   ],
   "hyperedges": [

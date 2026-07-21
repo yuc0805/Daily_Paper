@@ -285,6 +285,30 @@
    "confidence": "INFERRED",
    "confidence_score": 0.9,
    "cross_area": true
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2607.15161",
+   "target_label": "On-Policy Delta Distillation (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-R1 produced reasoning through RL and left an expensive teacher, OPD^2 does cheap transfer of exactly that ability by distilling the teacher-minus-base delta rather than copying the whole teacher distribution.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-20"
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2607.15161",
+   "target_label": "On-Policy Delta Distillation (2026)",
+   "relation": "builds_on",
+   "note": "Where Chain-of-Thought established the reasoning-trace target that distillation transfers, OPD^2 isolates that added reasoning behavior as the delta between the tuned teacher and its base model and distills only that.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-07-20"
   }
  ],
  "hyperedges": [],
