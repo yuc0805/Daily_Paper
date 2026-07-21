@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-20",
+  "date": "2026-07-21",
   "papers": [
     {
-      "zotero_key": "2607.16097",
-      "title": "Understanding Reasoning from Pretraining to Post-Training",
-      "authors": "Shen et al.",
+      "zotero_key": "2605.22759",
+      "title": "SensorFM: A Wearable Health Foundation Model Pretrained on One Trillion Minutes of Sensor Data",
+      "authors": "Google Research",
       "year": 2026,
-      "what": "Uses chess as a controlled testbed to separate pretraining from RL, finding that pretraining loss predicts post-RL reasoning performance and that pretraining tokens set the slope of the RL reward curve.",
+      "what": "A self-supervised foundation model over five wearable sensors, pretrained by masked reconstruction on one trillion-plus minutes from about 5 million people; the largest variant beats conventional baselines on 34 of 35 tasks.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "SSL for HAR (Yuan 2024); Foundation Models for Biosignals (Gu 2025); HeAR (Baur 2024)"
+    },
+    {
+      "zotero_key": "2603.06638",
+      "title": "HEARTS: Benchmarking LLM Reasoning on Health Time Series",
+      "authors": "Yang AI Lab et al.",
+      "year": 2026,
+      "what": "A benchmark of 16 datasets, 12 health domains, 20 signal modalities and 110 tasks that shows state-of-the-art LLMs underperform specialized models and fail at multi-step temporal reasoning on health signals.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "TS-Agent (Liu 2025); ChatTS (Xie 2025); Few-Shot Health Learners (Liu 2023)"
+    },
+    {
+      "zotero_key": "2607.16850",
+      "title": "Group Entropy-Controlled Policy Optimization (GEPO)",
+      "authors": "InternLM",
+      "year": 2026,
+      "what": "A lightweight GRPO extension that shapes advantages by per-group entropy, damping over-exploitation in low-entropy groups and preserving exploration in high-entropy groups to stabilize reasoning RL on heterogeneous task mixtures.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "Chain-of-Thought (Wei 2023); DeepSeek-R1 (2025)"
+      "builds_on": "DeepSeek-R1 (2025); DeepSeek-V3 (2024)"
     },
     {
-      "zotero_key": "2607.15314",
-      "title": "Cura 1T: Specialized Model for Agentic Healthcare",
-      "authors": "actAVA AI et al.",
+      "zotero_key": "2607.16900",
+      "title": "Environment-free Synthetic Data Generation for API-Calling Agents",
+      "authors": "Apple",
       "year": 2026,
-      "what": "A healthcare language model trained through a human-gated self-evolution loop that rewrites its own data mixture from observed benchmark failures, covering consultation, clinical reasoning, diagnosis, and EHR tool use without regressing one skill for another.",
-      "area_label": "LLM-Health",
-      "area_slug": "llm-health",
-      "builds_on": "Few-Shot Health Learners (Liu 2023); CounselBench (Li 2025); Foundation Models for Biosignals (Gu 2025)"
-    },
-    {
-      "zotero_key": "2607.15161",
-      "title": "On-Policy Delta Distillation",
-      "authors": "Heo et al. (NAVER AI Lab)",
-      "year": 2026,
-      "what": "Distills the delta signal (the difference between a reasoning-tuned teacher and its base model) instead of the full teacher distribution, transferring reasoning ability more directly and beating standard on-policy distillation across math, science, and code.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "DeepSeek-R1 (2025); Chain-of-Thought (Wei 2023)"
-    },
-    {
-      "zotero_key": "2607.15686",
-      "title": "S1-Omni: A Unified Multimodal Reasoning Model for Scientific Understanding, Prediction, and Generation",
-      "authors": "Zhao et al. (ScienceOne-AI)",
-      "year": 2026,
-      "what": "Maps heterogeneous scientific objects (structures, SMILES, protein sequences, spectra, images) plus instructions into one shared space with domain-native decoders, spanning 200 scientific tasks and reportedly beating GPT-5.5 and Gemini-3.1-Pro on most of 60+ benchmarks.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "DALL-E 2 (Ramesh 2022); DiT (Peebles 2023)"
+      "what": "Generates synthetic tool-call training data without a live executable environment, letting API-calling agent datasets scale with generation rather than with sandbox availability.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "ToolkenGPT (Hao 2024); ADaPT (Prasad 2023); Agent AI Survey (Durante 2024)"
     }
   ]
 }

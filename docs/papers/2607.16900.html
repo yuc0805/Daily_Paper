@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Environment-free Synthetic Data Generation for API-Calling Agents — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>Environment-free Synthetic Data Generation for API-Calling Agents</h2>
+<p class="paper-meta">Apple &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.16900" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3><p>This paper generates synthetic tool-call training data for API-calling agents without a live executable environment. Instead of executing real services to collect trajectories, the data pipeline itself produces the API surface and its responses. The result is a cheaper path to large, diverse API-calling datasets, most useful for the long tail of tools that have no public sandbox.</p>
+<h3>Why</h3><p>Tool-calling agents are normally trained on trajectories that need a live environment: real APIs to call, real state to observe, real errors to recover from. Standing up and maintaining that environment is the main bottleneck to scaling agent training data, and most tools of interest have no sandbox to record against. Prior tool-use work assumed such an environment exists.</p>
+<h3>How</h3><p>The pipeline synthesizes both the tool interface and the call-and-response supervision, so agent trajectories can be produced offline. This removes the dependency on executing real services and lets data volume and tool diversity scale with generation rather than with sandbox availability.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Learned tool-call embeddings assuming callable tools; this work removes that requirement.</span></li>
+<li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">As-needed task decomposition for planning agents that assumed an executable setting.</span></li>
+<li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Framing survey for the agent systems this data trains.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>ToolkenGPT assumed tools you can actually call to gather supervision, which does not scale to tools without sandboxes. This paper fixes that by synthesizing the call-and-response supervision directly, because the environment, not the model, is what does not scale.</p>
+<h3>Method vs predecessors</h3><p>Where ADaPT and ToolkenGPT operate inside an executable environment, this work replaces the environment with a generative pipeline that fabricates consistent tool responses, shifting the cost from maintaining services to generating data.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Overview of the multimodal agent interaction setting.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Group Entropy-Controlled Policy Optimization — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Group Entropy-Controlled Policy Optimization (GEPO)</h2>
+<p class="paper-meta">InternLM (Intern Large Models) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.16850" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3><p>GEPO is a lightweight extension of GRPO for reasoning RL. It estimates per-group entropy from grouped samples already drawn and shapes advantages asymmetrically: it damps positive advantages in low-entropy groups to reduce over-exploitation and damps negative advantages in high-entropy groups to preserve exploration. The extra cost is small because the entropy estimate reuses existing rollouts.</p>
+<h3>Why</h3><p>RL fine-tuning runs on mixtures of tasks that sit in different entropy regimes under one policy, so a single global or token-level entropy control cannot match all of them. GRPO's normalized advantages also pick up an entropy-dependent bias, which makes advantage signals across prompt groups statistically not comparable. A method is needed that adapts exploration pressure per group without a heavy extra pass.</p>
+<h3>How</h3><p>GEPO conditions advantage shaping on the entropy of each prompt group. Low-entropy groups (the policy is already confident) get their positive advantages attenuated so the model does not over-commit; high-entropy groups (still uncertain) get their negative advantages attenuated so useful exploration is not punished. Because the entropy is read off the grouped samples GRPO already produces, the change adds little compute.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Made GRPO-style reward RL the standard reasoning recipe; GEPO refines its advantage normalization.</span></li>
+<li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Base-model lineage behind the R1 reasoning recipe.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>DeepSeek-R1 applied one reward-normalization scheme uniformly, which treats an easy low-entropy prompt and a hard high-entropy prompt as if they need the same exploration pressure. GEPO fixes the resulting entropy-dependent bias so advantage signals become comparable across groups, which stabilizes training on heterogeneous task mixtures.</p>
+<h3>Method vs predecessors</h3><p>Where R1's GRPO normalizes advantages within a group but ignores how confident that group is, GEPO makes the shaping a function of group entropy. It is the same reward-RL backbone with an entropy-conditioned correction rather than a new optimizer.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Frames the agent-and-reasoning cluster GEPO trains within.</span></li>
+</ul>
+</div>
+</body>
+</html>

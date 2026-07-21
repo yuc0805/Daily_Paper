@@ -3,36 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Towards a General Intelligence and Interface for Wearable Health Data — AI Knowledge Graph</title>
+<title>SensorFM: A Wearable Health Foundation Model — AI Knowledge Graph</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <div class="paper-page">
-<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
-<h2>Towards a General Intelligence and Interface for Wearable Health Data</h2>
-<p class="paper-meta">Narayanswamy, Xu, Heydari, McDuff et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.22759" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm-health.html">LLM-Health</a></p>
-<h3>What</h3>
-<p>A foundation model for wearable health, pretrained on more than one trillion minutes of unlabeled sensor signal from about five million participants. On top of the frozen representation, a classroom of LLM agents searches the space of downstream predictive heads, and the best heads feed a Personal Health Agent that answers health questions in natural language. The model is evaluated on 35 health prediction tasks spanning cardiovascular, metabolic, sleep, and mental health, plus lifestyle and demographic targets.</p>
-<h3>Why</h3>
-<p>Turning low-level wearable streams into personal health states is hard because individuals differ in baseline health, physiology, and lifestyle, so the same raw signal means different things across people. Paired labels (signal plus a confirmed outcome) are expensive and cannot be added retrospectively, so labeled data stays scarce. Prior wearable models were trained at smaller scale and used hand-built interfaces between signal and language, which limited both accuracy and the range of questions the system could answer.</p>
-<h3>How</h3>
-<p>The authors pretrain with self-supervision on the trillion-minute corpus and measure how performance moves as model size and data volume scale together. They keep the representation frozen and use LLM agents to automatically select downstream heads (which embedding, which architecture, which target) rather than designing one head per task. The selected predictors are wrapped in a Personal Health Agent, whose responses were rated by clinicians across 1,860 ratings for relevance, context awareness, and safety.</p>
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>SensorFM: A Wearable Health Foundation Model Pretrained on One Trillion Minutes of Sensor Data</h2>
+<p class="paper-meta">Google Research &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2605.22759" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>, <a href="../areas/self-supervised.html">Self-supervised</a></p>
+<h3>What</h3><p>SensorFM is a self-supervised foundation model for wearable health data. It ingests 34 one-minute aggregate features from five sensors (PPG, accelerometer, EDA, skin temperature, altimeter) and is pretrained by masked reconstruction on more than one trillion minutes of data from about 5 million people. Downstream tasks attach light heads to the encoder. The largest variant beats conventional baselines on 34 of 35 tasks, adds an average of 9% AUC on classification and 21% Pearson on regression, and retains 99.7% step-count and 99.9% deep-sleep accuracy when 60 contiguous minutes are ablated.</p>
+<h3>Why</h3><p>Wearable health models are usually built one task at a time, each from its own labeled dataset. That does not reuse structure across tasks, handles missing sensor windows poorly, and gives downstream health tools no single representation to call. Prior self-supervised work in this space either used one sensor family or stopped at survey scale, leaving open whether one encoder could fuse heterogeneous sensors at population scale.</p>
+<h3>How</h3><p>The method follows the masked-autoencoder recipe: mask part of the multi-sensor input, reconstruct it, and reuse the learned encoder as a general feature extractor. Pretraining runs at population scale (about 5 million people, one trillion-plus minutes), and evaluation attaches light task heads for classification and regression. A health-agent study had four board-certified physicians, blinded to condition, rate 1,860 outputs across context, relevance, justifiability, personalization, and potential for harm.</p>
 <h3>Builds on</h3>
 <ul class="lineage-list">
-<li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Survey of self-supervised foundation models for physiological signals; this paper is a concrete trillion-minute instance.</span></li>
-<li><a href="RTMH75VW.html">SSL for HAR with 700K Person-days (Yuan 2024)</a><span class="lineage-note">Showed large-scale self-supervised pretraining helps wearable tasks; scaled here by roughly a thousand times.</span></li>
-<li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">Fed sensor-derived numbers into LLM prompts; replaced here by trained heads on a learned representation.</span></li>
-<li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Bridged bio-sensing and llm-health by turning sensor data into language; the new work scales and automates that bridge.</span></li>
+<li>SSL for HAR (Yuan 2024)<span class="lineage-note">Self-supervised pretraining on 700K person-days of accelerometer data; SensorFM extends this to five sensor families. <em>Page not generated yet.</em></span></li>
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Surveyed the design space SensorFM instantiates at the largest scale.</span></li>
+<li><a href="3LA8GNCU.html">HeAR (Baur 2024)</a><span class="lineage-note">Self-supervised acoustic health representation; same masked-prediction family.</span></li>
+<li><a href="ICD9EG8Q.html">GLOBEM (Xu 2023)</a><span class="lineage-note">Multi-year multi-sensor behavior data; SensorFM supplies the pretrained representation such tasks lacked.</span></li>
 </ul>
-<h3>Solves vs predecessors</h3>
-<p>The main failure mode of the predecessors was scale and rigidity. Yuan 2024 demonstrated self-supervision at 700K person-days but could not show how far it scales; this paper provides scaling-law evidence at one trillion minutes and five million people. Liu 2023 relied on prompting with summary numbers, which loses signal detail; training heads on a learned representation keeps more of the signal and supports few-shot transfer to new tasks. Sensor2Text needed a hand-built captioning path; the agentic head search removes that manual step.</p>
-<h3>Method vs predecessors</h3>
-<p>Where earlier work fixed one downstream head per task, this paper separates representation learning from task adaptation and delegates head selection to LLM agents, so adding a task is a search rather than a redesign. The interface layer is also different: instead of a static prompt template, a Personal Health Agent composes the selected predictors and is checked against clinician judgment. The denoising-free self-supervised objective scales with compute and data in a way the smaller predecessors did not test.</p>
+<h3>Solves vs predecessors</h3><p>Yuan 2024 modeled a single sensor family and left open whether one encoder could span many. SensorFM fixes that by pretraining across five sensor families at roughly a thousand times more data, so a single representation now serves 35 tasks instead of one bespoke model per task. It also fixes the missing-data brittleness of task-specific models: with an hour of contiguous data removed, step-count and deep-sleep accuracy barely move.</p>
+<h3>Method vs predecessors</h3><p>Where Gu 2025 described the design space and Yuan 2024 used single-sensor masked prediction, SensorFM keeps the masked-reconstruction objective but scales both the sensor set and the data volume, and evaluates through a downstream health agent rather than on encoder metrics alone. The trade-off is that it consumes one-minute aggregate features rather than raw waveforms, so beat-level morphology is discarded before encoding.</p>
 <h3>Related (semantically similar in your library)</h3>
 <ul class="lineage-list">
-<li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Time-series reasoning agent; same time-series-plus-LLM stack, different signal domain.</span></li>
-<li><a href="ICD9EG8Q.html">GLOBEM (Xu 2023)</a><span class="lineage-note">Multi-year behavioral sensing datasets; the wearable-behavior setting this model targets.</span></li>
-<li><a href="K4PR34NU.html">MindScape (Nepal 2024)</a><span class="lineage-note">LLM plus behavioral sensing for journaling; a downstream interface of the same kind.</span></li>
+<li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Natural-language interaction over wearable sensor streams.</span></li>
+<li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Efficient sequence backbone for human activity recognition.</span></li>
+<li><a href="K4PR34NU.html">MindScape (Nepal 2024)</a><span class="lineage-note">LLM plus behavioral sensing; a downstream consumer of wearable representations.</span></li>
 </ul>
 </div>
 </body>
