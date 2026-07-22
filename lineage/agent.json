@@ -676,6 +676,42 @@
    "cross_area": false,
    "note": "Where the memory line keeps a running store for a single agent, SearchOS makes that store shared and structured so several sub-agents coordinate coverage without repeating dead ends.",
    "date_added": "2026-07-18"
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-21",
+   "source": "hao2024_toolkengpt",
+   "source_label": "ToolkenGPT: Tool Embeddings for LLMs (Hao 2024)",
+   "target": "2607.16900",
+   "target_label": "Environment-free Synthetic Data Generation for API-Calling Agents (2026)",
+   "note": "Where ToolkenGPT assumed tools you can actually call to gather supervision, this paper removes the live environment and synthesizes the call-and-response supervision directly, because the environment, not the model, is what does not scale."
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-21",
+   "source": "prasad2023_adapt",
+   "source_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
+   "target": "2607.16900",
+   "target_label": "Environment-free Synthetic Data Generation for API-Calling Agents (2026)",
+   "note": "Against ADaPT, which decomposed tasks assuming an executable setting, this work supplies training data for such planners without needing that setting to exist."
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-21",
+   "source": "durante2024_agentai",
+   "source_label": "Agent AI: Surveying Multimodal Interaction (Durante 2024)",
+   "target": "2607.16900",
+   "target_label": "Environment-free Synthetic Data Generation for API-Calling Agents (2026)",
+   "note": "Extends the agent-systems framing of the Durante survey toward the data bottleneck, producing tool-call trajectories without a live environment."
   }
  ],
  "hyperedges": [

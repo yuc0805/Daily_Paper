@@ -33,6 +33,7 @@
 2026-07 | MentalThink (2607.03530) | a multimodal model reasons by writing, rendering, and revising executable SVG sketches, trained with multi-turn reinforcement learning
 2026-07 | TREK (2607.05339) | distills verified off-support solutions into the student with a short forward-KL phase, then returns to on-policy reinforcement learning to fix a GRPO exploration stall
 2026-07 | Pretraining-to-RL Reasoning (2607.16097) | pretraining loss predicts post-RL reward; pretraining tokens set the RL reward slope
+2026-07 | GEPO (2607.16850) | per-group entropy shaping of GRPO advantages so mixed-difficulty prompts get matched exploration pressure
 ### Paper List
 
 [KNOWN] [2025] Shen et al. — CODI. zotero_key:FFWLYL3J.
@@ -70,11 +71,12 @@
 [2026] 2607.03530 — MentalThink: Shaping Thoughts in Mental SVG World. [https://arxiv.org/abs/2607.03530](https://arxiv.org/abs/2607.03530). external.
 [2026] 2607.05339 — TREK: Distill to Explore, Reinforce to Refine. [https://arxiv.org/abs/2607.05339](https://arxiv.org/abs/2607.05339). external.
 [2026] 2607.16097 — Understanding Reasoning from Pretraining to Post-Training. [https://arxiv.org/abs/2607.16097](https://arxiv.org/abs/2607.16097). external.
+[2026] 2607.16850 — Group Entropy-Controlled Policy Optimization (GEPO). [https://arxiv.org/abs/2607.16850](https://arxiv.org/abs/2607.16850). external.
 
 ### Recent Activity
 
+2026-07-21 | 2607.16850 added | GEPO extends GRPO by estimating per-group entropy from the grouped rollouts already drawn and shaping advantages asymmetrically: it damps positive advantages in low-entropy groups to reduce over-exploitation and damps negative advantages in high-entropy groups to keep exploration, at little added cost because the entropy estimate reuses samples already taken; Tier B
 2026-07-20 | 2607.16097 added | uses chess as a closed testbed with an exact reward to separate the contribution of pretraining from the contribution of RL; post-RL performance at a fixed RL compute is predicted by pretraining loss, the RL reward slope rises about linearly with pretraining tokens, and RL surfaces correct hard-puzzle moves that were nearly absent before rather than only sharpening the fine-tuned policy; the pattern reproduces on a 1B model trained on mathematics text; Tier A
 2026-07-13 | 2607.03530 added | the model externalizes each reasoning step as executable SVG that it renders and inspects, then rewards good revision of the drawing through multi-turn reinforcement learning; reports 55.1% on VSIBench and 76.0% on MindCube; Tier A
 2026-07-13 | 2607.05339 added | on near-zero-pass-rate prompts it pulls verified teacher solutions into the student's range with a short forward-KL phase before resuming on-policy reinforcement learning; Qwen3-8B rises on AIME 2025 (36.9 to 40.3) and ALFWorld (75.8 to 82.8); Tier B
 2026-07-01 | 2606.28166 added | a trained strong senior and a frozen weak junior alternate to co-generate each reasoning rollout under a verifiable reward; the senior keeps solo accuracy while its chain of thought stays legible to the junior; Tier B
-2026-06-30 | 2601.12538 added | reasoning framed as an agentic loop where the model plans, calls tools, reads results, and revises, arguing hard problems are solved better by interleaving reasoning with action than by longer single-pass traces; Tier B

@@ -1,452 +1,476 @@
 {
-  "_generated": "2026-05-14",
-  "_source": "graphify_seed/graph.json + zotero_index.json",
-  "area": "reasoning.md",
-  "edges": [
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2605.06638",
-      "target_label": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2605.06638",
-      "target_label": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2605.07153",
-      "target_label": "Beyond Reasoning: Reinforcement Learning Unlocks Parametric Knowledge in LLMs",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2605.06241",
-      "target_label": "Rethinking RL for LLM Reasoning: It is Sparse Policy Selection, Not Capability Learning",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2605.06241",
-      "target_label": "Rethinking RL for LLM Reasoning: It is Sparse Policy Selection, Not Capability Learning",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2605.02073",
-      "target_label": "Enhanced LLM Reasoning by Optimizing Reward Functions with Search-Driven Reinforcement Learning",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2605.02073",
-      "target_label": "Enhanced LLM Reasoning by Optimizing Reward Functions with Search-Driven Reinforcement Learning",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2024_v3",
-      "source_label": "DeepSeek-V3 (2024)",
-      "target": "2605.02073",
-      "target_label": "Enhanced LLM Reasoning by Optimizing Reward Functions with Search-Driven Reinforcement Learning",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "huang2026_memory",
-      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
-      "target": "2605.10268",
-      "target_label": "MemReread: Enhancing Agentic Long-Context Reasoning via Memory-Guided Rereading",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2605.10268",
-      "target_label": "MemReread: Enhancing Agentic Long-Context Reasoning via Memory-Guided Rereading",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2606.00183",
-      "target_label": "Agentic Transformers Provably Learn to Search via RL",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "zhou2024_lats",
-      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
-      "target": "2606.00183",
-      "target_label": "Agentic Transformers Provably Learn to Search via RL",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "prasad2023_adapt",
-      "source_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
-      "target": "2606.00183",
-      "target_label": "Agentic Transformers Provably Learn to Search via RL",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2606.04889",
-      "target_label": "GRAIL: Gradient-Reweighted Advantages for RL with Verifiable Rewards",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2606.04889",
-      "target_label": "GRAIL: Gradient-Reweighted Advantages for RL with Verifiable Rewards",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "U4ZPM5DN",
-      "source_label": "Latent-GRPO (Deng 2026)",
-      "target": "2606.04889",
-      "target_label": "GRAIL: Gradient-Reweighted Advantages for RL with Verifiable Rewards",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2506.06632",
-      "target_label": "E2H Reasoner: Curriculum RL from Easy to Hard Tasks",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2506.06632",
-      "target_label": "E2H Reasoner: Curriculum RL from Easy to Hard Tasks",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2506.14965",
-      "target_label": "GURU: Revisiting RL for LLM Reasoning from A Cross-Domain Perspective",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2506.14965",
-      "target_label": "GURU: Revisiting RL for LLM Reasoning from A Cross-Domain Perspective",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2606.03965",
-      "target_label": "ACTS: Agentic Chain-of-Thought Steering for Efficient and Controllable LLM Reasoning",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2606.03965",
-      "target_label": "ACTS: Agentic Chain-of-Thought Steering for Efficient and Controllable LLM Reasoning",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2606.03768",
-      "target_label": "HybridThinker: Efficient Chain-of-Thought Reasoning via Compressed Memory and Transient Thought Steps",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2606.03768",
-      "target_label": "HybridThinker: Efficient Chain-of-Thought Reasoning via Compressed Memory and Transient Thought Steps",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2606.03968",
-      "target_label": "QUBRIC: Co-Designing Queries and Rubrics for RL Beyond Verifiable Rewards",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2606.03968",
-      "target_label": "QUBRIC: Co-Designing Queries and Rubrics for RL Beyond Verifiable Rewards",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2606.06447",
-      "target_label": "Latent Reasoning with Normalizing Flows (NF-CoT)",
-      "relation": "builds_on",
-      "note": "Where R1 improves reasoning via RL over full token output, NF-CoT moves reasoning into continuous latent space with normalizing flows."
-    },
-    {
-      "source": "EMXEJYHV",
-      "source_label": "Latent Reasoning Survey (Zhu 2025)",
-      "target": "2606.06447",
-      "target_label": "Latent Reasoning with Normalizing Flows (NF-CoT)",
-      "relation": "builds_on",
-      "note": "NF-CoT directly addresses open problems catalogued in the latent reasoning survey."
-    },
-    {
-      "source": "U4ZPM5DN",
-      "source_label": "Latent-GRPO (Deng 2026)",
-      "target": "2606.06447",
-      "target_label": "Latent Reasoning with Normalizing Flows (NF-CoT)",
-      "relation": "builds_on",
-      "note": "Replaces GRPO reward-based approximation with normalizing-flow exact log-likelihoods in latent reasoning space."
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2606.14142",
-      "target_label": "PauseRec: Implicit Reasoning for LLM-based Generative Recommendation (2026)",
-      "relation": "builds_on",
-      "note": "Where Chain-of-Thought writes the reasoning out as text, PauseRec keeps the extra computation but drops the text through inserted pause steps."
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2606.14142",
-      "target_label": "PauseRec: Implicit Reasoning for LLM-based Generative Recommendation (2026)",
-      "relation": "builds_on",
-      "note": "Where DeepSeek-R1 trains long explicit reasoning traces, PauseRec reaches most of the benefit at lower training cost with implicit pauses.",
-      "cross_area": true
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2506.14245",
-      "target_label": "RLVR Implicitly Incentivizes Correct Reasoning in Base LLMs (2026)",
-      "relation": "builds_on",
-      "note": "Where DeepSeek-R1 measured success by the final answer under verifiable-reward RL, this paper introduces CoT-Pass@K to score the correctness of the intermediate steps directly.",
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2506.14245",
-      "target_label": "RLVR Implicitly Incentivizes Correct Reasoning in Base LLMs (2026)",
-      "relation": "builds_on",
-      "note": "Where Chain-of-Thought treated the reasoning trace as a prompting device, this paper treats trace correctness as the quantity the reward implicitly shapes.",
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2601.12538",
-      "target_label": "Agentic Reasoning for Large Language Models (2026)",
-      "relation": "builds_on",
-      "note": "Where Chain-of-Thought keeps reasoning inside one text trace, this paper moves to an act-observe-reason loop so a wrong step can be corrected by evidence.",
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2601.12538",
-      "target_label": "Agentic Reasoning for Large Language Models (2026)",
-      "relation": "builds_on",
-      "note": "Where DeepSeek-R1 trained long single-pass reasoning traces, this paper frames reasoning as an agentic control loop rather than one output.",
-      "cross_area": false
-    },
-    {
-      "source": "hao2024_toolkengpt",
-      "source_label": "ToolkenGPT: Tool Embeddings for LLMs (Hao 2024)",
-      "target": "2601.12538",
-      "target_label": "Agentic Reasoning for Large Language Models (2026)",
-      "relation": "builds_on",
-      "note": "Where ToolkenGPT added tool calls as a capability, this paper makes the tool call part of a reasoning policy.",
-      "cross_area": true
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2606.28166",
-      "target_label": "Tandem Reinforcement Learning with Verifiable Rewards (2026)",
-      "relation": "builds_on",
-      "note": "Where DeepSeek-R1 optimized a single model for correctness and let the reasoning style drift, Tandem RL adds a frozen weak junior to the rollout and rewards the pair so the trace stays legible.",
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2606.28166",
-      "target_label": "Tandem Reinforcement Learning with Verifiable Rewards (2026)",
-      "relation": "builds_on",
-      "note": "Where Chain-of-Thought asked for legible steps through prompting, Tandem RL makes legibility an emergent property of the training structure rather than a prompt instruction.",
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2607.03530",
-      "target_label": "MentalThink: Shaping Thoughts in Mental SVG World (2026)",
-      "relation": "builds_on",
-      "note": "Where Chain-of-Thought externalizes reasoning as text tokens, MentalThink externalizes each step as executable SVG that is rendered and inspected before revision.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2607.03530",
-      "target_label": "MentalThink: Shaping Thoughts in Mental SVG World (2026)",
-      "relation": "builds_on",
-      "note": "Where DeepSeek-R1 rewards correct final answers, MentalThink keeps the reinforcement-learning outer loop but rewards useful inspection and revision of a rendered drawing.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "FPEC4PIH",
-      "source_label": "Large Multimodal Reasoning Survey (Li 2025)",
-      "target": "2607.03530",
-      "target_label": "MentalThink: Shaping Thoughts in Mental SVG World (2026)",
-      "relation": "builds_on",
-      "note": "Where the survey mapped the space of multimodal reasoning methods, MentalThink adds an executable-sketch reasoning mode with a checkable intermediate representation.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2607.05339",
-      "target_label": "TREK: Distill to Explore, Reinforce to Refine (2026)",
-      "relation": "builds_on",
-      "note": "Where DeepSeek-R1 rewards trajectories the model already samples, TREK first imports verified off-support solutions through a short distillation phase, then reinforces.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "U4ZPM5DN",
-      "source_label": "Latent-GRPO (Deng 2026)",
-      "target": "2607.05339",
-      "target_label": "TREK: Distill to Explore, Reinforce to Refine (2026)",
-      "relation": "builds_on",
-      "note": "TREK targets the exploration stall the Group Relative Policy Optimization family shares by warming up on verified off-support solutions before on-policy reinforcement.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2607.16097",
-      "target_label": "Understanding Reasoning from Pretraining to Post-Training (2026)",
-      "relation": "builds_on",
-      "note": "Where Chain-of-Thought draws reasoning out of a frozen pretrained model by prompting, this paper measures how the pretraining stage sets the ceiling and speed of the later RL stage, separating the contribution of pretraining from that of RL.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-07-20"
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2607.16097",
-      "target_label": "Understanding Reasoning from Pretraining to Post-Training (2026)",
-      "relation": "builds_on",
-      "note": "Where DeepSeek-R1 trains reasoning through RL with verifiable rewards, this paper shows post-RL reward is predicted by pretraining loss and that RL surfaces correct moves nearly absent before rather than only sharpening the fine-tuned policy.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-07-20"
-    }
-  ],
-  "hyperedges": [],
-  "cross_area_bridges": []
+ "_generated": "2026-05-14",
+ "_source": "graphify_seed/graph.json + zotero_index.json",
+ "area": "reasoning.md",
+ "edges": [
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2605.06638",
+   "target_label": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2605.06638",
+   "target_label": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2605.07153",
+   "target_label": "Beyond Reasoning: Reinforcement Learning Unlocks Parametric Knowledge in LLMs",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2605.06241",
+   "target_label": "Rethinking RL for LLM Reasoning: It is Sparse Policy Selection, Not Capability Learning",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2605.06241",
+   "target_label": "Rethinking RL for LLM Reasoning: It is Sparse Policy Selection, Not Capability Learning",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2605.02073",
+   "target_label": "Enhanced LLM Reasoning by Optimizing Reward Functions with Search-Driven Reinforcement Learning",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2605.02073",
+   "target_label": "Enhanced LLM Reasoning by Optimizing Reward Functions with Search-Driven Reinforcement Learning",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2024_v3",
+   "source_label": "DeepSeek-V3 (2024)",
+   "target": "2605.02073",
+   "target_label": "Enhanced LLM Reasoning by Optimizing Reward Functions with Search-Driven Reinforcement Learning",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "huang2026_memory",
+   "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+   "target": "2605.10268",
+   "target_label": "MemReread: Enhancing Agentic Long-Context Reasoning via Memory-Guided Rereading",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2605.10268",
+   "target_label": "MemReread: Enhancing Agentic Long-Context Reasoning via Memory-Guided Rereading",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2606.00183",
+   "target_label": "Agentic Transformers Provably Learn to Search via RL",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "zhou2024_lats",
+   "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+   "target": "2606.00183",
+   "target_label": "Agentic Transformers Provably Learn to Search via RL",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "prasad2023_adapt",
+   "source_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
+   "target": "2606.00183",
+   "target_label": "Agentic Transformers Provably Learn to Search via RL",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2606.04889",
+   "target_label": "GRAIL: Gradient-Reweighted Advantages for RL with Verifiable Rewards",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2606.04889",
+   "target_label": "GRAIL: Gradient-Reweighted Advantages for RL with Verifiable Rewards",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "U4ZPM5DN",
+   "source_label": "Latent-GRPO (Deng 2026)",
+   "target": "2606.04889",
+   "target_label": "GRAIL: Gradient-Reweighted Advantages for RL with Verifiable Rewards",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2506.06632",
+   "target_label": "E2H Reasoner: Curriculum RL from Easy to Hard Tasks",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2506.06632",
+   "target_label": "E2H Reasoner: Curriculum RL from Easy to Hard Tasks",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2506.14965",
+   "target_label": "GURU: Revisiting RL for LLM Reasoning from A Cross-Domain Perspective",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2506.14965",
+   "target_label": "GURU: Revisiting RL for LLM Reasoning from A Cross-Domain Perspective",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2606.03965",
+   "target_label": "ACTS: Agentic Chain-of-Thought Steering for Efficient and Controllable LLM Reasoning",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2606.03965",
+   "target_label": "ACTS: Agentic Chain-of-Thought Steering for Efficient and Controllable LLM Reasoning",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2606.03768",
+   "target_label": "HybridThinker: Efficient Chain-of-Thought Reasoning via Compressed Memory and Transient Thought Steps",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2606.03768",
+   "target_label": "HybridThinker: Efficient Chain-of-Thought Reasoning via Compressed Memory and Transient Thought Steps",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2606.03968",
+   "target_label": "QUBRIC: Co-Designing Queries and Rubrics for RL Beyond Verifiable Rewards",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2606.03968",
+   "target_label": "QUBRIC: Co-Designing Queries and Rubrics for RL Beyond Verifiable Rewards",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2606.06447",
+   "target_label": "Latent Reasoning with Normalizing Flows (NF-CoT)",
+   "relation": "builds_on",
+   "note": "Where R1 improves reasoning via RL over full token output, NF-CoT moves reasoning into continuous latent space with normalizing flows."
+  },
+  {
+   "source": "EMXEJYHV",
+   "source_label": "Latent Reasoning Survey (Zhu 2025)",
+   "target": "2606.06447",
+   "target_label": "Latent Reasoning with Normalizing Flows (NF-CoT)",
+   "relation": "builds_on",
+   "note": "NF-CoT directly addresses open problems catalogued in the latent reasoning survey."
+  },
+  {
+   "source": "U4ZPM5DN",
+   "source_label": "Latent-GRPO (Deng 2026)",
+   "target": "2606.06447",
+   "target_label": "Latent Reasoning with Normalizing Flows (NF-CoT)",
+   "relation": "builds_on",
+   "note": "Replaces GRPO reward-based approximation with normalizing-flow exact log-likelihoods in latent reasoning space."
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2606.14142",
+   "target_label": "PauseRec: Implicit Reasoning for LLM-based Generative Recommendation (2026)",
+   "relation": "builds_on",
+   "note": "Where Chain-of-Thought writes the reasoning out as text, PauseRec keeps the extra computation but drops the text through inserted pause steps."
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2606.14142",
+   "target_label": "PauseRec: Implicit Reasoning for LLM-based Generative Recommendation (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-R1 trains long explicit reasoning traces, PauseRec reaches most of the benefit at lower training cost with implicit pauses.",
+   "cross_area": true
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2506.14245",
+   "target_label": "RLVR Implicitly Incentivizes Correct Reasoning in Base LLMs (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-R1 measured success by the final answer under verifiable-reward RL, this paper introduces CoT-Pass@K to score the correctness of the intermediate steps directly.",
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2506.14245",
+   "target_label": "RLVR Implicitly Incentivizes Correct Reasoning in Base LLMs (2026)",
+   "relation": "builds_on",
+   "note": "Where Chain-of-Thought treated the reasoning trace as a prompting device, this paper treats trace correctness as the quantity the reward implicitly shapes.",
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2601.12538",
+   "target_label": "Agentic Reasoning for Large Language Models (2026)",
+   "relation": "builds_on",
+   "note": "Where Chain-of-Thought keeps reasoning inside one text trace, this paper moves to an act-observe-reason loop so a wrong step can be corrected by evidence.",
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2601.12538",
+   "target_label": "Agentic Reasoning for Large Language Models (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-R1 trained long single-pass reasoning traces, this paper frames reasoning as an agentic control loop rather than one output.",
+   "cross_area": false
+  },
+  {
+   "source": "hao2024_toolkengpt",
+   "source_label": "ToolkenGPT: Tool Embeddings for LLMs (Hao 2024)",
+   "target": "2601.12538",
+   "target_label": "Agentic Reasoning for Large Language Models (2026)",
+   "relation": "builds_on",
+   "note": "Where ToolkenGPT added tool calls as a capability, this paper makes the tool call part of a reasoning policy.",
+   "cross_area": true
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2606.28166",
+   "target_label": "Tandem Reinforcement Learning with Verifiable Rewards (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-R1 optimized a single model for correctness and let the reasoning style drift, Tandem RL adds a frozen weak junior to the rollout and rewards the pair so the trace stays legible.",
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2606.28166",
+   "target_label": "Tandem Reinforcement Learning with Verifiable Rewards (2026)",
+   "relation": "builds_on",
+   "note": "Where Chain-of-Thought asked for legible steps through prompting, Tandem RL makes legibility an emergent property of the training structure rather than a prompt instruction.",
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2607.03530",
+   "target_label": "MentalThink: Shaping Thoughts in Mental SVG World (2026)",
+   "relation": "builds_on",
+   "note": "Where Chain-of-Thought externalizes reasoning as text tokens, MentalThink externalizes each step as executable SVG that is rendered and inspected before revision.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2607.03530",
+   "target_label": "MentalThink: Shaping Thoughts in Mental SVG World (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-R1 rewards correct final answers, MentalThink keeps the reinforcement-learning outer loop but rewards useful inspection and revision of a rendered drawing.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "FPEC4PIH",
+   "source_label": "Large Multimodal Reasoning Survey (Li 2025)",
+   "target": "2607.03530",
+   "target_label": "MentalThink: Shaping Thoughts in Mental SVG World (2026)",
+   "relation": "builds_on",
+   "note": "Where the survey mapped the space of multimodal reasoning methods, MentalThink adds an executable-sketch reasoning mode with a checkable intermediate representation.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2607.05339",
+   "target_label": "TREK: Distill to Explore, Reinforce to Refine (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-R1 rewards trajectories the model already samples, TREK first imports verified off-support solutions through a short distillation phase, then reinforces.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "U4ZPM5DN",
+   "source_label": "Latent-GRPO (Deng 2026)",
+   "target": "2607.05339",
+   "target_label": "TREK: Distill to Explore, Reinforce to Refine (2026)",
+   "relation": "builds_on",
+   "note": "TREK targets the exploration stall the Group Relative Policy Optimization family shares by warming up on verified off-support solutions before on-policy reinforcement.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2607.16097",
+   "target_label": "Understanding Reasoning from Pretraining to Post-Training (2026)",
+   "relation": "builds_on",
+   "note": "Where Chain-of-Thought draws reasoning out of a frozen pretrained model by prompting, this paper measures how the pretraining stage sets the ceiling and speed of the later RL stage, separating the contribution of pretraining from that of RL.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-07-20"
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2607.16097",
+   "target_label": "Understanding Reasoning from Pretraining to Post-Training (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-R1 trains reasoning through RL with verifiable rewards, this paper shows post-RL reward is predicted by pretraining loss and that RL surfaces correct moves nearly absent before rather than only sharpening the fine-tuned policy.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-20"
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-21",
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2607.16850",
+   "target_label": "Group Entropy-Controlled Policy Optimization (GEPO) (2026)",
+   "note": "Where DeepSeek-R1 applied one reward-normalization scheme uniformly across all prompts, GEPO conditions the advantage shaping on each group's estimated entropy so easy low-entropy and hard high-entropy prompts get different exploration pressure."
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-21",
+   "source": "deepseek2024_v3",
+   "source_label": "DeepSeek-V3 (2024)",
+   "target": "2607.16850",
+   "target_label": "Group Entropy-Controlled Policy Optimization (GEPO) (2026)",
+   "note": "DeepSeek-V3 is the base-model lineage behind the R1 reasoning recipe; GEPO modifies the GRPO advantage normalization that recipe standardized."
+  }
+ ],
+ "hyperedges": [],
+ "cross_area_bridges": []
 }

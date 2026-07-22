@@ -36,6 +36,7 @@
 2026-07 | SIRI (2606.02355) | three-phase RL that mines reusable skills from its own successful rollouts and distills only useful skill tokens back, carrying nothing extra at inference
 2026-07 | SEED (2607.14777) | self-evolving on-policy distillation turns an agent's own trajectories into hindsight skills and distills their effect into the policy
 2026-07 | SearchOS-V1 (2607.15257) | externalizes search progress into shared Frontier Task, Evidence Graph, Coverage Map, and Failure Memory for multi-agent information seeking
+2026-07 | Env-free Agent Data (2607.16900) | synthesizes API-calling training trajectories without a live environment, for the long tail of tools with no sandbox
 ### Paper List
 
 [KNOWN] [2018] Rabinowitz et al. — Machine Theory of Mind. zotero_key:NEKX3K3N.
@@ -80,13 +81,12 @@
 [2026] 2606.02355 — SIRI: Self-Internalizing Reinforcement Learning with Intrinsic Skills for LLM Agent Training. [https://arxiv.org/abs/2606.02355](https://arxiv.org/abs/2606.02355). external.
 [2026] 2607.14777 — SEED: Self-Evolving On-Policy Distillation for Agentic Reinforcement Learning. [https://arxiv.org/abs/2607.14777](https://arxiv.org/abs/2607.14777). external.
 [2026] 2607.15257 — SearchOS-V1: Towards Robust Open-Domain Information-Seeking Agent Collaboration. [https://arxiv.org/abs/2607.15257](https://arxiv.org/abs/2607.15257). external.
+[2026] 2607.16900 — Environment-free Synthetic Data Generation for API-Calling Agents. [https://arxiv.org/abs/2607.16900](https://arxiv.org/abs/2607.16900). external.
 
 ### Recent Activity
 
+2026-07-21 | 2607.16900 added | An Apple pipeline generates tool-call training data without a live executable environment, producing the API surface and its responses from the pipeline itself rather than by calling real services; this lowers the main cost of scaling agent training data and helps most for the long tail of tools that have no public sandbox; Tier B
 2026-07-18 | 2607.15257 added | SearchOS reframes open-domain information seeking as relational schema completion with grounded citations and moves working state out of the reasoning trace into four shared structures (Frontier Task, Evidence Graph, Coverage Map, Failure Memory), with a pipeline-parallel scheduler that refills freed slots toward uncovered gaps; Tier A
 2026-07-17 | 2607.14777 added | SEED has the current policy write natural-language hindsight skills from its own finished trajectories, re-scores sampled actions under plain and skill-augmented contexts, and turns the probability shift into a dense token-level signal optimized jointly with outcome-based reinforcement learning, improving both accuracy and sample efficiency on text and vision agentic benchmarks; Tier A
 2026-07-15 | 2606.02355 added | SIRI warms up a policy on skill-free trajectories, has the policy summarize and validate skills from its own successful rollouts, then distills only the helpful skill-guided tokens back into the plain policy, so no skill bank or extra context is needed at inference; Tier B
 2026-07-12 | 2607.05804 added | TurnOPD makes on-policy distillation turn-aware with adaptive rollout-depth budgeting and progressive turn-normalized loss, reaching higher validation accuracy than vanilla distillation under equal wall-clock on ALFWorld, WebShop, and Multi-Hop Search; Tier B
-2026-07-09 | 2607.03451 added | SkillOpt-Lite treats skill self-evolution as zeroth-order optimization with three justified parts (file-system trajectory exploration, consensus attribute mining, independent validation gating), converging faster than full SkillOpt and improving LiveMath by 8.8 points on GPT-5.5 and 25.4 points on GPT-5.4-nano; Tier B
-2026-07-03 | 2607.02255 added | AgenticSTS keeps the prompt of a long-horizon agent bounded by rebuilding it through typed retrieval each step instead of appending a growing transcript; released as 298 tagged Slay the Spire 2 trajectories; a triggered skill layer moves wins from 3/10 to 6/10 (Fisher exact p about 0.37); Tier B
-2026-07-02 | 2606.31551 added | AutoTrainess exposes the operations of a training pipeline as explicit agent-computer interfaces with workflows and constraints rather than a raw command line, scoring 26.94 on average with GPT-5.4 on PostTrainBench versus 23.21 for a command-line-only baseline; Tier B
