@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-21",
+  "date": "2026-07-22",
   "papers": [
     {
-      "zotero_key": "2605.22759",
-      "title": "SensorFM: A Wearable Health Foundation Model Pretrained on One Trillion Minutes of Sensor Data",
-      "authors": "Google Research",
+      "zotero_key": "2607.18722",
+      "title": "Stale but Stable: Staleness-Adaptive Trust Regions for Stabilizing Asynchronous Reinforcement Learning",
+      "authors": "Yang et al. (Tencent Hunyuan)",
       "year": 2026,
-      "what": "A self-supervised foundation model over five wearable sensors, pretrained by masked reconstruction on one trillion-plus minutes from about 5 million people; the largest variant beats conventional baselines on 34 of 35 tasks.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "SSL for HAR (Yuan 2024); Foundation Models for Biosignals (Gu 2025); HeAR (Baur 2024)"
-    },
-    {
-      "zotero_key": "2603.06638",
-      "title": "HEARTS: Benchmarking LLM Reasoning on Health Time Series",
-      "authors": "Yang AI Lab et al.",
-      "year": 2026,
-      "what": "A benchmark of 16 datasets, 12 health domains, 20 signal modalities and 110 tasks that shows state-of-the-art LLMs underperform specialized models and fail at multi-step temporal reasoning on health signals.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "TS-Agent (Liu 2025); ChatTS (Xie 2025); Few-Shot Health Learners (Liu 2023)"
-    },
-    {
-      "zotero_key": "2607.16850",
-      "title": "Group Entropy-Controlled Policy Optimization (GEPO)",
-      "authors": "InternLM",
-      "year": 2026,
-      "what": "A lightweight GRPO extension that shapes advantages by per-group entropy, damping over-exploitation in low-entropy groups and preserving exploration in high-entropy groups to stabilize reasoning RL on heterogeneous task mixtures.",
+      "what": "A staleness-adaptive clipping rule for asynchronous RL that tightens only the outward PPO interval on high-mismatch tokens, holding AIME24 avg@8 near 35 even at lag 8 on Qwen3-30B.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025); DeepSeek-V3 (2024)"
+      "builds_on": "DeepSeek-R1 (2025); PPO; Latent-GRPO"
     },
     {
-      "zotero_key": "2607.16900",
-      "title": "Environment-free Synthetic Data Generation for API-Calling Agents",
-      "authors": "Apple",
+      "zotero_key": "2607.19331",
+      "title": "ISO: An RLVR-Native Optimization Stack",
+      "authors": "Zhu et al. (UT Austin)",
       "year": 2026,
-      "what": "Generates synthetic tool-call training data without a live executable environment, letting API-calling agent datasets scale with generation rather than with sandbox availability.",
+      "what": "Shows RLVR mostly keeps a model's singular-value spectrum and moves new behavior into the singular frames, then freezes the spectrum and optimizes only the frames to reach matched accuracy in up to 2.7x fewer steps.",
+      "area_label": "Optimizer",
+      "area_slug": "optimizer",
+      "builds_on": "Adam (Kingma & Ba 2017); DeepSeek-R1 (2025)"
+    },
+    {
+      "zotero_key": "2607.18367",
+      "title": "AlayaWorld: Interactive Long-Horizon World Modeling",
+      "authors": "AlayaWorld Team, Zhang et al. (Alaya Lab)",
+      "year": 2026,
+      "what": "A 15B video diffusion transformer that generates interactive 24-fps worlds autoregressively, using a bounded memory and self-residual training to limit drift and four-step distillation for interactive speed.",
+      "area_label": "Generative CV",
+      "area_slug": "generative-cv",
+      "builds_on": "DiT (Peebles 2023); DDPM (Ho 2020)"
+    },
+    {
+      "zotero_key": "2607.18754",
+      "title": "AgentDebugX: Failure Observability, Attribution, and Recovery in LLM Agents",
+      "authors": "Zhu et al. (UIUC)",
+      "year": 2026,
+      "what": "A Detect-Attribute-Recover-Rerun debugging loop for LLM agents; its DeepDebug root-cause diagnosis reaches 28.8% exact step attribution and repairs 13 of 73 failed GAIA tasks in one rerun.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "ToolkenGPT (Hao 2024); ADaPT (Prasad 2023); Agent AI Survey (Durante 2024)"
+      "builds_on": "Agent AI Survey (Durante 2024); Memory Mechanisms Survey (Huang 2026); ToolkenGPT (Hao 2024)"
     }
   ]
 }

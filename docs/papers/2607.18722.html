@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stale but Stable: Staleness-Adaptive Trust Regions — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Stale but Stable: Staleness-Adaptive Trust Regions for Stabilizing Asynchronous Reinforcement Learning</h2>
+<p class="paper-meta">Yang, Shi, Li, Li, Wang, Zhou, Panaganti, Mi, Liang (Tencent Hunyuan) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.18722" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3><p>The paper introduces the Staleness-Adaptive Trust Region (SAT) for asynchronous reinforcement learning, where rollout generation and optimization run on separate schedules and the learner trains on rollouts from an older policy. SAT uses a detached sampled log-ratio as a per-token staleness proxy, finds the high-mismatch tail of each batch through staleness-based kernel scaling, and contracts only the sign-selected endpoint of the PPO clipping interval on those tokens. On a decoupled setup built on Qwen3-30B-A3B-Base with SGLang for inference and Megatron for training, SAT-GSPO with routing replay reaches AIME24 avg@8 of 35.83 at lag 1 and 34.79 at lag 8.</p>
+<h3>Why</h3><p>Asynchronous reinforcement learning raises throughput but makes staleness unavoidable, compounded by policy lag, engine delays, and mixture-of-experts routing. From a trust-region view the mismatch matters because training-inference divergence sets the approximation error in finite-horizon bounds, while PPO clipping only gates sampled outward updates and acts as a sampled surrogate rather than a full-policy constraint. High-staleness updates therefore stay weakly controlled in exactly the regime where stale rollouts matter most, which is the gap this paper addresses.</p>
+<h3>How</h3><p>SAT reads the detached sampled log-ratio for each token as a practical staleness signal, scales a kernel by that signal to identify the high-mismatch tail within each batch, and tightens only the outward, sign-selected endpoint of the nominal PPO interval while leaving ordinary tokens at baseline. The paper proves local interval containment and pointwise pessimism relative to PPO, so the tightened update is provably inside and no less conservative than the PPO update. Adaptive clipping and routing replay act as complementary stabilizers, one targeting mismatch tails and one targeting routing inconsistency.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Established reinforcement learning with verifiable rewards as the route to reasoning, the training regime SAT stabilizes.</span></li>
+<li><a href="KQTIJC4U.html">PPO</a><span class="lineage-note">Supplied the clipped-ratio trust region whose endpoint SAT contracts token by token.</span></li>
+<li><a href="U4ZPM5DN.html">Latent-GRPO</a><span class="lineage-note">A group-relative policy optimization variant in the GRPO/GSPO family that SAT modifies.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>DeepSeek-R1 assumed near on-policy rollouts; SAT keeps reasoning accuracy stable when rollouts are stale because generation and training are decoupled for speed, holding AIME24 avg@8 near 35 even at lag 8. Compared with plain PPO, which applies a fixed symmetric clip on every sampled token regardless of how stale it is, SAT restricts the tightening to the flagged tail, so it fixes the specific failure of uncontrolled high-staleness updates without disturbing well-behaved tokens.</p>
+<h3>Method vs predecessors</h3><p>Where PPO and the GRPO/GSPO family use a constant clip band as a sampled surrogate for the trust region, SAT makes the band data-dependent: the sampled log-ratio drives which tokens are constrained and by how much, and only the outward endpoint moves. This is a smaller and more targeted change than switching optimizer or objective, and the containment and pessimism proofs show it never relaxes the PPO constraint.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="U4ZPM5DN.html">Latent-GRPO</a><span class="lineage-note">Same policy-optimization family for reasoning.</span></li>
+<li><a href="KQTIJC4U.html">PPO</a><span class="lineage-note">Base trust-region method.</span></li>
+</ul>
+</div>
+</body>
+</html>

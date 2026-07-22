@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentDebugX — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>AgentDebugX: An Open-Source Toolkit for Failure Observability, Attribution, and Recovery in LLM Agents</h2>
+<p class="paper-meta">Zhu, Ye, Han, Zhao, Li, Zhang, Tian, Tang, Lu, Zou, You, Ji (UIUC) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.18754" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3><p>AgentDebugX is an open-source framework that organizes LLM agent debugging as a closed loop of Detect, Attribute, Recover, and Rerun. Its core component, DeepDebug, performs multi-turn root-cause diagnosis through global trajectory understanding, structure-guided investigation, and cross-examination. On the Who and When benchmark it reaches 28.8 percent exact agent-and-step attribution on qwen3.5-9b, against 21.7 percent for the strongest single-pass baseline. On GAIA it repairs 13 of 73 failed tasks in one rerun, against 4 to 6 for decoupled self-correction baselines, lifting accuracy from 55.8 to 63.6 percent. It ships as a Python library, CLI, web console, and installable agent skill, with an opt-in Error Hub for sharing scrubbed failure-diagnosis-repair bundles.</p>
+<h3>Why</h3><p>LLM agent failures are hard to debug because the step where an error surfaces is often not the step that caused it. Existing observability tools replay execution traces but give little help with finding the root cause or turning a diagnosis into a fix. The paper targets that gap: attribution to the causing step and repair, not just trace replay.</p>
+<h3>How</h3><p>DeepDebug reads the whole trajectory, runs a structure-guided investigation to narrow down the suspect step, and cross-examines candidate explanations across turns to settle on a root cause. The Detect-Attribute-Recover-Rerun loop then turns that diagnosis into a concrete rerun, and the Error Hub stores scrubbed failure-diagnosis-repair bundles so past diagnoses can be reused as debugging memory. The toolkit exposes the workflow through a library, CLI, web console, and an installable agent skill.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Framed the multimodal agent setting whose failure modes AgentDebugX targets.</span></li>
+<li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Cataloged agent memory designs; the Error Hub reuses past diagnoses as debugging memory.</span></li>
+<li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">A tool-using agent method; its tool-call steps are the kind of trace AgentDebugX attributes errors within.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>Where the Agent AI Survey described what agents do and the Memory Mechanisms Survey described how agents store state, AgentDebugX addresses what to do when an agent fails and reports measured attribution and repair numbers. Where existing observability tools replay a trace and stop, it closes the loop into a rerun and stores the repair as reusable memory, connecting the memory idea to concrete recovery.</p>
+<h3>Method vs predecessors</h3><p>AgentDebugX does not add a new agent architecture; it adds a diagnostic layer around the agents the parents describe. The distinctive step is separating the step where an error shows from the step that caused it, a credit-assignment problem, and using multi-turn cross-examination rather than single-pass inspection to solve it.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Agent capability landscape.</span></li>
+<li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Tool-using agent traces.</span></li>
+</ul>
+</div>
+</body>
+</html>

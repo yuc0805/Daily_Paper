@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISO: An RLVR-Native Optimization Stack — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/optimizer.html" class="back-link">&larr; Back to Area</a>
+<h2>ISO: An RLVR-Native Optimization Stack</h2>
+<p class="paper-meta">Zhu, Cong, Sha, Mukherjee, Song, Gonz&aacute;lez-Mart&iacute;nez, Wu, Tian, Liu, Pan, Wang (UT Austin) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.19331" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/optimizer.html">Optimizer</a></p>
+<h3>What</h3><p>ISO studies what reinforcement learning with verifiable rewards (RLVR) changes in a model's weights. Through a singular value decomposition of each weight matrix, the paper reports spectral inheritance: RLVR mostly reuses the base model's singular values and acquires new behavior through changes in the input and output singular frames. ISO operationalizes this as a fixed-spectrum framework. Offline, ISO-Merger composes shared-base specialists with no post-merge data, rollouts, gradients, or on-policy distillation. Online, ISO-Optimizer runs a chosen optimizer such as AdamW or Muon on the frame variables while freezing the base spectra; on Qwen3-8B-Base it matches AdamW's 0.495 aggregate accuracy in 100 steps rather than 270, then reaches 0.509.</p>
+<h3>Why</h3><p>RLVR is advancing reasoning, but the optimization layer that turns reward feedback into weight updates is poorly understood, so post-training inherits pre-training optimization wholesale without asking whether that is the right design. If the useful change under RLVR occupies a lower-dimensional part of weight space, updating the full weight matrix spends steps on directions that do not need to move. The paper motivates a post-training method designed around the structure of reward-driven adaptation rather than borrowed from pre-training.</p>
+<h3>How</h3><p>The paper verifies spectral inheritance in both directions: putting the base spectrum back into an RL checkpoint at any mixing ratio keeps benchmark scores at RL level, while grafting the RL spectrum into pre-RL frames improves nothing. ISO then fixes the singular values and optimizes only the singular frames. ISO-Merger composes the frame changes of shared-base specialists into one fixed-spectrum model with no extra data or gradient work. ISO-Optimizer applies AdamW or Muon to the frame variables with the spectrum frozen, reaching matched accuracy in up to 2.7 times fewer steps.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="JRH3CE5M.html">Adam (Kingma &amp; Ba 2017)</a><span class="lineage-note">The base optimizer ISO-Optimizer runs on the frame variables while holding the spectrum fixed.</span></li>
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Defined the RLVR reasoning setting whose weight-space behavior ISO analyzes and speeds up.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>Adam optimizes every weight coordinate; ISO shows that under RLVR the singular values barely move, so restricting the same optimizer to the frames and freezing the spectrum reaches the same accuracy in fewer steps. Against the DeepSeek-R1 style of full-model RLVR, ISO cuts the step count by up to 2.7 times and, on the offline side, replaces on-policy distillation for merging specialists with a data-free spectral composition.</p>
+<h3>Method vs predecessors</h3><p>Where standard optimizers treat all weight directions as free, ISO factors each weight matrix into spectrum and frames and updates only the frames. This is an optimizer-level change rather than a new objective or architecture, and it rests on a measured functional test of spectral inheritance rather than an assumption.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">The RLVR reasoning regime ISO targets.</span></li>
+<li><a href="JRH3CE5M.html">Adam</a><span class="lineage-note">Optimizer ISO restricts to the frame subspace.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlayaWorld: Interactive Long-Horizon World Modeling — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/generative-cv.html" class="back-link">&larr; Back to Area</a>
+<h2>AlayaWorld: Interactive Long-Horizon World Modeling</h2>
+<p class="paper-meta">AlayaWorld Team, Zhang et al. (Alaya Lab) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.18367" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/generative-cv.html">Generative CV</a></p>
+<h3>What</h3><p>AlayaWorld is an interactive video world model that generates explorable environments from text, an image, or video. It produces 24-fps video at 540p and 720p from a 15B video diffusion transformer, generating short latent chunks autoregressively under a given camera trajectory and switchable text prompts. Its bounded visual context combines a persistent sink frame, compressed temporal history, geometry-aligned spatial memory, and recent-frame conditioning, so the scene stays consistent over long runs. A discrete autoregressive distillation step reduces inference from about 30 sampling steps to four per chunk, and the model reports the best long-horizon score on iWorld-Bench.</p>
+<h3>Why</h3><p>Conventional video game creation relies on labor-heavy pipelines for assets, animation, physics, and programming, while a video world model can generate an interactive environment directly from user input. Doing so needs four capabilities at once: interaction, persistent spatiotemporal consistency, stable long-horizon generation, and fast response. Prior generators handle short clips but drift or slow down over long interactive sequences, which is the gap this paper targets.</p>
+<h3>How</h3><p>The model generates latent chunks one after another, conditioning on a persistent sink frame, compressed history, a geometry-aligned spatial memory, and recent frames. To limit long-term drift it trains on corrupted histories and on prediction residuals collected from the model's own rollouts, so the model learns to recover from its own errors. A discrete autoregressive distillation formulation that combines distribution-matching distillation, self-forcing++, and consistency distillation cuts sampling to four steps per chunk for interactive speed.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Established the diffusion transformer backbone AlayaWorld scales to 15B for video.</span></li>
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Introduced the denoising diffusion objective the generator is built on.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>DiT demonstrated a transformer diffusion backbone for single images; AlayaWorld extends it to autoregressive video with an explicit memory so frames stay consistent over long horizons rather than drifting. DDPM defined a fixed multi-step denoising process; AlayaWorld distills it to four steps per chunk so generation runs at interactive speed instead of tens of steps per frame.</p>
+<h3>Method vs predecessors</h3><p>Where DiT and DDPM produce a fixed-size output through many denoising steps, AlayaWorld adds autoregressive chunking, a bounded memory built from sink frame and geometry-aligned spatial state, and self-generated-residual training for drift control. Both parents sit in the Vision-Language and Generative community of the library, and the CycleGAN-to-DDPM bridge already links image translation to diffusion there; AlayaWorld pushes that line into interactive memory-conditioned video.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Transformer diffusion backbone.</span></li>
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Denoising diffusion objective.</span></li>
+</ul>
+</div>
+</body>
+</html>
