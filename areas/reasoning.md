@@ -34,6 +34,7 @@
 2026-07 | TREK (2607.05339) | distills verified off-support solutions into the student with a short forward-KL phase, then returns to on-policy reinforcement learning to fix a GRPO exploration stall
 2026-07 | Pretraining-to-RL Reasoning (2607.16097) | pretraining loss predicts post-RL reward; pretraining tokens set the RL reward slope
 2026-07 | GEPO (2607.16850) | per-group entropy shaping of GRPO advantages so mixed-difficulty prompts get matched exploration pressure
+2026-07 | Stale but Stable (2607.18722) | staleness-adaptive trust region tightens only the sign-selected PPO clip endpoint on high-mismatch tokens so asynchronous reinforcement learning holds accuracy as rollout lag grows
 ### Paper List
 
 [KNOWN] [2025] Shen et al. — CODI. zotero_key:FFWLYL3J.
@@ -73,8 +74,11 @@
 [2026] 2607.16097 — Understanding Reasoning from Pretraining to Post-Training. [https://arxiv.org/abs/2607.16097](https://arxiv.org/abs/2607.16097). external.
 [2026] 2607.16850 — Group Entropy-Controlled Policy Optimization (GEPO). [https://arxiv.org/abs/2607.16850](https://arxiv.org/abs/2607.16850). external.
 
+[2026] 2607.18722 — Stale but Stable: Staleness-Adaptive Trust Regions for Stabilizing Asynchronous Reinforcement Learning. [https://arxiv.org/abs/2607.18722](https://arxiv.org/abs/2607.18722). external.
+
 ### Recent Activity
 
+2026-07-22 | 2607.18722 added | SAT measures per-token staleness with a detached sampled log-ratio, finds the high-mismatch tail of each batch, and tightens only the sign-selected endpoint of the PPO clip interval on those tokens; on a decoupled asynchronous setup over Qwen3-30B-A3B-Base, SAT-GSPO holds AIME24 avg@8 at 35.83 for lag 1 and 34.79 for lag 8, and the tightened interval is proven to stay inside the PPO interval; Tier A
 2026-07-21 | 2607.16850 added | GEPO extends GRPO by estimating per-group entropy from the grouped rollouts already drawn and shaping advantages asymmetrically: it damps positive advantages in low-entropy groups to reduce over-exploitation and damps negative advantages in high-entropy groups to keep exploration, at little added cost because the entropy estimate reuses samples already taken; Tier B
 2026-07-20 | 2607.16097 added | uses chess as a closed testbed with an exact reward to separate the contribution of pretraining from the contribution of RL; post-RL performance at a fixed RL compute is predicted by pretraining loss, the RL reward slope rises about linearly with pretraining tokens, and RL surfaces correct hard-puzzle moves that were nearly absent before rather than only sharpening the fine-tuned policy; the pattern reproduces on a 1B model trained on mathematics text; Tier A
 2026-07-13 | 2607.03530 added | the model externalizes each reasoning step as executable SVG that it renders and inspects, then rewards good revision of the drawing through multi-turn reinforcement learning; reports 55.1% on VSIBench and 76.0% on MindCube; Tier A

@@ -22,6 +22,30 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "cross_area": true
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-22",
+      "source": "kingma2017_adam",
+      "source_label": "Adam Optimizer (Kingma & Ba 2017)",
+      "target": "2607.19331",
+      "target_label": "ISO: An RLVR-Native Optimization Stack (2026)",
+      "note": "Where Adam updates every weight coordinate freely, ISO restricts the same optimizer to the singular frames and keeps the base singular values frozen, reaching matched accuracy in up to 2.7 times fewer steps."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-22",
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2607.19331",
+      "target_label": "ISO: An RLVR-Native Optimization Stack (2026)",
+      "note": "Where DeepSeek-R1 treated RLVR as a full-model update, ISO shows the useful change lives in the singular frames while the spectrum stays close to fixed, and optimizes only the frames."
     }
   ],
   "hyperedges": [],

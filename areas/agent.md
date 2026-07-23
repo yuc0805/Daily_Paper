@@ -37,6 +37,7 @@
 2026-07 | SEED (2607.14777) | self-evolving on-policy distillation turns an agent's own trajectories into hindsight skills and distills their effect into the policy
 2026-07 | SearchOS-V1 (2607.15257) | externalizes search progress into shared Frontier Task, Evidence Graph, Coverage Map, and Failure Memory for multi-agent information seeking
 2026-07 | Env-free Agent Data (2607.16900) | synthesizes API-calling training trajectories without a live environment, for the long tail of tools with no sandbox
+2026-07 | AgentDebugX (2607.18754) | closed Detect-Attribute-Recover-Rerun loop for LLM agent failures with multi-turn root-cause diagnosis and a reusable failure-diagnosis-repair hub
 ### Paper List
 
 [KNOWN] [2018] Rabinowitz et al. — Machine Theory of Mind. zotero_key:NEKX3K3N.
@@ -83,8 +84,11 @@
 [2026] 2607.15257 — SearchOS-V1: Towards Robust Open-Domain Information-Seeking Agent Collaboration. [https://arxiv.org/abs/2607.15257](https://arxiv.org/abs/2607.15257). external.
 [2026] 2607.16900 — Environment-free Synthetic Data Generation for API-Calling Agents. [https://arxiv.org/abs/2607.16900](https://arxiv.org/abs/2607.16900). external.
 
+[2026] 2607.18754 — AgentDebugX: An Open-Source Toolkit for Failure Observability, Attribution, and Recovery in LLM Agents. [https://arxiv.org/abs/2607.18754](https://arxiv.org/abs/2607.18754). external.
+
 ### Recent Activity
 
+2026-07-22 | 2607.18754 added | AgentDebugX organizes agent debugging as a Detect-Attribute-Recover-Rerun loop whose DeepDebug component does multi-turn root-cause diagnosis; on the Who and When benchmark it reaches 28.8 percent exact agent-and-step attribution on qwen3.5-9b against 21.7 for the best single-pass baseline, and on GAIA it repairs 13 of 73 failed tasks in one rerun, lifting accuracy from 55.8 to 63.6 percent; Tier B
 2026-07-21 | 2607.16900 added | An Apple pipeline generates tool-call training data without a live executable environment, producing the API surface and its responses from the pipeline itself rather than by calling real services; this lowers the main cost of scaling agent training data and helps most for the long tail of tools that have no public sandbox; Tier B
 2026-07-18 | 2607.15257 added | SearchOS reframes open-domain information seeking as relational schema completion with grounded citations and moves working state out of the reasoning trace into four shared structures (Frontier Task, Evidence Graph, Coverage Map, Failure Memory), with a pipeline-parallel scheduler that refills freed slots toward uncovered gaps; Tier A
 2026-07-17 | 2607.14777 added | SEED has the current policy write natural-language hindsight skills from its own finished trajectories, re-scores sampled actions under plain and skill-augmented contexts, and turns the probability shift into a dense token-level signal optimized jointly with outcome-based reinforcement learning, improving both accuracy and sample efficiency on text and vision agentic benchmarks; Tier A

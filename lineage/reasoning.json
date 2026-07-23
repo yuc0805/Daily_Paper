@@ -469,6 +469,42 @@
    "target": "2607.16850",
    "target_label": "Group Entropy-Controlled Policy Optimization (GEPO) (2026)",
    "note": "DeepSeek-V3 is the base-model lineage behind the R1 reasoning recipe; GEPO modifies the GRPO advantage normalization that recipe standardized."
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-22",
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2607.18722",
+   "target_label": "Stale but Stable: Staleness-Adaptive Trust Regions for Asynchronous RL (2026)",
+   "note": "Where DeepSeek-R1 assumed near on-policy rollouts, this paper stabilizes verifiable-reward reinforcement learning when rollouts are stale because generation and training are decoupled for speed."
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-22",
+   "source": "KQTIJC4U",
+   "source_label": "PPO (Schulman 2017)",
+   "target": "2607.18722",
+   "target_label": "Stale but Stable: Staleness-Adaptive Trust Regions for Asynchronous RL (2026)",
+   "note": "Where PPO clips a fixed symmetric ratio band on every token, SAT keeps that band on ordinary tokens and contracts only the outward endpoint on tokens flagged as stale, so the constraint follows the actual mismatch."
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-22",
+   "source": "U4ZPM5DN",
+   "source_label": "Latent-GRPO (Deng 2026)",
+   "target": "2607.18722",
+   "target_label": "Stale but Stable: Staleness-Adaptive Trust Regions for Asynchronous RL (2026)",
+   "note": "Where Latent-GRPO and the GSPO family treat the group as uniformly trustworthy, SAT weights the update by per-token staleness within the group."
   }
  ],
  "hyperedges": [],

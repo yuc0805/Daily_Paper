@@ -712,6 +712,42 @@
    "target": "2607.16900",
    "target_label": "Environment-free Synthetic Data Generation for API-Calling Agents (2026)",
    "note": "Extends the agent-systems framing of the Durante survey toward the data bottleneck, producing tool-call trajectories without a live environment."
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-22",
+   "source": "durante2024_agentai",
+   "source_label": "Agent AI: Surveying Multimodal Interaction (Durante 2024)",
+   "target": "2607.18754",
+   "target_label": "AgentDebugX: Failure Observability, Attribution, and Recovery in LLM Agents (2026)",
+   "note": "Where the Agent AI Survey described what agents can do, AgentDebugX addresses what to do when an agent fails, giving measured step-level attribution and repair numbers."
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-22",
+   "source": "huang2026_memory",
+   "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+   "target": "2607.18754",
+   "target_label": "AgentDebugX: Failure Observability, Attribution, and Recovery in LLM Agents (2026)",
+   "note": "Where the Memory Mechanisms Survey cataloged how agents store state, AgentDebugX reuses past diagnoses as debugging memory in its Error Hub and turns a diagnosis into a rerun."
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-22",
+   "source": "hao2024_toolkengpt",
+   "source_label": "ToolkenGPT: Tool Embeddings for LLMs (Hao 2024)",
+   "target": "2607.18754",
+   "target_label": "AgentDebugX: Failure Observability, Attribution, and Recovery in LLM Agents (2026)",
+   "note": "ToolkenGPT produces tool-call steps; AgentDebugX is the diagnostic layer that attributes errors within such traces rather than adding a new agent architecture."
   }
  ],
  "hyperedges": [

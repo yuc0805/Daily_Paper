@@ -308,6 +308,30 @@
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "cross_area": false
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-22",
+      "source": "peebles2023_dit",
+      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+      "target": "2607.18367",
+      "target_label": "AlayaWorld: Interactive Long-Horizon World Modeling (2026)",
+      "note": "Where DiT replaced the U-Net with a transformer inside a single-image diffusion model, AlayaWorld scales that backbone to 15B and applies it to autoregressive video chunks with an explicit memory so frames stay consistent over long horizons."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-22",
+      "source": "ho2020_ddpm",
+      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+      "target": "2607.18367",
+      "target_label": "AlayaWorld: Interactive Long-Horizon World Modeling (2026)",
+      "note": "Where DDPM defined a fixed multi-step denoising process, AlayaWorld distills it to four steps per chunk so the model responds at interactive speed."
     }
   ],
   "hyperedges": [],

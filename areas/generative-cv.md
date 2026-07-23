@@ -34,6 +34,7 @@
 2026-07 | Nemotron-Labs-Diffusion (2607.05722) | joins the image-diffusion and autoregressive-Transformer lineages in one language model through a joint training objective
 2026-07 | SpectraReward (2607.11886) | training-free RL reward for text-to-image models: score a generation by how well the prompt is recovered from it in one image-conditioned forward pass
 2026-07 | Coupled-MJP I2I (2607.13188) | couples image understanding and generation as two Markov jump processes that run at once and correct each other mid-inference
+2026-07 | AlayaWorld (2607.18367) | 15B video diffusion transformer generates interactive long-horizon video chunk by chunk under a bounded visual memory, distilled to four steps per chunk
 ### Paper List
 
 [KNOWN] [2014] Goodfellow et al. — GAN. zotero_key:GG7GSYUJ.
@@ -71,8 +72,11 @@
 [2026] 2607.11886 — Read It Back: Pretrained MLLMs Are Zero-Shot Reward Models for Text-to-Image Generation. [https://arxiv.org/abs/2607.11886](https://arxiv.org/abs/2607.11886). external.
 [2026] 2607.13188 — Concurrent Image Understanding and Generation: Self-Correcting Coupled Markov Jump Processes. [https://arxiv.org/abs/2607.13188](https://arxiv.org/abs/2607.13188). external.
 
+[2026] 2607.18367 — AlayaWorld: Interactive Long-Horizon World Modeling. [https://arxiv.org/abs/2607.18367](https://arxiv.org/abs/2607.18367). external.
+
 ### Recent Activity
 
+2026-07-22 | 2607.18367 added | a 15B video diffusion transformer generates interactive environments from text, image, or video by producing short latent chunks in sequence under a bounded visual context of a sink frame, compressed history, geometry-aligned spatial memory, and recent frames; it limits drift by training on corrupted histories and self-generated residuals, distills inference to four steps per chunk, and reports the best long-horizon score on iWorld-Bench; Tier B
 2026-07-19 | 2607.13188 added | replaces continuous diffusion with two coupled Markov jump processes for image understanding and generation that run at the same time, letting the understanding process steer and correct the generation process during inference so one model both reads and draws while staying consistent; Tier B
 2026-07-15 | 2607.11886 added | SpectraReward grades an image generator during RL fine-tuning without a trained reward model, using the average image-conditioned prompt log-likelihood as reward; tested across two diffusion models, three RL algorithms, nine backbones from 4B to 235B, and five out-of-distribution benchmarks; Tier B
 2026-07-13 | 2607.05722 added | trains one network under a joint denoising-diffusion and autoregressive objective so diffusion supplies parallel lookahead while autoregression verifies, joining two lineages that rarely meet in a single model; Tier B
