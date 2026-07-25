@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visual Contrastive Self-Distillation — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+<h2>Visual Contrastive Self-Distillation</h2>
+<p class="paper-meta">Liang, Tian, Li et al. (University of Maryland) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.21556" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a>, <a href="../areas/self-supervised.html">Self-supervised</a></p>
+<h3>What</h3>
+<p>VCSD is an on-policy self-distillation method for vision-language models that removes the external teacher and the privileged supervision earlier self-distillation needed. At each student-generated response prefix, an exponential-moving-average teacher produces two next-token distributions under the same prompt and prefix: one conditioned on the original image, one on a content-erased control. The token-wise log-probability difference marks tokens whose likelihood rises specifically because of the image content, and that contrast sharpens the teacher's original-image distribution, which is distilled into the student. On ViRL39K it improves seven-benchmark aggregates on Qwen3-VL by about 5 points at 2B, 2 points at 4B, and 4 points at 8B, with no external teacher, answer hints, or extra inference cost.</p>
+<h3>Why</h3>
+<p>On-policy self-distillation is attractive because it drops the external teacher of on-policy distillation, but it still needs an asymmetry so the self-teacher gives a stronger signal than the student. Existing methods manufacture that asymmetry with privileged answers or extra visual evidence, which reintroduces supervision the method was meant to avoid. The paper asks whether both crutches can be removed and the asymmetry produced purely from input conditioning.</p>
+<h3>How</h3>
+<p>For each student-generated prefix, the EMA teacher is run twice under the same text prompt and prefix, once on the original image and once on a content-erased control. The token-wise log-probability difference identifies candidates whose likelihood is raised specifically by the instance-level image content. VCSD uses this contrast to sharpen the teacher's original-image distribution within its plausible support, then distills the full-distribution target into the student. No external teacher, answer hints, reasoning traces, cropped visual evidence, or added inference-time cost are required.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="DVUL4GU6.html">DINO (Caron 2021)</a><span class="lineage-note">Introduced EMA-teacher self-distillation with no labels; VCSD reuses this training setup.</span></li>
+<li><a href="RTMH75VW.html">SSL for HAR (Yuan 2024)</a><span class="lineage-note">Large-scale self-supervised representation learning; thematic neighbor on the label-free side.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DINO builds teacher-student asymmetry from two augmented crops of the same image, which requires designing augmentations and does not use text conditioning. VCSD replaces augmentation contrast with input-content contrast — original versus content-erased image under a fixed text prefix — so the signal is exactly which tokens the image content raises. This removes the privileged answers and auxiliary visual evidence that other on-policy self-distillation methods needed, at no extra inference cost.</p>
+<h3>Method vs predecessors</h3>
+<p>The EMA teacher and the self-distillation objective carry over from DINO; what changes is the source of the learning signal. Instead of comparing two views of an image, VCSD compares two conditioning states of the same model, then distills a contrast-sharpened full distribution rather than matching a single teacher output. This moves DINO's idea from computer vision into the vision-language and generation setting.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="EAIQ4KD3.html">Mask DINO (Li)</a><span class="lineage-note">DINO-family self-distillation extended to dense prediction.</span></li>
+<li><a href="RTMH75VW.html">SSL for HAR (Yuan 2024)</a><span class="lineage-note">Label-free representation learning at scale.</span></li>
+</ul>
+</div>
+</body>
+</html>

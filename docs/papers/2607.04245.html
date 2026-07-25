@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal or Noise? Understanding Generative Models for Real-World Sensor Time Series — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Signal or Noise? Understanding Generative Models for Real-World Sensor Time Series</h2>
+<p class="paper-meta">Shuai, Xu, Wu, Li, Li, Yang &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.04245" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3>
+<p>The paper introduces SensorGen, a controlled study of generating real-world sensor time series that spans 14 settings across 4 domains, 7 datasets, and 12 signal modalities. It evaluates five families of generative models under one protocol and measures both signal fidelity and downstream usefulness. Three findings stand out: flow-matching models give the strongest overall performance, signal properties decide which design choices help (demographic covariates for longitudinal generation, time-frequency modeling for high-frequency signals), and synthetic signals improve downstream prediction rather than only looking realistic.</p>
+<h3>Why</h3>
+<p>Generative models are well characterized for text and images, but many real systems are recorded as continuous, high-dimensional, noisy sensor time series. Prior work on generating sensor data is scattered across modalities, datasets, and task definitions, so there has been no systematic account of when generation works, how it works, and why it fails. The paper builds a single protocol so these questions can be answered head to head instead of case by case.</p>
+<h3>How</h3>
+<p>SensorGen fixes datasets, modalities, and evaluation so that five generative families — including GAN, diffusion, and flow-matching approaches — are compared under matched conditions. Each model is scored on fidelity and on the accuracy of downstream task heads trained with generated data. Conditioning variables such as demographic covariates and time-frequency representations are toggled to measure which design choices help which signal types, and models are scaled to test whether generation quality and downstream utility improve with size.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Defines the denoising diffusion objective used by the diffusion family evaluated here.</span></li>
+<li><a href="MVWM4TZJ.html">Diffusion Beats GANs (Dhariwal 2021)</a><span class="lineage-note">Showed diffusion overtakes GANs on image fidelity; this paper re-runs that comparison for sensor signals.</span></li>
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Surveyed biosignal modeling and named systematic evaluation as an open problem.</span></li>
+<li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Established sensor-signal modeling toward downstream use.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DDPM and Diffusion Beats GANs settled the generative-quality question for images and found diffusion the strongest family. This paper asks the same question for sensor time series and finds a different answer — flow-matching is the strongest default — because sensor signals carry measurement noise and time-frequency structure that natural images do not. It also answers the gap Gu 2025 named: instead of scattered single-dataset results, it gives one 14-setting comparison with downstream-utility measurement.</p>
+<h3>Method vs predecessors</h3>
+<p>Where the diffusion predecessors optimize a fixed multi-step denoising process tuned for images, SensorGen treats the generative family as a variable and measures which family and which conditioning win per signal type. It adds time-frequency conditioning and demographic covariates as explicit levers, and evaluates generated signals by their effect on downstream prediction, not only by visual or distributional realism. This turns a set of image-centric methods into a sensor-centric benchmark that extends the generative line of community 3 into the time-series and wearable communities.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Bio-sensing survey that frames scaling and transfer for sensor models.</span></li>
+<li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Connects sensor signals to downstream language and prediction.</span></li>
+<li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Transformer diffusion backbone from the same generative community.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AREX: Towards a Recursively Self-Improving Agent for Deep Research — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>AREX: Towards a Recursively Self-Improving Agent for Deep Research</h2>
+<p class="paper-meta">Lu, Li, Luo et al. (BAAI) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.21461" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a>, <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3>
+<p>AREX is a family of deep-research agents that use a discovery-verification asymmetry: finding an answer that satisfies many constraints is costly, but checking a candidate splits into cheap constraint-wise tests. The agent alternates an inner loop that gathers evidence and drafts a provisional answer with an outer loop that audits the draft constraint by constraint and launches targeted follow-up research on the unresolved parts. It ships as a dense 4B model and a 122B-A10B mixture-of-experts model and outperforms comparable-scale baselines on BrowseComp, WideSearch, DeepSearchQA, and Humanity's Last Exam.</p>
+<h3>Why</h3>
+<p>Deep-research questions require answers that jointly satisfy multiple constraints, and simply searching longer does not reliably find them. Prior agents search harder within a single pass but do not systematically verify intermediate answers or use the verified state to steer the next round of research. AREX is built on the observation that verification is cheaper than discovery, so an agent should spend effort auditing and refining rather than only extending search.</p>
+<h3>How</h3>
+<p>The inner loop gathers evidence and constructs a provisional answer; the outer self-improvement loop audits the answer constraint-wise, identifies unresolved claims, and launches targeted follow-up research. To sustain this over long horizons, AREX learns an autonomous context-update tool that compresses growing interaction history into a compact state that keeps verified evidence and open constraints, without an external model. Training uses verified synthetic tasks and high-quality trajectories through agentic mid-training and long-horizon reinforcement learning, with emphasis on key steps where decisive evidence is found or wrong directions are corrected to counter sparse final rewards.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Framed the agent loop of perception, planning, and tool use.</span></li>
+<li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Language agent tree search with backtracking inside one problem-solving pass.</span></li>
+<li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Learned tool invocation as special tokens.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>LATS searches a tree of actions and backtracks within a single pass but has no mechanism to verify an answer and re-plan from the verified remainder. AREX adds that outer loop, so failed constraints trigger targeted research instead of a fresh full search, which fits tasks where checking is cheaper than discovery. It also fixes the long-horizon memory problem that undoes many agents by learning a context-update tool that preserves verified evidence rather than letting history overflow the context window.</p>
+<h3>Method vs predecessors</h3>
+<p>Where ToolkenGPT learned to call external tools, AREX learns a tool that manages its own memory, compressing interaction history into an improvement state with no external model. Where the Agent AI Survey described a single perceive-plan-act loop, AREX nests two loops and trains the whole system with long-horizon reinforcement learning that rewards decisive intermediate steps. The result extends the planning-decomposition line in the library toward verification-guided refinement.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Agent loop applied to time-series analysis.</span></li>
+<li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Search-and-backtrack agent in the same community.</span></li>
+</ul>
+</div>
+</body>
+</html>

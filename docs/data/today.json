@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-22",
+  "date": "2026-07-25",
   "papers": [
     {
-      "zotero_key": "2607.18722",
-      "title": "Stale but Stable: Staleness-Adaptive Trust Regions for Stabilizing Asynchronous Reinforcement Learning",
-      "authors": "Yang et al. (Tencent Hunyuan)",
+      "zotero_key": "2607.04245",
+      "title": "Signal or Noise? Understanding Generative Models for Real-World Sensor Time Series",
+      "authors": "Shuai et al.",
       "year": 2026,
-      "what": "A staleness-adaptive clipping rule for asynchronous RL that tightens only the outward PPO interval on high-mismatch tokens, holding AIME24 avg@8 near 35 even at lag 8 on Qwen3-30B.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025); PPO; Latent-GRPO"
+      "what": "SensorGen compares five generative-model families on sensor time series across 14 settings and finds flow-matching strongest, time-frequency conditioning best for high-frequency signals, and synthetic data useful for downstream tasks.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "DDPM (Ho 2020); Diffusion Beats GANs (Dhariwal 2021); Foundation Models for Biosignals (Gu 2025)"
     },
     {
-      "zotero_key": "2607.19331",
-      "title": "ISO: An RLVR-Native Optimization Stack",
-      "authors": "Zhu et al. (UT Austin)",
+      "zotero_key": "2607.21461",
+      "title": "AREX: Towards a Recursively Self-Improving Agent for Deep Research",
+      "authors": "Lu et al. (BAAI)",
       "year": 2026,
-      "what": "Shows RLVR mostly keeps a model's singular-value spectrum and moves new behavior into the singular frames, then freezes the spectrum and optimizes only the frames to reach matched accuracy in up to 2.7x fewer steps.",
-      "area_label": "Optimizer",
-      "area_slug": "optimizer",
-      "builds_on": "Adam (Kingma & Ba 2017); DeepSeek-R1 (2025)"
-    },
-    {
-      "zotero_key": "2607.18367",
-      "title": "AlayaWorld: Interactive Long-Horizon World Modeling",
-      "authors": "AlayaWorld Team, Zhang et al. (Alaya Lab)",
-      "year": 2026,
-      "what": "A 15B video diffusion transformer that generates interactive 24-fps worlds autoregressively, using a bounded memory and self-residual training to limit drift and four-step distillation for interactive speed.",
-      "area_label": "Generative CV",
-      "area_slug": "generative-cv",
-      "builds_on": "DiT (Peebles 2023); DDPM (Ho 2020)"
-    },
-    {
-      "zotero_key": "2607.18754",
-      "title": "AgentDebugX: Failure Observability, Attribution, and Recovery in LLM Agents",
-      "authors": "Zhu et al. (UIUC)",
-      "year": 2026,
-      "what": "A Detect-Attribute-Recover-Rerun debugging loop for LLM agents; its DeepDebug root-cause diagnosis reaches 28.8% exact step attribution and repairs 13 of 73 failed GAIA tasks in one rerun.",
+      "what": "A deep-research agent that pairs an inner evidence-gathering loop with an outer loop that audits its answer constraint-wise and re-researches unresolved parts, trained with long-horizon RL as 4B dense and 122B-A10B MoE models.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "Agent AI Survey (Durante 2024); Memory Mechanisms Survey (Huang 2026); ToolkenGPT (Hao 2024)"
+      "builds_on": "Agent AI Survey (Durante 2024); LATS (Zhou 2024); ToolkenGPT (Hao 2024)"
+    },
+    {
+      "zotero_key": "2607.21556",
+      "title": "Visual Contrastive Self-Distillation",
+      "authors": "Liang et al. (UMD)",
+      "year": 2026,
+      "what": "An on-policy self-distillation method for vision-language models that builds its teacher-student asymmetry from a contrast between the original image and a content-erased control, with no external teacher or extra inference cost.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "DINO (Caron 2021); SSL for HAR (Yuan 2024)"
+    },
+    {
+      "zotero_key": "2607.10848",
+      "title": "Predictive Divergence Masks for LLM RL",
+      "authors": "Zhou et al.",
+      "year": 2026,
+      "what": "Replaces the ratio-based direction test in PPO/DPPO trust-region masks with a closed-form prediction of the change in the trust-region divergence, plus top-K estimators, improving LLM RL across scales and precisions.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "PPO (Schulman 2017); DeepSeek-R1 (2025); Latent-GRPO (Deng)"
     }
   ]
 }

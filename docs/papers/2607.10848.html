@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Predictive Divergence Masks for LLM RL — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Predictive Divergence Masks for LLM RL</h2>
+<p class="paper-meta">Zhou, Yao, Qi et al. &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.10848" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a>, <a href="../areas/llm.html">LLM</a></p>
+<h3>What</h3>
+<p>The paper repairs the direction criterion in trust-region masks used for reinforcement learning of language models. PPO-style RL masks tokens using a sampled-token importance ratio for two tests: a proximity test asking whether the policy has moved too far, and a direction test asking whether the update pushes it farther. The authors show the single-sample ratio can disagree in sign with the change of the divergence the proximity test uses, and propose a predictive divergence mask that asks whether the next gradient step will raise or lower that same divergence, derived in closed form for softmax policies. Two lightweight top-K estimators handle the truncated vocabulary that rollout engines expose, and the masks improve RL training across model scales and precision settings.</p>
+<h3>Why</h3>
+<p>Trust-region masks decide which tokens are safe to update, and a mismatched criterion wastes signal or destabilizes training. The recent DPPO method improved the proximity test by using a probability divergence instead of PPO's importance ratio, but left the direction test on PPO's ratio. That leaves an inconsistency: the proximity and direction tests measure different things, so the mask can keep a token that is actually moving the policy the wrong way. The paper targets that inconsistency directly.</p>
+<h3>How</h3>
+<p>The predictive divergence mask asks whether the next policy-gradient step will increase or decrease the same divergence used by the trust region, rather than reading a single-sample importance ratio. For the discrete softmax policies used in LLM RL, this prediction is derived in closed form. Because production rollout engines expose only a truncated top-K view of the vocabulary, the authors develop two lightweight top-K estimators for the prediction. Analysis shows the divergence-based direction aligns better with the realized change of the divergence than the sampled ratio does.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="KQTIJC4U.html">PPO (Schulman 2017)</a><span class="lineage-note">Defined the ratio-based trust region and clipping this paper corrects.</span></li>
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Made RL from verifiable rewards the standard recipe for reasoning models.</span></li>
+<li><a href="U4ZPM5DN.html">Latent-GRPO (Deng)</a><span class="lineage-note">Group-relative policy-optimization variant that relies on the same masking machinery.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>PPO clips updates on a single-sample importance ratio, which is a noisy proxy for whether an update moves the policy toward or away from the behavior policy. This paper replaces the direction test with a prediction of the change in the trust-region divergence itself, so the two halves of the mask now measure the same quantity. That removes the sign disagreements the authors document and yields more reliable updates across scales and precisions.</p>
+<h3>Method vs predecessors</h3>
+<p>Where DPPO changed only the proximity test, this paper changes the direction test and derives it in closed form for softmax policies, then makes it usable under top-K truncation with two estimators. DeepSeek-R1 and Latent-GRPO depend on this RL machinery for reasoning; this work sharpens the machinery underneath them rather than changing the reward or task, connecting the world-model-RL side of the library (PPO) to the reasoning side.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="U4ZPM5DN.html">Latent-GRPO (Deng)</a><span class="lineage-note">Group-relative RL for reasoning; direct consumer of trust-region masks.</span></li>
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">RL-from-verifiable-rewards reasoning model.</span></li>
+</ul>
+</div>
+</body>
+</html>
