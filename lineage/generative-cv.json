@@ -332,6 +332,54 @@
       "target": "2607.18367",
       "target_label": "AlayaWorld: Interactive Long-Horizon World Modeling (2026)",
       "note": "Where DDPM defined a fixed multi-step denoising process, AlayaWorld distills it to four steps per chunk so the model responds at interactive speed."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-25",
+      "source": "ho2020_ddpm",
+      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+      "target": "2607.04245",
+      "target_label": "Signal or Noise? Understanding Generative Models for Real-World Sensor Time Series (SensorGen, 2026)",
+      "note": "Where DDPM settled the generative-quality question for images and found diffusion the strongest family, SensorGen asks the same question for sensor time series and finds flow-matching, not diffusion, the strongest default, because sensor signals carry measurement noise and time-frequency structure that images do not."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-25",
+      "source": "MVWM4TZJ",
+      "source_label": "Diffusion Beats GANs (Dhariwal 2021)",
+      "target": "2607.04245",
+      "target_label": "Signal or Noise? Understanding Generative Models for Real-World Sensor Time Series (SensorGen, 2026)",
+      "note": "Where Diffusion Beats GANs showed diffusion overtakes GANs on image fidelity, SensorGen re-runs that comparison for sensor signals under a single 14-setting protocol and finds the ranking does not transfer."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-07-25",
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2607.04245",
+      "target_label": "Signal or Noise? Understanding Generative Models for Real-World Sensor Time Series (SensorGen, 2026)",
+      "note": "Where Gu 2025 surveyed biosignal models and named the lack of systematic comparison as a gap, SensorGen fills it with a controlled study across 4 domains, 7 datasets, and 12 signal modalities."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-07-25",
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text (Chen 2024)",
+      "target": "2607.04245",
+      "target_label": "Signal or Noise? Understanding Generative Models for Real-World Sensor Time Series (SensorGen, 2026)",
+      "note": "Where Sensor2Text modeled sensor signals toward downstream use, SensorGen measures whether generated sensor signals improve downstream prediction, not only visual realism."
     }
   ],
   "hyperedges": [],

@@ -27,6 +27,8 @@
 2026-07 | VideoChat3 (2607.14935) | fully open 4B video MLLM with an inflated 3D ViT and adaptive frame resolution for cheaper streaming perception
 2026-07 | UniVR (2607.12800) | reasoning, dynamics, and planning learned from pure visual demonstrations with a step-level physical-consistency reward
 2026-07 | S1-Omni (2607.15686) | maps many scientific modalities plus instructions into one shared space with task-specific decoders for prediction and generation
+2026-07 | VCSD (2607.21556) | on-policy self-distillation for vision-language models that builds the learning signal from original-image versus content-erased contrast through an EMA teacher, with no external teacher
+
 ### Paper List
 
 [KNOWN] [2021] Dosovitskiy et al. — ViT. zotero_key:B7F2Q998.
@@ -57,10 +59,16 @@
 [2026] 2607.12800 — UniVR: Thinking in Visual Space for Unified Visual Reasoning. [https://arxiv.org/abs/2607.12800](https://arxiv.org/abs/2607.12800). external.
 [2026] 2607.15686 — S1-Omni: A Unified Multimodal Reasoning Model for Scientific Understanding, Prediction, and Generation. [https://arxiv.org/abs/2607.15686](https://arxiv.org/abs/2607.15686). external.
 
+[2026] 2607.21556 — Visual Contrastive Self-Distillation. [https://arxiv.org/abs/2607.21556](https://arxiv.org/abs/2607.21556). external.
+
 ### Recent Activity
 
+2026-07-25 | 2607.21556 added | VCSD removes the external teacher from self-distillation for vision-language models: at each student-generated prefix an EMA teacher produces two next-token distributions, one conditioned on the original image and one on a content-erased control, and the token-wise log-probability difference marks the tokens the image content raises, sharpening the teacher distribution that is distilled into the student; on ViRL39K it improves seven-benchmark aggregates on Qwen3-VL by about 5 points at 2B, 2 at 4B, and 4 at 8B, with no external teacher, answer hints, or extra inference cost; Tier B
+
 2026-07-20 | 2607.15686 added | S1-Omni maps heterogeneous scientific objects (crystal structures, SMILES strings, protein sequences, spectra, scientific images) plus instructions into one shared representation, then uses task-specific decoders for property prediction, spectrum-to-molecule generation, protein site and structure prediction, and scientific image generation; trained on 200 scientific tasks and evaluated on more than 60 benchmarks, it reportedly outperforms GPT-5.5 and Gemini-3.1-Pro on most; Tier B
+
 2026-07-18 | 2607.12800 added | UniVR moves both the reasoning trace and the reward into visual space with VR-GRPO, adding a step-level reward that checks physical consistency of intermediate visual states rather than scoring only the final answer, and reports up to 25% improvement on its VR-X benchmark; Tier B
+
 2026-07-17 | 2607.14935 added | VideoChat3 is a fully open 4B video multimodal LLM that introduces an Inflated 3D Vision Transformer and Adaptive Frame Resolution to cut the cost of turning video into tokens, releases a video data synthesis pipeline plus general, long-form, and streaming training sets, and reports beating prior open-source models of equal or larger size across those benchmarks; Tier B
+
 2026-07-14 | 2607.05511 added | Light-Omni keeps two states in one forward pass, a consolidated global script from hierarchical memory merging and a latent action state, so it answers long-video questions reflexively without search-then-aggregate loops; against M3-Agent it reports a 2.4% accuracy gain, a 12.1x speedup, 2.6x better GPU memory use, and near-constant ~2.3s latency regardless of video length; Tier B
-2026-07-13 | 2607.03530 added | a multimodal model writes SVG code as an intermediate reasoning step, renders it deterministically, reads the image back, and revises over several turns under reinforcement learning; reports 55.1% on VSIBench and 76.0% on MindCube; Tier A

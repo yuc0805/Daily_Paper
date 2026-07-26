@@ -66,6 +66,8 @@
 2026-07 | RV FM vs HAR (2607.05291) | zero-shot forecasters barely beat HAR econometric baselines on realized volatility once per-asset losses are averaged
 2026-07 | STELLA (2607.03089) | on-device HAR by turning wearable sensor streams into activity-aware tokens read by a frozen LLM, with local per-user personalization
 2026-07 | TiRex-2 (2607.01204) | xLSTM time-series foundation model for zero-shot streaming multivariate forecasting with future-known covariates
+2026-07 | SensorGen (2607.04245) | controlled comparison of five generative-model families on real-world sensor time series; flow-matching is the strongest default
+
 ### Paper List
 
 [KNOWN] [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.
@@ -157,10 +159,16 @@
 [2026] 2607.03089 — STELLA: Efficient Sensor-to-LLM Translation for On-Device Human Activity Recognition. [https://arxiv.org/abs/2607.03089](https://arxiv.org/abs/2607.03089). external.
 [2026] 2607.01204 — TiRex-2: Generalizing TiRex to Multivariate Data and Streaming. [https://arxiv.org/abs/2607.01204](https://arxiv.org/abs/2607.01204). external.
 
+[2026] 2607.04245 — Signal or Noise? Understanding Generative Models for Real-World Sensor Time Series. [https://arxiv.org/abs/2607.04245](https://arxiv.org/abs/2607.04245). external.
+
 ### Recent Activity
 
+2026-07-25 | 2607.04245 added | SensorGen runs five generative-model families under one protocol across 14 settings, 4 domains, 7 datasets, and 12 signal modalities, measuring signal fidelity and downstream usefulness; flow-matching is the strongest overall, signal properties decide which design choices help (demographic covariates for longitudinal signals, time-frequency modeling for high-frequency ones), and synthetic signals improve downstream prediction, not only visual realism; Tier A
+
 2026-07-19 | 2607.01204 added | TiRex-2 extends the xLSTM recurrent forecaster to multiple target series with past and future-known covariates and streaming updates at constant cost per patch, pairing a bidirectional time mixer with an asymmetric grouped-attention variate mixer and pretraining on synthetic multivariate samples composed from univariate corpora; Tier B
+
 2026-07-15 | 2607.03089 added | STELLA recasts LLM-based human activity recognition as tokenization: a light hierarchical tokenizer emits activity-aware tokens for a frozen language model, with an on-device personalization step, so recognition stays private and cheap enough for a phone or watch; Tier A
+
 2026-07-12 | 2607.04919 added | a break-even study across 30 datasets giving a training-free rule: with fewer than 700 points and clear seasonality use the foundation model zero-shot and skip fine-tuning, since LoRA can lower accuracy on short series; Tier A
+
 2026-07-12 | 2607.05291 added | nine zero-shot foundation models against eight econometric specifications on realized volatility; only Tiny Time Mixers beats Log-HAR at every horizon and a Mincer-Zarnowitz check shows most short-horizon gain is scaling, not better dynamics; Tier B
-2026-06-30 | 2506.13705 added | TimeMaster ports the DeepSeek-R1 GRPO recipe to time series, training a multimodal LLM to classify and explain image-rendered series; it beats classical models by more than 14.6% and few-shot GPT-4o by more than 7.3% on TimerBed; Tier A

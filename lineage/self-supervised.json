@@ -229,6 +229,30 @@
       "relation": "builds_on",
       "note": "Neuro-JEPA sits near the biosignal foundation-model survey as a biosignal effort, but on the latent-predictive rather than reconstructive branch.",
       "cross_area": true
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-07-25",
+      "source": "DVUL4GU6",
+      "source_label": "DINO (Caron 2021)",
+      "target": "2607.21556",
+      "target_label": "Visual Contrastive Self-Distillation (VCSD, 2026)",
+      "note": "Where DINO builds its teacher-student asymmetry from two augmented crops of one image, VCSD builds the asymmetry from input conditioning, original image versus content-erased image under a fixed text prefix, because for a vision-language model the useful signal is which tokens the image content raises."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-25",
+      "source": "yuan2024_ssl_har",
+      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "target": "2607.21556",
+      "target_label": "Visual Contrastive Self-Distillation (VCSD, 2026)",
+      "note": "Where SSL for HAR learned label-free sensor representations at scale, VCSD offers a label-free target built from full-input versus masked-control contrast that could transfer to channel-masked or band-masked sensor windows."
     }
   ],
   "hyperedges": [],
