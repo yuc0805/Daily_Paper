@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-25",
+  "date": "2026-07-27",
   "papers": [
     {
-      "zotero_key": "2607.04245",
-      "title": "Signal or Noise? Understanding Generative Models for Real-World Sensor Time Series",
-      "authors": "Shuai et al.",
+      "zotero_key": "2607.20002",
+      "title": "Post-Training in Time Series Foundation Models: A Unifying Framework",
+      "authors": "Xie et al.",
       "year": 2026,
-      "what": "SensorGen compares five generative-model families on sensor time series across 14 settings and finds flow-matching strongest, time-frequency conditioning best for high-frequency signals, and synthetic data useful for downstream tasks.",
+      "what": "Organizes the methods that sit between a pretrained time series foundation model and its deployment into five families keyed by where they act in the prediction pipeline: parameter adaptation, context augmentation, model composition, output processing with uncertainty control, and compression with specialization.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "DDPM (Ho 2020); Diffusion Beats GANs (Dhariwal 2021); Foundation Models for Biosignals (Gu 2025)"
+      "builds_on": "Chronos (72DFULQQ); TS-Agent (I2CIT4I7); Time-LLM (MKICLA63)"
     },
     {
-      "zotero_key": "2607.21461",
-      "title": "AREX: Towards a Recursively Self-Improving Agent for Deep Research",
-      "authors": "Lu et al. (BAAI)",
+      "zotero_key": "2607.22529",
+      "title": "Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills",
+      "authors": "Huang et al.",
       "year": 2026,
-      "what": "A deep-research agent that pairs an inner evidence-gathering loop with an outer loop that audits its answer constraint-wise and re-researches unresolved parts, trained with long-horizon RL as 4B dense and 122B-A10B MoE models.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Agent AI Survey (Durante 2024); LATS (Zhou 2024); ToolkenGPT (Hao 2024)"
-    },
-    {
-      "zotero_key": "2607.21556",
-      "title": "Visual Contrastive Self-Distillation",
-      "authors": "Liang et al. (UMD)",
-      "year": 2026,
-      "what": "An on-policy self-distillation method for vision-language models that builds its teacher-student asymmetry from a contrast between the original image and a content-erased control, with no external teacher or extra inference cost.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "DINO (Caron 2021); SSL for HAR (Yuan 2024)"
-    },
-    {
-      "zotero_key": "2607.10848",
-      "title": "Predictive Divergence Masks for LLM RL",
-      "authors": "Zhou et al.",
-      "year": 2026,
-      "what": "Replaces the ratio-based direction test in PPO/DPPO trust-region masks with a closed-form prediction of the change in the trust-region divergence, plus top-K estimators, improving LLM RL across scales and precisions.",
+      "what": "Trains a language model through self-play using agent skills as the unit of practice, with a proposer, a solver, and a skill controller that co-evolve in a reinforcement learning loop so the task distribution grows with the model.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "PPO (Schulman 2017); DeepSeek-R1 (2025); Latent-GRPO (Deng)"
+      "builds_on": "DeepSeek-R1 (Z5IWHZAE); Chain-of-Thought (HBLPTRMY)"
+    },
+    {
+      "zotero_key": "2607.22043",
+      "title": "Scaling Native Multimodal Pre-Training From Scratch",
+      "authors": "Wu et al.",
+      "year": 2026,
+      "what": "Measures scaling laws for a vision-language model trained from scratch on mixed image and text, showing language and multimodal objectives follow different allocation rules and deriving an efficiency frontier over model size, token count, and data mixture.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "Attention Is All You Need (PHB9VRVM); Flamingo (SC8KWYVK)"
+    },
+    {
+      "zotero_key": "2607.21503",
+      "title": "Agentic Context Management: Solving Agent Memory and Cost as Lifecycle and Architecture Problems",
+      "authors": "Dadhich",
+      "year": 2026,
+      "what": "Reframes agent memory from store-and-retrieve into a lifecycle with five primitives, and argues with a cost model that only validated compaction keeps token cost linear in conversation length without an accuracy cliff (92% LongMemEval, 93.2% LoCoMo).",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "Memory Mechanisms Survey (BDY3HUCV); Agent AI Survey (Z9WZPMNU)"
     }
   ]
 }

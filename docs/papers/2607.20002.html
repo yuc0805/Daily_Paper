@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post-Training in Time Series Foundation Models — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Post-Training in Time Series Foundation Models: A Unifying Framework</h2>
+<p class="paper-meta">Xie, Odonnat, Xiao, Zan, Tiomoko, Pan, Palpanas, Oreshkin, Liu, Zhang &middot; arXiv 2026-07-22 &middot; <a href="http://arxiv.org/abs/2607.20002" target="_blank" rel="noopener">arXiv:2607.20002</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3>
+<p>Time series foundation models are pretrained once on broad collections of series and then reused, but pretraining alone does not give reliable behavior on a specific downstream dataset. This paper organizes the methods that sit between a pretrained model and its deployment into a single framework. It sorts post-training methods by where they act in the prediction pipeline, giving five families: parameter adaptation, context augmentation, model composition, output processing with uncertainty control, and compression with specialization. For each family it reviews representative methods, states their current limits, and lists open directions such as controlled adaptation, reliable context construction, uncertainty-aware composition, calibrated output processing, and deployment-aware specialization.</p>
+<h3>Why</h3>
+<p>Pretrained time series foundation models face domain shift, task heterogeneity, limited supervision, and compute limits when moved to a real task. A growing set of papers each propose one way to close this gap, but they are scattered and hard to compare because they intervene at different points: some change weights, some change the input context, some combine several models, some post-process outputs. Without a shared map, a practitioner cannot tell whether two methods compete or address separate problems. This paper supplies that map.</p>
+<h3>How</h3>
+<p>The organizing principle is the locus of intervention in the prediction pipeline. Parameter adaptation changes model weights (for example parameter-efficient tuning). Context augmentation adds information around the input without changing weights. Model composition combines a foundation model with other models or a language backbone. Output processing and uncertainty control adjust or calibrate the produced forecast. Compression and specialization shrink or narrow the model for deployment. Each family is reviewed with its representative methods and stated failure modes, and the paper closes with open directions per family.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="72DFULQQ.html">Chronos (Ansari 2024)</a><span class="lineage-note">A pretrained time series foundation model of the kind this framework post-trains; the "before" state the survey starts from.</span></li>
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">An instance of context augmentation, where an LLM controller adds statistical evidence around a series rather than changing weights.</span></li>
+  <li><a href="MKICLA63.html">Time-LLM (Jin 2024)</a><span class="lineage-note">An instance of model composition and cross-modal alignment, reprogramming a language backbone for forecasting.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Individual method papers such as TS-Agent and Time-LLM each fix one problem for one pretrained model, but a reader cannot place them relative to each other or decide which to reach for under a given constraint. This paper fixes that specific gap: it shows that TS-Agent and Time-LLM answer different questions (what evidence surrounds the input versus how the backbone is reused) rather than competing on one axis, so the choice between them stops being a guess. It does not beat any single method; it removes the confusion of an unlabeled design space.</p>
+<h3>Method vs predecessors</h3>
+<p>Where Chronos delivers a pretrained model and each later paper adds one adaptation, this work adds no method and instead classifies methods by locus of intervention. Compared with a plain reading list, the framework is prescriptive: given a domain shift it points to parameter adaptation or context augmentation, given a compute limit it points to compression and specialization, and it marks which families still lack strong methods. The contribution is the axis of comparison, not a new model.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">A model-composition method that aligns series with a language model, one of the approaches the framework files under model composition.</span></li>
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Aligns sensor data with language; another instance of the cross-modal composition family.</span></li>
+  <li><a href="CFG6FEIF.html">Moirai (Woo 2024)</a><span class="lineage-note">A universal pretrained forecaster; a target for the parameter-adaptation and specialization families.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scaling Native Multimodal Pre-Training From Scratch — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+<h2>Scaling Native Multimodal Pre-Training From Scratch</h2>
+<p class="paper-meta">Wu, Wu, Wang, Wu, Ou, Yu &middot; arXiv 2026-07-24 &middot; <a href="http://arxiv.org/abs/2607.22043" target="_blank" rel="noopener">arXiv:2607.22043</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+<h3>What</h3>
+<p>This paper studies how to scale a vision-language model trained from scratch on mixed image and text inputs, rather than attaching a vision encoder to a finished language model. Under a fixed compute budget it measures the model size and token count that minimize loss, and finds that best loss follows a predictable compute law while compute-optimal model size and token count follow power laws. Language and multimodal objectives scale differently: the language allocation is nearly invariant to how much multimodal data is in the mix, while the multimodal allocation is sensitive to it, so text-heavy mixtures become efficient only at larger model sizes. The authors derive an efficiency frontier over model size, token count, and data mixture, and report that native pretraining transfers positively into pure-text spatial reasoning.</p>
+<h3>Why</h3>
+<p>Most vision-language systems bolt a vision encoder onto a pretrained language model through late fusion, which limits cross-modal integration and introduces optimization asymmetries between the two branches. Native multimodal pretraining trains from scratch on both modalities, promising deeper integration, but its scaling properties were not measured, so practitioners could not plan a run. The paper fills that gap with compute laws.</p>
+<h3>How</h3>
+<p>The authors train transformer-based vision-language models across model sizes and token counts under fixed compute and fit the resulting loss surface. They separate the language objective from the multimodal objective and derive an allocation law for each. They then model how data composition shifts the allocation exponents, which yields an efficiency frontier that fixes model size, token count, and data mixture together. Downstream tests check whether joint pretraining transfers across modalities.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">The transformer backbone this model is built on and scales.</span></li>
+  <li><a href="SC8KWYVK.html">Flamingo (Alayrac 2022)</a><span class="lineage-note">An early vision-language model that joined a vision encoder to a language model through late fusion, the design this paper argues against.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Flamingo and later late-fusion models attach vision to a separately trained language model, which caps cross-modal integration and gives no recipe for training both together at scale. This paper fixes the planning problem for native pretraining: it shows that language and multimodal objectives do not share one allocation rule, so a single scaling law copied from text is wrong for the multimodal part. It supplies the separate laws and an efficiency frontier that late-fusion work never provided.</p>
+<h3>Method vs predecessors</h3>
+<p>Where Flamingo keeps the modalities in separate trained stages, this work trains them jointly from scratch and measures the scaling behavior of that choice. Where the transformer paper set the architecture, this work adds the mixed-modality scaling recipe. The technical difference is early versus late fusion, plus a measured claim that early fusion produces cross-modal transfer that helps even pure-text spatial reasoning.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="DUERBZGM.html">DALL-E 2 (Ramesh 2022)</a><span class="lineage-note">A generative image model conditioned on text; a neighbor in the vision-language and generative community.</span></li>
+</ul>
+</div>
+</body>
+</html>

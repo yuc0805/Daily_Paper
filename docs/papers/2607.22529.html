@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skill Self-Play — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills</h2>
+<p class="paper-meta">Huang, Cheng, Liu, Chen, Liu, Ni, Zhou, Yang, Jiang, Zhou, Cheng, Jiang, Jiang &middot; arXiv 2026-07-24 &middot; <a href="http://arxiv.org/abs/2607.22529" target="_blank" rel="noopener">arXiv:2607.22529</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3>
+<p>Skill Self-Play trains a language model to improve itself through self-play, using agent skills as the unit of practice. Three components co-evolve in a reinforcement learning loop: a proposer that writes tasks conditioned on a sampled skill, a solver that attempts them and pushes its own limit, and a skill controller that reads execution feedback and updates or grows a skill library. Each skill gives a narrow scenario with checkable execution, while routing across many skills keeps the task set varied. On tool-use and reasoning benchmarks the method raises the ceiling of strong backbones and recovers models that started out misaligned.</p>
+<h3>Why</h3>
+<p>Self-evolving training faces a tension between task variety and reliable rewards. Environment-bound methods get precise feedback but stay in narrow domains. Open-ended self-generation broadens the task space but lacks reliable checks, so misleading rewards pollute the loop. Prior reinforcement-learning reasoning work trained against a fixed pool of verifiable problems, which caps how far the task distribution can grow. The paper wants variety and verification at the same time.</p>
+<h3>How</h3>
+<p>The method treats an agent skill as the middle ground: each skill keeps verification local because execution in that scenario is checkable, and dynamic routing across skills keeps variety global. The proposer generates challenging tasks conditioned on dynamically sampled skills, the solver explores candidate solutions, and the skill controller collects execution feedback to update and expand the skill library. The three co-evolve in a continuous self-play loop orchestrated by reinforcement learning, so the training distribution grows with the model rather than staying fixed.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Established that reinforcement learning with checkable rewards can train reasoning without step-by-step human labels; Skill-SP makes the problem set itself grow.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Established that intermediate reasoning steps help, but through fixed prompting; Skill-SP moves the structure into a training loop.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 trained reasoning against a fixed set of verifiable problems, so the diversity of practice was bounded by that set. Skill Self-Play fixes the failure mode where a fixed problem pool stops challenging a strong model: a proposer generates new tasks conditioned on skills, so the curriculum keeps moving as the solver improves. It keeps the checkable-reward property of R1 while removing the fixed-distribution limit.</p>
+<h3>Method vs predecessors</h3>
+<p>Compared with DeepSeek-R1's single-stage reinforcement learning on static data, Skill-SP adds a proposer and a skill controller so that task generation and skill discovery are part of the loop. Compared with Chain-of-Thought, which fixes the reasoning format at inference, Skill-SP puts structure into training through a growing skill library. The technical shift is from optimizing a solver on fixed data to co-evolving a proposer, a solver, and a skill set together.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="NEKX3K3N.html">Machine Theory of Mind (Rabinowitz 2018)</a><span class="lineage-note">Also studies agents modeling and adapting to other agents; a conceptual neighbor to proposer-solver co-evolution.</span></li>
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Tool-use through learned tokens; relevant to the tool-use benchmarks Skill-SP targets.</span></li>
+</ul>
+</div>
+</body>
+</html>
