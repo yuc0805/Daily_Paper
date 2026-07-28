@@ -1339,6 +1339,42 @@
       "target": "2607.04245",
       "target_label": "Signal or Noise? Understanding Generative Models for Real-World Sensor Time Series (SensorGen, 2026)",
       "note": "Where Sensor2Text modeled sensor signals toward downstream use, SensorGen measures whether generated sensor signals improve downstream prediction, not only visual realism."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-27",
+      "source": "72DFULQQ",
+      "source_label": "Chronos (Ansari 2024)",
+      "target": "2607.20002",
+      "target_label": "Post-Training in Time Series Foundation Models: A Unifying Framework (2026)",
+      "note": "Where Chronos supplied a single pretrained time series model, this survey treats that model as the starting state and maps the methods that adapt it after pretraining into five families."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-27",
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2607.20002",
+      "target_label": "Post-Training in Time Series Foundation Models: A Unifying Framework (2026)",
+      "note": "Where TS-Agent added statistical context around a series through a language-model controller, this survey names that move context augmentation and places it against the other four post-training families."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-27",
+      "source": "MKICLA63",
+      "source_label": "Time-LLM (Jin 2024)",
+      "target": "2607.20002",
+      "target_label": "Post-Training in Time Series Foundation Models: A Unifying Framework (2026)",
+      "note": "Where Time-LLM reprogrammed a language model backbone for forecasting, this survey names that move model composition and separates it from context augmentation on a shared map keyed by locus of intervention."
     }
   ],
   "hyperedges": [

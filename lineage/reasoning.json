@@ -577,6 +577,30 @@
       "target": "2607.21461",
       "target_label": "AREX: Towards a Recursively Self-Improving Agent for Deep Research (2026)",
       "note": "Where ToolkenGPT learned to call external tools as special tokens, AREX learns a context-update tool that compresses its own growing memory into verified evidence and open constraints without an external model."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-27",
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2607.22529",
+      "target_label": "Skill Self-Play: Co-Evolving Skills (2026)",
+      "note": "Where DeepSeek-R1 trained reasoning against a fixed pool of verifiable problems, Skill Self-Play makes the problem set a moving target by generating new tasks conditioned on skills so the training distribution grows with the model."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-27",
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2607.22529",
+      "target_label": "Skill Self-Play: Co-Evolving Skills (2026)",
+      "note": "Where Chain-of-Thought fixed the reasoning format at inference time, Skill Self-Play moves the structure into training and lets a skill library expand over time."
     }
   ],
   "hyperedges": [],

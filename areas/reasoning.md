@@ -37,6 +37,7 @@
 2026-07 | Stale but Stable (2607.18722) | staleness-adaptive trust region tightens only the sign-selected PPO clip endpoint on high-mismatch tokens so asynchronous reinforcement learning holds accuracy as rollout lag grows
 2026-07 | Predictive Divergence Masks (2607.10848) | replaces PPO's ratio-based direction test with a predicted change in the trust-region divergence, in closed form for softmax policies
 2026-07 | AREX (2607.21461) | deep-research agent that alternates evidence-gathering with constraint-by-constraint audit and re-planning, exploiting a discovery-verification asymmetry
+2026-07 | Skill Self-Play (2607.22529) | proposer-solver-controller RL loop that co-evolves an agent skill library as a self-generated curriculum
 
 ### Paper List
 
@@ -82,8 +83,11 @@
 [2026] 2607.10848 — Predictive Divergence Masks for LLM RL. [https://arxiv.org/abs/2607.10848](https://arxiv.org/abs/2607.10848). external.
 
 [2026] 2607.21461 — AREX: Towards a Recursively Self-Improving Agent for Deep Research. [https://arxiv.org/abs/2607.21461](https://arxiv.org/abs/2607.21461). external.
+[2026] 2607.22529 — Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills. [https://arxiv.org/abs/2607.22529](https://arxiv.org/abs/2607.22529). external.
 
 ### Recent Activity
+
+2026-07-27 | 2607.22529 added | trains a language model through self-play with agent skills as the unit of practice, running a proposer that writes tasks conditioned on a sampled skill, a solver that answers them, and a skill controller that reads execution feedback and grows a skill library, so the training distribution moves with the model while each skill keeps verification local; it raises the ceiling of strong backbones and recovers misaligned models on tool-use and reasoning benchmarks; Tier B
 
 2026-07-25 | 2607.21461 added | AREX builds deep-research agents on a discovery-verification asymmetry, alternating an inner loop that gathers evidence and drafts a provisional answer with an outer loop that audits the draft constraint by constraint and launches targeted follow-up research; it learns a context-update tool that compresses history into verified evidence and open constraints, ships as a 4B dense model and a 122B-A10B mixture-of-experts model, and outperforms comparable-scale baselines on BrowseComp, WideSearch, DeepSearchQA, and Humanity's Last Exam; Tier B
 
@@ -92,5 +96,3 @@
 2026-07-22 | 2607.18722 added | SAT measures per-token staleness with a detached sampled log-ratio, finds the high-mismatch tail of each batch, and tightens only the sign-selected endpoint of the PPO clip interval on those tokens; on a decoupled asynchronous setup over Qwen3-30B-A3B-Base, SAT-GSPO holds AIME24 avg@8 at 35.83 for lag 1 and 34.79 for lag 8, and the tightened interval is proven to stay inside the PPO interval; Tier A
 
 2026-07-21 | 2607.16850 added | GEPO extends GRPO by estimating per-group entropy from the grouped rollouts already drawn and shaping advantages asymmetrically: it damps positive advantages in low-entropy groups to reduce over-exploitation and damps negative advantages in high-entropy groups to keep exploration, at little added cost because the entropy estimate reuses samples already taken; Tier B
-
-2026-07-20 | 2607.16097 added | uses chess as a closed testbed with an exact reward to separate the contribution of pretraining from the contribution of RL; post-RL performance at a fixed RL compute is predicted by pretraining loss, the RL reward slope rises about linearly with pretraining tokens, and RL surfaces correct hard-puzzle moves that were nearly absent before rather than only sharpening the fine-tuned policy; the pattern reproduces on a 1B model trained on mathematics text; Tier A

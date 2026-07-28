@@ -412,6 +412,30 @@
       "target": "2607.21556",
       "target_label": "Visual Contrastive Self-Distillation (VCSD, 2026)",
       "note": "Where SSL for HAR learned label-free sensor representations at scale, VCSD offers a label-free target built from full-input versus masked-control contrast that could transfer to channel-masked or band-masked sensor windows."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-07-27",
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2607.22043",
+      "target_label": "Scaling Native Multimodal Pre-Training From Scratch (2026)",
+      "note": "Where the transformer paper set the architecture, this work supplies the scaling recipe specific to mixed-modality training, showing language and multimodal objectives do not share one allocation rule."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-27",
+      "source": "SC8KWYVK",
+      "source_label": "Flamingo (Alayrac 2022)",
+      "target": "2607.22043",
+      "target_label": "Scaling Native Multimodal Pre-Training From Scratch (2026)",
+      "note": "Where Flamingo attached vision to a separately trained language model through late fusion, this paper trains both modalities together from the start and measures what that changes at scale."
     }
   ],
   "hyperedges": [],

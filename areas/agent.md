@@ -39,6 +39,7 @@
 2026-07 | Env-free Agent Data (2607.16900) | synthesizes API-calling training trajectories without a live environment, for the long tail of tools with no sandbox
 2026-07 | AgentDebugX (2607.18754) | closed Detect-Attribute-Recover-Rerun loop for LLM agent failures with multi-turn root-cause diagnosis and a reusable failure-diagnosis-repair hub
 2026-07 | AREX (2607.21461) | deep-research agent that alternates evidence-gathering with constraint-by-constraint audit and re-planning, exploiting a discovery-verification asymmetry
+2026-07 | Agentic Context Management (2607.21503) | reframes agent memory as a lifecycle with five primitives and ties each context strategy to a token-cost curve
 
 ### Paper List
 
@@ -89,8 +90,11 @@
 [2026] 2607.18754 — AgentDebugX: An Open-Source Toolkit for Failure Observability, Attribution, and Recovery in LLM Agents. [https://arxiv.org/abs/2607.18754](https://arxiv.org/abs/2607.18754). external.
 
 [2026] 2607.21461 — AREX: Towards a Recursively Self-Improving Agent for Deep Research. [https://arxiv.org/abs/2607.21461](https://arxiv.org/abs/2607.21461). external.
+[2026] 2607.21503 — Agentic Context Management: Solving Agent Memory and Cost by Treating Them as Lifecycle and Architecture Problems. [https://arxiv.org/abs/2607.21503](https://arxiv.org/abs/2607.21503). external.
 
 ### Recent Activity
+
+2026-07-27 | 2607.21503 added | reframes agent memory from store-and-retrieve into a lifecycle called Agentic Context Management with five primitives (architecting, ingesting, scoping, anticipating, and compacting with consolidation), argues naive accumulation grows token cost with the square of conversation length while validated compaction keeps it linear without an accuracy cliff, and reports 92 percent on LongMemEval and 93.2 percent on LoCoMo; Tier B
 
 2026-07-25 | 2607.21461 added | AREX builds deep-research agents on a discovery-verification asymmetry, alternating an inner loop that gathers evidence and drafts a provisional answer with an outer loop that audits the draft constraint by constraint and launches targeted follow-up research; it learns a context-update tool that compresses history into verified evidence and open constraints, ships as a 4B dense model and a 122B-A10B mixture-of-experts model, and outperforms comparable-scale baselines on BrowseComp, WideSearch, DeepSearchQA, and Humanity's Last Exam; Tier B
 
@@ -99,5 +103,3 @@
 2026-07-21 | 2607.16900 added | An Apple pipeline generates tool-call training data without a live executable environment, producing the API surface and its responses from the pipeline itself rather than by calling real services; this lowers the main cost of scaling agent training data and helps most for the long tail of tools that have no public sandbox; Tier B
 
 2026-07-18 | 2607.15257 added | SearchOS reframes open-domain information seeking as relational schema completion with grounded citations and moves working state out of the reasoning trace into four shared structures (Frontier Task, Evidence Graph, Coverage Map, Failure Memory), with a pipeline-parallel scheduler that refills freed slots toward uncovered gaps; Tier A
-
-2026-07-17 | 2607.14777 added | SEED has the current policy write natural-language hindsight skills from its own finished trajectories, re-scores sampled actions under plain and skill-augmented contexts, and turns the probability shift into a dense token-level signal optimized jointly with outcome-based reinforcement learning, improving both accuracy and sample efficiency on text and vision agentic benchmarks; Tier A
