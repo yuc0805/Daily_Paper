@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-27",
+  "date": "2026-07-30",
   "papers": [
     {
-      "zotero_key": "2607.20002",
-      "title": "Post-Training in Time Series Foundation Models: A Unifying Framework",
-      "authors": "Xie et al.",
+      "zotero_key": "2607.19659",
+      "title": "Expert-Guided Forecast Editing for Time-Series Foundation Models (DEFT)",
+      "authors": "Le et al.",
       "year": 2026,
-      "what": "Organizes the methods that sit between a pretrained time series foundation model and its deployment into five families keyed by where they act in the prediction pipeline: parameter adaptation, context augmentation, model composition, output processing with uncertainty control, and compression with specialization.",
+      "what": "Edits a frozen time-series foundation model's forecast at test time by exploiting its predictive samples in a trend-seasonal space and reusing each expensive expert score across components, beating best-of-N, cross-entropy, and Bayesian optimization under matched query budgets across 78 datasets.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "Chronos (72DFULQQ); TS-Agent (I2CIT4I7); Time-LLM (MKICLA63)"
+      "builds_on": "Chronos (72DFULQQ); Cross-Entropy Method (ZNEMGMWY); Post-Training TSFM Framework (2607.20002)"
     },
     {
-      "zotero_key": "2607.22529",
-      "title": "Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills",
-      "authors": "Huang et al.",
+      "zotero_key": "2607.25675",
+      "title": "DecoEvo: Score-Decoupled Co-Evolution of Solver and Rubric-Generator Skills in Text Space",
+      "authors": "Qwen",
       "year": 2026,
-      "what": "Trains a language model through self-play using agent skills as the unit of practice, with a proposer, a solver, and a skill controller that co-evolve in a reinforcement learning loop so the task distribution grows with the model.",
+      "what": "Co-evolves a solver skill and its grading rubric in text space, but decouples the signals: the solver learns from criterion-level feedback while the rubric is audited for coverage and discrimination independent of solver score, preventing reward hacking and giving 2.8 to 5.0 percent gains over SkillOpt.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
       "builds_on": "DeepSeek-R1 (Z5IWHZAE); Chain-of-Thought (HBLPTRMY)"
     },
     {
-      "zotero_key": "2607.22043",
-      "title": "Scaling Native Multimodal Pre-Training From Scratch",
-      "authors": "Wu et al.",
+      "zotero_key": "2607.27205",
+      "title": "TurboVLA: Real-Time Vision-Language-Action Model at 32 Hz on an RTX 4090 with under 1 GB VRAM",
+      "authors": "H-EmbodVis",
       "year": 2026,
-      "what": "Measures scaling laws for a vision-language model trained from scratch on mixed image and text, showing language and multimodal objectives follow different allocation rules and deriving an efficiency frontier over model size, token count, and data mixture.",
+      "what": "Reports a vision-language-action policy that runs at 32 Hz on a single consumer RTX 4090 using under 1 GB of memory, pushing VLA models from datacenter accuracy demos toward real-time closed-loop control on commodity hardware.",
       "area_label": "Multi-Modal",
       "area_slug": "multi-modal",
-      "builds_on": "Attention Is All You Need (PHB9VRVM); Flamingo (SC8KWYVK)"
+      "builds_on": "Flamingo (SC8KWYVK)"
     },
     {
-      "zotero_key": "2607.21503",
-      "title": "Agentic Context Management: Solving Agent Memory and Cost as Lifecycle and Architecture Problems",
-      "authors": "Dadhich",
+      "zotero_key": "2607.05291",
+      "title": "Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks",
+      "authors": "arXiv:2607.05291",
       "year": 2026,
-      "what": "Reframes agent memory from store-and-retrieve into a lifecycle with five primitives, and argues with a cost model that only validated compaction keeps token cost linear in conversation length without an accuracy cliff (92% LongMemEval, 93.2% LoCoMo).",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (BDY3HUCV); Agent AI Survey (Z9WZPMNU)"
+      "what": "Finds that for realized-volatility forecasting the choice of foundation-model architecture matters more than the broad choice between foundation models and econometric baselines, so a poorly matched foundation model can lose to a simple statistical one.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "Chronos (72DFULQQ); Post-Training TSFM Framework (2607.20002)"
     }
   ]
 }

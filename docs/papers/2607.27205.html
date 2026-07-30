@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TurboVLA: Real-Time Vision-Language-Action Model — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+
+<h2>TurboVLA: Real-Time Vision-Language-Action Model at 32 Hz on an RTX 4090 with under 1 GB VRAM</h2>
+<p class="paper-meta">
+  H-EmbodVis &middot; arXiv 2026-07 &middot;
+  <a href="https://arxiv.org/abs/2607.27205" target="_blank" rel="noopener">arXiv:2607.27205</a> &middot;
+  Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a>
+</p>
+
+<h3>What</h3>
+<p>TurboVLA reports a vision-language-action policy that runs at 32 Hz on a single consumer RTX 4090 while using under 1 GB of GPU memory. The contribution is on the deployment side of the VLA line of work rather than new task capability: the aim is real-time closed-loop control on commodity hardware.</p>
+
+<h3>Why</h3>
+<p>Prior open vision-language-action models are accurate but too heavy and too slow for closed-loop control on commodity hardware, which keeps them off real robots. Control has to close the loop many times per second, so latency and memory, not only accuracy, decide whether a policy is usable. The paper is motivated by making a VLA small and fast enough to run in real time without a datacenter GPU.</p>
+
+<h3>How</h3>
+<p>The paper targets the inference budget directly, reporting 32 Hz throughput and a sub-1 GB memory footprint on an RTX 4090. The headline result is the combination of real-time rate and small memory, which places the policy in the regime that on-device and edge inference need. (Method-level detail beyond the reported efficiency figures is summarized from the announcement; see the paper for the full architecture.)</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="SC8KWYVK.html">Flamingo</a><span class="lineage-note">Established the image-plus-text encoder pattern that VLA policies extend with an action head; closest neighbor since VLA models are not otherwise tracked in your library.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Flamingo answered questions about an image but did not act, and open VLA successors that added an action head are too heavy for real-time control. TurboVLA targets that specific gap: it keeps the vision-language-plus-action structure but makes inference fit a hard latency and memory budget, so the policy can close a control loop on a consumer GPU.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The novelty relative to the vision-language line is not the input encoder but the compression and scheduling that let the policy run in real time within sub-1 GB memory. Where Flamingo and its descendants scaled up for capability, TurboVLA scales down for deployment, trading model size for a usable inference rate.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="SC8KWYVK.html">Flamingo</a><span class="lineage-note">Same vision-language backbone family; differs in adding an action head and a real-time inference budget.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

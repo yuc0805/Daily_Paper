@@ -3,29 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks — AI Knowledge Graph</title>
+<title>Forecasting Realized Volatility with Time Series Foundation Models — AI Knowledge Graph</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <div class="paper-page">
+
 <a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
 <h2>Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks</h2>
-<p class="paper-meta">Brini &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.05291" target="_blank" rel="noopener">arXiv:2607.05291</a> &middot; Appears in: <a href="../areas/time-series.html">Signal (Time Series)</a></p>
-<h3>What</h3><p>The paper tests whether zero-shot time-series foundation models beat standard econometric volatility models. On the VOLARE dataset it compares nine zero-shot foundation models against eight econometric specifications, including the Heterogeneous Autoregressive family, across 50 assets in equities, foreign exchange, and futures and three horizons, with formal forecast-comparison tests.</p>
-<h3>Why</h3><p>Realized-volatility forecasting has decades of well-specified econometric baselines, so it is a hard and fair test of whether general pretrained forecasters add value. Pooled loss can favor foundation models simply because a few volatile assets dominate the average, so the paper asks whether the advantage survives a per-asset accounting and a recalibration that removes scale bias.</p>
-<h3>How</h3><p>The authors average each asset's loss ratio against a Log-HAR benchmark so no single asset dominates, apply a Mincer-Zarnowitz recalibration to strip level and scale bias, and run Model Confidence Set tests. Only Tiny Time Mixers beats the benchmark at every horizon, and narrowly; an equal-weight average of Tiny Time Mixers and Log-HAR enters the Model Confidence Set for 98 to 100 percent of assets.</p>
+<p class="paper-meta">
+  arXiv 2026-07 &middot;
+  <a href="https://arxiv.org/abs/2607.05291" target="_blank" rel="noopener">arXiv:2607.05291</a> &middot;
+  Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>
+</p>
+
+<h3>What</h3>
+<p>The paper tests whether pretrained time-series foundation models beat classical econometric models at forecasting realized volatility. It finds that performance varies a lot across foundation-model architectures, and that picking the right architecture matters more than the broad choice between a foundation model and an econometric baseline.</p>
+
+<h3>Why</h3>
+<p>Time-series foundation models show strong zero-shot forecasting, but volatility is a hard, non-stationary target with a long econometric tradition. Whether a general pretrained forecaster actually improves on tuned statistical models here is an open question, and treating "foundation model" as one uniform option hides large differences between architectures.</p>
+
+<h3>How</h3>
+<p>The authors run several time-series foundation models zero-shot against econometric benchmarks on realized-volatility forecasting and compare accuracy. The takeaway is a ranking observation rather than a new method: architecture choice within the foundation-model family dominates the foundation-versus-econometric distinction, so a poorly matched foundation model can lose to a simple statistical model.</p>
+
 <h3>Builds on</h3>
 <ul class="lineage-list">
-  <li><a href="72DFULQQ.html">Chronos</a><span class="lineage-note">Anchors the zero-shot foundation-model group evaluated against the econometric baselines.</span></li>
-  <li><a href="YY67LF3R.html">PatchTST</a><span class="lineage-note">Neural supervised forecaster representing the model line the foundation models descend from.</span></li>
+  <li><a href="72DFULQQ.html">Chronos</a><span class="lineage-note">One of the pretrained forecasters evaluated zero-shot on the volatility target.</span></li>
+  <li><a href="2607.20002.html">Post-Training in Time Series Foundation Models: A Unifying Framework</a><span class="lineage-note">Explains why post-training or test-time editing is needed once a frozen model's ceiling is measured.</span></li>
 </ul>
-<h3>Solves vs predecessors</h3><p>General benchmarks let a few assets carry an apparent foundation-model win. This paper fixes that by averaging per-asset loss ratios and recalibrating, which reveals that much of the short-horizon gain was better scaling rather than better prediction of volatility dynamics.</p>
-<h3>Method vs predecessors</h3><p>Where Chronos reported broad zero-shot performance, this work holds the task fixed (realized volatility) and varies the evaluation protocol, showing that architecture choice among foundation models matters more than the foundation-versus-econometric split. The methodological contribution is the averaging and recalibration procedure, not a new model.</p>
+
+<h3>Solves vs predecessors</h3>
+<p>Chronos is presented as a general zero-shot forecaster, but this paper measures where that generality fails on a non-stationary financial target. It does not fix the failure; it documents it, which is the missing evidence for whether an off-the-shelf foundation model is the right base at all.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Rather than propose a forecaster, the paper is an evaluation. It connects to the Post-Training framework by showing that the frozen model's architecture, not only its weights, sets the accuracy ceiling, which motivates the adaptation and output-processing families that framework catalogs and that DEFT (arXiv:2607.19659) instantiates.</p>
+
 <h3>Related (semantically similar in your library)</h3>
 <ul class="lineage-list">
-  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Shares the theme that raw model scores on series can mislead without careful evaluation.</span></li>
-  <li><a href="CFG6FEIF.html">Moirai</a><span class="lineage-note">Another universal forecaster in the same zero-shot class being tested here.</span></li>
+  <li><a href="72DFULQQ.html">Chronos</a><span class="lineage-note">The base forecaster under test; this paper is the audit of its zero-shot generality.</span></li>
 </ul>
+
 </div>
 </body>
 </html>

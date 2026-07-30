@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DecoEvo: Score-Decoupled Co-Evolution of Solver and Rubric-Generator Skills — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+
+<h2>DecoEvo: Score-Decoupled Co-Evolution of Solver and Rubric-Generator Skills in Text Space</h2>
+<p class="paper-meta">
+  Qwen &middot; arXiv 2026-07 &middot;
+  <a href="https://arxiv.org/abs/2607.25675" target="_blank" rel="noopener">arXiv:2607.25675</a> &middot;
+  Appears in: <a href="../areas/reasoning.html">Reasoning</a>
+</p>
+
+<h3>What</h3>
+<p>DecoEvo improves a language model on open-ended tasks by editing external natural-language artifacts, a solver skill and the rubric that grades it, rather than model weights. The solver is updated with criterion-level feedback, while the rubric generator is revised through audits of requirement coverage and answer discrimination that are independent of the solver's aggregate score. It reports 2.8 to 5.0 percent relative gains over SkillOpt averaged across five benchmarks and three backbones.</p>
+
+<h3>Why</h3>
+<p>On open-ended tasks a fixed rubric stops separating good answers from bad ones once the solver improves on the criteria it measures. Simply co-evolving the rubric against the solver's own score is unreliable, because apparent progress can come from making the rubric easier to satisfy rather than from a better answer. DecoEvo is motivated by the need to keep the evaluator discriminative as the solver gets stronger, without letting the two collude toward an easier target.</p>
+
+<h3>How</h3>
+<p>DecoEvo separates the update signals. Solver updates use criterion-level feedback tied to specific requirements. Rubric-generator updates use two audits that do not read the solver's total score: one for requirement coverage and one for how well the rubric discriminates responses. This focuses generator updates on weaknesses the solver has newly exposed, instead of re-emphasizing criteria the solver already satisfies. The method operates entirely in text space, editing artifacts rather than weights.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Improves reasoning with a single fixed reward signal; DecoEvo makes the evaluator itself a moving target.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Fixes the reasoning format at prompt time; DecoEvo instead co-evolves the grading rubric.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 trains against a fixed reward and Chain-of-Thought fixes the reasoning trace format, so both assume a stable evaluation. On open-ended generation that assumption breaks: a static reward or rubric stops separating answers once the solver saturates it. DecoEvo fixes the reward-hacking failure mode by decoupling the score that trains the solver from the audit that trains the grader, so the rubric cannot be made easier as a shortcut to a higher score.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where prior self-improvement work co-evolves a solver and an evaluator using the solver's own score as the update signal for both, DecoEvo removes that shared signal from the evaluator side. The grader is updated by coverage and discrimination audits that never read the aggregate solver score. This is the same reward-hacking concern that Skill Self-Play (arXiv:2607.22529) raised, addressed here by score decoupling rather than by structured verification alone.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Also targets evaluation gaming, forcing every claim through a verifiable evidence log where DecoEvo audits the rubric itself.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

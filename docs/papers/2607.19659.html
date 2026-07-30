@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expert-Guided Forecast Editing for Time-Series Foundation Models — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Expert-Guided Forecast Editing for Time-Series Foundation Models (DEFT)</h2>
+<p class="paper-meta">
+  Le, M. H. Nguyen, M. Nguyen, H. H. Nguyen, Do &middot; arXiv 2026-07-22 &middot;
+  <a href="https://arxiv.org/abs/2607.19659" target="_blank" rel="noopener">arXiv:2607.19659</a> &middot;
+  Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>
+</p>
+
+<h3>What</h3>
+<p>DEFT edits the forecast of a time-series foundation model at test time while keeping the model frozen. A frozen foundation model generates candidate future trajectories, and an expensive expert evaluator scores them under a tight query budget. DEFT first exploits the model's predictive samples in a decomposed trend-and-seasonal space, then explores by refining trend and seasonal components separately. Each expert score is reused across the components that appeared in the scored recombinations, so a single query provides structured, component-level feedback instead of one scalar on one guess.</p>
+
+<h3>Why</h3>
+<p>A foundation-model forecast is fixed once produced, and there is no clean way to fold in task-specific expert feedback without retraining. Two obvious test-time strategies each fail: best-of-N only samples from the model's own predictive distribution and never moves beyond it, while optimization methods treat the whole horizon as one unstructured high-dimensional vector and waste queries. The paper's motivation is to spend a scarce expert budget where it buys the most, by balancing exploitation of the model's prior against structured exploration.</p>
+
+<h3>How</h3>
+<p>DEFT decomposes each candidate trajectory into trend and seasonal parts. It samples from the frozen model, recombines trend and seasonal components, queries the expert only on complete trajectories, then reuses those scores at the component level to guide further refinement. The authors compare DEFT against best-of-N, the cross-entropy method, and Bayesian optimization under matched query budgets, across two benchmarks totaling 78 datasets, three foundation models, four feedback types, and seven budgets. DEFT improves the effectiveness of expert guidance across that grid, and a molecular-dynamics case study suggests the principle extends to physically grounded feedback.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="72DFULQQ.html">Chronos</a><span class="lineage-note">A pretrained time-series foundation model of the kind DEFT edits without changing weights.</span></li>
+  <li><a href="ZNEMGMWY.html">Sample-efficient Cross-Entropy Method (Pinneri 2020)</a><span class="lineage-note">Reinforcement-learning search method used as a direct baseline; DEFT argues pure horizon search wastes the query budget.</span></li>
+  <li><a href="2607.20002.html">Post-Training in Time Series Foundation Models: A Unifying Framework</a><span class="lineage-note">DEFT is a concrete instance of its output-processing-with-test-time-guidance family.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Chronos produces a fixed forecast with no feedback channel, and the cross-entropy method searches the forecast horizon as an unstructured vector, so under a tight budget it explores a space that is too large to cover. DEFT fixes the specific failure mode that a scarce expert query is spent on a single whole trajectory: by scoring complete trajectories but reusing the score across trend and seasonal components, each query yields component-level information, so guidance improves without any weight update.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to best-of-N, DEFT does not stop at the model's own samples; it refines around them. Compared to the cross-entropy method and Bayesian optimization, it does not treat the horizon as one flat vector; it works in a trend-seasonal decomposition and reuses scores component-wise. Relative to the Post-Training framework, which maps post-training methods without proposing one, DEFT is a specific method for the calibrated output-processing direction that framework named as open. In effect DEFT bridges Community 4 (Time Series + LLM Integration) and Community 7 (Reinforcement Learning) by importing a query-efficient search idea into forecast editing.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Also adds test-time reasoning over a time series without retraining the base model, using tool calls where DEFT uses expert-scored editing.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
