@@ -601,6 +601,30 @@
       "target": "2607.22529",
       "target_label": "Skill Self-Play: Co-Evolving Skills (2026)",
       "note": "Where Chain-of-Thought fixed the reasoning format at inference time, Skill Self-Play moves the structure into training and lets a skill library expand over time."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-30",
+      "source": "Z5IWHZAE",
+      "source_label": "DeepSeek-R1 (2025)",
+      "target": "2607.25675",
+      "target_label": "DecoEvo: Score-Decoupled Co-Evolution of Solver and Rubric-Generator Skills (2026)",
+      "note": "Where DeepSeek-R1 trains against a single fixed reward, DecoEvo makes the grading rubric a separately audited moving target, so the signal keeps separating good answers from bad ones once the solver saturates it."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-30",
+      "source": "HBLPTRMY",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2607.25675",
+      "target_label": "DecoEvo: Score-Decoupled Co-Evolution of Solver and Rubric-Generator Skills (2026)",
+      "note": "Where Chain-of-Thought fixes the reasoning trace format at prompt time, DecoEvo edits external solver and rubric text rather than weights and updates each artifact from a distinct signal."
     }
   ],
   "hyperedges": [],

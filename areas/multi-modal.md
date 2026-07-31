@@ -29,6 +29,7 @@
 2026-07 | S1-Omni (2607.15686) | maps many scientific modalities plus instructions into one shared space with task-specific decoders for prediction and generation
 2026-07 | VCSD (2607.21556) | on-policy self-distillation for vision-language models that builds the learning signal from original-image versus content-erased contrast through an EMA teacher, with no external teacher
 2026-07 | Native Multimodal Scaling (2607.22043) | compute laws for a vision-language model trained from scratch on mixed image and text, showing language and multimodal objectives scale differently
+2026-07 | TurboVLA (2607.27205) | vision-language-action policy running at 32 Hz on one RTX 4090 under 1 GB memory through compression and scheduling on the deployment side
 
 ### Paper List
 
@@ -62,8 +63,11 @@
 
 [2026] 2607.21556 — Visual Contrastive Self-Distillation. [https://arxiv.org/abs/2607.21556](https://arxiv.org/abs/2607.21556). external.
 [2026] 2607.22043 — Scaling Native Multimodal Pre-Training From Scratch. [https://arxiv.org/abs/2607.22043](https://arxiv.org/abs/2607.22043). external.
+[2026] 2607.27205 — TurboVLA: Real-Time Vision-Language-Action Model at 32 Hz on an RTX 4090 with under 1 GB VRAM. [https://arxiv.org/abs/2607.27205](https://arxiv.org/abs/2607.27205). external.
 
 ### Recent Activity
+
+2026-07-30 | 2607.27205 added | TurboVLA reports a vision-language-action policy running at 32 Hz on a single consumer RTX 4090 while using under 1 GB of GPU memory; the contribution is on the deployment side of the vision-language-action line rather than new task capability, using compression and scheduling to close the control loop in real time within a sub-1 GB budget; Tier B
 
 2026-07-27 | 2607.22043 added | measures how a vision-language model trained from scratch on mixed image and text scales under a fixed compute budget, finds best loss follows a predictable compute law while compute-optimal size and token count follow power laws, shows the language allocation is nearly unchanged by the multimodal data fraction while the multimodal allocation is sensitive to it, and reports native pretraining transfers positively into pure-text spatial reasoning; Tier B
 
@@ -72,5 +76,3 @@
 2026-07-20 | 2607.15686 added | S1-Omni maps heterogeneous scientific objects (crystal structures, SMILES strings, protein sequences, spectra, scientific images) plus instructions into one shared representation, then uses task-specific decoders for property prediction, spectrum-to-molecule generation, protein site and structure prediction, and scientific image generation; trained on 200 scientific tasks and evaluated on more than 60 benchmarks, it reportedly outperforms GPT-5.5 and Gemini-3.1-Pro on most; Tier B
 
 2026-07-18 | 2607.12800 added | UniVR moves both the reasoning trace and the reward into visual space with VR-GRPO, adding a step-level reward that checks physical consistency of intermediate visual states rather than scoring only the final answer, and reports up to 25% improvement on its VR-X benchmark; Tier B
-
-2026-07-17 | 2607.14935 added | VideoChat3 is a fully open 4B video multimodal LLM that introduces an Inflated 3D Vision Transformer and Adaptive Frame Resolution to cut the cost of turning video into tokens, releases a video data synthesis pipeline plus general, long-form, and streaming training sets, and reports beating prior open-source models of equal or larger size across those benchmarks; Tier B

@@ -38,6 +38,7 @@
 2026-07 | Predictive Divergence Masks (2607.10848) | replaces PPO's ratio-based direction test with a predicted change in the trust-region divergence, in closed form for softmax policies
 2026-07 | AREX (2607.21461) | deep-research agent that alternates evidence-gathering with constraint-by-constraint audit and re-planning, exploiting a discovery-verification asymmetry
 2026-07 | Skill Self-Play (2607.22529) | proposer-solver-controller RL loop that co-evolves an agent skill library as a self-generated curriculum
+2026-07 | DecoEvo (2607.25675) | co-evolves a solver skill and its grading rubric in text space, training each from a separate signal to limit reward hacking
 
 ### Paper List
 
@@ -84,8 +85,11 @@
 
 [2026] 2607.21461 — AREX: Towards a Recursively Self-Improving Agent for Deep Research. [https://arxiv.org/abs/2607.21461](https://arxiv.org/abs/2607.21461). external.
 [2026] 2607.22529 — Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills. [https://arxiv.org/abs/2607.22529](https://arxiv.org/abs/2607.22529). external.
+[2026] 2607.25675 — DecoEvo: Score-Decoupled Co-Evolution of Solver and Rubric-Generator Skills in Text Space. [https://arxiv.org/abs/2607.25675](https://arxiv.org/abs/2607.25675). external.
 
 ### Recent Activity
+
+2026-07-30 | 2607.25675 added | DecoEvo improves a language model on open-ended tasks by editing external natural-language artifacts, a solver skill and the rubric that grades it, rather than model weights; it separates the two update signals so the solver learns from criterion-level feedback while the rubric generator is revised through audits of requirement coverage and answer discrimination that do not use the solver's aggregate score, reporting 2.8 to 5.0 percent relative gains over SkillOpt across five benchmarks and three backbones; Tier B
 
 2026-07-27 | 2607.22529 added | trains a language model through self-play with agent skills as the unit of practice, running a proposer that writes tasks conditioned on a sampled skill, a solver that answers them, and a skill controller that reads execution feedback and grows a skill library, so the training distribution moves with the model while each skill keeps verification local; it raises the ceiling of strong backbones and recovers misaligned models on tool-use and reasoning benchmarks; Tier B
 
@@ -94,5 +98,3 @@
 2026-07-25 | 2607.10848 added | shows the single-sample importance ratio in a PPO-style direction test can disagree in sign with the change of the divergence the proximity test uses, and replaces it with a predictive divergence mask that asks whether the next gradient step will raise or lower that divergence, derived in closed form for softmax policies with two top-K estimators for the truncated vocabulary; improves RL training across model scales and precision settings; Tier B
 
 2026-07-22 | 2607.18722 added | SAT measures per-token staleness with a detached sampled log-ratio, finds the high-mismatch tail of each batch, and tightens only the sign-selected endpoint of the PPO clip interval on those tokens; on a decoupled asynchronous setup over Qwen3-30B-A3B-Base, SAT-GSPO holds AIME24 avg@8 at 35.83 for lag 1 and 34.79 for lag 8, and the tightened interval is proven to stay inside the PPO interval; Tier A
-
-2026-07-21 | 2607.16850 added | GEPO extends GRPO by estimating per-group entropy from the grouped rollouts already drawn and shaping advantages asymmetrically: it damps positive advantages in low-entropy groups to reduce over-exploitation and damps negative advantages in high-entropy groups to keep exploration, at little added cost because the entropy estimate reuses samples already taken; Tier B

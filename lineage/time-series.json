@@ -1375,6 +1375,42 @@
       "target": "2607.20002",
       "target_label": "Post-Training in Time Series Foundation Models: A Unifying Framework (2026)",
       "note": "Where Time-LLM reprogrammed a language model backbone for forecasting, this survey names that move model composition and separates it from context augmentation on a shared map keyed by locus of intervention."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-30",
+      "source": "72DFULQQ",
+      "source_label": "Chronos (Ansari 2024)",
+      "target": "2607.19659",
+      "target_label": "Expert-Guided Forecast Editing for Time-Series Foundation Models (DEFT, 2026)",
+      "note": "Where Chronos produces a fixed forecast, DEFT keeps the model frozen and edits that forecast at test time, reusing its predictive samples inside a trend-seasonal decomposition."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-07-30",
+      "source": "ZNEMGMWY",
+      "source_label": "Sample-efficient Cross-Entropy Method (CEM)",
+      "target": "2607.19659",
+      "target_label": "Expert-Guided Forecast Editing for Time-Series Foundation Models (DEFT, 2026)",
+      "note": "Where the sample-efficient cross-entropy method searches the horizon as one unstructured high-dimensional vector, DEFT explores component-wise and reuses each expert score across trend and seasonal components so a scarce query buys more information."
+    },
+    {
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-30",
+      "source": "2607.20002",
+      "source_label": "Post-Training in Time Series Foundation Models: A Unifying Framework (2026)",
+      "target": "2607.19659",
+      "target_label": "Expert-Guided Forecast Editing for Time-Series Foundation Models (DEFT, 2026)",
+      "note": "Where the post-training survey named calibrated output processing with test-time guidance as an open direction, DEFT supplies a concrete method for it."
     }
   ],
   "hyperedges": [

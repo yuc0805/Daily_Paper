@@ -68,6 +68,7 @@
 2026-07 | TiRex-2 (2607.01204) | xLSTM time-series foundation model for zero-shot streaming multivariate forecasting with future-known covariates
 2026-07 | SensorGen (2607.04245) | controlled comparison of five generative-model families on real-world sensor time series; flow-matching is the strongest default
 2026-07 | Post-Training TSFM Survey (2607.20002) | unifying framework sorting post-training methods for time series foundation models into five families keyed by locus of intervention
+2026-07 | DEFT (2607.19659) | edits a frozen time-series foundation model's forecast at test time, reusing each expert score across trend and seasonal components
 
 ### Paper List
 
@@ -162,15 +163,16 @@
 
 [2026] 2607.04245 — Signal or Noise? Understanding Generative Models for Real-World Sensor Time Series. [https://arxiv.org/abs/2607.04245](https://arxiv.org/abs/2607.04245). external.
 [2026] 2607.20002 — Post-Training in Time Series Foundation Models: A Unifying Framework. [https://arxiv.org/abs/2607.20002](https://arxiv.org/abs/2607.20002). external.
+[2026] 2607.19659 — Expert-Guided Forecast Editing for Time-Series Foundation Models. [https://arxiv.org/abs/2607.19659](https://arxiv.org/abs/2607.19659). external.
 
 ### Recent Activity
+
+2026-07-30 | 2607.19659 added | DEFT edits a frozen time-series foundation model's forecast at test time, first exploiting predictive samples inside a trend-seasonal decomposition then exploring the trend and seasonal components separately, and reusing each expensive expert score across the components that appear in the scored trajectories so one query yields component-level feedback; it imports query-efficient search from reinforcement learning into forecast editing; Tier A
+
+2026-07-30 | 2607.05291 added | tests whether pretrained time-series foundation models beat classical econometric models at forecasting realized volatility, finding that performance varies across foundation-model architectures and that the choice of architecture matters more than the broad foundation-model-versus-econometric split, since the frozen model's architecture sets the accuracy ceiling; Tier B
 
 2026-07-27 | 2607.20002 added | a survey that places the methods sitting between a pretrained time series model and its deployment into one framework keyed by locus of intervention, naming five families (parameter adaptation, context augmentation, model composition, output processing with uncertainty control, and compression with specialization), and marking uncertainty-aware model composition and deployment-aware specialization as the thinner, higher-value areas; Tier A
 
 2026-07-25 | 2607.04245 added | SensorGen runs five generative-model families under one protocol across 14 settings, 4 domains, 7 datasets, and 12 signal modalities, measuring signal fidelity and downstream usefulness; flow-matching is the strongest overall, signal properties decide which design choices help (demographic covariates for longitudinal signals, time-frequency modeling for high-frequency ones), and synthetic signals improve downstream prediction, not only visual realism; Tier A
 
 2026-07-19 | 2607.01204 added | TiRex-2 extends the xLSTM recurrent forecaster to multiple target series with past and future-known covariates and streaming updates at constant cost per patch, pairing a bidirectional time mixer with an asymmetric grouped-attention variate mixer and pretraining on synthetic multivariate samples composed from univariate corpora; Tier B
-
-2026-07-15 | 2607.03089 added | STELLA recasts LLM-based human activity recognition as tokenization: a light hierarchical tokenizer emits activity-aware tokens for a frozen language model, with an on-device personalization step, so recognition stays private and cheap enough for a phone or watch; Tier A
-
-2026-07-12 | 2607.04919 added | a break-even study across 30 datasets giving a training-free rule: with fewer than 700 points and clear seasonality use the foundation model zero-shot and skip fine-tuning, since LoRA can lower accuracy on short series; Tier A

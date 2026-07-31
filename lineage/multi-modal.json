@@ -436,6 +436,18 @@
       "target": "2607.22043",
       "target_label": "Scaling Native Multimodal Pre-Training From Scratch (2026)",
       "note": "Where Flamingo attached vision to a separately trained language model through late fusion, this paper trains both modalities together from the start and measures what that changes at scale."
+    },
+    {
+      "relation": "related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-07-30",
+      "source": "SC8KWYVK",
+      "source_label": "Flamingo (Alayrac 2022)",
+      "target": "2607.27205",
+      "target_label": "TurboVLA: Real-Time Vision-Language-Action Model (2026)",
+      "note": "Flamingo is the closest tracked neighbor, not a direct parent: it answered questions about an image, while TurboVLA extends the image-plus-text encoder with an action head and maps image and instruction to motor actions under a hard latency and memory budget."
     }
   ],
   "hyperedges": [],
