@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenMHC: Accelerating the Science of Wearable Foundation Models — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>OpenMHC: Accelerating the Science of Wearable Foundation Models</h2>
+<p class="paper-meta">Schuetz, Bai, Pan, Nerrise, Liu, Paruchuri, Adeli, Ashley, Zhang et al. &middot; arXiv 2026-07-21 &middot; <a href="https://arxiv.org/abs/2607.16235" target="_blank" rel="noopener">arXiv:2607.16235</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3><p>OpenMHC (OpenMyHeartCounts) is an open-access wearable health dataset and benchmark. It is built from more than a decade of the My Heart Counts study app and contains over 60 million hours of wearable data across 19 sensor channels (for example step count, heart rate, sleep, workouts) and up to 169 linked variables covering health, lifestyle, mood, and behavior, from 11,894 consenting participants. Alongside the data it releases open-source implementations of recent wearable foundation models and a single benchmark with three tracks: downstream health and behavior prediction, multivariate imputation, and time-series forecasting.</p>
+<h3>Why</h3><p>The largest wearable datasets are private, and the strongest wearable foundation models are rarely released with open weights or reproducible training code. This makes fair comparison and reproduction hard, which slows the field. Prior open resources in Leo's library, such as GLOBEM, provide multi-year behavior data but at a smaller scale and without paired open model weights and a unified multi-track benchmark. The paper's goal is to remove the reproducibility bottleneck by releasing data, reference model code and weights, and a shared benchmark together.</p>
+<h3>How</h3><p>The authors curate the My Heart Counts records into a standard format with 19 sensor channels and up to 169 linked outcome variables, then define three evaluation tracks. They release open-source implementations of recent wearable and multivariate time-series foundation models and benchmark them against classical baselines on downstream prediction, imputation, and forecasting. The deliverable is the combined release of data, code, weights, and benchmark rather than a single new model, so the reported result is a standardized comparison across methods.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="ICD9EG8Q.html">GLOBEM (Xu 2023)</a><span class="lineage-note">Multi-year, multi-site wearable behavior dataset with a cross-dataset generalization benchmark; OpenMHC scales up the open-dataset-plus-benchmark idea.</span></li>
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Maps the design space and pretraining strategies that OpenMHC's reference models instantiate and benchmark.</span></li>
+</ul>
+<p>It also builds on Self-supervised Learning for HAR with 700K Person-days (Yuan 2024), which showed large-scale self-supervised pretraining works on a single accelerometer stream.</p>
+<h3>Solves vs predecessors</h3><p>GLOBEM (Xu 2023) fixed the lack of a shared multi-year behavior dataset, but comparison was still limited to behavior-prediction tasks and did not ship open model weights. OpenMHC fixes the specific failure mode "results are reported on private data and cannot be reproduced" by releasing the data, the reference model weights, and a multi-track benchmark together, so a claimed improvement can be checked against a common testbed rather than trusted on a private one.</p>
+<h3>Method vs predecessors</h3><p>Compared to GLOBEM, OpenMHC widens both the data (more hours, more sensor channels, more linked outcomes) and the evaluation surface (three tracks instead of one), and adds open model implementations. Compared to the biosignal survey (Gu 2025), which describes pretraining strategies in prose, OpenMHC makes those strategies runnable and comparable by providing code, weights, and a fixed benchmark. It moves the integration boundary from "one team's model on one team's data" to "shared data, shared models, shared metrics".</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="HDPXBLAP.html">SensorLM (2025)</a><span class="lineage-note">Wearable sensor representation learning; a candidate reference model for OpenMHC's tracks.</span></li>
+<li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Bridges sensor data and language; sits on the wearable-sensing to health bridge that OpenMHC standardizes.</span></li>
+</ul>
+</div>
+</body>
+</html>

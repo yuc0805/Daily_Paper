@@ -1,45 +1,45 @@
 {
-  "date": "2026-08-02",
+  "date": "2026-08-03",
   "papers": [
     {
-      "zotero_key": "2607.20027",
-      "title": "Zero-Shot Heart Rate Variability Forecasting from Consumer Wearables Using Time Series Foundation Models",
-      "authors": "Peräkylä et al.",
+      "zotero_key": "2607.16235",
+      "title": "OpenMHC: Accelerating the Science of Wearable Foundation Models",
+      "authors": "Schuetz et al.",
       "year": 2026,
-      "what": "Runs TimesFM, Chronos, and MOIRAI zero-shot on fragmented consumer-wearable HRV, adds a variability-preserving imputation for artifact gaps, and beats classical baselines at MASE 0.81 to 0.87 without fine-tuning over a 2-hour horizon on 49 people.",
+      "what": "Releases the largest open-access wearable health dataset to date (over 60 million hours, 19 sensor channels, up to 169 linked variables, 11,894 participants) plus open-source reference models and a three-track benchmark for prediction, imputation, and forecasting.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "Chronos (Ansari 2024, 72DFULQQ); MOIRAI (Woo 2024, CFG6FEIF); TS-Agent (Liu 2025, I2CIT4I7)"
+      "builds_on": "GLOBEM (Xu 2023, ICD9EG8Q); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); SSL for HAR 700K Person-days (Yuan 2024, RTMH75VW)"
     },
     {
-      "zotero_key": "2607.09749",
-      "title": "MorphologyFM: A Foundation Model for Morphology-Aware Representation Learning from ECG and Pulse Oximetry Waveforms",
-      "authors": "MorphologyFM authors",
+      "zotero_key": "2607.26784",
+      "title": "SkillRise: Agentic Reinforcement Learning for Cross-Task Skill Evolution",
+      "authors": "Yao et al.",
       "year": 2026,
-      "what": "Pretrains a foundation model on paired ECG and SpO2 waveforms from MIMIC using morphology-guided masking, cross-modal learning, and contrastive alignment, so the representation keeps clinically meaningful waveform shape rather than just reconstructing raw values.",
-      "area_label": "LLM-Health",
-      "area_slug": "llm-health",
-      "builds_on": "Masked Autoencoders Theory (Zhang 2023, 6INGKIJV); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF)"
+      "what": "Trains a single policy to alternate between solving a task and curating an evolving skill document for the next task, with decoupled credit assignment; gains 2.3 to 8.5 points Pass@1 over the strongest baseline on ALFWorld, WebShop, and ScienceWorld and shows test-time scaling across tasks.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Memory Mechanisms of Foundation Agents (Huang 2026, BDY3HUCV)"
     },
     {
-      "zotero_key": "2607.25308",
-      "title": "CAST: Game Solvers as Turn-Level Teachers for LLM Agents",
-      "authors": "CAST authors",
+      "zotero_key": "2607.25659",
+      "title": "CoRT: Counterfactual Replay for Token-Level Rubric-Guided Policy Optimization",
+      "authors": "Zhang et al.",
       "year": 2026,
-      "what": "Turns a game solver's per-turn state-value changes into dense turn-level advantages for RLVR, giving LLM agents process-level credit in long-horizon games; under a soft-optimal solver this equals on-policy distillation using only scalar values.",
+      "what": "Splits the response-level GRPO advantage across tokens by rescoring a response with and without the rubric criteria and using the token log-likelihood contrast as a credit weight, with no auxiliary scorer; improves matched response-level GRPO by 4.4 points on average.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); LATS (Zhou 2024, 77ERE7HA); Chain-of-Thought (Wei 2023, HBLPTRMY)"
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought (Wei 2023, HBLPTRMY)"
     },
     {
-      "zotero_key": "2607.27180",
-      "title": "HumanCLAW: Can Vision-Language Models Act Through a Body?",
-      "authors": "Li et al. (Meta Research)",
+      "zotero_key": "2607.27191",
+      "title": "Can AI agents conduct open-ended AI research? Early evidence from two case studies",
+      "authors": "Kirgis et al.",
       "year": 2026,
-      "what": "Decouples a VLM's action decisions from motor control and benchmarks nine VLMs on 1,218 embodied find-navigate-interact episodes across 41 scenes; the best reaches only 16.8% success, exposing a gap in embodied self-awareness rather than perception.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "Flamingo (Alayrac 2022, SC8KWYVK); Agent AI Survey (Durante 2024, Z9WZPMNU)"
+      "what": "Introduces shadow evaluations where a frontier agent answers the central question of an unpublished paper and the original authors grade it; on two NeurIPS 2026 submissions the agents did all engineering but made no substantial research progress and were rejected, with five named failure modes.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "Agent AI Survey (Durante 2024, Z9WZPMNU); Memory Mechanisms of Foundation Agents (Huang 2026, BDY3HUCV)"
     }
   ]
 }
