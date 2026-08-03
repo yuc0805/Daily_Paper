@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MorphologyFM — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+<h2>MorphologyFM: A Foundation Model for Morphology-Aware Representation Learning from ECG and Pulse Oximetry Waveforms</h2>
+<p class="paper-meta">MorphologyFM authors &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.09749" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/llm-health.html">LLM-Health</a></p>
+<h3>What</h3>
+<p>MorphologyFM is a multimodal foundation model pretrained on paired ECG and SpO2 (pulse oximetry) waveforms from the MIMIC critical-care database. It combines morphology-guided masking, cross-modal representation learning between the two waveform types, and contrastive latent alignment, all self-supervised, to produce representations that preserve clinically meaningful waveform shape for transfer to cardiovascular and hemodynamic tasks.</p>
+<h3>Why</h3>
+<p>ECG and SpO2 waveforms encode cardiovascular and hemodynamic information through their morphology &mdash; intervals, slopes, and beat-to-beat variability that underlie many diagnoses. Existing waveform models mostly optimize plain reconstruction or forecasting objectives that do not explicitly preserve this shape, so a model can score well on reconstruction while discarding the clinically useful part of the signal. MorphologyFM targets that gap.</p>
+<h3>How</h3>
+<p>Pretraining uses morphology-guided masking (masking chosen with waveform structure in mind rather than at random), cross-modal learning that ties the ECG and SpO2 views of the same patient together, and a contrastive latent-alignment objective. No manual annotations are used. The learned encoder is then transferred to downstream physiological tasks.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="6INGKIJV.html">Masked Autoencoders Theory (Zhang 2023)</a><span class="lineage-note">Analysis of masked reconstruction; MorphologyFM replaces random masking with morphology-guided masking.</span></li>
+<li><a href="A5HBRQB9.html">Masked Autoencoders (He 2021)</a><span class="lineage-note">The masked-reconstruction pretraining recipe adapted here to waveforms.</span></li>
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Biosignal foundation-model program extended from single-signal to paired cross-modal pretraining.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Plain masked autoencoders reward reconstruction of raw values, so they can minimize loss while smoothing away the morphological detail that carries the diagnosis. MorphologyFM fixes this by guiding the masking and adding a contrastive objective, so the representation is pushed to keep shape information rather than average level.</p>
+<h3>Method vs predecessors</h3>
+<p>Where He 2021 and Zhang 2023 mask random patches on single-modality inputs, MorphologyFM masks with morphology in mind and learns across two paired waveform modalities at once. Where the Gu 2025 survey describes mostly single-signal biosignal pretraining, this model aligns ECG and SpO2 in a shared latent space.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Community 1, Health AI and Self-Supervised.</span></li>
+<li><a href="6INGKIJV.html">Masked Autoencoders Theory (Zhang 2023)</a><span class="lineage-note">Community 1 self-supervised anchor.</span></li>
+</ul>
+</div>
+</body>
+</html>

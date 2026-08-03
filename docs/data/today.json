@@ -1,45 +1,45 @@
 {
-  "date": "2026-07-30",
+  "date": "2026-08-02",
   "papers": [
     {
-      "zotero_key": "2607.19659",
-      "title": "Expert-Guided Forecast Editing for Time-Series Foundation Models (DEFT)",
-      "authors": "Le et al.",
+      "zotero_key": "2607.20027",
+      "title": "Zero-Shot Heart Rate Variability Forecasting from Consumer Wearables Using Time Series Foundation Models",
+      "authors": "Peräkylä et al.",
       "year": 2026,
-      "what": "Edits a frozen time-series foundation model's forecast at test time by exploiting its predictive samples in a trend-seasonal space and reusing each expensive expert score across components, beating best-of-N, cross-entropy, and Bayesian optimization under matched query budgets across 78 datasets.",
+      "what": "Runs TimesFM, Chronos, and MOIRAI zero-shot on fragmented consumer-wearable HRV, adds a variability-preserving imputation for artifact gaps, and beats classical baselines at MASE 0.81 to 0.87 without fine-tuning over a 2-hour horizon on 49 people.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "Chronos (72DFULQQ); Cross-Entropy Method (ZNEMGMWY); Post-Training TSFM Framework (2607.20002)"
+      "builds_on": "Chronos (Ansari 2024, 72DFULQQ); MOIRAI (Woo 2024, CFG6FEIF); TS-Agent (Liu 2025, I2CIT4I7)"
     },
     {
-      "zotero_key": "2607.25675",
-      "title": "DecoEvo: Score-Decoupled Co-Evolution of Solver and Rubric-Generator Skills in Text Space",
-      "authors": "Qwen",
+      "zotero_key": "2607.09749",
+      "title": "MorphologyFM: A Foundation Model for Morphology-Aware Representation Learning from ECG and Pulse Oximetry Waveforms",
+      "authors": "MorphologyFM authors",
       "year": 2026,
-      "what": "Co-evolves a solver skill and its grading rubric in text space, but decouples the signals: the solver learns from criterion-level feedback while the rubric is audited for coverage and discrimination independent of solver score, preventing reward hacking and giving 2.8 to 5.0 percent gains over SkillOpt.",
+      "what": "Pretrains a foundation model on paired ECG and SpO2 waveforms from MIMIC using morphology-guided masking, cross-modal learning, and contrastive alignment, so the representation keeps clinically meaningful waveform shape rather than just reconstructing raw values.",
+      "area_label": "LLM-Health",
+      "area_slug": "llm-health",
+      "builds_on": "Masked Autoencoders Theory (Zhang 2023, 6INGKIJV); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF)"
+    },
+    {
+      "zotero_key": "2607.25308",
+      "title": "CAST: Game Solvers as Turn-Level Teachers for LLM Agents",
+      "authors": "CAST authors",
+      "year": 2026,
+      "what": "Turns a game solver's per-turn state-value changes into dense turn-level advantages for RLVR, giving LLM agents process-level credit in long-horizon games; under a soft-optimal solver this equals on-policy distillation using only scalar values.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (Z5IWHZAE); Chain-of-Thought (HBLPTRMY)"
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); LATS (Zhou 2024, 77ERE7HA); Chain-of-Thought (Wei 2023, HBLPTRMY)"
     },
     {
-      "zotero_key": "2607.27205",
-      "title": "TurboVLA: Real-Time Vision-Language-Action Model at 32 Hz on an RTX 4090 with under 1 GB VRAM",
-      "authors": "H-EmbodVis",
+      "zotero_key": "2607.27180",
+      "title": "HumanCLAW: Can Vision-Language Models Act Through a Body?",
+      "authors": "Li et al. (Meta Research)",
       "year": 2026,
-      "what": "Reports a vision-language-action policy that runs at 32 Hz on a single consumer RTX 4090 using under 1 GB of memory, pushing VLA models from datacenter accuracy demos toward real-time closed-loop control on commodity hardware.",
+      "what": "Decouples a VLM's action decisions from motor control and benchmarks nine VLMs on 1,218 embodied find-navigate-interact episodes across 41 scenes; the best reaches only 16.8% success, exposing a gap in embodied self-awareness rather than perception.",
       "area_label": "Multi-Modal",
       "area_slug": "multi-modal",
-      "builds_on": "Flamingo (SC8KWYVK)"
-    },
-    {
-      "zotero_key": "2607.05291",
-      "title": "Forecasting Realized Volatility with Time Series Foundation Models: A Comparison with Econometric Benchmarks",
-      "authors": "arXiv:2607.05291",
-      "year": 2026,
-      "what": "Finds that for realized-volatility forecasting the choice of foundation-model architecture matters more than the broad choice between foundation models and econometric baselines, so a poorly matched foundation model can lose to a simple statistical one.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "Chronos (72DFULQQ); Post-Training TSFM Framework (2607.20002)"
+      "builds_on": "Flamingo (Alayrac 2022, SC8KWYVK); Agent AI Survey (Durante 2024, Z9WZPMNU)"
     }
   ]
 }

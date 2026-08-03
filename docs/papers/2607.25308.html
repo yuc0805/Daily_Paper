@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAST: Game Solvers as Turn-Level Teachers — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>CAST: Game Solvers as Turn-Level Teachers for LLM Agents</h2>
+<p class="paper-meta">CAST authors &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.25308" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3>
+<p>CAST adds dense turn-level credit to reinforcement learning from verifiable rewards (RLVR) for LLM agents in long-horizon games. It observes that a game solver's state-value estimate already tells you whether an action helped: when the solver's value rises after an action, that action advanced the state toward success. CAST (Credit Assignment from Solver Teachers) converts these value changes into per-turn solver advantages and injects them into RLVR as dense feedback.</p>
+<h3>Why</h3>
+<p>Training LLMs to act in long-horizon games with RLVR relies on a reward that arrives only at the end, which reveals little about which individual turns determined success. Denser process signals could fill this gap, but existing sources of turn-level signal are hard to keep both cheap and accurate. CAST supplies a cheap, accurate source from a solver already available in game settings.</p>
+<h3>How</h3>
+<p>The solver's value change at each turn becomes a solver advantage added to the RLVR objective. Under a soft-optimal solver assumption, maximizing the solver advantage is equivalent to on-policy distillation from the solver, and it requires only scalar values rather than the teacher's full logits, which keeps the signal cheap to compute and store.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">RLVR with sparse final rewards; CAST keeps the frame and adds a dense per-turn term.</span></li>
+<li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Uses value estimates at search time; CAST uses solver value changes at training time.</span></li>
+<li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Reasoning via prompting; CAST supervises the reasoning trace at the process level.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1's sparse terminal reward is exactly what makes long-horizon credit assignment hard: the model cannot tell which turn mattered. CAST fixes this by supplying a dense per-turn advantage, so the gradient carries process-level information rather than only the final outcome.</p>
+<h3>Method vs predecessors</h3>
+<p>Where LATS applies a value estimate at search time to steer tree rollouts, CAST applies a solver's value changes at training time to shape the policy gradient. Where R1 trains from outcome-only verifiable rewards, CAST reframes solver-advantage maximization as on-policy distillation using scalar values, avoiding the cost of matching teacher logits.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Community 0, reasoning-via-RL.</span></li>
+<li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Community 0, planning and search agents.</span></li>
+</ul>
+</div>
+</body>
+</html>

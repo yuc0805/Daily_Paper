@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HumanCLAW — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+<h2>HumanCLAW: Can Vision-Language Models Act Through a Body?</h2>
+<p class="paper-meta">Li, Gu, Liu, Hu, et al. (Meta Research) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2607.27180" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a></p>
+<h3>What</h3>
+<p>HumanCLAW is an evaluation framework that separates a vision-language model's action decisions from low-level motor control. At each step a harnessed off-the-shelf VLM issues an atomic skill command, translated into a sub-second chunk of continuous full-body motion with real physics (gravity, collisions), so balance and motor errors are factored out and only the model's action choices are measured. The benchmark, HumanCLAW-Bench, has 1,218 long-horizon egocentric find-navigate-interact episodes across 41 indoor scenes.</p>
+<h3>Why</h3>
+<p>When a VLM controls a body and a task fails, it is hard to tell whether the model made a bad choice or the motor controller simply failed to execute it. This coupling makes it hard to measure the model's decision quality directly. HumanCLAW isolates decision quality by factoring out execution-side disturbances, so the score reflects what the paper calls action intelligence.</p>
+<h3>How</h3>
+<p>The VLM is placed in a control loop that translates each command into physically consequential motion, while the harness removes balance and motor error as failure sources. Nine state-of-the-art VLMs are tested. None solves the benchmark; the best reaches only 16.8% success. Recognizing the target is not the bottleneck &mdash; the models lack embodied self-awareness, losing track of where their own body is, whether it reached the goal, or whether it hit an obstacle.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="SC8KWYVK.html">Flamingo (Alayrac 2022)</a><span class="lineage-note">VLM benchmarked on passive image and video understanding; HumanCLAW puts the same class of model in a control loop.</span></li>
+<li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Described the multimodal-interaction agenda; HumanCLAW supplies a physics-grounded benchmark for it.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Flamingo-style evaluation reports passive perception scores that say nothing about whether a model can act on what it sees. HumanCLAW fixes this by measuring whether the model's choices move a physical body toward a goal, and it delivers a specific negative result: current VLMs are far from acting through a body.</p>
+<h3>Method vs predecessors</h3>
+<p>Where the Agent AI survey described embodied multimodal interaction in prose, HumanCLAW builds a concrete benchmark that decouples decision from execution. Where prior embodied tests mix perception, decision, and control, HumanCLAW measures only decision quality by construction.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="SC8KWYVK.html">Flamingo (Alayrac 2022)</a><span class="lineage-note">Vision-language few-shot learning.</span></li>
+<li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Community 0, multimodal agents.</span></li>
+</ul>
+</div>
+</body>
+</html>

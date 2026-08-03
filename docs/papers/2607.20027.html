@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero-Shot HRV Forecasting from Consumer Wearables — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Zero-Shot Heart Rate Variability Forecasting from Consumer Wearables Using Time Series Foundation Models</h2>
+<p class="paper-meta">Per&auml;kyl&auml;, Sohrab, Hautam&auml;ki, Hein&auml;niemi, Huang, Abrahamsson &middot; Computing in Cardiology 2026 &middot; <a href="https://arxiv.org/abs/2607.20027" target="_blank" rel="noopener">link</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<h3>What</h3>
+<p>The paper tests three off-the-shelf time-series foundation models &mdash; TimesFM, Chronos, and MOIRAI &mdash; on short-term heart-rate-variability (HRV) forecasting from consumer-wearable data, with no fine-tuning, against classical baselines (mean, exponential smoothing, exponentially weighted moving average). It evaluates on real data from 49 healthy people at context lengths of 32 and 64 steps, with forecast horizons up to 2 hours. To handle gaps left by artifact removal, it introduces a variability-preserving imputation method: linear interpolation augmented with locally adaptive stochastic noise.</p>
+<h3>Why</h3>
+<p>Short-term HRV forecasting could give clinicians lead time to detect autonomic dysfunction and adverse cardiac events. The problem is that consumer wearables produce HRV signals that are fragmented and full of artifacts, which breaks conventional forecasting methods that assume clean, evenly sampled input. Prior work either used clean clinical recordings or fine-tuned models per dataset, leaving open how far a generic pretrained forecaster gets on messy wearable HRV without adaptation.</p>
+<h3>How</h3>
+<p>Each foundation model is run zero-shot. The variability-preserving imputation fills removed-artifact segments with interpolation plus noise scaled to local variability, so filled regions keep the short-term dynamics HRV forecasting depends on rather than flattening to a straight line. Performance is measured with Mean Absolute Error, Root Mean Square Error, and Mean Absolute Scaled Error (MASE). The foundation models beat every baseline without fine-tuning, with average MASE between 0.81 and 0.87; Chronos and TimesFM are strongest, while MOIRAI is barely ahead of the baselines. A MASE below 1 means the model beats a naive one-step forecast.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+<li><a href="72DFULQQ.html">Chronos (Ansari 2024)</a><span class="lineage-note">General pretrained time-series foundation model tested here zero-shot; one of the two strongest.</span></li>
+<li><a href="CFG6FEIF.html">MOIRAI (Woo 2024)</a><span class="lineage-note">Universal time-series forecasting foundation model; weakest of the three on this task.</span></li>
+<li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Anchor of the Time Series + LLM community; this paper stays with pure forecasting rather than reasoning.</span></li>
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Surveys transfer of foundation models to physiological signals; HRV forecasting is one such transfer.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3>
+<p>Where Chronos and MOIRAI were validated mostly on clean, broad time-series benchmarks, this paper shows they still beat classical baselines on fragmented consumer-wearable HRV, which those papers did not test. The failure mode it fixes is the assumption of clean input: instead of forcing the wearable signal to fit the model, it repairs the signal with variability-preserving imputation so the pretrained model can be used unchanged.</p>
+<h3>Method vs predecessors</h3>
+<p>The forecasting engines are unchanged from their source papers; the contribution is empirical (a zero-shot baseline on real wearable HRV) plus the imputation step. Compared to per-dataset fine-tuning, the method needs no training and treats the foundation model as a fixed forecaster, isolating data fragmentation rather than model capacity as the thing to engineer around.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+<li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Time Series + LLM community, Community 4.</span></li>
+<li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Health AI and Self-Supervised, Community 1.</span></li>
+</ul>
+</div>
+</body>
+</html>
