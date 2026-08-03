@@ -1411,6 +1411,54 @@
       "target": "2607.19659",
       "target_label": "Expert-Guided Forecast Editing for Time-Series Foundation Models (DEFT, 2026)",
       "note": "Where the post-training survey named calibrated output processing with test-time guidance as an open direction, DEFT supplies a concrete method for it."
+    },
+    {
+      "source": "72DFULQQ",
+      "source_label": "Chronos (Ansari 2024)",
+      "target": "2607.20027",
+      "target_label": "Zero-Shot HRV Forecasting from Consumer Wearables Using Time Series Foundation Models (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-02",
+      "note": "Where Chronos established a general zero-shot time-series forecaster on clean broad benchmarks, this paper runs it unchanged on artifact-rich wearable HRV and shows it still beats classical baselines."
+    },
+    {
+      "source": "CFG6FEIF",
+      "source_label": "Moirai (Woo 2024)",
+      "target": "2607.20027",
+      "target_label": "Zero-Shot HRV Forecasting from Consumer Wearables Using Time Series Foundation Models (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-02",
+      "note": "MOIRAI is one of the three pretrained universal forecasters tested here, moved from broad benchmarks to fragmented consumer-wearable HRV with no fine-tuning."
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent (Liu 2025)",
+      "target": "2607.20027",
+      "target_label": "Zero-Shot HRV Forecasting from Consumer Wearables Using Time Series Foundation Models (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-02",
+      "note": "Where TS-Agent treats time series as a reasoning problem for a language model, this paper stays with pure forecasting and asks only whether the pretrained forecaster generalizes to a new signal type."
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2607.20027",
+      "target_label": "Zero-Shot HRV Forecasting from Consumer Wearables Using Time Series Foundation Models (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-02",
+      "note": "Where the biosignals survey catalogs transfer of foundation models to physiological signals, this paper supplies a concrete zero-shot baseline on wearable HRV and isolates data fragmentation, not model capacity, as the engineering problem."
     }
   ],
   "hyperedges": [

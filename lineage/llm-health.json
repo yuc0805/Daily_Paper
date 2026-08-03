@@ -598,6 +598,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-07-20"
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2607.09749",
+      "target_label": "MorphologyFM: A Foundation Model for Morphology-Aware Representation Learning from ECG and Pulse Oximetry Waveforms (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-02",
+      "note": "Where the masked-autoencoder analysis masks random patches and rewards value reconstruction, MorphologyFM masks with waveform morphology in mind and adds a contrastive objective, because the diagnostic content of a physiological waveform is in its shape, not its average level."
+    },
+    {
+      "source": "A5HBRQB9",
+      "source_label": "Masked Autoencoders Are Scalable Vision Learners (MAE, He 2021)",
+      "target": "2607.09749",
+      "target_label": "MorphologyFM: A Foundation Model for Morphology-Aware Representation Learning from ECG and Pulse Oximetry Waveforms (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-02",
+      "note": "MorphologyFM keeps masked reconstruction pretraining but targets waveform morphology rather than image pixels and pairs it with cross-modal contrastive alignment across ECG and SpO2."
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2607.09749",
+      "target_label": "MorphologyFM: A Foundation Model for Morphology-Aware Representation Learning from ECG and Pulse Oximetry Waveforms (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-02",
+      "note": "Where the Gu survey describes mostly single-signal biosignal pretraining, MorphologyFM extends the program to paired cross-modal ECG plus SpO2 pretraining with explicit cross-modal alignment."
     }
   ],
   "hyperedges": [

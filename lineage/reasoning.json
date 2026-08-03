@@ -625,6 +625,42 @@
       "target": "2607.25675",
       "target_label": "DecoEvo: Score-Decoupled Co-Evolution of Solver and Rubric-Generator Skills (2026)",
       "note": "Where Chain-of-Thought fixes the reasoning trace format at prompt time, DecoEvo edits external solver and rubric text rather than weights and updates each artifact from a distinct signal."
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1 (2025)",
+      "target": "2607.25308",
+      "target_label": "CAST: Game Solvers as Turn-Level Teachers for LLM Agents (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-02",
+      "note": "Where DeepSeek-R1 trains with sparse final verifiable rewards, CAST keeps the RLVR frame but adds a dense per-turn credit term, because sparse terminal reward is what makes long-horizon credit assignment hard."
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS (Zhou 2024)",
+      "target": "2607.25308",
+      "target_label": "CAST: Game Solvers as Turn-Level Teachers for LLM Agents (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-02",
+      "note": "Where LATS uses a value estimate at search time to guide tree rollouts, CAST uses a solver's value changes at training time to shape the policy gradient."
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2607.25308",
+      "target_label": "CAST: Game Solvers as Turn-Level Teachers for LLM Agents (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-02",
+      "note": "CAST pushes toward process-level supervision of the reasoning trace rather than the outcome-only supervision behind chain-of-thought prompting."
     }
   ],
   "hyperedges": [],

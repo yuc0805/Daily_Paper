@@ -39,6 +39,7 @@
 2026-07 | AREX (2607.21461) | deep-research agent that alternates evidence-gathering with constraint-by-constraint audit and re-planning, exploiting a discovery-verification asymmetry
 2026-07 | Skill Self-Play (2607.22529) | proposer-solver-controller RL loop that co-evolves an agent skill library as a self-generated curriculum
 2026-07 | DecoEvo (2607.25675) | co-evolves a solver skill and its grading rubric in text space, training each from a separate signal to limit reward hacking
+2026-08 | CAST (2607.25308) | adds dense per-turn credit to RLVR for game-playing language agents using a game solver's value changes as per-step advantages
 
 ### Paper List
 
@@ -87,7 +88,11 @@
 [2026] 2607.22529 — Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills. [https://arxiv.org/abs/2607.22529](https://arxiv.org/abs/2607.22529). external.
 [2026] 2607.25675 — DecoEvo: Score-Decoupled Co-Evolution of Solver and Rubric-Generator Skills in Text Space. [https://arxiv.org/abs/2607.25675](https://arxiv.org/abs/2607.25675). external.
 
+[2026] 2607.25308 — CAST: Game Solvers as Turn-Level Teachers for LLM Agents. [https://arxiv.org/abs/2607.25308](https://arxiv.org/abs/2607.25308). external.
+
 ### Recent Activity
+
+2026-08-02 | 2607.25308 added | CAST adds dense turn-level credit to reinforcement learning from verifiable rewards for long-horizon game agents, using a game solver's state-value estimate so that a rise in the solver's value after an action marks that action as progress; under a soft-optimal solver assumption, maximizing the solver advantage equals on-policy distillation from the solver using only scalar values rather than teacher logits; Tier B
 
 2026-07-30 | 2607.25675 added | DecoEvo improves a language model on open-ended tasks by editing external natural-language artifacts, a solver skill and the rubric that grades it, rather than model weights; it separates the two update signals so the solver learns from criterion-level feedback while the rubric generator is revised through audits of requirement coverage and answer discrimination that do not use the solver's aggregate score, reporting 2.8 to 5.0 percent relative gains over SkillOpt across five benchmarks and three backbones; Tier B
 
@@ -96,5 +101,3 @@
 2026-07-25 | 2607.21461 added | AREX builds deep-research agents on a discovery-verification asymmetry, alternating an inner loop that gathers evidence and drafts a provisional answer with an outer loop that audits the draft constraint by constraint and launches targeted follow-up research; it learns a context-update tool that compresses history into verified evidence and open constraints, ships as a 4B dense model and a 122B-A10B mixture-of-experts model, and outperforms comparable-scale baselines on BrowseComp, WideSearch, DeepSearchQA, and Humanity's Last Exam; Tier B
 
 2026-07-25 | 2607.10848 added | shows the single-sample importance ratio in a PPO-style direction test can disagree in sign with the change of the divergence the proximity test uses, and replaces it with a predictive divergence mask that asks whether the next gradient step will raise or lower that divergence, derived in closed form for softmax policies with two top-K estimators for the truncated vocabulary; improves RL training across model scales and precision settings; Tier B
-
-2026-07-22 | 2607.18722 added | SAT measures per-token staleness with a detached sampled log-ratio, finds the high-mismatch tail of each batch, and tightens only the sign-selected endpoint of the PPO clip interval on those tokens; on a decoupled asynchronous setup over Qwen3-30B-A3B-Base, SAT-GSPO holds AIME24 avg@8 at 35.83 for lag 1 and 34.79 for lag 8, and the tightened interval is proven to stay inside the PPO interval; Tier A

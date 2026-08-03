@@ -30,6 +30,7 @@
 2026-07 | VCSD (2607.21556) | on-policy self-distillation for vision-language models that builds the learning signal from original-image versus content-erased contrast through an EMA teacher, with no external teacher
 2026-07 | Native Multimodal Scaling (2607.22043) | compute laws for a vision-language model trained from scratch on mixed image and text, showing language and multimodal objectives scale differently
 2026-07 | TurboVLA (2607.27205) | vision-language-action policy running at 32 Hz on one RTX 4090 under 1 GB memory through compression and scheduling on the deployment side
+2026-08 | HumanCLAW (2607.27180) | evaluation framework that separates a vision-language model's action decisions from motor control; best of nine models reaches only 16.8% on embodied find-navigate-interact episodes
 
 ### Paper List
 
@@ -65,7 +66,11 @@
 [2026] 2607.22043 — Scaling Native Multimodal Pre-Training From Scratch. [https://arxiv.org/abs/2607.22043](https://arxiv.org/abs/2607.22043). external.
 [2026] 2607.27205 — TurboVLA: Real-Time Vision-Language-Action Model at 32 Hz on an RTX 4090 with under 1 GB VRAM. [https://arxiv.org/abs/2607.27205](https://arxiv.org/abs/2607.27205). external.
 
+[2026] 2607.27180 — HumanCLAW: Can Vision-Language Models Act Through a Body?. [https://arxiv.org/abs/2607.27180](https://arxiv.org/abs/2607.27180). external.
+
 ### Recent Activity
+
+2026-08-02 | 2607.27180 added | HumanCLAW harnesses an off-the-shelf vision-language model to issue atomic skill commands that a controller turns into sub-second full-body motion under real physics, so balance and motor errors are factored out and only the model's action choices are measured; across 1,218 long-horizon egocentric episodes in 41 scenes none of nine models solves it and the best reaches 16.8% success, locating the gap in embodied self-awareness rather than perception; Tier B
 
 2026-07-30 | 2607.27205 added | TurboVLA reports a vision-language-action policy running at 32 Hz on a single consumer RTX 4090 while using under 1 GB of GPU memory; the contribution is on the deployment side of the vision-language-action line rather than new task capability, using compression and scheduling to close the control loop in real time within a sub-1 GB budget; Tier B
 
@@ -74,5 +79,3 @@
 2026-07-25 | 2607.21556 added | VCSD removes the external teacher from self-distillation for vision-language models: at each student-generated prefix an EMA teacher produces two next-token distributions, one conditioned on the original image and one on a content-erased control, and the token-wise log-probability difference marks the tokens the image content raises, sharpening the teacher distribution that is distilled into the student; on ViRL39K it improves seven-benchmark aggregates on Qwen3-VL by about 5 points at 2B, 2 at 4B, and 4 at 8B, with no external teacher, answer hints, or extra inference cost; Tier B
 
 2026-07-20 | 2607.15686 added | S1-Omni maps heterogeneous scientific objects (crystal structures, SMILES strings, protein sequences, spectra, scientific images) plus instructions into one shared representation, then uses task-specific decoders for property prediction, spectrum-to-molecule generation, protein site and structure prediction, and scientific image generation; trained on 200 scientific tasks and evaluated on more than 60 benchmarks, it reportedly outperforms GPT-5.5 and Gemini-3.1-Pro on most; Tier B
-
-2026-07-18 | 2607.12800 added | UniVR moves both the reasoning trace and the reward into visual space with VR-GRPO, adding a step-level reward that checks physical consistency of intermediate visual states rather than scoring only the final answer, and reports up to 25% improvement on its VR-X benchmark; Tier B

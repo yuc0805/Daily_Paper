@@ -448,6 +448,30 @@
       "target": "2607.27205",
       "target_label": "TurboVLA: Real-Time Vision-Language-Action Model (2026)",
       "note": "Flamingo is the closest tracked neighbor, not a direct parent: it answered questions about an image, while TurboVLA extends the image-plus-text encoder with an action head and maps image and instruction to motor actions under a hard latency and memory budget."
+    },
+    {
+      "source": "SC8KWYVK",
+      "source_label": "Flamingo (Alayrac 2022)",
+      "target": "2607.27180",
+      "target_label": "HumanCLAW: Can Vision-Language Models Act Through a Body? (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-02",
+      "note": "Where Flamingo benchmarks a vision-language model on passive image and video question answering, HumanCLAW puts the same class of model in a control loop and measures whether its choices move a physical body toward a goal."
+    },
+    {
+      "source": "durante2024_agentai",
+      "source_label": "Agent AI Survey (Durante 2024)",
+      "target": "2607.27180",
+      "target_label": "HumanCLAW: Can Vision-Language Models Act Through a Body? (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-02",
+      "note": "Where the Agent AI survey described the multimodal-interaction and embodied-agent agenda in prose, HumanCLAW supplies a physics-grounded benchmark and a negative result: current vision-language models lose track of their own body."
     }
   ],
   "hyperedges": [],
