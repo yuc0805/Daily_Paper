@@ -40,6 +40,8 @@
 2026-07 | AgentDebugX (2607.18754) | closed Detect-Attribute-Recover-Rerun loop for LLM agent failures with multi-turn root-cause diagnosis and a reusable failure-diagnosis-repair hub
 2026-07 | AREX (2607.21461) | deep-research agent that alternates evidence-gathering with constraint-by-constraint audit and re-planning, exploiting a discovery-verification asymmetry
 2026-07 | Agentic Context Management (2607.21503) | reframes agent memory as a lifecycle with five primitives and ties each context strategy to a token-cost curve
+2026-08 | SkillRise (2607.26784) | RL agent alternates solving a task and curating an evolving skill document, with decoupled per-task and cross-task credit
+2026-08 | Shadow Evaluations (2607.27191) | authors grade a frontier agent on the open research question of their own unpublished paper; engineering solved, research judgment not
 
 ### Paper List
 
@@ -92,14 +94,17 @@
 [2026] 2607.21461 — AREX: Towards a Recursively Self-Improving Agent for Deep Research. [https://arxiv.org/abs/2607.21461](https://arxiv.org/abs/2607.21461). external.
 [2026] 2607.21503 — Agentic Context Management: Solving Agent Memory and Cost by Treating Them as Lifecycle and Architecture Problems. [https://arxiv.org/abs/2607.21503](https://arxiv.org/abs/2607.21503). external.
 
+[2026] 2607.26784 — SkillRise: Agentic Reinforcement Learning for Cross-Task Skill Evolution. [https://arxiv.org/abs/2607.26784](https://arxiv.org/abs/2607.26784). external.
+[2026] 2607.27191 — Can AI agents conduct open-ended AI research? Early evidence from two case studies. [https://arxiv.org/abs/2607.27191](https://arxiv.org/abs/2607.27191). external.
+
 ### Recent Activity
+
+2026-08-03 | 2607.27191 added | introduces shadow evaluations, in which a frontier agent takes the central open-ended research question of a high-quality unpublished paper and the paper's original authors grade the output; on two unpublished NeurIPS 2026 submissions, given six days and thousands of dollars of compute, agents completed all of the engineering without human help but could not make substantial progress on the research questions and both outputs were rejected, with five recurring failure modes named and reproduced by a second model and scaffold; Tier B
+
+2026-08-03 | 2607.26784 added | SkillRise runs a single policy that alternates between solving a task and curating an evolving skill document passed to the next related task, decoupling credit so solving is supervised by the current task outcome and curation by discounted downstream outcomes; on ALFWorld, WebShop, and ScienceWorld it reaches the best Pass@1 among compared methods, with gains of 2.3 to 8.5 percentage points over the strongest baseline, and it shows test-time scaling across tasks; Tier B
 
 2026-07-27 | 2607.21503 added | reframes agent memory from store-and-retrieve into a lifecycle called Agentic Context Management with five primitives (architecting, ingesting, scoping, anticipating, and compacting with consolidation), argues naive accumulation grows token cost with the square of conversation length while validated compaction keeps it linear without an accuracy cliff, and reports 92 percent on LongMemEval and 93.2 percent on LoCoMo; Tier B
 
 2026-07-25 | 2607.21461 added | AREX builds deep-research agents on a discovery-verification asymmetry, alternating an inner loop that gathers evidence and drafts a provisional answer with an outer loop that audits the draft constraint by constraint and launches targeted follow-up research; it learns a context-update tool that compresses history into verified evidence and open constraints, ships as a 4B dense model and a 122B-A10B mixture-of-experts model, and outperforms comparable-scale baselines on BrowseComp, WideSearch, DeepSearchQA, and Humanity's Last Exam; Tier B
 
 2026-07-22 | 2607.18754 added | AgentDebugX organizes agent debugging as a Detect-Attribute-Recover-Rerun loop whose DeepDebug component does multi-turn root-cause diagnosis; on the Who and When benchmark it reaches 28.8 percent exact agent-and-step attribution on qwen3.5-9b against 21.7 for the best single-pass baseline, and on GAIA it repairs 13 of 73 failed tasks in one rerun, lifting accuracy from 55.8 to 63.6 percent; Tier B
-
-2026-07-21 | 2607.16900 added | An Apple pipeline generates tool-call training data without a live executable environment, producing the API surface and its responses from the pipeline itself rather than by calling real services; this lowers the main cost of scaling agent training data and helps most for the long tail of tools that have no public sandbox; Tier B
-
-2026-07-18 | 2607.15257 added | SearchOS reframes open-domain information seeking as relational schema completion with grounded citations and moves working state out of the reasoning trace into four shared structures (Frontier Task, Evidence Graph, Coverage Map, Failure Memory), with a pipeline-parallel scheduler that refills freed slots toward uncovered gaps; Tier A

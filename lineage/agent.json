@@ -808,6 +808,54 @@
       "target": "2607.21503",
       "target_label": "Agentic Context Management (2026)",
       "note": "Where the Agent AI survey framed the general agent stack including memory, this paper focuses on managing the reasoning context turn by turn under a token budget and ties each strategy to a cost curve."
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1 (2025)",
+      "target": "2607.26784",
+      "target_label": "SkillRise: Agentic Reinforcement Learning for Cross-Task Skill Evolution (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-03",
+      "note": "Where DeepSeek-R1 improves a policy within a task using outcome rewards, SkillRise adds a second cross-task learning signal that rewards writing down transferable skills, supervised by discounted downstream outcomes."
+    },
+    {
+      "source": "huang2026_memory",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "2607.26784",
+      "target_label": "SkillRise: Agentic Reinforcement Learning for Cross-Task Skill Evolution (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-03",
+      "note": "Where the memory survey catalogs how agents store and recall information, SkillRise makes the memory itself a learned object shaped by the reward function, so the skill document is trained rather than hand-designed."
+    },
+    {
+      "source": "durante2024_agentai",
+      "source_label": "Agent AI: Surveying Multimodal Interaction (Durante 2024)",
+      "target": "2607.27191",
+      "target_label": "Can AI agents conduct open-ended AI research? Early evidence from two case studies (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-03",
+      "note": "Where the Agent AI survey maps what agents can do, this paper measures whether an agent can drive an open research question end to end, and supplies a boundary result: engineering is handled, research judgment is not."
+    },
+    {
+      "source": "huang2026_memory",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "2607.27191",
+      "target_label": "Can AI agents conduct open-ended AI research? Early evidence from two case studies (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-03",
+      "note": "Where the memory survey maps how agents remember and act over long horizons, this paper grades agents on two unpublished NeurIPS 2026 research questions and names five recurring failure modes that block the harder part."
     }
   ],
   "hyperedges": [

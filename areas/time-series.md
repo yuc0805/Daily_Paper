@@ -70,6 +70,7 @@
 2026-07 | Post-Training TSFM Survey (2607.20002) | unifying framework sorting post-training methods for time series foundation models into five families keyed by locus of intervention
 2026-07 | DEFT (2607.19659) | edits a frozen time-series foundation model's forecast at test time, reusing each expert score across trend and seasonal components
 2026-08 | Zero-Shot HRV Forecasting (2607.20027) | tests TimesFM, Chronos, and MOIRAI zero-shot on wearable heart-rate-variability forecasting with a variability-preserving imputation for artifact gaps
+2026-08 | OpenMHC (2607.16235) | largest open-access wearable health dataset with open model weights and a three-track benchmark
 
 ### Paper List
 
@@ -168,7 +169,11 @@
 
 [2026] 2607.20027 — Zero-Shot Heart Rate Variability Forecasting from Consumer Wearables Using Time Series Foundation Models. [https://arxiv.org/abs/2607.20027](https://arxiv.org/abs/2607.20027). external.
 
+[2026] 2607.16235 — OpenMHC: Accelerating the Science of Wearable Foundation Models. [https://arxiv.org/abs/2607.16235](https://arxiv.org/abs/2607.16235). external.
+
 ### Recent Activity
+
+2026-08-03 | 2607.16235 added | OpenMHC releases the largest open-access wearable health dataset to date, over 60 million hours across 19 sensor channels and up to 169 linked health, lifestyle, mood, and behavior variables from 11,894 participants, and ships open-source implementations of recent wearable foundation models with one benchmark covering health and behavior prediction, multivariate imputation, and forecasting; the reusable value is the shared testbed, because the masked-reconstruction and multivariate time-series pretraining it benchmarks is now well ported and closed off as low-hanging fruit; Tier A
 
 2026-08-02 | 2607.20027 added | runs TimesFM, Chronos, and MOIRAI unchanged on fragmented consumer-wearable heart-rate-variability data with no fine-tuning and still beats classical baselines (MASE 0.81 to 0.87) across horizons up to two hours on 49 participants, because a variability-preserving imputation (linear interpolation plus locally adaptive stochastic noise) keeps the input inside the pretrained models' expected distribution; the reusable piece is the imputation trick, not a new architecture; Tier A
 
@@ -177,5 +182,3 @@
 2026-07-30 | 2607.05291 added | tests whether pretrained time-series foundation models beat classical econometric models at forecasting realized volatility, finding that performance varies across foundation-model architectures and that the choice of architecture matters more than the broad foundation-model-versus-econometric split, since the frozen model's architecture sets the accuracy ceiling; Tier B
 
 2026-07-27 | 2607.20002 added | a survey that places the methods sitting between a pretrained time series model and its deployment into one framework keyed by locus of intervention, naming five families (parameter adaptation, context augmentation, model composition, output processing with uncertainty control, and compression with specialization), and marking uncertainty-aware model composition and deployment-aware specialization as the thinner, higher-value areas; Tier A
-
-2026-07-25 | 2607.04245 added | SensorGen runs five generative-model families under one protocol across 14 settings, 4 domains, 7 datasets, and 12 signal modalities, measuring signal fidelity and downstream usefulness; flow-matching is the strongest overall, signal properties decide which design choices help (demographic covariates for longitudinal signals, time-frequency modeling for high-frequency ones), and synthetic signals improve downstream prediction, not only visual realism; Tier A

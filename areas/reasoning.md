@@ -40,6 +40,7 @@
 2026-07 | Skill Self-Play (2607.22529) | proposer-solver-controller RL loop that co-evolves an agent skill library as a self-generated curriculum
 2026-07 | DecoEvo (2607.25675) | co-evolves a solver skill and its grading rubric in text space, training each from a separate signal to limit reward hacking
 2026-08 | CAST (2607.25308) | adds dense per-turn credit to RLVR for game-playing language agents using a game solver's value changes as per-step advantages
+2026-08 | CoRT (2607.25659) | token-level credit for rubric-conditioned GRPO from rubric-versus-criteria-free log-likelihood contrasts
 
 ### Paper List
 
@@ -90,7 +91,11 @@
 
 [2026] 2607.25308 — CAST: Game Solvers as Turn-Level Teachers for LLM Agents. [https://arxiv.org/abs/2607.25308](https://arxiv.org/abs/2607.25308). external.
 
+[2026] 2607.25659 — CoRT: Counterfactual Replay for Token-Level Rubric-Guided Policy Optimization. [https://arxiv.org/abs/2607.25659](https://arxiv.org/abs/2607.25659). external.
+
 ### Recent Activity
+
+2026-08-03 | 2607.25659 added | CoRT rescores the same sampled response twice, once under the rubric-conditioned prompt and once under a matched criteria-free prompt, and uses the token-by-token log-likelihood difference as a proxy for how much each token depends on the rubric, mapping those differences to bounded response-normalized weights that redistribute the GRPO advantage across tokens with no auxiliary scoring model and no change to the response-level reward; it improves over matched response-level GRPO by 4.4 percentage points on average; Tier B
 
 2026-08-02 | 2607.25308 added | CAST adds dense turn-level credit to reinforcement learning from verifiable rewards for long-horizon game agents, using a game solver's state-value estimate so that a rise in the solver's value after an action marks that action as progress; under a soft-optimal solver assumption, maximizing the solver advantage equals on-policy distillation from the solver using only scalar values rather than teacher logits; Tier B
 
@@ -99,5 +104,3 @@
 2026-07-27 | 2607.22529 added | trains a language model through self-play with agent skills as the unit of practice, running a proposer that writes tasks conditioned on a sampled skill, a solver that answers them, and a skill controller that reads execution feedback and grows a skill library, so the training distribution moves with the model while each skill keeps verification local; it raises the ceiling of strong backbones and recovers misaligned models on tool-use and reasoning benchmarks; Tier B
 
 2026-07-25 | 2607.21461 added | AREX builds deep-research agents on a discovery-verification asymmetry, alternating an inner loop that gathers evidence and drafts a provisional answer with an outer loop that audits the draft constraint by constraint and launches targeted follow-up research; it learns a context-update tool that compresses history into verified evidence and open constraints, ships as a 4B dense model and a 122B-A10B mixture-of-experts model, and outperforms comparable-scale baselines on BrowseComp, WideSearch, DeepSearchQA, and Humanity's Last Exam; Tier B
-
-2026-07-25 | 2607.10848 added | shows the single-sample importance ratio in a PPO-style direction test can disagree in sign with the change of the divergence the proximity test uses, and replaces it with a predictive divergence mask that asks whether the next gradient step will raise or lower that divergence, derived in closed form for softmax policies with two top-K estimators for the truncated vocabulary; improves RL training across model scales and precision settings; Tier B

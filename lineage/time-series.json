@@ -1459,6 +1459,42 @@
       "cross_area": false,
       "date_added": "2026-08-02",
       "note": "Where the biosignals survey catalogs transfer of foundation models to physiological signals, this paper supplies a concrete zero-shot baseline on wearable HRV and isolates data fragmentation, not model capacity, as the engineering problem."
+    },
+    {
+      "source": "xu2023_globem",
+      "source_label": "GLOBEM (Xu 2023)",
+      "target": "2607.16235",
+      "target_label": "OpenMHC: Accelerating the Science of Wearable Foundation Models (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-03",
+      "note": "Where GLOBEM released a multi-year, multi-site wearable behavior dataset with a cross-dataset benchmark, OpenMHC releases a larger open dataset together with open model weights and a three-track benchmark, moving the blocking problem from whether pretraining works to reproducibility and fair comparison."
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2607.16235",
+      "target_label": "OpenMHC: Accelerating the Science of Wearable Foundation Models (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-03",
+      "note": "Where the biosignals survey mapped the design space and pretraining strategies for biosignal foundation models, OpenMHC supplies the shared dataset, reference implementations, and benchmark needed to compare those strategies in one place."
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+      "target": "2607.16235",
+      "target_label": "OpenMHC: Accelerating the Science of Wearable Foundation Models (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-03",
+      "note": "Where Yuan 2024 showed large-scale self-supervised pretraining works on a single accelerometer stream, OpenMHC broadens the input to 19 sensor channels and links them to health and mood outcomes inside one standardized benchmark."
     }
   ],
   "hyperedges": [
