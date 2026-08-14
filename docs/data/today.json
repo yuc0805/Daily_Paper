@@ -1,45 +1,45 @@
 {
-  "date": "2026-08-03",
+  "date": "2026-08-14",
   "papers": [
     {
-      "zotero_key": "2607.16235",
-      "title": "OpenMHC: Accelerating the Science of Wearable Foundation Models",
-      "authors": "Schuetz et al.",
+      "zotero_key": "2608.08888",
+      "title": "Full-bandwidth transformer",
+      "authors": "Wang et al.",
       "year": 2026,
-      "what": "Releases the largest open-access wearable health dataset to date (over 60 million hours, 19 sensor channels, up to 169 linked variables, 11,894 participants) plus open-source reference models and a three-track benchmark for prediction, imputation, and forecasting.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "GLOBEM (Xu 2023, ICD9EG8Q); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); SSL for HAR 700K Person-days (Yuan 2024, RTMH75VW)"
+      "what": "Widens the narrow feedback channel between decoding steps by fusing the previous top-layer hidden state with the sampled token embedding through a gated linear unit; 1B-parameter models trained to 400B tokens match or approach standard transformers trained on roughly 1.5 times more tokens, with negligible decoding overhead and shorter reasoning traces.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "PonderLM (2026, 3TLRP8U5); Latent Reasoning Survey (2025, EMXEJYHV); Attention Is All You Need (2017, PHB9VRVM)"
     },
     {
-      "zotero_key": "2607.26784",
-      "title": "SkillRise: Agentic Reinforcement Learning for Cross-Task Skill Evolution",
-      "authors": "Yao et al.",
+      "zotero_key": "2608.12149",
+      "title": "Massive Activations in Hybrid Linear Attention Large Language Models",
+      "authors": "Su et al.",
       "year": 2026,
-      "what": "Trains a single policy to alternate between solving a task and curating an evolving skill document for the next task, with decoupled credit assignment; gains 2.3 to 8.5 points Pass@1 over the strongest baseline on ALFWorld, WebShop, and ScienceWorld and shows test-time scaling across tasks.",
+      "what": "Measures where activation outliers concentrate in hybrid linear-attention stacks and finds two recurring shapes, pre-attention spikes and inter-spike plateaus, across five linear-attention architectures, six hybridization ratios, five data domains, and models from 1.2B to 397B parameters.",
+      "area_label": "MAMBA",
+      "area_slug": "mamba",
+      "builds_on": "HARMamba (2024, HE9X47KN); Bi-Mamba+ (2024, AVTJLZIR); Attention Is All You Need (2017, PHB9VRVM)"
+    },
+    {
+      "zotero_key": "2608.12990",
+      "title": "LycheeMemory V2: Efficient Long-Term Memory for LLM Agents",
+      "authors": "Li et al.",
+      "year": 2026,
+      "what": "Replaces per-turn memory consolidation with semantic segment-level consolidation into context-independent typed records; reaches 89.22 percent on LoCoMo and 92.20 percent on LongMemEval-S while cutting construction tokens by 86.0 and 75.9 percent against A-Mem, without raising query-time usage.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Memory Mechanisms of Foundation Agents (Huang 2026, BDY3HUCV)"
+      "builds_on": "Memory Mechanisms Survey (2026, BDY3HUCV); LATS (2024, 77ERE7HA)"
     },
     {
-      "zotero_key": "2607.25659",
-      "title": "CoRT: Counterfactual Replay for Token-Level Rubric-Guided Policy Optimization",
-      "authors": "Zhang et al.",
+      "zotero_key": "2607.29211",
+      "title": "Knowing When to Quit: Diagnosing and Training LLMs to Abort Futile Reasoning",
+      "authors": "Guan et al.",
       "year": 2026,
-      "what": "Splits the response-level GRPO advantage across tokens by rescoring a response with and without the rubric criteria and using the token log-likelihood contrast as a credit weight, with no auxiliary scorer; improves matched response-level GRPO by 4.4 points on average.",
+      "what": "Names and measures futile reasoning on beyond-capability tasks, identifies specious reasoning as the dominant failure mode, and proposes CaRL, which shapes rewards to prefer refusal and converts observed failures into refusal supervision; ACL 2026 Findings.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought (Wei 2023, HBLPTRMY)"
-    },
-    {
-      "zotero_key": "2607.27191",
-      "title": "Can AI agents conduct open-ended AI research? Early evidence from two case studies",
-      "authors": "Kirgis et al.",
-      "year": 2026,
-      "what": "Introduces shadow evaluations where a frontier agent answers the central question of an unpublished paper and the original authors grade it; on two NeurIPS 2026 submissions the agents did all engineering but made no substantial research progress and were rejected, with five named failure modes.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Agent AI Survey (Durante 2024, Z9WZPMNU); Memory Mechanisms of Foundation Agents (Huang 2026, BDY3HUCV)"
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought (2023, HBLPTRMY)"
     }
   ]
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knowing When to Quit — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Knowing When to Quit: Diagnosing and Training LLMs to Abort Futile Reasoning</h2>
+<p class="paper-meta">
+  Guan, Zeng, Xin, Lu, Lin, Han, Sun, Meng &middot; ACL 2026 Findings &middot; arXiv 2026-07-31 &middot;
+  <a href="https://arxiv.org/abs/2607.29211" target="_blank" rel="noopener">arXiv:2607.29211</a> &middot;
+  Appears in: <a href="../areas/reasoning.html">Reasoning</a>
+</p>
+
+<h3>What</h3>
+<p>The paper names and measures futile reasoning: on tasks beyond a model's capability, reasoning models produce long, expensive derivations that are semantically void. It reports two systematic patterns, capability overreach and miscalibration between measured capability and actual behavior, and identifies specious reasoning as the dominant failure mode, where output looks superficially valid but contains subtle errors, with its share growing as tasks get harder. The proposed remedy is CaRL, capability-aligned reinforcement learning.</p>
+
+<h3>Why</h3>
+<p>Reinforcement learning on outcome rewards, as in DeepSeek-R1, makes chains longer because length correlates with success on tasks the model can solve. It supplies no signal that separates a hard-won failure from a correct refusal, so the trained behavior overshoots the capability boundary. Chain-of-Thought established the opposite prior, that verbalizing intermediate steps helps, which leaves the regime where the trace is actively harmful unexamined. That regime carries a real cost: a plausible-sounding but incorrect derivation misleads the reader in a way that a blank answer does not.</p>
+
+<h3>How</h3>
+<p>CaRL aligns behavior with the capability boundary through two mechanisms. Reward shaping makes refusal preferable to futile reasoning, so declining a beyond-capability task is scored above producing a specious derivation for it. Hindsight refusal augmentation converts observed failures into refusal supervision, which turns the model's own unsuccessful attempts into training signal rather than discarding them. The reported outcome is a substantial reduction in futile reasoning while task performance is preserved across difficulty levels, so the calibration gain does not come at the cost of utility. Code is released.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Graphify community 0; showed outcome-reward RL produces long reasoning chains, which is the behavior this paper bounds.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought (2023)</a><span class="lineage-note">Graphify community 0; established that verbalized steps help, and implicitly that more steps are better.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 optimizes for getting the answer right and is silent about what to do when the answer is out of reach, so the trained policy keeps generating. The failure mode this paper fixes is precisely that silence: a model with no reward for stopping will spend its full budget on a task it cannot do and emit a confident wrong derivation. Chain-of-Thought is fixed in a different sense; its assumption that the trace is always beneficial is shown to hold only inside the capability boundary. This is also a cross-area bridge case in the graph. DeepSeek-R1 already links reasoning-via-RL to prompting-era chain-of-thought, and this work extends that bridge toward calibration and abstention, connecting the reasoning cluster to the hallucination line of work.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The reward function is where the methods diverge. DeepSeek-R1 uses outcome correctness, a single scalar on the final answer; CaRL adds a refusal branch so that the reward landscape has a defensible low-cost exit, and it manufactures supervision for that branch out of past failures rather than requiring new annotation. Relative to Chain-of-Thought, which is a prompting intervention with no training signal at all, this is a post-training method, so the two operate at different stages and are compatible. The abstract reports the reduction qualitatively rather than with headline numbers, so the magnitude has to be read out of the paper itself; the reward shaping and hindsight augmentation sections are the parts worth the time, since both are cheap to reimplement.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2IV8EKL2.html">Med-HALT (2023)</a><span class="lineage-note">Benchmarks hallucination and abstention in a high-cost domain; the evaluation counterpart to this training method.</span></li>
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Base model line whose post-training recipe this work modifies.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

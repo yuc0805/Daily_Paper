@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LycheeMemory V2 — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>LycheeMemory V2: Efficient Long-Term Memory for LLM Agents via Semantic Segment-Level Consolidation</h2>
+<p class="paper-meta">
+  Li, Liu, Wang, Huang, Li, Jia, Hu, Zhang &middot; arXiv 2026-08-13 &middot;
+  <a href="https://arxiv.org/abs/2608.12990" target="_blank" rel="noopener">arXiv:2608.12990</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>LycheeMemory V2 is a long-term memory framework for LLM agents that replaces turn-level consolidation with semantic segment-level consolidation. Rather than calling an LLM after every interaction to extract and update memories, it batches several exchanges into a segment and encodes each finalized segment into context-independent typed memory records, which are then organized with lightweight structured indexes for query-planned evidence retrieval.</p>
+
+<h3>Why</h3>
+<p>Existing memory systems consolidate eagerly, invoking an LLM after each interaction, so construction cost grows without bound as a conversation lengthens. The two obvious escapes both fail. Coarse summarization lowers construction cost but discards the fine-grained contextual evidence that later queries need. Larger retrieval contexts or multi-hop reasoning at query time keep the evidence but move the same overhead to inference. The Memory Mechanisms Survey in this library maps the design space of what to retain, but leaves open the question of the granularity at which retention should happen, which is the variable this paper isolates.</p>
+
+<h3>How</h3>
+<p>Semantic boundary detection decides where one segment ends and the next begins, which preserves coherent event-level and temporal evidence better than fixed-window batching does. Each finalized segment is encoded once into typed records that are independent of the surrounding context, so retrieval does not need to reconstruct the original conversation. Segment-level batching lowers the frequency of LLM encoding calls, and structured indexes keep query planning cheap. Using GPT-4.1-Mini, the system reports 89.22 percent on LoCoMo and 92.20 percent on LongMemEval-S. Against A-Mem it reduces construction tokens by 86.0 percent on LoCoMo and 75.9 percent on LongMemEval-S, without increasing query-time token usage.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="BDY3HUCV.html">Memory Mechanisms Survey (2026)</a><span class="lineage-note">Graphify community 0; named context explosion as the central utility gap and mapped the retention design space this paper narrows.</span></li>
+  <li><a href="77ERE7HA.html">LATS (2024)</a><span class="lineage-note">Treated agent context as a search structure expanded at query time; the cost profile this paper inverts.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The survey catalogues what an agent should remember but does not resolve when consolidation should run, so implementations default to per-turn, which is the setting whose cost this paper shows to be avoidable. LATS spends additional LLM calls during retrieval to search over context, which keeps write cost low and makes every query expensive. LycheeMemory fixes the specific failure that both leave standing, namely that the accuracy-cost curve is treated as a function of what is retained when it is also a function of the granularity at which retention happens. Moving consolidation to segment boundaries removes most write-time calls while keeping query-time usage flat, so neither end of the pipeline absorbs the saving.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared with eager per-turn consolidation, the unit of work changes from one exchange to one semantically bounded segment, and the output changes from incrementally updated summaries to context-independent typed records. Compared with LATS, the search machinery moves from query time to write time and becomes an indexing step rather than a tree expansion, which is why query-time tokens do not rise. Compared with fixed-window batching, the only difference is boundary placement, and the paper attributes its retention of event-level and temporal evidence to that choice specifically. All results come from a single backbone, GPT-4.1-Mini, on two conversational benchmarks, so the size of the saving at other model scales is untested.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="6RDHVVA2.html">ToolkenGPT (2024)</a><span class="lineage-note">Same community 0 cluster: augments an LLM with external structure rather than growing its context.</span></li>
+  <li><a href="J8DYBKW2.html">ADaPT (2023)</a><span class="lineage-note">Decomposition-based agent control; complementary to memory in managing long-horizon tasks.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

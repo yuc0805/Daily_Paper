@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Massive Activations in Hybrid Linear Attention LLMs — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/mamba.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Massive Activations in Hybrid Linear Attention Large Language Models: Pre-Attention Spikes and Inter-Spike Plateaus</h2>
+<p class="paper-meta">
+  Su, Sun, Zhuang, Zhang, Xiao, Xiong, Zhang, Zhou, Zhang, Wong, Kuo &middot; arXiv 2026-08-12 &middot;
+  <a href="https://arxiv.org/abs/2608.12149" target="_blank" rel="noopener">arXiv:2608.12149</a> &middot;
+  Appears in: <a href="../areas/mamba.html">MAMBA</a>
+</p>
+
+<h3>What</h3>
+<p>This is a measurement study of massive activations, the very large outlier values that appear in a small number of hidden dimensions, inside layer-interleaved hybrid linear-attention models. Two shapes recur. Activations spike immediately before every full-attention layer, which the authors call pre-attention spikes, and they can persist across the intervening linear-attention layers as flat plateaus, called inter-spike plateaus. As full attention becomes denser, successive spikes join through the plateaus and the pattern converges to the stable outlier morphology already known from full-attention models.</p>
+
+<h3>Why</h3>
+<p>Massive activations are well documented in full-attention language models and are the main obstacle to low-bit quantization, because a few dimensions with extreme range force the whole tensor onto a coarse scale. Hybrid models that interleave linear-attention and full-attention layers are now the standard way to buy long-context efficiency, but their outlier behavior had not been characterized, so quantization results on hybrids were treated as per-model surprises. Prior state space work in this library, including HARMamba and Bi-Mamba+, argued for replacing attention outright and evaluated by downstream accuracy, which leaves the mixed case and its internal statistics unexamined.</p>
+
+<h3>How</h3>
+<p>The authors establish the recurrence of the two morphologies across five linear-attention architectures, six hybridization configurations, five data domains, and open-source hybrid models spanning 1.2B to 397B total parameters. They then run controlled pretraining of gated-delta-net hybrids at scales up to 1.3B and find that both shapes emerge early and respond asymmetrically to output gating: full-attention output gating strongly attenuates absolute magnitudes without eliminating the layerwise organization, whereas removing the gated-delta-net gates yields comparatively modest amplification. A systematic-outlier analysis supports a shared lifecycle account governed by the timing of activation cancellation, with pre-attention spikes following a localized write-sink-cancel process and plateaus consistent with delayed cancellation. Code is released.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="HE9X47KN.html">HARMamba (2024)</a><span class="lineage-note">Graphify community 2; established bidirectional Mamba as a practical backbone, arguing state space layers can replace attention.</span></li>
+  <li><a href="AVTJLZIR.html">Bi-Mamba+ (2024)</a><span class="lineage-note">Applied selective state space models to long-term forecasting as a Transformer alternative on the same cost argument.</span></li>
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (2017)</a><span class="lineage-note">The full-attention limit toward which the observed morphology converges as hybridization density increases.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>HARMamba and Bi-Mamba+ both answer the question "can a state space layer stand in for attention", and both answer it with downstream accuracy at lower cost. Neither addresses what happens when the two layer types coexist, which is the configuration nearly all recent long-context models actually ship. The specific failure mode this paper fixes is the unpredictability of quantization on hybrids: without a model of where outliers concentrate, low-bit deployment of a hybrid is trial and error. By showing that spike placement is determined by where full-attention layers sit, the paper makes outlier structure a consequence of the hybridization ratio, which is a design choice known in advance.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The predecessors are architecture papers evaluated by benchmark score; this is a diagnostic paper evaluated by internal activation statistics, so the comparison is one of instrument rather than of model. Where HARMamba varied the backbone and measured recognition accuracy, this work holds the task fixed and varies hybridization ratio, gating, data domain, and scale, then reports how activation magnitude organizes across layers. The mechanism offered, cancellation timing, is also of a different type from anything in the parents: it is an account of an activation lifecycle rather than a claim about representational capacity. The honest limitation is that the paper is descriptive. It explains why hybrids quantize the way they do and does not propose a method that fixes it, and all evidence comes from language pretraining rather than from signal or sensing data.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="UTAMLB63.html">SSM / LSSL (2021)</a><span class="lineage-note">Origin of the linear state space layer family whose hybrids are measured here.</span></li>
+  <li><a href="6VTXUZEG.html">Audio Mamba (Erol 2024)</a><span class="lineage-note">Same community 2 cluster: bidirectional state space modeling applied to a continuous signal domain.</span></li>
+  <li><a href="ZP32YT5I.html">Swin-UMamba (2024)</a><span class="lineage-note">Another hybrid of attention-era design with state space layers, evaluated on accuracy rather than activation structure.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

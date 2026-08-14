@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full-bandwidth transformer — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Full-bandwidth transformer</h2>
+<p class="paper-meta">
+  Wang, Cai, Zhan, Dong, Fan, de Rosa, Pearce, Langford (Microsoft Research) &middot; arXiv 2026-08-09 &middot;
+  <a href="https://arxiv.org/abs/2608.08888" target="_blank" rel="noopener">arXiv:2608.08888</a> &middot;
+  Appears in: <a href="../areas/llm.html">LLM</a>
+</p>
+
+<h3>What</h3>
+<p>An autoregressive transformer computes along two axes: horizontally across generated tokens and vertically through model depth. Dense attention gives each token broad horizontal access to the past, but the vertical feedback channel between decoding steps is narrow, because only the sampled token returns to the bottom of the stack while the top-layer hidden state is discarded. The full-bandwidth transformer widens that channel with latent feedback: at each decoding step the previous top-layer hidden state is fused with the sampled token embedding through a gated linear unit and fed back as the next input. The core architecture, the KV cache, and the language-modeling objective are unchanged.</p>
+
+<h3>Why</h3>
+<p>Everything a model computes at a decoding step that it does not verbalize is destroyed at the end of that step. Prior attempts to recover this computation, such as PonderLM-style inner iteration or looped-depth designs, spend extra forward passes inside a single token position, which changes the decoding procedure and often the training objective as well. Latent reasoning work argued more broadly that natural-language chains are an expressive bottleneck, but the proposed remedies replace the verbal chain rather than supplementing it, which sacrifices the standard language-modeling setup and the tooling built around it. The open problem is how to carry non-verbalized computation forward across steps without giving up parallel teacher forcing, the KV cache, or ordinary decoding.</p>
+
+<h3>How</h3>
+<p>The previous top-layer hidden state and the sampled token embedding are combined by a gated linear unit and used as the input embedding for the next step, so latent state re-enters the bottom of the stack with a renewed depth budget. Training uses a scheduled multi-pass objective: latent feedback is introduced late in pretraining, and a small fraction of deeper feedback passes is mixed in for stability, which preserves parallel teacher forcing rather than forcing sequential training. The authors train 1B-parameter models to 400B tokens and report improvements in validation loss, five-shot language-model evaluation, math and coding generation, and instruction-tuned performance. Per-token decoding overhead is negligible, the models match or approach standard transformers trained on roughly 1.5 times more tokens, and reasoning traces are shorter at equal or better accuracy.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="3TLRP8U5.html">PonderLM (2026)</a><span class="lineage-note">Nearest predecessor: also feeds a continuous representation back into the input, but within one token step rather than across steps.</span></li>
+  <li><a href="EMXEJYHV.html">Latent Reasoning Survey (2025)</a><span class="lineage-note">Source of the argument that verbalized chains are an expressive bottleneck and inference can run in continuous hidden state.</span></li>
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (2017)</a><span class="lineage-note">The base architecture; this paper frames its contribution as widening the vertical axis that the original design leaves narrow.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>PonderLM fixes the case where a single token position needs more computation than the depth of the stack allows, and it does so by repeating forward passes at that position. That leaves the cross-step problem untouched: whatever the model figured out at position t is still discarded before position t+1. The full-bandwidth transformer addresses exactly that failure mode, so the model no longer has to re-derive context that it already computed one step earlier, which is the mechanism the authors offer for the observed shortening of reasoning traces. Relative to the latent reasoning line more generally, the fix here is compatibility: earlier proposals that keep computation in latent space break the standard language-modeling objective, whereas this design leaves the objective, the cache, and the decoding loop intact.</p>
+
+<h3>Method vs predecessors</h3>
+<p>PonderLM feeds back a distribution-weighted sum of all token embeddings within a step and learns to do so by self-supervision; the full-bandwidth transformer feeds back the top-layer hidden state across steps through a gated linear unit, which is a fixed architectural component rather than a variable-length inner loop. The training recipes differ in the same direction: PonderLM requires the model to learn when and how long to iterate, whereas here the schedule is external, latent feedback is switched on late in pretraining, and deeper passes appear only as a stability mixture. Against the plain transformer the only structural change is the input-side fusion, which is why decoding overhead stays negligible. The authors acknowledge in discussion that they do not have comparative scaling laws, so the 1.5 times token-efficiency figure rests on a small number of runs at one scale.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="KRVDKDGH.html">Latent Space Survey (2026)</a><span class="lineage-note">Same premise that latent space is the native substrate for internal computation; this paper is a concrete architectural instance.</span></li>
+  <li><a href="U4ZPM5DN.html">Latent-GRPO (2026)</a><span class="lineage-note">Complementary: handles reinforcement learning in latent space, where this paper handles pretraining.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
