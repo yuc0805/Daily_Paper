@@ -685,6 +685,30 @@
       "cross_area": false,
       "date_added": "2026-08-03",
       "note": "Where Chain-of-Thought exposes intermediate reasoning in text, CoRT does not change the text; it changes which tokens the policy update rewards, keeping the response-level reward fixed."
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1 (2025)",
+      "target": "2607.29211",
+      "target_label": "Knowing When to Quit: Diagnosing and Training LLMs to Abort Futile Reasoning (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-14",
+      "note": "Where DeepSeek-R1 used outcome reward to make reasoning chains longer, this paper shapes reward to make them stop, because outcome-only reward gives no signal separating a hard-won failure from a correct refusal."
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2607.29211",
+      "target_label": "Knowing When to Quit: Diagnosing and Training LLMs to Abort Futile Reasoning (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-14",
+      "note": "Where Chain-of-Thought treated the verbalized trace as always beneficial, this paper measures the regime in which the trace is actively harmful, burning compute and producing plausible wrong answers."
     }
   ],
   "hyperedges": [],

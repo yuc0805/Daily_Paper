@@ -41,6 +41,7 @@
 2026-07 | DecoEvo (2607.25675) | co-evolves a solver skill and its grading rubric in text space, training each from a separate signal to limit reward hacking
 2026-08 | CAST (2607.25308) | adds dense per-turn credit to RLVR for game-playing language agents using a game solver's value changes as per-step advantages
 2026-08 | CoRT (2607.25659) | token-level credit for rubric-conditioned GRPO from rubric-versus-criteria-free log-likelihood contrasts
+2026-08 | CaRL / Knowing When to Quit (2607.29211) | capability-aligned RL that shapes rewards so refusal scores above futile reasoning, with hindsight refusal augmentation built from observed failures
 
 ### Paper List
 
@@ -93,7 +94,11 @@
 
 [2026] 2607.25659 — CoRT: Counterfactual Replay for Token-Level Rubric-Guided Policy Optimization. [https://arxiv.org/abs/2607.25659](https://arxiv.org/abs/2607.25659). external.
 
+[2026] 2607.29211 — Knowing When to Quit: Diagnosing and Training LLMs to Abort Futile Reasoning. [https://arxiv.org/abs/2607.29211](https://arxiv.org/abs/2607.29211). external.
+
 ### Recent Activity
+
+2026-08-14 | 2607.29211 added | names and characterizes futile reasoning, in which a model working past its capability keeps producing long derivations that look valid and are not, reporting capability overreach and miscalibration between measured capability and actual behavior, with specious reasoning as the dominant failure mode and its share rising with task difficulty; the proposed fix, CaRL, shapes rewards so that refusal scores above futile reasoning and adds hindsight refusal augmentation that converts observed failures into refusal supervision, reducing futile reasoning while preserving task performance across difficulties; the abstract states the effect qualitatively, so the magnitude has to be read out of the paper; ACL 2026 Findings; Tier B
 
 2026-08-03 | 2607.25659 added | CoRT rescores the same sampled response twice, once under the rubric-conditioned prompt and once under a matched criteria-free prompt, and uses the token-by-token log-likelihood difference as a proxy for how much each token depends on the rubric, mapping those differences to bounded response-normalized weights that redistribute the GRPO advantage across tokens with no auxiliary scoring model and no change to the response-level reward; it improves over matched response-level GRPO by 4.4 percentage points on average; Tier B
 
@@ -102,5 +107,3 @@
 2026-07-30 | 2607.25675 added | DecoEvo improves a language model on open-ended tasks by editing external natural-language artifacts, a solver skill and the rubric that grades it, rather than model weights; it separates the two update signals so the solver learns from criterion-level feedback while the rubric generator is revised through audits of requirement coverage and answer discrimination that do not use the solver's aggregate score, reporting 2.8 to 5.0 percent relative gains over SkillOpt across five benchmarks and three backbones; Tier B
 
 2026-07-27 | 2607.22529 added | trains a language model through self-play with agent skills as the unit of practice, running a proposer that writes tasks conditioned on a sampled skill, a solver that answers them, and a skill controller that reads execution feedback and grows a skill library, so the training distribution moves with the model while each skill keeps verification local; it raises the ceiling of strong backbones and recovers misaligned models on tool-use and reasoning benchmarks; Tier B
-
-2026-07-25 | 2607.21461 added | AREX builds deep-research agents on a discovery-verification asymmetry, alternating an inner loop that gathers evidence and drafts a provisional answer with an outer loop that audits the draft constraint by constraint and launches targeted follow-up research; it learns a context-update tool that compresses history into verified evidence and open constraints, ships as a 4B dense model and a 122B-A10B mixture-of-experts model, and outperforms comparable-scale baselines on BrowseComp, WideSearch, DeepSearchQA, and Humanity's Last Exam; Tier B

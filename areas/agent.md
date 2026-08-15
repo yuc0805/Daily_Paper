@@ -42,6 +42,7 @@
 2026-07 | Agentic Context Management (2607.21503) | reframes agent memory as a lifecycle with five primitives and ties each context strategy to a token-cost curve
 2026-08 | SkillRise (2607.26784) | RL agent alternates solving a task and curating an evolving skill document, with decoupled per-task and cross-task credit
 2026-08 | Shadow Evaluations (2607.27191) | authors grade a frontier agent on the open research question of their own unpublished paper; engineering solved, research judgment not
+2026-08 | LycheeMemory V2 (2608.12990) | consolidates agent memory at detected semantic segment boundaries instead of every turn, cutting construction tokens without raising query-time cost
 
 ### Paper List
 
@@ -97,7 +98,11 @@
 [2026] 2607.26784 — SkillRise: Agentic Reinforcement Learning for Cross-Task Skill Evolution. [https://arxiv.org/abs/2607.26784](https://arxiv.org/abs/2607.26784). external.
 [2026] 2607.27191 — Can AI agents conduct open-ended AI research? Early evidence from two case studies. [https://arxiv.org/abs/2607.27191](https://arxiv.org/abs/2607.27191). external.
 
+[2026] 2608.12990 — LycheeMemory V2: Efficient Long-Term Memory for LLM Agents via Semantic Segment-Level Consolidation. [https://arxiv.org/abs/2608.12990](https://arxiv.org/abs/2608.12990). external.
+
 ### Recent Activity
+
+2026-08-14 | 2608.12990 added | LycheeMemory V2 replaces eager per-turn consolidation with consolidation at detected semantic boundaries, batching several exchanges into a segment and encoding each finalized segment once into context-independent typed records indexed for query-planned retrieval, so construction cost is amortized rather than growing with conversation length; with GPT-4.1-Mini it reports 89.22 percent on LoCoMo and 92.20 percent on LongMemEval-S, and against A-Mem it cuts construction tokens by 86.0 percent on LoCoMo and 75.9 percent on LongMemEval-S with no increase in query-time token usage; the framing claim is that consolidation granularity, not retention policy, is the variable that moves the accuracy-cost curve, and all numbers come from one backbone on two conversational benchmarks; Tier B
 
 2026-08-03 | 2607.27191 added | introduces shadow evaluations, in which a frontier agent takes the central open-ended research question of a high-quality unpublished paper and the paper's original authors grade the output; on two unpublished NeurIPS 2026 submissions, given six days and thousands of dollars of compute, agents completed all of the engineering without human help but could not make substantial progress on the research questions and both outputs were rejected, with five recurring failure modes named and reproduced by a second model and scaffold; Tier B
 
@@ -106,5 +111,3 @@
 2026-07-27 | 2607.21503 added | reframes agent memory from store-and-retrieve into a lifecycle called Agentic Context Management with five primitives (architecting, ingesting, scoping, anticipating, and compacting with consolidation), argues naive accumulation grows token cost with the square of conversation length while validated compaction keeps it linear without an accuracy cliff, and reports 92 percent on LongMemEval and 93.2 percent on LoCoMo; Tier B
 
 2026-07-25 | 2607.21461 added | AREX builds deep-research agents on a discovery-verification asymmetry, alternating an inner loop that gathers evidence and drafts a provisional answer with an outer loop that audits the draft constraint by constraint and launches targeted follow-up research; it learns a context-update tool that compresses history into verified evidence and open constraints, ships as a 4B dense model and a 122B-A10B mixture-of-experts model, and outperforms comparable-scale baselines on BrowseComp, WideSearch, DeepSearchQA, and Humanity's Last Exam; Tier B
-
-2026-07-22 | 2607.18754 added | AgentDebugX organizes agent debugging as a Detect-Attribute-Recover-Rerun loop whose DeepDebug component does multi-turn root-cause diagnosis; on the Who and When benchmark it reaches 28.8 percent exact agent-and-step attribution on qwen3.5-9b against 21.7 for the best single-pass baseline, and on GAIA it repairs 13 of 73 failed tasks in one rerun, lifting accuracy from 55.8 to 63.6 percent; Tier B

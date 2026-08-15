@@ -345,6 +345,42 @@
       "target": "2607.10848",
       "target_label": "Predictive Divergence Masks for LLM RL (2026)",
       "note": "Where Latent-GRPO is a group-relative policy-optimization variant relying on the ratio-based mask, this paper supplies a consistent direction test that predicts the change in the same divergence the proximity test measures."
+    },
+    {
+      "source": "3TLRP8U5",
+      "source_label": "PonderLM (2026)",
+      "target": "2608.08888",
+      "target_label": "Full-bandwidth transformer (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-14",
+      "note": "Where PonderLM spends extra forward passes within one token step and feeds back a distribution-weighted mixture of token embeddings, this paper feeds the top-layer hidden state back across token steps, so the target is a persistent latent channel rather than more thinking time at one position."
+    },
+    {
+      "source": "EMXEJYHV",
+      "source_label": "Latent Reasoning Survey (2025)",
+      "target": "2608.08888",
+      "target_label": "Full-bandwidth transformer (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-14",
+      "note": "Where the Latent Reasoning Survey argued that latent computation should replace the verbalized chain, this paper keeps the verbal chain and adds latent state alongside it, which is why the language-modeling objective and standard decoding survive unchanged."
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2608.08888",
+      "target_label": "Full-bandwidth transformer (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-14",
+      "note": "The only structural edit to the base architecture is on the input side, which is what keeps per-token decoding overhead negligible and the KV cache intact."
     }
   ],
   "hyperedges": [],

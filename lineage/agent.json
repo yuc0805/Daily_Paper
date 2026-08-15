@@ -856,6 +856,30 @@
       "cross_area": false,
       "date_added": "2026-08-03",
       "note": "Where the memory survey maps how agents remember and act over long horizons, this paper grades agents on two unpublished NeurIPS 2026 research questions and names five recurring failure modes that block the harder part."
+    },
+    {
+      "source": "huang2026_memory",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "2608.12990",
+      "target_label": "LycheeMemory V2: Efficient Long-Term Memory for LLM Agents via Semantic Segment-Level Consolidation (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-14",
+      "note": "Where the survey catalogued what an agent should retain and named context explosion as the central gap, this paper isolates when consolidation happens and reports that timing moves the accuracy-cost curve."
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2608.12990",
+      "target_label": "LycheeMemory V2: Efficient Long-Term Memory for LLM Agents via Semantic Segment-Level Consolidation (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-14",
+      "note": "Where LATS spent extra calls at query time to search over context, LycheeMemory pushes the cost to write time and amortizes it over a segment, so query-time token usage stays flat while construction cost drops by three quarters or more."
     }
   ],
   "hyperedges": [

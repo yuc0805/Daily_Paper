@@ -22,6 +22,7 @@
 2026-07 | On-Policy Distillation Pathologies (2607.13399) | frames on-policy distillation as an exploration catalyst and adds advantage clipping plus log-scale compression to stop length hacking
 2026-07 | On-Policy Delta Distillation (2607.15161) | distills the reasoning-tuned-teacher minus base-model delta rather than the full teacher distribution, isolating what reasoning tuning added
 2026-07 | Predictive Divergence Masks (2607.10848) | replaces PPO's ratio-based direction test with a predicted change in the trust-region divergence, in closed form for softmax policies
+2026-08 | Full-bandwidth transformer (2608.08888) | feeds the previous top-layer hidden state back alongside the sampled token embedding through a gated linear unit, widening the cross-step channel
 
 ### Paper List
 
@@ -51,7 +52,11 @@
 
 [2026] 2607.10848 — Predictive Divergence Masks for LLM RL. [https://arxiv.org/abs/2607.10848](https://arxiv.org/abs/2607.10848). external.
 
+[2026] 2608.08888 — Full-bandwidth transformer. [https://arxiv.org/abs/2608.08888](https://arxiv.org/abs/2608.08888). external.
+
 ### Recent Activity
+
+2026-08-14 | 2608.08888 added | the full-bandwidth transformer fuses the previous top-layer hidden state with the sampled token embedding through a gated linear unit and feeds the result back as the next input, so computation the model did not verbalize re-enters the stack with a renewed depth budget while the core architecture, the KV cache, and the language-modeling objective stay unchanged; a scheduled multi-pass objective switches latent feedback on late in pretraining so parallel teacher forcing survives, and 1B-parameter models trained to 400B tokens match or approach standard transformers trained on roughly 1.5 times more tokens, with negligible per-token decoding overhead and shorter reasoning traces at equal or better accuracy; there is no scaling-law study, so the 1.5 times figure is a single-scale observation; Tier A
 
 2026-07-25 | 2607.10848 added | shows the single-sample importance ratio in a PPO-style direction test can disagree in sign with the change of the divergence the proximity test uses, and replaces it with a predictive divergence mask that asks whether the next gradient step will raise or lower that divergence, derived in closed form for softmax policies with two top-K estimators for the truncated vocabulary; improves RL training across model scales and precision settings; Tier B
 
@@ -60,5 +65,3 @@
 2026-07-17 | 2607.13399 added | frames on-policy distillation as an exploration catalyst that guides a student toward correct reasoning paths without raising its capability ceiling, names two failure modes (student-teacher mismatch and length exploitation), and adds advantage clipping plus log-scale compression that stop length hacking and beat plain on-policy distillation and RLVR baselines across seven benchmarks; Tier B
 
 2026-07-15 | 2607.11614 added | a training recipe that extends usable context with an associative recurrent memory transformer, combining continued pre-training, synthetic long-context data, curriculum learning, and selective placement of memory in chosen layers rather than all of them; Tier B
-
-2026-07-13 | 2607.05147 added | a small sequential head lets drafted blocks keep within-block dependencies and verification length is scheduled per request from prefix-survival estimates, giving 60 to 85 percent faster per-user generation at matched throughput inside DeepSeek-V4 serving; Tier B

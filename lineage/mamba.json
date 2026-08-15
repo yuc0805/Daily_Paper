@@ -116,6 +116,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-07-03"
+    },
+    {
+      "source": "li2024_harmamba",
+      "source_label": "HARMamba (Li 2024)",
+      "target": "2608.12149",
+      "target_label": "Massive Activations in Hybrid Linear Attention Large Language Models: Pre-Attention Spikes and Inter-Spike Plateaus (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-14",
+      "note": "Where HARMamba argued that bidirectional state space layers can replace attention and evaluated by downstream accuracy, this paper keeps both layer types and evaluates by internal activation statistics."
+    },
+    {
+      "source": "AVTJLZIR",
+      "source_label": "Bi-Mamba+ (Liang 2024)",
+      "target": "2608.12149",
+      "target_label": "Massive Activations in Hybrid Linear Attention Large Language Models: Pre-Attention Spikes and Inter-Spike Plateaus (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-14",
+      "note": "Where Bi-Mamba+ substituted selective state space layers for attention in long-horizon forecasting, this paper measures what the mixture does to numerical range, which is the property that governs low-bit quantization."
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2608.12149",
+      "target_label": "Massive Activations in Hybrid Linear Attention Large Language Models: Pre-Attention Spikes and Inter-Spike Plateaus (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-14",
+      "note": "Full attention is treated as the limit point that hybrid outlier morphology converges toward as the hybridization ratio rises."
     }
   ],
   "hyperedges": [
