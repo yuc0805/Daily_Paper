@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TailBooster: A Dual-Layer Generative Framework for Extreme Value Augmentation with Operational Validity Enforcement &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
+<h2>TailBooster: A Dual-Layer Generative Framework for Extreme Value Augmentation with Operational Validity Enforcement</h2>
+<p class="paper-meta">
+  Aly, Sharpanskykh, Hoekstra (TU Delft) &middot; arXiv 2026-08-12 &middot;
+  <a href="https://arxiv.org/abs/2608.11951" target="_blank" rel="noopener">arXiv:2608.11951</a> &middot;
+  Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>, <a href="../areas/generative-cv.html">Generative CV</a>
+</p>
+
+<h3>What</h3>
+<p>TailBooster synthesises records for rare extreme events in air transport, such as severe arrival delays and abnormal air times, where the historical record supplies too little training signal. A statistical layer isolates extremes by interquartile range and feeds only that tail-concentrated subset to a dedicated Tabular Variational Autoencoder. A learned layer then applies autoencoder-based cleaning that discards synthetic records violating an operational envelope inferred from historical data. Training six regression algorithms on the resulting records cut mean absolute error by 47 to 49 percent on extreme air time and 29 to 57 percent on extreme arrival delay relative to conventional synthetic data, with comparable gains when real records were enriched with synthetic extremes.</p>
+
+<h3>Why</h3>
+<p>Extreme events in operational systems are exactly the events worth predicting and exactly the events for which data is scarce, so synthetic augmentation is the obvious remedy. Conventional generative models fail at it in two independent ways. First, a model fit to the whole distribution allocates its capacity to the bulk, so the tail is systematically under-represented in its samples, which is the opposite of what augmentation is for. Second, nothing in a generative objective enforces feasibility, so the model will produce records that are statistically plausible and operationally impossible, such as a short air time paired with a long flight distance. Rule-based feasibility filters exist but require domain constraints to be written down, which is not available in most domains. The paper states that no existing approach addresses both limitations for mixed-type tabular records.</p>
+
+<h3>How</h3>
+<p>The statistical layer extracts extremes by interquartile range and supplies that tail-concentrated training signal to dedicated generative models, here a Tabular Variational Autoencoder, so the generator is not competing against the bulk of the distribution. The deep learning layer trains an autoencoder on historical records and uses reconstruction error as a rejection criterion, discarding synthetic records that fall outside the learned operational envelope. Both layers are data-driven, so no domain rules are required. Evaluation on US flight records covers diversity, statistical similarity, fidelity, operational validity, and utility, with the last two named as the primary improvement targets, and utility measured as downstream regression error across six algorithms.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="RILRU5H6.html">TimeGrad (2021)</a><span class="lineage-note">Deep generative modelling of time-series values with a probabilistic objective; the line whose tail under-representation this paper measures and works around.</span></li>
+  <li><a href="DZ2UYXUL.html">l-DAE (2024)</a><span class="lineage-note">Latent denoising autoencoding; this paper reuses the same machinery as a validity filter rather than as a generator.</span></li>
+  <li><a href="GG7GSYUJ.html">Generative Adversarial Networks (Goodfellow 2014)</a><span class="lineage-note">The generative family behind the conventional tabular synthesis baselines.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The failure mode in TimeGrad and in conventional tabular generators is not that they model the tail badly by accident, it is that a likelihood fitted to the whole distribution is dominated by the bulk, so tail samples are rare by construction. Splitting the problem fixes this directly: after the statistical layer, the generator sees only extremes, which turns an under-representation problem into a smaller and better-posed density estimation problem. The second failure mode, infeasible samples, is orthogonal and unaddressed by any of the parents, because a generator trained only on the tail will produce records that are statistically extreme and physically impossible at a higher rate, not a lower one. The autoencoder envelope catches those. Neither layer would work alone, which is the paper's argument for the dual-layer design.</p>
+
+<h3>Method vs predecessors</h3>
+<p>l-DAE uses denoising in latent space to improve what a generator produces; TailBooster inverts the use and treats reconstruction error as a discriminator over already-generated samples, which is anomaly detection repurposed as a filter. Compared to TimeGrad, the generator itself is simpler, a Tabular VAE rather than a diffusion model over sequences, and the work is done by the conditioning of the training set rather than by the model class. That is the design's main claim to generality: it is model-agnostic, so the VAE could be swapped for a stronger generator without changing the framework. The scope limit is that evaluation is on mixed-type tabular flight records only. Transfer to continuous multivariate physiological waveforms, where the envelope would encode physiological plausibility and the validity check would run over a window rather than a row, is a hypothesis the paper does not test.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="HDPXBLAP.html">SensorLM (2025)</a><span class="lineage-note">Same data regime of rare labelled events in sensing streams, approached through pretraining rather than augmentation.</span></li>
+  <li><a href="ICD9EG8Q.html">GLOBEM (2023)</a><span class="lineage-note">Multi-year behaviour datasets where rare outcomes are the target and augmentation would apply directly.</span></li>
+  <li><a href="YY67LF3R.html">PatchTST (2023)</a><span class="lineage-note">The downstream forecaster class that would consume augmented extremes.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

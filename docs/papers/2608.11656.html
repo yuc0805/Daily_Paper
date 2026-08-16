@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM) &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM)</h2>
+<p class="paper-meta">
+  Cho, Shin, Lee, Lee (Korea University) &middot; arXiv 2026-08-12 &middot;
+  <a href="https://arxiv.org/abs/2608.11656" target="_blank" rel="noopener">arXiv:2608.11656</a> &middot;
+  Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>, <a href="../areas/llm-health.html">LLM-Health</a>, <a href="../areas/self-supervised.html">Self-Supervised</a>
+</p>
+
+<h3>What</h3>
+<p>BLPM is an EEG foundation model built on latent prediction rather than signal reconstruction. A Continuous EEG Latent Predictive (CELP) encoder is trained to predict latent targets, so the learning signal lives in representation space and never passes through the waveform. A second module, Multi-Query Semantic Decomposition (MQSD), extracts task-relevant components from those representations and places them in a latent space shared with text embeddings, which is what allows the encoder to be attached to a language model. The paper reports consistent generalisation across several EEG decoding benchmarks spanning subjects, recording environments, and datasets.</p>
+
+<h3>Why</h3>
+<p>Two pretraining objectives dominate EEG foundation models and each has a specific defect. Masked autoencoding optimises reconstruction of the raw trace, which rewards recovering low-frequency drift and amplitude structure that carry no task information, so the encoder spends capacity on signal fidelity rather than on the semantics a decoding task needs. Autoregressive modelling requires discretising the signal into tokens, which imposes a symbol boundary on continuous neural dynamics that have no natural one. Both defects become worse under the heterogeneity that motivates foundation models in the first place, because different montages, channel counts, and label spaces mean a reconstruction target and a token vocabulary defined for one dataset transfer poorly to the next. The open problem is a pretraining target that is continuous, does not require reconstruction, and produces representations a language model can read.</p>
+
+<h3>How</h3>
+<p>CELP trains by predicting the latent representation of a target view rather than its raw content, which is the joint-embedding predictive objective applied to neural signals. MQSD then takes the resulting representation and decomposes it with multiple learned queries, each of which is aligned to textual semantics within a shared latent space according to the semantic relationships among tasks, rather than pooling the representation into a single vector matched against a single caption. The result is an encoder whose output is already in a text-compatible space, so heterogeneous EEG decoding tasks are all reformulated as continuous semantic embedding prediction. Evaluation is across multiple benchmarks and diverse tasks; the paper is 19 pages with 3 figures and supplementary material.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Source of the claim that biosignal pretraining is dominated by masked reconstruction and that reconstruction quality is a poor proxy for clinical utility. Graphify community 1.</span></li>
+  <li><a href="6INGKIJV.html">How Mask Matters: Masked Autoencoders Theory (Zhang 2023)</a><span class="lineage-note">The theoretical account of what masked reconstruction recovers; BLPM argues that account is exactly why the objective is wrong for EEG. Graphify community 1.</span></li>
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Nearest predecessor for sensor-to-language alignment; a cross-area bridge node between bio-sensing and LLM-health in your library. Graphify community 4.</span></li>
+  <li><a href="HDPXBLAP.html">SensorLM (2025)</a><span class="lineage-note">Sensor-language pretraining at scale, on wearable rather than neural signals.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Masked autoencoding fails on EEG in a specific way: it converges to a solution that reconstructs the trace well and encodes little that a downstream classifier can use, because the reconstruction loss is dominated by high-variance, low-information components of the signal. Predicting a latent target removes that loss term entirely, so the encoder is never rewarded for waveform fidelity. Against the autoregressive alternative, the failure mode is the tokenizer, and BLPM removes it by keeping the prediction target continuous throughout. Against Sensor2Text, the failure mode is different again: aligning a finished encoder to text after the fact leaves the encoder's representation shaped by its own pretraining objective, so whatever the objective discarded is not recoverable at alignment time. BLPM makes semantic alignment part of the representation rather than a projection head bolted on top.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Sensor2Text trains a sensor encoder and then bridges it to language, producing one pooled embedding per window that is matched against a caption. BLPM produces several, through learned queries that decompose the representation, and aligns each to text according to semantic relationships among tasks. The practical consequence is heterogeneity handling: where a single pooled vector forces every downstream task through one bottleneck, multi-query decomposition lets different tasks read different components of the same representation, which matters when the tasks differ in label space as much as EEG decoding tasks do. Relative to the masked-autoencoder line, the architectural change is small and the objective change is total: the decoder that reconstructed the signal is gone and its place is taken by a latent target. The known cost of that substitution is representation collapse, since nothing in the objective forces the encoder to retain information about the input, and the abstract does not report an ablation ruling it out.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2BGP9QJL.html">Verifiable Physiological Reasoning (2026)</a><span class="lineage-note">Same target modalities, but attacks reasoning over physiological signals rather than the pretraining objective.</span></li>
+  <li><a href="3LA8GNCU.html">HeAR: Health Acoustic Representations (Baur 2024)</a><span class="lineage-note">The masked-autoencoding health encoder this paper's argument applies to directly.</span></li>
+  <li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">The other end of the bio-sensing to LLM-health bridge that BLPM pushes further.</span></li>
+  <li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Alternative route to the same goal: change the sequence backbone rather than the pretraining objective.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

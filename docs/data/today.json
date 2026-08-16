@@ -1,45 +1,45 @@
 {
-  "date": "2026-08-14",
+  "date": "2026-08-16",
   "papers": [
     {
-      "zotero_key": "2608.08888",
-      "title": "Full-bandwidth transformer",
-      "authors": "Wang et al.",
+      "zotero_key": "2608.11656",
+      "title": "Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM)",
+      "authors": "Cho et al.",
       "year": 2026,
-      "what": "Widens the narrow feedback channel between decoding steps by fusing the previous top-layer hidden state with the sampled token embedding through a gated linear unit; 1B-parameter models trained to 400B tokens match or approach standard transformers trained on roughly 1.5 times more tokens, with negligible decoding overhead and shorter reasoning traces.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "PonderLM (2026, 3TLRP8U5); Latent Reasoning Survey (2025, EMXEJYHV); Attention Is All You Need (2017, PHB9VRVM)"
+      "what": "Replaces masked reconstruction and discrete tokenisation in EEG pretraining with continuous latent target prediction, then decomposes the representation with multiple learned queries aligned to text semantics, reporting consistent generalisation across heterogeneous EEG decoding benchmarks.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "Foundation Models for Biosignals (2025, 2XWEG7AF); MAE Theory (2023, 6INGKIJV); Sensor2Text (2024, ELYUE3NF)"
     },
     {
-      "zotero_key": "2608.12149",
-      "title": "Massive Activations in Hybrid Linear Attention Large Language Models",
-      "authors": "Su et al.",
+      "zotero_key": "2608.13489",
+      "title": "DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation",
+      "authors": "DreamX Team et al.",
       "year": 2026,
-      "what": "Measures where activation outliers concentrate in hybrid linear-attention stacks and finds two recurring shapes, pre-attention spikes and inter-spike plateaus, across five linear-attention architectures, six hybridization ratios, five data domains, and models from 1.2B to 397B parameters.",
-      "area_label": "MAMBA",
-      "area_slug": "mamba",
-      "builds_on": "HARMamba (2024, HE9X47KN); Bi-Mamba+ (2024, AVTJLZIR); Attention Is All You Need (2017, PHB9VRVM)"
+      "what": "Injects per-arm SE(3) transforms into attention through PRoPE-style geometric encoding, plus a depth branch and SAM3 masks with a frozen V-JEPA teacher, so that predicted manipulation video stays faithful to the commanded action rather than merely realistic; first on Track 1 of WorldArena 2.0.",
+      "area_label": "World Model / RL",
+      "area_slug": "world-model-rl",
+      "builds_on": "Navigation World Models (2024, JQ7JD8AR); DINO-WM (2025, W44RSJJI); DiT (2023, YJ9TK993)"
     },
     {
-      "zotero_key": "2608.12990",
-      "title": "LycheeMemory V2: Efficient Long-Term Memory for LLM Agents",
-      "authors": "Li et al.",
+      "zotero_key": "2608.12743",
+      "title": "Spatial Memory Agent: Experience-Grounded Procedure Memory for Spatial Intelligence",
+      "authors": "Zhang et al.",
       "year": 2026,
-      "what": "Replaces per-turn memory consolidation with semantic segment-level consolidation into context-independent typed records; reaches 89.22 percent on LoCoMo and 92.20 percent on LongMemEval-S while cutting construction tokens by 86.0 and 75.9 percent against A-Mem, without raising query-time usage.",
+      "what": "Distils verified spatial experience into compact reusable lessons carrying a Transfer Reliability Score calibrated from later retrieval outcomes, improving frozen vision-language models with no parameter updates and no external spatial tools across five benchmarks and four base models.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (2026, BDY3HUCV); LATS (2024, 77ERE7HA)"
+      "builds_on": "Memory Mechanisms Survey (2026, BDY3HUCV); LATS (2024, 77ERE7HA); PyVision (2025, XQTY5MPI)"
     },
     {
-      "zotero_key": "2607.29211",
-      "title": "Knowing When to Quit: Diagnosing and Training LLMs to Abort Futile Reasoning",
-      "authors": "Guan et al.",
+      "zotero_key": "2608.11951",
+      "title": "TailBooster: A Dual-Layer Generative Framework for Extreme Value Augmentation with Operational Validity Enforcement",
+      "authors": "Aly et al.",
       "year": 2026,
-      "what": "Names and measures futile reasoning on beyond-capability tasks, identifies specious reasoning as the dominant failure mode, and proposes CaRL, which shapes rewards to prefer refusal and converts observed failures into refusal supervision; ACL 2026 Findings.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought (2023, HBLPTRMY)"
+      "what": "Trains a tabular VAE only on interquartile-range-extracted extremes and then rejects infeasible samples with an autoencoder-learned operational envelope, cutting downstream error by 47 to 49 percent on extreme air time and 29 to 57 percent on extreme arrival delay across six regression algorithms.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "TimeGrad (2021, RILRU5H6); l-DAE (2024, DZ2UYXUL); GAN (2014, GG7GSYUJ)"
     }
   ]
 }

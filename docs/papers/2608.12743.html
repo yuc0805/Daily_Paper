@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spatial Memory Agent: Experience-Grounded Procedure Memory for Spatial Intelligence &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Spatial Memory Agent: Experience-Grounded Procedure Memory for Spatial Intelligence</h2>
+<p class="paper-meta">
+  Zhang, Ding, Zhou, Du, Zhang, Zhao, Xi, Chen (Zhejiang University) &middot; arXiv 2026-08-13 &middot;
+  <a href="https://arxiv.org/abs/2608.12743" target="_blank" rel="noopener">arXiv:2608.12743</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>, <a href="../areas/multi-modal.html">Multi-Modal</a>
+</p>
+
+<h3>What</h3>
+<p>SMA improves the spatial reasoning of a frozen vision-language model with no parameter updates and no external spatial tools at inference. In a verifiable spatial environment the agent answers, receives a reward, and runs verifier-guided reflection to distil the episode into a compact transferable lesson. Each lesson carries a Transfer Reliability Score, initialised uniformly and recalibrated from whether later retrievals of it led to correct answers. At deployment the memory is read-only and lessons are retrieved by a semantic filter combined with similarity-and-TRS ranking. Across five spatial benchmarks and four base vision-language models, SMA has the highest macro average in every base-model block and the best accuracy among evaluated methods in most of the twenty evaluations.</p>
+
+<h3>Why</h3>
+<p>Two routes to spatial competence in vision-language agents are established and both have costs. Post-training by supervised fine-tuning or reinforcement learning requires gradient access, a training budget, and a fresh run for every base model, and it risks degrading capabilities outside the target task. The agentic tool-calling route calls depth estimators or 3D reconstruction at inference, which adds latency, adds a dependency on tool availability and quality, and moves the competence outside the model where it cannot compose with the model's other reasoning. The question the paper asks is whether a frozen model can self-improve on spatial tasks from its own verified experience, using neither route. The obstacle is that accumulated experience is only useful if the agent can tell which stored items generalise, and prior memory work stores and retrieves without estimating that.</p>
+
+<h3>How</h3>
+<p>The write path is verifier-guided: the agent acts in an environment where answers can be checked, and reflection is conditioned on the verifier's reward, so the distilled lesson is grounded in an outcome rather than in the model's self-assessment. Each lesson is stored with a Transfer Reliability Score that starts uniform and is updated from retrieval outcomes, treating visits as evidence about future transfer. The read path is a semantic filter followed by ranking that combines embedding similarity with TRS, so a closely matching but historically unreliable lesson can be outranked by a slightly less similar one that has worked. Deployment is read-only, which means the evaluation measures transfer of an already-built memory rather than continued learning during the test.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">The framing that separates agent memory into what is stored, how it is written, and how it is retrieved. Graphify community 0.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Established reflection plus search against an environment value signal, within a single episode. Graphify community 0.</span></li>
+  <li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">The tool-calling route to visual reasoning that this paper positions itself against. Graphify community 0.</span></li>
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">The other end of the tool-using-agents bridge in your library; SMA argues the same gains are reachable without tools.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The memory survey catalogues write and retrieve policies but offers no mechanism for deciding which stored item deserves trust, so a memory that accumulates a bad lesson keeps retrieving it. TRS makes that an online estimation problem: the reliability of a lesson is inferred from the outcomes of its own past retrievals, so bad lessons are demoted by use rather than by inspection. LATS fixes a different failure, namely poor exploration within one episode, and everything it learns is discarded when the episode ends; SMA moves the product of reflection outside the episode so later and different tasks can read it. Against PyVision and ToolkenGPT, the failure being addressed is dependency: those systems are as good as their tools are available and accurate, and SMA keeps the competence inside the frozen model's context window where it composes with the model's other reasoning.</p>
+
+<h3>Method vs predecessors</h3>
+<p>LATS reflects to guide a tree search and consumes its own reflections immediately. SMA writes them out as compact text lessons with an attached scalar and never updates weights, so the artefact is a retrievable corpus rather than a search trace. Compared to the tool-calling agents, the inference-time computation is entirely different in kind: a retrieval over a text store instead of a call into a depth or reconstruction model, which is why the method transfers across four base models without per-model work. The design choice worth noting is that deployment is read-only, which is what makes the evaluation clean but also means the reported numbers do not demonstrate continued improvement during use. The abstract reports no ablation separating the contribution of TRS from that of lesson distillation, so the score's individual value is not established.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="4XXXYXS9.html">DeepEyesV2 (2026)</a><span class="lineage-note">Agentic multimodal model on the tool-using side of the same question.</span></li>
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (2024)</a><span class="lineage-note">Broader framing of multimodal interaction agents in which this sits.</span></li>
+  <li><a href="J8DYBKW2.html">ADaPT (2023)</a><span class="lineage-note">Decomposition-and-planning route to the same class of tasks, without accumulated memory.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

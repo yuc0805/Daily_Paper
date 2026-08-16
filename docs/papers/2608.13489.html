@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/world-model-rl.html" class="back-link">&larr; Back to Area</a>
+
+<h2>DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation</h2>
+<p class="paper-meta">
+  DreamX Team, Chen, Chu, Li, Li, Shi, Tang, Tang, Wang, Zhang (Alibaba AMAP) &middot; arXiv 2026-08-13 &middot;
+  <a href="https://arxiv.org/abs/2608.13489" target="_blank" rel="noopener">arXiv:2608.13489</a> &middot;
+  Appears in: <a href="../areas/world-model-rl.html">World Model / RL</a>, <a href="../areas/generative-cv.html">Generative CV</a>
+</p>
+
+<h3>What</h3>
+<p>DreamX-Phi takes one observed frame, a language instruction, and a prescribed action sequence of end-effector poses and gripper states, and predicts the resulting future observations as video. Three mechanisms enforce faithfulness to the commanded actions rather than realism alone: per-arm SE(3) transformations injected into attention through PRoPE-style geometric encoding, a lightweight depth branch for scene geometry, and SAM3 object masks paired with a frozen V-JEPA teacher to hold manipulated objects consistent through a grasp. The multi-step generator is distilled into a few-step student by distribution-matching distillation. The model placed first on Track 1 and second on Track 2 of the WorldArena 2.0 Challenge.</p>
+
+<h3>Why</h3>
+<p>The stated problem is that realism and faithfulness come apart. A video world model can produce a rollout that is visually convincing and still move the wrong arm, or lose the object mid-grasp, and neither error is penalised by a generative objective that scores appearance. For a world model intended to support planning, those are the only errors that matter, because a plan evaluated against an unfaithful rollout is evaluated against the wrong environment. Prior action-conditioned video models supply the action as a conditioning vector and leave the model to infer what the action implies about scene structure, which leaves arm identity and rigid-motion structure as things the model must learn from data rather than things it is told. Action conditioning alone also does not constrain scene geometry or the evolution of small manipulated objects, which are precisely the parts of the frame with the least pixel support.</p>
+
+<h3>How</h3>
+<p>Per-arm SE(3) transformations enter attention through PRoPE-style geometric encoding, so arm identity and rigid-motion structure are represented in the attention computation rather than inferred from the conditioning vector. A lightweight depth branch supplies scene-level geometry. SAM3 masks identify the manipulated object and a frozen V-JEPA teacher supplies a consistency target for that object across the grasp, which is a targeted constraint rather than a global one. For deployment, distribution-matching distillation compresses the multi-step generator into a few-step student. Model and code are stated as forthcoming after the WorldArena 2.0 IROS Challenge concludes.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="JQ7JD8AR.html">Navigation World Models (2024)</a><span class="lineage-note">Established conditional video prediction as the world-model interface, with actions as the conditioning variable.</span></li>
+  <li><a href="W44RSJJI.html">DINO-WM (2025)</a><span class="lineage-note">Established that a frozen self-supervised visual encoder can supply the latent space a world model operates in; V-JEPA plays a narrower version of that role here.</span></li>
+  <li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">The transformer-backbone diffusion generator whose attention this paper modifies with geometric encoding. Graphify community 3.</span></li>
+  <li><a href="938DAXZT.html">World Models (Ha and Schmidhuber 2018)</a><span class="lineage-note">The framing that a learned forward model of observations can stand in for the environment.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Navigation World Models and the action-conditioned video line more generally leave the mapping from action to scene change entirely to the learned model, which produces structured failures rather than random ones: the wrong arm moves, or the object vanishes at the moment of contact. DreamX-Phi removes the specific degrees of freedom that allow those failures instead of adding capacity. Injecting the commanded SE(3) transform per arm makes arm confusion representationally difficult rather than merely unlikely; masking the manipulated object and constraining it against a frozen teacher addresses the grasp-time disappearance directly. The depth branch handles the third case, where the rollout is locally plausible but the scene geometry drifts. Relative to DINO-WM, the problem being solved is different: DINO-WM asked what latent space to plan in, this asks how to keep a generated rollout consistent with a command that has already been issued.</p>
+
+<h3>Method vs predecessors</h3>
+<p>DiT conditions a transformer diffusion backbone on class or text through adaptive normalisation and keeps attention purely positional. DreamX-Phi changes what attention sees, encoding per-arm rigid transforms into it, which is a structural prior rather than an additional conditioning signal. Where DINO-WM freezes a self-supervised encoder and uses its representation as the model's state, the frozen V-JEPA teacher here supervises a specific masked region rather than defining the state space, so the generative model remains in pixel space and the self-supervised model acts as a regulariser. The distillation step is orthogonal to all of this and follows standard distribution-matching practice. The evidence reported in the abstract is a competition placement rather than a component ablation, so the contribution of geometric encoding, the depth branch, and the V-JEPA constraint cannot be separated from the abstract alone.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="P92FLHJ2.html">World Model Evaluation (2024)</a><span class="lineage-note">Directly relevant to this paper's realism-versus-faithfulness argument: what a world model should be scored on.</span></li>
+  <li><a href="A4WGRRQ9.html">TD-MPC2 (2024)</a><span class="lineage-note">The planning side of the same problem, where an unfaithful rollout would corrupt the plan.</span></li>
+  <li><a href="BT2MFL2J.html">VIP (2023)</a><span class="lineage-note">Representation learning for manipulation from video, the upstream question this paper takes as settled.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
