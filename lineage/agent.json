@@ -880,6 +880,42 @@
       "cross_area": false,
       "date_added": "2026-08-14",
       "note": "Where LATS spent extra calls at query time to search over context, LycheeMemory pushes the cost to write time and amortizes it over a segment, so query-time token usage stays flat while construction cost drops by three quarters or more."
+    },
+    {
+      "source": "huang2026_memory",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "2608.12743",
+      "target_label": "Spatial Memory Agent: Experience-Grounded Procedure Memory for Spatial Intelligence (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-16",
+      "note": "Where the survey catalogued what is stored, how it is written, and how it is retrieved but left trust unmodelled, SMA attaches a scalar to each lesson and updates it from downstream retrieval outcomes, turning memory quality into an online estimation problem."
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2608.12743",
+      "target_label": "Spatial Memory Agent: Experience-Grounded Procedure Memory for Spatial Intelligence (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-16",
+      "note": "Where LATS consumed reflection inside one episode to guide search and discarded it at the end, SMA writes the product of reflection out as a retrievable artefact that later and different tasks can read."
+    },
+    {
+      "source": "zhao2025_pyvision",
+      "source_label": "PyVision: Agentic Vision with Dynamic Tooling (Zhao 2025)",
+      "target": "2608.12743",
+      "target_label": "Spatial Memory Agent: Experience-Grounded Procedure Memory for Spatial Intelligence (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-16",
+      "note": "PyVision places spatial competence in external tools called at inference; SMA argues the same gain is available from retrieved text alone, pushing the tool-embedding bridge back toward the frozen model's own context."
     }
   ],
   "hyperedges": [

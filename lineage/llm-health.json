@@ -634,6 +634,42 @@
       "cross_area": false,
       "date_added": "2026-08-02",
       "note": "Where the Gu survey describes mostly single-signal biosignal pretraining, MorphologyFM extends the program to paired cross-modal ECG plus SpO2 pretraining with explicit cross-modal alignment."
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2608.11656",
+      "target_label": "Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM) (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-16",
+      "note": "The survey framed reconstruction quality as a poor proxy for downstream clinical utility; BLPM acts on that framing by predicting latent semantics instead of the waveform."
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "target": "2608.11656",
+      "target_label": "Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM) (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-16",
+      "note": "Sensor2Text showed a sensor encoder can be queried conversationally; BLPM moves that bridge from wearable activity streams to neural signals and from post-hoc alignment to alignment as pretraining."
+    },
+    {
+      "source": "HDPXBLAP",
+      "source_label": "SensorLM (2025)",
+      "target": "2608.11656",
+      "target_label": "Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM) (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-16",
+      "note": "SensorLM is the closest sensor-language precedent at scale; BLPM changes the modality to EEG and the pooling to multi-query decomposition so several unrelated clinical labels can read different components."
     }
   ],
   "hyperedges": [

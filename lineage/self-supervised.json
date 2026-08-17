@@ -253,6 +253,30 @@
       "target": "2607.21556",
       "target_label": "Visual Contrastive Self-Distillation (VCSD, 2026)",
       "note": "Where SSL for HAR learned label-free sensor representations at scale, VCSD offers a label-free target built from full-input versus masked-control contrast that could transfer to channel-masked or band-masked sensor windows."
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2608.11656",
+      "target_label": "Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM) (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-16",
+      "note": "BLPM takes the theory's account of what masking does and does not recover as grounds for abandoning reconstruction in this modality rather than for tuning the mask."
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2608.11656",
+      "target_label": "Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM) (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-16",
+      "note": "The survey documented that masked reconstruction dominates biosignal pretraining; BLPM supplies the latent-prediction alternative for EEG."
     }
   ],
   "hyperedges": [],

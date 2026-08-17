@@ -72,6 +72,9 @@
 2026-08 | Zero-Shot HRV Forecasting (2607.20027) | tests TimesFM, Chronos, and MOIRAI zero-shot on wearable heart-rate-variability forecasting with a variability-preserving imputation for artifact gaps
 2026-08 | OpenMHC (2607.16235) | largest open-access wearable health dataset with open model weights and a three-track benchmark
 
+2026-08 | BLPM (2608.11656) | latent-target pretraining for EEG, with multi-query semantic decomposition aligned to a text space
+2026-08 | TailBooster (2608.11951) | tail-only tabular VAE plus an autoencoder validity filter for rare extreme-event augmentation
+
 ### Paper List
 
 [KNOWN] [1970] Box et al. — ARIMA. zotero_key:U2R8DC2P.
@@ -171,7 +174,14 @@
 
 [2026] 2607.16235 — OpenMHC: Accelerating the Science of Wearable Foundation Models. [https://arxiv.org/abs/2607.16235](https://arxiv.org/abs/2607.16235). external.
 
+[2026] 2608.11656 — Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM). [https://arxiv.org/abs/2608.11656](https://arxiv.org/abs/2608.11656). external.
+[2026] 2608.11951 — TailBooster: A Dual-Layer Generative Framework for Extreme Value Augmentation with Operational Validity Enforcement. [https://arxiv.org/abs/2608.11951](https://arxiv.org/abs/2608.11951). external.
+
 ### Recent Activity
+
+2026-08-16 | 2608.11656 added | BLPM drops both standard EEG pretraining objectives, replacing masked reconstruction and token prediction with a Continuous EEG Latent Predictive encoder whose target is a latent representation rather than the waveform, and adds Multi-Query Semantic Decomposition so the representation is split into several queries aligned to text rather than pooled into one vector, because montage, channel count, and label space differ across datasets and a single bottleneck serves none of them well; the reported evidence is consistent generalisation across benchmarks, subjects, and recording environments rather than per-benchmark numbers, and no collapse-prevention ablation is given, so the claim is provisional; the imported method is joint-embedding latent prediction from vision, now closed off for EEG but still open for PPG, GSR, and IMU; Tier A
+
+2026-08-16 | 2608.11951 added | TailBooster splits rare-event augmentation into two layers, a statistical layer that isolates extremes by interquartile range and trains a tabular variational autoencoder on that subset alone, and a learned layer that rejects synthetic records whose reconstruction error puts them outside an operational envelope inferred from historical data, because a tail-focused generator will otherwise produce records that are statistically extreme and physically impossible; on US flight records, training six regression algorithms on its output cut mean absolute error by 47 to 49 percent on extreme air time and 29 to 57 percent on extreme arrival delay against conventional synthetic data; evaluation is mixed-type tabular data only, so transfer to physiological waveforms, where the check would run over a window rather than a row, is a hypothesis; Tier B
 
 2026-08-03 | 2607.16235 added | OpenMHC releases the largest open-access wearable health dataset to date, over 60 million hours across 19 sensor channels and up to 169 linked health, lifestyle, mood, and behavior variables from 11,894 participants, and ships open-source implementations of recent wearable foundation models with one benchmark covering health and behavior prediction, multivariate imputation, and forecasting; the reusable value is the shared testbed, because the masked-reconstruction and multivariate time-series pretraining it benchmarks is now well ported and closed off as low-hanging fruit; Tier A
 

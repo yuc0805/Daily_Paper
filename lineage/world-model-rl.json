@@ -122,6 +122,54 @@
    "cross_area": false,
    "note": "Where From Pixels to States argues explicit state improves control, BadWAM shows that if imagination and action are only loosely coupled the imagination can look right while the action is already wrong.",
    "date_added": "2026-07-18"
+  },
+  {
+   "source": "JQ7JD8AR",
+   "source_label": "Navigation World Models (Bar 2024)",
+   "target": "2608.13489",
+   "target_label": "DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-08-16",
+   "note": "Where Navigation World Models conditioned prediction on an action and left the model to infer what the action implies about the scene, DreamX-Phi hands the model the transformation explicitly so arm identity cannot be confused."
+  },
+  {
+   "source": "W44RSJJI",
+   "source_label": "DINO-WM (2025)",
+   "target": "2608.13489",
+   "target_label": "DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-08-16",
+   "note": "Where DINO-WM froze a self-supervised encoder to define the latent space the model plans in, here the frozen V-JEPA teacher supervises one masked region and the model stays in pixel space, so the self-supervised asset acts as a regulariser rather than as the state representation."
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "target": "2608.13489",
+   "target_label": "DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-08-16",
+   "note": "Where DiT conditions a transformer diffusion backbone through adaptive normalisation and keeps attention purely positional, DreamX-Phi changes what attention sees by encoding rigid-motion structure into it."
+  },
+  {
+   "source": "938DAXZT",
+   "source_label": "World Models (Ha and Schmidhuber 2018)",
+   "target": "2608.13489",
+   "target_label": "DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-08-16",
+   "note": "Ha and Schmidhuber framed a learned forward model of observations as a substitute for the environment; DreamX-Phi keeps that framing and makes the substitute faithful to the commanded action rather than only plausible."
   }
  ],
  "hyperedges": [],

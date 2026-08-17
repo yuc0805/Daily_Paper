@@ -1495,6 +1495,90 @@
       "cross_area": false,
       "date_added": "2026-08-03",
       "note": "Where Yuan 2024 showed large-scale self-supervised pretraining works on a single accelerometer stream, OpenMHC broadens the input to 19 sensor channels and links them to health and mood outcomes inside one standardized benchmark."
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2608.11656",
+      "target_label": "Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM) (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-16",
+      "note": "Where the survey observed that masked reconstruction leaves biosignal encoders optimising signal fidelity rather than clinical semantics, BLPM changes the objective itself and predicts a latent target instead of the trace."
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+      "target": "2608.11656",
+      "target_label": "Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM) (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-16",
+      "note": "Where Sensor2Text bridged an already-trained sensor encoder to language afterwards, BLPM makes semantic alignment part of the representation through multi-query decomposition, because a projection head cannot recover what the pretraining objective discarded."
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2608.11656",
+      "target_label": "Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM) (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-16",
+      "note": "Where Zhang 2023 explained that masked reconstruction learns whatever structure the mask forces it to learn, BLPM treats that as a diagnosis of the objective rather than of its hyperparameters and removes the reconstruction target."
+    },
+    {
+      "source": "HDPXBLAP",
+      "source_label": "SensorLM (2025)",
+      "target": "2608.11656",
+      "target_label": "Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM) (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-16",
+      "note": "SensorLM scaled sensor-language pretraining on wearable streams; BLPM carries the same alignment idea into neural signals and replaces one pooled embedding with several task-decomposed queries."
+    },
+    {
+      "source": "RILRU5H6",
+      "source_label": "TimeGrad (Rasul 2021)",
+      "target": "2608.11951",
+      "target_label": "TailBooster: A Dual-Layer Generative Framework for Extreme Value Augmentation with Operational Validity Enforcement (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-16",
+      "note": "Where TimeGrad fits a probabilistic generative model to the whole series distribution and is therefore dominated by the bulk, TailBooster leaves the generator weak on purpose and conditions the training set on the tail instead."
+    },
+    {
+      "source": "GG7GSYUJ",
+      "source_label": "Generative Adversarial Networks (Goodfellow 2014)",
+      "target": "2608.11951",
+      "target_label": "TailBooster: A Dual-Layer Generative Framework for Extreme Value Augmentation with Operational Validity Enforcement (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-16",
+      "note": "GAN-family tabular synthesis is the conventional baseline TailBooster measures against; the change is not a better generator but a restricted training subset plus a rejection step."
+    },
+    {
+      "source": "DZ2UYXUL",
+      "source_label": "l-DAE: Latent Denoising Autoencoding (Chen 2024)",
+      "target": "2608.11951",
+      "target_label": "TailBooster: A Dual-Layer Generative Framework for Extreme Value Augmentation with Operational Validity Enforcement (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-16",
+      "note": "Where l-DAE used autoencoder denoising to improve what a generator produces, TailBooster inverts the same machinery and uses reconstruction error as a rejection criterion over samples already produced."
     }
   ],
   "hyperedges": [

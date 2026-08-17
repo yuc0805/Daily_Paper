@@ -33,6 +33,8 @@
 2026-07 | TREK (2607.05339) | a staged forward-KL warm start on verified off-support solutions precedes on-policy reinforcement learning, fixing the exploration stall of GRPO on hard prompts
 2026-07 | Pixels to States (2607.14076) | reframes interactive world models as a game engine with an explicit persistent state; releases a Black Myth: Wukong dataset with ground-truth states
 2026-07 | BadWAM (2607.15207) | world-action drift attacks; small visual perturbations split a model's imagined future from its executed action
+
+2026-08 | DreamX-Phi 1.0 (2608.13489) | action-conditioned video world model injecting per-arm SE(3) geometry into attention for manipulation
 ### Paper List
 
 [KNOWN] [1999] Sutton et al. — Policy Gradient. zotero_key:DAGWCZ67.
@@ -73,7 +75,11 @@
 [2026] 2607.14076 — From Pixels to States: Rethinking Interactive World Models as Game Engines. [https://arxiv.org/abs/2607.14076](https://arxiv.org/abs/2607.14076). external.
 [2026] 2607.15207 — BadWAM: When World-Action Models Dream Right but Act Wrong. [https://arxiv.org/abs/2607.15207](https://arxiv.org/abs/2607.15207). external.
 
+[2026] 2608.13489 — DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation. [https://arxiv.org/abs/2608.13489](https://arxiv.org/abs/2608.13489). external.
+
 ### Recent Activity
+
+2026-08-16 | 2608.13489 added | DreamX-Phi separates visual realism from action faithfulness and treats the second as the property a world model needs for planning, since a rollout can look convincing while moving the wrong arm or losing the object mid-grasp; three mechanisms enforce faithfulness, per-arm SE(3) transformations injected into attention through PRoPE-style geometric encoding, a light depth branch constraining scene geometry, and SAM3 object masks with a frozen V-JEPA teacher holding the manipulated object consistent through the grasp, after which the multi-step generator is distilled into a few-step student by distribution-matching distillation; the evidence is first place on Track 1 and second on Track 2 of the WorldArena 2.0 Challenge rather than a component ablation, so the three mechanisms cannot be separated; Tier B
 
 2026-07-18 | 2607.15207 added | BadWAM defines world-action drift attacks on models that couple action generation with future prediction; an action-only variant drops task success from 96.5% to 43.1%, and a stealthier imagination-preserving variant keeps the predicted future near the clean one while still hijacking the action; Tier B
 2026-07-17 | 2607.14076 added | reviews interactive world models through the lens of a game engine's action-state-observation loop, organizes methods along four axes (action control, state dynamics, state-observation persistence, real-time generation), and releases a Black Myth: Wukong data engine with over 90 hours of gameplay carrying frame-aligned actions and ground-truth states; Tier B

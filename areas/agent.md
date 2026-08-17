@@ -44,6 +44,8 @@
 2026-08 | Shadow Evaluations (2607.27191) | authors grade a frontier agent on the open research question of their own unpublished paper; engineering solved, research judgment not
 2026-08 | LycheeMemory V2 (2608.12990) | consolidates agent memory at detected semantic segment boundaries instead of every turn, cutting construction tokens without raising query-time cost
 
+2026-08 | Spatial Memory Agent (2608.12743) | training-free procedure memory whose lessons carry a reliability score updated from retrieval outcomes
+
 ### Paper List
 
 [KNOWN] [2018] Rabinowitz et al. — Machine Theory of Mind. zotero_key:NEKX3K3N.
@@ -100,7 +102,11 @@
 
 [2026] 2608.12990 — LycheeMemory V2: Efficient Long-Term Memory for LLM Agents via Semantic Segment-Level Consolidation. [https://arxiv.org/abs/2608.12990](https://arxiv.org/abs/2608.12990). external.
 
+[2026] 2608.12743 — Spatial Memory Agent: Experience-Grounded Procedure Memory for Spatial Intelligence. [https://arxiv.org/abs/2608.12743](https://arxiv.org/abs/2608.12743). external.
+
 ### Recent Activity
+
+2026-08-16 | 2608.12743 added | SMA gives a frozen vision-language model spatial competence through a read-only procedure memory rather than parameter updates or inference-time depth and reconstruction tools: verifier-guided reflection in a checkable environment distils each episode into a short transferable lesson, and each lesson carries a Transfer Reliability Score recalibrated from whether later retrievals of it produced correct answers, so ranking combines embedding similarity with past reliability and a closely matching but unreliable lesson can be outranked; across five spatial benchmarks and four base vision-language models it holds the highest macro average in every base-model block and the best accuracy in most of the twenty evaluations, and no ablation separates the score from lesson distillation; Tier B
 
 2026-08-14 | 2608.12990 added | LycheeMemory V2 replaces eager per-turn consolidation with consolidation at detected semantic boundaries, batching several exchanges into a segment and encoding each finalized segment once into context-independent typed records indexed for query-planned retrieval, so construction cost is amortized rather than growing with conversation length; with GPT-4.1-Mini it reports 89.22 percent on LoCoMo and 92.20 percent on LongMemEval-S, and against A-Mem it cuts construction tokens by 86.0 percent on LoCoMo and 75.9 percent on LongMemEval-S with no increase in query-time token usage; the framing claim is that consolidation granularity, not retention policy, is the variable that moves the accuracy-cost curve, and all numbers come from one backbone on two conversational benchmarks; Tier B
 

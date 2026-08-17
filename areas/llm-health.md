@@ -30,6 +30,8 @@
 2026-07 | CLeaD (2607.02920) | supervised contrastive alignment maps English and Mandarin speech embeddings into one clinical space for depression detection
 2026-07 | Cura 1T (2607.15314) | healthcare LLM trained by a human-gated self-evolution loop that rewrites the data mixture from observed benchmark failures
 2026-08 | MorphologyFM (2607.09749) | multimodal biosignal foundation model with morphology-guided masking and cross-modal contrastive alignment on paired ECG and SpO2 waveforms
+
+2026-08 | BLPM (2608.11656) | EEG-language foundation model that predicts latent targets instead of reconstructing the waveform
 ### Paper List
 
 [KNOWN] [2023] Xu et al. — GLOBEM. zotero_key:ICD9EG8Q.
@@ -65,7 +67,11 @@
 
 [2026] 2607.09749 — MorphologyFM: A Foundation Model for Morphology-Aware Representation Learning from ECG and Pulse Oximetry Waveforms. [https://arxiv.org/abs/2607.09749](https://arxiv.org/abs/2607.09749). external.
 
+[2026] 2608.11656 — Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM). [https://arxiv.org/abs/2608.11656](https://arxiv.org/abs/2608.11656). external.
+
 ### Recent Activity
+
+2026-08-16 | 2608.11656 added | BLPM trains an EEG encoder by predicting latent targets rather than reconstructing the trace, then aligns several learned queries per recording to textual semantics in a shared space, so heterogeneous decoding tasks become one problem of continuous semantic embedding prediction and the encoder is usable directly as a language-model front end; it pushes the sensing-to-health-language link from post-hoc alignment into alignment as pretraining, and from wearable activity streams into neural signals; the abstract reports generalisation qualitatively and names no collapse-prevention mechanism; Tier A
 
 2026-08-02 | 2607.09749 added | MorphologyFM pretrains on paired ECG and SpO2 waveforms with morphology-guided masking, cross-modal representation learning, and contrastive latent alignment, because for physiological waveforms the diagnostic content is in shape rather than average level; it extends single-signal biosignal pretraining to paired cross-modal pretraining with explicit alignment; Tier B
 2026-07-20 | 2607.15314 added | Cura 1T trains a healthcare-specialized language model through a human-gated self-evolution loop where a training agent picks a target capability, reads benchmark trajectories, and rewrites the data mixture from observed failures rather than doing one generic medical update, aiming to stop the usual problem where fixing one healthcare skill degrades another; it ranks at or near the top of a healthcare evaluation suite while staying competitive on out-of-domain reasoning; Tier B

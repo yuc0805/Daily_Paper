@@ -18,6 +18,8 @@
 2026-06 | Neuro-JEPA (2606.14957) | joint-embedding predictive pretraining on multimodal neuroimaging with a sparsity constraint on the latent
 2026-07 | VCSD (2607.21556) | on-policy self-distillation for vision-language models that builds the learning signal from original-image versus content-erased contrast through an EMA teacher, with no external teacher
 
+2026-08 | BLPM (2608.11656) | joint-embedding predictive pretraining for EEG, with semantic alignment folded into the objective
+
 ### Paper List
 
 [KNOWN] [2017] Vaswani et al. — Attention Is All You Need. zotero_key:PHB9VRVM.
@@ -37,7 +39,11 @@
 
 [2026] 2607.21556 — Visual Contrastive Self-Distillation. [https://arxiv.org/abs/2607.21556](https://arxiv.org/abs/2607.21556). external.
 
+[2026] 2608.11656 — Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM). [https://arxiv.org/abs/2608.11656](https://arxiv.org/abs/2608.11656). external.
+
 ### Recent Activity
+
+2026-08-16 | 2608.11656 added | BLPM applies joint-embedding latent prediction to EEG, deleting the reconstruction decoder so the training signal never passes through the waveform, and makes text alignment part of the representation through Multi-Query Semantic Decomposition rather than a projection head fitted afterwards; the objective has no reconstruction check, so representation collapse is a live risk that the abstract does not address; Tier A
 
 2026-07-25 | 2607.21556 added | VCSD removes the external teacher from self-distillation for vision-language models: at each student-generated prefix an EMA teacher produces two next-token distributions, one conditioned on the original image and one on a content-erased control, and the token-wise log-probability difference marks the tokens the image content raises, sharpening the teacher distribution that is distilled into the student; on ViRL39K it improves seven-benchmark aggregates on Qwen3-VL by about 5 points at 2B, 2 at 4B, and 4 at 8B, with no external teacher, answer hints, or extra inference cost; Tier B
 
