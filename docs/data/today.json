@@ -1,45 +1,45 @@
 {
-  "date": "2026-08-16",
+  "date": "2026-08-17",
   "papers": [
     {
-      "zotero_key": "2608.11656",
-      "title": "Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM)",
-      "authors": "Cho et al.",
+      "zotero_key": "2608.14106",
+      "title": "Forecast Collapse in Time-Series Foundation Models",
+      "authors": "Wan et al.",
       "year": 2026,
-      "what": "Replaces masked reconstruction and discrete tokenisation in EEG pretraining with continuous latent target prediction, then decomposes the representation with multiple learned queries aligned to text semantics, reporting consistent generalisation across heterogeneous EEG decoding benchmarks.",
+      "what": "Names a failure mode where time-series foundation models produce nearly flat, poorly ranked forecasts on low-predictability targets, traces it to low predictability plus per-series objectives, and proposes CalibRank, which nearly triples cross-sectional correlation on Finance1K while holding forecast amplitude near the target.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "Foundation Models for Biosignals (2025, 2XWEG7AF); MAE Theory (2023, 6INGKIJV); Sensor2Text (2024, ELYUE3NF)"
+      "builds_on": "Chronos (2024, 72DFULQQ); Moirai (2024, CFG6FEIF); PatchTST (2023, YY67LF3R)"
     },
     {
-      "zotero_key": "2608.13489",
-      "title": "DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation",
-      "authors": "DreamX Team et al.",
+      "zotero_key": "2608.13606",
+      "title": "MobileMem: Learning from a Year of Mobile Experiences",
+      "authors": "Deng et al.",
       "year": 2026,
-      "what": "Injects per-arm SE(3) transforms into attention through PRoPE-style geometric encoding, plus a depth branch and SAM3 masks with a frozen V-JEPA teacher, so that predicted manipulation video stays faithful to the commanded action rather than merely realistic; first on Track 1 of WorldArena 2.0.",
-      "area_label": "World Model / RL",
-      "area_slug": "world-model-rl",
-      "builds_on": "Navigation World Models (2024, JQ7JD8AR); DINO-WM (2025, W44RSJJI); DiT (2023, YJ9TK993)"
-    },
-    {
-      "zotero_key": "2608.12743",
-      "title": "Spatial Memory Agent: Experience-Grounded Procedure Memory for Spatial Intelligence",
-      "authors": "Zhang et al.",
-      "year": 2026,
-      "what": "Distils verified spatial experience into compact reusable lessons carrying a Transfer Reliability Score calibrated from later retrieval outcomes, improving frozen vision-language models with no parameter updates and no external spatial tools across five benchmarks and four base models.",
+      "what": "Builds a year-scale benchmark for on-device agent memory by synthesising temporally consistent multimodal trajectories from user-app sessions, scoring multi-hop and temporal reasoning, knowledge updating, and implicit preference inference rather than short-horizon retrieval.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (2026, BDY3HUCV); LATS (2024, 77ERE7HA); PyVision (2025, XQTY5MPI)"
+      "builds_on": "Memory Mechanisms Survey (2026, BDY3HUCV); GLOBEM (2023, ICD9EG8Q); MindScape (2024, K4PR34NU)"
     },
     {
-      "zotero_key": "2608.11951",
-      "title": "TailBooster: A Dual-Layer Generative Framework for Extreme Value Augmentation with Operational Validity Enforcement",
-      "authors": "Aly et al.",
+      "zotero_key": "2608.14290",
+      "title": "Intern-S2-Mobius: Foundation Model with Decoupled Knowledge and Reasoning",
+      "authors": "Chen et al.",
       "year": 2026,
-      "what": "Trains a tabular VAE only on interquartile-range-extracted extremes and then rejects infeasible samples with an autoencoder-learned operational envelope, cutting downstream error by 47 to 49 percent on extreme air time and 29 to 57 percent on extreme arrival delay across six regression algorithms.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "TimeGrad (2021, RILRU5H6); l-DAE (2024, DZ2UYXUL); GAN (2014, GG7GSYUJ)"
+      "what": "Splits the transformer into a shared feed-forward Memory holding knowledge vectors and several self-attention Reasoners that query it iteratively, matching a 7B baseline with 62.6 percent of its training data and delivering close to a 4x inference speedup at 35B.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "Attention Is All You Need (2017, PHB9VRVM); DeepSeek-V3 (2024, 2JCKA7GI); ST-MoE (2022, WIGLUNFZ)"
+    },
+    {
+      "zotero_key": "2608.13667",
+      "title": "Second Thought: Reasoning in Parallel as LLM Agents Act and Observe",
+      "authors": "Sun et al.",
+      "year": 2026,
+      "what": "Fills the idle window while a ReAct agent waits on the environment by forking four auxiliary reasoning branches and merging them when the observation arrives, cutting main-thread decoding by up to 43 percent with no training and no significant Pass@1 loss.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "SPRINT (2025, BZKDNHD6); LATS (2024, 77ERE7HA); Chain-of-Thought (2023, HBLPTRMY)"
     }
   ]
 }

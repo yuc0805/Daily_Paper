@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MobileMem &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>MobileMem: Learning from a Year of Mobile Experiences</h2>
+<p class="paper-meta">Deng, Xue, Ru, Xu, Qiao, Wang, et al. &middot; arXiv 2026-08-11 &middot; <a href="https://arxiv.org/abs/2608.13606" target="_blank" rel="noopener">arXiv:2608.13606</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a>, <a href="../areas/time-series.html">Signal/Time Series</a></p>
+
+<h3>What</h3>
+<p>MobileMem is a benchmark and framework for on-device long-term memory in personal assistant agents, grounded in a year-scale collection of mobile experiences. A knowledge-grounded synthesis pipeline turns raw user-app sessions into coherent, temporally consistent long-horizon trajectories. The benchmark offers text-only and multimodal settings and tests multi-hop and temporal reasoning, knowledge updating when facts about the user change, and inference of preferences the user never stated explicitly.</p>
+
+<h3>Why</h3>
+<p>Agent memory research has been evaluated on conversation-length histories, where retrieval over a few thousand tokens is enough. Real personal assistants accumulate heterogeneous, multimodal, evolving records over months, and the hard cases are stale facts that must be revised and preferences that are only implicit. GLOBEM showed that year-scale longitudinal collection is feasible for behaviour prediction, and MindScape showed sensing can condition an LLM, but neither framed the problem as memory, and the memory literature had no benchmark at that time span.</p>
+
+<h3>How</h3>
+<p>The pipeline synthesises long-horizon trajectories from real user-app sessions, using knowledge grounding to keep facts consistent across the year and to introduce controlled updates where a fact legitimately changes. Tasks are then generated over these trajectories in four families: multi-hop retrieval, temporal reasoning, knowledge updating, and implicit preference inference. Both a text-only and a multimodal variant are provided, so a system can be scored on whether it remembers the past, understands the present state, and adapts as the user changes.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="BDY3HUCV.html">Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Surveyed agent memory mechanisms and flagged the absence of long-horizon evaluation; MobileMem supplies that evaluation.</span></li>
+  <li><a href="ICD9EG8Q.html">GLOBEM (Xu 2023)</a><span class="lineage-note">Established multi-year longitudinal personal data collection as a workable protocol; MobileMem uses a comparable time span for a memory task rather than a prediction task.</span></li>
+  <li><a href="K4PR34NU.html">MindScape (Nepal 2024)</a><span class="lineage-note">Paired behavioural sensing with an LLM over a fixed window; MobileMem requires state carried across a year and revised over time.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The memory survey could compare mechanisms only on benchmarks short enough that naive retrieval works, so differences between mechanisms were not separable. MobileMem lengthens the horizon until retrieval alone fails and updating becomes necessary. Against GLOBEM and MindScape, the fix is different: those datasets support prediction from sensing but contain no task that asks whether a system retained and revised what it learned about the person, which is the failure mode a persistent assistant actually has.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where GLOBEM collected passive sensor streams directly, MobileMem synthesises trajectories from app sessions with a knowledge-grounding step that enforces temporal consistency, trading some ecological realism for controllable ground truth about what the agent should remember. Where MindScape conditions one generation step on a recent sensing window, MobileMem evaluates a full read-write memory loop, and where the Huang survey organised mechanisms conceptually, this work turns the distinctions into scored tasks.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Bridges sensor streams to language for activity tracking; the same bridge would be needed to run MobileMem-style tasks on wearable rather than app data.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Agent search method that would be evaluated on this benchmark as a memory-using policy.</span></li>
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Frames multimodal interaction agents, the system class MobileMem is built to score.</span></li>
+</ul>
+</div>
+</body>
+</html>

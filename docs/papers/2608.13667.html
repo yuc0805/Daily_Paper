@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Second Thought &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>Second Thought: Reasoning in Parallel as LLM Agents Act and Observe</h2>
+<p class="paper-meta">Sun, Yang, Lyu, Shi, Lo &middot; arXiv 2026-08-13 &middot; <a href="https://arxiv.org/abs/2608.13667" target="_blank" rel="noopener">arXiv:2608.13667</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a>, <a href="../areas/reasoning.html">Reasoning</a></p>
+
+<h3>What</h3>
+<p>Second Thought is a training-free inference framework that uses the interval during which a ReAct agent serializes an action and waits for the environment. The moment each Thought phase ends, it forks four auxiliary reasoning branches, decodes them concurrently with the main loop, and merges the generated thoughts back when the observation arrives. Across three agentic benchmarks and three reasoning models it lowers average turn count in all nine pairs and reduces main-thread decoding in six of them by up to 43 percent, with Pass@1 statistically unchanged in seven of nine pairs and the two significant changes being increases of 12.4 and 10.2 points.</p>
+
+<h3>Why</h3>
+<p>In the ReAct paradigm all deliberate reasoning is confined to the Thought phase, and while the agent acts and waits, its reasoning is frozen even though compute is available. Methods that add reasoning, such as tree search over branches, put that extra work on the main thread and therefore pay for accuracy with latency. Methods that parallelise reasoning, such as SPRINT, require post-training to reorganise traces into branchable form. Neither addresses the fact that a recurring idle interval already exists in every agent loop.</p>
+
+<h3>How</h3>
+<p>At the end of each Thought phase the framework forks a fixed number of auxiliary branches, four in the reported configuration, and decodes them concurrently while the main thread issues the action and waits for the observation. When the observation returns, the generated auxiliary thoughts are merged back into the main context so that they serve subsequent turns. No weights are changed and no trace reorganisation is required. The evaluation includes a compute-matched control that forces an equivalent token budget onto the main thread's own reasoning, against which Second Thought attains strictly higher Pass@1 with 1.3 to 3.2 times less sequential decoding in all four applicable settings.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="BZKDNHD6.html">SPRINT (Biju 2025)</a><span class="lineage-note">Post-trains models to emit parallelisable reasoning traces; Second Thought gets parallelism without training by using idle wall-clock time instead.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Searches multiple reasoning and action branches on the main thread; Second Thought moves the extra branches off it.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought (Wei 2023)</a><span class="lineage-note">Established the sequential Thought phase whose position on the critical path this work is trying to change.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>SPRINT's parallelism requires a data curation pipeline and post-training, so it cannot be applied to a model one does not control. LATS improves accuracy but its branch search sits on the critical path, so latency grows with the search budget. Second Thought fixes both: it is training-free and the added branches consume wall-clock time that was already being spent waiting, which is why it can lower turn counts and main-thread decoding at the same time without losing Pass@1.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where LATS expands a search tree and selects among branches before acting, Second Thought commits to the action immediately and speculatively reasons about what comes next, merging the result only when the observation returns. Where SPRINT changes the model so its own trace becomes branchable, Second Thought leaves the model untouched and changes only the scheduler around it. The compute-matched control is what separates the contribution from simply spending more tokens.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Agentic loop with dynamic tool construction, where environment waits are long and the idle window is correspondingly large.</span></li>
+  <li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Decomposition-based planning agent whose recursive structure creates the same alternation of compute and wait.</span></li>
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Tool-calling agent where each external call opens an idle interval this method could fill.</span></li>
+</ul>
+</div>
+</body>
+</html>

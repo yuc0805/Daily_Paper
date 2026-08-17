@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intern-S2-Mobius &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>Intern-S2-Mobius: Foundation Model with Decoupled Knowledge and Reasoning</h2>
+<p class="paper-meta">Chen, Ding, Ding, Ge, Gu, Guo, et al. &middot; arXiv 2026-08-14 &middot; <a href="https://arxiv.org/abs/2608.14290" target="_blank" rel="noopener">arXiv:2608.14290</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a>, <a href="../areas/moe.html">MoE</a></p>
+
+<h3>What</h3>
+<p>Mobius-v0 restructures the transformer into a globally shared Memory block made of feed-forward layers holding knowledge vectors, plus several Reasoner blocks of self-attention that query that memory repeatedly, with hidden states acting as cache and carrier between them. A 7B model trained from scratch matches a 7B transformer baseline using 62.6 percent of the baseline's training data. Intern-S2-Mobius, continually pretrained from Qwen3.5-35B, matches downstream scores with close to a 4x end-to-end inference speedup.</p>
+
+<h3>Why</h3>
+<p>In a standard transformer, attention and feed-forward layers alternate at every depth, so factual storage and compositional computation are entangled throughout the stack. That entanglement means the same fact may be re-encoded at many depths, wasting parameters, and every forward pass must traverse the whole stack, wasting inference time. Sparse mixture-of-experts work such as DeepSeek-V3 and ST-MoE reduced the cost of the feed-forward position but kept the alternating stack, so the entanglement itself was never addressed.</p>
+
+<h3>How</h3>
+<p>Knowledge is consolidated into one shared Memory built from feed-forward layers, and reasoning is carried out by a small number of self-attention Reasoners that issue repeated queries into that memory. Retrieved knowledge vectors are transmitted back to the reasoning operators, and hidden states serve both as the cache for what has been retrieved and as the carrier between reasoning iterations. Because reasoning is iterative over a shared store rather than depth-serial through a fixed stack, the sequential compute path shortens, which is where the reported inference speedup comes from.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">The interleaved attention plus feed-forward block that Mobius separates into memory and reasoning.</span></li>
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Showed sparse activation of feed-forward capacity buys efficiency at scale, while keeping the standard layer stack.</span></li>
+  <li><a href="WIGLUNFZ.html">ST-MoE (Zoph 2022)</a><span class="lineage-note">Established stable sparse expert routing in the feed-forward position, the closest prior attempt to isolate knowledge capacity.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Sparse expert models reduce the compute cost of storing knowledge but do not stop knowledge from being duplicated across depths, and they do not shorten the sequential path a token must traverse. Mobius targets both: consolidating storage into a shared memory is what produces the data efficiency claim at 7B, and replacing depth-serial computation with iterative queries into that memory is what produces the inference speedup at 35B.</p>
+
+<h3>Method vs predecessors</h3>
+<p>DeepSeek-V3 and ST-MoE keep the alternating attention and feed-forward stack and route within it. Mobius changes the topology, making memory access an explicit repeated read issued by a small set of reasoners rather than a routed forward pass through many layers. Relative to the original transformer, the number of distinct reasoning operators is small and they are reused across iterations, so depth is traded for iteration count.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="743XA29Y.html">DeepSeek-V2 (2024)</a><span class="lineage-note">Earlier sparse-attention and expert design in the same efficiency line.</span></li>
+  <li><a href="UBDCML5N.html">MoE with Instruction Tuning (Shen 2023)</a><span class="lineage-note">Examines how expert capacity interacts with downstream tuning, relevant to the continual pretraining result here.</span></li>
+  <li><a href="PZATM3SC.html">LoRA (Hu 2021)</a><span class="lineage-note">Alternative route to cheap adaptation, useful as a comparison point for continually pretraining a 35B model into a new architecture.</span></li>
+</ul>
+</div>
+</body>
+</html>
