@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gathered, Not Admitted &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/interpretable-ml.html" class="back-link">&larr; Back to Area</a>
+<h2>Gathered, Not Admitted: How Attention Brings a Latent Variable into Verbalizable Form</h2>
+<p class="paper-meta">Mazaheri &middot; UC Santa Cruz &middot; arXiv 2026-08-15 &middot; <a href="https://arxiv.org/abs/2608.15022" target="_blank" rel="noopener">arXiv:2608.15022</a> &middot; Appears in: <a href="../areas/interpretable-ml.html">Interpretable ML</a></p>
+
+<h3>What</h3>
+<p>The paper tests the widespread claim that a language model has a workspace with a gate deciding which internal quantities become reportable. Using Jacobian lenses on open-weight models, over a benchmark whose five arms share an identical context, the author finds no gate where the account predicts one. A single shared linear map decodes the latent variable from every arm, including the arm that needs it for nothing, at 6.4 to 9.0 times its selection-corrected floor, so task demand changes visibility rather than presence. Separating patch depth from readout depth localises the mechanism to attention-mediated gathering inside a mid-depth window, at least 17 times above anywhere shallower under non-saturating readouts, with no tested MLP output contributing positively inside it. The window has a survival failure below and a destruction edge above, and it falls at the same fractional depth in a 64-layer hybrid and a 62-layer dense model from another family.</p>
+
+<h3>Why</h3>
+<p>Claims about what a model "knows" or "has available" usually rest on a probe succeeding, and claims about a workspace usually rest on the intuition that something must decide what enters it. Neither has been tested at the position the admission account predicts, with the demand for the variable manipulated while the context is held identical. Without that control, a probe that succeeds cannot distinguish a variable that the model uses from one that merely happens to be linearly decodable, which is the ambiguity the whole readout literature carries.</p>
+
+<h3>How</h3>
+<p>Five benchmark arms share an identical context and differ only in what the task demands of one latent variable, ranging from flexible reuse down to no use at all. Jacobian lenses measure how a change at one depth propagates to the readout at another, so patch depth and readout depth can be varied separately and transport can be attributed to a depth band rather than to a layer. Attention and MLP contributions inside the window are ablated separately. The same grid is run on two model families of similar but not identical depth so the window can be reported in fractional rather than absolute depth.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">Community 2 god node; introduced the attention and MLP division of labour whose functional roles this paper separates empirically.</span></li>
+  <li><a href="46WR27KQ.html">SHAP (Lundberg 2017)</a><span class="lineage-note">Community 6 anchor; established attribution as the standard answer to "which feature did the model use", the assumption this paper undercuts.</span></li>
+  <li><a href="EMXEJYHV.html">Latent Reasoning Survey (2025)</a><span class="lineage-note">Collected claims about internal representations that are not verbalised, several of which rest on probe success.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The transformer paper introduced attention as routing and left its functional role open; this paper measures the routing and reports that transport of a latent into readable form is carried by attention within a bounded depth band, with no tested MLP contributing positively there. Against SHAP and the attribution family more broadly, the paper supplies a direct counterexample to treating a readout as a measure of use: three components move the readout to within 12 percent of one another while differing 7.4 times in their effect on the answer. That is a failure mode of the measurement class, not of one implementation, and it applies to any conclusion drawn from a score that moves.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Attribution methods assign credit to inputs under an additive surrogate and never intervene on the network. This paper intervenes, and its specific move is to decouple the depth at which a representation is patched from the depth at which it is read, which is what allows transport to be localised to a window rather than confounded with readout position. It also reports that the saturating percentile-rank readout fails to localise the window while non-saturating readouts do, and treats that as a fact about the measure rather than about the model, which is a level of care the earlier lens literature usually skips. This connects community 2 and community 6 in the library, which currently have little linking them.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="CXGMDHJ3.html">Chain of Superposition (2026)</a><span class="lineage-note">Also concerned with latent quantities the model carries without verbalising them.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought (Wei 2023)</a><span class="lineage-note">The verbalised counterpart; this paper studies what reaches reportable form before any verbalisation happens.</span></li>
+  <li><a href="7C4VSDBY.html">CUR (Mahoney 2009)</a><span class="lineage-note">Interpretable low-rank decomposition, the other tradition in the library for asking what a representation contains.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R^3-Bench: Resource-Rational Reasoning under Shared Budgets &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>R^3-Bench: LLMs Struggle with Resource-Rational Reasoning under Shared Budgets</h2>
+<p class="paper-meta">Wang, Ma, Liu, Liu, Chen, Zi, Zeng, Li, Li &middot; HKUST &middot; arXiv 2026-08-17 &middot; <a href="https://arxiv.org/abs/2608.16033" target="_blank" rel="noopener">arXiv:2608.16033</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+
+<h3>What</h3>
+<p>R^3-Bench asks whether a reasoning model can spend one shared computation budget wisely across six problems presented together, drawn from mathematics, competitive programming, and abstract reasoning, in both tool-free and agentic settings. The control that makes the benchmark work is an offline empirical oracle built from the same model's matched single-problem response curves, so each model is measured against its own demonstrated competence. Across 72 main-table cells covering six models, the oracle mean matches or exceeds the contest mean in every cell and is strictly higher in 71. Under moderate tool-free pressure, replaying the same budget with equal allocation beats the model's own contest performance for four of six models, and under strong agentic pressure at least one fixed scheduler beats the contest mean in six of nine cells, though no scheduler wins everywhere.</p>
+
+<h3>Why</h3>
+<p>Reasoning and agent benchmarks almost all give each task its own independent budget, which measures capability but says nothing about allocation. The shared-budget studies that do exist do not calibrate suite performance against the same model's single-problem competence, so a low score cannot be separated into "the model cannot solve these" and "the model could solve these but spent its budget badly". Without that separation there is no way to know whether better scheduling would help at all.</p>
+
+<h3>How</h3>
+<p>Each suite presents six problems competing for one token or action budget. Matched single-problem runs give a response curve per problem per model, and the offline oracle picks the allocation that maximises observed successes on those curves, forming an upper bound reachable with the model's existing competence. Contest performance is then compared against that oracle, against equal allocation replay, and against a small set of fixed schedulers. Trajectory diagnostics record whether the model revises its allocation strategy as the contest proceeds.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="HBLPTRMY.html">Chain-of-Thought (Wei 2023)</a><span class="lineage-note">Community 0 anchor; established that more generated reasoning tokens raise accuracy on a single problem.</span></li>
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (DeepSeek-AI 2025)</a><span class="lineage-note">Made long reinforcement-learned reasoning traces the default way to spend inference compute, again per problem.</span></li>
+  <li><a href="BZKDNHD6.html">SPRINT (Biju 2025)</a><span class="lineage-note">Restructured long sequential reasoning into parallel branches to cut inference time; changes the shape of computation, not its allocation.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Made search over reasoning trajectories explicit through tree expansion and value estimates, within a single task.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Chain-of-Thought and DeepSeek-R1 both rest on the assumption that spending more tokens on a problem buys more accuracy, which is true but says nothing about a queue. This paper holds the total budget fixed and shows the loss is at the allocation step rather than the competence step: the models already know enough to reach the oracle score and do not reach it. The cross-area bridge in the library between DeepSeek-R1 and Chain-of-Thought, reasoning through reinforcement learning against reasoning through prompting, is pushed into territory neither covers, since both optimise per-problem quality. The finding that a fixed equal-allocation scheduler beats the model's own choices for four of six models is the sharpest form of that result: the model's own judgement about where to spend is worse than not judging at all.</p>
+
+<h3>Method vs predecessors</h3>
+<p>SPRINT and LATS change the computation graph, adding parallel branches or a search tree. R^3-Bench changes the accounting instead, and its methodological contribution is the same-model empirical oracle assembled from single-problem response curves. That construction is what turns an ambiguous low score into a measured headroom figure, and it is reusable outside reasoning. The paper also tests fixed schedulers rather than proposing a learned allocator, which keeps the result about the gap rather than about a new method.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="W7RPRTCH.html">TTT for Abstract Reasoning (Akyurek 2024)</a><span class="lineage-note">Also about how to spend inference-time compute, but on adapting to one instance rather than dividing across several.</span></li>
+  <li><a href="EGRXFZU9.html">Soft Thinking (2025)</a><span class="lineage-note">Another attempt to make reasoning compute cheaper per problem, complementary to the allocation question.</span></li>
+  <li><a href="EMXEJYHV.html">Latent Reasoning Survey (2025)</a><span class="lineage-note">Surveys the per-problem reasoning methods whose budgets this benchmark puts into competition.</span></li>
+</ul>
+</div>
+</body>
+</html>

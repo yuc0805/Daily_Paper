@@ -1,45 +1,45 @@
 {
-  "date": "2026-08-17",
+  "date": "2026-08-18",
   "papers": [
     {
-      "zotero_key": "2608.14106",
-      "title": "Forecast Collapse in Time-Series Foundation Models",
-      "authors": "Wan et al.",
+      "zotero_key": "2608.08675",
+      "title": "SCALER: Efficient Test-Time Scaling for LLM-based Time Series Forecasting",
+      "authors": "Anonymous et al.",
       "year": 2026,
-      "what": "Names a failure mode where time-series foundation models produce nearly flat, poorly ranked forecasts on low-predictability targets, traces it to low predictability plus per-series objectives, and proposes CalibRank, which nearly triples cross-sectional correlation on Finance1K while holding forecast amplitude near the target.",
+      "what": "Splits language-model forecasting into a cheap coarse-shape stage and a fixed-step multi-scale refinement stage, so extra inference compute buys accuracy instead of drift, with average inference roughly 7 times faster than standard test-time-scaling forecasters.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "Chronos (2024, 72DFULQQ); Moirai (2024, CFG6FEIF); PatchTST (2023, YY67LF3R)"
+      "builds_on": "Time-LLM (2024, MKICLA63); GPT4TS (2024, 6QQNUTL7); TTT for Abstract Reasoning (2024, W7RPRTCH); ChatTS (2025, VSCNJG5J)"
     },
     {
-      "zotero_key": "2608.13606",
-      "title": "MobileMem: Learning from a Year of Mobile Experiences",
-      "authors": "Deng et al.",
+      "zotero_key": "2608.05742",
+      "title": "Multivariate Time Series Forecasting needs Cross Variable Loss",
+      "authors": "Ding et al.",
       "year": 2026,
-      "what": "Builds a year-scale benchmark for on-device agent memory by synthesising temporally consistent multimodal trajectories from user-app sessions, scoring multi-hop and temporal reasoning, knowledge updating, and implicit preference inference rather than short-horizon retrieval.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (2026, BDY3HUCV); GLOBEM (2023, ICD9EG8Q); MindScape (2024, K4PR34NU)"
+      "what": "Proves point-wise squared error matches the Gaussian likelihood only under spherical residual covariance, then adds CvLoss, a graph penalty over synchronous and lagged residual edges that recovers 84.83 percent of the true cross-variable correlation structure on ECL without changing the backbone.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "iTransformer (2024, QBX2TI2X); PatchTST (2023, YY67LF3R); Forecast Collapse in TSFMs (2026, 2608.14106)"
     },
     {
-      "zotero_key": "2608.14290",
-      "title": "Intern-S2-Mobius: Foundation Model with Decoupled Knowledge and Reasoning",
-      "authors": "Chen et al.",
+      "zotero_key": "2608.16033",
+      "title": "R^3-Bench: LLMs Struggle with Resource-Rational Reasoning under Shared Budgets",
+      "authors": "Wang et al.",
       "year": 2026,
-      "what": "Splits the transformer into a shared feed-forward Memory holding knowledge vectors and several self-attention Reasoners that query it iteratively, matching a 7B baseline with 62.6 percent of its training data and delivering close to a 4x inference speedup at 35B.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "Attention Is All You Need (2017, PHB9VRVM); DeepSeek-V3 (2024, 2JCKA7GI); ST-MoE (2022, WIGLUNFZ)"
+      "what": "Measures how reasoning models divide one shared budget across six competing problems against an oracle built from their own single-problem response curves, finding unrealized headroom in 71 of 72 cells and equal allocation beating the model's own choices for four of six models.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "Chain-of-Thought (2023, HBLPTRMY); DeepSeek-R1 (2025, Z5IWHZAE); SPRINT (2025, BZKDNHD6); LATS (2024, 77ERE7HA)"
     },
     {
-      "zotero_key": "2608.13667",
-      "title": "Second Thought: Reasoning in Parallel as LLM Agents Act and Observe",
-      "authors": "Sun et al.",
+      "zotero_key": "2608.15022",
+      "title": "Gathered, Not Admitted: How Attention Brings a Latent Variable into Verbalizable Form",
+      "authors": "Mazaheri",
       "year": 2026,
-      "what": "Fills the idle window while a ReAct agent waits on the environment by forking four auxiliary reasoning branches and merging them when the observation arrives, cutting main-thread decoding by up to 43 percent with no training and no significant Pass@1 loss.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "SPRINT (2025, BZKDNHD6); LATS (2024, 77ERE7HA); Chain-of-Thought (2023, HBLPTRMY)"
+      "what": "Finds no gate where the workspace account predicts one, localises the transport of a latent variable into readable form to attention inside a mid-depth window at least 17 times above anywhere shallower, and shows the readout is not a calibrated measure of use.",
+      "area_label": "Interpretable ML",
+      "area_slug": "interpretable-ml",
+      "builds_on": "Attention Is All You Need (2017, PHB9VRVM); SHAP (2017, 46WR27KQ); Latent Reasoning Survey (2025, EMXEJYHV)"
     }
   ]
 }

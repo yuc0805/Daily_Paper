@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCALER: Efficient Test-Time Scaling for LLM-based TSF &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Efficient Test-Time Scaling for LLM-based Time Series Forecasting (SCALER)</h2>
+<p class="paper-meta">Anonymous et al. &middot; KDD 2026 &middot; arXiv 2026-08-11 &middot; <a href="https://arxiv.org/abs/2608.08675" target="_blank" rel="noopener">arXiv:2608.08675</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+
+<h3>What</h3>
+<p>SCALER is a two-stage coarse-to-fine framework for long-horizon forecasting with a pretrained language model. A lightweight non-LLM forecaster first predicts a coarse future shape at low resolution, and the language model then refines that shape into a full-resolution forecast through a fixed number of multi-scale residual passes. Because the model is handed an explicit numeric shape target instead of a long natural-language description of the series, it processes substantially fewer tokens at each refinement step, and because the refinement schedule is fixed in advance, no reward model is needed to select among sampled trajectories. The authors report improvements over strong baselines on long-term, short-term, and zero-shot benchmarks with average inference roughly 7 times faster than standard test-time-scaling forecasters.</p>
+
+<h3>Why</h3>
+<p>Most language-model forecasters still treat forecasting as a single sequence-to-sequence pass, producing the whole horizon in one inference with no intermediate step the model can correct. The obvious fix, borrowing test-time scaling from reasoning, has been costly in this setting for two separate reasons: long description prompts make every additional pass expensive, and reward-model-based selection over sampled trajectories adds a second model to the inference path. Iterative refinement without an anchor also amplifies shape mismatch, so more compute does not reliably buy more accuracy.</p>
+
+<h3>How</h3>
+<p>The series is encoded at several patch scales. Stage one trains a small global forecaster to produce a coarse shape for the whole horizon, supervised with a shape loss at the lowest resolution. Stage two runs a fixed number of refinement steps, each conditioned on the current estimate and the multi-scale patch encoding, with the language model predicting residual corrections at progressively finer resolution rather than regenerating the forecast. The fixed-step schedule means inference cost is known in advance and does not depend on how many samples a verifier would need to rank.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="MKICLA63.html">Time-LLM (Jin 2024)</a><span class="lineage-note">Established that a frozen language model can forecast once the series is reprogrammed into prompt tokens; SCALER keeps the frozen model and replaces the prompt with a numeric shape.</span></li>
+  <li><a href="6QQNUTL7.html">GPT4TS (Zhou 2024)</a><span class="lineage-note">Showed a frozen pretrained transformer generalises across time-series tasks with light input and output adaptation, but in a single forward pass.</span></li>
+  <li><a href="W7RPRTCH.html">TTT for Abstract Reasoning (Akyurek 2024)</a><span class="lineage-note">Established that spending compute at inference rather than at training recovers large gains; SCALER imports the idea without the per-instance gradient steps.</span></li>
+  <li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">Community 4 anchor for language-model-native multivariate series handling through description prompts, the cost SCALER removes.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Time-LLM and GPT4TS both commit to a single pass, so a bad early token has no correction path and the accuracy ceiling is set by that one decode. SCALER gives the model several chances to correct a forecast that a cheap model has already anchored, which is what turns extra inference compute into accuracy rather than into drift. ChatTS made the prompt the carrier of series semantics, which ties inference cost to prompt length and makes any iterative scheme expensive; SCALER moves that information into a coarse-shape vector, which is the specific change that produces the reported 7x speedup rather than a modest constant-factor saving.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The earlier work in this line changes what the language model reads. SCALER changes how many times it reads and what it writes: residual corrections at increasing resolution, rather than a forecast. Compared with TTT for Abstract Reasoning, which scales test-time compute by adapting weights for each instance, SCALER scales it by adding resolution levels, so there are no gradient steps at inference and the budget is fixed rather than adaptive. Compared with reward-model-based test-time scaling, the fixed-step schedule removes the verifier from the inference path entirely, which is where a large part of the cost saving comes from.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Community 4 god node; also puts a language model in a multi-step loop over a series, but through tool calls rather than resolution refinement.</span></li>
+  <li><a href="YY67LF3R.html">PatchTST (Nie 2023)</a><span class="lineage-note">Source of the patch encoding that SCALER extends to multiple scales.</span></li>
+  <li><a href="2608.14106.html">Forecast Collapse in TSFMs (Wan 2026)</a><span class="lineage-note">Attacks the same accuracy ceiling from the objective side; SCALER's coarse shape is univariate and would inherit the cross-series blind spot named there.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multivariate Time Series Forecasting needs Cross Variable Loss &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Multivariate Time Series Forecasting needs Cross Variable Loss (CvLoss)</h2>
+<p class="paper-meta">Ding, Hu, Wang, Xue &middot; arXiv 2026-08-06 &middot; <a href="https://arxiv.org/abs/2608.05742" target="_blank" rel="noopener">arXiv:2608.05742</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+
+<h3>What</h3>
+<p>The paper shows that the standard direct-forecasting objective, point-wise squared error applied independently per variable, is mismatched whenever the target series carry cross-variable or lagged dependencies. It proves that point-wise squared error coincides with the Gaussian negative log-likelihood only when the residual covariance is spherical. It then proposes CvLoss, a plug-in structural regulariser that lays a graph over forecast patches and penalises inconsistent edge-wise residual differences with an l1 term. On the ECL dataset, an iTransformer trained with CvLoss recovers 84.83 percent of the ground-truth cross-variable correlation structure, against a plain squared-error baseline whose predicted correlation matrix is visibly flatter and misplaces much of the off-diagonal structure while remaining competitive on point-wise error.</p>
+
+<h3>Why</h3>
+<p>Work on cross-variable dependencies has concentrated on the input side, modelling how historical channels relate, through inverted attention, channel partiality, or graph encoders. The output side has been left alone: multi-step forecasts are decoupled into isolated scalar predictions and scored one at a time. That leaves an objective gap. Two models can reach nearly identical squared error and still differ sharply in the joint geometry of their forecasts, and no standard metric distinguishes them, so a model with the architectural capacity to represent cross-variable structure is never pushed to use it.</p>
+
+<h3>How</h3>
+<p>Forecast patches become nodes in a graph. Edges connect variables at the same timestamp to capture synchronous concurrent interactions, and connect variables across different timestamps to capture asynchronous lagged effects. CvLoss penalises the difference in residuals along each edge under an l1 norm, which acts as a graph total-variation term on the residual field. The authors relate this to a structured Gaussian negative log-likelihood, show the squared version is one member of the family, and add the term to several existing backbones without modifying their architectures.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="QBX2TI2X.html">iTransformer (Liu 2024)</a><span class="lineage-note">Inverted the attention axis so variates attend to each other; CvLoss keeps that architecture and shows the loss still fails to exploit it.</span></li>
+  <li><a href="YY67LF3R.html">PatchTST (Nie 2023)</a><span class="lineage-note">Made channel-independent patching the default, which is the modelling choice this paper prices in explicit terms.</span></li>
+  <li><a href="2608.14106.html">Forecast Collapse in TSFMs (Wan 2026)</a><span class="lineage-note">Named per-series objectives as a cause of unidentified cross-series structure and answered with CalibRank; CvLoss answers the same diagnosis differently.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>iTransformer fixes cross-variable modelling in the architecture and leaves the objective untouched, so the model has the capacity but no gradient pressure to use it. CvLoss supplies the pressure and leaves the architecture untouched, which is why it improves several backbones rather than one. PatchTST argued channel independence improves accuracy and stability; this paper gives the cost of that choice, showing the predicted correlation matrix flattens even when point-wise error is competitive. Relative to Forecast Collapse, which targets cross-sectional ordering at each timestamp, CvLoss targets the full residual dependency structure and includes lagged edges, so it covers interactions that a same-timestamp ranking term cannot express.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Prior cross-variable work operates on the input representation: inverted attention, channel selection, or graph message passing over historical observations. CvLoss operates on the residual field of the output and never touches the forward model, which makes it composable with any of those. Where CalibRank mixes a calibration term with a cross-sectional correlation term to trade off amplitude against ranking, CvLoss uses a graph total-variation penalty derived from a structured Gaussian likelihood, so its regularisation strength is tied to an explicit assumption about the residual precision matrix rather than to a ranking metric.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="CFG6FEIF.html">Moirai (Woo 2024)</a><span class="lineage-note">Any-variate pretraining that still trains and scores one series at a time, so it inherits the objective gap described here.</span></li>
+  <li><a href="72DFULQQ.html">Chronos (Ansari 2024)</a><span class="lineage-note">Tokenised pretrained forecaster whose per-series objective this paper argues is the binding constraint.</span></li>
+  <li><a href="SIBB8W67.html">Moment (Goswami 2024)</a><span class="lineage-note">General time-series foundation model that would be a natural backbone for testing the regulariser at pretraining scale.</span></li>
+</ul>
+</div>
+</body>
+</html>
