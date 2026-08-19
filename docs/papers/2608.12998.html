@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WIRED: Weighted Adaptive Prediction with Structured Dependence — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
+<h2>WIRED: Weighted Adaptive Prediction with Structured Dependence for Probabilistic Multiseries Forecasting</h2>
+<p class="paper-meta">
+  Vercellino &middot; arXiv 2026-08-13 &middot;
+  <a href="https://arxiv.org/abs/2608.12998" target="_blank" rel="noopener">arXiv:2608.12998</a> &middot;
+  Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>
+</p>
+
+<h3>What</h3>
+<p>WIRED performs joint probabilistic forecasting over multiple related time series while keeping the marginal predictive distributions and the cross-series dependence structurally separate. Marginals are produced by a library of simple predictive distributions combined through CRPS-based adaptive mixture weights. Dependence is reconstructed afterwards by a Gaussian or Student t copula used for cross-series simulation. The author frames the contribution as architectural and diagnostic rather than as a new state of the art, and ships the method as an R package.</p>
+
+<h3>Why</h3>
+<p>Deep multivariate forecasters entangle two things that answer different questions: how well each series is calibrated on its own, and how the series move together. When the two are learned through one objective, a training signal that improves calibration can silently destroy the dependence structure, and the resulting model looks well calibrated per series while being useless for any decision that depends on joint behaviour. Diagnosing which of the two has failed is difficult when a single set of weights carries both.</p>
+
+<h3>How</h3>
+<p>The marginal stage fits a library of simple predictive distributions per series and combines them with mixture weights adapted using the continuous ranked probability score, so the weighting is driven directly by probabilistic forecast quality. The dependence stage then fits a copula, Gaussian or Student t, over the marginals and uses it to simulate correlated draws across series. Evaluation covers four synthetic data-generating processes at three forecast horizons with 30 replicates per process-horizon pair, nine ablations alongside external baselines, and a rolling-origin study on the built-in EuStockMarkets data.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="2608.14106.html">Forecast Collapse in Time-Series Foundation Models (2026)</a><span class="lineage-note">Showed per-series objectives leave cross-series structure unidentified, producing a calibration-versus-ranking trade-off in which minimising squared error flattens forecasts.</span></li>
+  <li><a href="2608.05742.html">Multivariate Time Series Forecasting needs Cross Variable Loss (2026)</a><span class="lineage-note">Proved point-wise squared error matches the Gaussian likelihood only under spherical residual covariance, and added a graph penalty over residual edges.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Forecast Collapse diagnosed the problem but left it inside the model: it showed that per-series objectives do not identify cross-series structure, without changing the architecture that causes it. Cross Variable Loss repaired the objective by adding a graph penalty over synchronous and lagged residual edges, which recovers dependence but keeps marginals and dependence coupled through one set of weights, so the repair has to be retuned whenever the backbone changes. WIRED removes the coupling entirely by fitting the two stages separately, so no property of the marginal objective can degrade the dependence structure, and a failure in either stage can be diagnosed independently.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Both predecessors work inside a neural backbone and modify the loss. WIRED replaces the backbone with an explicit two-stage statistical construction: CRPS-weighted mixtures of simple marginals, then a parametric copula for dependence. The trade-off runs in both directions. The copula imposes a dependence family, where the graph penalty in Cross Variable Loss learns whatever structure the residuals show and can capture lagged and asymmetric relationships a Gaussian copula cannot. In exchange, WIRED's dependence estimate is unaffected by whatever the marginal stage does, and either stage can be swapped without retuning the other, including swapping in a deep forecaster as the marginal model.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="QBX2TI2X.html">iTransformer (2024)</a><span class="lineage-note">Also targets cross-variable structure, by inverting the attention axis rather than separating estimation stages.</span></li>
+  <li><a href="../areas/time-series.html">Crossformer (2023)</a><span class="lineage-note">Earlier attempt at explicit cross-dimension dependence inside an attention backbone.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

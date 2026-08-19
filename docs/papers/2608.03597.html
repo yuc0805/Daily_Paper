@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOUND-AF: Benchmarking ECG Foundation Models for Atrial Fibrillation Detection — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+
+<h2>FOUND-AF: Benchmarking ECG Foundation Models for Atrial Fibrillation Detection</h2>
+<p class="paper-meta">
+  Anonymous et al. &middot; arXiv 2026 &middot;
+  <a href="https://arxiv.org/abs/2608.03597" target="_blank" rel="noopener">arXiv:2608.03597</a> &middot;
+  Appears in: <a href="../areas/llm-health.html">LLM-Health</a>
+</p>
+
+<h3>What</h3>
+<p>FOUND-AF is a unified, leakage-controlled, deployment-oriented benchmark for pretrained ECG representations. Nine public foundation models from five families, including HuBERT-ECG, CLEF, ST-MEM, ECG-JEPA and ECGFounder, are evaluated under identical conditions across four heterogeneous datasets: AFDB, CinC2017, CPSC2021 and LTAFDB. ECGFounder is strongest overall while also sitting at a favourable point on the trade-off between accuracy, model size, inference time and memory.</p>
+
+<h3>Why</h3>
+<p>Published ECG foundation model results are not comparable to each other. Each paper chooses its own preprocessing, its own downstream head, its own fine-tuning budget and its own split policy, so a reported accuracy difference between two encoders may reflect any of those choices rather than representation quality. The problem is sharper in physiological data than in vision or language because a single recording yields many overlapping windows, and splitting at the window level leaks subject identity across train and test, inflating results in a way that is easy to miss.</p>
+
+<h3>How</h3>
+<p>Every model is used as a frozen feature extractor, with standardised preprocessing, model-native resampling, a fixed XGBoost classifier on top, and recording-level grouped cross-validation so no recording spans a split boundary. Reporting covers classification metrics, receiver operating characteristic analysis, paired recording-level bootstrap comparisons with Holm correction for multiple testing, embedding-space visualisation, and computational efficiency profiling. Freezing the encoder and fixing the downstream classifier is what makes the comparison a statement about representation quality; the grouped cross-validation is what makes it honest.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (2025)</a><span class="lineage-note">graphify gu2025_biosignals, Community 1, god node in llm-health. Catalogued which bio-signal foundation models exist and what they claim.</span></li>
+  <li><a href="3LA8GNCU.html">HeAR (2024)</a><span class="lineage-note">graphify baur2024_hear, Community 1. Built health acoustic representations and validated them through downstream transfer.</span></li>
+  <li><a href="../areas/self-supervised.html">SSL for HAR with 700K Person-days (2024)</a><span class="lineage-note">graphify yuan2024_ssl_har, god node in self-supervised with 8 edges. Established large-scale self-supervised pretraining for wearable sensor streams.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The biosignals survey collected each model's own claims, which means it inherited each paper's evaluation setup and therefore could not say which encoder is actually better. FOUND-AF fixes that by re-running everything under one protocol and producing a ranking with statistical comparison. HeAR and SSL-for-HAR each validated one encoder against baselines its own authors selected, so neither can be read as evidence about relative representation quality across the field. FOUND-AF also addresses a failure mode specific to physiological data that none of the three predecessors controlled for consistently: within-subject leakage from window-level splitting, removed here by recording-level grouping.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The methodological import is the frozen-encoder plus fixed-downstream-classifier protocol, standard practice in vision and language representation research, applied to ECG. Where the predecessors each trained or fine-tuned a model and reported task performance, FOUND-AF trains nothing and varies only the encoder, so every reported difference is attributable to the representation. The additions specific to this setting are model-native resampling, so no encoder is penalised for a preprocessing mismatch, recording-level grouped cross-validation, and paired bootstrap comparison with Holm correction across nine models. Note that gu2025_biosignals appears on both the time-series and llm-health area pages and so already bridges Community 1 (Health AI and Self-Supervised) and Community 5 (Wearable Sensing and Behavior); FOUND-AF strengthens that bridge on the evaluation side rather than the modelling side, supplying the shared protocol the two communities lacked.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2510.25785.html">HiMAE: Hierarchical Masked Autoencoders for Wearable Time Series (2025)</a><span class="lineage-note">A representation-learning entry in the same modality family that this protocol could be applied to.</span></li>
+  <li><a href="2BGP9QJL.html">Verifiable Physio Reasoning (2026)</a><span class="lineage-note">Complementary concern: verifiability of downstream reasoning rather than of the underlying representation.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

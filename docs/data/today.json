@@ -1,45 +1,45 @@
 {
-  "date": "2026-08-18",
+  "date": "2026-08-19",
   "papers": [
     {
-      "zotero_key": "2608.08675",
-      "title": "SCALER: Efficient Test-Time Scaling for LLM-based Time Series Forecasting",
+      "zotero_key": "2608.14682",
+      "title": "RouteTS: Frequency-Time Routing for Time Series Forecasting",
       "authors": "Anonymous et al.",
       "year": 2026,
-      "what": "Splits language-model forecasting into a cheap coarse-shape stage and a fixed-step multi-scale refinement stage, so extra inference compute buys accuracy instead of drift, with average inference roughly 7 times faster than standard test-time-scaling forecasters.",
+      "what": "Splits the amplitude spectrum and routes dominant periodicities to a phase-preserving complex linear predictor in the frequency domain while returning residual energy to a lightweight time-domain MLP, giving the best average MSE on six of eight benchmarks and best MSE and MAE at both extremes, the highly non-stationary COVID-19 set and the strongly periodic Solar set.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "Time-LLM (2024, MKICLA63); GPT4TS (2024, 6QQNUTL7); TTT for Abstract Reasoning (2024, W7RPRTCH); ChatTS (2025, VSCNJG5J)"
+      "builds_on": "FEDformer (2022, TVHWGWAV); DLinear (2023, 4QRHV2JG); TimesNet (2023, HLTA8MDK)"
     },
     {
-      "zotero_key": "2608.05742",
-      "title": "Multivariate Time Series Forecasting needs Cross Variable Loss",
-      "authors": "Ding et al.",
+      "zotero_key": "2608.01875",
+      "title": "ReasonCast: Towards Explainable Time Series Forecasting with Reasoning",
+      "authors": "Han et al.",
       "year": 2026,
-      "what": "Proves point-wise squared error matches the Gaussian likelihood only under spherical residual covariance, then adds CvLoss, a graph penalty over synchronous and lagged residual edges that recovers 84.83 percent of the true cross-variable correlation structure on ECL without changing the backbone.",
+      "what": "Fine-tunes any LLM backbone to emit a reasoning chain and a numeric forecast in one autoregressive pass, and releases ReasonTS-Bench, which scores forecast MAE alongside three reasoning metrics averaged over five time-series pattern primitives.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "iTransformer (2024, QBX2TI2X); PatchTST (2023, YY67LF3R); Forecast Collapse in TSFMs (2026, 2608.14106)"
+      "builds_on": "ChatTS (2025, VSCNJG5J); TS-Agent (2025, I2CIT4I7); Chain-of-Thought (2023, HBLPTRMY)"
     },
     {
-      "zotero_key": "2608.16033",
-      "title": "R^3-Bench: LLMs Struggle with Resource-Rational Reasoning under Shared Budgets",
-      "authors": "Wang et al.",
+      "zotero_key": "2608.03597",
+      "title": "FOUND-AF: Benchmarking ECG Foundation Models for Atrial Fibrillation Detection",
+      "authors": "Anonymous et al.",
       "year": 2026,
-      "what": "Measures how reasoning models divide one shared budget across six competing problems against an oracle built from their own single-problem response curves, finding unrealized headroom in 71 of 72 cells and equal allocation beating the model's own choices for four of six models.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "Chain-of-Thought (2023, HBLPTRMY); DeepSeek-R1 (2025, Z5IWHZAE); SPRINT (2025, BZKDNHD6); LATS (2024, 77ERE7HA)"
+      "what": "Runs nine public ECG foundation models from five families across four datasets as frozen feature extractors with a fixed XGBoost head and recording-level grouped cross-validation, so the ranking measures representation quality rather than fine-tuning effort, with ECGFounder strongest overall.",
+      "area_label": "LLM-Health",
+      "area_slug": "llm-health",
+      "builds_on": "Foundation Models for Biosignals Survey (2025, 2XWEG7AF); HeAR (2024, 3LA8GNCU); SSL for HAR 700K Person-days (2024, RTMH75VW)"
     },
     {
-      "zotero_key": "2608.15022",
-      "title": "Gathered, Not Admitted: How Attention Brings a Latent Variable into Verbalizable Form",
-      "authors": "Mazaheri",
+      "zotero_key": "2608.12998",
+      "title": "WIRED: Weighted Adaptive Prediction with Structured Dependence for Probabilistic Multiseries Forecasting",
+      "authors": "Vercellino",
       "year": 2026,
-      "what": "Finds no gate where the workspace account predicts one, localises the transport of a latent variable into readable form to attention inside a mid-depth window at least 17 times above anywhere shallower, and shows the readout is not a calibrated measure of use.",
-      "area_label": "Interpretable ML",
-      "area_slug": "interpretable-ml",
-      "builds_on": "Attention Is All You Need (2017, PHB9VRVM); SHAP (2017, 46WR27KQ); Latent Reasoning Survey (2025, EMXEJYHV)"
+      "what": "Separates marginal calibration from cross-series dependence by combining simple predictive distributions with CRPS-adaptive mixture weights and reconstructing dependence afterwards with a Gaussian or Student t copula, so no property of the marginal objective can destroy the joint structure.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "Forecast Collapse in TSFMs (2026, 2608.14106); Cross Variable Loss (2026, 2608.05742)"
     }
   ]
 }

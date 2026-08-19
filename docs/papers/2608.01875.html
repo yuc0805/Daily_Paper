@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReasonCast: Towards Explainable Time Series Forecasting with Reasoning — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
+<h2>ReasonCast: Towards Explainable Time Series Forecasting with Reasoning</h2>
+<p class="paper-meta">
+  Han et al. &middot; arXiv 2026 &middot;
+  <a href="https://arxiv.org/abs/2608.01875" target="_blank" rel="noopener">arXiv:2608.01875</a> &middot;
+  Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>
+</p>
+
+<h3>What</h3>
+<p>ReasonCast is a fine-tuning recipe that makes any LLM backbone produce a reasoning chain and a numeric forecast together in a single autoregressive pass, instead of routing understanding and generation down task-separated paths. The paper also releases ReasonTS-Bench, a benchmark that decomposes time series into five fundamental patterns and jointly scores forecast error (MAE) against three reasoning metrics averaged over those primitives. Backbones tuned with the recipe are reported to exceed specialised time-series forecasters on prediction accuracy while emitting reasoning that can be checked against the series.</p>
+
+<h3>Why</h3>
+<p>Time-series models are typically specialised for one job: understanding, meaning text answers about a series, or generation, meaning a numeric forecast. The recent unified models handle both but keep them on separate task paths, so no model produces a forecast together with an account of why that forecast arises as one coherent object. Without such an account there is no way to tell whether a forecast reflects structure in the data or a memorised pattern, and no way to compare the reasoning quality of different backbones, because prompted or tool-mediated reasoning chains are not comparable across models.</p>
+
+<h3>How</h3>
+<p>The recipe fine-tunes an off-the-shelf LLM on paired data in which the target is a reasoning chain followed by the numeric forecast, so both are produced by one autoregressive decode. ReasonTS-Bench supplies the evaluation: five fundamental time-series patterns serve as primitives, and each backbone is scored on MAE for the forecast alongside three reasoning metrics, averaged across the primitives. The comparison reported is against both general LLMs and specialised time-series forecasting models, with the claim holding across a range of backbones. Code is released at github.com/seunghan96/reasoncast.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="VSCNJG5J.html">ChatTS (2025)</a><span class="lineage-note">graphify xie2025_chatts, Community 4. Showed a series can be aligned into an LLM input space well enough to answer questions about it.</span></li>
+  <li><a href="I2CIT4I7.html">TS-Agent (2025)</a><span class="lineage-note">graphify liu2025_tsagent, god node in time-series with 7 edges. Made time-series reasoning auditable by forcing every numeric claim through an operator call.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (2023)</a><span class="lineage-note">graphify wei2023_cot, Community 0. Supplied the intermediate-reasoning-steps idea both descendants inherit.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>ChatTS aligned a series into language space so a model could describe it, but the description and the forecast remain separate outputs with no guarantee that one explains the other. TS-Agent made reasoning verifiable by pushing every numeric claim out into a tool call written to an evidence log, which solves auditability at the cost of an inference-time scaffold that differs from system to system. ReasonCast fixes a different failure: neither predecessor produces a reasoning chain that can be scored and compared across backbones, because a prompted or tool-mediated chain is a property of the scaffold rather than of the model. Making the chain a supervised training target and shipping a benchmark that scores it turns reasoning quality into a measurable model property.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Relative to ChatTS, the integration boundary moves from input-space alignment to output-space supervision: the model is trained on what the reasoning should say, not only on how the series should be encoded. Relative to TS-Agent, the loop collapses from an iterative observe-think-act cycle with a self-critic and quality gate into a single forward pass, trading auditability for comparability and speed. Relative to Chain-of-Thought, the shift is from reasoning elicited at inference by a prompt to reasoning learned during training, and from text tasks to numeric forecasting. This extends the graphify cross-area bridge deepseek2025_r1 to wei2023_cot, which already crossed Community 0 and the reasoning area by moving from prompted to trained reasoning; ReasonCast pushes that bridge into Community 4 by applying the same move to forecasting.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2506.10630.html">Time Series Forecasting as Reasoning: Slow-Thinking with Reinforced LLMs (2025)</a><span class="lineage-note">Same goal reached through reinforcement learning rather than supervised chain fine-tuning.</span></li>
+  <li><a href="MKICLA63.html">Time-LLM (2024)</a><span class="lineage-note">Earlier reprogramming approach to putting series into an LLM, without a reasoning output.</span></li>
+  <li><a href="EMXEJYHV.html">Latent Reasoning Survey (2025)</a><span class="lineage-note">Frames when reasoning should be externalised as text versus kept in latent space.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
