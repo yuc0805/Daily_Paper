@@ -32,6 +32,7 @@
 2026-08 | MorphologyFM (2607.09749) | multimodal biosignal foundation model with morphology-guided masking and cross-modal contrastive alignment on paired ECG and SpO2 waveforms
 
 2026-08 | BLPM (2608.11656) | EEG-language foundation model that predicts latent targets instead of reconstructing the waveform
+2026-08 | FOUND-AF (2608.03597) | nine public ECG foundation models compared under one leakage-controlled frozen-encoder protocol
 ### Paper List
 
 [KNOWN] [2023] Xu et al. — GLOBEM. zotero_key:ICD9EG8Q.
@@ -68,8 +69,11 @@
 [2026] 2607.09749 — MorphologyFM: A Foundation Model for Morphology-Aware Representation Learning from ECG and Pulse Oximetry Waveforms. [https://arxiv.org/abs/2607.09749](https://arxiv.org/abs/2607.09749). external.
 
 [2026] 2608.11656 — Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM). [https://arxiv.org/abs/2608.11656](https://arxiv.org/abs/2608.11656). external.
+[2026] 2608.03597 — FOUND-AF: Benchmarking ECG Foundation Models for Atrial Fibrillation Detection. [https://arxiv.org/abs/2608.03597](https://arxiv.org/abs/2608.03597). external.
 
 ### Recent Activity
+
+2026-08-19 | 2608.03597 added | FOUND-AF evaluates nine public ECG foundation models from five families, including HuBERT-ECG, CLEF, ST-MEM, ECG-JEPA and ECGFounder, under one leakage-controlled protocol across AFDB, CinC2017, CPSC2021 and LTAFDB, freezing every encoder behind a fixed XGBoost classifier with standardised preprocessing, model-native resampling and recording-level grouped cross-validation so no recording spans a split boundary, and reporting paired recording-level bootstrap comparisons with Holm correction, embedding-space visualisation and profiling of size, inference time and memory, with ECGFounder strongest overall and well placed on the accuracy-versus-cost curve; where the Gu biosignals survey inherited each paper's own evaluation setup and could therefore not rank encoders, and where HeAR and SSL-for-HAR each validated a single encoder against baselines its own authors chose, this fixes the downstream classifier and the split policy across all nine so the comparison isolates representation quality instead of measuring fine-tuning effort; the imported method is the frozen-encoder plus fixed-downstream-classifier protocol from vision and language representation research, with recording-level grouping added for the physiological case, and it should be treated as ported for ECG, leaving the modalities FOUND-AF does not cover; Tier B
 
 2026-08-16 | 2608.11656 added | BLPM trains an EEG encoder by predicting latent targets rather than reconstructing the trace, then aligns several learned queries per recording to textual semantics in a shared space, so heterogeneous decoding tasks become one problem of continuous semantic embedding prediction and the encoder is usable directly as a language-model front end; it pushes the sensing-to-health-language link from post-hoc alignment into alignment as pretraining, and from wearable activity streams into neural signals; the abstract reports generalisation qualitatively and names no collapse-prevention mechanism; Tier A
 

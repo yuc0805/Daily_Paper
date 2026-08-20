@@ -1579,6 +1579,102 @@
       "cross_area": false,
       "date_added": "2026-08-16",
       "note": "Where l-DAE used autoencoder denoising to improve what a generator produces, TailBooster inverts the same machinery and uses reconstruction error as a rejection criterion over samples already produced."
+    },
+    {
+      "source": "xie2025_chatts",
+      "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
+      "target": "2608.01875",
+      "target_label": "ReasonCast: Towards Explainable Time Series Forecasting with Reasoning (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-19",
+      "note": "Where ChatTS aligned a series into an LLM input space so the model could describe it, ReasonCast keeps understanding and numeric generation in one autoregressive pass and supervises the reasoning chain directly."
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2608.01875",
+      "target_label": "ReasonCast: Towards Explainable Time Series Forecasting with Reasoning (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-19",
+      "note": "TS-Agent made numeric claims auditable by pushing each one through an analysis operator call; ReasonCast returns that capability inside the model and makes the chain a training target, because a trained chain can be scored on a fixed benchmark while a tool-mediated one cannot be compared across backbones."
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2608.01875",
+      "target_label": "ReasonCast: Towards Explainable Time Series Forecasting with Reasoning (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-19",
+      "note": "Chain-of-Thought elicited intermediate steps at inference on text tasks; ReasonCast moves the same idea to reasoning learned during training and to numeric forecasting, extending the deepseek2025_r1 to wei2023_cot bridge from Community 0 into Community 4."
+    },
+    {
+      "source": "2608.14106",
+      "source_label": "Forecast Collapse in Time-Series Foundation Models (2026)",
+      "target": "2608.12998",
+      "target_label": "WIRED: Weighted Adaptive Prediction with Structured Dependence for Probabilistic Multiseries Forecasting (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-19",
+      "note": "Forecast Collapse diagnosed that per-series objectives leave cross-series structure unidentified, producing a calibration-versus-ranking tradeoff; WIRED answers the diagnosis architecturally by fitting marginals and dependence in separate stages."
+    },
+    {
+      "source": "2608.05742",
+      "source_label": "Multivariate Time Series Forecasting needs Cross Variable Loss (2026)",
+      "target": "2608.12998",
+      "target_label": "WIRED: Weighted Adaptive Prediction with Structured Dependence for Probabilistic Multiseries Forecasting (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-19",
+      "note": "Where Cross Variable Loss repaired the problem inside the training objective with a graph penalty over residual edges, WIRED removes the coupling altogether through an explicit copula, trading a learned dependence structure for a parametric one."
+    },
+    {
+      "source": "TVHWGWAV",
+      "source_label": "FEDformer (Zhou 2022)",
+      "target": "2608.14682",
+      "target_label": "RouteTS: Frequency-Time Routing for Time Series Forecasting (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-19",
+      "note": "FEDformer moved forecasting into the frequency domain wholesale and controlled cost by sampling Fourier modes at random; RouteTS keeps the frequency domain only for components where it is the correct basis, because a fixed mode subset cannot separate an unimportant low-amplitude component from a spread-out transient."
+    },
+    {
+      "source": "4QRHV2JG",
+      "source_label": "DLinear (Zeng 2023)",
+      "target": "2608.14682",
+      "target_label": "RouteTS: Frequency-Time Routing for Time Series Forecasting (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-19",
+      "note": "DLinear showed a single time-domain linear layer beats most transformers on long horizons; RouteTS keeps that lesson in both branches but argues the one layer was fitting periodic and transient structure at once, and splits the two jobs."
+    },
+    {
+      "source": "HLTA8MDK",
+      "source_label": "TimesNet (Wu 2023)",
+      "target": "2608.14682",
+      "target_label": "RouteTS: Frequency-Time Routing for Time Series Forecasting (2026)",
+      "relation": "builds_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-19",
+      "note": "TimesNet made periodicity explicit through a 2D reshape indexed by discovered periods; RouteTS reads the same information off the amplitude spectrum directly, which is why it stays cheap."
     }
   ],
   "hyperedges": [
