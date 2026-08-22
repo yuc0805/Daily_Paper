@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EnvHarness — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>EnvHarness: Awakening Static Worlds for Agent Learning</h2>
+<p class="paper-meta">
+  Huang, Wang, Han, Yan, Chen, Lee et al. (Google) &middot; arXiv 2026-08-20 &middot;
+  <a href="https://arxiv.org/abs/2608.19880" target="_blank" rel="noopener">arXiv:2608.19880</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>EnvHarness is a programmable layer of plug-in components that wraps an existing static agent environment and reshapes how it behaves without editing the environment's own logic, so that every reshaped variant keeps the original verifier. A companion system called EnvRigger treats the target policy as a black box, observes its execution trajectories, diagnoses recurring flaws, synthesises harness components aimed at those flaws, and validates each one with fresh rollouts. Across five benchmarks in four domains the harnessed environments beat both the original environments and domain-specific environment generation pipelines, reaching up to a 9.0-point gain on held-out instances while using 9.8% fewer execution steps, and the authors report that the harnessed environments also supply a better optimisation signal for reinforcement learning.</p>
+
+<h3>Why</h3>
+<p>Agent training environments are hand-built and then frozen. They are blind to the specific weaknesses of the policy being trained, and they stop supplying useful gradient once the agent has saturated them. Existing environment generation work addresses part of this but requires a separate pipeline per domain, depends on verifiers that are either expensive or unreliable, and still produces environments that are static once generated. The gap the paper targets is a mechanism that is domain-general, that keeps a trustworthy reward source, and that keeps changing as the policy changes.</p>
+
+<h3>How</h3>
+<p>The harness operates through the standard environment interface, so it can intercept and reshape observations, transitions and available actions without knowledge of the underlying implementation, and because it never replaces the verifier the reward stays as trustworthy as it was in the original environment. EnvRigger closes the loop: it samples rollouts from the current policy, identifies failure patterns in the trajectories, writes harness components targeted at those patterns, and keeps only the components that survive validation on new rollouts. Repeating this gives continuous co-evolution, where the environment is re-aimed at whatever the policy currently cannot do.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="J8DYBKW2.html">ADaPT: As-Needed Decomposition and Planning (Prasad 2023)</a><span class="lineage-note">Source of the diagnose-failure-then-restructure loop, applied there to task decomposition rather than to the environment.</span></li>
+  <li><a href="77ERE7HA.html">LATS: Language Agent Tree Search (Zhou 2024)</a><span class="lineage-note">Established environment feedback as the value signal for agent search; EnvHarness makes that environment mutable.</span></li>
+  <li><a href="ZULLM3UF.html">Offline Reinforcement Learning Tutorial (Levine 2020)</a><span class="lineage-note">Framed limited task and data coverage as the ceiling on policy improvement, which is the constraint EnvHarness attacks.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>ADaPT diagnosed agent failure and changed the task decomposition in response; its failure mode is that no amount of re-splitting helps when the environment simply cannot present the situation the agent is weak on. LATS searched hard against a fixed environment; its failure mode is that search returns nothing once the environment has been saturated. EnvHarness fixes both by moving the intervention point to the environment itself, and it does so without giving up reward trustworthiness, which is the failure mode of naive environment generation: generated environments usually come with generated verifiers that cannot be trusted. Keeping the original verifier while reshaping everything else is the specific design choice that makes the result usable as an RL signal.</p>
+
+<h3>Method vs predecessors</h3>
+<p>ADaPT and LATS both operate inside the agent, on plans and on search trees respectively. EnvHarness operates outside the agent, as a wrapper on the environment, and its optimisation target is a set of executable plug-in components rather than a policy or a search procedure. Compared with domain-specific environment generation pipelines, which rebuild an environment from scratch for one domain, EnvHarness composes over a standard interface and therefore transfers across the four domains tested without per-domain engineering. Compared with the offline RL framing, where coverage is a fixed property of collected data, coverage here is manufactured on demand by a second system reading the policy's own trajectories.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Surveys the interaction-environment stack that EnvHarness inserts itself into.</span></li>
+  <li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Also generates executable components at run time, but for tooling rather than for the environment.</span></li>
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Companion axis: EnvRigger's accumulated diagnosis plays the role that agent memory plays in that survey.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Co-RL — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Co-RL: Unsupervised Reasoning Emerges from Diverse Cohort in Multi-agent RL</h2>
+<p class="paper-meta">
+  Yang, Bian, Tian, Fu, Huang, Shi, Xiao, Vasconcelos, Li (UC San Diego) &middot; arXiv 2026-08-19 &middot;
+  <a href="https://arxiv.org/abs/2608.17253" target="_blank" rel="noopener">arXiv:2608.17253</a> &middot;
+  Appears in: <a href="../areas/reasoning.html">Reasoning</a>
+</p>
+
+<h3>What</h3>
+<p>Co-RL trains several models that share no parameters at the same time, with each model's reward derived from its peers rather than from ground-truth labels. The paper argues that raising cohort diversity, across model families, model sizes and rephrased training samples, reduces the correlated errors that drive self-reinforcing feedback loops, and shows that this preserves behavioural diversity and prevents training collapse. Reported gains are 3.0 to 8.6% averaged over seven text-only benchmarks for language models and 2.3 to 7.2% over four multimodal benchmarks for vision-language models, with no ground-truth labels used, matching or exceeding supervised methods in several settings.</p>
+
+<h3>Why</h3>
+<p>Reinforcement learning has improved reasoning in language and vision-language models, but the strongest results still depend on verifiable rewards, which require annotations that are costly now and will become unavailable as reasoning passes the point where humans can reliably score it. Self-rewarding RL removes the annotation requirement by letting a model score its own completions, but a model's errors are correlated with its own judgements, so the training loop amplifies existing biases, collapses response diversity, and eventually degrades.</p>
+
+<h3>How</h3>
+<p>Multiple decoupled models are optimised simultaneously, each receiving reward signals computed from the other members of the cohort. Because the members do not share parameters and are deliberately drawn from different families and sizes, their errors are less correlated than the errors of a single model scoring itself, so agreement among peers carries information that self-agreement does not. Rephrasing training samples adds a further decorrelation axis. The paper reports the relationship directly: more cohort diversity gives better reasoning performance, more behavioural diversity retained, and less training collapse.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1: Reasoning via RL (2025)</a><span class="lineage-note">Established RL against a verifiable reward as the route to reasoning; Co-RL removes the verifier.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Established the explicit reasoning trace as the object being improved; Co-RL uses the spread of traces across models as signal.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 needs a domain where correctness can be checked automatically, so it does not extend to open-ended tasks. The obvious fix, self-rewarding RL, has a failure mode this paper names precisely: correlated errors between the generator and the judge, since they are the same model, so the loop reinforces its own mistakes and collapses. Co-RL fixes that by making the judge a set of independent models chosen to disagree in different ways, which is a structural rather than an algorithmic remedy.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where DeepSeek-R1 uses one policy and an external verifier, Co-RL uses several policies and no verifier, with the reward defined over peer outputs. Where chain-of-thought elicits a trace from a fixed model, Co-RL treats the distribution of traces across a heterogeneous cohort as the training signal. This paper extends the DeepSeek-R1 to Chain-of-Thought bridge already present in the library, which crossed reasoning-via-RL and reasoning-via-prompting inside the LLM Agents and Reasoning community; the new work pushes that bridge toward label-free training, where neither a verifier nor a human annotator is required.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">The base-model line whose scale determines how much a cohort member can contribute as a judge.</span></li>
+  <li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Multimodal agentic training, the setting where Co-RL reports its 2.3 to 7.2% vision-language gains.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

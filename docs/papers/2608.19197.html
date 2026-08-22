@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPADE — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/world-model-rl.html" class="back-link">&larr; Back to Area</a>
+
+<h2>SPADE: Self-Play in Adaptive Synthetic Executable Environments</h2>
+<p class="paper-meta">
+  Liu, Yu, Jiang, Qu, Zhao, Zettlemoyer, Choi, Jaques et al. &middot; arXiv 2026-08-19 &middot;
+  <a href="https://arxiv.org/abs/2608.19197" target="_blank" rel="noopener">arXiv:2608.19197</a> &middot;
+  Appears in: <a href="../areas/world-model-rl.html">World Model / RL</a>
+</p>
+
+<h3>What</h3>
+<p>SPADE is a self-play reinforcement learning framework in which a single language model takes two roles. As Environment Designer it writes complete long-horizon training environments as executable code behind a Gym-style reset and step interface, each with its own state transitions, reward function and verification code. As Reasoning Agent it learns to act inside those environments. Because one interface covers both reasoning problems and multi-step tool use, the same machinery spans both settings. At 30B parameters SPADE beats the strongest fixed-environment baseline by +5.3 averaged over eight held-out math, science, code and reasoning benchmarks, by +5.7 on BFCL-v4 multi-turn and by +13.9 on ACEBench-Agent, and the margin on the games setting grows with model scale.</p>
+
+<h3>Why</h3>
+<p>Continuous self-improvement needs a goal distribution that keeps expanding as the learner does. Existing training environment pools are hand-curated, statically synthesised, or built around a frozen verifier, and in all three cases the goal distribution stops moving while the agent keeps improving, so the training signal decays. Prior synthetic-task work generates more tasks but does not aim them, so most generated tasks are either trivial or unsolvable for the current policy and contribute nothing.</p>
+
+<h3>How</h3>
+<p>The Designer is optimised against the Agent's regret, estimated as the gap between the Agent's reward with privileged hints and its reward without them. A large gap means the task is solvable but the Agent is currently failing it, which is exactly the frontier the Designer should target; optimising this signal keeps generated environments hard but feasible. Two components turned out to be necessary in the ablations: grounding the Designer on documents sampled from a large pretraining corpus, which keeps generated environments varied and realistic, and giving the Designer an accumulated memory of environments it has already produced, which prevents it from regenerating near-duplicates.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="77ERE7HA.html">LATS: Language Agent Tree Search (Zhou 2024)</a><span class="lineage-note">Searched within a given environment; SPADE moves the LLM's generative role from the action space to the environment itself.</span></li>
+  <li><a href="ZULLM3UF.html">Offline Reinforcement Learning Tutorial (Levine 2020)</a><span class="lineage-note">Established the coverage ceiling that a fixed task distribution imposes on a policy.</span></li>
+  <li><a href="ZNEMGMWY.html">Sample-efficient Cross-Entropy Method (Pinneri 2020)</a><span class="lineage-note">Iterative resampling of a candidate distribution toward reward, which SPADE applies to tasks instead of actions.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>LATS assumes the environment is a fixed oracle worth searching against, and it degrades once the agent has exhausted what that environment can distinguish. The offline RL framing names this ceiling but treats it as a property of the collected data, so the only remedy on offer is collecting more. SPADE removes the ceiling by making the task distribution a second optimised object, and its regret objective fixes the specific failure of naive task generation, which is that generated tasks cluster at the trivial and impossible ends and produce almost no learning signal in between.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The cross-entropy method resamples an action distribution toward higher reward within a single episode; SPADE performs the same shaping one level up, resampling a task distribution toward higher agent regret across training. Compared with LATS, the LLM's generative capacity is spent writing environment code rather than expanding a search tree, and the output is reusable across training runs rather than discarded at the end of an episode. Compared with EnvHarness, which appeared a day later, SPADE builds environments from nothing while EnvHarness reshapes environments that already exist; SPADE therefore has to generate its own verification code, whereas EnvHarness inherits a verifier it can trust.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Reasoning trained by RL against a verifiable reward, which is the fixed-environment baseline SPADE is arguing past.</span></li>
+  <li><a href="Y2MKM9Y3.html">Off-Policy Policy Evaluation Study (Voloshin 2021)</a><span class="lineage-note">Relevant to whether the regret estimate from privileged hints is a reliable target.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

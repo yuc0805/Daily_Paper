@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MemTrapBench — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>MemTrapBench: Benchmarking Cognitive Traps in LLM Memory Use</h2>
+<p class="paper-meta">
+  Wang, Luo, Xu, Cui, Fang, Zhang et al. (ZJUNLP) &middot; arXiv 2026-08-20 &middot;
+  <a href="https://arxiv.org/abs/2608.20202" target="_blank" rel="noopener">arXiv:2608.20202</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>MemTrapBench measures whether a retrieved memory that is both faithfully recorded and semantically relevant nevertheless degrades performance on the current task. The benchmark separates two forms of this failure: Reasoning Fixation, where the model reuses a stored reasoning path that no longer fits the present instance, and Belief Distortion, where a stored claim overrides fresh evidence. Across two model families and five representative memory frameworks, every memory strategy scored below the no-memory setting, and the strongest methods still lost more than 10%. The authors then propose AdaptiveMem, an inference-time instruction that asks the model to check for these traps, which recovers much of the loss while preserving or improving scores on standard memory benchmarks.</p>
+
+<h3>Why</h3>
+<p>Existing memory benchmarks ask whether information was correctly extracted, stored and retrieved. That is a question about the memory system, not about the task, and it silently assumes that a correctly retrieved memory can only help. The paper's point is that this assumption is false and that the field has been optimising a metric that does not predict downstream performance, which is why memory-augmented systems can look good on retrieval accuracy and still lose to a system with no memory at all.</p>
+
+<h3>How</h3>
+<p>Each benchmark item pairs a current task with a memory entry that is genuinely about the same subject and genuinely accurate, but whose reasoning frame or factual claim no longer applies. Reasoning Fixation items supply a prior solution path that superficially matches; Belief Distortion items supply a prior claim that conflicts with evidence available in the current context. Scoring compares the memory-augmented system against the same model run with no memory, so the reported number is the cost of the memory rather than the accuracy of the retriever. AdaptiveMem intervenes only at inference, adding an instruction that directs the model to treat retrieved content as a hypothesis to check rather than a premise to accept, which means it applies across memory frameworks without retraining any of them.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Organised agent memory around write, store and retrieve, with retrieval fidelity as the quality measure this paper falsifies.</span></li>
+  <li><a href="NEKX3K3N.html">Machine Theory of Mind (Rabinowitz 2018)</a><span class="lineage-note">Established modelling a held belief and modelling when that belief is wrong as separate capabilities.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The Huang 2026 survey frames memory quality as retrieval fidelity, so a system that returns the right item scores well by construction. Its failure mode is invisible under that framing: the right item can carry a reasoning frame that does not transfer, and the model has no mechanism to notice. MemTrapBench makes that failure measurable by scoring against a no-memory control instead of against retrieval ground truth. Relative to Machine Theory of Mind, which studied a model reasoning about another agent's false belief, this paper studies a model inheriting a stale frame from its own history, which is the same false-belief problem turned inward and never previously benchmarked.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Prior memory benchmarks score the memory pipeline in isolation; MemTrapBench scores the pipeline's effect on an unrelated downstream task, and uses the no-memory run as the reference point. That single change in evaluation design is what produces the headline result. On the mitigation side, previous work improves memory by changing what gets stored or how it is retrieved, whereas AdaptiveMem changes nothing about the memory system and instead alters how the model treats retrieved content at inference, which is why it composes with all five frameworks tested.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Covers the memory-augmented agent stack in which these traps occur.</span></li>
+  <li><a href="ICD9EG8Q.html">GLOBEM (Xu 2023)</a><span class="lineage-note">Multi-year behavioural histories are exactly the kind of accumulated memory whose staleness this benchmark penalises.</span></li>
+  <li><a href="K4PR34NU.html">MindScape (Nepal 2024)</a><span class="lineage-note">Feeds accumulated user history into an LLM for journaling, with no test for memory-induced distortion.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
