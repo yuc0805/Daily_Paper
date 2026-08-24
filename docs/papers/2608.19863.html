@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listening Forward: Next Patch Embedding Prediction Enables Scalable Audio Learners — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/self-supervised.html" class="back-link">&larr; Back to Area</a>
+<h2>Listening Forward: Next Patch Embedding Prediction Enables Scalable Audio Learners (NAPE)</h2>
+<p class="paper-meta">Cappellazzo, Liu, Petridis, Pantic (Imperial College London) &middot; arXiv preprint 2026 &middot; <a href="https://arxiv.org/abs/2608.19863" target="_blank" rel="noopener">arXiv:2608.19863</a> &middot; Appears in: <a href="../areas/self-supervised.html">Self-Supervised Framework</a></p>
+
+<h3>What</h3>
+<p>NAPE pretrains an audio encoder by having a causal Transformer predict the next log-mel patch embedding from the preceding ones, with causal masking and a stop-gradient as the only training signal. It carries no reconstruction decoder, no acoustic tokenizer, no student-teacher pair and no auxiliary regularization loss. Across six audio and speech benchmarks it reaches state-of-the-art fine-tuning performance on several tasks, scales consistently across encoder sizes, gives strong linear-probe results, and produces structured attention patterns without supervision that asks for them.</p>
+
+<h3>Why</h3>
+<p>Audio self-supervision has been improving mainly by adding components: masking schedules, acoustic tokenizers, reconstruction decoders, teacher networks and regularization terms. Each addition is a hyperparameter surface and a place where the recipe can fail to transfer. Language modelling and, more recently, visual representation learning made their largest gains from a single objective instead, predicting the next element from the preceding context, which transfers across modalities without a bespoke recipe. Audio is temporally ordered, so it should be a natural fit for that objective, but no one had shown a stripped-down causal recipe holding up against the elaborate ones.</p>
+
+<h3>How</h3>
+<p>A log-mel spectrogram is split into patches and embedded. A causal Transformer processes the sequence with causal masking so each position sees only its predecessors, and the training target for each position is the embedding of the next patch, produced by the same encoder under a stop-gradient. The stop-gradient is what prevents representational collapse, and it replaces the role played by a teacher network or a reconstruction target in prior recipes. Nothing else is added. Evaluation covers six audio and speech benchmarks under both fine-tuning and linear probing, plus a scaling study across encoder sizes.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="65EDEWIJ.html">Audio MAE (Huang 2022)</a><span class="lineage-note">Established masked patch reconstruction on log-mel spectrograms as the default audio SSL recipe; NAPE removes both the mask and the decoder.</span></li>
+  <li><a href="6INGKIJV.html">How Mask Matters: Masked Autoencoders Theory (Zhang 2023)</a><span class="lineage-note">Analysed what the masking objective supplies to the representation; NAPE removes the knobs that analysis was about and reports a stop-gradient is enough.</span></li>
+  <li><a href="3LA8GNCU.html">HeAR: Health Acoustic Representations (Baur 2024)</a><span class="lineage-note">Carried masked-spectrogram pretraining into health acoustics; the natural next test is whether the causal objective transfers to the same domain.</span></li>
+  <li><a href="7J6K6W8I.html">AST (Gong 2021)</a><span class="lineage-note">Established the patched spectrogram plus Transformer front end that NAPE inherits unchanged.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Masked-autoencoder audio recipes are bidirectional and reconstruction-based, so they need a decoder that is discarded at fine-tuning time and a mask ratio that has to be tuned per domain. That machinery is the failure mode NAPE addresses: four components drop out, and the remaining objective is the one that has already been shown to scale in two other modalities. Because the objective is causal, the encoder also produces representations under a streaming-compatible constraint, which masked bidirectional pretraining does not.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Audio MAE masks a large fraction of spectrogram patches and trains an encoder-decoder pair to reconstruct the masked pixels, so the learning signal is in input space. NAPE keeps every patch visible to its predecessors, applies causal masking instead of random masking, and puts the learning signal in embedding space by predicting the next patch's representation under a stop-gradient. Where HeAR and Audio MAE both need a target-construction step outside the encoder, NAPE's target is the encoder's own output one step ahead.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="A5HBRQB9.html">MAE (He 2021)</a><span class="lineage-note">The vision original that Audio MAE ported; NAPE is the argument that the port went in the wrong direction for temporally ordered data.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Catalogues the biosignal models that are all masked-reconstruction; the causal-predictive branch is open there.</span></li>
+</ul>
+</div>
+</body>
+</html>

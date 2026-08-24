@@ -1,45 +1,45 @@
 {
-  "date": "2026-08-22",
+  "date": "2026-08-23",
   "papers": [
     {
-      "zotero_key": "2608.19880",
-      "title": "EnvHarness: Awakening Static Worlds for Agent Learning",
-      "authors": "Huang et al. (Google)",
+      "zotero_key": "2608.15767",
+      "title": "TinyCast: Probabilistic Zero-Shot Forecasting with Computed Periodicity",
+      "authors": "Steinhauser (RAWS Labs)",
       "year": 2026,
-      "what": "Wraps a static agent environment in programmable plug-in components that reshape its behaviour while keeping the original verifier intact, with a companion system that reads the policy's own failure trajectories to decide what to reshape, giving up to a 9.0-point gain on held-out instances with 9.8% fewer execution steps across five benchmarks in four domains.",
+      "what": "A 146,505-parameter attention-free zero-shot forecaster that computes the dominant periods of a context with a zero-parameter spectral detector instead of learning them, emitting a full predictive distribution and running end to end on a Cortex-M7 in 4.08 s within 731 KB of RAM.",
+      "area_label": "Signal (Time Series)",
+      "area_slug": "time-series",
+      "builds_on": "TimesNet (2023, HLTA8MDK); Chronos (2024, 72DFULQQ); TimeGPT-1 (2024, 5I6GAKC4)"
+    },
+    {
+      "zotero_key": "2608.19863",
+      "title": "Listening Forward: Next Patch Embedding Prediction Enables Scalable Audio Learners (NAPE)",
+      "authors": "Cappellazzo et al. (Imperial College London)",
+      "year": 2026,
+      "what": "Pretrains audio encoders by having a causal Transformer predict the next log-mel patch embedding using causal masking and a stop-gradient as the only training signal, dropping the reconstruction decoder, acoustic tokenizer, teacher network and auxiliary losses that current audio SSL recipes all carry.",
+      "area_label": "Self-Supervised Framework",
+      "area_slug": "self-supervised",
+      "builds_on": "Audio MAE (2022, 65EDEWIJ); MAE Theory (2023, 6INGKIJV); HeAR (2024, 3LA8GNCU)"
+    },
+    {
+      "zotero_key": "2608.18027",
+      "title": "Chain-of-Experience for Continual LLM Improvement",
+      "authors": "Tu et al. (UCSC-VLAA)",
+      "year": 2026,
+      "what": "Measures how much language models improve when allowed to accumulate experiential traces across repeated test-time attempts, reporting a 5.6% overall gain at 19% lower API cost across eight models on math, coding and knowledge tasks, with most of the gain arriving in the early iterations.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "ADaPT (2023, J8DYBKW2); LATS (2024, 77ERE7HA); Offline RL Tutorial (2020, ZULLM3UF)"
+      "builds_on": "Chain-of-Thought (2023, HBLPTRMY); Memory Mechanisms Survey (2026, BDY3HUCV); LATS (2024, 77ERE7HA)"
     },
     {
-      "zotero_key": "2608.19197",
-      "title": "SPADE: Self-Play in Adaptive Synthetic Executable Environments",
-      "authors": "Liu, Yu et al.",
+      "zotero_key": "2608.12875",
+      "title": "The Embedder's Dilemma: LLMs Are Better, but at What Cost?",
+      "authors": "El Assadi, Muennighoff, Lee",
       "year": 2026,
-      "what": "Lets one language model write its own executable Gym-style training environments as Environment Designer and learn to solve them as Reasoning Agent, aiming the Designer with a regret signal measured as the reward gap with and without privileged hints, for +5.3 over the strongest fixed-environment baseline at 30B and +13.9 on ACEBench-Agent.",
-      "area_label": "World Model / RL",
-      "area_slug": "world-model-rl",
-      "builds_on": "LATS (2024, 77ERE7HA); Offline RL Tutorial (2020, ZULLM3UF); Cross-Entropy Method (2020, ZNEMGMWY)"
-    },
-    {
-      "zotero_key": "2608.20202",
-      "title": "MemTrapBench: Benchmarking Cognitive Traps in LLM Memory Use",
-      "authors": "Wang et al. (ZJUNLP)",
-      "year": 2026,
-      "what": "Shows that faithfully recorded, semantically relevant memories still degrade current-task performance through Reasoning Fixation and Belief Distortion, with all five memory frameworks tested scoring below the no-memory baseline and the strongest still losing more than 10%.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (2026, BDY3HUCV); Machine Theory of Mind (2018, NEKX3K3N)"
-    },
-    {
-      "zotero_key": "2608.17253",
-      "title": "Co-RL: Unsupervised Reasoning Emerges from Diverse Cohort in Multi-agent RL",
-      "authors": "Yang, Bian et al. (UC San Diego)",
-      "year": 2026,
-      "what": "Trains several parameter-decoupled models at once with rewards derived from peers instead of ground-truth labels, using cohort diversity across model families and sizes to decorrelate the errors that cause self-rewarding RL to collapse, for label-free gains of 3.0-8.6% on seven text benchmarks and 2.3-7.2% on four multimodal ones.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought (2023, HBLPTRMY)"
+      "what": "A cost-controlled comparison of 10 LLMs against 26 embedding models on 37 tasks finds the paradigms tied in aggregate (77.6 vs 77.2) while the LLM costs up to 1,431x more per benchmark pass, supporting a division of labour where embedding models handle similarity, classification and clustering.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "BERT (2019, WQRB4TUT); GPT-3 (2020, ZT8Y3ABF)"
     }
   ]
 }

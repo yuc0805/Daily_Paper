@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Embedder's Dilemma: LLMs Are Better, but at What Cost? — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+<h2>The Embedder's Dilemma: LLMs Are Better, but at What Cost?</h2>
+<p class="paper-meta">El Assadi, Muennighoff, Lee &middot; arXiv preprint 2026 &middot; <a href="https://arxiv.org/abs/2608.12875" target="_blank" rel="noopener">arXiv:2608.12875</a> &middot; Appears in: <a href="../areas/llm.html">LLM</a></p>
+
+<h3>What</h3>
+<p>A controlled, cost-aware comparison of ten LLMs across six families against 26 dedicated embedding models from 118M to 14B parameters, on 37 tasks spanning classification, semantic textual similarity, clustering, pair classification and retrieval. In aggregate the paradigms tie at 77.6 against 77.2. LLMs lead on reasoning-heavy retrieval, embedding models lead on classification, and the two match on clustering, STS and pair classification. Reaching parity costs up to 1,431x more (USD 154 against USD 0.11 per benchmark pass), with open LLMs processing tokens 2.5x to 736x more slowly on the same GPU.</p>
+
+<h3>Why</h3>
+<p>Teams have been replacing embedding pipelines with LLM-based embedding on the assumption that the larger model is simply better. The assumption had not been tested with cost and throughput held in view, so the comparison that practitioners actually face — quality per dollar and per second, broken out by task type — did not exist. Without it there is no basis for deciding which parts of a pipeline justify an LLM.</p>
+
+<h3>How</h3>
+<p>The authors fix the task suite and the hardware and measure both quality and cost for every model. They break results out by task family rather than reporting a single aggregate, which is what surfaces the division of labour. They also ablate the reasoning budget and find that reasoning tokens account for 28 to 81% of LLM inference cost while lower budgets preserve or improve retrieval quality for most models. The resulting Pareto frontier contains the leading embedding models and exactly one LLM, Gemini 3.1 Pro. Code, datasets and results are released.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="WQRB4TUT.html">BERT (Devlin 2019)</a><span class="lineage-note">Established the pretrained bidirectional encoder as the standard source of text representations; this paper measures what its descendants still win at.</span></li>
+  <li><a href="ZT8Y3ABF.html">GPT-3 (Brown 2020)</a><span class="lineage-note">Established the decoder-only model as a general interface that can be asked to do representation tasks; this paper prices that generality.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>BERT and GPT-3 defined the two families but neither answered which to deploy for a given representation task once inference cost is counted. This paper replaces intuition with a measured trade and turns it into a rule: embedding models for similarity, classification and clustering; LLMs reserved for retrieval that requires reasoning. The reasoning-token ablation additionally identifies a large share of LLM embedding cost that buys nothing on retrieval.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Prior embedding benchmarks report quality on a leaderboard with no cost axis, so a 14B model and a 118M model appear as neighbouring rows. This work adds dollars per benchmark pass and tokens per second on fixed hardware as first-class measurements, then reports a Pareto frontier rather than a ranking. That change in evaluation protocol, not any new model, is the contribution.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Reasoning tokens are the cost driver identified here; R1 is the line of work that made them standard.</span></li>
+  <li><a href="PZATM3SC.html">LoRA (Hu 2021)</a><span class="lineage-note">The other standard answer to the cost question, by shrinking adaptation rather than choosing a smaller family.</span></li>
+</ul>
+</div>
+</body>
+</html>

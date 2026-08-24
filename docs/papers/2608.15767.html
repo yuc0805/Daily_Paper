@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TinyCast: Probabilistic Zero-Shot Forecasting with Computed Periodicity — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>TinyCast: Probabilistic Zero-Shot Forecasting with Computed Periodicity</h2>
+<p class="paper-meta">Steinhauser (RAWS Labs) &middot; arXiv preprint 2026 &middot; <a href="https://arxiv.org/abs/2608.15767" target="_blank" rel="noopener">arXiv:2608.15767</a> &middot; Appears in: <a href="../areas/time-series.html">Signal (Time Series)</a></p>
+
+<h3>What</h3>
+<p>TinyCast is a zero-shot time-series forecaster built from 146,505 parameters with no attention anywhere in the model. A spectral detector with zero learned parameters supplies the dominant periods of the context window, the context is folded on their phase, and a dilated convolutional encoder plus a block-autoregressive quantile decoder model the remainder. It emits a full predictive distribution, exports to static INT8, and runs a complete forecast on a Cortex-M7 in 4.08 seconds inside 731 KB of RAM at a cost of about 2% of point accuracy.</p>
+
+<h3>Why</h3>
+<p>Zero-shot time-series forecasting has been answered so far by scale: pretrain a large sequence model on many series until it generalizes to unseen ones. That answer puts the smallest useful forecaster well above the memory budget of an embedded device, and the small end of public leaderboards is point forecasts only, so anyone who needs calibrated uncertainty on-device has nothing to deploy. The paper's argument is that a large share of what a mid-sized zero-shot forecaster learns is seasonality it did not need to learn, since seasonality can be computed from the context directly.</p>
+
+<h3>How</h3>
+<p>A zero-parameter spectral detector reads the dominant periods out of the context, and the context is folded on the phase of those periods so the periodic structure is presented to the network rather than inferred by it. A dilated causal convolutional encoder handles the residual temporal structure, and a block-autoregressive quantile decoder produces the predictive distribution. Because every learned operation is a convolution, a matrix multiplication or a normalization, the whole model quantizes to static INT8 without a per-signal fitting step. Reported results: smallest zero-shot entry on GIFT-Eval whose parameter count can be established; the only leakage-free zero-shot entry below 1.4M parameters that emits a predictive distribution; on Chronos-ZS and fev-bench every neural model scoring ahead of it carries at least 28 times its parameters.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="HLTA8MDK.html">TimesNet (Wu 2023)</a><span class="lineage-note">Established FFT-based dominant-period detection and periodic folding as the core time-series inductive bias; TinyCast keeps the folding and removes the learned attention stack behind it.</span></li>
+  <li><a href="72DFULQQ.html">Chronos (Ansari 2024)</a><span class="lineage-note">Set the scale-first template for zero-shot time-series foundation models; TinyCast is the counter-argument at 1/28th the parameters of the nearest neural competitor on Chronos-ZS.</span></li>
+  <li><a href="5I6GAKC4.html">TimeGPT-1 (Garza 2024)</a><span class="lineage-note">Made probabilistic zero-shot forecasting a headline feature at API scale; TinyCast delivers the same output type at embedded scale.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Chronos and TimeGPT-1 both reach zero-shot generality by scaling, which leaves the embedded-device case unserved and forces a choice between calibrated uncertainty and a deployable footprint. TinyCast fixes that specific failure mode: it is the only leakage-free zero-shot model below 1.4M parameters that emits a predictive distribution rather than point forecasts, and it runs end to end on a microcontroller. TimesNet used computed periodicity but still spent most of its capacity on a learned backbone, so it never tested how far the computed prior alone can carry a model.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Chronos tokenizes series and trains a language-model-style Transformer over the tokens; TimesNet folds on FFT-derived periods and runs inception-style 2D convolutions plus attention over the folded tensor. TinyCast keeps only the folding step from TimesNet and replaces everything learned and attentional with dilated causal convolutions and a quantile decoder. The difference is where the seasonality prior lives: in Chronos it is learned from pretraining data, in TimesNet it is computed and then re-processed by a large learned stack, and in TinyCast it is computed and consumed directly, leaving the learned parameters to model the residual.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="MXKVRSKK.html">WaveToken (Masserano 2024)</a><span class="lineage-note">Also puts a frequency-domain transform ahead of the learned model in a forecasting pipeline, via wavelet tokenization rather than spectral folding.</span></li>
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">The opposite end of the same axis: maximum external machinery around a time series, where TinyCast is minimum.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Sets the context for whether the computed-periodicity substitution survives cardiac and gait periods under motion artifact.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chain-of-Experience for Continual LLM Improvement — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>Chain-of-Experience for Continual LLM Improvement</h2>
+<p class="paper-meta">Tu, Fang, Wang, Xie, Yan (UCSC-VLAA) &middot; arXiv preprint 2026 &middot; <a href="https://arxiv.org/abs/2608.18027" target="_blank" rel="noopener">arXiv:2608.18027</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+
+<h3>What</h3>
+<p>Chain-of-Experience studies how much a language model improves when it is allowed to accumulate experiential traces across repeated attempts at a task at inference time, rather than being scored on a single zero-shot pass. Feedback comes either from the model itself or from the environment, such as a correctness signal or a public coding test pass rate. Across eight models including GPT-5, Gemini-2.5 Pro and Claude-4.5 Sonnet, on math, coding and knowledge tasks, iterating on experience beats the feedback-free baseline by 5.6% overall while cutting API cost by 19%, and delivers higher accuracy per token than existing test-time strategies.</p>
+
+<h3>Why</h3>
+<p>Standard evaluation asks a model to answer once and records whether it was right, which measures a capability humans do not have and ignores one they do: getting better at a task by doing it repeatedly. If models improve substantially from cheap self-feedback, then single-pass benchmark numbers understate deployed performance, and the interesting engineering question moves from prompt design to feedback-loop design. Prior test-time compute work spent the budget on search within one episode rather than on sequential episodes, so the comparison had not been made on equal cost terms.</p>
+
+<h3>How</h3>
+<p>The setup instantiates the loop with several feedback mechanisms and runs it for multiple iterations per task, carrying the accumulated traces forward as context. Feedback channels are varied and combined: model self-feedback, correctness signals, and coding test pass rates. Findings beyond the headline gain: combining complementary channels adds further improvement, base model ability correlates positively with improvement capacity, models remain robust when feedback is weak or spurious, different channels contribute to different aspects of improvement, and most of the gain arrives in the early iterations.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Structured the reasoning trace inside one attempt; this work carries the trace across attempts and makes it the input to the next one.</span></li>
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Catalogued agent memory mechanisms; this work measures what a plain append-only experience log actually buys.</span></li>
+  <li><a href="77ERE7HA.html">LATS: Language Agent Tree Search (Zhou 2024)</a><span class="lineage-note">Spent test-time compute on branching within one episode; this work spends it on sequential episodes and reports better accuracy per token.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Tree-search methods such as LATS improve quality by expanding and backtracking inside a single episode, which multiplies token cost and needs a value estimate to guide expansion. Chain-of-Experience reports a lower-cost alternative: sequential retries with an accumulated trace, at 19% lower API cost than the feedback-free baseline rather than a multiple of it. It also addresses a gap left by the memory survey, which described mechanisms without establishing which feedback signals are worth collecting.</p>
+
+<h3>Method vs predecessors</h3>
+<p>LATS maintains a tree of partial trajectories with a value function and a selection policy. Chain-of-Experience maintains a flat, append-only record of prior attempts and their feedback, and re-prompts on it. The simpler structure is the point: no value model, no search policy, and a robustness result showing the loop still helps when the feedback signal is weak or spurious, which a value-guided search would be more sensitive to.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Trains the improvement into the weights via RL; Chain-of-Experience obtains a smaller version of the same effect at inference time with no training.</span></li>
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Frames the interaction loop that this paper measures.</span></li>
+</ul>
+</div>
+</body>
+</html>
