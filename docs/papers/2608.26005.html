@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VoiceMem — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/audio.html" class="back-link">&larr; Back to Area</a>
+
+<h2>VoiceMem: Streaming Dual-Brain Memory for Real-Time Interaction</h2>
+<p class="paper-meta">
+  Xie, Lang, An, Zhao, Yang, Li, Ma, Lin, Miao, Yan (NTU Singapore) &middot; arXiv 2026-08-26 &middot;
+  <a href="https://arxiv.org/abs/2608.26005" target="_blank" rel="noopener">arXiv:2608.26005</a> &middot;
+  Appears in: <a href="../areas/audio.html">Audio</a>
+</p>
+
+<h3>What</h3>
+<p>A memory architecture for duplex speech language models built from two parallel stores. An informational track holds factual content from the conversation and an affective track holds emotional and persona state, and both are read and written in streaming fashion during the turn rather than between turns. Under top-5 retrieval the informational track outperforms Mem0 at top-200 by close to 30 points. The affective track combines short-horizon and long-horizon attribution with a two-node persona representation and improves the aggregate score across three persona benchmarks by 4.29 points over the previous best system. Retrieval completes in 134 ms, inside standard voice-activity-detection latency, so no conversational delay is added.</p>
+
+<h3>Why</h3>
+<p>Duplex speech systems run under a hard real-time constraint, and memory designs from the text agent literature assume they can run between turns. A design that summarises or consolidates after the turn cannot supply state during it. There is a second problem specific to speech: collapsing a conversation into a text summary discards how something was said, which is the part that carries emotional and persona state, so a single-store memory built on transcripts is structurally unable to support empathetic response.</p>
+
+<h3>How</h3>
+<p>The two tracks run in parallel with separate write paths, so content and affect are routed rather than merged. Streaming memory input and output mechanisms perform reads and writes within the turn under a latency budget set by voice-activity detection. The affective track attributes emotion at two horizons and represents the interlocutor with two persona nodes rather than one profile vector. The system is trained and deployed as a full pipeline with memory-aware model training, long-horizon evaluation, and decoupled deployment that allows the memory backend to be swapped.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Graphify community 0; the framing of agent memory as separable read, write and consolidation operations, assumed here to run offline between turns.</span></li>
+  <li><a href="3LA8GNCU.html">HeAR (Baur 2024)</a><span class="lineage-note">Graphify community 1; the argument that an audio stream carries state, not only content, which motivates the second store.</span></li>
+  <li><a href="ESEEEH85.html">LTU (Gong 2023)</a><span class="lineage-note">Joins an audio encoder to a language model so audio can be reasoned about in text, using a single merged representation.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The Huang survey organises agent memory as a process that runs between turns, which is workable for text agents and unworkable for a duplex speech system that must answer inside a voice-activity-detection window. VoiceMem fixes that by putting read and write inside the turn and holding itself to 134 ms. Against LTU, the failure fixed is representational rather than temporal: LTU merges audio into one text-reasoning stream, and the affective signal HeAR identifies as the useful part is lost in that merge. Splitting the store recovers it, and the retrieval numbers suggest the gain is mostly routing, since top-5 in the split store beats top-200 in a general-purpose one.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Mem0 and the memory designs surveyed by Huang keep one store and retrieve by similarity over a growing set of items, which is why they need a large top-k to reach comparable accuracy. VoiceMem partitions by kind of content first and retrieves within a partition, trading a modelling assumption for retrieval efficiency. Against LTU, the architectural difference is that the audio encoder is not the memory: LTU encodes audio into a shared latent for the language model, whereas here the affective content is written into a persistent store with its own horizon structure and read back on later turns.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Same problem shape on a different signal: turning a continuous sensor stream into language-accessible state.</span></li>
+  <li><a href="6VTXUZEG.html">Audio Mamba (Erol 2024)</a><span class="lineage-note">Streaming-friendly audio backbone; complementary to the memory layer described here.</span></li>
+  <li><a href="K4PR34NU.html">MindScape (Nepal 2024)</a><span class="lineage-note">Graphify community 5; combines behavioural sensing with a language model, but consolidates state in batch rather than in stream.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

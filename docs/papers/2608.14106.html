@@ -3,43 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Forecast Collapse in TSFMs &mdash; AI Knowledge Graph</title>
+<title>Forecast Collapse in Time-Series Foundation Models — AI Knowledge Graph</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <div class="paper-page">
+
 <a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
 <h2>Forecast Collapse in Time-Series Foundation Models</h2>
-<p class="paper-meta">Wan, Ma, Zhu, Liu, Wang, Wen, Liu &middot; arXiv 2026-08-14 &middot; <a href="https://arxiv.org/abs/2608.14106" target="_blank" rel="noopener">arXiv:2608.14106</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+<p class="paper-meta">
+  Wan, Ma, Zhu, Liu, Wang, Wen, Liu &middot; arXiv 2026-08-14 &middot;
+  <a href="https://arxiv.org/abs/2608.14106" target="_blank" rel="noopener">arXiv:2608.14106</a> &middot;
+  Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>
+</p>
 
 <h3>What</h3>
-<p>The paper names and measures a failure mode of time-series foundation models: when forecasting hourly returns for 1,000 US equities, predictions become nearly flat and rank the series poorly under cross-sectional correlation. The same models do not collapse when the target is trading volume in the same setting. The authors reproduce the effect across several TSFMs, twelve deep-learning forecasters, and 97 public benchmark configurations, and introduce CalibRank, an objective mixing calibration and ranking, which nearly triples cross-sectional correlation on the Finance1K dataset while keeping forecast amplitude close to the target.</p>
+<p>The paper documents a failure mode it names forecast collapse. When time-series foundation models forecast hourly returns for 1,000 US equities, their predictions become nearly flat and rank the series poorly, as measured by cross-sectional correlation. The same models on the same panel do not collapse when the target is trading volume, which isolates target predictability rather than model family as the cause. The study spans time-series foundation models, twelve deep-learning forecasters and 97 public benchmark configurations, and introduces CalibRank, an objective that balances calibration against ranking. On the released Finance1K panel, CalibRank nearly triples cross-sectional correlation while keeping forecast amplitude close to the target, and improves correlation on every model tested.</p>
 
 <h3>Why</h3>
-<p>Modern forecasting benchmarks score models one series at a time with squared error or its relatives. That protocol cannot see whether a model preserves the relationship between series at a given timestamp, which is exactly what downstream decisions such as ranking, triage, or allocation depend on. Pretrained forecasters such as Chronos and Moirai were validated under per-series metrics, and channel-independent designs such as PatchTST made per-series modelling the default, so no existing evaluation would have caught a model that produces well-calibrated but nearly constant forecasts.</p>
+<p>Time-series foundation models are trained and evaluated one series at a time. That convention is inherited from single-series forecasting and carries an assumption that does not hold for panels: that a model calibrated on each series individually is useful for decisions that compare series. Most downstream decisions on a panel are comparative rather than absolute, so the quantity that matters is the ordering across entities, and per-series metrics cannot measure it. Prior work has scaled pretraining corpora and architectures without touching this, so the failure has stayed invisible.</p>
 
 <h3>How</h3>
-<p>The authors first characterise when collapse happens by sweeping target predictability across models and benchmark configurations, isolating two mechanisms: low predictability bounds the amplitude a calibrated point forecast can take, and per-series objectives leave cross-series structure unidentified. They then quantify the calibration-ranking tradeoff, showing that optimising squared error flattens predictions while optimising cross-sectional correlation alone inflates amplitude by more than an order of magnitude. CalibRank combines both terms so that ranking is recovered without amplitude blowing up, and it is applied on top of every model tested rather than requiring a new architecture.</p>
+<p>Two mechanisms are separated. First, low target predictability caps the amplitude of any calibrated point forecast, because the conditional mean of a barely predictable target sits close to a constant, so squared-error training drives the forecast flat by construction rather than by underfitting. Second, per-series objectives leave cross-series structure unidentified, so nothing in training pressures correct ordering. Optimising cross-sectional correlation on its own fixes ordering but inflates forecast amplitude by more than an order of magnitude, which is the calibration-ranking tradeoff. CalibRank combines the two terms in a single objective and is applied on top of existing models rather than requiring a new architecture.</p>
 
 <h3>Builds on</h3>
 <ul class="lineage-list">
-  <li><a href="72DFULQQ.html">Chronos (Ansari 2024)</a><span class="lineage-note">Established pretrained tokenised forecasting as a general TSFM baseline, evaluated entirely with per-series error metrics.</span></li>
-  <li><a href="CFG6FEIF.html">Moirai (Woo 2024)</a><span class="lineage-note">Extended TSFM pretraining to any-variate settings, still trained and scored one series at a time.</span></li>
-  <li><a href="YY67LF3R.html">PatchTST (Nie 2023)</a><span class="lineage-note">Introduced channel-independent patching, which made per-series modelling the default and removed the cross-series coupling this paper needs.</span></li>
+  <li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">Graphify community 4 anchor; catalogues the general-purpose time-series model landscape and the per-series evaluation conventions it inherits.</span></li>
+  <li><a href="72DFULQQ.html">Chronos (Ansari 2024)</a><span class="lineage-note">Established the tokenise-and-pretrain recipe for zero-shot forecasting, trained and scored one series at a time.</span></li>
+  <li><a href="CFG6FEIF.html">Moirai (Woo 2024)</a><span class="lineage-note">Extended pretraining to multivariate and mixed-frequency data, still under per-series likelihood objectives.</span></li>
 </ul>
 
 <h3>Solves vs predecessors</h3>
-<p>Chronos and Moirai showed a single pretrained model can forecast many series and reported strong per-series error, but neither checked whether the ordering across series survives. This paper shows it often does not, and that the failure is invisible to the metrics those papers used. PatchTST argued channel independence improves accuracy and stability; this paper shows the same independence is the reason cross-series structure is unidentified, and supplies an objective that restores ranking without abandoning calibration.</p>
+<p>Chronos and Moirai both demonstrate that a single pretrained model can forecast unseen series without fitting them, and both are scored with per-series error. The failure mode this paper identifies is invisible under that scoring: a model can be well calibrated on every series and still produce an ordering across series that is close to useless. Because the collapse is tied to target predictability rather than to architecture, enlarging the pretraining corpus in the Chronos or Moirai direction does not remove it. The paper therefore fixes something the predecessors could not detect, and does so by changing what the model is asked to optimise rather than what it is made of.</p>
 
 <h3>Method vs predecessors</h3>
-<p>Chronos and Moirai change the model, the tokenisation, and the pretraining corpus while keeping the per-series objective fixed. This paper keeps the models fixed and changes the objective, which is why CalibRank improves cross-sectional correlation on every model tested rather than on one architecture. Where PatchTST modifies the input representation to decouple channels, CalibRank adds a term that explicitly couples them at each timestamp during training.</p>
+<p>Chronos discretises a series into tokens and trains a language-model-style next-token objective per series; Moirai keeps a probabilistic per-series likelihood over multivariate inputs. Both objectives factorise across series, which is exactly the property that leaves cross-series structure unidentified. CalibRank does not change the backbone or the tokenisation. It adds a cross-sectional ranking term to the per-series calibration term, so the loss no longer factorises across entities. That makes it applicable to any of the models in this lineage through fine-tuning, at the cost of requiring panel-structured training batches rather than independently sampled series.</p>
 
 <h3>Related (semantically similar in your library)</h3>
 <ul class="lineage-list">
-  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Also probes what TSFMs actually do rather than only how they score; uses agentic tool calls instead of an objective change.</span></li>
-  <li><a href="4QQTVIYC.html">Sundial (Liu 2025)</a><span class="lineage-note">Generative TSFM whose per-series evaluation would inherit the same blind spot.</span></li>
-  <li><a href="QBX2TI2X.html">iTransformer (Liu 2024)</a><span class="lineage-note">Inverts the attention axis to model variates against each other, the closest architectural answer in the library to the cross-series problem.</span></li>
+  <li><a href="YY67LF3R.html">PatchTST (Nie 2023)</a><span class="lineage-note">Channel-independent forecasting, the design choice that most directly produces the unidentified cross-series structure described here.</span></li>
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Same community 4 neighbourhood; addresses time-series reasoning quality rather than forecast objective design.</span></li>
+  <li><a href="SIBB8W67.html">Moment (Goswami 2024)</a><span class="lineage-note">Another general-purpose time-series model evaluated under per-series metrics, so subject to the same blind spot.</span></li>
 </ul>
+
 </div>
 </body>
 </html>

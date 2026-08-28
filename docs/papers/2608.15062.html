@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gated Recurrent Transformers — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Gated Recurrent Transformers: Expressive Depth through Recurrent Modulation in Transformers</h2>
+<p class="paper-meta">
+  Hegazy, Alanwar, Elhoushi (TU Munich) &middot; arXiv 2026-08-25 &middot;
+  <a href="https://arxiv.org/abs/2608.15062" target="_blank" rel="noopener">arXiv:2608.15062</a> &middot;
+  Appears in: <a href="../areas/llm.html">LLM</a>
+</p>
+
+<h3>What</h3>
+<p>Replaces most of a transformer stack with a single shared core block applied R times, bracketed by fixed-depth prelude and coda blocks. A lightweight elementwise update gate, conditioned on the hidden state, the prelude output and noise resampled at every step, modulates how much the representation changes per recurrence, so the same weights act differently at different depths. Under matched FLOPs a 3-layer model matches a 12-layer GPT-2 Small baseline and leads Mixture-of-Recursions and heavy-tail depth sampling in all nine scale-by-budget cells. Under matched parameters and data, deeper recurrence reaches 2.76 validation loss against 2.84 without recurrence. At large scale the trade is 63 percent fewer parameters and 59 percent less peak decoding memory for 10 percent higher compiled generation latency.</p>
+
+<h3>Why</h3>
+<p>Unique weights at every layer preserve functional specialisation, from input grounding in early layers to abstract refinement in late ones, and that specialisation is a large part of why depth helps. It also costs memory linearly in depth. Standard depth sharing removes the cost but applies an identical transformation at every step, which collapses representational diversity and degrades quality. The gap between those two options is the problem: prior sharing schemes gave up quality to save parameters, and there was no mechanism that let one set of weights specialise per step.</p>
+
+<h3>How</h3>
+<p>The prelude and coda are ordinary fixed blocks. Between them, one core block is iterated R times, and the update gate decides elementwise how much of the new computation to admit at each iteration. Conditioning the gate on the prelude output gives it access to input-specific information, and resampling noise at every step breaks the symmetry that makes plain sharing degenerate into a repeated identical map. The result is that specialisation is carried by the gate rather than by separate weights. Evaluation is run under two separate constraints, matched FLOPs and matched parameters, so the parameter saving and the quality claim are reported independently.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">Graphify community 2; the fixed stack of unique layers whose per-layer parameter cost this paper trades away.</span></li>
+  <li><a href="XNI34DQX.html">Mamba (Gu 2024)</a><span class="lineage-note">The recurrent alternative to attention, which buys efficiency along the sequence axis rather than the depth axis.</span></li>
+  <li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Graphify community 2; the wearable-sensing instance of the sequence-recurrence argument, and the natural target for a depth-recurrence port.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Mamba and HARMamba make a model recurrent along the sequence, which relieves the cost of long context but leaves the per-layer parameter count untouched. The transformer stack from Vaswani 2017 leaves both costs in place. The specific failure fixed here belongs to a third line of work, plain layer sharing, which loses quality because forcing an identical transformation at every depth removes the functional differentiation that depth was providing. The gate plus resampled noise restores that differentiation without restoring the weights, which is what allows a 3-layer model to match a 12-layer baseline at similar training and inference cost.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Mamba changes the token mixer and keeps unique layers; this paper keeps attention as the token mixer and shares the layer. The two are therefore composable rather than competing, and they relieve different constraints: sequence recurrence lowers the cost of long context at fixed depth, depth recurrence lowers parameter storage and peak decoding memory at fixed context. Against Mixture-of-Recursions, which also reuses blocks, the difference is the conditioning signal: the gate sees the hidden state, the prelude output and fresh noise at each step, rather than routing tokens to a recursion count. The cost the paper does not hide is latency, since iterating one block serially adds about 10 percent to compiled generation time.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="UTAMLB63.html">SSM / LSSL (Gu 2021)</a><span class="lineage-note">Earlier state-space formulation of sequence recurrence, the other axis along which depth can be traded.</span></li>
+  <li><a href="AVTJLZIR.html">Bi-Mamba+ (Liang 2024)</a><span class="lineage-note">Sequence recurrence ported into time-series forecasting; the depth-recurrence equivalent for physiological encoders is still open.</span></li>
+  <li><a href="PZATM3SC.html">LoRA (Hu 2021)</a><span class="lineage-note">The other standard route to parameter reduction, applied at adaptation time rather than at architecture design time.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

@@ -1,45 +1,45 @@
 {
-  "date": "2026-08-23",
+  "date": "2026-08-28",
   "papers": [
     {
-      "zotero_key": "2608.15767",
-      "title": "TinyCast: Probabilistic Zero-Shot Forecasting with Computed Periodicity",
-      "authors": "Steinhauser (RAWS Labs)",
+      "zotero_key": "2608.14106",
+      "title": "Forecast Collapse in Time-Series Foundation Models",
+      "authors": "Wan et al. (Arizona State, Squirrel AI)",
       "year": 2026,
-      "what": "A 146,505-parameter attention-free zero-shot forecaster that computes the dominant periods of a context with a zero-parameter spectral detector instead of learning them, emitting a full predictive distribution and running end to end on a Cortex-M7 in 4.08 s within 731 KB of RAM.",
-      "area_label": "Signal (Time Series)",
+      "what": "Shows that time-series foundation models forecasting low-predictability targets produce nearly flat predictions that rank series poorly, traces the failure to per-series objectives rather than architecture across 97 benchmark configurations, and introduces CalibRank, which nearly triples cross-sectional correlation while keeping forecast amplitude close to the target.",
+      "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "TimesNet (2023, HLTA8MDK); Chronos (2024, 72DFULQQ); TimeGPT-1 (2024, 5I6GAKC4)"
+      "builds_on": "LLMs for Time Series Survey (Zhang 2024, N2JLZBY3); Chronos (Ansari 2024, 72DFULQQ); Moirai (Woo 2024, CFG6FEIF)"
     },
     {
-      "zotero_key": "2608.19863",
-      "title": "Listening Forward: Next Patch Embedding Prediction Enables Scalable Audio Learners (NAPE)",
-      "authors": "Cappellazzo et al. (Imperial College London)",
+      "zotero_key": "2608.24979",
+      "title": "FrontierChallenge: Evaluating Scientific Workflow Completion",
+      "authors": "Su et al. (HKU, Apodex)",
       "year": 2026,
-      "what": "Pretrains audio encoders by having a causal Transformer predict the next log-mel patch embedding using causal masking and a stop-gradient as the only training signal, dropping the reconstruction decoder, acoustic tokenizer, teacher network and auxiliary losses that current audio SSL recipes all carry.",
-      "area_label": "Self-Supervised Framework",
-      "area_slug": "self-supervised",
-      "builds_on": "Audio MAE (2022, 65EDEWIJ); MAE Theory (2023, 6INGKIJV); HeAR (2024, 3LA8GNCU)"
-    },
-    {
-      "zotero_key": "2608.18027",
-      "title": "Chain-of-Experience for Continual LLM Improvement",
-      "authors": "Tu et al. (UCSC-VLAA)",
-      "year": 2026,
-      "what": "Measures how much language models improve when allowed to accumulate experiential traces across repeated test-time attempts, reporting a 5.6% overall gain at 19% lower API cost across eight models on math, coding and knowledge tasks, with most of the gain arriving in the early iterations.",
+      "what": "Scores twelve frontier models on 97 end-to-end scientific workflows by whether the full bundle of required deliverables was produced, finding a best pass rate of 20.6 percent alongside average partial scores as high as 94.9, and 75.5 percent of failing runs ending with a claim of completion.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "Chain-of-Thought (2023, HBLPTRMY); Memory Mechanisms Survey (2026, BDY3HUCV); LATS (2024, 77ERE7HA)"
+      "builds_on": "LATS (Zhou 2024, 77ERE7HA); ADaPT (Prasad 2023, J8DYBKW2); DeepEyesV2 (Hong 2026, 4XXXYXS9)"
     },
     {
-      "zotero_key": "2608.12875",
-      "title": "The Embedder's Dilemma: LLMs Are Better, but at What Cost?",
-      "authors": "El Assadi, Muennighoff, Lee",
+      "zotero_key": "2608.26005",
+      "title": "VoiceMem: Streaming Dual-Brain Memory for Real-Time Interaction",
+      "authors": "Xie et al. (NTU Singapore)",
       "year": 2026,
-      "what": "A cost-controlled comparison of 10 LLMs against 26 embedding models on 37 tasks finds the paradigms tied in aggregate (77.6 vs 77.2) while the LLM costs up to 1,431x more per benchmark pass, supporting a division of labour where embedding models handle similarity, classification and clustering.",
+      "what": "Splits speech-model memory into a parallel informational store and affective store that are read and written inside the turn, beating Mem0 at top-200 by close to 30 points using only top-5 retrieval and completing that retrieval in 134 ms, within standard voice-activity-detection latency.",
+      "area_label": "Audio",
+      "area_slug": "audio",
+      "builds_on": "Memory Mechanisms Survey (Huang 2026, BDY3HUCV); HeAR (Baur 2024, 3LA8GNCU); LTU (Gong 2023, ESEEEH85)"
+    },
+    {
+      "zotero_key": "2608.15062",
+      "title": "Gated Recurrent Transformers: Expressive Depth through Recurrent Modulation",
+      "authors": "Hegazy, Alanwar, Elhoushi (TU Munich)",
+      "year": 2026,
+      "what": "Iterates one shared transformer core with an elementwise update gate conditioned on the hidden state, prelude output and resampled noise, so a 3-layer model matches a 12-layer GPT-2 Small baseline at similar cost and large-scale models use 63 percent fewer parameters and 59 percent less peak decoding memory for 10 percent higher generation latency.",
       "area_label": "LLM",
       "area_slug": "llm",
-      "builds_on": "BERT (2019, WQRB4TUT); GPT-3 (2020, ZT8Y3ABF)"
+      "builds_on": "Attention Is All You Need (Vaswani 2017, PHB9VRVM); Mamba (Gu 2024, XNI34DQX); HARMamba (Li 2024, HE9X47KN)"
     }
   ]
 }

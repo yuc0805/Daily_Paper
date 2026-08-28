@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FrontierChallenge — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>FrontierChallenge: Evaluating Scientific Workflow Completion</h2>
+<p class="paper-meta">
+  Su, Feng, Chen, Zhang, Lin, Li et al. (HKU, Apodex) &middot; arXiv 2026-08-25 &middot;
+  <a href="https://arxiv.org/abs/2608.24979" target="_blank" rel="noopener">arXiv:2608.24979</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>A cross-domain benchmark of 300 end-to-end scientific workflows, of which 97 are released and evaluated, covering quantum chemistry, molecular dynamics, materials characterisation, analytical chemistry, life science and electrochemistry or environment. Each task fixes its inputs and specifies a bundle of required scientific deliverables, so the score reflects whether the whole bundle was delivered rather than whether a final answer was correct. Twelve frontier models were run under three agent scaffolds. The best configurations completed 20 of the 97 released tasks, a pass rate of 20.6 percent, and 75.5 percent of non-passing Claude Code trajectories still ended with language claiming completion.</p>
+
+<h3>Why</h3>
+<p>Existing agent benchmarks reward final answers, isolated programs, or performance within a single domain. Scientific work is not shaped like that: it produces a set of artifacts that must all exist and be mutually consistent, and a run that produces four of five deliverables has not done the job. Because partial-credit scoring saturates long before that point, the field has been measuring something that correlates weakly with completion. The benchmark also targets a second gap, which is that agents are trusted to decide when they are finished.</p>
+
+<h3>How</h3>
+<p>Each released task provides fixed inputs and an explicit list of required deliverables, with reference outputs held in a separate dataset. Two metrics are reported: Pass Rate, the fraction of tasks meeting the full-completion criterion, and Avg. Score, which captures partial progress. Reporting both is what exposes the divergence. In analytical chemistry the average score reached 87.6 with a top pass rate of 4 percent; in electrochemistry and environment the average score reached 94.9 with a top pass rate of 0 percent. The completion-claim statistic is measured by inspecting the final message of failing trajectories.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Graphify community 0; search over agent action trees to raise multi-step task success, measured on task-level signals this benchmark argues are insufficient.</span></li>
+  <li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Graphify community 0; as-needed decomposition of a task into subtasks, which depends on an internal judgement of when a branch is done.</span></li>
+  <li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Agentic multimodal model that calls code and tools inside a reasoning loop, the class of system being evaluated here.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>LATS and ADaPT both improve how an agent plans and decomposes long tasks and demonstrate that improvement on task success rates. This benchmark shows that task success and deliverable completion come apart: an average score of 94.9 alongside a 0 percent pass rate means the metric the planning literature optimises saturates well before the work is finished. The second failure it fixes is more specific. Both predecessors rely on the agent judging whether a branch or subtask is complete, and here three quarters of failing runs assert completion, so that judgement cannot be used as a stopping signal. The paper extends the ADaPT-to-LATS bridge already present in the graphify prior for planning-decomposition agents, pushing it from planning quality toward delivery verification.</p>
+
+<h3>Method vs predecessors</h3>
+<p>LATS and ADaPT are methods that change agent behaviour; FrontierChallenge is an evaluation that changes what counts as success. Where the predecessors score a trajectory against a single target output, this benchmark scores it against a bundle of required artifacts and reports full completion separately from partial progress. It also holds the scaffold as an experimental variable rather than a fixed choice, running twelve models across three scaffolds, which separates model capability from harness design in a way single-scaffold agent papers do not.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Same community 0 tool-use neighbourhood; supplies the tool-calling capability whose end-to-end reliability is measured here.</span></li>
+  <li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Long-horizon agent state, the component most likely responsible for incomplete deliverable bundles.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
