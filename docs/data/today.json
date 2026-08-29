@@ -1,45 +1,45 @@
 {
-  "date": "2026-08-28",
+  "date": "2026-08-29",
   "papers": [
     {
-      "zotero_key": "2608.14106",
-      "title": "Forecast Collapse in Time-Series Foundation Models",
-      "authors": "Wan et al. (Arizona State, Squirrel AI)",
+      "zotero_key": "2608.27448",
+      "title": "TTPO: Test-Time Policy Optimization",
+      "authors": "Wang et al. (Zhejiang University)",
       "year": 2026,
-      "what": "Shows that time-series foundation models forecasting low-predictability targets produce nearly flat predictions that rank series poorly, traces the failure to per-series objectives rather than architecture across 97 benchmark configurations, and introduces CalibRank, which nearly triples cross-sectional correlation while keeping forecast amplitude close to the target.",
+      "what": "Removes the ground-truth label from reasoning post-training by splitting a majority-vote rollout group asymmetrically, distilling agreeing rollouts and penalising disagreeing ones with grouped reinforcement learning, so that the update survives a wrong vote and matches label-supervised on-policy self-distillation on five competition benchmarks while raising Qwen3-1.7B from 38.0 to 45.2 percent.",
+      "area_label": "Test-Time Training",
+      "area_slug": "test-time-training",
+      "builds_on": "TTT Layers (Sun 2024, JEGI4IS7); TTT for Abstract Reasoning (Akyurek 2024, W7RPRTCH); DeepSeek-R1 (2025, Z5IWHZAE)"
+    },
+    {
+      "zotero_key": "2608.12695",
+      "title": "The Impact of Temporal Context Length and Encoding Strategies on Self-Supervised ECG Representation Learning",
+      "authors": "Sameh, Al-Sharawi, Varatharajah",
+      "year": 2026,
+      "what": "Holds the Transformer backbone and training protocol fixed while varying only the ECG input horizon and the front end, and finds that 5- to 10-minute contexts transfer and retrieve better than the standard 16-second window, and that continuous patch embeddings beat vector-quantised tokens at every horizon.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "LLMs for Time Series Survey (Zhang 2024, N2JLZBY3); Chronos (Ansari 2024, 72DFULQQ); Moirai (Woo 2024, CFG6FEIF)"
+      "builds_on": "PatchTST (Nie 2023, YY67LF3R); MAE Theory (Zhang 2023, 6INGKIJV); HeAR (Baur 2024, 3LA8GNCU); Chronos (Ansari 2024, 72DFULQQ)"
     },
     {
-      "zotero_key": "2608.24979",
-      "title": "FrontierChallenge: Evaluating Scientific Workflow Completion",
-      "authors": "Su et al. (HKU, Apodex)",
+      "zotero_key": "2608.27345",
+      "title": "PAWBench: How Far Are We from Probabilistically Aligned World Modeling?",
+      "authors": "Pu et al. (Shanghai AI Lab)",
       "year": 2026,
-      "what": "Scores twelve frontier models on 97 end-to-end scientific workflows by whether the full bundle of required deliverables was produced, finding a best pass rate of 20.6 percent alongside average partial scores as high as 94.9, and 75.5 percent of failing runs ending with a claim of completion.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "LATS (Zhou 2024, 77ERE7HA); ADaPT (Prasad 2023, J8DYBKW2); DeepEyesV2 (Hong 2026, 4XXXYXS9)"
+      "what": "Formalises probabilistic alignment as the requirement that a video world model reproduce the distribution of valid outcomes rather than one plausible trajectory, and finds across 50 scenarios and eleven systems that none matches the reference probabilities while still covering the range of valid behaviours.",
+      "area_label": "World Model / RL",
+      "area_slug": "world-model-rl",
+      "builds_on": "DDPM (Ho 2020, GX7WR7KA); DiT (Peebles 2023, YJ9TK993); World Model Evaluation (Vafa 2024, P92FLHJ2)"
     },
     {
-      "zotero_key": "2608.26005",
-      "title": "VoiceMem: Streaming Dual-Brain Memory for Real-Time Interaction",
-      "authors": "Xie et al. (NTU Singapore)",
+      "zotero_key": "2608.27351",
+      "title": "Understanding Evolution Strategies for LLM Reasoning: Broader Reasoning Coverage than GRPO",
+      "authors": "Ba, Zheng et al.",
       "year": 2026,
-      "what": "Splits speech-model memory into a parallel informational store and affective store that are read and written inside the turn, beating Mem0 at top-200 by close to 30 points using only top-5 retrieval and completing that retrieval in 134 ms, within standard voice-activity-detection latency.",
-      "area_label": "Audio",
-      "area_slug": "audio",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026, BDY3HUCV); HeAR (Baur 2024, 3LA8GNCU); LTU (Gong 2023, ESEEEH85)"
-    },
-    {
-      "zotero_key": "2608.15062",
-      "title": "Gated Recurrent Transformers: Expressive Depth through Recurrent Modulation",
-      "authors": "Hegazy, Alanwar, Elhoushi (TU Munich)",
-      "year": 2026,
-      "what": "Iterates one shared transformer core with an elementwise update gate conditioned on the hidden state, prelude output and resampled noise, so a 3-layer model matches a 12-layer GPT-2 Small baseline at similar cost and large-scale models use 63 percent fewer parameters and 59 percent less peak decoding memory for 10 percent higher generation latency.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "Attention Is All You Need (Vaswani 2017, PHB9VRVM); Mamba (Gu 2024, XNI34DQX); HARMamba (Li 2024, HE9X47KN)"
+      "what": "Shows that evolution strategies raise Pass@1 while also raising Pass@K where GRPO collapses entropy, ties the gain to verifier-projected population diversity, and finds the parameter movement is functionally sparse and does not cause forgetting.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); PPO (Schulman 2017, KQTIJC4U); Latent-GRPO (Deng 2026, U4ZPM5DN)"
     }
   ]
 }

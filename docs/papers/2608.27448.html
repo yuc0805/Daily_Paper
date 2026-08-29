@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TTPO: Test-Time Policy Optimization — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/test-time-training.html" class="back-link">&larr; Back to Area</a>
+
+<h2>TTPO: Test-Time Policy Optimization</h2>
+<p class="paper-meta">
+  Wang, Lu, Wang, Lv, Liu, Lu, Xiao, Zhuang, Yang, Chen, Shen (Zhejiang University) &middot; arXiv 2026-08-27 &middot;
+  <a href="https://arxiv.org/abs/2608.27448" target="_blank" rel="noopener">arXiv:2608.27448</a> &middot;
+  Appears in: <a href="../areas/test-time-training.html">Test-Time Training</a>
+</p>
+
+<h3>What</h3>
+<p>TTPO removes the ground-truth label from reasoning post-training so that the update can run at test time on the problems the model is actually facing. It samples rollouts, forms a majority-vote pseudo-label, and then treats the two sides of the vote asymmetrically: rollouts that agree with the vote are distilled through on-policy self-distillation, while rollouts that disagree are penalised with grouped reinforcement learning. Token-level selection down-weights positions the distillation branch has already converged on and restricts the penalty to confidently wrong tokens. Without any labels, TTPO matches label-supervised on-policy self-distillation on five competition-level benchmarks, raises Qwen3-1.7B from 38.0 to 45.2 percent under test-time training, yields gains of 25.2 to 36.4 percent in the no-thinking setting, and transfers across tasks.</p>
+
+<h3>Why</h3>
+<p>Reinforcement learning and on-policy self-distillation have driven most of the recent gains in mathematical reasoning, and both need a ground-truth label to define the target or the reward. That requirement rules out test-time training, which is the setting where a model would benefit most from adapting to the distribution actually in front of it. The obvious substitute is a majority-vote pseudo-label, but it is fragile in a specific way: when the vote is wrong, the teacher is wrong for every token of every rollout, so the update actively degrades the model. Prior label-free work has largely accepted that fragility and tried to reduce how often the vote errs, rather than making the update survive the error.</p>
+
+<h3>How</h3>
+<p>The paper starts from an observed asymmetry in how wrong votes propagate. Rollouts that disagree with the pseudo-label are usually wrong regardless of whether the vote itself is correct, so the negative signal is reliable even when the positive one is not. TTPO therefore splits the objective: agreeing rollouts go through on-policy self-distillation, which is the branch that suffers when the vote errs, and disagreeing rollouts are pushed down by grouped reinforcement learning, which stays valid either way. Token-level selection sharpens both halves, since distillation on already-converged positions contributes nothing and penalising low-confidence tokens punishes exploration rather than error. As the model improves, majority-vote routing tightens on its own, so the self-supervision gets better rather than drifting.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="JEGI4IS7.html">TTT Layers (Sun 2024)</a><span class="lineage-note">Made the update rule internal to the model so that learning continues during inference; TTPO makes the objective self-supplied instead.</span></li>
+  <li><a href="W7RPRTCH.html">TTT for Abstract Reasoning (Akyurek 2024)</a><span class="lineage-note">Showed test-time fine-tuning works on ARC, but required a hand-built augmentation of the target task to create supervision.</span></li>
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Graphify community 0 anchor; established RL against a verifiable reward, and with it the label dependence this paper removes.</span></li>
+  <li><a href="GAP6JAK9.html">Permutation Self-Consistency (Tang 2024)</a><span class="lineage-note">Treated agreement across samples as a usable training-grade signal rather than a decoding heuristic.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Akyurek's test-time training needs a way to manufacture supervision for the target task, which limits it to tasks where a meaning-preserving augmentation exists and someone has written it. DeepSeek-R1 needs a verifier that can score a candidate answer, which limits it to domains with checkable outputs and, more restrictively, to training time rather than deployment. TTPO's asymmetric objective is what lets both constraints go: the vote supplies the target, and the asymmetry means a bad vote degrades only the weaker of the two branches instead of poisoning the whole update. That is why the label-free result lands at parity with label-supervised on-policy self-distillation rather than some distance below it, which is the outcome earlier pseudo-label work reported.</p>
+
+<h3>Method vs predecessors</h3>
+<p>DeepSeek-R1-style group relative policy optimisation computes one advantage per rollout against a group baseline and applies it uniformly. On-policy self-distillation instead matches the student to a teacher distribution token by token. TTPO runs both at once on disjoint subsets of the same rollout group, selected by agreement with the majority vote, and then filters within each branch at token granularity. Relative to TTT layers, where the adaptation is a learned inner loop over a self-supervised reconstruction loss, TTPO's inner loop is an explicit policy update over sampled trajectories, so it inherits the sample cost of RL rather than the cost of a forward pass. The practical trade is that TTPO needs many rollouts per test problem but no labels, no verifier and no task-specific augmentation.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="K9AZKZB2.html">TTT-Unet (Zhou 2024)</a><span class="lineage-note">Same test-time-training family applied to dense medical prediction rather than to a policy over text.</span></li>
+  <li><a href="U4ZPM5DN.html">Latent-GRPO (Deng 2026)</a><span class="lineage-note">Modifies where the GRPO objective acts while keeping the label; TTPO keeps the objective and removes the label.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought (Wei 2023)</a><span class="lineage-note">The prompting end of the bridge that DeepSeek-R1 crossed; TTPO extends the training side to the unlabelled case.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

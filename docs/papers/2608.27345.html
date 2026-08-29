@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAWBench: How Far Are We from Probabilistically Aligned World Modeling? — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/world-model-rl.html" class="back-link">&larr; Back to Area</a>
+
+<h2>PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</h2>
+<p class="paper-meta">
+  Pu, Zhuo, Paul, Menezes, Dordevic, Li, Zhou, Fu, Zhang, He, Qiao, Liu, Xing, Chen (Shanghai AI Lab and collaborators) &middot; arXiv 2026-08-27 &middot;
+  <a href="https://arxiv.org/abs/2608.27345" target="_blank" rel="noopener">arXiv:2608.27345</a> &middot;
+  Appears in: <a href="../areas/world-model-rl.html">World Model / RL</a>
+</p>
+
+<h3>What</h3>
+<p>The paper formalises probabilistic alignment: a video generator used as a world model should reproduce the distribution of valid outcomes under a given initial observation and action, not merely produce one plausible trajectory. PAWBench supplies 50 scenarios in which a physical process can legitimately unfold in more than one way, and PAWEval is an outcome-level protocol that turns repeated rollouts into an empirical distribution over those outcomes. Across eleven current systems, no model consistently matches the reference probabilities while also covering the range of valid behaviours. The authors then test three levers for reshaping the predictive distribution: language prompts, initial noise sampling and model training.</p>
+
+<h3>Why</h3>
+<p>Video generators are increasingly described as world models, and a world model is only useful for planning if the outcomes it proposes occur at roughly the right rates. Existing evaluation asks whether a single generated video looks plausible, which is a per-sample question, and no number of per-sample judgements answers a distributional one. A model that always produces the single most likely outcome scores perfectly on plausibility and is useless to a planner that needs to know how often the alternative happens. The gap has stayed hidden because the field inherited its metrics from generation quality rather than from decision support.</p>
+
+<h3>How</h3>
+<p>Scenarios are constructed so that the set of valid physical outcomes is known and enumerable, which is what makes a reference distribution definable at all. Each system is then sampled repeatedly from the same initial condition and action, outcomes are classified, and the empirical distribution is compared against the reference on two axes that can fail separately: whether the probabilities match, and whether the full range of valid outcomes appears at all. Separating those two matters, because a model can cover every outcome at badly wrong rates, or hit the modal rate while never producing the alternatives. The follow-up experiments ask which of prompting, noise sampling or training actually moves the distribution, as opposed to moving the mean sample.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Graphify community 3 anchor; made the generator an explicit sampler from a learned distribution, which is the property this benchmark holds it to.</span></li>
+  <li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Scaled that sampler with a Transformer backbone, producing the model family under test.</span></li>
+  <li><a href="P92FLHJ2.html">World Model Evaluation (Vafa 2024)</a><span class="lineage-note">Argued that strong next-step prediction does not certify a coherent internal world model.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Vafa's work made the case that predictive accuracy and world-model coherence come apart, but located the problem in the model's internal state, which is hard to inspect for a video diffusion model with no symbolic latent to probe. PAWBench relocates the same critique to the output distribution, where it is directly measurable by sampling. Against DDPM and DiT, the point is that both are trained as samplers and then reported one sample at a time, so the sampling property the objective optimises is never checked in deployment terms. The benchmark closes that loop, and the negative result across eleven systems says the gap is a property of the current training recipe rather than of any one model.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Standard video-generation evaluation computes a distance between generated and real feature distributions over a large unpaired corpus, which measures whether the model produces realistic videos in aggregate but says nothing about the conditional distribution given one specific initial state. PAWEval conditions first and then samples, so the distribution being measured is the conditional one a planner would actually query. That requires scenarios with enumerable outcomes and a classifier to assign rollouts to them, which is why the benchmark is 50 curated scenarios rather than a large scraped set. The trade is coverage for the ability to define ground truth at the distribution level.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2608.14106.html">Forecast Collapse in Time-Series Foundation Models (Wan 2026)</a><span class="lineage-note">The same diagnosis in a different modality: per-unit calibration hides a failure that only a distributional or cross-unit metric detects.</span></li>
+  <li><a href="JQ7JD8AR.html">Navigation World Models (Bar 2024)</a><span class="lineage-note">Uses a video model as a planner, which is precisely the downstream use that probabilistic alignment is a prerequisite for.</span></li>
+  <li><a href="938DAXZT.html">World Models (Ha 2018)</a><span class="lineage-note">The original latent-dynamics formulation, where the stochastic transition model was explicit rather than implicit in a sampler.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

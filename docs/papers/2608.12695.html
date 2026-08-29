@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temporal Context Length and Encoding Strategies in Self-Supervised ECG Representation Learning — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
+<h2>The Impact of Temporal Context Length and Encoding Strategies on Self-Supervised ECG Representation Learning</h2>
+<p class="paper-meta">
+  Sameh, Al-Sharawi, Varatharajah &middot; EMBC 2026 &middot; arXiv 2026-08-13 &middot;
+  <a href="https://arxiv.org/abs/2608.12695" target="_blank" rel="noopener">arXiv:2608.12695</a> &middot;
+  Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>
+</p>
+
+<h3>What</h3>
+<p>A controlled ablation on the Icentia11k single-lead ECG dataset that varies exactly two design choices while holding the Transformer backbone and the training protocol constant: the input horizon, at 16 seconds, 1 minute, 5 minutes and 10 minutes, and the front-end representation, comparing continuous convolutional patch embeddings against fixed vector-quantised tokens. Representations are judged by downstream abnormal rhythm detection and by patient-level retrieval, which tests whether the same patient's recordings from different sessions land near each other. Longer horizons transfer better and retrieve better, with the 5- and 10-minute models strongest, and continuous patch embeddings beat discretised tokens at every horizon tested. Code and pretrained models are released.</p>
+
+<h3>Why</h3>
+<p>Self-supervised ECG models are almost always trained on a few seconds of signal, because a few seconds is what a clinician reads to call a rhythm, and increasingly they are trained on discretised token sequences, because tokenisation lets a language-model objective apply unchanged. Neither convention has been tested against the thing that matters for ambulatory recording, which is whether the representation stays consistent for the same person across sessions and captures rhythm dynamics that move slowly. Prior work varies architecture and dataset scale together, so the effect of the window and the front end has never been isolated.</p>
+
+<h3>How</h3>
+<p>Everything except the two variables under study is frozen: same backbone, same optimiser, same masking protocol, same dataset. That is the whole design, and it is what makes the result usable as a prior rather than as another benchmark number. The two evaluation axes are chosen to pull apart different failures. Abnormal rhythm detection measures whether the representation carries the clinical label. Patient-level retrieval measures whether it carries individual-specific structure that survives a change of session, which is the property a longitudinal monitoring system depends on and which a single-window classifier never has to demonstrate.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="YY67LF3R.html">PatchTST (Nie 2023)</a><span class="lineage-note">Established patching as the way to give a time-series Transformer a long horizon at tractable sequence length; this paper tests how far that horizon should go.</span></li>
+  <li><a href="6INGKIJV.html">MAE Theory (Zhang 2023)</a><span class="lineage-note">Graphify community 1; analysed what masked reconstruction recovers and how much the mask design determines the representation.</span></li>
+  <li><a href="3LA8GNCU.html">HeAR (Baur 2024)</a><span class="lineage-note">Graphify community 1 anchor for physiological foundation models, built on short fixed windows — the convention questioned here.</span></li>
+  <li><a href="72DFULQQ.html">Chronos (Ansari 2024)</a><span class="lineage-note">Made tokenise-then-pretrain the default recipe; this paper measures what the tokenisation costs on a clinical signal.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Chronos showed that discretising a series and running a next-token objective produces a useful general forecaster, and that result has been read as licence to quantise physiological signals too. The finding here is that on ECG the quantisation discards waveform detail that downstream clinical tasks need, and it does so at every horizon, so the cost is not something a longer context compensates for. HeAR and comparable physiological encoders inherit their window length from clinical reading practice; the retrieval result says individual-specific structure lives at the minute scale, so that inherited window is the wrong pretraining unit even though it is the right diagnostic unit. Neither predecessor could surface these because both varied the front end together with the data and the model.</p>
+
+<h3>Method vs predecessors</h3>
+<p>PatchTST justified patching on efficiency and forecasting error; the same mechanism is reused here but justified on cross-session stability, which is a stricter test because it requires the representation to be about the patient rather than about the segment. Against Chronos, the difference is the front end rather than the objective: both pretrain a Transformer on masked or next-step prediction, but one passes continuous convolutional patch embeddings and the other passes fixed vector-quantised codes. Holding the backbone constant across both is what turns a design preference into a measurement. The limitation is scope — one dataset, one lead, one backbone — so the finding is a prior to carry into design rather than a settled law.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="A5HBRQB9.html">MAE (He 2021)</a><span class="lineage-note">The masked-reconstruction recipe being ported; the mask-ratio and patch-size questions here are its time-series analogue.</span></li>
+  <li><a href="2BGP9QJL.html">Verifiable Physiological Reasoning (Wang 2026)</a><span class="lineage-note">Same ECG neighbourhood, working on the reasoning layer above the representation rather than the representation itself.</span></li>
+  <li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Attacks the same long-context problem for wearable signals through a state-space backbone instead of through window length.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
