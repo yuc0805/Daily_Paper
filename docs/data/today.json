@@ -1,45 +1,45 @@
 {
-  "date": "2026-08-29",
+  "date": "2026-08-30",
   "papers": [
     {
-      "zotero_key": "2608.27448",
-      "title": "TTPO: Test-Time Policy Optimization",
-      "authors": "Wang et al. (Zhejiang University)",
+      "zotero_key": "2608.12944",
+      "title": "CardioState-JEPA: Delay-Aware Cross-Modal Learning of a Shared Cardiac Representation",
+      "authors": "Shafiq, Pham, Saeed et al.",
       "year": 2026,
-      "what": "Removes the ground-truth label from reasoning post-training by splitting a majority-vote rollout group asymmetrically, distilling agreeing rollouts and penalising disagreeing ones with grouped reinforcement learning, so that the update survives a wrong vote and matches label-supervised on-policy self-distillation on five competition benchmarks while raising Qwen3-1.7B from 38.0 to 45.2 percent.",
-      "area_label": "Test-Time Training",
-      "area_slug": "test-time-training",
-      "builds_on": "TTT Layers (Sun 2024, JEGI4IS7); TTT for Abstract Reasoning (Akyurek 2024, W7RPRTCH); DeepSeek-R1 (2025, Z5IWHZAE)"
-    },
-    {
-      "zotero_key": "2608.12695",
-      "title": "The Impact of Temporal Context Length and Encoding Strategies on Self-Supervised ECG Representation Learning",
-      "authors": "Sameh, Al-Sharawi, Varatharajah",
-      "year": 2026,
-      "what": "Holds the Transformer backbone and training protocol fixed while varying only the ECG input horizon and the front end, and finds that 5- to 10-minute contexts transfer and retrieve better than the standard 16-second window, and that continuous patch embeddings beat vector-quantised tokens at every horizon.",
+      "what": "Trains one shared Transformer encoder across ECG, PPG and PCG by predicting masked latent cardiac states through a learned delay aligner, so the three sensors mutually supervise a single model, raising frozen-encoder performance across 25 tasks by 8.2, 18.8 and 15.5 AUROC points on PPG, PCG and ECG over the best self-supervised signal baseline.",
       "area_label": "Signal/Time Series",
       "area_slug": "time-series",
-      "builds_on": "PatchTST (Nie 2023, YY67LF3R); MAE Theory (Zhang 2023, 6INGKIJV); HeAR (Baur 2024, 3LA8GNCU); Chronos (Ansari 2024, 72DFULQQ)"
+      "builds_on": "Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); HeAR (Baur 2024, 3LA8GNCU); MAE Theory (Zhang 2023, 6INGKIJV)"
     },
     {
-      "zotero_key": "2608.27345",
-      "title": "PAWBench: How Far Are We from Probabilistically Aligned World Modeling?",
-      "authors": "Pu et al. (Shanghai AI Lab)",
+      "zotero_key": "2608.26226",
+      "title": "LLM Agents for Time-Series: A Survey",
+      "authors": "Chen, Qin, Ding et al.",
       "year": 2026,
-      "what": "Formalises probabilistic alignment as the requirement that a video world model reproduce the distribution of valid outcomes rather than one plausible trajectory, and finds across 50 scenarios and eleven systems that none matches the reference probabilities while still covering the range of valid behaviours.",
+      "what": "Reorganises the time-series agent literature by task rather than by how a language model is attached to a series, and reports architecture, tool use and memory design as consequences of the task, importing agent-community vocabulary into the forecasting literature.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "LLMs for TS Survey (Zhang 2024, N2JLZBY3); TS-Agent (Liu 2025, I2CIT4I7); ChatTS (Xie 2025, VSCNJG5J)"
+    },
+    {
+      "zotero_key": "2608.27454",
+      "title": "WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution",
+      "authors": "Tang, Rashtchian, Vu et al. (Google Research)",
+      "year": 2026,
+      "what": "Separates raw execution experience, accumulated knowledge and executable skills, consolidating experience into a persistent text wiki that skill updates read from, which beats existing skill-evolution methods and lets skills transfer across model families, sometimes beating self-evolved skills.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "Memory Mechanisms Survey (Huang 2026, BDY3HUCV); Chain-of-Experience (Tu 2026, 2608.18027); ToolkenGPT (Hao 2024, 6RDHVVA2)"
+    },
+    {
+      "zotero_key": "2608.26103",
+      "title": "Zero-WAM: In-Context World-Action Modeling from Human Videos for Open-Ended Task Generalization",
+      "authors": "Robbyant Research",
+      "year": 2026,
+      "what": "Executes unseen manipulation tasks by taking a human demonstration video as the in-context task specification rather than fine-tuning, and solves the paired-data shortage by synthesising 74.2K matched human-robot pairs from existing robot trajectories.",
       "area_label": "World Model / RL",
       "area_slug": "world-model-rl",
-      "builds_on": "DDPM (Ho 2020, GX7WR7KA); DiT (Peebles 2023, YJ9TK993); World Model Evaluation (Vafa 2024, P92FLHJ2)"
-    },
-    {
-      "zotero_key": "2608.27351",
-      "title": "Understanding Evolution Strategies for LLM Reasoning: Broader Reasoning Coverage than GRPO",
-      "authors": "Ba, Zheng et al.",
-      "year": 2026,
-      "what": "Shows that evolution strategies raise Pass@1 while also raising Pass@K where GRPO collapses entropy, ties the gain to verifier-projected population diversity, and finds the parameter movement is functionally sparse and does not cause forgetting.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); PPO (Schulman 2017, KQTIJC4U); Latent-GRPO (Deng 2026, U4ZPM5DN)"
+      "builds_on": "DINO-WM (Zhou 2025, W44RSJJI); Navigation World Models (Bar 2024, JQ7JD8AR); VideoMAE (Tong 2022, 9QCZ3A32)"
     }
   ]
 }

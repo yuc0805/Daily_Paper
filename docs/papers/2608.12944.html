@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CardioState-JEPA: Delay-Aware Cross-Modal Learning of a Shared Cardiac Representation — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>CardioState-JEPA: Delay-Aware Cross-Modal Learning of a Shared Cardiac Representation</h2>
+<p class="paper-meta">Shafiq, Pham, Zhu, Zhou, Hu, Saeed &middot; arXiv preprint 2026 &middot; <a href="https://arxiv.org/abs/2608.12944" target="_blank" rel="noopener">arXiv:2608.12944</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+
+<h3>What</h3>
+<p>CardioState-JEPA trains a single shared Transformer encoder across electrocardiography, photoplethysmography and phonocardiography, so that three sensors observing the same cardiac cycle supervise one another rather than each supporting a separate model. Heterogeneous waveforms are mapped into a common token space and the training objective is to predict masked latent cardiac states, not to reconstruct the waveform. Evaluated as a frozen encoder across 25 downstream tasks, it improves average PPG classification by 8.2 AUROC points, PCG murmur detection by 18.8 AUROC points and ECG classification by 15.5 AUROC points over the best self-supervised signal baseline, and matches or exceeds cardiac models trained with privileged clinical text or supervised labels on several ECG benchmarks.</p>
+
+<h3>Why</h3>
+<p>Electrical activation, peripheral blood volume change and mechanical heart sound are three different physical measurements of one underlying process, but existing cardiac foundation models are built one per sensing modality, so that shared physiology is never used as a training signal. The cost falls hardest on the weaker modalities: PPG and PCG have far less labelled data than 12-lead ECG, and a single-modality encoder has no route to borrow structure from the better-resourced signal. Prior masked-modelling work on health signals stayed within one modality and reconstructed in input space, which ties the learned representation to sensor-specific waveform appearance and blocks exactly the transfer that would help.</p>
+
+<h3>How</h3>
+<p>The method is a physiology-aware joint-embedding predictive architecture. Predicting masked latent states rather than raw samples places the target on shared physiology instead of sensor-specific appearance, which is what makes one encoder across three modalities plausible. The temporal problem is handled explicitly: electrical, mechanical and hemodynamic events do not coincide, so cross-modal prediction runs through a learned delay aligner that matches signals at the corresponding point in the cardiac cycle rather than at the corresponding sample index. Because synchronized multi-sensor recordings are scarce, training is staged — within-modality structure is learned first from abundant unimodal data, then paired data is spent only on aligning the modalities in latent cardiac time.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Established that biosignal foundation models are organized one encoder per modality; this paper treats that boundary as removable.</span></li>
+  <li><a href="3LA8GNCU.html">HeAR: Health Acoustic Representations (Baur 2024)</a><span class="lineage-note">Masked reconstruction in input space for a single health-signal modality; this predicts in latent space across three.</span></li>
+  <li><a href="6INGKIJV.html">How Mask Matters: Masked Autoencoders Theory (Zhang 2023)</a><span class="lineage-note">Argued masking works by pushing the encoder toward semantic structure; the delay aligner is the biosignal statement of that argument.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The failure mode being fixed is data poverty in the weaker modalities. HeAR and comparable single-modality encoders can only learn from as much data as their own sensor provides, which leaves PPG and PCG far behind 12-lead ECG, and Gu's survey documented that the whole field shared this constraint. CardioState-JEPA lets abundant ECG structure carry into PPG and PCG through a shared latent space, and the size of the reported gains — largest on PCG murmur detection at 18.8 AUROC points, the modality with the least data — is consistent with that being where the benefit comes from. It also removes the dependency on privileged clinical text, matching or beating text-supervised cardiac models on several ECG benchmarks without any text.</p>
+
+<h3>Method vs predecessors</h3>
+<p>HeAR masks patches and reconstructs them in input space for one modality. CardioState-JEPA masks and predicts in latent space across three, which is the difference between a target that keeps sensor-specific waveform detail and a target that discards it. The second difference has no analogue in the predecessors: a learned delay aligner, because cross-modal prediction between signals whose events are physiologically offset would otherwise be asked to predict across a lag it cannot represent. The third is the two-stage curriculum, unimodal pretraining then paired alignment, which is a response to the scarcity of synchronized three-sensor recordings rather than a modelling choice. Zhang's masked-autoencoder analysis supplies the justification for the first difference but was never applied to signals with cross-modal timing offsets.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Crosses wearable sensing into language; CardioState-JEPA stays on the encoder side and never touches text, leaving that combination open.</span></li>
+  <li><a href="HDPXBLAP.html">SensorLM (2025)</a><span class="lineage-note">Also learns wearable-signal representations, but with language supervision rather than cross-sensor mutual supervision.</span></li>
+  <li><a href="2BGP9QJL.html">Verifiable Physio Reasoning (Wang 2026)</a><span class="lineage-note">Works on ECG and PPG at the reasoning layer; this paper supplies the kind of encoder such a system would sit on top of.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero-WAM: In-Context World-Action Modeling from Human Videos — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/world-model-rl.html" class="back-link">&larr; Back to Area</a>
+<h2>Zero-WAM: In-Context World-Action Modeling from Human Videos for Open-Ended Task Generalization</h2>
+<p class="paper-meta">Robbyant Research &middot; arXiv preprint 2026 &middot; <a href="https://arxiv.org/abs/2608.26103" target="_blank" rel="noopener">arXiv:2608.26103</a> &middot; Appears in: <a href="../areas/world-model-rl.html">World Model / RL</a></p>
+
+<h3>What</h3>
+<p>Zero-WAM is a causal video-action model that executes manipulation tasks it never saw during training by following a human video supplied in context. The claim is that the natural task specification for manipulation is a demonstration video rather than a sentence, because a video carries visual detail about how the task should evolve that language does not. To address the shortage of task-rich paired human-robot data, the authors build an automatic pipeline that converts task-sampled robot trajectories into semantically matched human videos, producing HumanGen, a dataset of 74.2K human-robot in-context pairs.</p>
+
+<h3>Why</h3>
+<p>Zero-shot cross-task generalization, where a policy must execute manipulation tasks absent from training, remains unsolved in robot learning. Language models handle the analogous problem without parameter updates by having the task specified in context, which converts generalization into a task-specification problem. Applying that move to manipulation requires deciding what the specification should be. Language is available but underspecifies the physical detail a manipulation policy needs, and the alternative — collecting paired human-robot demonstrations across enough tasks to learn from — does not exist at the scale required, which is why the paradigm had not transferred.</p>
+
+<h3>How</h3>
+<p>The model is causal over video and actions jointly, conditioned on an in-context human video that specifies the intended task. Task identity is therefore an input at inference rather than a property learned into the weights, and executing a new task means supplying a new video rather than fine-tuning. The data problem is solved by synthesis rather than collection: robot trajectories are sampled across tasks and converted into semantically matched human videos automatically, so the human-robot pairing needed to learn the in-context mapping is generated from labelled robot data that already exists. HumanGen, at 74.2K pairs, is the result.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="W44RSJJI.html">DINO-WM (Zhou 2025)</a><span class="lineage-note">Built a world model in a frozen visual latent space and planned inside it for a fixed task family; Zero-WAM makes the task itself an input.</span></li>
+  <li><a href="JQ7JD8AR.html">Navigation World Models (Bar 2024)</a><span class="lineage-note">Conditioned prediction on the agent's own trajectory; this conditions on someone else's demonstration.</span></li>
+  <li><a href="9QCZ3A32.html">VideoMAE (Tong 2022)</a><span class="lineage-note">Learned task-agnostic video representations by masked reconstruction; here the representation must carry task intent across an embodiment gap.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DINO-WM and Navigation World Models both assume the task is fixed and spend their capacity on predicting dynamics and planning within it. The failure mode is that better planning does not help when the missing element is the task specification: a world model that cannot be told what to do generalizes across states, not across tasks. Zero-WAM moves task identity out of the weights and into the context, which is what converts a world model into a policy for unseen tasks. It also addresses the reason this had not been tried — the paired human-robot data required to learn the mapping does not exist — by generating that data from robot trajectories instead of collecting it.</p>
+
+<h3>Method vs predecessors</h3>
+<p>DINO-WM predicts forward in a frozen DINO latent space and runs planning over the prediction. Zero-WAM is causal over video and actions together, with a human video prepended as the specification, so there is no separate planning stage keyed to a task the model was trained on. Against Navigation World Models the difference is whose trajectory conditions the prediction: own-trajectory conditioning supports goal-reaching within a known task, demonstration conditioning supports execution of an unknown one. Against VideoMAE the difference is what the representation must preserve — masked reconstruction has no reason to encode intent, whereas the in-context mapping here fails unless intent survives the transfer from a human hand to a robot arm.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="938DAXZT.html">World Models (Ha 2018)</a><span class="lineage-note">The original latent-dynamics formulation this line descends from, with task fixed throughout.</span></li>
+  <li><a href="JUB597ZG.html">VideoMAE V2 (Wang 2023)</a><span class="lineage-note">Scales the masked video pretraining that supplies representations for demonstration understanding.</span></li>
+  <li><a href="P92FLHJ2.html">World Model Evaluation (Vafa 2024)</a><span class="lineage-note">Asks what a world model has actually learned; the relevant question for a model claimed to generalize to unseen tasks.</span></li>
+</ul>
+</div>
+</body>
+</html>

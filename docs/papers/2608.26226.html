@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM Agents for Time-Series: A Survey — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>LLM Agents for Time-Series: A Survey</h2>
+<p class="paper-meta">Chen, Qin, Liu, Wu, Samia, Ding &middot; Findings of EMNLP 2026 &middot; <a href="https://arxiv.org/abs/2608.26226" target="_blank" rel="noopener">arXiv:2608.26226</a> &middot; Appears in: <a href="../areas/time-series.html">Signal/Time Series</a></p>
+
+<h3>What</h3>
+<p>This survey organizes LLM-based time-series agents by the problem they address rather than by their technical components, sorting existing systems into forecasting and reasoning, augmentation and synthesis, anomaly detection and diagnosis, and decision support. Within each category it examines how the task requirement shapes three design choices in particular: agent architecture, tool use, and memory design. It also collects the datasets and environments in current use and compares reported model performance wherever settings are shared or close enough to make the comparison meaningful. The stated output is a task-oriented design guide together with a list of gaps the authors judge to be open.</p>
+
+<h3>Why</h3>
+<p>Design choices across LLM time-series agents vary substantially from one task setting to another, and the earlier organizing principle for this literature — how a language model is attached to a numeric series, through prompting, alignment or fine-tuning — has stopped separating systems usefully now that most attachment methods are known and available. What differs between a forecasting agent and an anomaly-diagnosis agent is not how the model reads numbers but what the loop around it has to do. A component-first taxonomy cannot express that, so a reader trying to design a new system gets a list of parts rather than guidance about which parts the task demands.</p>
+
+<h3>How</h3>
+<p>The taxonomy is problem-driven: four task categories, and within each, an account of how task requirements propagate into architecture, tool use and memory design. Representative datasets and environments are summarized per category, and reported numbers are compared under shared or closely related settings, which is the part individual system papers cannot supply for themselves. The organizing axes are borrowed from the agent literature rather than the forecasting literature, and that borrowing is the substantive move: it treats a time-series system as an agent loop with a numeric tool rather than as a forecaster with a language interface.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">Organized the field by how a language model is attached to a series; this reorganizes it by what the task demands of the loop.</span></li>
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">One architecture for time-series reasoning, evaluated on its own terms; here placed in comparison with its peers.</span></li>
+  <li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">Aligned time series with language models; the survey situates that alignment as one design choice among several rather than the design question.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Zhang's 2024 survey answered the question a reader had in 2024 — how do I connect a language model to a series — and that question now has several settled answers. The failure mode it leaves is that a reader designing a new system learns the available couplings but not which one their task needs, nor what the surrounding loop should look like. This survey addresses that by making the task primary. It also fixes a gap that no single system paper can close: TS-Agent and ChatTS each report numbers under their own protocol, so a reader cannot tell whether the difference between them is method or setting. Collecting shared-setting comparisons is the contribution that only a survey can make.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The structural difference is the choice of organizing axis. Zhang partitions by coupling mechanism; this partitions by task and then reports architecture, tool use and memory design as dependent variables. Memory design in particular is an axis with no counterpart in the earlier survey, and it is imported from the agent literature — the same concept carried in this library by ToolkenGPT and the Memory Mechanisms survey. That makes this a crossing from the time-series-plus-LLM community into the agent community, pushing the bridge toward agent design rather than toward forecasting benchmarks.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Supplies the memory vocabulary this survey applies to time-series systems.</span></li>
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">The tool-use axis the survey uses as an organizing dimension.</span></li>
+  <li><a href="MKICLA63.html">Time-LLM (Jin 2024)</a><span class="lineage-note">A coupling method of the kind the earlier survey organized around, now one option inside a task-driven design space.</span></li>
+</ul>
+</div>
+</body>
+</html>

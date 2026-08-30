@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution</h2>
+<p class="paper-meta">Tang, Rashtchian, Ferng, Tomkins, Juan, Vu (Google Research, Virginia Tech) &middot; arXiv preprint 2026 &middot; <a href="https://arxiv.org/abs/2608.27454" target="_blank" rel="noopener">arXiv:2608.27454</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+
+<h3>What</h3>
+<p>WikiSkill co-evolves agent skills with a persistent knowledge base. It separates three things that prior skill-discovery systems mix together — raw execution experience, accumulated knowledge, and executable skills — and continuously consolidates experience into a wiki that subsequent skill updates read from. Across several benchmarks and models it outperforms state-of-the-art skill-evolution methods and improves on no-skill baselines in most model-benchmark settings. Ablations confirm the persistent knowledge layer is the component producing the gain. Two further results: skill evolution complements model scaling, with smaller models plus evolved skills sometimes beating substantially larger models without them, and evolved skills transfer across models and model families, with skills evolved by other models sometimes beating self-evolved ones.</p>
+
+<h3>Why</h3>
+<p>Agent skills package specialized knowledge and workflows into reusable resources, and recent systems discover them automatically from execution traces, which lets an agent adapt through interaction. The problem is where the reasoning behind each skill revision ends up. It stays scattered through the optimization history, so the insight that motivated one revision is unavailable to the next, and each iteration re-derives what an earlier iteration already established. Flat experience logs have the same weakness in a different form: they preserve what happened but not what was learned, so they do not compress and they do not travel to another model.</p>
+
+<h3>How</h3>
+<p>The architecture makes the three layers explicit and gives each a different lifetime. Raw execution experience is transient. Accumulated knowledge lives in the wiki and is written in text, continuously consolidated as new experience arrives. Executable skills are generated from the wiki rather than from traces, so each skill update starts from distilled insight rather than from a replay of episodes. Keeping the knowledge layer in text rather than in weights is what makes the cross-family transfer result available: a wiki written while one model worked can be read by another. Ablations remove the persistence and confirm the gain goes with it.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Catalogued agent memory mechanisms without establishing which are worth the storage; WikiSkill runs that ablation.</span></li>
+  <li><a href="2608.18027.html">Chain-of-Experience (Tu 2026)</a><span class="lineage-note">Kept a flat append-only experience log re-prompted within one task; WikiSkill compiles the log into knowledge that outlives the task.</span></li>
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Froze capability into learned tool embeddings tied to one model's weights; WikiSkill keeps capability in text any model can read.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Chain-of-Experience showed that an append-only trace of prior attempts improves later attempts, but the trace is bound to its task and its session and grows without compressing. The failure mode is that nothing accumulates across iterations and nothing transfers. WikiSkill fixes both: consolidation turns episodes into reusable statements, and because those statements are text rather than weights they move between model families, which is what makes the finding that externally evolved skills can beat self-evolved skills possible at all. Against Huang's survey the fix is evidential rather than architectural — the survey described the design space, and the ablation here identifies which part of it pays.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Chain-of-Experience maintains one flat structure and re-prompts on it. WikiSkill maintains three structures with different lifetimes and a consolidation step between them, which is the extra machinery and also the point: the consolidation is where episodes become statements. ToolkenGPT sits at the opposite end, encoding capability as learned embeddings that require training and cannot be inspected or moved; WikiSkill's knowledge layer requires no training and is legible. The graphify bridge from ToolkenGPT to PyVision, which links tool-using agents, extends here by making the tool-and-workflow layer persistent and portable rather than tied to a single model or session.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Generates tooling dynamically per task; WikiSkill asks what should persist between tasks instead.</span></li>
+  <li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Decomposes tasks on demand; the decompositions are discarded afterwards, which is the waste WikiSkill targets.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Spends test-time compute searching within one episode rather than accumulating across episodes.</span></li>
+</ul>
+</div>
+</body>
+</html>
