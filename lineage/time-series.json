@@ -1675,6 +1675,54 @@
       "cross_area": false,
       "date_added": "2026-08-19",
       "note": "TimesNet made periodicity explicit through a 2D reshape indexed by discovered periods; RouteTS reads the same information off the amplitude spectrum directly, which is why it stays cheap."
+    },
+    {
+      "source": "YY67LF3R",
+      "source_label": "PatchTST (Nie 2023)",
+      "target": "2608.12695",
+      "target_label": "The Impact of Temporal Context Length and Encoding Strategies on Self-Supervised ECG Representation Learning",
+      "relation": "builds_on",
+      "note": "PatchTST established patching as the way to give a time-series Transformer a long horizon at manageable sequence length; this paper shows the same choice also governs whether a representation is stable across sessions for one patient.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-29"
+    },
+    {
+      "source": "zhang2023_mae",
+      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+      "target": "2608.12695",
+      "target_label": "The Impact of Temporal Context Length and Encoding Strategies on Self-Supervised ECG Representation Learning",
+      "relation": "builds_on",
+      "note": "Zhang analysed what masked reconstruction recovers and when the mask design determines the representation; this paper holds the objective fixed and varies context length and front end instead.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-29"
+    },
+    {
+      "source": "baur2024_hear",
+      "source_label": "HeAR: Health Acoustic Representations (Baur 2024)",
+      "target": "2608.12695",
+      "target_label": "The Impact of Temporal Context Length and Encoding Strategies on Self-Supervised ECG Representation Learning",
+      "relation": "builds_on",
+      "note": "HeAR built a health acoustic foundation model on short fixed windows; this paper tests that window choice directly and finds minute-scale context stronger for patient-level retrieval.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-29"
+    },
+    {
+      "source": "72DFULQQ",
+      "source_label": "Chronos (Ansari 2024)",
+      "target": "2608.12695",
+      "target_label": "The Impact of Temporal Context Length and Encoding Strategies on Self-Supervised ECG Representation Learning",
+      "relation": "builds_on",
+      "note": "Chronos made tokenise-then-pretrain the default front end for time-series pretraining; this paper measures the cost of that discretisation and finds it loses clinically relevant waveform detail at every horizon tested.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-29"
     }
   ],
   "hyperedges": [

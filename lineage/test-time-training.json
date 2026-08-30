@@ -100,6 +100,54 @@
    "cross_area": true,
    "note": "Building on recent Vision-Language-Action policy work in the library, RoboTTT embeds Test-Time Training inside the VLA policy to hold long visuomotor history in weight space.",
    "date_added": "2026-07-18"
+  },
+  {
+   "source": "JEGI4IS7",
+   "source_label": "TTT Layers (Sun 2024)",
+   "target": "2608.27448",
+   "target_label": "TTPO: Test-Time Policy Optimization",
+   "relation": "builds_on",
+   "note": "Sun made the test-time update mechanism internal to the model; TTPO makes the update objective self-supplied by removing the label.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-08-29"
+  },
+  {
+   "source": "W7RPRTCH",
+   "source_label": "TTT for Abstract Reasoning (Akyurek 2024)",
+   "target": "2608.27448",
+   "target_label": "TTPO: Test-Time Policy Optimization",
+   "relation": "builds_on",
+   "note": "Akyurek built the test-time supervision signal from constructed augmentations of the target task; TTPO builds it from the model rollout distribution instead.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-08-29"
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2608.27448",
+   "target_label": "TTPO: Test-Time Policy Optimization",
+   "relation": "builds_on",
+   "note": "DeepSeek-R1 established reinforcement learning against a verifiable reward, and therefore the dependence on labels that TTPO removes by substituting a majority vote.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-08-29"
+  },
+  {
+   "source": "GAP6JAK9",
+   "source_label": "Permutation Self-Consistency (Tang 2024)",
+   "target": "2608.27448",
+   "target_label": "TTPO: Test-Time Policy Optimization",
+   "relation": "builds_on",
+   "note": "Tang treated agreement across samples as a usable signal rather than a decoding heuristic; TTPO turns that agreement into a training target and splits it into a positive and a negative branch.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-08-29"
   }
  ],
  "hyperedges": [

@@ -35,6 +35,8 @@
 2026-07 | BadWAM (2607.15207) | world-action drift attacks; small visual perturbations split a model's imagined future from its executed action
 
 2026-08 | DreamX-Phi 1.0 (2608.13489) | action-conditioned video world model injecting per-arm SE(3) geometry into attention for manipulation
+2026-08 | PAWBench (2608.27345) | benchmark asking whether a video world model reproduces the distribution of valid outcomes rather than one plausible outcome
+
 ### Paper List
 
 [KNOWN] [1999] Sutton et al. — Policy Gradient. zotero_key:DAGWCZ67.
@@ -76,8 +78,11 @@
 [2026] 2607.15207 — BadWAM: When World-Action Models Dream Right but Act Wrong. [https://arxiv.org/abs/2607.15207](https://arxiv.org/abs/2607.15207). external.
 
 [2026] 2608.13489 — DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation. [https://arxiv.org/abs/2608.13489](https://arxiv.org/abs/2608.13489). external.
+[2026] 2608.27345 — PAWBench: How Far Are We from Probabilistically Aligned World Modeling?. [https://arxiv.org/abs/2608.27345](https://arxiv.org/abs/2608.27345). external.
 
 ### Recent Activity
+
+2026-08-29 | 2608.27345 added | PAWBench argues that a video generator used as a world model should reproduce the distribution of valid outcomes under a given initial state and action rather than one plausible outcome, formalises that requirement as probabilistic alignment, supplies 50 scenarios in which a physical process can unfold in more than one legitimate way, and converts repeated rollouts into an empirical outcome distribution through PAWEval; across eleven current systems none consistently matches the reference probabilities while still covering the range of valid behaviours, and the authors then test whether prompting, initial noise sampling or training can reshape the predictive distribution; where World Model Eval (P92FLHJ2) showed that sequence accuracy does not certify a coherent internal model, this paper makes the same point at the level of the output distribution and supplies a measurable criterion for it, and where DDPM and DiT are trained as samplers they are in practice judged one sample at a time, so the sampling property the training objective optimises is never checked; Tier B
 
 2026-08-16 | 2608.13489 added | DreamX-Phi separates visual realism from action faithfulness and treats the second as the property a world model needs for planning, since a rollout can look convincing while moving the wrong arm or losing the object mid-grasp; three mechanisms enforce faithfulness, per-arm SE(3) transformations injected into attention through PRoPE-style geometric encoding, a light depth branch constraining scene geometry, and SAM3 object masks with a frozen V-JEPA teacher holding the manipulated object consistent through the grasp, after which the multi-step generator is distilled into a few-step student by distribution-matching distillation; the evidence is first place on Track 1 and second on Track 2 of the WorldArena 2.0 Challenge rather than a component ablation, so the three mechanisms cannot be separated; Tier B
 

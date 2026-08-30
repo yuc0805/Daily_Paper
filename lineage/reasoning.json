@@ -709,6 +709,42 @@
       "cross_area": true,
       "date_added": "2026-08-14",
       "note": "Where Chain-of-Thought treated the verbalized trace as always beneficial, this paper measures the regime in which the trace is actively harmful, burning compute and producing plausible wrong answers."
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2608.27351",
+      "target_label": "Understanding Evolution Strategies for LLM Reasoning: Broader Reasoning Coverage than GRPO",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 established group-relative policy optimisation against verifiable rewards as the standard reasoning post-training recipe; this paper identifies its entropy collapse as the cost and removes the gradient estimator that causes it.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-29"
+    },
+    {
+      "source": "KQTIJC4U",
+      "source_label": "PPO (Schulman 2017)",
+      "target": "2608.27351",
+      "target_label": "Understanding Evolution Strategies for LLM Reasoning: Broader Reasoning Coverage than GRPO",
+      "relation": "builds_on",
+      "note": "PPO is the policy-gradient ancestor whose ratio-clipping structure GRPO inherits, and whose entropy behaviour is the object of comparison here.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-29"
+    },
+    {
+      "source": "U4ZPM5DN",
+      "source_label": "Latent-GRPO (Deng 2026)",
+      "target": "2608.27351",
+      "target_label": "Understanding Evolution Strategies for LLM Reasoning: Broader Reasoning Coverage than GRPO",
+      "relation": "builds_on",
+      "note": "Latent-GRPO changes where the GRPO objective acts but keeps the same gradient estimator; this paper replaces the estimator itself with a gradient-free population search.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-29"
     }
   ],
   "hyperedges": [],

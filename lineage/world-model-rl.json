@@ -170,6 +170,42 @@
    "cross_area": false,
    "date_added": "2026-08-16",
    "note": "Ha and Schmidhuber framed a learned forward model of observations as a substitute for the environment; DreamX-Phi keeps that framing and makes the substitute faithful to the commanded action rather than only plausible."
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "2608.27345",
+   "target_label": "PAWBench: How Far Are We from Probabilistically Aligned World Modeling?",
+   "relation": "builds_on",
+   "note": "DDPM made the generator an explicit sampler from a learned distribution, which is the property PAWBench holds it to.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-08-29"
+  },
+  {
+   "source": "peebles2023_dit",
+   "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "target": "2608.27345",
+   "target_label": "PAWBench: How Far Are We from Probabilistically Aligned World Modeling?",
+   "relation": "builds_on",
+   "note": "DiT scaled that sampler with a Transformer backbone, the model family PAWBench evaluates.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-08-29"
+  },
+  {
+   "source": "P92FLHJ2",
+   "source_label": "World Model Eval (Vafa 2024)",
+   "target": "2608.27345",
+   "target_label": "PAWBench: How Far Are We from Probabilistically Aligned World Modeling?",
+   "relation": "builds_on",
+   "note": "Vafa showed a model can score well on next-step prediction while holding an incoherent internal world model; PAWBench moves the same argument from internal state to output distribution.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-08-29"
   }
  ],
  "hyperedges": [],

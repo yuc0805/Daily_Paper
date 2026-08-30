@@ -42,6 +42,7 @@
 2026-08 | CAST (2607.25308) | adds dense per-turn credit to RLVR for game-playing language agents using a game solver's value changes as per-step advantages
 2026-08 | CoRT (2607.25659) | token-level credit for rubric-conditioned GRPO from rubric-versus-criteria-free log-likelihood contrasts
 2026-08 | CaRL / Knowing When to Quit (2607.29211) | capability-aligned RL that shapes rewards so refusal scores above futile reasoning, with hindsight refusal augmentation built from observed failures
+2026-08 | ES for LLM Reasoning (2608.27351) | evolution strategies raise Pass@K by keeping population diversity where GRPO collapses entropy
 
 ### Paper List
 
@@ -95,8 +96,11 @@
 [2026] 2607.25659 — CoRT: Counterfactual Replay for Token-Level Rubric-Guided Policy Optimization. [https://arxiv.org/abs/2607.25659](https://arxiv.org/abs/2607.25659). external.
 
 [2026] 2607.29211 — Knowing When to Quit: Diagnosing and Training LLMs to Abort Futile Reasoning. [https://arxiv.org/abs/2607.29211](https://arxiv.org/abs/2607.29211). external.
+[2026] 2608.27351 — Understanding Evolution Strategies for LLM Reasoning: Broader Reasoning Coverage than GRPO. [https://arxiv.org/abs/2608.27351](https://arxiv.org/abs/2608.27351). external.
 
 ### Recent Activity
+
+2026-08-29 | 2608.27351 added | the paper studies evolution strategies as a post-training method for reasoning rather than as a memory-saving substitute for gradient-based reinforcement learning, showing theoretically that verifier-projected Jensen-Shannon diversity across the population raises Pass@K and empirically that evolution strategies improve Pass@1 while avoiding the entropy collapse group relative policy optimisation exhibits, and reporting that although the model drifts substantially in parameter space the task gains come from a sparse subset of large-magnitude updates with no catastrophic forgetting on held-out evaluation; where DeepSeek-R1 and its descendants estimate a gradient from token-level log-probability ratios within a group of rollouts, evolution strategies perturb parameters directly and never form that gradient, so the mechanism that concentrates a GRPO policy onto a single solution path has no analogue; a sequential GRPO-then-ES schedule combines the Pass@1 strength of one with the Pass@K strength of the other, which is the setting that matters wherever a verifier or a human reviews several candidates; Tier B
 
 2026-08-14 | 2607.29211 added | names and characterizes futile reasoning, in which a model working past its capability keeps producing long derivations that look valid and are not, reporting capability overreach and miscalibration between measured capability and actual behavior, with specious reasoning as the dominant failure mode and its share rising with task difficulty; the proposed fix, CaRL, shapes rewards so that refusal scores above futile reasoning and adds hindsight refusal augmentation that converts observed failures into refusal supervision, reducing futile reasoning while preserving task performance across difficulties; the abstract states the effect qualitatively, so the magnitude has to be read out of the paper; ACL 2026 Findings; Tier B
 
