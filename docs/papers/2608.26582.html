@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>J-Zero — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+
+<h2>J-Zero: Unified Challenger--Solver--Judge Co-Evolution from Zero Data</h2>
+<p class="paper-meta">
+  Chu, Jeon, Yang (KAIST AI) &middot; arXiv 2026-08-27 &middot;
+  <a href="https://arxiv.org/abs/2608.26582" target="_blank" rel="noopener">arXiv:2608.26582</a> &middot;
+  Appears in: <a href="../areas/reasoning.html">Reasoning</a>
+</p>
+
+<h3>What</h3>
+<p>J-Zero extends self-evolving language model training into domains where an answer cannot be checked automatically. A Challenger generates increasingly difficult tasks and a Solver learns to answer them, which is the familiar adversarial pair. The addition is a Judge that co-adapts alongside both, trained on preference pairs whose ordering is known in advance from how each response was produced rather than inferred from the Judge's own scores: the Solver's answer is taken as better than the Challenger's, and an answer that was decomposed and then recombined is taken as better than a one-shot answer. Reported gains over baselines average 4.2 points in verifiable domains and 8.0 in unverifiable ones, and performance continues to improve through at least ten iterations where the baselines degrade after two.</p>
+
+<h3>Why</h3>
+<p>Self-evolving training reduces the cost of human supervision, but nearly all of the progress has been in domains with a checker: mathematics, code, and tasks with a parseable answer. Outside those, there is no reward to optimize, so the field substitutes a learned judge, and this creates two problems the paper takes as its target. A frozen judge sets a ceiling, because once the solver is better than the judge can distinguish, further training optimizes the judge's errors rather than the task. Letting the judge train on its own scored comparisons removes the ceiling but introduces drift, since the supervision is then a function of the thing being supervised and small biases compound across iterations. The observed symptom in prior methods is collapse after roughly two iterations, which is what any usable procedure has to fix.</p>
+
+<h3>How</h3>
+<p>The Judge's training signal is sourced from the generation procedure instead of from any model's opinion, so the ordering of a preference pair is known before either response is read. Two such constructions are used. The Solver has been trained to answer the Challenger's tasks and the Challenger has not, so the Solver's response is taken as preferred; and decomposing a problem, solving the parts, and recombining is taken to produce a better answer than answering in one shot. Both give labelled pairs at no annotation cost and without consulting the Judge, which is what breaks the circularity. The three components then run together: the Challenger raises difficulty, the Solver improves against it, and the Judge co-adapts on freshly generated pairs so its discrimination tracks the current frontier rather than an earlier one. Evaluation covers both verifiable and unverifiable domains and reports the iteration count at which each method stops improving.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Community 0; showed reasoning can be trained by reinforcement learning against verifiable rewards without supervised traces, and therefore stops where verifiers stop.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Anchor node for reasoning, 7 edges; established decomposition into intermediate steps, repurposed here from an inference technique into a source of preference labels.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 demonstrated that a reward signal alone can produce reasoning behaviour, but its reward came from a verifier, so the method has nothing to say about counseling, explanation, summarisation or any task where correctness is not machine-checkable. Replacing the verifier with a judge is the obvious move and it fails in a specific way: the judge either freezes and caps the solver, or trains on its own scores and drifts, with collapse after about two iterations. J-Zero fixes that failure by making the judge's supervision independent of the judge, so the co-adaptation has a fixed point that is set by the generation procedure rather than by the judge's current beliefs. The ten-iteration result is the evidence that the circularity is what was breaking, not the capacity of the judge.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Chain-of-Thought uses decomposition at inference time to improve one answer, and the improvement is the whole point. J-Zero uses the same decomposition but discards the improved answer as an end in itself and keeps the comparison: because decomposed-then-recombined reliably beats one-shot, the pair carries a label that no annotator supplied. That converts a prompting technique into a supervision mechanism, which is a different use of the same observation. Relative to DeepSeek-R1 the structural change is that the reward model is a trained participant rather than fixed infrastructure, and the safeguard against the usual instability is procedural rather than regularisation-based. The claim to check on a close read is whether both preference constructions hold as the Solver improves, since the Solver-over-Challenger ordering is the weaker of the two and should erode as the Challenger gets stronger.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="GST6E6A6.html">CounselBench (Li 2025)</a><span class="lineage-note">Measures LLM quality in mental health, an unverifiable domain; the evaluation problem J-Zero proposes a training answer to.</span></li>
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Base model line for the reinforcement-learning reasoning work this builds on.</span></li>
+  <li><a href="EMXEJYHV.html">Latent Reasoning Survey (Zhu 2025)</a><span class="lineage-note">Surveys where reasoning computation is placed; useful contrast with moving the supervision rather than the computation.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

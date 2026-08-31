@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code as Worlds — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/world-model-rl.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Code as Worlds: Agentic Discovery of Executable World Representations for Physical Reasoning</h2>
+<p class="paper-meta">
+  Wang, Cai, Chen, Chi, Sun, Dai, Hung, Guo, Liu, Long, Duan, Gao, Lyu, Liu, Wu (MirroS Lab) &middot; arXiv 2026-08-27 &middot;
+  <a href="https://arxiv.org/abs/2608.27549" target="_blank" rel="noopener">arXiv:2608.27549</a> &middot;
+  Appears in: <a href="../areas/world-model-rl.html">World Model / RL</a>
+</p>
+
+<h3>What</h3>
+<p>Code-as-World represents a physical scene as executable code rather than as pixels or as a learned latent vector. Object composition, governing dynamics and visual appearance are all expressed as a program, which makes the representation compact, quantitatively grounded and runnable forward to answer questions about how the scene evolves or how it responds to an intervention. To recover such a program from a video or a natural-language description, the paper runs an agentic loop modelled on abductive reasoning: an agent proposes a candidate world program, executes it, renders the result, verifies it against the observation, and refines. Verified programs then serve as scalable physical supervision for training a vision-language model, and the resulting Code-as-World-VL reaches state of the art on the QuantiPhy benchmark, above leading proprietary models. Weights are released at 4B and 9B.</p>
+
+<h3>Why</h3>
+<p>Vision-language models can recognise and describe physical events but lack explicit representations of the mechanisms underneath: object states, physical parameters, and the dynamics that govern how a scene changes. Without those, a model can describe what it sees and still answer incorrectly about what happens next or what would happen under an intervention, because nothing in its representation is a quantity that can be propagated. The paper's framing is that a pixel observation is evidence about a world rather than a specification of it, recording how the scene appeared from one viewpoint at one moment without saying what exists, how it is structured, or what governs it. The practical consequence is a data problem: quantitative physical supervision is expensive to annotate, and there is no way to generate more of it from raw video if the representation is not something that can be checked.</p>
+
+<h3>How</h3>
+<p>The agentic discovery loop is the mechanism. Given a multimodal observation, the agent writes a program that claims to describe the underlying world, runs it, renders the resulting scene, and compares the rendering to the observation; a mismatch drives a revision of the program, and the cycle repeats until the hypothesis is verified or abandoned. This is abduction in the strict sense, inference to an explanation that would have produced the evidence, and it is made tractable because the explanation is executable and therefore checkable by running it rather than by asking a model whether it looks right. Programs that pass verification are retained, which converts abundant unlabelled observation into labelled physical data with explicit states, parameters and dynamics. Those verified worlds are then used to train the vision-language model on quantitative physical reasoning, so the supervision scales with available video rather than with annotation budget.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="938DAXZT.html">World Models (Ha 2018)</a><span class="lineage-note">Established learned latent dynamics as the world-model formulation, replaced here by executable code.</span></li>
+  <li><a href="P92FLHJ2.html">Evaluating World Models (Vafa 2024)</a><span class="lineage-note">Showed a model can predict well while holding an incoherent internal world model; the measurement problem that motivates an inspectable representation.</span></li>
+  <li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Community 0; agentic vision with dynamically written tools, the propose-execute-verify loop reused here to search over world programs.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Ha and Schmidhuber compressed observations into a latent state and rolled it forward, which works for control but leaves the representation unreadable: a latent vector cannot be checked against physics, queried for a specific parameter, or edited to pose a counterfactual. Vafa then showed the sharper problem, that accurate next-step prediction does not imply a coherent world model, and diagnosed it without offering a construction that would prevent it. Code-as-World fixes exactly that failure mode by making coherence enforceable rather than measurable after the fact: an executable program either renders to match the observation or it does not, so verification is a program execution instead of a probing experiment. PyVision's loop, meanwhile, produced code that answered a question and was then thrown away, so nothing accumulated; here the code is the representation, which is what allows it to become training data.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The technical shift is from an implicit continuous state fitted by gradient descent to an explicit symbolic program found by search. Ha's latent is learned end-to-end and its quality is only visible through downstream reward; the program here is discovered by an iterative propose-execute-render-verify cycle where each round has a concrete pass or fail signal, so the search is guided by rendering error rather than by task return. Relative to PyVision the agent's output changes status from a transient tool to a persistent artifact, which is what turns the loop into a data engine rather than an inference-time trick. The remaining question, and the one a close read should target, is coverage: rendering agreement verifies that a program is consistent with the observed evidence, not that it is the correct mechanism, so distinct programs can pass on the same video and the supervision inherits whatever bias the proposal distribution has.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="W44RSJJI.html">DINO-WM (Zhou 2025)</a><span class="lineage-note">World modelling in a pretrained visual feature space; the strongest latent-representation contrast to executable code.</span></li>
+  <li><a href="JQ7JD8AR.html">Navigation World Models (Bar 2024)</a><span class="lineage-note">Video-conditioned world model for navigation; same input, opposite representational choice.</span></li>
+  <li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Agentic multimodal model with tool use, closest neighbour to the discovery loop on the agent side.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

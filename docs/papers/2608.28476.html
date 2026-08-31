@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ContextPilot — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL</h2>
+<p class="paper-meta">
+  Pan, Pei, Lu, Lin, Zhao, Yin, Sun (Tencent) &middot; arXiv 2026-08-28 &middot;
+  <a href="https://arxiv.org/abs/2608.28476" target="_blank" rel="noopener">arXiv:2608.28476</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>ContextPilot trains a language agent to edit its own working context while a long-horizon task is running. It widens the editing toolset beyond the usual search, delete and summarize to include global planning, long-term memory writes and soft context offloading, and then trains those editing actions with a reinforcement learning procedure built for the problem rather than borrowed from answer-level training. Context and entropy variation identify which editing decisions actually change the outcome, branch sampling is concentrated at those points, and the advantage for a given edit is estimated from all branched trajectories that pass through it. Reported outcome is stronger performance on long-context question answering and deep search while holding a smaller working context, across several base models and benchmarks; weights are released as ContextPilot-8B and ContextPilot-14B.</p>
+
+<h3>Why</h3>
+<p>A long-horizon agent has to retrieve, integrate and maintain information scattered across many turns, and keeping the full interaction history makes the working context grow without bound until it exceeds the window or dilutes the useful content. Recent proactive context management lets a model edit its own context with tools, but three problems remain. The toolset is narrow, offering no way to record a global plan, commit something to long-term memory, or compress adaptively rather than by deletion. Exploration treats every context action as equally worth sampling even though most edits are inconsequential and a few decide the trajectory. And credit assignment is coarse: a single trajectory-level reward is spread across every intermediate edit, so an edit that discarded the critical evidence receives the same signal as the twenty harmless edits around it.</p>
+
+<h3>How</h3>
+<p>The toolset is augmented first, adding planning, long-term memory and soft context offloading so that compression is not forced to be deletion. For training, the method watches context and entropy variation across the trajectory to find the editing decisions where the model's subsequent behaviour is sensitive to the choice, and treats those as branch points. From each branch point it samples multiple continuations, so the same intermediate context snapshot is followed by several downstream outcomes. The advantage assigned to that specific editing action is then estimated from the outcomes of all branches passing through it, which gives an action-level rather than trajectory-level signal and removes most of the variance that flat credit assignment introduces. Evaluation is on long-context question answering and deep search, and the comparison is made at matched or smaller context size so the gain cannot be attributed to keeping more.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Community 0; argued memory is a design axis for agents rather than a storage detail, which this paper turns into trainable actions.</span></li>
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Community 0; made tool invocation a learned decision inside the model, extended here from external tools to internal context edits.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Community 0; search over agent trajectories, reused here at training time as a variance-reduction device instead of at inference time as planning.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The Memory Mechanisms survey establishes that agents need designed memory but does not say when to write or when to drop, leaving the policy to heuristics. ToolkenGPT learns which external tool to call and treats the context as the medium those calls live in, never as an object to be acted on. The failure mode ContextPilot fixes is the one both leave open: with a single trajectory-level reward, an agent cannot learn that one particular deletion four turns ago is what caused the wrong answer, so it never learns a selective retention policy and instead either keeps everything or summarizes uniformly. Estimating advantages per editing action from branched outcomes makes that attribution possible, which is what allows the reported performance gain to come with a smaller rather than larger context.</p>
+
+<h3>Method vs predecessors</h3>
+<p>LATS builds a tree over trajectories and uses it to search for a better answer at inference time, paying the branching cost on every query. ContextPilot builds the same kind of tree but only during training, and only at the small subset of decision points flagged by entropy and context variation, then discards it; what survives is a policy that makes the right edit in a single forward pass. Relative to ToolkenGPT the action space moves inward, from calls that fetch new information to operations that restructure information already held, which changes what a reward means: the objective is no longer only task success but task success under a context budget. The entropy-variation criterion for selecting branch points has no direct predecessor in the library and is the piece most worth checking, since the whole efficiency argument rests on consequential edits being rare and detectable.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Accumulates an evidence log over a time series and never prunes it; the growing-context problem this paper attacks, in the signal domain.</span></li>
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Keeps sensor history in context for language interaction, so it inherits the same retention question at a much longer horizon.</span></li>
+  <li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Agentic multimodal model with tool use; comparable action space, no learned context editing.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

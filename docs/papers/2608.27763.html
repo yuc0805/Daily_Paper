@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fast Weight Attention for Continual Learning — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/mamba.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Fast Weight Attention for Continual Learning</h2>
+<p class="paper-meta">
+  Zhang, Ta, Zhang, Feng, Li, Yuan, Wang, Gu, Yao &middot; arXiv 2026-08-27 &middot;
+  <a href="https://arxiv.org/abs/2608.27763" target="_blank" rel="noopener">arXiv:2608.27763</a> &middot;
+  Appears in: <a href="../areas/mamba.html">MAMBA</a>
+</p>
+
+<h3>What</h3>
+<p>This paper treats the state update of a recurrent fast-weight memory or a selective state-space model as an online learning rule, and then asks what that rule is regressing on. Under read-after-write autoregressive semantics it argues the correctly aligned example at step t is the prefix-aligned pair (phi(k_{t-1}), v_t), not the same-step pair (phi(k_t), v_t) that most linear-attention and state-space designs use. From that premise it derives normalized first-order update families for squared-error regression and negative inner-product objectives: Falcon-1 is a scalar normalized least-mean-squares update, Falcon-2 its per-column extension, Falcon-3 a sliding-window mini-batch update, with Falcon-1A/2A/3A as the inner-product variants. Recurrent, masked-parallel and chunk-parallel forms are given, together with positive-decay renormalization for numerical stability.</p>
+
+<h3>Why</h3>
+<p>Every architecture that compresses a growing context into a fixed-size state has to decide what to store and what to discard, and in current designs that decision is baked into a learned gate whose implicit objective is never written down. The consequence is that temporal alignment, plasticity, forgetting and bounded rehearsal are entangled in a single mechanism, so a failure in one cannot be diagnosed or fixed separately from the others. Prior work has largely responded by proposing new gates and measuring perplexity, which cannot distinguish a better objective from a better-tuned one. The specific claim here is that the standard same-step association, while causal, optimizes a different internal objective than the prefix-prediction task the model is trained on, and that this misalignment is invisible in-distribution and shows up when sequences run longer than training length.</p>
+
+<h3>How</h3>
+<p>The derivation starts from the prefix-prediction objective and reads off the local example the memory sees at each step, which fixes the alignment. Given that example, a first-order update on squared-error regression yields a normalized least-mean-squares rule where the normalization sets an effective step size from the current key magnitude, rather than relying on a learned scalar decay; the per-column and sliding-window variants extend the same derivation to finer granularity and to bounded rehearsal over a short window. Positive-decay renormalization keeps the accumulated state numerically stable across long rollouts. Because the resulting updates are still linear recurrences, the paper supplies chunk-parallel forms so training cost matches existing linear-attention implementations. Evaluation reports competitive language modeling for representative variants and improved length extrapolation on variable-digit addition, a task chosen because train and test lengths can be separated cleanly.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">Anchor node of Community 2; established softmax attention over a growing key-value cache, the unbounded-memory baseline this line of work compresses.</span></li>
+  <li><a href="JPKDWV2Q.html">Mamba-2 (Dao 2024)</a><span class="lineage-note">Proved the structured state-space duality between selective SSMs and linear attention; this paper reinterprets that shared computation as a step of online regression.</span></li>
+  <li><a href="XNI34DQX.html">Mamba (Gu 2024)</a><span class="lineage-note">Introduced input-dependent selective gating of the fixed-size state, the concrete update rule reframed and replaced here.</span></li>
+  <li><a href="UTAMLB63.html">SSM / LSSL (Gu 2021)</a><span class="lineage-note">Earlier formulation of sequence modeling as a linear state-space recurrence, which supplies the state form the update rules act on.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Mamba fixes what the state keeps through a learned selective gate, and Mamba-2 explains why that gate is expressible as attention, but neither states the objective the gate is minimizing, so a poorly aligned target cannot be separated from a poorly tuned gate. The failure mode this paper names is specific: the same-step association used by those models optimizes an internal objective that differs from the prefix-prediction loss the model is trained under, and the gap is small when test sequences resemble training sequences and grows when they do not. That is why the reported benefit appears in length extrapolation on variable-digit addition rather than in in-distribution perplexity, and it explains a pattern the state-space literature has reported without a mechanism, namely that these models degrade past training length despite having no context window to exceed.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Vaswani retrieves from all stored keys with softmax and pays quadratic cost; Mamba writes into a fixed state with a learned decay and pays linear cost but fixes plasticity and forgetting jointly at training time. This paper keeps the linear cost and the fixed state, and changes what is written: the update becomes an explicit normalized regression step in which the step size is set from the current key magnitude rather than learned, so plasticity is controlled at inference time by the data rather than at training time by a parameter. The design space is then enumerable rather than architectural, since choosing a loss gives the regression or inner-product family and choosing a batch size gives the scalar, per-column or sliding-window member. The normalization plays the role that step-size control plays in adaptive filtering, which is the source the derivation borrows from, and the chunk-parallel forms are supplied so the change costs nothing relative to existing implementations.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Applies a bidirectional SSM block to wearable activity recognition without altering the update rule; a direct candidate for the Falcon substitution.</span></li>
+  <li><a href="6VTXUZEG.html">Audio Mamba (Erol 2024)</a><span class="lineage-note">Same pattern in the audio domain: new modality, unchanged state update.</span></li>
+  <li><a href="J7K2E7A3.html">S4 (Gu 2022)</a><span class="lineage-note">Structured state-space parameterisation that preceded selective gating; useful for reading the alignment argument against a non-selective baseline.</span></li>
+  <li><a href="ZS87LF7R.html">MambaOut (Yu 2024)</a><span class="lineage-note">Argues SSM blocks are unnecessary where long sequences are absent, which sharpens where an improved update rule should and should not matter.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

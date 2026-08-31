@@ -1,45 +1,45 @@
 {
-  "date": "2026-08-30",
+  "date": "2026-08-31",
   "papers": [
     {
-      "zotero_key": "2608.12944",
-      "title": "CardioState-JEPA: Delay-Aware Cross-Modal Learning of a Shared Cardiac Representation",
-      "authors": "Shafiq, Pham, Saeed et al.",
+      "zotero_key": "2608.27763",
+      "title": "Fast Weight Attention for Continual Learning",
+      "authors": "Zhang, Ta, Yuan, Wang, Gu, Yao et al.",
       "year": 2026,
-      "what": "Trains one shared Transformer encoder across ECG, PPG and PCG by predicting masked latent cardiac states through a learned delay aligner, so the three sensors mutually supervise a single model, raising frozen-encoder performance across 25 tasks by 8.2, 18.8 and 15.5 AUROC points on PPG, PCG and ECG over the best self-supervised signal baseline.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); HeAR (Baur 2024, 3LA8GNCU); MAE Theory (Zhang 2023, 6INGKIJV)"
+      "what": "Reads the state update of a selective state-space model as an online learning rule, argues the standard same-step association optimises the wrong target under autoregressive semantics, and derives a family of normalised least-mean-squares updates (Falcon-1/2/3) that keep language modelling competitive while improving length extrapolation.",
+      "area_label": "MAMBA",
+      "area_slug": "mamba",
+      "builds_on": "Attention Is All You Need (Vaswani 2017, PHB9VRVM); Mamba-2 (Dao 2024, JPKDWV2Q); Mamba (Gu 2024, XNI34DQX)"
     },
     {
-      "zotero_key": "2608.26226",
-      "title": "LLM Agents for Time-Series: A Survey",
-      "authors": "Chen, Qin, Ding et al.",
+      "zotero_key": "2608.28476",
+      "title": "ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL",
+      "authors": "Pan, Pei, Lu, Lin et al. (Tencent)",
       "year": 2026,
-      "what": "Reorganises the time-series agent literature by task rather than by how a language model is attached to a series, and reports architecture, tool use and memory design as consequences of the task, importing agent-community vocabulary into the forecasting literature.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "LLMs for TS Survey (Zhang 2024, N2JLZBY3); TS-Agent (Liu 2025, I2CIT4I7); ChatTS (Xie 2025, VSCNJG5J)"
-    },
-    {
-      "zotero_key": "2608.27454",
-      "title": "WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution",
-      "authors": "Tang, Rashtchian, Vu et al. (Google Research)",
-      "year": 2026,
-      "what": "Separates raw execution experience, accumulated knowledge and executable skills, consolidating experience into a persistent text wiki that skill updates read from, which beats existing skill-evolution methods and lets skills transfer across model families, sometimes beating self-evolved skills.",
+      "what": "Trains an agent to edit its own working context, adding planning, long-term memory and soft offloading tools, and assigns credit per editing action from branched trajectories rather than spreading one trajectory-level reward across every edit, which yields stronger long-context results at a smaller context size.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026, BDY3HUCV); Chain-of-Experience (Tu 2026, 2608.18027); ToolkenGPT (Hao 2024, 6RDHVVA2)"
+      "builds_on": "Memory Mechanisms Survey (Huang 2026, BDY3HUCV); ToolkenGPT (Hao 2024, 6RDHVVA2); LATS (Zhou 2024, 77ERE7HA)"
     },
     {
-      "zotero_key": "2608.26103",
-      "title": "Zero-WAM: In-Context World-Action Modeling from Human Videos for Open-Ended Task Generalization",
-      "authors": "Robbyant Research",
+      "zotero_key": "2608.26582",
+      "title": "J-Zero: Unified Challenger--Solver--Judge Co-Evolution from Zero Data",
+      "authors": "Chu, Jeon, Yang (KAIST AI)",
       "year": 2026,
-      "what": "Executes unseen manipulation tasks by taking a human demonstration video as the in-context task specification rather than fine-tuning, and solves the paired-data shortage by synthesising 74.2K matched human-robot pairs from existing robot trajectories.",
+      "what": "Carries self-evolving training into domains with no verifier by co-adapting a Judge on preference pairs whose ordering is known from how each response was generated rather than from the Judge's own scores, gaining 4.2 points on verifiable and 8.0 on unverifiable domains and improving for ten iterations where baselines collapse after two.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought Prompting (Wei 2023, HBLPTRMY)"
+    },
+    {
+      "zotero_key": "2608.27549",
+      "title": "Code as Worlds: Agentic Discovery of Executable World Representations for Physical Reasoning",
+      "authors": "Wang, Cai, Chen, Liu, Long, Wu et al. (MirroS Lab)",
+      "year": 2026,
+      "what": "Writes a physical scene as executable code rather than a latent vector and recovers that program from video through an abductive propose-execute-render-verify loop, turning unlabelled observation into verified quantitative supervision and reaching state of the art on QuantiPhy above proprietary models.",
       "area_label": "World Model / RL",
       "area_slug": "world-model-rl",
-      "builds_on": "DINO-WM (Zhou 2025, W44RSJJI); Navigation World Models (Bar 2024, JQ7JD8AR); VideoMAE (Tong 2022, 9QCZ3A32)"
+      "builds_on": "World Models (Ha 2018, 938DAXZT); Evaluating World Models (Vafa 2024, P92FLHJ2); PyVision (Zhao 2025, XQTY5MPI)"
     }
   ]
 }
