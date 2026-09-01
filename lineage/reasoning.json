@@ -745,6 +745,30 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-08-29"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2608.26582",
+      "target_label": "J-Zero: Unified Challenger--Solver--Judge Co-Evolution from Zero Data (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 trained reasoning by reinforcement learning against a verifiable reward and stopped where no verifier exists; J-Zero replaces the verifier with a Judge that is trained alongside the Solver.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-31"
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2608.26582",
+      "target_label": "J-Zero: Unified Challenger--Solver--Judge Co-Evolution from Zero Data (2026)",
+      "relation": "builds_on",
+      "note": "Chain-of-Thought used decomposition to improve one answer at inference time; J-Zero repurposes decomposition as a construction that reliably produces the better member of a preference pair.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-31"
     }
   ],
   "hyperedges": [],

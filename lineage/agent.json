@@ -916,6 +916,42 @@
       "cross_area": false,
       "date_added": "2026-08-16",
       "note": "PyVision places spatial competence in external tools called at inference; SMA argues the same gain is available from retrieved text alone, pushing the tool-embedding bridge back toward the frozen model's own context."
+    },
+    {
+      "source": "BDY3HUCV",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "2608.28476",
+      "target_label": "ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL (2026)",
+      "relation": "builds_on",
+      "note": "The survey argued agent memory should be designed rather than accumulated; ContextPilot makes the memory operations trainable actions with their own reward signal.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-31"
+    },
+    {
+      "source": "hao2024_toolkengpt",
+      "source_label": "ToolkenGPT: Tool Invocation as Learned Tokens (Hao 2024)",
+      "target": "2608.28476",
+      "target_label": "ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL (2026)",
+      "relation": "builds_on",
+      "note": "ToolkenGPT learned which external tool to call; ContextPilot learns which internal edit to make to the working context itself.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-31"
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2608.28476",
+      "target_label": "ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL (2026)",
+      "relation": "builds_on",
+      "note": "LATS branched trajectories at inference time to search for a better answer; ContextPilot branches at training time and uses branch outcomes to assign credit to a specific edit.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-31"
     }
   ],
   "hyperedges": [

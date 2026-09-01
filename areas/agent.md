@@ -45,6 +45,7 @@
 2026-08 | LycheeMemory V2 (2608.12990) | consolidates agent memory at detected semantic segment boundaries instead of every turn, cutting construction tokens without raising query-time cost
 
 2026-08 | Spatial Memory Agent (2608.12743) | training-free procedure memory whose lessons carry a reliability score updated from retrieval outcomes
+2026-08 | ContextPilot (2608.28476) | context edits become trainable actions, with branch points chosen by entropy variation and advantages estimated per edit
 
 ### Paper List
 
@@ -103,8 +104,11 @@
 [2026] 2608.12990 — LycheeMemory V2: Efficient Long-Term Memory for LLM Agents via Semantic Segment-Level Consolidation. [https://arxiv.org/abs/2608.12990](https://arxiv.org/abs/2608.12990). external.
 
 [2026] 2608.12743 — Spatial Memory Agent: Experience-Grounded Procedure Memory for Spatial Intelligence. [https://arxiv.org/abs/2608.12743](https://arxiv.org/abs/2608.12743). external.
+[2026] 2608.28476 — ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL. [https://arxiv.org/abs/2608.28476](https://arxiv.org/abs/2608.28476). external.
 
 ### Recent Activity
+
+2026-08-31 | 2608.28476 added | trains a language agent to edit its own working context during long-horizon tasks, widening the editing toolset past search, delete and summarize to include global planning, long-term memory writes and soft context offloading, and training those edits with reinforcement learning built for the credit-assignment problem: context and entropy variation locate the editing decisions that actually change the outcome, branch sampling is concentrated at those points, and advantages are estimated per action from all branched trajectories passing through an edit rather than from a single trajectory-level reward; where the Memory Mechanisms survey argued that agent memory should be designed rather than accumulated, this paper makes the memory operations themselves trainable actions with their own reward signal, where ToolkenGPT learned which external tool to call, this paper learns which internal edit to make to the context, and where LATS branched trajectories at inference time to search for a better answer, ContextPilot branches at training time and converts that tree into a variance-reduction device; the reported result is stronger long-context question answering and deep search with a smaller working context across several base models, with weights released as ContextPilot-8B and ContextPilot-14B; the selection of branch points by entropy variation has no parent in the library; Tier B
 
 2026-08-16 | 2608.12743 added | SMA gives a frozen vision-language model spatial competence through a read-only procedure memory rather than parameter updates or inference-time depth and reconstruction tools: verifier-guided reflection in a checkable environment distils each episode into a short transferable lesson, and each lesson carries a Transfer Reliability Score recalibrated from whether later retrievals of it produced correct answers, so ranking combines embedding similarity with past reliability and a closely matching but unreliable lesson can be outranked; across five spatial benchmarks and four base vision-language models it holds the highest macro average in every base-model block and the best accuracy in most of the twenty evaluations, and no ablation separates the score from lesson distillation; Tier B
 
@@ -113,7 +117,3 @@
 2026-08-03 | 2607.27191 added | introduces shadow evaluations, in which a frontier agent takes the central open-ended research question of a high-quality unpublished paper and the paper's original authors grade the output; on two unpublished NeurIPS 2026 submissions, given six days and thousands of dollars of compute, agents completed all of the engineering without human help but could not make substantial progress on the research questions and both outputs were rejected, with five recurring failure modes named and reproduced by a second model and scaffold; Tier B
 
 2026-08-03 | 2607.26784 added | SkillRise runs a single policy that alternates between solving a task and curating an evolving skill document passed to the next related task, decoupling credit so solving is supervised by the current task outcome and curation by discounted downstream outcomes; on ALFWorld, WebShop, and ScienceWorld it reaches the best Pass@1 among compared methods, with gains of 2.3 to 8.5 percentage points over the strongest baseline, and it shows test-time scaling across tasks; Tier B
-
-2026-07-27 | 2607.21503 added | reframes agent memory from store-and-retrieve into a lifecycle called Agentic Context Management with five primitives (architecting, ingesting, scoping, anticipating, and compacting with consolidation), argues naive accumulation grows token cost with the square of conversation length while validated compaction keeps it linear without an accuracy cliff, and reports 92 percent on LongMemEval and 93.2 percent on LoCoMo; Tier B
-
-2026-07-25 | 2607.21461 added | AREX builds deep-research agents on a discovery-verification asymmetry, alternating an inner loop that gathers evidence and drafts a provisional answer with an outer loop that audits the draft constraint by constraint and launches targeted follow-up research; it learns a context-update tool that compresses history into verified evidence and open constraints, ships as a 4B dense model and a 122B-A10B mixture-of-experts model, and outperforms comparable-scale baselines on BrowseComp, WideSearch, DeepSearchQA, and Humanity's Last Exam; Tier B

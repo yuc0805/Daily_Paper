@@ -152,6 +152,42 @@
       "cross_area": true,
       "date_added": "2026-08-14",
       "note": "Full attention is treated as the limit point that hybrid outlier morphology converges toward as the hybridization ratio rises."
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2608.27763",
+      "target_label": "Fast Weight Attention for Continual Learning (2026)",
+      "relation": "builds_on",
+      "note": "Softmax attention over a growing key-value cache is the retrieval baseline whose fixed-size compression this paper reinterprets as an online regression problem.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-08-31"
+    },
+    {
+      "source": "JPKDWV2Q",
+      "source_label": "Mamba-2 (Dao 2024)",
+      "target": "2608.27763",
+      "target_label": "Fast Weight Attention for Continual Learning (2026)",
+      "relation": "builds_on",
+      "note": "Mamba-2 established the duality between selective state-space models and linear attention as matrix computations; this paper reads the shared update as a step of online learning instead.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-31"
+    },
+    {
+      "source": "XNI34DQX",
+      "source_label": "Mamba (Gu 2024)",
+      "target": "2608.27763",
+      "target_label": "Fast Weight Attention for Continual Learning (2026)",
+      "relation": "builds_on",
+      "note": "Mamba introduced input-dependent selective gating of a fixed-size state; this paper argues that gate optimizes a misaligned target and replaces it with normalized least-mean-squares updates.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-08-31"
     }
   ],
   "hyperedges": [

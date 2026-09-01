@@ -206,6 +206,42 @@
    "confidence_score": 0.9,
    "cross_area": true,
    "date_added": "2026-08-29"
+  },
+  {
+   "source": "938DAXZT",
+   "source_label": "World Models (Ha 2018)",
+   "target": "2608.27549",
+   "target_label": "Code as Worlds: Agentic Discovery of Executable World Representations for Physical Reasoning (2026)",
+   "relation": "builds_on",
+   "note": "Ha and Schmidhuber compressed observations into a learned latent state; this paper replaces that latent state with source code so the representation can be read and checked.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-08-31"
+  },
+  {
+   "source": "P92FLHJ2",
+   "source_label": "World Model Eval (Vafa 2024)",
+   "target": "2608.27549",
+   "target_label": "Code as Worlds: Agentic Discovery of Executable World Representations for Physical Reasoning (2026)",
+   "relation": "builds_on",
+   "note": "Vafa showed a model can predict well while holding an incoherent world model; an executable program makes coherence enforceable by rendering and comparison rather than by probing.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-08-31"
+  },
+  {
+   "source": "zhao2025_pyvision",
+   "source_label": "PyVision: Agentic Vision with Dynamic Tooling (Zhao 2025)",
+   "target": "2608.27549",
+   "target_label": "Code as Worlds: Agentic Discovery of Executable World Representations for Physical Reasoning (2026)",
+   "relation": "builds_on",
+   "note": "PyVision had an agent write throwaway analysis code to answer a visual question; here the agent writes code that is itself the persistent scene representation and is reused as training data.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-08-31"
   }
  ],
  "hyperedges": [],

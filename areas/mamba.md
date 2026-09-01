@@ -23,6 +23,7 @@
 2026-06 | Language Models Need Sleep (2605.26099) | sleep consolidation distills attention context into SSM fast weights
 2026-07 | FlashMorph (2606.30562) | selects which layers keep full attention via budget-constrained joint gate optimization for hybrid models
 2026-08 | Massive Activations in Hybrid Linear Attention (2608.12149) | activation outliers spike before every full-attention layer and persist across linear-attention layers as plateaus, making quantization behavior predictable from the hybridization ratio
+2026-08 | Fast Weight Attention (2608.27763) | reads the recurrent state update as online regression and corrects its target to the prefix-aligned pair, giving the normalized Falcon update family
 
 ### Paper List
 
@@ -49,8 +50,11 @@
 [2026] 2606.30562 — Morphing into Hybrid Attention Models (FlashMorph). [https://arxiv.org/abs/2606.30562](https://arxiv.org/abs/2606.30562). external.
 
 [2026] 2608.12149 — Massive Activations in Hybrid Linear Attention Large Language Models: Pre-Attention Spikes and Inter-Spike Plateaus. [https://arxiv.org/abs/2608.12149](https://arxiv.org/abs/2608.12149). external.
+[2026] 2608.27763 — Fast Weight Attention for Continual Learning. [https://arxiv.org/abs/2608.27763](https://arxiv.org/abs/2608.27763). external.
 
 ### Recent Activity
+
+2026-08-31 | 2608.27763 added | treats the state update of a recurrent fast-weight memory or a selective state-space model as an online learning rule and then asks what that rule regresses on, arguing that under read-after-write autoregressive semantics the correctly aligned training pair at step t is the prefix-aligned (phi(k_{t-1}), v_t) rather than the same-step (phi(k_t), v_t) used by most existing linear-attention and state-space designs; from that correction it derives the normalized first-order Falcon family, a scalar normalized least-mean-squares update, a per-column extension and a sliding-window mini-batch update, together with inner-product variants and recurrent, masked-parallel and chunk-parallel forms with positive-decay renormalization for numerical stability; where Vaswani stored every past token in a growing key-value cache and Mamba compressed that history behind a learned selective gate, and where Mamba-2 proved selective state-space models and restricted linear attention are the same matrix computation, this paper takes the duality one level further and makes temporal alignment, plasticity, forgetting and bounded rehearsal four separable knobs instead of one entangled gate, with normalization playing the role step-size control plays in adaptive filtering; the reported benefit is length extrapolation on variable-digit addition rather than in-distribution perplexity, which fits the diagnosis that a misaligned target hurts most once the sequence runs past training length, and the abstract reports no headline numbers, so the first check is whether an ablation isolates prefix alignment from normalization; Tier A
 
 2026-08-14 | 2608.12149 added | a measurement study of activation outliers in layer-interleaved hybrid linear-attention stacks, reporting that activations spike immediately before every full-attention layer and can persist across the intervening linear-attention layers as flat plateaus, and that as full attention gets denser the spikes join through the plateaus until the pattern converges to ordinary full-attention morphology; established across five linear-attention architectures, six hybridization ratios, five data domains, and open models from 1.2B to 397B total parameters, with controlled gated-delta-net pretraining up to 1.3B, and the mechanism offered is cancellation timing, so low-bit quantization behavior becomes predictable from the hybridization ratio instead of a per-model surprise; the paper is descriptive rather than a fix, and all evidence comes from language pretraining; Tier B
 
