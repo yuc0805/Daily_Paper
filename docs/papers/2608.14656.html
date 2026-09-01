@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2E-VQ — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
+<h2>P2E-VQ: ECG-linked representation augmentation for PPG via discrete patch retrieval</h2>
+<p class="paper-meta">
+  Wu, Gao, Zhao, Zhou, Wang, Ding, Wang, Qin, Lip, Kirmani, Zheng (Liverpool) &middot; arXiv 2026-07-31 &middot;
+  <a href="https://arxiv.org/abs/2608.14656" target="_blank" rel="noopener">arXiv:2608.14656</a> &middot;
+  Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>, <a href="../areas/llm-health.html">LLM-Health</a>
+</p>
+
+<h3>What</h3>
+<p>P2E-VQ improves PPG representations by giving them access to ECG-derived information without ever requiring an ECG at inference. PPG is cut into patches, each patch is quantised into a discrete token, and that token is used as a key into a memory bank of ECG-linked representations built exclusively from the training split. The retrieved representation augments the PPG representation, so the model consumes only PPG when deployed. Evaluation covers five public datasets and six downstream tasks, spanning clinical endpoint prediction and affective state recognition, all under one frozen-feature linear-probing protocol, and the method beats pretrained baselines consistently across them.</p>
+
+<h3>Why</h3>
+<p>PPG is what consumer wearables actually collect, because an optical sensor at the wrist is cheap and tolerates continuous wear. What it measures is peripheral pulse dynamics, not cardiac electrical activity, so the morphological features that cardiac diagnosis depends on are not present in the signal. The field's standard response has been to reconstruct an ECG waveform from the PPG and then apply ECG methods to the reconstruction. That inverse mapping is ill-posed: many cardiac states are consistent with a given peripheral pulse, so the reconstruction is under-determined. The sharper objection this paper makes is that even a faithful reconstruction does not guarantee better downstream accuracy, because waveform fidelity and task-relevant information are different objectives and optimising the first does not optimise the second.</p>
+
+<h3>How</h3>
+<p>The method replaces generation with retrieval. A vector-quantisation codebook maps each PPG patch to a discrete index, which turns a continuous signal segment into a lookup key. During training, when paired ECG is available, the ECG-linked representation for each key is stored in a memory bank; at inference only the PPG is tokenised and the bank is queried. Because the bank is constructed from training data only, no test-time ECG leaks in, and because the augmentation happens in representation space, the ill-posedness of the waveform inverse problem is sidestepped rather than solved. Evaluation deliberately freezes the encoder and fits a linear probe, so the comparison isolates representation quality from downstream fitting capacity.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Anchor node for LLM-Health, 6 edges; sets the pretrain-then-frozen-probe protocol this paper is measured inside.</span></li>
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Anchor node for time series, 7 edges; cross-modal mapping from a sensor stream to a richer modality, which this paper keeps as supervision but drops as an output.</span></li>
+  <li>SSL for HAR with 700K Person-days (Yuan 2024, RTMH75VW)<span class="lineage-note">Anchor node for self-supervised, 8 edges; the large-scale single-modality pretraining baseline this competes against.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Sensor2Text and the PPG-to-ECG reconstruction line both treat the generated target modality as the deliverable, and both inherit that target's difficulty. When the mapping is ill-posed, as PPG to ECG is, the generative model spends capacity on details that the downstream classifier never reads, and the reported reconstruction metric stops predicting downstream accuracy. P2E-VQ removes the generation step, so none of that capacity is spent and the ill-posedness never has to be resolved. Against Yuan 2024, the failure mode addressed is different: more unlabelled PPG improves the encoder but cannot introduce information the modality does not carry, whereas a paired ECG corpus can, provided it is used as an index rather than as a reconstruction target.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The technical import is discrete tokenisation plus retrieval augmentation, a pairing that has been standard in language modelling for several years, applied here to physiological signal. Where the predecessors used the paired modality as a supervision target inside a loss, this paper uses it as the contents of a non-parametric store keyed by quantised patches, which changes what the paired data is for. The design also has an asymmetric deployment profile that the predecessors do not: paired ECG is needed once at training time and never again, which fits the practical situation where clinical ECG exists in a research cohort but not on the wrist. The number to check on a close read is codebook utilisation, since a quantiser that collapses to few codes would make the memory bank degenerate into a class prior.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Wearable-signal encoder in the same evaluation setting; an alternative way to spend capacity on the same sensor stream.</span></li>
+  <li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">Community 1; cross-area bridge partner of Sensor2Text, and the other route from raw physiological signal to a clinical endpoint.</span></li>
+  <li><a href="2BGP9QJL.html">Verifiable Physiological Reasoning (Wang 2026)</a><span class="lineage-note">Also asks what counts as evidence in a physiological prediction rather than accepting a reconstruction as a proxy.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

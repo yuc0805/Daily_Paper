@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On the Design of Qwen3.8-Next Architecture — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/mamba.html" class="back-link">&larr; Back to Area</a>
+
+<h2>On the Design of Qwen3.8-Next Architecture: Evaluation, Efficiency, and Training Stability</h2>
+<p class="paper-meta">
+  Qiu, Wang, Li, Li, Xu, Wang, Zhang, Men, Mao et al. (Qwen) &middot; arXiv 2026-08-31 &middot;
+  <a href="https://arxiv.org/abs/2608.30320" target="_blank" rel="noopener">arXiv:2608.30320</a> &middot;
+  Appears in: <a href="../areas/mamba.html">MAMBA</a>, <a href="../areas/llm.html">LLM</a>
+</p>
+
+<h3>What</h3>
+<p>This is the architecture report for Qwen3.8-Flash-Next, a sparse mixture-of-experts model with 125B total parameters, 6B activated per token, and a further 51B parameters of n-gram embedding tables held in host memory rather than on the accelerator. Token mixing is a layer-wise hybrid of Gated DeltaNet and global attention, with one full-attention layer in every four; at continued-pretraining time those full-attention layers are replaced by Qwen Sparse Attention, which scores context at micro-block granularity through a compressed lightweight indexer. The residual stream is widened to four branches read through an elementwise gate. On fourteen pre-training benchmarks the model leads the 397B-A17B predecessor on eight and trails on the rest by at most 2.6 points, at one third the activated parameters, one third the training tokens, and roughly one ninth the training FLOPs.</p>
+
+<h3>Why</h3>
+<p>The state-space line argued that a selective recurrence could replace attention outright, and the practical question the field inherited is not whether recurrence works but how much attention has to be kept and where. Answering that from first principles is hard because the axes interact: a change that lowers loss may raise decode cost, and a change that is neutral on both may move the optimal learning rate or destabilise training at scale. Most architecture papers report the first axis and leave the other two to the reader, so the reported gains are not obviously reproducible in a real training run. This report takes the position that loss, downstream accuracy, cost at each of training, prefill and decode, and stability under stress are one problem, and that a change is only accepted if it survives all four.</p>
+
+<h3>How</h3>
+<p>Every candidate change is evaluated along three axes: loss together with downstream benchmarks; the cost of the change separately in training, prefill and decode; and its effect on optimal hyperparameters and training stability. The main structural choices follow from that. Gated DeltaNet handles most token mixing at linear cost, with global attention retained at a one-in-four ratio for the operations recurrence handles poorly, and swapped to block-sparse attention after pretraining once the model no longer needs dense context scoring. Extra capacity is added outside the backbone as a single n-gram embedding layer whose tables are prefetched from host memory, so parameters grow without accelerator memory growing. The reported hyperparameter finding is that this architecture together with the Muon optimizer shifts optimal learning rate and batch size upward and removes the need for batch-size warmup. The paper also reports a case where the axes disagree: enlarging the n-gram vocabulary lowers loss monotonically while downstream accuracy saturates.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">Anchor node for LLM, 12 edges; the full-attention layer kept at one in four, and the cost profile the rest of the design is trying to avoid.</span></li>
+  <li><a href="XNI34DQX.html">Mamba (Gu 2024)</a><span class="lineage-note">Established selective state-space models as the linear-time substitute for attention on long sequences.</span></li>
+  <li><a href="JPKDWV2Q.html">Mamba-2 (Dao 2024)</a><span class="lineage-note">Connected state-space recurrence to structured attention, the framing Gated DeltaNet extends with a delta rule.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The Mamba papers demonstrated that recurrence is competitive and left open the question of what breaks when attention is removed entirely, which subsequent hybrids answered by intuition rather than measurement. This report fixes a ratio empirically and, more usefully, reports what the ratio costs at each stage of inference rather than only in aggregate FLOPs, which is where the earlier work is silent. It also addresses a failure the parent papers do not treat: an architecture change moves the optimal hyperparameters, so a variant that looks worse at fixed learning rate may be better at its own optimum, and comparisons that hold hyperparameters constant across architectures are not measuring the architecture. The stability results follow from the same observation.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Relative to Mamba and Mamba-2, the departure is that capacity is moved off the backbone entirely rather than being restructured inside it. The n-gram embedding tables are a non-parametric-feeling addition to a parametric model: they hold 51B parameters that never touch the accelerator and are fetched on demand, which is a different way of buying capacity than either widening the state or adding experts. The Gated Residual, widening the residual stream to four branches read through an elementwise gate, is likewise orthogonal to the token-mixing question the parents were arguing about. The finding to carry away is the disagreement between loss and downstream accuracy on n-gram vocabulary size, since it is direct evidence against selecting architecture variants on validation loss, which is the standard practice in the scaling literature these papers come from.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Anchor for MAMBA; takes the all-recurrence position on wearable signal without measuring what retained attention would be worth.</span></li>
+  <li><a href="AVTJLZIR.html">Bi-Mamba+ (Liang 2024)</a><span class="lineage-note">Bidirectional state-space model for time-series forecasting; the same hybrid-ratio question applies and is unanswered there.</span></li>
+  <li><a href="ZS87LF7R.html">MambaOut (Yu 2024)</a><span class="lineage-note">Argues state-space mixing is unnecessary in some vision settings; the counterweight to this report's hybrid conclusion.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

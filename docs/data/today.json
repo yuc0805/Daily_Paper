@@ -1,45 +1,45 @@
 {
-  "date": "2026-08-31",
+  "date": "2026-09-01",
   "papers": [
     {
-      "zotero_key": "2608.27763",
-      "title": "Fast Weight Attention for Continual Learning",
-      "authors": "Zhang, Ta, Yuan, Wang, Gu, Yao et al.",
+      "zotero_key": "2608.31046",
+      "title": "Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement",
+      "authors": "Ding, Zhang (Purdue)",
       "year": 2026,
-      "what": "Reads the state update of a selective state-space model as an online learning rule, argues the standard same-step association optimises the wrong target under autoregressive semantics, and derives a family of normalised least-mean-squares updates (Falcon-1/2/3) that keep language modelling competitive while improving length extrapolation.",
-      "area_label": "MAMBA",
-      "area_slug": "mamba",
-      "builds_on": "Attention Is All You Need (Vaswani 2017, PHB9VRVM); Mamba-2 (Dao 2024, JPKDWV2Q); Mamba (Gu 2024, XNI34DQX)"
-    },
-    {
-      "zotero_key": "2608.28476",
-      "title": "ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL",
-      "authors": "Pan, Pei, Lu, Lin et al. (Tencent)",
-      "year": 2026,
-      "what": "Trains an agent to edit its own working context, adding planning, long-term memory and soft offloading tools, and assigns credit per editing action from branched trajectories rather than spreading one trajectory-level reward across every edit, which yields stronger long-context results at a smaller context size.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026, BDY3HUCV); ToolkenGPT (Hao 2024, 6RDHVVA2); LATS (Zhou 2024, 77ERE7HA)"
-    },
-    {
-      "zotero_key": "2608.26582",
-      "title": "J-Zero: Unified Challenger--Solver--Judge Co-Evolution from Zero Data",
-      "authors": "Chu, Jeon, Yang (KAIST AI)",
-      "year": 2026,
-      "what": "Carries self-evolving training into domains with no verifier by co-adapting a Judge on preference pairs whose ordering is known from how each response was generated rather than from the Judge's own scores, gaining 4.2 points on verifiable and 8.0 on unverifiable domains and improving for ten iterations where baselines collapse after two.",
+      "what": "Measures the teacher's per-token supervision during on-policy distillation, finds it noisy in a way that worsens with teacher scale and that the student ignores, shows a single fixed negative advantage reproduces the method, and replaces the teacher with the student's own entropy for a 35.41-point Avg@32 gain on AIME24.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought Prompting (Wei 2023, HBLPTRMY)"
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought Prompting (Wei 2023, HBLPTRMY); DeepSeek-V3 (2024, 2JCKA7GI)"
     },
     {
-      "zotero_key": "2608.27549",
-      "title": "Code as Worlds: Agentic Discovery of Executable World Representations for Physical Reasoning",
-      "authors": "Wang, Cai, Chen, Liu, Long, Wu et al. (MirroS Lab)",
+      "zotero_key": "2608.14656",
+      "title": "P2E-VQ: ECG-linked representation augmentation for PPG via discrete patch retrieval",
+      "authors": "Wu, Gao, Zhao, Zhou, Lip, Zheng et al. (Liverpool)",
       "year": 2026,
-      "what": "Writes a physical scene as executable code rather than a latent vector and recovers that program from video through an abductive propose-execute-render-verify loop, turning unlabelled observation into verified quantitative supervision and reaching state of the art on QuantiPhy above proprietary models.",
-      "area_label": "World Model / RL",
-      "area_slug": "world-model-rl",
-      "builds_on": "World Models (Ha 2018, 938DAXZT); Evaluating World Models (Vafa 2024, P92FLHJ2); PyVision (Zhao 2025, XQTY5MPI)"
+      "what": "Replaces ill-posed PPG-to-ECG waveform reconstruction with retrieval: PPG patches are quantised to discrete tokens that index a training-only memory bank of ECG-linked representations, so inference needs PPG alone, beating pretrained baselines on six tasks across five datasets under one frozen-feature linear probe.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); Sensor2Text (Chen 2024, ELYUE3NF); SSL for HAR (Yuan 2024, RTMH75VW)"
+    },
+    {
+      "zotero_key": "2608.30320",
+      "title": "On the Design of Qwen3.8-Next Architecture: Evaluation, Efficiency, and Training Stability",
+      "authors": "Qiu, Wang, Li, Men, Mao et al. (Qwen)",
+      "year": 2026,
+      "what": "Reports a 125B sparse mixture-of-experts model with 6B activated parameters that mixes Gated DeltaNet with one full-attention layer in four, adds 51B parameters of n-gram embeddings held off the accelerator, and matches a 397B predecessor at roughly one ninth the training FLOPs while showing loss and downstream accuracy come apart.",
+      "area_label": "MAMBA",
+      "area_slug": "mamba",
+      "builds_on": "Attention Is All You Need (Vaswani 2017, PHB9VRVM); Mamba (Gu 2024, XNI34DQX); Mamba-2 (Dao 2024, JPKDWV2Q)"
+    },
+    {
+      "zotero_key": "2608.30147",
+      "title": "CAST: Critique-Aware Supervision for Training Reliable Long-Horizon Tool-Calling Agents",
+      "authors": "Saeidi, Zhang, Singh, Gupta, Baral et al.",
+      "year": 2026,
+      "what": "Synthesises structured per-action rationales from sparse task outcomes, trains a critique model on them, and uses that critique to reshape the policy, moving reliability from inference-time search into training and beating GPT-OSS-120B by over 10 percent pass^4 on Retail with a further 9 percent out-of-domain on Telehealth.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "ToolkenGPT (Hao 2024, 6RDHVVA2); LATS (Zhou 2024, 77ERE7HA); Memory Mechanisms Survey (Huang 2026, BDY3HUCV)"
     }
   ]
 }

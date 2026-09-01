@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Does On-Policy Distillation Really Distill? — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement</h2>
+<p class="paper-meta">
+  Ding, Zhang (Purdue University) &middot; arXiv 2026-08-31 &middot;
+  <a href="https://arxiv.org/abs/2608.31046" target="_blank" rel="noopener">arXiv:2608.31046</a> &middot;
+  Appears in: <a href="../areas/reasoning.html">Reasoning</a>
+</p>
+
+<h3>What</h3>
+<p>The paper audits on-policy distillation, in which a teacher model scores token by token the trajectories a student generated, and asks whether the teacher's supervision is what produces the student's gains. Measuring supervision quality during training, the authors find substantial noise in the teacher's scores, and the noise gets worse as the teacher gets larger. Removing the noisy supervision entirely leaves student performance essentially unchanged, and replacing the teacher's per-token advantages with a single fixed negative advantage matches full on-policy distillation. From this the authors build On-Policy Self-Adaptation, which uses entropy-adaptive negative advantages and no teacher, improving Avg@32 on AIME24 by 35.41 points over base Qwen3-1.7B, a 263 percent relative gain, more than doubling Pass@32 on all three benchmarks, and beating on-policy distillation by 16.77 points on AIME24.</p>
+
+<h3>Why</h3>
+<p>Reinforcement learning with verifiable rewards gives one scalar per trajectory, which is a thin signal for a long chain of tokens, and on-policy distillation was proposed as the dense alternative: a stronger teacher scores every token, so credit assignment is per position rather than per episode. The unexamined step is that the teacher is scoring trajectories the student produced, which are off-policy for the teacher. A model asked to assign probability to text it would not have written is being queried outside the distribution it was trained to model, so the reliability of those per-token scores is an open empirical question rather than something the method's motivation establishes. Nobody had measured it, so the source of the student's improvement was unattributed.</p>
+
+<h3>How</h3>
+<p>The analysis has three steps and each is a subtraction. First, quantify teacher noise directly across training and across teacher scales, which produces the counterintuitive finding that scale increases noise rather than reducing it. Second, delete the noisy supervision and retrain: the student converges to comparable performance either way, which shows the student is insensitive to the part of the signal the method was built to provide. Third, ask what remains, and find that learning concentrates on low log-probability tokens and that a single constant negative advantage reproduces the teacher-provided ones. The constructive step follows: if the mechanism is suppression of tail tokens, the student's own entropy identifies where to apply it, so On-Policy Self-Adaptation assigns stronger negative signal at high-entropy positions, suppressing tail tokens and redistributing probability mass evenly among head tokens, with no teacher forward pass.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Community 0; established reasoning trained by reinforcement learning against verifiable rewards, with the sparse outcome-level advantages this line was trying to densify.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Anchor node for reasoning, 7 edges; established that reasoning quality lives in the intermediate token sequence, which is the object distillation claims to transfer.</span></li>
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">The large-teacher regime whose scale this paper shows makes per-token supervision noisier, not cleaner.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 accepted a sparse reward as the price of not needing a teacher, and on-policy distillation accepted a teacher as the price of a dense signal. This paper shows the second trade was not necessary, because the dense signal's informative content is a policy-internal quantity the student already has. The failure mode it fixes is a misattribution rather than a performance gap: practitioners were paying for teacher inference and selecting larger teachers on the assumption that better teachers give better supervision, when larger teachers in fact give noisier supervision on off-policy student text. Removing the teacher both cuts that cost and improves the result by 16.77 points on AIME24, so the diagnosis and the remedy are checked against each other.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The technical change is small and the reframing is the contribution. On-policy distillation computes per-token advantages from a teacher's log-probabilities; On-Policy Self-Adaptation computes them from the student's own entropy, with a fixed negative sign. Relative to reinforcement learning with verifiable rewards, the advantage remains dense but no longer requires a verifier or a reward model, so it applies where neither exists. Relative to Chain-of-Thought, the intermediate sequence is still where the gains live, but the mechanism is subtractive rather than additive: performance improves by removing probability mass from tail tokens rather than by encouraging any particular reasoning structure. The claim worth testing on a close read is whether entropy is a good proxy for token quality outside mathematical reasoning, since AIME-style problems have a narrow correct continuation and the tail may be less clearly wrong in open-ended tasks.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="U4ZPM5DN.html">Latent-GRPO (Deng 2026)</a><span class="lineage-note">Also modifies the advantage computation in policy optimisation for reasoning, but moves the computation rather than removing the teacher.</span></li>
+  <li><a href="743XA29Y.html">DeepSeek-V2 (2024)</a><span class="lineage-note">Earlier model in the teacher line whose scale the noise measurement spans.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

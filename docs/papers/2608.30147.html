@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAST: Critique-Aware Supervision for Tool-Calling Agents — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>CAST: Critique-Aware Supervision for Training Reliable Long-Horizon Tool-Calling Agents</h2>
+<p class="paper-meta">
+  Saeidi, Zhang, Singh, Ahuja, Gupta, Payani, Liu, Srinivasa, Baral &middot; arXiv 2026-08-31 &middot;
+  <a href="https://arxiv.org/abs/2608.30147" target="_blank" rel="noopener">arXiv:2608.30147</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>CAST turns sparse end-of-task outcomes into action-level supervision for tool-calling agents. It analyses completed trajectories and synthesises structured rationales explaining why each action was valid or invalid given what the agent could observe at that point. Those rationales train a critique model, and the critique model then produces critique-aware training data used to optimise the policy. Fine-tuning Qwen3-family models on dynamic tool-calling benchmarks, the method exceeds GPT-OSS-120B by more than 10 percent pass^4 on Retail tasks and gains a further 9 percent on Telehealth in an out-of-domain setting.</p>
+
+<h3>Why</h3>
+<p>When an agent operates in a stateful environment, some actions cannot be undone: refunding the wrong purchase, cancelling the wrong booking, writing to the wrong record. A wrong action of that kind has to be intercepted before execution, not corrected afterwards, which makes the relevant quantity reliability across steps and across repeated trials rather than average success on one run. A policy that succeeds three times in four is not usable when the fourth failure is irreversible, and single-run accuracy hides exactly that. The obstacle to training for it is that even frontier models struggle to articulate why an action is wrong inside a long trajectory governed by domain-specific policy, so there is no source of the rich per-action rationales that training a critique would need. Prompt-based critique agents avoid the problem by not training, and optimisation-based methods lack a systematic way to generate the rationales.</p>
+
+<h3>How</h3>
+<p>The generation step is the contribution. Given a trajectory and its outcome, CAST works backwards to produce structured rationales that state what an action was supposed to accomplish, what the agent could and could not observe at that step, and which domain policy the action satisfies or violates. Because the rationale is synthesised from the trajectory rather than solicited from a model in one shot, it can use information that was not available at the time of the action, which is what makes it a usable label. Those rationales train a critique model whose job is to judge a proposed action under partial observability; the critique then labels fresh trajectory data, and the policy is optimised against those labels. Evaluation uses pass^k rather than pass@k, so a method is credited only when it succeeds on all k independent trials, and the out-of-domain Telehealth split tests whether the learned notion of a bad action transfers past the training domain's policy set.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Community 0 and a listed cross-area bridge; made tool calls first-class tokens the model emits, which is exactly the action space CAST supervises.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Community 0; caught bad actions by searching over an action tree with a value estimate at inference time.</span></li>
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Community 0; frames what an agent must retain across a long trajectory in order to judge the action it is about to take.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>LATS intercepts bad actions by expanding alternatives and scoring them, which works but pays search compute at every deployment and leaves the underlying policy exactly as unreliable as it was. CAST moves the same judgement to training time: the critique is learned once and used to reshape the policy, so the deployed agent needs no search and the improvement survives a domain change, which the 9 percent out-of-domain Telehealth gain is the evidence for. ToolkenGPT gave the model a way to emit a tool call but no signal about whether emitting it was correct, since the only ground truth is whether the episode eventually succeeded; CAST supplies that missing per-action credit assignment. The failure mode being fixed across both is that reliability was previously bought at inference and had to be re-bought on every run.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Prompt-based critique agents ask a model to judge an action zero-shot, which fails for the reason the paper states: frontier models cannot reliably explain action validity inside long interdependent trajectories. Optimisation-based methods train on outcomes but have no rationale to train a critique on. CAST sits between them by manufacturing the rationale from hindsight, which is a data-generation move rather than an architectural one, and it is the same trick that makes hindsight relabelling work in reinforcement learning: information unavailable at decision time is available after the fact and can be converted into a label. The evaluation choice is worth carrying separately from the method, since pass^k over independent trials is the correct measure whenever a single bad action is unrecoverable, and it is not the measure most agent benchmarks report.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li>HealthAgent (Sun 2025, R2D2W9DD)<span class="lineage-note">Agent operating in the health domain, where the irreversible-action constraint CAST targets is the binding one.</span></li>
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">The outcome-reward training line whose sparse signal CAST is densifying, by a different route than on-policy distillation.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
