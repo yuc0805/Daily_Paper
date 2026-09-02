@@ -952,6 +952,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-08-31"
+    },
+    {
+      "source": "hao2024_toolkengpt",
+      "source_label": "ToolkenGPT: Tool Invocation as Learned Tokens (Hao 2024)",
+      "target": "2608.30147",
+      "target_label": "CAST: Critique-Aware Supervision for Tool-Calling Agents (2026)",
+      "relation": "builds_on",
+      "note": "ToolkenGPT made tool calls first-class tokens, which is the action space CAST supervises; this paper adds the per-action credit signal that setup left missing.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-01"
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2608.30147",
+      "target_label": "CAST: Critique-Aware Supervision for Tool-Calling Agents (2026)",
+      "relation": "builds_on",
+      "note": "LATS caught bad actions by searching an action tree with a value estimate at inference; CAST moves that judgement into training, so deployment is cheaper and the gain holds out of domain.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-01"
+    },
+    {
+      "source": "huang2026_memory",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "2608.30147",
+      "target_label": "CAST: Critique-Aware Supervision for Tool-Calling Agents (2026)",
+      "relation": "builds_on",
+      "note": "Rethinking Memory Mechanisms frames what an agent must retain across a long trajectory to judge a current action, which is the partial-observability setting CAST's synthesised rationales describe.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-01"
     }
   ],
   "hyperedges": [

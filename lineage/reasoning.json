@@ -769,6 +769,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-08-31"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2608.31046",
+      "target_label": "Does On-Policy Distillation Really Distill? (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 established that reasoning can be trained by reinforcement learning against verifiable rewards using sparse outcome-level advantages; this paper shows the dense per-token teacher signal offered as the alternative is largely uninformative and can be replaced by a self-computed entropy-adaptive advantage.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-01"
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2608.31046",
+      "target_label": "Does On-Policy Distillation Really Distill? (2026)",
+      "relation": "builds_on",
+      "note": "Chain-of-Thought established that reasoning gains come from the structure of intermediate token sequences; this paper tests whether that structure is what on-policy distillation transfers and finds the teacher's judgement of it is not what the student depends on.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-01"
+    },
+    {
+      "source": "deepseek2024_v3",
+      "source_label": "DeepSeek-V3 (2024)",
+      "target": "2608.31046",
+      "target_label": "Does On-Policy Distillation Really Distill? (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-V3 supplies the large-teacher regime the method assumes is cleaner; the paper measures that supervision noise grows with teacher capacity instead of falling.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-01"
     }
   ],
   "hyperedges": [],

@@ -188,6 +188,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-08-31"
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2608.30320",
+      "target_label": "On the Design of Qwen3.8-Next Architecture (2026)",
+      "relation": "builds_on",
+      "note": "Attention Is All You Need supplies the full-attention layer this architecture keeps at one in four and then replaces with a block-sparse variant after pretraining.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-01"
+    },
+    {
+      "source": "JPKDWV2Q",
+      "source_label": "Mamba-2 (Dao 2024)",
+      "target": "2608.30320",
+      "target_label": "On the Design of Qwen3.8-Next Architecture (2026)",
+      "relation": "builds_on",
+      "note": "Mamba-2 established the linear-time recurrence that Gated DeltaNet extends with a delta rule; this report fixes how many such layers can stand in for attention rather than claiming they replace it.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-01"
+    },
+    {
+      "source": "XNI34DQX",
+      "source_label": "Mamba (Gu 2024)",
+      "target": "2608.30320",
+      "target_label": "On the Design of Qwen3.8-Next Architecture (2026)",
+      "relation": "builds_on",
+      "note": "Mamba proposed selective state-space models as an outright substitute for attention on long sequences; this report measures the hybrid ratio instead and retains one full-attention layer in four.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-01"
     }
   ],
   "hyperedges": [

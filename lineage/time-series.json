@@ -1723,6 +1723,42 @@
       "confidence_score": 0.9,
       "cross_area": true,
       "date_added": "2026-08-29"
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2608.14656",
+      "target_label": "P2E-VQ: ECG-linked Representation Augmentation for PPG (2026)",
+      "relation": "builds_on",
+      "note": "Foundation Models for Biosignals surveys the pretrain-then-probe protocol; this paper reports its gains under that same frozen-feature linear probe rather than changing the evaluation frame.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-01"
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text (Chen 2024)",
+      "target": "2608.14656",
+      "target_label": "P2E-VQ: ECG-linked Representation Augmentation for PPG (2026)",
+      "relation": "builds_on",
+      "note": "Sensor2Text mapped a sensor stream into a richer target modality and used the generated target as the output; this paper keeps the cross-modal supervision but retrieves the paired representation instead of generating the signal.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-01"
+    },
+    {
+      "source": "yuan2024_ssl_har",
+      "source_label": "SSL for HAR with 700K Person-days (Yuan 2024)",
+      "target": "2608.14656",
+      "target_label": "P2E-VQ: ECG-linked Representation Augmentation for PPG (2026)",
+      "relation": "builds_on",
+      "note": "Yuan 2024 improved wearable encoders by large-scale self-supervised pretraining on more unlabelled signal; this paper leaves the encoder's input distribution unchanged and spends a paired ECG dataset on a retrieval index.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-01"
     }
   ],
   "hyperedges": [
