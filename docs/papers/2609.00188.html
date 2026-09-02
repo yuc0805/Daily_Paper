@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/world-model-rl.html" class="back-link">&larr; Back to Area</a>
+
+<h2>ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training</h2>
+<p class="paper-meta">
+  Wu, Yang, Zhou, Sun, Liu, Yu, Zhang, Li, Qi, Duan (Joy Future Academy) &middot; arXiv 2026 &middot;
+  <a href="https://arxiv.org/abs/2609.00188" target="_blank" rel="noopener">link</a> &middot;
+  arxiv_id: 2609.00188 &middot;
+  Appears in: <a href="../areas/world-model-rl.html">World Model / RL</a>, <a href="../areas/video-action-recognition.html">Video Action Recognition</a>
+</p>
+
+<h3>What</h3>
+<p>ZimaBlue is a framework for learning World Action Models from large-scale video rather than from action-labelled robot data. Training proceeds in three stages: causal embodied video pre-training on human and robot egocentric video, video-action mid-training that grounds the learned visual dynamics in heterogeneous robot trajectories under a unified action representation, and specialization to a target robot for deployment. To make a generative world model usable for real-time control, an asynchronous slow-fast dual-system architecture pairs a high-capacity slow world model that supplies generalizable spatiotemporal representations with a lightweight fast branch that predicts actions at 30 Hz on an NVIDIA RTX 4090. On real-robot zero-shot evaluations, scaling from target-robot data alone to more than 120,000 hours of embodied video raises success from 36.1 percent to 77.8 percent, with the largest gains on unseen tasks.</p>
+
+<h3>Why</h3>
+<p>Robotic manipulation faces a supply problem rather than a modelling problem: robust generalization needs broad physical experience, and action-labelled robot trajectories are expensive to collect and narrow in the diversity they cover. Egocentric video is the opposite on both counts, abundant and diverse, capturing object interactions, contact dynamics, tool use, and long-horizon behaviour across many environments, but it carries no action labels, so it cannot be consumed by the standard imitation pipeline. Prior world-model work does not close this gap because it learns the model from the agent's own interaction data, which reintroduces the collection cost the video was meant to avoid. The second obstacle is practical: generative world models are too slow to close a control loop at useful rates, which has kept them out of deployed manipulation.</p>
+
+<h3>How</h3>
+<p>The curriculum separates learning dynamics from learning actions. Causal embodied video pre-training runs first on human and robot egocentric video with no action supervision, so the model learns how scenes evolve. Video-action mid-training then attaches control by grounding those dynamics in heterogeneous robot trajectories through a unified action representation that lets data from different robots contribute to the same model. Specialization to the target robot comes last. The slow-fast split decouples two rates that a single generative model conflates: the slow branch refreshes high-capacity spatiotemporal representations, while the fast branch consumes them and emits actions at 30 Hz, and the two run asynchronously so control frequency is not bounded by generation cost. The scaling evidence holds the action-labelled portion fixed and grows only the action-free corpus, which is what attributes the gain to the video.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="938DAXZT.html">World Models (Ha 2018)</a><span class="lineage-note">Established learning a predictive environment model and acting inside it; ZimaBlue learns that model from video the agent never generated.</span></li>
+  <li><a href="W44RSJJI.html">DINO-WM (Zhou 2025)</a><span class="lineage-note">Built a world model on frozen visual features and put the learning into planning; ZimaBlue instead trains the dynamics model itself at video scale.</span></li>
+  <li><a href="RYGRHCG3.html">Video Action Survey (Zhu 2020)</a><span class="lineage-note">The video-understanding line that supplies the action-free pre-training signal.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Ha 2018 learned its world model from rollouts the agent collected itself, which caps the diversity of the model at the diversity of the agent's own exploration and reintroduces exactly the data cost that limits manipulation. ZimaBlue removes that dependency by learning dynamics from action-free human video, then paying the expensive labelled data only in a short grounding stage. Against DINO-WM, which takes a frozen visual representation as given and concentrates on planning in that latent space, the failure mode fixed is that a representation trained for recognition is not necessarily a representation of dynamics, so scaling the planner does not buy generalization to unseen tasks. The 36.1 to 77.8 percent zero-shot gain, obtained while the labelled set is held fixed, is the direct evidence for that.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where prior world models train dynamics and control jointly on interaction data, ZimaBlue orders them, learning dynamics without actions first and attaching a unified action representation second, which is what lets human video and multi-robot trajectories enter the same model. Where DINO-WM plans by search in a frozen latent space at inference, ZimaBlue trains a policy branch and pays no search cost per step, replacing planning compute with pre-training compute. The slow-fast asynchronous split is also new relative to all three predecessors, which run one model at one rate; separating representation refresh from action emission is what makes a generative world model run at 30 Hz on commodity hardware.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="JQ7JD8AR.html">Navigation World Models (Bar 2024)</a><span class="lineage-note">Video-trained world model used for navigation rather than manipulation.</span></li>
+  <li><a href="BT2MFL2J.html">VIP (Ma 2023)</a><span class="lineage-note">Value representations pre-trained from action-free human video.</span></li>
+  <li><a href="A4WGRRQ9.html">TD-MPC2 (Hansen 2024)</a><span class="lineage-note">Model-based control across heterogeneous embodiments with a shared latent model.</span></li>
+  <li><a href="P92FLHJ2.html">World Model Evaluation (Vafa 2024)</a><span class="lineage-note">Argues that benchmark success does not establish that a coherent world model was learned.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

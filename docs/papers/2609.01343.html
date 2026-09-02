@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/moe.html" class="back-link">&larr; Back to Area</a>
+
+<h2>SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers</h2>
+<p class="paper-meta">
+  Wang, Zhang, Luo, Wu, Liu, Liu, Huang, Yan, Li (ByteDance Seed) &middot; arXiv 2026 &middot;
+  <a href="https://arxiv.org/abs/2609.01343" target="_blank" rel="noopener">link</a> &middot;
+  arxiv_id: 2609.01343 &middot;
+  Appears in: <a href="../areas/moe.html">MoE</a>, <a href="../areas/llm.html">LLM</a>
+</p>
+
+<h3>What</h3>
+<p>This paper studies looped Transformers, which increase effective depth by running a shared block of layers more than once, under strict budget matching on sparse mixture-of-experts models. Per-token FLOPs, total non-embedding parameters, and KV cache are all held equal against an unlooped baseline. A sequence of ablations over which layers to loop and how often produces the recipe named SMELT, sparse MoE Transformer with the middle layers looped twice. The architecture is scaled across four sizes up to 54B non-embedding parameters and a separate Chinchilla-style scaling law is fitted for each architecture, so the reported result is a difference in the slope of the compute-loss frontier rather than a comparison between two trained checkpoints.</p>
+
+<h3>Why</h3>
+<p>The existing case for looping rests on comparisons made at fixed model size. Holding size fixed while adding a second pass through a block also adds FLOPs, so any measured advantage confounds the architectural inductive bias with the extra compute spent, and the two have never been separated in the published evaluations. Prior work also studied looping mostly on dense models, while current large models are sparse mixtures of experts, where the relevant budget is activated parameters rather than total parameters and where a KV cache constraint binds at inference. Without matching all three budgets at once it is not possible to say whether reusing a layer is better than having a different layer at equal cost, which is the question a practitioner actually faces.</p>
+
+<h3>How</h3>
+<p>SMELT loops the middle half of the layers twice while the unlooped baseline is configured to match per-token FLOPs, non-embedding parameter count, and KV cache size. Four model scales are trained and a Chinchilla-style scaling law is fitted independently to each architecture, giving compute-optimal frontiers that can be compared directly. SMELT saves 6.8 to 18.0 percent of training FLOPs along that frontier, and the downstream benchmark gain exceeds what the validation-loss difference alone predicts. The advantage is largest on code and grows with sample length and with the number of in-context examples. Mechanistic analysis reports that the second visit to the looped layers reduces the attention sink and redirects attention mass toward content-relevant tokens, offered as a candidate explanation consistent with the length and in-context dependence.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">Supplies the fixed-depth stack of distinct layers that looping replaces with repeated visits to a shared block.</span></li>
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">The large sparse mixture-of-experts regime in which the looping question is posed, and the source of the activated-versus-total parameter framing.</span></li>
+  <li><a href="WIGLUNFZ.html">ST-MoE (Zoph 2022)</a><span class="lineage-note">Established stable sparse expert routing and the practice of comparing expert models at matched activated parameters.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The failure mode this paper fixes is not in the Transformer or the mixture-of-experts line but in the looping literature that sits on top of them: those evaluations compared at fixed model size, so extra forward passes brought extra FLOPs and the architecture could not be credited or blamed for the result. By matching FLOPs, parameters, and KV cache simultaneously, the comparison isolates the inductive bias, and the answer survives, which the earlier setup could not have established either way. The second correction is to the selection criterion inherited from scaling-law practice: the downstream gain here is larger than the loss gap predicts, so choosing between architecture variants on validation loss would understate the looped model.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where DeepSeek-V3 and ST-MoE separate total parameters from activated parameters and treat sparsity as the capacity dial, SMELT introduces a separation those papers do not make, between how many parameters exist and how many times each one is used in a forward pass, and shows that the two are not substitutes at equal compute. Where the Transformer fixes depth by stacking distinct layers, each with its own weights, SMELT reuses the middle half and spends the saved parameters elsewhere in the budget. The evaluation method also differs from all three predecessors: rather than reporting one trained model against another, it fits a separate scaling law per architecture, which is what allows a claim about the compute-optimal frontier rather than about a single operating point.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="UBDCML5N.html">MoE + Instruction (Shen 2023)</a><span class="lineage-note">Sparse expert models under a fixed training budget in the instruction-tuning setting.</span></li>
+  <li><a href="743XA29Y.html">DeepSeek-V2 (2024)</a><span class="lineage-note">Earlier sparse expert architecture in the same line, with the KV cache constraint made explicit.</span></li>
+  <li><a href="XNI34DQX.html">Mamba (Gu 2024)</a><span class="lineage-note">The competing answer to depth and long-context cost, trading attention for a selective recurrent state.</span></li>
+  <li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Parameter-constrained sequence backbone for wearable activity recognition; adds depth by stacking rather than reuse.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

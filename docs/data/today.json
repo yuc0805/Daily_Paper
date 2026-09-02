@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-01",
+  "date": "2026-09-02",
   "papers": [
     {
-      "zotero_key": "2608.31046",
-      "title": "Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement",
-      "authors": "Ding, Zhang (Purdue)",
+      "zotero_key": "2609.01343",
+      "title": "SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers",
+      "authors": "Wang, Zhang, Luo, Wu, Liu et al. (ByteDance Seed)",
       "year": 2026,
-      "what": "Measures the teacher's per-token supervision during on-policy distillation, finds it noisy in a way that worsens with teacher scale and that the student ignores, shows a single fixed negative advantage reproduces the method, and replaces the teacher with the student's own entropy for a 35.41-point Avg@32 gain on AIME24.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought Prompting (Wei 2023, HBLPTRMY); DeepSeek-V3 (2024, 2JCKA7GI)"
+      "what": "Matches per-token FLOPs, non-embedding parameters and KV cache at once to separate the benefit of looping a shared layer block from the extra compute prior comparisons quietly spent, finds looping the middle half twice saves 6.8 to 18.0 percent of training FLOPs on the compute-optimal frontier, and reports a downstream gain larger than the loss gap predicts.",
+      "area_label": "MoE",
+      "area_slug": "moe",
+      "builds_on": "Attention Is All You Need (Vaswani 2017, PHB9VRVM); DeepSeek-V3 (2024, 2JCKA7GI); ST-MoE (Zoph 2022, WIGLUNFZ)"
     },
     {
-      "zotero_key": "2608.14656",
-      "title": "P2E-VQ: ECG-linked representation augmentation for PPG via discrete patch retrieval",
-      "authors": "Wu, Gao, Zhao, Zhou, Lip, Zheng et al. (Liverpool)",
+      "zotero_key": "2609.01591",
+      "title": "StudentSim: Training LLM-based Student Simulators",
+      "authors": "Yang, Wang, Galley, Singh, Inala et al. (Microsoft Research)",
       "year": 2026,
-      "what": "Replaces ill-posed PPG-to-ECG waveform reconstruction with retrieval: PPG patches are quantised to discrete tokens that index a training-only memory bank of ECG-linked representations, so inference needs PPG alone, beating pretrained baselines on six tasks across five datasets under one frozen-feature linear probe.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "Foundation Models for Biosignals (Gu 2025, 2XWEG7AF); Sensor2Text (Chen 2024, ELYUE3NF); SSL for HAR (Yuan 2024, RTMH75VW)"
+      "what": "Splits simulator quality into behavioral fidelity and guidance responsiveness, shows existing methods fail on opposite axes, and fits one simulator per student from sparse records through pooled training plus per-student specialization, reaching 0.51 and 0.91 on chess where GPT-5.4 reaches 0.23 and 0.72 and Maia2 reaches 0.45 and 0.27.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "Machine Theory of Mind (Rabinowitz 2018, NEKX3K3N); CounselBench (Li 2025, GST6E6A6); Agent AI Survey (Durante 2024, Z9WZPMNU)"
     },
     {
-      "zotero_key": "2608.30320",
-      "title": "On the Design of Qwen3.8-Next Architecture: Evaluation, Efficiency, and Training Stability",
-      "authors": "Qiu, Wang, Li, Men, Mao et al. (Qwen)",
+      "zotero_key": "2609.00092",
+      "title": "Safin-1: Safety from Within through Memory-Native State Evolution",
+      "authors": "Zhang, Yang, Yu, Hua, Chen et al. (Shanghai AI Laboratory)",
       "year": 2026,
-      "what": "Reports a 125B sparse mixture-of-experts model with 6B activated parameters that mixes Gated DeltaNet with one full-attention layer in four, adds 51B parameters of n-gram embeddings held off the accelerator, and matches a 397B predecessor at roughly one ninth the training FLOPs while showing loss and downstream accuracy come apart.",
-      "area_label": "MAMBA",
-      "area_slug": "mamba",
-      "builds_on": "Attention Is All You Need (Vaswani 2017, PHB9VRVM); Mamba (Gu 2024, XNI34DQX); Mamba-2 (Dao 2024, JPKDWV2Q)"
+      "what": "Builds a foundation model on content-conditioned routing over structured memory states, then uses the same interface to carry a persistent capability state adapted at test time without touching the backbone, so safety is invoked by the model's own computation rather than by an external wrapper or a post-hoc fine-tune.",
+      "area_label": "Test-Time Training",
+      "area_slug": "test-time-training",
+      "builds_on": "Memory Mechanisms Survey (Huang 2026, BDY3HUCV); TTT Layers (Sun 2024, JEGI4IS7); Mamba (Gu 2024, XNI34DQX)"
     },
     {
-      "zotero_key": "2608.30147",
-      "title": "CAST: Critique-Aware Supervision for Training Reliable Long-Horizon Tool-Calling Agents",
-      "authors": "Saeidi, Zhang, Singh, Gupta, Baral et al.",
+      "zotero_key": "2609.00188",
+      "title": "ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training",
+      "authors": "Wu, Yang, Zhou, Sun, Liu et al. (Joy Future Academy)",
       "year": 2026,
-      "what": "Synthesises structured per-action rationales from sparse task outcomes, trains a critique model on them, and uses that critique to reshape the policy, moving reliability from inference-time search into training and beating GPT-OSS-120B by over 10 percent pass^4 on Retail with a further 9 percent out-of-domain on Telehealth.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "ToolkenGPT (Hao 2024, 6RDHVVA2); LATS (Zhou 2024, 77ERE7HA); Memory Mechanisms Survey (Huang 2026, BDY3HUCV)"
+      "what": "Learns manipulation dynamics from action-free egocentric video first and attaches actions in a short grounding stage second, raising real-robot zero-shot success from 36.1 to 77.8 percent as the unlabelled corpus grows past 120,000 hours while the labelled set is held fixed, with a slow-fast split that emits actions at 30 Hz on one RTX 4090.",
+      "area_label": "World Model / RL",
+      "area_slug": "world-model-rl",
+      "builds_on": "World Models (Ha 2018, 938DAXZT); DINO-WM (Zhou 2025, W44RSJJI); Video Action Survey (Zhu 2020, RYGRHCG3)"
     }
   ]
 }

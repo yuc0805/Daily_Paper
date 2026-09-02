@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safin-1: Safety from Within through Memory-Native State Evolution — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/test-time-training.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Safin-1: Safety from Within through Memory-Native State Evolution</h2>
+<p class="paper-meta">
+  Zhang, Yang, Yu, Hua, Chen, Jin, Zheng, Sun, Lu (Shanghai AI Laboratory) &middot; arXiv 2026 &middot;
+  <a href="https://arxiv.org/abs/2609.00092" target="_blank" rel="noopener">link</a> &middot;
+  arxiv_id: 2609.00092 &middot;
+  Appears in: <a href="../areas/test-time-training.html">Test-Time Training</a>, <a href="../areas/mamba.html">MAMBA</a>
+</p>
+
+<h3>What</h3>
+<p>Safin-1 is a family of foundation models built on MARCH, Memory-Anchor Routing across Context History, a network architecture that maintains structured memory states and retrieves relevant history through content-conditioned routing rather than attending over the full context. The same routed-state interface carries persistent capability states that can be adapted at test time without repeatedly modifying the backbone, which allows controlled specialization on top of a shared foundation. The paper investigates one such state, a Safety State, and reports substantial safety improvements from state-based adaptation, alongside evaluations of general capability, long-context understanding, retrieval, and efficiency. The authors present the work as an initial architectural exploration of the principle they call Safety from Within, and state that further work is needed.</p>
+
+<h3>Why</h3>
+<p>Long-horizon tasks require a model to accumulate information, hold internal state, and adapt across extended interactions, and safety behaviour has to survive all of that. The standard arrangements do not. External safeguards sit outside the model and judge its outputs without access to the state that produced them, and post-hoc alignment such as supervised fine-tuning writes a behavioural disposition into weights at one moment and cannot be revised without retraining. Both treat safety as a constraint applied to the model rather than a capability the model has, which is the specific gap the paper identifies. Prior memory work is insufficient for a different reason: it treats stored context as a passive record to retrieve from, so there is no place in the architecture to put a capability that should persist and evolve.</p>
+
+<h3>How</h3>
+<p>MARCH keeps structured memory states and selects among historical information by content-conditioned routing, which is what makes retrieval scale without attending over the whole history. Because the routing interface reads states rather than raw context, the same mechanism can address a persistent capability state, and adapting that state is a test-time operation that leaves the backbone untouched. The Safety State is the instance studied: safety-relevant capability is represented as a routed state and invoked through the model's own computation instead of by an external check. The broader claim the paper draws from this is that contextual memory and persistent capability adaptation are the same interface, so memory becomes an active substrate for maintaining and evolving behaviour rather than a record of prior context.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Catalogued memory in foundation agents as retrieval over a passive record; this paper makes the state writable and capability-bearing.</span></li>
+  <li><a href="JEGI4IS7.html">TTT Layers (Sun 2024)</a><span class="lineage-note">Put a learned state inside the layer and updated it at inference; MARCH keeps the adapted state across interactions rather than per sequence.</span></li>
+  <li><a href="XNI34DQX.html">Mamba (Gu 2024)</a><span class="lineage-note">Established a selective recurrent state as the alternative to attending over full history.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>TTT Layers adapt an inner state to the current input and then discard it, so nothing learned during one interaction is available in the next, and a per-subject or per-deployment specialization has to be re-derived every time. That is the failure mode MARCH addresses by persisting the adapted state, which moves the unit of adaptation from a sequence to a deployment. Against the memory survey's framing, the gap closed is that a retrieval-only memory has nowhere to store a disposition, only facts, so safety behaviour had to live outside the architecture. Against Mamba, the fixed recurrent state compresses history but is not addressable as a separate installable capability, so specialization still means changing weights.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Mamba mixes history into a single recurrent state updated by a selective scan; MARCH instead maintains multiple structured states and routes among them conditioned on content, which is closer to sparse retrieval than to recurrence and keeps the states separately addressable. Where TTT Layers make adaptation an inner-loop gradient step on a hidden state scoped to the input, Safin-1 makes it an update to a named persistent state that outlives the input and can be swapped or removed. The safety framing is downstream of this architectural choice rather than motivating it: once a capability can be a routed state, a safety capability is one of them, and it is invoked by the model's native computation instead of by a wrapper that sees only the output.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="K9AZKZB2.html">TTT-Unet (Zhou 2024)</a><span class="lineage-note">Test-time-trained state inside a segmentation backbone, reset per input.</span></li>
+  <li><a href="J7K2E7A3.html">S4 (Gu 2022)</a><span class="lineage-note">Structured state-space sequence model underlying the recurrent-state line.</span></li>
+  <li><a href="PZATM3SC.html">LoRA (Hu 2021)</a><span class="lineage-note">The weight-side alternative for installable, removable specialization on a shared backbone.</span></li>
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Long-horizon agents as the setting where accumulated state and behaviour interact.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

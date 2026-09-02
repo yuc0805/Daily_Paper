@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudentSim: Training LLM-based Student Simulators — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+
+<h2>StudentSim: Training LLM-based Student Simulators</h2>
+<p class="paper-meta">
+  Yang, Wang, Galley, Singh, Inala, Zhai, Gao (Microsoft Research) &middot; arXiv 2026 &middot;
+  <a href="https://arxiv.org/abs/2609.01591" target="_blank" rel="noopener">link</a> &middot;
+  arxiv_id: 2609.01591 &middot;
+  Appears in: <a href="../areas/llm.html">LLM</a>, <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>StudentSim is a training framework that turns sparse per-student records into an individualized simulator for each student, through pooled training across all students followed by per-student specialization. The companion evaluation protocol, StudentSimEval, covers 60 students across chess, second-language English writing, and mathematics, using public learner datasets with de-identified records, and scores every method on the same held-out records. Two abilities are measured separately: behavioral fidelity, how well the simulator reproduces the student's own responses, and guidance responsiveness, how readily it updates those responses under a tutor's correction. On chess, StudentSim reaches fidelity 0.51 and responsiveness 0.91, against 0.23 and 0.72 for GPT-5.4 and 0.45 and 0.27 for Maia2. As a proof of concept, the fitted simulator is used as the reward for tutor reinforcement learning, producing a chess tutor that expert humans rate as more accurate, better-guided, and more personalized than a no-reinforcement baseline and than a tutor trained against a GPT-5.4 simulator reward.</p>
+
+<h3>Why</h3>
+<p>An AI tutor is only useful to the extent it adapts to a particular learner, and the evidence needed to fit that adaptation, which guidance works for which student, is sparse, slow, and costly to gather from real people. Simulators can supply the signal as a proxy, but the two existing families each cover only half of what is required. State-tracking models fit how a student behaves but cannot process a tutor's explanations or corrections, so they do not move when instructed. Language models prompted to role-play a target student follow guidance fluently but do not reliably reproduce that student's competence, so they move for the wrong reasons. The numbers make the split concrete: Maia2 is strong on fidelity and weak on responsiveness, the prompted model is the reverse, and neither is usable as a stand-in for a real learner.</p>
+
+<h3>How</h3>
+<p>The pipeline has two stages. Pooled training fits a single model across all students' records, which is what makes the sparse per-student data usable at all, since no individual has enough records to fit a model alone. Per-student specialization then adapts that pooled model to each individual, producing one simulator per student that both mirrors that student's responses and updates them under guidance. StudentSimEval fits every compared method on the same records and scores it on the same held-out records, so fidelity and responsiveness are directly comparable across method families rather than reported on separate protocols. The reinforcement-learning demonstration closes the loop by treating the fitted simulator as a reward model for training a tutor, and evaluates the resulting tutor with expert human raters rather than against the simulator that trained it.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="NEKX3K3N.html">Machine Theory of Mind (Rabinowitz 2018)</a><span class="lineage-note">Established learning a model of another agent from observed behaviour; StudentSim adds the requirement that the learned model respond correctly to instruction.</span></li>
+  <li><a href="GST6E6A6.html">CounselBench (Li 2025)</a><span class="lineage-note">Benchmarks language models against per-person records; StudentSim converts that per-person fit from an endpoint into a reward signal.</span></li>
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Frames simulated agents as environments in which other agents are trained.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Machine Theory of Mind produced a predictor of another agent's behaviour and stopped there, which is exactly the fidelity-strong, responsiveness-weak profile that Maia2 exhibits here at 0.45 and 0.27. A predictor of that kind cannot serve as a tutoring environment, because a tutor's whole action is to say something and the simulated student never listens. The failure mode this paper fixes is the assumption that a good behavioural model is automatically a good interactive stand-in. It also fixes the mirror-image failure of prompted role-play, which listens but does not have the student's competence, by fitting on the individual's actual records rather than describing the individual in a prompt.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where Machine Theory of Mind trained one observer network to infer agent characteristics from behaviour, StudentSim trains a separate specialized model per individual on top of a pooled backbone, which is a different allocation of capacity and the reason sparse per-person data suffices. Where CounselBench evaluates a general model against per-person data and reports where it falls short, StudentSim fits per-person models and then spends them, using the simulator as the reward in reinforcement learning rather than as a scoreboard. The evaluation design is also a departure: prior work reported a single aggregate quality score for a simulator, and this paper reports two scores that existing methods trade off in opposite directions, which is what exposes the gap that a single number hides.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="K4PR34NU.html">MindScape (Nepal 2024)</a><span class="lineage-note">Per-person language-model interaction fitted on individual behavioural sensing records.</span></li>
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Individual-level modelling where the deliverable is a language interaction over personal data.</span></li>
+  <li><a href="PZATM3SC.html">LoRA (Hu 2021)</a><span class="lineage-note">The standard mechanism for cheap per-individual specialization on a shared backbone.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
