@@ -242,6 +242,42 @@
    "confidence_score": 0.9,
    "cross_area": true,
    "date_added": "2026-08-31"
+  },
+  {
+   "source": "938DAXZT",
+   "source_label": "World Models (Ha 2018)",
+   "target": "2609.00188",
+   "target_label": "ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training (2026)",
+   "relation": "builds_on",
+   "note": "Ha and Schmidhuber learned a predictive model of the environment from the agent's own interaction data; ZimaBlue learns dynamics from video the agent never generated and never labelled, and attaches actions in a later stage.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-02"
+  },
+  {
+   "source": "W44RSJJI",
+   "source_label": "DINO-WM (Zhou 2025)",
+   "target": "2609.00188",
+   "target_label": "ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training (2026)",
+   "relation": "builds_on",
+   "note": "DINO-WM took visual features as given and put the learning into planning over a frozen representation; ZimaBlue learns the representation and the dynamics together from action-free video, then grounds them with a small amount of action data.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-02"
+  },
+  {
+   "source": "zhu2020_video_action",
+   "source_label": "Deep Video Action Recognition Survey (Zhu 2020)",
+   "target": "2609.00188",
+   "target_label": "ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training (2026)",
+   "relation": "builds_on",
+   "note": "The video-understanding line supplies the action-free pre-training signal; ZimaBlue converts it into control by adding a unified action representation in a second stage, which connects the video and reinforcement-learning communities of the seed graph.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-09-02"
   }
  ],
  "hyperedges": [],

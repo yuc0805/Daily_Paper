@@ -148,6 +148,42 @@
    "confidence_score": 0.9,
    "cross_area": true,
    "date_added": "2026-08-29"
+  },
+  {
+   "source": "huang2026_memory",
+   "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+   "target": "2609.00092",
+   "target_label": "Safin-1: Safety from Within through Memory-Native State Evolution (2026)",
+   "relation": "builds_on",
+   "note": "The survey catalogued memory in foundation agents as retrieval over a passive record; Safin-1 makes the state writable for a second purpose, so it holds a capability rather than only a record.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-09-02"
+  },
+  {
+   "source": "JEGI4IS7",
+   "source_label": "TTT Layers (Sun 2024)",
+   "target": "2609.00092",
+   "target_label": "Safin-1: Safety from Within through Memory-Native State Evolution (2026)",
+   "relation": "builds_on",
+   "note": "Sun placed a learned state inside the layer and updated it at inference on the current input, then discarded it; MARCH keeps the adapted state across interactions, moving the unit of adaptation from a sequence to a deployment.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-02"
+  },
+  {
+   "source": "XNI34DQX",
+   "source_label": "Mamba (Gu 2024)",
+   "target": "2609.00092",
+   "target_label": "Safin-1: Safety from Within through Memory-Native State Evolution (2026)",
+   "relation": "builds_on",
+   "note": "Mamba established a selective recurrent state as the alternative to attending over the full history; here the routed state is also the place a test-time specialization is installed, rather than only a compression of the past.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-09-02"
   }
  ],
  "hyperedges": [

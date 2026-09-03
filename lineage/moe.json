@@ -2,7 +2,44 @@
   "_generated": "2026-05-14",
   "_source": "graphify_seed/graph.json + zotero_index.json",
   "area": "moe.md",
-  "edges": [],
+  "edges": [
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2609.01343",
+      "target_label": "SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers (2026)",
+      "relation": "builds_on",
+      "note": "The Transformer fixes depth by stacking distinct layers; SMELT revisits that choice by reusing a block, so depth is bought with computation instead of with parameters.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-02"
+    },
+    {
+      "source": "deepseek2024_v3",
+      "source_label": "DeepSeek-V3 Technical Report (2024)",
+      "target": "2609.01343",
+      "target_label": "SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-V3 established the sparse mixture-of-experts regime at scale that SMELT loops, and the separation between total and activated parameters that SMELT extends to a separation between parameters and parameter reuse.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-02"
+    },
+    {
+      "source": "WIGLUNFZ",
+      "source_label": "ST-MoE (Zoph 2022)",
+      "target": "2609.01343",
+      "target_label": "SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers (2026)",
+      "relation": "builds_on",
+      "note": "ST-MoE established stable sparse expert routing and the practice of comparing expert models at matched activated parameters; SMELT tightens the matching to FLOPs, parameters and KV cache at once so the looping gain is no longer confounded with extra compute.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-02"
+    }
+  ],
   "hyperedges": [],
   "cross_area_bridges": []
 }

@@ -24,6 +24,8 @@
 2026-07 | Predictive Divergence Masks (2607.10848) | replaces PPO's ratio-based direction test with a predicted change in the trust-region divergence, in closed form for softmax policies
 2026-08 | Full-bandwidth transformer (2608.08888) | feeds the previous top-layer hidden state back alongside the sampled token embedding through a gated linear unit, widening the cross-step channel
 
+2026-09 | StudentSim (2609.01591) | per-student simulators from sparse records; behavioral fidelity and guidance responsiveness scored separately, then used as a tutor reward
+
 ### Paper List
 
 [KNOWN] [2024] DeepSeek-AI et al. — DeepSeek-V2. zotero_key:743XA29Y.
@@ -54,7 +56,11 @@
 
 [2026] 2608.08888 — Full-bandwidth transformer. [https://arxiv.org/abs/2608.08888](https://arxiv.org/abs/2608.08888). external.
 
+[2026] 2609.01591 — StudentSim: Training LLM-based Student Simulators. [https://arxiv.org/abs/2609.01591](https://arxiv.org/abs/2609.01591). external.
+
 ### Recent Activity
+
+2026-09-02 | 2609.01591 added | StudentSim fits one simulator per student from sparse per-student records through pooled training across all students followed by per-student specialization, and separates two abilities that prior work conflated, behavioral fidelity, whether the simulator reproduces the student's own responses, and guidance responsiveness, whether it updates when a tutor corrects it; on chess it reaches 0.51 fidelity and 0.91 responsiveness against 0.23 and 0.72 for prompted GPT-5.4 and 0.45 and 0.27 for the fitted behaviour model Maia2, so the two prior classes fail on opposite axes and neither is deficient in general; where Machine Theory of Mind (NEKX3K3N) learned a model of another agent from observed behaviour and stopped at prediction, this paper requires the learned model to also move correctly under instruction and scores that separately, and where CounselBench (GST6E6A6) treats per-person records as an evaluation endpoint, StudentSim spends the fitted per-person model as a reinforcement-learning reward, which turns the simulator from a benchmark into training infrastructure and produces a tutor human experts rate above a no-reinforcement baseline and above one trained against a GPT-5.4 reward; the companion protocol covers 60 students across chess, second-language English writing and mathematics, and the evaluation design rather than the fitting method is the transferable part; Tier B
 
 2026-08-14 | 2608.08888 added | the full-bandwidth transformer fuses the previous top-layer hidden state with the sampled token embedding through a gated linear unit and feeds the result back as the next input, so computation the model did not verbalize re-enters the stack with a renewed depth budget while the core architecture, the KV cache, and the language-modeling objective stay unchanged; a scheduled multi-pass objective switches latent feedback on late in pretraining so parallel teacher forcing survives, and 1B-parameter models trained to 400B tokens match or approach standard transformers trained on roughly 1.5 times more tokens, with negligible per-token decoding overhead and shorter reasoning traces at equal or better accuracy; there is no scaling-law study, so the 1.5 times figure is a single-scale observation; Tier A
 
@@ -63,5 +69,3 @@
 2026-07-20 | 2607.15161 added | on-policy distillation gives token-level supervision on the student's own rollouts and avoids a reward model; OPD^2 changes the target to the delta between the reasoning-tuned teacher and its base model before instruction tuning, isolating what tuning added, and beats standard on-policy distillation across mathematics, science, and code-reasoning benchmarks over several Qwen3 sizes with transfer to Gemma 4; Tier B
 
 2026-07-17 | 2607.13399 added | frames on-policy distillation as an exploration catalyst that guides a student toward correct reasoning paths without raising its capability ceiling, names two failure modes (student-teacher mismatch and length exploitation), and adds advantage clipping plus log-scale compression that stop length hacking and beat plain on-policy distillation and RLVR baselines across seven benchmarks; Tier B
-
-2026-07-15 | 2607.11614 added | a training recipe that extends usable context with an associative recurrent memory transformer, combining continued pre-training, synthetic long-context data, curriculum learning, and selective placement of memory in chosen layers rather than all of them; Tier B

@@ -381,6 +381,42 @@
       "cross_area": true,
       "date_added": "2026-08-14",
       "note": "The only structural edit to the base architecture is on the input side, which is what keeps per-token decoding overhead negligible and the KV cache intact."
+    },
+    {
+      "source": "rabinowitz2018_tom",
+      "source_label": "Machine Theory of Mind (Rabinowitz 2018)",
+      "target": "2609.01591",
+      "target_label": "StudentSim: Training LLM-based Student Simulators (2026)",
+      "relation": "builds_on",
+      "note": "Rabinowitz learned a predictor of another agent's behaviour and stopped at prediction; StudentSim requires the learned model to also move correctly when the observed agent is instructed, and scores that as a second property.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-02"
+    },
+    {
+      "source": "li2025_counselbench",
+      "source_label": "CounselBench: LLM Benchmarking in Mental Health (Li 2025)",
+      "target": "2609.01591",
+      "target_label": "StudentSim: Training LLM-based Student Simulators (2026)",
+      "relation": "builds_on",
+      "note": "CounselBench evaluates a model against per-person records as a benchmark endpoint; StudentSim closes the loop and spends the fitted per-person model as a reward signal for training a tutor.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-02"
+    },
+    {
+      "source": "durante2024_agentai",
+      "source_label": "Agent AI: Surveying Multimodal Interaction (Durante 2024)",
+      "target": "2609.01591",
+      "target_label": "StudentSim: Training LLM-based Student Simulators (2026)",
+      "relation": "builds_on",
+      "note": "Durante frames simulated agents as environments for training other agents; StudentSim supplies a fitted per-individual environment and measures both how well it imitates and how well it responds.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-02"
     }
   ],
   "hyperedges": [],
