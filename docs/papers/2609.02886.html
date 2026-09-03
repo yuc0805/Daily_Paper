@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SolarWM — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/world-model-rl.html" class="back-link">&larr; Back to Area</a>
+
+<h2>SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models</h2>
+<p class="paper-meta">
+  Huang, Fang, Qian, Kong, Zhao, Huang, Du, Zhang, Cui, Gu et al. (CUHK-Shenzhen) &middot; arXiv 2026-09-02 &middot;
+  <a href="https://arxiv.org/abs/2609.02886" target="_blank" rel="noopener">arXiv:2609.02886</a> &middot;
+  Appears in: <a href="../areas/world-model-rl.html">World Model / RL</a>
+</p>
+
+<h3>What</h3>
+<p>SolarWM is an open pipeline for interactive video world models spanning data preparation, training and long-horizon inference. A reconfigurable multi-source data engine converts 1.43 million canonical clips from 10 datasets into a single frame-aligned contract covering visual observations, metric camera geometry, captions, quality metadata, selection decisions and provenance, and it separates source processing from mixture construction so the training mixture becomes an experimental variable. Under shared camera-conditioning, training and inference interfaces the authors instantiate four models from 5B to 33B parameters on Wan2.2, LTX-2.5 and MiniMax-H3 while preserving each backbone's native representation and objective. After training on only 5-second sequences the resulting causal models support real-time interaction over rollouts from minutes to hours, and the data, pipeline, recipes, weights and framework are released.</p>
+
+<h3>Why</h3>
+<p>Training across heterogeneous video sources is hard for a specific reason: datasets differ in temporal scale, camera geometry, visual quality, motion statistics and captioning style, while video generators differ in representation and objective. Naive mixing therefore produces inconsistent supervision, and model-specific implementations make results hard to reproduce or compare across papers. The consequence is that the field cannot tell whether a reported improvement comes from the method, the corpus or the backbone. Prior world-model work either fixed the environment, which sidesteps heterogeneity, or fixed the representation, which controls one variable while leaving the corpus uncontrolled.</p>
+
+<h3>How</h3>
+<p>The data engine emits one frame-aligned contract per clip, so downstream training reads a uniform interface regardless of source, and mixture design is expressed as a selection over that contract rather than as preprocessing code. A unified three-stage recipe then combines bidirectional adaptation, teacher-forced autoregressive initialization, and distribution matching distillation, and the same route is applied across all three backbones without specialised ODE or consistency-distillation initialization. The long-horizon behaviour is obtained without long-sequence fine-tuning and without attention-sink mechanisms, which is the paper's main empirical surprise: the capability appears to come from the causal training route rather than from having seen long sequences.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="938DAXZT.html">World Models (Ha and Schmidhuber 2018)</a><span class="lineage-note">Established the compact latent dynamics model, learned in one environment with the corpus treated as given.</span></li>
+  <li><a href="JQ7JD8AR.html">Navigation World Models (Bar 2024)</a><span class="lineage-note">Pushed video world models toward controllable long-horizon rollout under camera and action conditioning.</span></li>
+  <li><a href="W44RSJJI.html">DINO-WM (Zhou 2025)</a><span class="lineage-note">Fixed the visual representation to a pretrained encoder to make world models comparable; SolarWM fixes the data instead and varies the representation.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The failure mode fixed is incomparability. Ha and Schmidhuber's setting made the corpus a non-issue by staying inside one environment, and later video world models scaled to heterogeneous corpora without a shared contract, so two results trained on different mixtures could not be attributed to their methods. SolarWM makes the mixture explicit and reproducible, which converts corpus choice from a hidden confound into a reportable condition. It also removes a practical limitation of the long-horizon line of work: minutes-to-hours rollout previously implied long-sequence fine-tuning or an attention-sink mechanism, and here it does not.</p>
+
+<h3>Method vs predecessors</h3>
+<p>DINO-WM and SolarWM run the same experiment with the controls exchanged. DINO-WM holds the representation constant, using a frozen pretrained encoder, and varies the task, which isolates the effect of representation quality. SolarWM holds the data constant through a single contract and varies the backbone across four models and three architectures, which isolates the effect of the training recipe. Against Ha and Schmidhuber, the technical difference is that dynamics are learned by adapting a large pretrained video generator into a causal model through distillation, rather than by training a small recurrent latent model from scratch, so the compute and the data-engineering burden move from the model to the pipeline.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="P92FLHJ2.html">Evaluating World Models (Vafa 2024)</a><span class="lineage-note">The measurement-side counterpart: whether world-model evaluations test the dynamics they claim to test.</span></li>
+  <li><a href="9QCZ3A32.html">VideoMAE (Tong 2022)</a><span class="lineage-note">Self-supervised video pretraining, the representation-learning route into the same corpora.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

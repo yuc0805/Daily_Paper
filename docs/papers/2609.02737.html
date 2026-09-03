@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Declarative Attention — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Declarative Attention: Language Models Can Control Their Own Attention</h2>
+<p class="paper-meta">
+  Ho, Ahmad, Koh, Yun, Schuster, dos Santos (KAIST AI) &middot; arXiv 2026-09-02 &middot;
+  <a href="https://arxiv.org/abs/2609.02737" target="_blank" rel="noopener">arXiv:2609.02737</a> &middot;
+  Appears in: <a href="../areas/llm.html">LLM</a>
+</p>
+
+<h3>What</h3>
+<p>Declarative Attention is a protocol, not an architecture, that lets a language model state within its chain of thought which part of the context it needs to read. Generation is partitioned into three modes: <code>&lt;global&gt;</code> attends to the full context, <code>&lt;focus&gt;</code> attends to one named region, and <code>&lt;local&gt;</code> attends only to recent output. The inference engine parses these declarations the way it parses tool calls and skips the corresponding portion of the KV cache read. Evaluated zero-shot on off-the-shelf checkpoints across 15 long-context tasks, it reduces total attended tokens during decoding by 52.0 percent on Gemma-4-31B and 31.1 percent on Qwen-3.6-27B, at accuracy costs of 1.27 and 2.75 percentage points, with the gap narrowing as model scale grows.</p>
+
+<h3>Why</h3>
+<p>A language model places most of its attention mass on a small fraction of the context, yet it reads the whole KV cache at every decoding step in order to locate the few tokens that matter. On a one-million-token conversation, answering a question about an earlier detail forces global attention layers to scan the full context once per generated token. The established mitigation pre-selects candidate tokens with a lightweight proxy scorer, but the scorer itself runs over all N positions, so the per-step cost remains O(N) and only the constant improves. The authors observe that this scoring reconstructs information the model plausibly already has, and ask whether the extrinsic scorer can be removed rather than made cheaper.</p>
+
+<h3>How</h3>
+<p>The model is prompted to emit a declaration before each stage of generation, naming the mode and, for focus mode, the context region. The serving engine treats the declaration as a parsed instruction and restricts the KV cache read accordingly, so the saving is realised in the inference engine rather than in the weights. No retraining is involved; the declarations are elicited zero-shot, which is what makes the result a statement about existing models rather than about a new training objective. The reported metric is total attended tokens during decoding, and the paper positions training-based variants as future work that should widen the margin.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">Established full attention where every query reads every key, fixing attention cost as a property of the architecture. Graphify Community 2.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Established the reasoning trace as a writable scratchpad; this paper writes control instructions there instead of intermediate answers. Graphify Community 0.</span></li>
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Attacked the same KV cache cost by compressing each cache entry rather than by skipping entries. Graphify Community 0.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The failure mode this paper fixes belongs to the proxy-scoring line of work rather than to any one parent: pre-selecting relevant tokens with a cheap external scorer still touches every position, so per-step cost stays linear in context length and long-context decoding remains expensive no matter how light the scorer becomes. By moving the selection inside the model, the paper removes the O(N) floor entirely for focus and local stages. Relative to Vaswani, the specific limitation removed is that the attention span was not addressable at run time. Relative to DeepSeek-V3, the limitation removed is that compressing every entry still requires reading every entry, so the saving there is bounded by the compression ratio while here it is bounded only by how much of the context is genuinely irrelevant.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Vaswani's contribution was structural and static; this paper adds no parameters and changes no layer, and instead adds a parsing contract between the model's output stream and the inference engine. Compared with Chain-of-Thought, the trace is no longer read only by the model that wrote it — it is consumed by the serving stack, which makes the reasoning tokens operational rather than expository, and aligns them with the tool-call convention the engine already supports. Compared with DeepSeek-V3, the intervention sits at a different layer of the stack: multi-head latent attention is a training-time architectural choice that alters the representation, whereas Declarative Attention is an inference-time protocol that leaves the representation untouched and is therefore composable with it. The two could in principle be stacked, which the paper does not test.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="XNI34DQX.html">Mamba (Gu 2024)</a><span class="lineage-note">The other main answer to the same cost problem: replace attention with a recurrent state rather than skip parts of it.</span></li>
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Shares the mechanism of having the model emit parsed instructions mid-generation, applied to external tools rather than to its own cache.</span></li>
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Also uses the reasoning trace as a control loop over what evidence gets read, in the time-series setting.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

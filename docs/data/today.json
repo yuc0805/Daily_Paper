@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-02",
+  "date": "2026-09-03",
   "papers": [
     {
-      "zotero_key": "2609.01343",
-      "title": "SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers",
-      "authors": "Wang, Zhang, Luo, Wu, Liu et al. (ByteDance Seed)",
+      "zotero_key": "2609.02737",
+      "title": "Declarative Attention: Language Models Can Control Their Own Attention",
+      "authors": "Ho, Ahmad, Koh, Yun, Schuster, dos Santos (KAIST AI)",
       "year": 2026,
-      "what": "Matches per-token FLOPs, non-embedding parameters and KV cache at once to separate the benefit of looping a shared layer block from the extra compute prior comparisons quietly spent, finds looping the middle half twice saves 6.8 to 18.0 percent of training FLOPs on the compute-optimal frontier, and reports a downstream gain larger than the loss gap predicts.",
-      "area_label": "MoE",
-      "area_slug": "moe",
-      "builds_on": "Attention Is All You Need (Vaswani 2017, PHB9VRVM); DeepSeek-V3 (2024, 2JCKA7GI); ST-MoE (Zoph 2022, WIGLUNFZ)"
-    },
-    {
-      "zotero_key": "2609.01591",
-      "title": "StudentSim: Training LLM-based Student Simulators",
-      "authors": "Yang, Wang, Galley, Singh, Inala et al. (Microsoft Research)",
-      "year": 2026,
-      "what": "Splits simulator quality into behavioral fidelity and guidance responsiveness, shows existing methods fail on opposite axes, and fits one simulator per student from sparse records through pooled training plus per-student specialization, reaching 0.51 and 0.91 on chess where GPT-5.4 reaches 0.23 and 0.72 and Maia2 reaches 0.45 and 0.27.",
+      "what": "Lets a model declare inside its chain of thought which context region it needs, so the inference engine can skip most of the KV cache read, cutting attended tokens during decoding by 52.0 percent on Gemma-4-31B and 31.1 percent on Qwen-3.6-27B for accuracy costs of 1.27 and 2.75 percentage points across 15 long-context tasks, zero-shot and with no retraining.",
       "area_label": "LLM",
       "area_slug": "llm",
-      "builds_on": "Machine Theory of Mind (Rabinowitz 2018, NEKX3K3N); CounselBench (Li 2025, GST6E6A6); Agent AI Survey (Durante 2024, Z9WZPMNU)"
+      "builds_on": "Attention Is All You Need (Vaswani 2017, PHB9VRVM); Chain-of-Thought Prompting (Wei 2023, HBLPTRMY); DeepSeek-V3 (2024, 2JCKA7GI)"
     },
     {
-      "zotero_key": "2609.00092",
-      "title": "Safin-1: Safety from Within through Memory-Native State Evolution",
-      "authors": "Zhang, Yang, Yu, Hua, Chen et al. (Shanghai AI Laboratory)",
+      "zotero_key": "2609.02749",
+      "title": "Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills",
+      "authors": "Chen, Hu, Qian, Liu, Wei et al. (BAAI)",
       "year": 2026,
-      "what": "Builds a foundation model on content-conditioned routing over structured memory states, then uses the same interface to carry a persistent capability state adapted at test time without touching the backbone, so safety is invoked by the model's own computation rather than by an external wrapper or a post-hoc fine-tune.",
-      "area_label": "Test-Time Training",
-      "area_slug": "test-time-training",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026, BDY3HUCV); TTT Layers (Sun 2024, JEGI4IS7); Mamba (Gu 2024, XNI34DQX)"
+      "what": "Names operational knowledge as the layer missing from research agents and distills it from 1,000 repositories into 5,000-plus verified skills, lifting a fixed-backbone fixed-harness agent by 134.3 percent on MLE-bench, 34.4 percent on PaperBench, 9.2 percent on FrontierCS and 14.0 percent on PassNet.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "ToolkenGPT (Hao 2024, 6RDHVVA2); Memory Mechanisms Survey (Huang 2026, BDY3HUCV); Agent AI Survey (Durante 2024, Z9WZPMNU)"
     },
     {
-      "zotero_key": "2609.00188",
-      "title": "ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training",
-      "authors": "Wu, Yang, Zhou, Sun, Liu et al. (Joy Future Academy)",
+      "zotero_key": "2609.02886",
+      "title": "SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models",
+      "authors": "Huang, Fang, Qian, Kong, Zhao et al. (CUHK-Shenzhen)",
       "year": 2026,
-      "what": "Learns manipulation dynamics from action-free egocentric video first and attaches actions in a short grounding stage second, raising real-robot zero-shot success from 36.1 to 77.8 percent as the unlabelled corpus grows past 120,000 hours while the labelled set is held fixed, with a slow-fast split that emits actions at 30 Hz on one RTX 4090.",
+      "what": "Converts 1.43 million clips from 10 datasets into one frame-aligned data contract so the training mixture becomes an experimental variable, then trains four 5B to 33B models on three video backbones under a shared three-stage recipe, reaching real-time rollouts of minutes to hours from 5-second training clips without long-sequence fine-tuning or attention sinks.",
       "area_label": "World Model / RL",
       "area_slug": "world-model-rl",
-      "builds_on": "World Models (Ha 2018, 938DAXZT); DINO-WM (Zhou 2025, W44RSJJI); Video Action Survey (Zhu 2020, RYGRHCG3)"
+      "builds_on": "World Models (Ha 2018, 938DAXZT); Navigation World Models (Bar 2024, JQ7JD8AR); DINO-WM (Zhou 2025, W44RSJJI)"
+    },
+    {
+      "zotero_key": "2609.02783",
+      "title": "EarlyEval: Cheaper Agent Evaluation via Early Outcome Prediction",
+      "authors": "Shi, Sun, Dong, Wan, Lo, Gu (SJTU, SMU)",
+      "year": 2026,
+      "what": "Halts agent benchmark runs once a pair of calibrated LightGBM success and failure classifiers reads the outcome from intermediate behaviour, removing 13 to 26 percent of steps and up to 44.1 percent of input tokens at 89 to 97 percent accuracy while moving resolve rates by one to two percentage points.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "Evaluating World Models (Vafa 2024, P92FLHJ2); Agent AI Survey (Durante 2024, Z9WZPMNU)"
     }
   ]
 }

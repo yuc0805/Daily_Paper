@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repo-To-Skill / DisCo — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills</h2>
+<p class="paper-meta">
+  Chen, Hu, Qian, Liu, Wei, Chen, Lian, Dou, Li, Ye, Liu (BAAI) &middot; arXiv 2026-09-02 &middot;
+  <a href="https://arxiv.org/abs/2609.02749" target="_blank" rel="noopener">arXiv:2609.02749</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>The paper names a layer that autonomous research agents lack, which it calls operational knowledge: the know-how separating knowing a method from making it work. DisCo is a research agent that both creates and consumes such knowledge, distilling it in a task-agnostic pass over widely used repositories and a task-oriented pass for the job at hand. The task-agnostic pass over 1,000 repositories yields the AREX-Skill Library, more than 5,000 verified skills organised into 20 areas and 178 capability families. Holding the GPT-5.5 backbone, the research harness and the downstream execution budget fixed, the skill-equipped agent scores 134.3 percent higher on MLE-bench, 34.4 percent higher on PaperBench, 9.2 percent higher on FrontierCS and 14.0 percent higher on PassNet than the same agent without skills.</p>
+
+<h3>Why</h3>
+<p>Current agents pair a model backbone with a harness for planning, execution, memory and verification, and that architecture leaves domain-specific know-how outside the system. The knowledge is not missing from the field — it sits in repositories and papers — but it is written for human readers and is far too large to load into context during a task, so an agent rediscovers it on every run or fails silently by getting a detail wrong. Prior harness work improved planning and verification without addressing the content those mechanisms operate on, and prior memory work made the agent remember its own runs, which helps only after it has already met a similar problem.</p>
+
+<h3>How</h3>
+<p>Distillation compresses a repository into compact skills, each verified before entry into the library, so the artifact is a checked procedure rather than a summary. The task-agnostic form runs offline across the open ecosystem and produces reusable entries organised by capability family; the task-oriented form runs during a task and produces the specific skills that task requires. Because the evaluation holds backbone, harness and execution budget constant and varies only skill availability, the reported gains isolate the contribution of the distilled operating context rather than of a stronger model or a longer run.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Compressed a tool interface into a learned token for invocation; this paper compresses a repository's operating procedure for correct use. Graphify Community 0.</span></li>
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Framed agent memory as episodic trace accumulated during a run; this paper builds the memory offline and shares it across tasks. Graphify Community 0.</span></li>
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Catalogued the planning, execution, memory and verification harness whose completeness this paper assumes in order to isolate the missing content layer. Graphify Community 0.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The failure mode fixed is rediscovery. Under the memory framing inherited from Huang 2026, an agent's useful knowledge is whatever it accumulated in the current or a similar past run, so a first encounter with a method costs full rediscovery and a subtly wrong configuration produces a plausible but broken result with no signal. DisCo removes that dependency by making the knowledge available before the first encounter and verified before use. Relative to ToolkenGPT, the limitation removed is narrower and sharper: knowing the call signature does not tell an agent which settings make the method work, and it is the settings that decide whether an ML task succeeds.</p>
+
+<h3>Method vs predecessors</h3>
+<p>ToolkenGPT put the compression in the parameters, learning an embedding per tool, which requires training and binds the knowledge to a checkpoint. DisCo puts the compression in text, producing artifacts that any backbone can read, which is why the evaluation can hold the backbone fixed and vary only the library. Against the memory line of work, the difference is direction of flow: episodic memory is written by the agent and read by itself later, while a skill library is written once by a distillation process and read by many agents on unrelated tasks, so the unit of reuse changes from a trajectory to a procedure. Verification is the third difference — entries are checked before admission, where episodic traces are not.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">The backbone-scaling answer to capability gains, against which this paper's fixed-backbone result is the contrast.</span></li>
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">A domain agent with a hand-built operator library — the artifact DisCo proposes to generate automatically.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

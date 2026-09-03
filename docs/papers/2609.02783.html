@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EarlyEval — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>EarlyEval: Cheaper Agent Evaluation via Early Outcome Prediction</h2>
+<p class="paper-meta">
+  Shi, Sun, Dong, Wan, Lo, Gu (SJTU, SMU, ECNU) &middot; arXiv 2026-09-02 &middot;
+  <a href="https://arxiv.org/abs/2609.02783" target="_blank" rel="noopener">arXiv:2609.02783</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>EarlyEval reduces the cost of evaluating LLM agents by halting runs whose outcome is already predictable from partial behaviour. A pair of LightGBM classifiers, one trained to recognise eventual success and one eventual failure, read behavioural, textual and reference-solution features at each step, and the run stops the moment either crosses a calibrated confidence threshold. Across SWE-bench Verified, TerminalBench and Toolathlon the method eliminates 13 to 26 percent of agent steps and up to 44.1 percent of input tokens and 29.4 percent of output tokens at 89 to 97 percent prediction accuracy, while per-agent resolve rates shift by only one to two percentage points on average. The per-step overhead of the classifiers is negligible relative to the model calls they replace.</p>
+
+<h3>Why</h3>
+<p>A single pass of a frontier model over an agentic benchmark costs hundreds to thousands of dollars, and that cost recurs on every iteration of development, which makes evaluation rather than training the binding constraint for many groups. Prior efficiency work centres on benchmark distillation: select a smaller representative subset of tasks and run those. That reduces the number of tasks but leaves the cost of each retained task untouched, so the two axes are complementary rather than competing. The observation this paper exploits is that agent trajectories are highly predictive of their own outcomes well before completion, so most of the tail of a run is spent confirming a conclusion already visible.</p>
+
+<h3>How</h3>
+<p>Two classifiers are used rather than one because the decision is asymmetric: stopping early on a confident success and stopping early on a confident failure carry different costs and are better calibrated separately. Features are drawn from three sources — the agent's behaviour, the text it produces, and the reference solution — and the thresholds are calibrated so the induced change in reported resolve rate stays small and quantified. Because the features are behavioural and textual rather than code-specific, the framework is not tied to software-engineering benchmarks, though all three evaluation suites happen to be execution-based.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="P92FLHJ2.html">Evaluating World Models (Vafa 2024)</a><span class="lineage-note">Asked whether an evaluation measures the capability it claims to; this paper takes validity as given and attacks measurement cost.</span></li>
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Catalogued agent capabilities and harnesses without costing their measurement. Graphify Community 0.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The failure mode fixed belongs to benchmark distillation rather than to either named parent: reducing the task count lowers total cost but also lowers the resolution of the estimate, and it does nothing about the fact that a single hard task can dominate the bill. EarlyEval leaves the task set intact, so estimate resolution is preserved, and cuts inside each run instead. Relative to Vafa, the limitation removed is different in kind — Vafa's concern was whether the number means what it claims, and this paper's is what the number costs to obtain, with a stated bound on the distortion introduced.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where the surveyed agent literature treats a trajectory as something to be run to completion and then scored, this paper treats it as a sequential-decision problem with a stopping rule, which is a change of statistical framing rather than of agent design. The predictors are deliberately small: gradient-boosted trees over engineered features, not a learned critic model, which keeps the overhead below the cost of one additional model call and makes the calibration tractable. The structural move matches Declarative Attention from the same day — spend a cheap predictor to avoid a large amount of work — applied to trajectory steps rather than to context positions.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2609.02737.html">Declarative Attention (Ho 2026)</a><span class="lineage-note">Same trade of a cheap prediction against a large read, on the context axis instead of the trajectory axis.</span></li>
+  <li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Also concerned with what intermediate agent state carries usable signal.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
