@@ -278,6 +278,42 @@
    "confidence_score": 0.9,
    "cross_area": true,
    "date_added": "2026-09-02"
+  },
+  {
+   "source": "938DAXZT",
+   "source_label": "World Models (Ha and Schmidhuber 2018)",
+   "target": "2609.02886",
+   "target_label": "SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models (2026)",
+   "relation": "builds_on",
+   "note": "Ha and Schmidhuber learned dynamics in one environment and treated the corpus as given; SolarWM treats the data contract itself as the object of study, because the obstacle is comparing models trained on incommensurable corpora.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-03"
+  },
+  {
+   "source": "JQ7JD8AR",
+   "source_label": "Navigation World Models (Bar 2024)",
+   "target": "2609.02886",
+   "target_label": "SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models (2026)",
+   "relation": "builds_on",
+   "note": "Bar pushed video world models toward controllable long-horizon rollout under camera and action conditioning; SolarWM supplies the corpus-level metric camera geometry that such conditioning assumes.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-03"
+  },
+  {
+   "source": "W44RSJJI",
+   "source_label": "DINO-WM (Zhou 2025)",
+   "target": "2609.02886",
+   "target_label": "SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models (2026)",
+   "relation": "builds_on",
+   "note": "DINO-WM held the representation fixed and let the task vary to make world models comparable; SolarWM holds the data fixed and lets the representation vary across four backbones, the complementary control that isolates the training recipe.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-03"
   }
  ],
  "hyperedges": [],

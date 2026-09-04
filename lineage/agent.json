@@ -988,6 +988,66 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-01"
+    },
+    {
+      "source": "hao2024_toolkengpt",
+      "source_label": "ToolkenGPT: Tool Embeddings for LLMs (Hao 2024)",
+      "target": "2609.02749",
+      "target_label": "Repo-To-Skill / DisCo: Distilling GitHub Repositories Into AI4AI Skills (2026)",
+      "relation": "builds_on",
+      "note": "ToolkenGPT compressed a tool's interface into a learned token so the model could call it; DisCo compresses a repository's operating procedure so the model can configure it correctly, moving the bridge from tool invocation to tool operation.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-03"
+    },
+    {
+      "source": "huang2026_memory",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "2609.02749",
+      "target_label": "Repo-To-Skill / DisCo: Distilling GitHub Repositories Into AI4AI Skills (2026)",
+      "relation": "builds_on",
+      "note": "The memory survey framed agent memory as episodic trace accumulated during a run; DisCo builds a curated and verified library offline and shares it across tasks, removing the dependency on having already met a similar problem.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-03"
+    },
+    {
+      "source": "durante2024_agentai",
+      "source_label": "Agent AI: Surveying Multimodal Interaction (Durante 2024)",
+      "target": "2609.02749",
+      "target_label": "Repo-To-Skill / DisCo: Distilling GitHub Repositories Into AI4AI Skills (2026)",
+      "relation": "builds_on",
+      "note": "Durante catalogued the planning, execution, memory and verification harness and placed know-how outside it; DisCo argues the harness is complete and the missing piece is the content loaded into it, holding backbone, harness and budget fixed to show it.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-03"
+    },
+    {
+      "source": "P92FLHJ2",
+      "source_label": "World Model Eval (Vafa 2024)",
+      "target": "2609.02783",
+      "target_label": "EarlyEval: Cheaper Agent Evaluation via Early Outcome Prediction (2026)",
+      "relation": "builds_on",
+      "note": "Vafa asked whether an evaluation measures the capability it claims to measure; EarlyEval accepts the measurement as correct and asks how much of each run can be discarded before the estimate degrades, which is a sampling question rather than a validity question.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-03"
+    },
+    {
+      "source": "durante2024_agentai",
+      "source_label": "Agent AI: Surveying Multimodal Interaction (Durante 2024)",
+      "target": "2609.02783",
+      "target_label": "EarlyEval: Cheaper Agent Evaluation via Early Outcome Prediction (2026)",
+      "relation": "builds_on",
+      "note": "Durante catalogued agent capabilities and the harness that produces them without costing their measurement; EarlyEval makes evaluation cost a first-class quantity and reports the accuracy-against-savings exchange rate.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-03"
     }
   ],
   "hyperedges": [

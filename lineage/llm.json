@@ -417,6 +417,42 @@
       "confidence_score": 0.9,
       "cross_area": true,
       "date_added": "2026-09-02"
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2609.02737",
+      "target_label": "Declarative Attention: Language Models Can Control Their Own Attention (2026)",
+      "relation": "builds_on",
+      "note": "Vaswani fixed the attention span as a property of the architecture; Declarative Attention makes the span a decision the model takes at run time, because a fixed span is no longer affordable at million-token context.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-03"
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2609.02737",
+      "target_label": "Declarative Attention: Language Models Can Control Their Own Attention (2026)",
+      "relation": "builds_on",
+      "note": "Wei used the reasoning trace to hold intermediate answers; here the trace holds control instructions the serving engine executes, which turns it from an output artifact into a compute-scheduling signal.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-03"
+    },
+    {
+      "source": "deepseek2024_v3",
+      "source_label": "DeepSeek-V3 Technical Report (2024)",
+      "target": "2609.02737",
+      "target_label": "Declarative Attention: Language Models Can Control Their Own Attention (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-V3 cut KV cache cost by compressing each key and value entry; this paper leaves the entry alone and declines to read most of them, so the two reductions compose.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-03"
     }
   ],
   "hyperedges": [],
