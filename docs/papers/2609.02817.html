@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cliff — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Cliff: Learning Process Rewards from the First Mistake</h2>
+<p class="paper-meta">
+  Han, Wang, Ramaneti, Hao, Friedland, Kong &middot; arXiv 2026-09-02 &middot;
+  <a href="https://arxiv.org/abs/2609.02817" target="_blank" rel="noopener">arXiv:2609.02817</a> &middot;
+  Appears in: <a href="../areas/reasoning.html">Reasoning</a>
+</p>
+
+<h3>What</h3>
+<p>Cliff is a reward-shaping rule for reinforcement learning with verifiable rewards. An off-the-shelf language model acting as teacher reads each rollout and marks the position of the first reasoning error. That single index splits the rollout into a correct prefix and an incorrect suffix, and Cliff turns the split into token-level advantages: positive before the break, negative after it. Across 12 scenarios it outperforms on-policy distillation by 15 percent and standard GRPO by 7 percent, and the gain survives when the teacher is of modest capability.</p>
+
+<h3>Why</h3>
+<p>RLVR trains on a single scalar per rollout, so credit for a long reasoning trace is spread uniformly over tokens that had nothing to do with the outcome. The two established fixes each add a constraint. Process reward models supply dense signal but require training and maintaining a separate reward model. On-policy distillation supplies dense signal from a teacher, but token-level matching only makes sense if teacher and student reason in similar patterns, which is an assumption that is rarely checked and, as recent audits in this library found, often does not hold. The authors start from an observation that removes the need for either: once a trace has gone wrong, grading the rest of it adds little, because everything after the error is conditioned on an invalid prefix. If that is true, the entire dense signal collapses to one number, the index of the first mistake.</p>
+
+<h3>How</h3>
+<p>For each rollout, a teacher LLM is asked to locate the first mistake. The rollout is decomposed at that index. Tokens in the prefix receive positive advantage, tokens in the suffix receive negative feedback, and the shaped advantages are fed to the usual policy-gradient update. Because the teacher's only output is a position, its capability requirement is much weaker than in distillation, where the teacher must produce a distribution the student can match. The paper also analyses the role of ground truth in the shaping rule and reports training dynamics, which is where the argument for stability sits.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Established that verifiable outcome rewards alone can train strong reasoning; that coarse scalar is the signal Cliff refines. Graphify Community 0.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Established the reasoning trace as an object with internal structure, which is what makes per-token credit assignment meaningful. Graphify Community 0.</span></li>
+  <li><a href="2608.31046.html">Does On-Policy Distillation Really Distill? (2026)</a><span class="lineage-note">Measured how much of on-policy distillation's gain actually comes from the teacher; Cliff answers by shrinking the teacher's job to one index.</span></li>
+  <li><a href="U4ZPM5DN.html">Latent-GRPO (Deng 2026)</a><span class="lineage-note">Also modifies the GRPO advantage computation, but in latent space rather than by locating an error position.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The failure mode Cliff fixes is credit dilution in outcome-only RLVR: DeepSeek-R1 style training assigns one scalar to a trace that may be right for three hundred tokens and wrong for ten, so the update pushes on the correct prefix in the same direction as the error. Process reward models remove the dilution but reintroduce a trained component that must itself be kept calibrated. On-policy distillation removes it by copying a teacher, and the audit paper in this library showed that when teacher and student reasoning patterns diverge the copied signal is partly noise. Cliff removes the dilution without either cost, and the reason it can is the absorbing-error assumption: because information about the trace is concentrated at one boundary, a teacher that is too weak to grade every step is still strong enough to find the boundary.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Against GRPO, the change is confined to the advantage computation, so the optimiser, rollouts, and verifier are unchanged; this is why the 7 percent figure is a clean read on the shaping rule alone. Against process reward modelling, the difference is where the density comes from: a PRM produces a score per step from learned parameters, while Cliff produces a sign per token from a single teacher-supplied index, so there is nothing to train and nothing to drift. Against on-policy distillation, the difference is the interface to the teacher: distillation consumes the teacher's distribution and therefore inherits its reasoning style, while Cliff consumes only a position and therefore does not. The paper's own framing, that the ground-truth answer plays a specific and analysable role in the shaping, is the part worth reading closely, because it determines whether the method extends to tasks where the final answer is not verifiable.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">The post-training pipeline this line of work sits inside.</span></li>
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Its evidence log makes the first unsupported numeric claim an explicit index, which is the structure Cliff needs; the combination is unbuilt.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

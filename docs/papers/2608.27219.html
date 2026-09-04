@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BALMS — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+
+<h2>BALMS: Benchmarking Agentic LLMs for Longitudinal Mental Health Sensing</h2>
+<p class="paper-meta">
+  Wu, Pillai, Chen, Zhang, Regmi, Griffin, Heinz, Marsch, Jacobson, Campbell (Dartmouth) &middot; EMNLP 2026 Main &middot; arXiv 2026-08-27 &middot;
+  <a href="https://arxiv.org/abs/2608.27219" target="_blank" rel="noopener">arXiv:2608.27219</a> &middot;
+  Appears in: <a href="../areas/llm-health.html">LLM-Health</a>
+</p>
+
+<h3>What</h3>
+<p>BALMS measures whether an LLM agent can read weeks or months of wearable behavioural and physiological signal and predict a self-report wellbeing score, together with a rationale that is grounded in the evidence rather than plausible on its face. It spans three real-world longitudinal datasets, two task families (closed-form wellbeing-score prediction, and rationale generation auto-graded by an LLM judge), three agentic paradigms, and five open and closed backbones. The headline finding is negative: zero-shot agents rarely beat a simple mean baseline, and beat it only with the strongest backbones or when the input is a compact set of semantically meaningful features rather than the raw stream. Chain-of-thought prompting improves reasoning-oriented backbones but does not guarantee temporal grounding or numerical correctness.</p>
+
+<h3>Why</h3>
+<p>Mental health assessment runs on episodic self-report scales, which produce a number but only at sparse intervals. Wearables supply the continuous signal that would close those gaps, and the recent personal-health-agent line of work supplies a natural-language interface over that signal. The problem is what those agents have actually been shown to do: retrieval-style lookups over short windows, such as the highest step count in a week. Nobody had tested whether the same agent can reason over a long history to predict a wellbeing score and say why. Prior health-LLM work established that a general model can read physiological features from a few examples, and prior benchmark work established that LLM time-series reasoning degrades with sequence length, but neither put an agent under a long-horizon target with the evidence graded.</p>
+
+<h3>How</h3>
+<p>The benchmark fixes three real-world longitudinal datasets and two task families, then varies the agentic paradigm and the backbone. Score prediction is closed-form and compared against the per-subject mean, which is the baseline that matters because wellbeing scores are strongly autocorrelated within a person. Rationale generation is graded by an LLM judge against the evidence available in the window. The paper adds efficiency and temporal-scaling analyses, which is where the retrieval problem shows itself: agents that are given more history do not use it selectively, so extra context buys tokens rather than accuracy. The stated requirements that follow are selective history retrieval, grounded temporal evidence, and interpretable behavioural features.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="ICD9EG8Q.html">GLOBEM (Xu 2023)</a><span class="lineage-note">Supplied the multi-year longitudinal behaviour datasets and the cross-dataset generalisation protocol that BALMS reuses for its evaluation. Graphify Community 5.</span></li>
+  <li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">Established that a general LLM can read physiological features with few examples; BALMS tests whether that holds at month-long horizons. Graphify Community 1.</span></li>
+  <li><a href="2603.06638.html">HEARTS: Benchmarking LLM Reasoning on Health Time Series (2026)</a><span class="lineage-note">Established the benchmark-first framing and the finding that LLMs lean on heuristics and degrade with sequence length; BALMS narrows the domain and adds the agentic loop.</span></li>
+  <li><a href="K4PR34NU.html">MindScape (Nepal 2024)</a><span class="lineage-note">Put an LLM on top of behavioural sensing for mental health as a generation interface; BALMS points the same pipeline at a held-out numeric target and grades it. Graphify Community 5.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The failure mode BALMS fixes is an evaluation gap rather than a modelling one. Few-Shot Health Learners and the personal-health-agent papers that followed it reported that language models can read sensor-derived features, but always over short windows and usually against baselines that a mean predictor would also pass. BALMS supplies the missing baseline and the missing horizon at once, and the result is that the reported capability largely disappears: on longitudinal wellbeing prediction the mean is competitive with a zero-shot agent. Relative to HEARTS, which showed single-shot LLM reasoning over health series degrading as sequences lengthen, BALMS shows that giving the model an agentic loop and letting it retrieve does not repair the degradation, because the agent does not retrieve selectively. Relative to GLOBEM, which measured whether a supervised model generalises across cohorts and years, BALMS shifts the measured object from model accuracy to agent policy quality, so a poor score now indicts the retrieval and grounding policy rather than the feature set.</p>
+
+<h3>Method vs predecessors</h3>
+<p>GLOBEM's protocol is supervised: fixed features, fixed splits, a trained predictor. BALMS keeps the datasets and removes the training, so what is being scored is a prompting and retrieval policy over the same data. HEARTS varies input format (text, image, raw file) to separate perception from reasoning across many health domains; BALMS holds the domain fixed at mental health and varies the agentic paradigm instead, which isolates the loop rather than the encoding. MindScape and the personal-health agents use the LLM's output as the product, so their evaluation is necessarily qualitative or user-facing; BALMS splits the output into a number that can be scored against ground truth and a rationale that can be scored against evidence, and grades them separately with an LLM judge. That split is what makes the negative result legible: the agents are not failing to write plausible rationales, they are failing to ground them.</p>
+
+<h3>Cross-area bridge</h3>
+<p>BALMS extends Few-Shot Health Learners, which already crosses Graphify Community 5 (Wearable Sensing &amp; Behavior) and Community 1 (Health AI &amp; Self-Supervised) in your library through its Sensor2Text bridge. The new work pushes that bridge further into evaluation: the crossing is no longer a demonstration that language models can touch sensor data, it is a measurement of how poorly they do so at long horizons, and it names the three capabilities that would close the gap.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">The tool-calling answer to the same grounding problem: force every numeric claim through an operator call recorded in an evidence log. BALMS does not evaluate this paradigm on longitudinal wellbeing.</span></li>
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">The alignment-training answer: teach a bridge from sensor stream to language instead of prompting over features.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Sets the pretrain-then-probe frame that the compact-feature result partly vindicates.</span></li>
+  <li><a href="2607.16235.html">OpenMHC (2026)</a><span class="lineage-note">The dataset-and-testbed counterpart: 60 million hours of wearable data with a shared benchmark, where BALMS supplies the agentic evaluation protocol.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

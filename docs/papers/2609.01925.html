@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRISP — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+
+<h2>CRISP: Cliff-awaRe Input-adaptive Sparse Prefilling with Structural-Mass-Motivated Routing</h2>
+<p class="paper-meta">
+  Nguyen, Nguyen, Dernoncourt, Rossi, Ngo Van, Chen, Nguyen (Adobe Research, Oregon, UAB) &middot; arXiv 2026-09-01 &middot;
+  <a href="https://arxiv.org/abs/2609.01925" target="_blank" rel="noopener">arXiv:2609.01925</a> &middot;
+  Appears in: <a href="../areas/llm.html">LLM</a>
+</p>
+
+<h3>What</h3>
+<p>CRISP makes two changes to dynamic sparse attention at prefill. First, it replaces Jensen-Shannon divergence routing with C_struct, a structural measure of attention mass at Vertical-Slash compatible positions; C_struct reproduces the JSD routing decisions while removing both the pooled matrix multiply and the KL computation that produced them. Second, it formalises a post-softmax mass cliff and shows theoretically that strictly cumulative coverage thresholds accumulate O(n) background noise as context grows, then replaces the cumulative threshold with a sink-aware one anchored at the noise floor. On InfiniteBench, RULER and LongBench across two model families it is the strongest sparse method overall, matches or exceeds exact dense attention on retrieval-heavy benchmarks, recovers up to 28.0 percentage points on retrieval tasks over baselines, and reaches a 5.30x attention speedup at 512k tokens.</p>
+
+<h3>Why</h3>
+<p>Prefill attention is quadratic, so on long inputs it dominates inference cost. Fixed sparse patterns and offline profiling cut the cost but cannot adapt to the fact that which heads need dense attention depends on the input. Recent dynamic methods route heads to patterns at run time, which fixes the adaptivity problem but introduces two new ones. The routing decision is made through an indirect proxy whose own computation costs something, and the budget allocation uses cumulative coverage thresholds that treat all remaining probability mass as equally worth keeping. The authors argue the second is the more damaging: post-softmax mass is not smoothly distributed but falls off a cliff, and a cumulative threshold set past that cliff spends its budget on background noise that grows linearly with context length.</p>
+
+<h3>How</h3>
+<p>C_struct is read directly off the structure of the proxy attention map by measuring how much mass sits at positions a Vertical-Slash pattern could capture, which is exactly the question the router is trying to answer, so no divergence needs to be computed. The threshold change follows from the noise-floor analysis: instead of accumulating mass until a coverage fraction is reached, CRISP identifies where the cliff falls, accounting for attention sinks, and stops there. The speedup is attributed primarily to eliminating the O(n) noise during selection rather than to a cheaper kernel, and the retrieval gain follows from the same change, since the noise that was being selected was displacing the tokens the retrieval task needed.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">Fixed the quadratic prefill cost that every sparse-attention method since has tried to remove. Graphify Community 2.</span></li>
+  <li><a href="2609.02737.html">Declarative Attention (2026)</a><span class="lineage-note">Attacks the same cost from the decode side by letting the model name the region it needs; CRISP acts at prefill, which Declarative Attention leaves untouched.</span></li>
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Reduced attention cost by compressing each cache entry rather than by skipping entries. Graphify Community 0.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The failure mode CRISP fixes belongs to the dynamic-routing line rather than to any single parent: sparse methods were losing accuracy on retrieval-heavy long-context tasks, and the assumed cause was that the sparse pattern was too aggressive. The mass-cliff analysis says the cause was the opposite. A cumulative coverage threshold keeps admitting positions past the cliff, and because that background mass scales with n, at long context the selected set is mostly noise and the genuinely informative tokens are crowded out of the budget. That is why the fix recovers up to 28.0 percentage points on retrieval while also being faster: removing the noise both shrinks the work and improves the selection. Relative to Vaswani, the limitation removed is that the sparsity pattern could not be chosen per input without paying for the choice. Relative to DeepSeek-V3, compressing every entry still requires touching every entry, so the saving there is capped by the compression ratio.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Earlier dynamic routers compute a divergence between a pooled proxy map and a reference, which requires a matrix multiply plus a KL evaluation before any attention is skipped. CRISP shows the same decision is a structural property of the proxy map and reads it off directly, so the router becomes almost free; this is an efficiency argument, not an accuracy one. The threshold change is the accuracy argument and is theoretical rather than empirical in origin: the O(n) noise accumulation is derived, then the sink-aware threshold is constructed to avoid it. Set beside Declarative Attention from yesterday, the two papers make the same general claim from opposite ends of the stack. Declarative Attention moves selection inside the model and applies it while decoding; CRISP keeps selection outside the model, derives it from the attention map, and applies it while prefilling. They are complementary and, as far as either paper reports, untested together.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="XNI34DQX.html">Mamba (Gu 2024)</a><span class="lineage-note">The other answer to the same cost: replace attention with a recurrent state instead of sparsifying it.</span></li>
+  <li><a href="2603.06638.html">HEARTS (2026)</a><span class="lineage-note">Documents LLM accuracy falling as health series lengthen, which is the applied setting where prefill cost and long-context selection both bite.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
