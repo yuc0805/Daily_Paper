@@ -1048,6 +1048,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-03"
+    },
+    {
+      "source": "huang2026_memory",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "2608.31111",
+      "target_label": "Aspire: Can Models Self-Evolve from Vague Goals? (2026)",
+      "relation": "builds_on",
+      "note": "The memory survey asked what an agent carries forward across episodes while assuming the objective is given; ASPIRE removes the objective and asks whether the agent can construct one, since specifying the metric is the part of research work self-evolution claims implicitly cover.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-04"
+    },
+    {
+      "source": "durante2024_agentai",
+      "source_label": "Agent AI: Surveying Multimodal Interaction (Durante 2024)",
+      "target": "2608.31111",
+      "target_label": "Aspire: Can Models Self-Evolve from Vague Goals? (2026)",
+      "relation": "builds_on",
+      "note": "Durante set the scope of an agent system including the harness around the model; ASPIRE evaluates weight-level and harness-level self-modification in one environment and finds the best evolved harness stays below the engineered Qwen-Agent reference.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-04"
+    },
+    {
+      "source": "2609.02749",
+      "source_label": "Repo-To-Skill / DisCo: Distilling GitHub Repositories Into AI4AI Skills (2026)",
+      "target": "2608.31111",
+      "target_label": "Aspire: Can Models Self-Evolve from Vague Goals? (2026)",
+      "relation": "builds_on",
+      "note": "DisCo improved a fixed agent with verified skills mined from an external corpus; ASPIRE denies the agent both the corpus and the verification target, and the reported failure sits at that seam, since agents trust narrow self-evaluations and local gains do not transfer to the hidden set.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-04"
     }
   ],
   "hyperedges": [

@@ -706,6 +706,54 @@
       "cross_area": false,
       "date_added": "2026-08-19",
       "note": "Yuan 2024 established large-scale self-supervised pretraining for wearable sensor streams; FOUND-AF adds the evaluation-side control that line lacked, namely recording-level grouped cross-validation, which removes the within-subject leakage that inflates most published ECG numbers."
+    },
+    {
+      "source": "xu2023_globem",
+      "source_label": "GLOBEM: Multi-Year Human Behavior Datasets (Xu 2023)",
+      "target": "2608.27219",
+      "target_label": "BALMS: Benchmarking Agentic LLMs for Longitudinal Mental Health Sensing (2026)",
+      "relation": "builds_on",
+      "note": "GLOBEM fixed the longitudinal datasets and the cross-dataset generalisation protocol for supervised wellbeing prediction; BALMS keeps both and replaces the supervised predictor with an agent that chooses its own history, so the measured quantity moves from model accuracy to agent policy quality.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-04"
+    },
+    {
+      "source": "liu2023_health_llm",
+      "source_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
+      "target": "2608.27219",
+      "target_label": "BALMS: Benchmarking Agentic LLMs for Longitudinal Mental Health Sensing (2026)",
+      "relation": "builds_on",
+      "note": "Few-Shot Health Learners showed a general language model can read a short window of physiological features; BALMS asks whether that reading survives months of context and finds it does not, since zero-shot agents rarely beat the per-subject mean.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-04"
+    },
+    {
+      "source": "nepal2024_mindscape",
+      "source_label": "MindScape: LLM + Behavioral Sensing Journaling (Nepal 2024)",
+      "target": "2608.27219",
+      "target_label": "BALMS: Benchmarking Agentic LLMs for Longitudinal Mental Health Sensing (2026)",
+      "relation": "builds_on",
+      "note": "MindScape put a language model on top of behavioural sensing as a generation interface written back to the participant; BALMS points the same pipeline at a held-out numeric target and grades both the score and the rationale.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-04"
+    },
+    {
+      "source": "2603.06638",
+      "source_label": "HEARTS: Benchmarking LLM Reasoning on Health Time Series (2026)",
+      "target": "2608.27219",
+      "target_label": "BALMS: Benchmarking Agentic LLMs for Longitudinal Mental Health Sensing (2026)",
+      "relation": "builds_on",
+      "note": "HEARTS scored single-shot reasoning over health time series across many domains; BALMS narrows to mental health but adds the agentic loop and rationale grading, so the failure it isolates is retrieval and temporal grounding rather than perception.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-04"
     }
   ],
   "hyperedges": [

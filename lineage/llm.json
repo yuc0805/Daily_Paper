@@ -453,6 +453,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-03"
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2609.01925",
+      "target_label": "CRISP: Cliff-awaRe Input-adaptive Sparse Prefilling with Structural-Mass-Motivated Routing (2026)",
+      "relation": "builds_on",
+      "note": "Vaswani made every query read every key and fixed the quadratic prefill cost; CRISP keeps the architecture and decides per input which heads can afford a sparse pattern, so the saving is a serving decision rather than a training one.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-04"
+    },
+    {
+      "source": "2609.02737",
+      "source_label": "Declarative Attention: Language Models Can Control Their Own Attention (2026)",
+      "target": "2609.01925",
+      "target_label": "CRISP: Cliff-awaRe Input-adaptive Sparse Prefilling with Structural-Mass-Motivated Routing (2026)",
+      "relation": "builds_on",
+      "note": "Declarative Attention put the selection decision inside the model's own output stream and applied it at decode time; CRISP keeps the decision outside the model, reads it off a proxy attention map, and applies it at prefill, so the two act on complementary halves of the same cost.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-04"
+    },
+    {
+      "source": "deepseek2024_v3",
+      "source_label": "DeepSeek-V3 Technical Report (2024)",
+      "target": "2609.01925",
+      "target_label": "CRISP: Cliff-awaRe Input-adaptive Sparse Prefilling with Structural-Mass-Motivated Routing (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-V3 shrank the cost of reading each cache entry by compressing it; CRISP declines to read most entries at all, and adds the diagnostic that a cumulative coverage threshold admits O(n) background mass at long context.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-04"
     }
   ],
   "hyperedges": [],

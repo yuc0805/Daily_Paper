@@ -805,6 +805,42 @@
       "confidence_score": 0.9,
       "cross_area": true,
       "date_added": "2026-09-01"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1 (2025)",
+      "target": "2609.02817",
+      "target_label": "Cliff: Learning Process Rewards from the First Mistake (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 gave one scalar per rollout and let the optimiser spread that credit over every token; Cliff spends one teacher call to locate the first error and shapes token-level advantage around that index.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-04"
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2609.02817",
+      "target_label": "Cliff: Learning Process Rewards from the First Mistake (2026)",
+      "relation": "builds_on",
+      "note": "Wei established the reasoning trace as an object with internal structure, which is what makes per-token credit assignment meaningful; Cliff uses that structure to split each rollout into a rewarded prefix and a penalised suffix.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-04"
+    },
+    {
+      "source": "2608.31046",
+      "source_label": "Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement (2026)",
+      "target": "2609.02817",
+      "target_label": "Cliff: Learning Process Rewards from the First Mistake (2026)",
+      "relation": "builds_on",
+      "note": "The on-policy distillation audit asked how much signal the teacher actually supplies; Cliff answers by reducing the teacher's job to pointing at a single index, which is why teachers of modest capability still work.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-04"
     }
   ],
   "hyperedges": [],
