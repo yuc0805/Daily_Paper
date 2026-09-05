@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Gated DeltaNet Survives 4-Bit Quantization — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/mamba.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Why Gated DeltaNet Survives 4-Bit Quantization: NVFP4 W4A4 for the Recurrent Half of a Hybrid 27B LLM</h2>
+<p class="paper-meta">
+  Kozyrev, Maiboroda (Minima AI) &middot; arXiv 2026-09-03 &middot;
+  <a href="https://arxiv.org/abs/2609.04098" target="_blank" rel="noopener">arXiv:2609.04098</a> &middot;
+  Appears in: <a href="../areas/mamba.html">MAMBA</a>
+</p>
+
+<h3>What</h3>
+<p>The authors quantize all 496 linear layers of a hybrid 27B model to NVFP4 W4A4, including the Gated DeltaNet recurrent layers and their decay and write-strength gates, using calibration-only post-training quantization with no quantization-aware training and no distillation. The result matches BF16 within seed noise, a five-task average of minus 0.52, across MMLU-Pro, GSM8K, AIME'25, GPQA-Diamond, LiveCodeBench and RULER retrieval to 64K, while being the smallest recipe compared at 17.5 GiB and 14 to 19 percent faster at prefill than partial quantizations.</p>
+
+<h3>Why</h3>
+<p>Hybrid LLMs pair softmax attention with linear-attention layers whose recurrent state summarizes the context in fixed size. Every community 4-bit quantization of Qwen3.8-27B kept the recurrent block at 8 or 16 bit, on the intuition that an error injected into a recurrence accumulates over long contexts. That intuition was never tested; it was inherited from the general behaviour of recurrent numerical systems. If it is wrong, the field is paying a substantial memory and prefill cost for nothing, and the paper's contribution is to test it directly rather than to propose a new algorithm.</p>
+
+<h3>How</h3>
+<p>A four-part mechanism study explains the negative finding. NVFP4's 16-element block scaling localizes the residual stream's extreme outliers and equalizes activation error across layer roles. The supposedly fragile gate projections turn out to be the least sensitive layers, because softplus, exponential and sigmoid parameterizations compress about 11 percent GEMM error to about 2 percent output error. The delta-rule recurrence holds injected noise at a flat plateau over 32K tokens and forgets a state impulse within hundreds of steps, because each write overwrites the state along the current key direction. Per-token quantization cost therefore washes out with context instead of compounding, and the 32K perplexity gap shrinks with position. The paper also repairs a global-scale mismatch that appears when per-module-calibrated checkpoints are served by kernels that fuse those modules into one GEMM.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="6VTXUZEG.html">Audio Mamba (Erol 2024)</a><span class="lineage-note">Established that a fixed-size recurrent state can carry a long continuous sequence in place of attention.</span></li>
+  <li><a href="ZS87LF7R.html">MambaOut (2024)</a><span class="lineage-note">Asked when the recurrence actually contributes; this paper turns the same ablation question on numerical precision rather than presence.</span></li>
+  <li><a href="743XA29Y.html">DeepSeek-V2 (2024)</a><span class="lineage-note">The competing answer to the same memory problem: compress the KV cache rather than replace it with a recurrence.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The state-space entries in the library establish what a fixed-size recurrent state can represent but say nothing about how much numerical precision it needs, and the deployment literature filled that gap with an assumption. The failure mode fixed here is that assumption: partial quantizations protect the recurrent half at a cost of roughly 2.9x in memory relative to the 4-bit recipe and 14 to 19 percent in prefill speed, and the protection buys nothing measurable. The explanation offered is structural rather than empirical, which is what makes it likely to transfer to other delta-rule architectures.</p>
+
+<h3>Method vs predecessors</h3>
+<p>MambaOut removed the recurrence to ask whether it mattered; this paper degrades it to ask how precisely it must be computed, which is a finer instrument and yields a mechanism instead of a yes or no. The key technical claim is that the delta rule is contractive along the write direction, so quantization noise is overwritten rather than integrated. Against DeepSeek-V2 the comparison shifts: if the recurrent half is also the cheap half to quantize, the memory argument for latent KV compression weakens relative to hybrid designs that carry a fixed-size state.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="AVTJLZIR.html">Bi-Mamba+ (2024)</a><span class="lineage-note">State-space model applied to long time series; the natural target for testing the delta-rule precision claim on sensor streams.</span></li>
+  <li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">On-body activity recognition with a bidirectional Mamba, where 4-bit recurrent inference would matter most.</span></li>
+  <li><a href="J34W7WZC.html">Vision Mamba (2024)</a><span class="lineage-note">Establishes the fixed-size-state design outside language.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

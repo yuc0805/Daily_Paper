@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-04",
+  "date": "2026-09-05",
   "papers": [
     {
-      "zotero_key": "2608.27219",
-      "title": "BALMS: Benchmarking Agentic LLMs for Longitudinal Mental Health Sensing",
-      "authors": "Wu, Pillai, Chen, Zhang, Regmi, Campbell et al. (Dartmouth)",
+      "zotero_key": "2609.01507",
+      "title": "LatentPress: Context Compression Beyond Text and Vision",
+      "authors": "Zhou, Sang",
       "year": 2026,
-      "what": "Measures whether an LLM agent can read months of wearable signal and predict a self-report wellbeing score with a grounded rationale, across 3 longitudinal datasets, 2 task families, 3 agentic paradigms and 5 backbones, and finds that zero-shot agents rarely beat a per-subject mean baseline except with the strongest backbones or with compact semantic features.",
-      "area_label": "LLM-Health",
-      "area_slug": "llm-health",
-      "builds_on": "GLOBEM (Xu 2023, ICD9EG8Q); LLMs are Few-Shot Health Learners (Liu 2023, JX3X3KH5); HEARTS (2026, 2603.06638); MindScape (Nepal 2024, K4PR34NU)"
-    },
-    {
-      "zotero_key": "2609.02817",
-      "title": "Cliff: Learning Process Rewards from the First Mistake",
-      "authors": "Han, Wang, Ramaneti, Hao, Friedland, Kong",
-      "year": 2026,
-      "what": "Uses an off-the-shelf LLM to mark the first reasoning error in each rollout, splits the trace at that index into a correct prefix and an incorrect suffix, and turns the split into token-level advantages, beating on-policy distillation by 15 percent and GRPO by 7 percent across 12 scenarios even with weak teachers.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought Prompting (Wei 2023, HBLPTRMY); Does On-Policy Distillation Really Distill? (2026, 2608.31046)"
-    },
-    {
-      "zotero_key": "2608.31111",
-      "title": "Aspire: Can Models Self-Evolve from Vague Goals?",
-      "authors": "Wu, Zhang, Shi, Lei, Zhou et al. (ByteDance Seed)",
-      "year": 2026,
-      "what": "Gives an agent only a natural-language capability goal with the evaluation tasks hidden, so it must choose data, update method and stopping rule itself, and finds across 520 expert-authored items in six goals that weight-level gains are sparse and unstable, the best evolved harness stays below the engineered Qwen-Agent reference, and continued search can erase earlier gains.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Memory Mechanisms Survey (Huang 2026, BDY3HUCV); Agent AI Survey (Durante 2024, Z9WZPMNU); Repo-To-Skill (2026, 2609.02749)"
-    },
-    {
-      "zotero_key": "2609.01925",
-      "title": "CRISP: Cliff-awaRe Input-adaptive Sparse Prefilling with Structural-Mass-Motivated Routing",
-      "authors": "Nguyen, Nguyen, Dernoncourt, Rossi, Chen, Nguyen",
-      "year": 2026,
-      "what": "Replaces divergence-based sparse-attention routing with a structural mass measure read straight off the proxy attention map, and shows that cumulative coverage thresholds admit O(n) background noise at long context, so a sink-aware threshold recovers up to 28.0 percentage points on retrieval tasks while reaching a 5.30x attention speedup at 512k tokens.",
+      "what": "Writes conversation histories and long documents into continuous memory tokens that a frozen decoder reads through its input-embedding port, hitting 0.504 on LongMemEval at 7.70x compression against 0.490 for uncompressed evidence and 0.184 for text summaries, while training only a 4.2M to 26.2M parameter adapter.",
       "area_label": "LLM",
       "area_slug": "llm",
-      "builds_on": "Attention Is All You Need (Vaswani 2017, PHB9VRVM); Declarative Attention (2026, 2609.02737); DeepSeek-V3 (2024, 2JCKA7GI)"
+      "builds_on": "Time-LLM (2024, MKICLA63); ChatTS (Xie 2025, VSCNJG5J); DeepSeek-V2 (2024, 743XA29Y)"
+    },
+    {
+      "zotero_key": "2609.03430",
+      "title": "Random Attention: Rethinking KV Cache Eviction for Efficient Reasoning",
+      "authors": "Wang, Qiu, Zhao, Qian, Yang, Han, Ji, Savarese, Heinecke, Wang (Salesforce)",
+      "year": 2026,
+      "what": "Keeps the prompt and evicts KV cache entries uniformly at random inside each head with no scoring at all, matching the strongest prior evictor across four models and six reasoning tasks while serving 32 to 43 percent higher throughput, because the prompt is the fragile part and the reasoning trace is redundant in text and across heads.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "Attention Is All You Need (Vaswani 2017, PHB9VRVM); DeepSeek-V2 (2024, 743XA29Y); DeepSeek-R1 (2025, Z5IWHZAE)"
+    },
+    {
+      "zotero_key": "2609.04172",
+      "title": "Rethinking On-Policy Distillation of Large Language Models II: One Training Example",
+      "authors": "Fu, He, Zuo, Huang, Zhang et al. (Thinking Space)",
+      "year": 2026,
+      "what": "Trains on-policy distillation on a single query and still recovers most of full-data gain, because one query's rollouts already reach 71.5 percent of the states full-data training visits and 16 semantically distinct queries reach 98.9 percent, so the method is data-overfed and algorithm-starved rather than data-starved.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "Does On-Policy Distillation Really Distill? (2026, 2608.31046); Cliff (2026, 2609.02817); DeepSeek-R1 (2025, Z5IWHZAE)"
+    },
+    {
+      "zotero_key": "2609.04098",
+      "title": "Why Gated DeltaNet Survives 4-Bit Quantization: NVFP4 W4A4 for the Recurrent Half of a Hybrid 27B LLM",
+      "authors": "Kozyrev, Maiboroda (Minima AI)",
+      "year": 2026,
+      "what": "Quantizes all 496 linear layers of a hybrid 27B model to 4-bit NVFP4 including the Gated DeltaNet gates that everyone else protects, matches BF16 within seed noise at 17.5 GiB and 14 to 19 percent faster prefill, and explains it by showing the delta rule overwrites the state along each new key direction so injected noise is forgotten within hundreds of steps.",
+      "area_label": "MAMBA",
+      "area_slug": "mamba",
+      "builds_on": "Audio Mamba (Erol 2024, 6VTXUZEG); MambaOut (2024, ZS87LF7R); DeepSeek-V2 (2024, 743XA29Y)"
     }
   ]
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Attention: Rethinking KV Cache Eviction for Efficient Reasoning — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Random Attention: Rethinking KV Cache Eviction for Efficient Reasoning</h2>
+<p class="paper-meta">
+  Wang, Qiu, Zhao, Qian, Yang, Han, Ji, Savarese, Heinecke, Wang (Salesforce AI Research) &middot; arXiv 2026-09-03 &middot;
+  <a href="https://arxiv.org/abs/2609.03430" target="_blank" rel="noopener">arXiv:2609.03430</a> &middot;
+  Appears in: <a href="../areas/llm.html">LLM</a>
+</p>
+
+<h3>What</h3>
+<p>Random Attention is a KV cache eviction rule that computes no score at all: it keeps the prompt and evicts uniformly at random within each attention head. Across four models and six reasoning tasks it matches the strongest prior evictor, and it serves 32 to 43 percent higher throughput than that evictor in vLLM deployment because it skips the scoring pass. Two controlled experiments supply the explanation rather than leaving the result as a curiosity.</p>
+
+<h3>Why</h3>
+<p>Long chains of thought make the KV cache a memory bottleneck, and every published compression method addresses this the same way: score each cached token by an estimate of how much it will matter later, keep the top-scoring ones. The methods differ in the estimator and are compared against each other on downstream accuracy. That comparison never included a no-score control, so the field had no measurement of how much the selection signal itself contributes. Without that control, improvements attributed to better scoring could have come from any correlated property of the rule.</p>
+
+<h3>How</h3>
+<p>The rule is uniform random eviction within each head, with the prompt exempt. The two supporting experiments isolate why it works. First, the prompt is shown to be the fragile part of the cache, and most of the measured gap between competing scorers reduces to whether their signal happened to retain it. Second, the reasoning trace is shown to be redundant at two levels: in the text, because the model restates what it still needs as it works, and across attention heads, because each head keeps its own copy of the trace. Once the prompt is protected, a random draw therefore retains enough copies of whatever the model still needs.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">The KV cache and its linear growth in context length follow directly from this attention formulation.</span></li>
+  <li><a href="743XA29Y.html">DeepSeek-V2 (2024)</a><span class="lineage-note">Attacks the same memory bottleneck by compressing the cache into a low-rank latent rather than evicting from it.</span></li>
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Produced the long RL-trained reasoning traces that make the cache a bottleneck, and whose redundancy this paper exploits.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The failure mode this paper fixes is not a performance failure but a measurement failure in the eviction literature. By supplying the missing no-score control, it reassigns credit for a family of reported gains to a single confound, prompt retention, and shows that the elaborate part of each method was carrying almost none of the effect. The practical consequence is that the scoring pass, which costs latency at every decode step, can be deleted outright for 32 to 43 percent more throughput.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where DeepSeek-V2 reduces the per-token cost of the cache with a learned low-rank latent, Random Attention reduces the token count with no learning and no per-token computation. The deeper difference is in what each method assumes about the data. Latent compression assumes the cache content is dense and must be preserved in compressed form; Random Attention measures that the content of an RL-trained reasoning trace is duplicated across text positions and across heads, so preservation of specific tokens is unnecessary. That property is specific to traces of the kind DeepSeek-R1 introduced, which is why the result was not available earlier.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2609.01925.html">CRISP (2026)</a><span class="lineage-note">Sparse prefilling with a structural-mass routing signal; the same scoring paradigm this paper argues is unnecessary at eviction time.</span></li>
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Scale regime in which cache memory dominates serving cost.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

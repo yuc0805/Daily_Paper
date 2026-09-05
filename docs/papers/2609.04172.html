@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rethinking On-Policy Distillation II: One Training Example — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Rethinking On-Policy Distillation of Large Language Models II: One Training Example</h2>
+<p class="paper-meta">
+  Fu, He, Zuo, Huang, Zhang, Xiao, Qian, Luo, Gao, Wang, Liu, Ding, Xiao (Thinking Space) &middot; arXiv 2026-09-03 &middot;
+  <a href="https://arxiv.org/abs/2609.04172" target="_blank" rel="noopener">arXiv:2609.04172</a> &middot;
+  Appears in: <a href="../areas/reasoning.html">Reasoning</a>
+</p>
+
+<h3>What</h3>
+<p>The paper studies the role of training data in on-policy distillation by pushing it to the data-minimal limit: a single query. One-shot OPD keeps improving for hundreds of steps and recovers most of full-data OPD's gain across task domains and model families. The measured explanation is state coverage, defined as the fraction of the states full-data OPD visits that a query set's rollouts reach. One query already reaches 71.5 percent, most of it within the first 100 steps; 16 semantically distinct queries reach 98.9 percent and match full-data training. Alignment slows at a similar rate whether training uses one query or the whole dataset, so the method is data-overfed and algorithm-starved.</p>
+
+<h3>Why</h3>
+<p>On-policy distillation combines student-generated rollouts with dense token-level supervision from a teacher, and it has become a standard component of frontier post-training. Existing work studied its algorithmic behaviour and left the contribution of the training data unexamined. Without that measurement, the field could not distinguish between two very different accounts of why OPD works: that a large curated query set exposes the student to task content it needs, or that any query set that induces the right distribution of visited states would do.</p>
+
+<h3>How</h3>
+<p>The authors train OPD on query sets of increasing size, starting from one, and instrument state coverage against a full-data reference run. Coverage and validation accuracy rise together up to 16 queries, then saturate. The result is stress-tested in three ways: it extends to multi-teacher OPD, where 16 semantically diverse queries per domain match full-data training; content-light templates approach the real-query baseline; and off-domain WildChat queries do too. Task content and induced state coverage therefore come apart, which rules out the content account.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="2608.31046.html">Does On-Policy Distillation Really Distill? (2026)</a><span class="lineage-note">Removed the teacher's supervision and found student performance essentially unchanged; this paper removes the data instead and finds the same.</span></li>
+  <li><a href="2609.02817.html">Cliff: Learning Process Rewards from the First Mistake (2026)</a><span class="lineage-note">Attacks the same method from the credit-assignment side by splitting each rollout at the first error.</span></li>
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">The RL-with-verifiable-rewards regime that on-policy distillation is measured against.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Its immediate predecessor showed that OPD's teacher signal is noisy and largely dispensable, which left open whether the remaining gain came from dataset scale. That is the failure mode this paper closes: it shows that scale is dispensable too, so neither the teacher's per-token scores nor the size of the query set explains the result. What remains is the student's own rollout distribution and the slow rate at which the student absorbs a fixed set of states, which is a claim about the optimisation algorithm rather than about supervision or data.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The new instrument is state coverage. Where the earlier audit measured supervision quality, an attribute of the teacher, this paper measures which states the rollouts reach, an attribute of the trajectory distribution, and that is what turns the one-query result into an explanation rather than an anecdote. Cliff moves in the opposite direction by accepting the teacher and improving where the signal lands. Read together the three papers now bracket on-policy distillation from the data side, the supervision side and the credit-assignment side, and only the credit-assignment intervention still produces a clear gain.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Established the reasoning trace as the object these post-training methods transfer.</span></li>
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">The large-teacher regime whose scale earlier work showed makes supervision noisier rather than cleaner.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

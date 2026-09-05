@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LatentPress: Context Compression Beyond Text and Vision — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+
+<h2>LatentPress: Context Compression Beyond Text and Vision</h2>
+<p class="paper-meta">
+  Zhou, Sang &middot; arXiv 2026-09-01 &middot;
+  <a href="https://arxiv.org/abs/2609.01507" target="_blank" rel="noopener">arXiv:2609.01507</a> &middot;
+  Appears in: <a href="../areas/llm.html">LLM</a>
+</p>
+
+<h3>What</h3>
+<p>LatentPress writes conversational histories and long documents into continuous memory tokens that a frozen decoder reads directly through its input-embedding interface, with no text reconstruction at inference time. A small reader-matched writer performs 4x to 16x compression while training only an adapter of 4.2M to 26.2M parameters, roughly 0.1 percent of the decoder. On LongMemEval it reaches 0.504 accuracy at 7.70x compression, against 0.490 for uncompressed evidence, 0.184 for text summaries and 0.426 down to 0.312 for OCR-based compression. On LongBench-QA, in-domain writers match or exceed raw-context reading at 4x to 8x, while 16x trails raw. Writing takes 43 ms per conversation and reading is 5x to 9x faster than raw context or cached OCR.</p>
+
+<h3>Why</h3>
+<p>Compressed context is normally carried in one of two formats: human-readable text, produced by summarisation, or rendered images, read back by OCR or a vision encoder. Both formats exist for human legibility, yet the consumer is a language model, and both force a decode step that costs latency and loses information. The measured penalty is large: on LongMemEval a text summary scores 0.184 where the uncompressed evidence scores 0.490, so the summarisation pipeline discards most of the usable signal. The question the paper asks is whether a third representation, one that is not meant to be read by a person at all, can carry more information per token at lower cost.</p>
+
+<h3>How</h3>
+<p>A writer model, matched in size and tokenizer to the reader decoder, encodes a conversation or document into a short sequence of continuous vectors. Those vectors are fed to the frozen decoder through the same interface that ordinary token embeddings use, so the decoder requires no modification and no fine-tuning. Only an adapter between writer and reader is trained. Transfer is validated in two settings: zero-shot from UltraChat to LongMemEval memory question answering, and from LongMemEval-derived question answering to unseen LongBench document domains, which establishes that the memory tokens are not tied to the training task.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="MKICLA63.html">Time-LLM (2024)</a><span class="lineage-note">Established that a frozen LLM will read a non-text modality when a small trainable adapter reprograms it into the input-embedding space; LatentPress uses the same port for compressed text.</span></li>
+  <li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">Trains a bridge that aligns numeric series with language, the Community 4 version of the same interface question.</span></li>
+  <li><a href="743XA29Y.html">DeepSeek-V2 (2024)</a><span class="lineage-note">Multi-head latent attention attacks the same memory cost by compressing the KV cache in a low-rank latent instead of compressing the input.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Time-LLM and ChatTS both showed that a frozen decoder's embedding port will accept vectors produced by a trained adapter, but neither reported how much information that port can carry, at what compression ratio, or at what read and write cost. The failure mode this leaves is a practical one: an engineer cannot decide whether to route a source through the embedding port or through a text summary, because the two have never been compared on the same task. LatentPress fixes that by running the comparison in text, where a strong same-modality baseline exists, and the gap it measures is wide enough to settle the question: 0.504 for memory tokens against 0.184 for text summaries at comparable budget.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to Time-LLM, the adapter is reader-matched and trained on a compression objective rather than a forecasting objective, and the source is text rather than a numeric series, which removes the modality gap as a confound and isolates the capacity of the interface itself. Compared to DeepSeek-V2, the compression happens at a different point in the stack: multi-head latent attention shrinks the per-token state inside attention and leaves the token count unchanged, while LatentPress shrinks the token count at the input and leaves attention untouched. The two are composable rather than alternatives, and the paper's latency numbers, 43 ms to write and a 5x to 9x faster read, are the cost of the input-side option.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">The opposite design choice: give the LLM tools that see the source rather than an adapter that writes it into the embedding space.</span></li>
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Aligns sensor streams with language through training; the natural target for porting soft-token compression to wearable data.</span></li>
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Surveys the memory representations agents use; LatentPress supplies a concrete non-text option.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
