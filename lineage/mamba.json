@@ -224,6 +224,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-01"
+    },
+    {
+      "source": "erol2024_audiomamba",
+      "source_label": "Audio Mamba: Bidirectional SSM for Audio (Erol 2024)",
+      "target": "2609.04098",
+      "target_label": "Why Gated DeltaNet Survives 4-Bit Quantization: NVFP4 W4A4 for the Recurrent Half of a Hybrid 27B LLM (2026)",
+      "relation": "builds_on",
+      "note": "Audio Mamba established what a fixed-size recurrent state can represent over a long continuous sequence; this paper measures how much numerical precision that state needs and answers four bits.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-05"
+    },
+    {
+      "source": "ZS87LF7R",
+      "source_label": "MambaOut (Yu 2024)",
+      "target": "2609.04098",
+      "target_label": "Why Gated DeltaNet Survives 4-Bit Quantization: NVFP4 W4A4 for the Recurrent Half of a Hybrid 27B LLM (2026)",
+      "relation": "builds_on",
+      "note": "MambaOut asked when the recurrence contributes at all; this paper turns the same ablation on precision rather than presence and inverts the inherited assumption that the recurrent half is the fragile part of a hybrid model.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-05"
+    },
+    {
+      "source": "743XA29Y",
+      "source_label": "DeepSeek-V2 (2024)",
+      "target": "2609.04098",
+      "target_label": "Why Gated DeltaNet Survives 4-Bit Quantization: NVFP4 W4A4 for the Recurrent Half of a Hybrid 27B LLM (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-V2 answers the same memory problem by compressing the KV cache rather than replacing it with a recurrence; if the recurrent half is also the cheap half to quantize, the memory argument for latent KV compression weakens relative to hybrid designs.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-05"
     }
   ],
   "hyperedges": [

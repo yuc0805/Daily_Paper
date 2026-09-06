@@ -841,6 +841,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-04"
+    },
+    {
+      "source": "2608.31046",
+      "source_label": "Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement (2026)",
+      "target": "2609.04172",
+      "target_label": "Rethinking On-Policy Distillation of Large Language Models II: One Training Example (2026)",
+      "relation": "builds_on",
+      "note": "That paper removed the teacher and kept the data; this one keeps the teacher and removes the data, and both recover most of the gain, which places the remaining contribution in the student's own rollout distribution rather than in teacher scores or dataset scale.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-05"
+    },
+    {
+      "source": "2609.02817",
+      "source_label": "Cliff: Learning Process Rewards from the First Mistake (2026)",
+      "target": "2609.04172",
+      "target_label": "Rethinking On-Policy Distillation of Large Language Models II: One Training Example (2026)",
+      "relation": "builds_on",
+      "note": "Cliff accepts the teacher and improves where the signal is placed; this paper removes the data instead, so the two together bracket on-policy distillation from the credit-assignment side and the data side.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-05"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2609.04172",
+      "target_label": "Rethinking On-Policy Distillation of Large Language Models II: One Training Example (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 supplies the reinforcement-learning-with-verifiable-rewards regime that on-policy distillation is measured against, and state coverage is the new instrument used to compare them.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-05"
     }
   ],
   "hyperedges": [],

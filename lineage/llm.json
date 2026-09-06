@@ -489,6 +489,78 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-04"
+    },
+    {
+      "source": "MKICLA63",
+      "source_label": "Time-LLM (Jin 2024)",
+      "target": "2609.01507",
+      "target_label": "LatentPress: Context Compression Beyond Text and Vision (2026)",
+      "relation": "builds_on",
+      "note": "Time-LLM established that a frozen decoder will read a non-text modality if a small adapter reprograms it into the input-embedding space; LatentPress measures how much that same port can carry, reaching 4x to 16x compression while training only a 4.2M to 26.2M parameter adapter.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-05"
+    },
+    {
+      "source": "xie2025_chatts",
+      "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
+      "target": "2609.01507",
+      "target_label": "LatentPress: Context Compression Beyond Text and Vision (2026)",
+      "relation": "builds_on",
+      "note": "ChatTS aligned numeric series with language but reported no compression ratio and no read or write latency; LatentPress reports both against a same-modality baseline, which is what makes the interface capacity interpretable.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-05"
+    },
+    {
+      "source": "743XA29Y",
+      "source_label": "DeepSeek-V2 (2024)",
+      "target": "2609.01507",
+      "target_label": "LatentPress: Context Compression Beyond Text and Vision (2026)",
+      "relation": "builds_on",
+      "note": "Multi-head latent attention shrinks the per-token state inside attention and keeps the token count; LatentPress shrinks the token count itself at the input and leaves the decoder untouched, so the two are composable rather than competing.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-05"
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2609.03430",
+      "target_label": "Random Attention: Rethinking KV Cache Eviction for Efficient Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "The KV cache and its linear growth follow directly from this attention formulation; Random Attention keeps the formulation and attacks the number of surviving entries with uniform random eviction inside each head.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-05"
+    },
+    {
+      "source": "743XA29Y",
+      "source_label": "DeepSeek-V2 (2024)",
+      "target": "2609.03430",
+      "target_label": "Random Attention: Rethinking KV Cache Eviction for Efficient Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-V2 reduced the per-token cost of the cache with a learned low-rank latent; Random Attention reduces the token count with no learning and no scoring, matching the strongest prior evictor at 32 to 43 percent higher throughput.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-05"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2609.03430",
+      "target_label": "Random Attention: Rethinking KV Cache Eviction for Efficient Reasoning (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1-style traces are what make the cache a bottleneck, and their redundancy in the text and across heads is the property that makes the choice of surviving token stop mattering once the prompt is protected.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-05"
     }
   ],
   "hyperedges": [],
