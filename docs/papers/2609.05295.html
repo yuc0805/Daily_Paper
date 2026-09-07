@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RISE: Recursive Improvement via Self-Extrapolating Policy Distillation — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+
+<h2>RISE: Recursive Improvement via Self-Extrapolating Policy Distillation</h2>
+<p class="paper-meta">
+  Li, Yavuz, Joty (Salesforce AI Research) &middot; arXiv 2026-09-04 &middot;
+  <a href="https://arxiv.org/abs/2609.05295" target="_blank" rel="noopener">arXiv:2609.05295</a> &middot;
+  Appears in: <a href="../areas/reasoning.html">Reasoning</a>
+</p>
+
+<h3>What</h3>
+<p>RISE constructs a synthetic teacher directly from a model's own reinforcement learning trajectory. It measures the displacement between the current checkpoint and a trailing anchor checkpoint, in parameter space or in output logit space, and extrapolates along that direction, which converts a sparse outcome-induced parameter update into a dense token-level target with no external model and no privileged conditioning. Outcome rewards from RLVR ground the extrapolation toward correct reasoning while the extrapolated teacher refines token-level decisions, and the teacher is refreshed each iteration as the student improves. Across mathematical reasoning, multi-domain STEM, code generation and multi-turn agentic tasks, the method beats both RLVR-only training and on-policy self-distillation.</p>
+
+<h3>Why</h3>
+<p>On-policy distillation supplies dense per-token supervision for post-training, which is the property outcome-reward RL lacks, but its effectiveness is capped by the teacher. An external teacher introduces a distribution mismatch, since it was never trained on the states the student actually visits. Self-distillation with privileged conditioning avoids that mismatch but is limited by how much the model can exploit in context, so the teacher is only marginally better than the student. Both routes leave the same gap open: RLVR produces one bit of signal per rollout and has to spread it over an entire trajectory, and no existing teacher construction closes that density gap without importing an outside model.</p>
+
+<h3>How</h3>
+<p>The insight is that the displacement between two checkpoints of the same RL run already encodes the direction the reward was pushing the policy at every token, not merely at the graded outcome. Extrapolating past the current checkpoint along that displacement therefore yields a model that is a plausible improvement on the student while remaining on the student's own distribution, which is exactly the teacher on-policy distillation needs. The extrapolation is performed in parameter space or in logit space, and the resulting teacher supplies token-level targets that are combined with the ongoing RLVR objective. Because the anchor advances as training proceeds, each iteration builds a fresh teacher from the improved student, making distillation a recursive loop rather than a single compression step.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Supplies the RLVR outcome-reward training that produces the trajectory RISE extrapolates along.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">The token-level reasoning trace is the object both the reward and the distillation target act on.</span></li>
+  <li><a href="2609.04172.html">Rethinking On-Policy Distillation of LLMs II (2026)</a><span class="lineage-note">Argued on-policy distillation is algorithm-starved rather than data-starved, which is the gap this paper attacks.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 turns a sparse outcome reward into a parameter update and stops there, so every token in a long trajectory receives credit only through that single scalar. The specific failure this fixes is credit density: RISE reads the same update as a direction and steps further along it to manufacture per-token targets, so one graded outcome becomes supervision at every position. Relative to the on-policy distillation analysis added to this library on 2026-09-05, which concluded the bottleneck lies in the algorithm rather than in data volume, RISE accepts that diagnosis and replaces the teacher rather than the data, which is the intervention that diagnosis implies.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Standard on-policy distillation obtains a teacher by picking a stronger model or by conditioning the same model on privileged information, and in both cases the teacher is a separate object from the training run. RISE takes the training run itself as the teacher's source, which removes the distribution mismatch by construction because the extrapolated point lies on the student's own optimisation path. Against Chain-of-Thought the contrast is where the reasoning improvement is stored: prompting elicits a better trace from a fixed model at inference, while RISE writes the improvement into the weights and does so using a signal the RL run was producing anyway. The cost of the approach is that it inherits whatever systematic bias the trajectory carries, since extrapolation amplifies the direction it is given without any independent check on whether that direction is correct.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="FFWLYL3J.html">CODI (2025)</a><span class="lineage-note">Also distils reasoning into a more compact internal form rather than into natural-language traces.</span></li>
+  <li><a href="XH2XHIL5.html">KaVa (2025)</a><span class="lineage-note">Distillation into latent reasoning state; a different answer to the same density question.</span></li>
+  <li><a href="BZKDNHD6.html">SPRINT (Biju 2025)</a><span class="lineage-note">Attacks the cost of long reasoning chains at inference rather than the supervision signal at training.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-05",
+  "date": "2026-09-07",
   "papers": [
     {
-      "zotero_key": "2609.01507",
-      "title": "LatentPress: Context Compression Beyond Text and Vision",
-      "authors": "Zhou, Sang",
+      "zotero_key": "2609.04490",
+      "title": "When Quantization Breaks Memory: Recurrent-State Write-Back in Low-Precision Temporal Inference",
+      "authors": "Erbas, Intes, Pandey",
       "year": 2026,
-      "what": "Writes conversation histories and long documents into continuous memory tokens that a frozen decoder reads through its input-embedding port, hitting 0.504 on LongMemEval at 7.70x compression against 0.490 for uncompressed evidence and 0.184 for text summaries, while training only a 4.2M to 26.2M parameter adapter.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "Time-LLM (2024, MKICLA63); ChatTS (Xie 2025, VSCNJG5J); DeepSeek-V2 (2024, 743XA29Y)"
+      "what": "Freezes a trained GRU and changes only the rule used to store its hidden state, and 4-bit state storage raises estimation error on two fluorescence lifetime parameters by roughly 70x and 300x, because repeated updates fall below the write threshold and the state silently stops integrating; error feedback, residual memory and direction memory recover accuracy with no retraining, and more state precision can make a fixed solution worse.",
+      "area_label": "Signal/Time Series",
+      "area_slug": "time-series",
+      "builds_on": "HARMamba (Li 2024, HE9X47KN); Mamba (Gu and Dao 2023, XNI34DQX); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF)"
     },
     {
-      "zotero_key": "2609.03430",
-      "title": "Random Attention: Rethinking KV Cache Eviction for Efficient Reasoning",
-      "authors": "Wang, Qiu, Zhao, Qian, Yang, Han, Ji, Savarese, Heinecke, Wang (Salesforce)",
+      "zotero_key": "2609.04304",
+      "title": "Iris: Climbing to the Search Frontier",
+      "authors": "Liu, Liu, Wang, Qin, Liang, Chu, Chen, Gu, Chuan (AllSpark Research)",
       "year": 2026,
-      "what": "Keeps the prompt and evicts KV cache entries uniformly at random inside each head with no scoring at all, matching the strongest prior evictor across four models and six reasoning tasks while serving 32 to 43 percent higher throughput, because the prompt is the fragile part and the reasoning trace is redundant in text and across heads.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "Attention Is All You Need (Vaswani 2017, PHB9VRVM); DeepSeek-V2 (2024, 743XA29Y); DeepSeek-R1 (2025, Z5IWHZAE)"
+      "what": "Trains 35B-A3B and 397B-A17B search agents by alternating supervised fine-tuning with RL against live search, on questions reverse-constructed from a hyperlink entity graph and filtered to those a reference model fails closed-book, reaching 82.2 to 92.9 across BrowseComp, DeepSearchQA and HLE from a single ReAct pass with no sub-agents, and showing inference-time context management moves scores more than most reported differences between systems.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "DeepEyesV2 (Hong 2026, 4XXXYXS9); LATS (Zhou 2024, 77ERE7HA); DeepSeek-R1 (2025, Z5IWHZAE)"
     },
     {
-      "zotero_key": "2609.04172",
-      "title": "Rethinking On-Policy Distillation of Large Language Models II: One Training Example",
-      "authors": "Fu, He, Zuo, Huang, Zhang et al. (Thinking Space)",
+      "zotero_key": "2609.05295",
+      "title": "RISE: Recursive Improvement via Self-Extrapolating Policy Distillation",
+      "authors": "Li, Yavuz, Joty (Salesforce AI Research)",
       "year": 2026,
-      "what": "Trains on-policy distillation on a single query and still recovers most of full-data gain, because one query's rollouts already reach 71.5 percent of the states full-data training visits and 16 semantically distinct queries reach 98.9 percent, so the method is data-overfed and algorithm-starved rather than data-starved.",
+      "what": "Builds a distillation teacher out of the model's own RL trajectory by extrapolating the displacement between the current checkpoint and a trailing anchor, in parameter or logit space, turning one sparse outcome reward into dense per-token targets with no external teacher and no distribution mismatch, and beating both RLVR-only training and on-policy self-distillation on math, STEM, code and multi-turn agentic tasks.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "Does On-Policy Distillation Really Distill? (2026, 2608.31046); Cliff (2026, 2609.02817); DeepSeek-R1 (2025, Z5IWHZAE)"
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought (Wei 2023, HBLPTRMY); Rethinking On-Policy Distillation II (2026, 2609.04172)"
     },
     {
-      "zotero_key": "2609.04098",
-      "title": "Why Gated DeltaNet Survives 4-Bit Quantization: NVFP4 W4A4 for the Recurrent Half of a Hybrid 27B LLM",
-      "authors": "Kozyrev, Maiboroda (Minima AI)",
+      "zotero_key": "2609.04250",
+      "title": "Motion-Omni: End-to-End Joint Speech and Full-Body Motion for Spoken Dialogue",
+      "authors": "Ma, Tao, Zhang, Guo (Peking University)",
       "year": 2026,
-      "what": "Quantizes all 496 linear layers of a hybrid 27B model to 4-bit NVFP4 including the Gated DeltaNet gates that everyone else protects, matches BF16 within seed noise at 17.5 GiB and 14 to 19 percent faster prefill, and explains it by showing the delta rule overwrites the state along each new key direction so injected noise is forgotten within hundreds of steps.",
-      "area_label": "MAMBA",
-      "area_slug": "mamba",
-      "builds_on": "Audio Mamba (Erol 2024, 6VTXUZEG); MambaOut (2024, ZS87LF7R); DeepSeek-V2 (2024, 743XA29Y)"
+      "what": "Generates dialogue speech and full-body co-speech motion from the same hidden states instead of running a motion model over finished audio, staying within 2 percent of the teacher cascade on motion metrics at 5.4x lower latency and 2.62 percent WER, and showing by ablation that a frozen speech pathway leaves motion misaligned so the alignment lives in the shared representation rather than the decoder.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "Sensor2Text (Chen 2024, ELYUE3NF); Motion Mamba (2024, J2EZPHK4); HeAR (Baur 2024, 3LA8GNCU)"
     }
   ]
 }

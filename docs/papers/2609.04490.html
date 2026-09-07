@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When Quantization Breaks Memory — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+
+<h2>When Quantization Breaks Memory: Recurrent-State Write-Back in Low-Precision Temporal Inference</h2>
+<p class="paper-meta">
+  Erbas, Intes, Pandey &middot; arXiv 2026-09-03 &middot;
+  <a href="https://arxiv.org/abs/2609.04490" target="_blank" rel="noopener">arXiv:2609.04490</a> &middot;
+  Appears in: <a href="../areas/time-series.html">Signal/Time Series</a>
+</p>
+
+<h3>What</h3>
+<p>In a recurrent network the hidden state is written to memory at each time step and read back at the next one, so the rule used to store that state becomes part of the computation rather than an implementation detail. The authors name this rule the recurrent-state write-back and isolate its effect in a compact GRU encoder-decoder that estimates two fluorescence lifetime parameters, a short-lived component and a long-lived component, from high-noise time-resolved optical signals. Holding the trained model completely fixed and replacing continuous state propagation with deterministic 4-bit state storage raises the estimation error on the two parameters by roughly 70x and 300x respectively. Error feedback, residual memory and direction memory each recover most of the lost accuracy with no retraining, and the same failure and rescue reproduce in an independently trained LSTM, where the cell state proves more sensitive than the hidden state.</p>
+
+<h3>Why</h3>
+<p>Quantization is the standard route to running a model on constrained hardware, and the accounting for it is well established for weights and activations, where each rounding error perturbs one computation independently. A recurrence breaks that independence, because the rounded state is the input to the next step, so errors couple across time. Prior deployment work on state-space and recurrent encoders for sensor streams rests its efficiency argument on the state being small, but does not measure what happens when that small state is stored at edge precision. The specific failure this paper identifies is invisible in the usual accounting: when repeated updates each fall below the write threshold, the stored state remains nearly frozen while the network continues to propose change, so the model computes on stale memory for dozens of steps.</p>
+
+<h3>How</h3>
+<p>The method is a controlled post-training intervention. The trained model is held fixed and only the state-storage rule is varied, which isolates the write-back interface from every other effect of quantization. Three lightweight interventions carry the information in suppressed sub-threshold updates across time: error feedback accumulates the leftover rounding residual and adds it to the next write, residual memory keeps a small continuous correction alongside the quantized state, and direction memory tracks the sign of repeated sub-threshold updates. A precision sweep then shows that bit-width alone is the wrong variable, since a model trained against a 4-bit interface can degrade when its state is later stored more precisely, and matched training shows that compatibility with the storage interface can instead be learned.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">Established the fixed-size recurrent state as the deployment-friendly encoder for wearable sensor streams, on the argument that it fits a body-worn memory budget.</span></li>
+  <li><a href="XNI34DQX.html">Mamba (Gu and Dao 2023)</a><span class="lineage-note">Defines the selective state-space recurrence whose efficiency claim rests on the state being small, which is exactly the object shown here to be fragile under coarse storage.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Names deployment on constrained hardware as the open problem for biosignal models, without measuring what low-precision storage does to a recurrence.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>HARMamba and Mamba argue that a compact recurrent state is what makes long sensor sequences affordable at the edge, and both treat the state as a design parameter measured in dimensions rather than in bits. This paper prices the term they leave out. The failure mode it fixes is specific and was not previously named: a recurrence whose state is stored below the resolution of its own update magnitude stops integrating, so the encoder silently reverts to something close to a fixed feature extractor while every layer downstream continues to behave as though memory is working. The Gu 2025 survey identifies edge deployment as an open problem for biosignal models but supplies no mechanism; this work supplies one, along with three interventions that recover accuracy without touching the trained weights.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Prior quantization work on recurrent and state-space models varies bit-width and reports an accuracy curve, which implicitly assumes that more bits are always better and that the arithmetic and the storage can be treated together. This paper separates them, freezing the model and varying only the write rule, and the separation is what produces the counterintuitive result that increasing state precision can worsen a fixed recurrent solution. The interventions are also borrowed rather than invented: error feedback comes from the gradient-compression and optimizer literature, where it corrects for information lost to sparsification, and is applied here to state storage instead of to gradients. Compared to the Gated DeltaNet quantization result in this library, which found a recurrence that tolerates 4-bit storage because its delta rule overwrites the state along each new key direction, the present paper supplies the contrasting case where updates are additive and small, so the two together suggest the governing property is whether the update rule forgets injected state noise or accumulates it.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2609.04098.html">Why Gated DeltaNet Survives 4-Bit Quantization (2026)</a><span class="lineage-note">The opposite outcome for a different recurrence; read as a pair, the two isolate which update rules tolerate coarse state storage.</span></li>
+  <li><a href="AVTJLZIR.html">Bi-Mamba+ (2024)</a><span class="lineage-note">Time-series state-space encoder whose deployment argument this result would directly test.</span></li>
+  <li><a href="5YQ4IKMA.html">HiPPO (2020)</a><span class="lineage-note">Gives the continuous-time memory theory behind these state updates, which the write threshold interrupts.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

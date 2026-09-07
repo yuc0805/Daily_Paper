@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motion-Omni — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Motion-Omni: End-to-End Joint Speech and Full-Body Motion for Spoken Dialogue</h2>
+<p class="paper-meta">
+  Ma, Tao, Zhang, Guo (Peking University) &middot; arXiv 2026-08-28 &middot;
+  <a href="https://arxiv.org/abs/2609.04250" target="_blank" rel="noopener">arXiv:2609.04250</a> &middot;
+  Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a>
+</p>
+
+<h3>What</h3>
+<p>Motion-Omni is an end-to-end framework in which a spoken dialogue model natively outputs explicit facial expression together with hand, upper-body and lower-body motion, generated directly from the hidden states that produce the speech. Supervision comes from a model-agnostic pipeline that pseudo-labels consistent-voice speech responses with a replaceable motion teacher, yielding 422,856 quality-ranked pairs across 1,402 hours. The authors also release SwDA-500 and an evaluation protocol for stochastic open-ended full-body spoken dialogue that matches audio across motion systems while unifying rendering, automatic metrics, human evaluation and latency. On a Qwen2.5-7B-Instruct backbone, Motion-Omni-Q7 stays within 2 percent of the same-audio teacher cascade on reference-free motion metrics while responding 5.4x faster at RTF 0.78, and reaches a 2.62 percent word error rate, the lowest among the omni-modal systems compared.</p>
+
+<h3>Why</h3>
+<p>An avatar that holds a conversation has to decide what to say and how to move while saying it, but these abilities live in separate model families: spoken dialogue models produce speech without motion, and co-speech motion models produce motion only from audio handed to them. The standard remedy is a cascade that generates the spoken response first and then runs a motion model over the finished audio. That costs a second full inference pass, which puts real-time interaction out of reach, and it precludes any joint optimisation between the two objectives, so the motion can only ever be a function of the surface audio rather than of the intent that produced it.</p>
+
+<h3>How</h3>
+<p>A single model co-adapts the language model, the speech generator and the motion generator under both objectives, with the motion generator reading the same hidden states that drive speech generation. The authors show this coupling is required rather than convenient: with the speech pathway frozen and only the motion head trained, motion remains misaligned with the audio, and only joint training recovers alignment while retaining spoken-dialogue ability. The data pipeline sidesteps the absence of paired supervision by pseudo-labelling speech responses with a motion teacher that can be swapped out, then ranking the resulting pairs by quality, which produces a corpus large enough to train the joint objective without any hand-annotated motion.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Established the body-motion-to-language interface in the reading direction, mapping sensor-observed activity into natural language.</span></li>
+  <li><a href="J2EZPHK4.html">Motion Mamba (2024)</a><span class="lineage-note">Human motion as a long continuous sequence with its own generative model, the component Motion-Omni folds into the language model rather than calling as a separate stage.</span></li>
+  <li><a href="3LA8GNCU.html">HeAR (Baur 2024)</a><span class="lineage-note">Precedent for treating an audio encoder's hidden states as a transferable substrate for a downstream physiological task.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>This paper extends Sensor2Text, which already bridges the wearable-sensing and time-series-plus-language communities in this library, and pushes that bridge into the generative direction: Sensor2Text reads body motion and writes language, while Motion-Omni writes body motion and language together from one hidden state. The failure mode it fixes belongs to the cascade rather than to Sensor2Text directly. A cascade treats motion as a function of finished audio, so any timing relationship that was decided before the audio existed has to be recovered from the waveform, and the frozen-pathway ablation shows that recovery does not happen: motion stays misaligned until the two streams are trained together. Latency is the second failure, since the second inference pass is what makes cascades unusable in real time, and removing it takes response generation to RTF 0.78.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Motion Mamba models motion as an independent generative sequence problem, which makes it a strong motion model and an awkward dialogue component, because it has no access to the linguistic plan. Motion-Omni gives up the specialised motion architecture in exchange for a shared latent, and the reported result is that this costs under 2 percent on reference-free motion metrics against a teacher cascade while removing an entire inference pass. Against Sensor2Text the integration boundary moves in the opposite direction from the usual adapter recipe: rather than attaching a lightweight bridge to a frozen backbone, the authors show the frozen-backbone recipe measurably fails here and that co-adaptation is what carries the alignment, which is a useful negative result for anyone attaching new heads to frozen models on continuous signals.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="HDPXBLAP.html">SensorLM (2025)</a><span class="lineage-note">Language interface over wearable sensor streams; same alignment question on physiological rather than motion-capture data.</span></li>
+  <li><a href="6VTXUZEG.html">Audio Mamba (Erol 2024)</a><span class="lineage-note">Recurrent sequence modelling for audio, the other half of the modality pair joined here.</span></li>
+  <li><a href="FISF2M9S.html">Two-Stream Networks</a><span class="lineage-note">The original argument for separate versus joined pathways over motion, revisited here at the level of generation.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

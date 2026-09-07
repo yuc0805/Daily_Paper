@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iris: Climbing to the Search Frontier — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Iris: Climbing to the Search Frontier</h2>
+<p class="paper-meta">
+  Liu, Liu, Wang, Qin, Liang, Chu, Chen, Gu, Chuan (AllSpark Research) &middot; arXiv 2026-09-03 &middot;
+  <a href="https://arxiv.org/abs/2609.04304" target="_blank" rel="noopener">arXiv:2609.04304</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>Iris-mini and Iris-pro are two search agents trained at 35B-A3B and 397B-A17B scales, released together with the data pipeline and training recipe behind them. Training questions are reverse-constructed from the hyperlink structure of a web corpus: multi-hop chains are authored over an entity graph distilled from a seed page and its out-links, every non-answer entity is rewritten into a descriptive reference so no clue resolves by string matching, and only questions a reference model fails closed-book yet solves once given the supporting evidence are admitted. With inference-time context management enabled the two models reach 82.2/84.8/86.9/52.3 and 88.6/85.1/92.9/56.4 on BrowseComp, BrowseComp-ZH, DeepSearchQA and HLE, all from a single ReAct agent with no sub-agents and no test-time verification.</p>
+
+<h3>Why</h3>
+<p>Open-source search agents have trailed closed systems on multi-hop web benchmarks, and the gap has usually been attributed to model scale or to elaborate inference-time scaffolds with sub-agents and verifiers. Two problems sit underneath. Training data for multi-hop search is scarce and, when generated naively, is solvable by string matching rather than by search, so it teaches the wrong behaviour. Separately, published comparisons rarely hold inference-time context management fixed, so reported differences between systems confound the policy with the harness. The paper argues both need addressing before a scale claim is meaningful.</p>
+
+<h3>How</h3>
+<p>Supervised fine-tuning and reinforcement learning alternate in a loop the authors call SFT-RL climbing, where the hardest solved and most efficient rollouts of each RL round are returned to the next supervised pass. Trajectories are filtered at both the trajectory and the turn level before supervised training. Reinforcement learning runs against live search rather than a static corpus, with the reward judge and the observation summarizer served inside the training cluster, and over-long rollouts interrupted at the request level and resumed from their committed prefix at the next step. Every benchmark is then evaluated both with and without inference-time context management, holding the tool set, the context limit and the judge fixed.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Agentic model that interleaves tool calls with reasoning inside a single policy, the architecture Iris scales up.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Obtains search-agent capability from tree search over language-agent trajectories at inference time, the cost Iris moves into training.</span></li>
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Established that outcome-reward RL alone produces long-horizon reasoning without step-level supervision.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>LATS buys capability at inference time by expanding a search tree over candidate trajectories, which is affordable in a benchmark run and not affordable per user query. Iris moves that expenditure into the weights and then runs a single ReAct pass, on the reasoning that expensive exploration can be paid for once during training. The second failure it addresses belongs to the evaluation literature rather than to any single predecessor: because inference-time context management is usually neither held fixed nor reported, the measured gap it produces is larger than most reported differences between competing systems, which means a substantial share of published agent rankings may be tracking the harness rather than the policy.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Against DeepSeek-R1 the difference is the environment. R1 optimises against a verifier on a fixed answer set, where the reward is stationary and rollouts are bounded; Iris optimises against live search, which is nonstationary and where rollouts run long enough that the training loop needs its own systems work, hence serving the judge and summarizer inside the cluster and resuming interrupted rollouts from a committed prefix. Against LATS the difference is where the search happens, at training time inside the data-generation loop rather than at inference over a tree. The data construction is also inverted relative to standard practice: rather than collecting questions and finding evidence, the authors start from an evidence graph and author questions backward over it, then filter to those a reference model cannot answer closed-book, which makes memorisation an explicit exclusion criterion rather than a hoped-for property.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Decomposition-and-planning agent; Iris shows a single flat ReAct policy can reach these benchmarks without sub-agents.</span></li>
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Alternative route to tool use through learned tool embeddings rather than through RL against the live tool.</span></li>
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Surveys the context-management question that this paper turns into a controlled ablation.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
