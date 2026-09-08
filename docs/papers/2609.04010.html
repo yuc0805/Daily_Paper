@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unlocking Lossless Speedups in LLMs via Discrete Diffusion — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Unlocking Lossless Speedups in LLMs via Discrete Diffusion (Uno)</h2>
+<p class="paper-meta">
+  Sahoo, Chen, Pham, Geuter, Dwivedi, Pimpalkhute, Akhauri, Moreno, Yurochkin, Wang, Elhoushi, Dey, Bergsma, Hestness, Thickstun, Xing, Liu (Institute of Foundation Models) &middot; arXiv 2026-09-03 &middot;
+  <a href="https://arxiv.org/abs/2609.04010" target="_blank" rel="noopener">arXiv:2609.04010</a> &middot;
+  Appears in: <a href="../areas/llm.html">LLM</a>
+</p>
+
+<h3>What</h3>
+<p>Uno is a class of models the authors call diffusion-augmented language models. The parameters are split into two sets: autoregressive weights trained with the standard next-token-prediction objective, and lightweight diffusion weights trained in a short distillation phase to emit several tokens simultaneously. A sampler family called Psi-Spec then draws multiple tokens per step while the model distribution remains the autoregressive one, so acceleration costs nothing in quality and no separate draft model is needed. Uno can be trained from scratch or built by augmenting an existing open-weight autoregressive model. Reported results are up to 3x speedup over the base model, higher throughput than leading speculative-decoding methods at every batch size evaluated including the largest the device supports, and an 8B Uno that outperforms the 26B DiffusionGemma and the proprietary Mercury 2 on agentic tool use, coding and long-context reasoning.</p>
+
+<h3>Why</h3>
+<p>Next-token prediction is responsible for the quality of current language models and also for their decoding cost, because the autoregressive factorisation forces one forward pass per token. Two families of fix exist and each gives something up. Speculative decoding preserves the distribution but requires a second draft model, which is extra training, extra memory and an extra alignment problem. Diffusion language models decode in parallel by construction but define a different distribution than the autoregressive model, and empirically a weaker one, so the speedup is paid for in quality. The gap this paper targets is a method that keeps the autoregressive distribution exactly while decoding in parallel and without a draft model.</p>
+
+<h3>How</h3>
+<p>The decomposition is the mechanism. The autoregressive weights define the distribution; the diffusion weights are a proposal mechanism trained by Diffusion Distillation to sample multiple positions at once from that same distribution, at negligible additional cost on top of an existing training pipeline. Psi-Spec is the sampler that converts these parallel proposals into accepted tokens while preserving the target distribution, and it also supports inference-time scaling at a fixed context length, so the compute-quality trade can be moved at serving time rather than at training time. Because the diffusion weights are an addition rather than a replacement, an existing open-weight model can be converted without retraining its autoregressive parameters.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Source of iterative parallel denoising as a sampling procedure; graphify Community 3 (Vision-Language &amp; Generative).</span></li>
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">The next-token-prediction transformer whose sequential decoding is the bottleneck removed here; graphify Community 2.</span></li>
+  <li><a href="BZKDNHD6.html">SPRINT (Biju 2025)</a><span class="lineage-note">Earlier attempt at parallelism inside generation, at the level of reasoning steps rather than tokens.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DDPM defines the model distribution by the diffusion process itself, which is what makes diffusion language models fast and also what makes them weaker than a comparable autoregressive model: the parallel sampler and the distribution are the same object, so one cannot be changed without changing the other. Uno separates them. The failure mode it fixes is the quality tax that every prior parallel-decoding method pays, whether by adopting a diffusion distribution or by depending on a draft model whose disagreement with the target model caps the acceptance rate. Against SPRINT, the failure mode fixed is applicability: SPRINT needs a curated data pipeline that reorganises reasoning trajectories into parallel rounds, so it works only where trajectories decompose that way, whereas Uno's parallelism is at the token level and needs only a distillation pass.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to DDPM, diffusion here operates over discrete tokens and serves as a proposal distribution rather than as the generative model of record, with the autoregressive weights retained as the target. Compared to the standard transformer, training is unchanged and only decoding order changes, with Psi-Spec repairing the mismatch between the training factorisation and the sampling order. Compared to speculative decoding, the draft is produced by extra weights attached to the same model instead of by a separate smaller model, which removes the alignment gap between draft and target that limits acceptance rates in practice. Compared to SPRINT, the unit of parallelism moves from the reasoning step to the token, and the requirement moves from curated trajectory data to a lightweight distillation phase.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Transformer backbone for diffusion; the opposite direction of the same combination, diffusion inside a transformer rather than a transformer distribution sampled by diffusion.</span></li>
+  <li><a href="RILRU5H6.html">TimeGrad (Rasul 2021)</a><span class="lineage-note">Diffusion as the forecast distribution for time series; the arrangement Uno inverts.</span></li>
+  <li><a href="Y4ZNT3EC.html">CoLaR (2026)</a><span class="lineage-note">Also shortens decoding, but by compressing reasoning into latent steps rather than by emitting more tokens per step.</span></li>
+  <li><a href="EGRXFZU9.html">Soft Thinking (2025)</a><span class="lineage-note">Relaxes the discrete token bottleneck during reasoning; related motivation, different guarantee, since Soft Thinking does not preserve the base distribution.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

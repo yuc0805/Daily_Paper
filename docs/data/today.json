@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-07",
+  "date": "2026-09-08",
   "papers": [
     {
-      "zotero_key": "2609.04490",
-      "title": "When Quantization Breaks Memory: Recurrent-State Write-Back in Low-Precision Temporal Inference",
-      "authors": "Erbas, Intes, Pandey",
+      "zotero_key": "2609.04010",
+      "title": "Unlocking Lossless Speedups in LLMs via Discrete Diffusion (Uno)",
+      "authors": "Sahoo et al. (Institute of Foundation Models)",
       "year": 2026,
-      "what": "Freezes a trained GRU and changes only the rule used to store its hidden state, and 4-bit state storage raises estimation error on two fluorescence lifetime parameters by roughly 70x and 300x, because repeated updates fall below the write threshold and the state silently stops integrating; error feedback, residual memory and direction memory recover accuracy with no retraining, and more state precision can make a fixed solution worse.",
-      "area_label": "Signal/Time Series",
-      "area_slug": "time-series",
-      "builds_on": "HARMamba (Li 2024, HE9X47KN); Mamba (Gu and Dao 2023, XNI34DQX); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF)"
+      "what": "Splits a language model into autoregressive weights that define the distribution and lightweight diffusion weights that propose several tokens at once, so parallel decoding preserves the base model exactly with no draft model, giving up to 3x speedup and an 8B model that beats the 26B DiffusionGemma and Mercury 2 on tool use, coding and long-context reasoning.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "DDPM (Ho 2020, GX7WR7KA); Attention Is All You Need (Vaswani 2017, PHB9VRVM); SPRINT (Biju 2025, BZKDNHD6)"
     },
     {
-      "zotero_key": "2609.04304",
-      "title": "Iris: Climbing to the Search Frontier",
-      "authors": "Liu, Liu, Wang, Qin, Liang, Chu, Chen, Gu, Chuan (AllSpark Research)",
+      "zotero_key": "2609.03241",
+      "title": "FlowBalance: Verifier-Grounded Self-Improvement from On-Policy Reasoning Experience",
+      "authors": "Tencent Hunyuan",
       "year": 2026,
-      "what": "Trains 35B-A3B and 397B-A17B search agents by alternating supervised fine-tuning with RL against live search, on questions reverse-constructed from a hyperlink entity graph and filtered to those a reference model fails closed-book, reaching 82.2 to 92.9 across BrowseComp, DeepSearchQA and HLE from a single ReAct pass with no sub-agents, and showing inference-time context management moves scores more than most reported differences between systems.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "DeepEyesV2 (Hong 2026, 4XXXYXS9); LATS (Zhou 2024, 77ERE7HA); DeepSeek-R1 (2025, Z5IWHZAE)"
-    },
-    {
-      "zotero_key": "2609.05295",
-      "title": "RISE: Recursive Improvement via Self-Extrapolating Policy Distillation",
-      "authors": "Li, Yavuz, Joty (Salesforce AI Research)",
-      "year": 2026,
-      "what": "Builds a distillation teacher out of the model's own RL trajectory by extrapolating the displacement between the current checkpoint and a trailing anchor, in parameter or logit space, turning one sparse outcome reward into dense per-token targets with no external teacher and no distribution mismatch, and beating both RLVR-only training and on-policy self-distillation on math, STEM, code and multi-turn agentic tasks.",
+      "what": "Learns a normalised distribution over complete responses, keeping a terminal verifier as ground truth while a frozen privileged view of the same policy supplies a trajectory-level self-guidance score, which beats FlowRL on Qwen3-4B and 8B, avoids response-length collapse, and keeps higher correct-strategy diversity on a controlled AIME24 diagnostic.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought (Wei 2023, HBLPTRMY); Rethinking On-Policy Distillation II (2026, 2609.04172)"
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought (Wei 2023, HBLPTRMY); Latent-GRPO (2026, U4ZPM5DN)"
     },
     {
-      "zotero_key": "2609.04250",
-      "title": "Motion-Omni: End-to-End Joint Speech and Full-Body Motion for Spoken Dialogue",
-      "authors": "Ma, Tao, Zhang, Guo (Peking University)",
+      "zotero_key": "2608.25936",
+      "title": "One Symptom, Three Levers: A Critical Review of On-Policy Self-Distillation",
+      "authors": "Robert, Qader",
       "year": 2026,
-      "what": "Generates dialogue speech and full-body co-speech motion from the same hidden states instead of running a motion model over finished audio, staying within 2 percent of the teacher cascade on motion metrics at 5.4x lower latency and 2.62 percent WER, and showing by ablation that a frozen speech pathway leaves motion misaligned so the alignment lives in the shared representation rather than the decoder.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "Sensor2Text (Chen 2024, ELYUE3NF); Motion Mamba (2024, J2EZPHK4); HeAR (Baur 2024, 3LA8GNCU)"
+      "what": "Reviews on-policy self-distillation with no new experiments, argues that one failure mode dominates the field, the progressive narrowing of the reasoning paths a model can produce, and organises the literature around three levers that govern it: how tokens are weighted, what the teacher is shown, and how guidance decays over training.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); RISE (Li 2026, 2609.05295); Chain-of-Thought (Wei 2023, HBLPTRMY)"
+    },
+    {
+      "zotero_key": "2609.05174",
+      "title": "SMILE: Self-Explainable Multimodal Information Bottleneck for Medical Diagnosis",
+      "authors": "Yang, Schmatz, Ma, Choi, Jenssen, Yu",
+      "year": 2026,
+      "what": "Puts multimodal medical diagnosis inside the information bottleneck framework and optimises prediction and per-modality explanation in one objective, using a matrix-based Renyi entropy functional instead of a variational bound, so the model reports which elements of which modality carried the decision rather than attributing after the fact.",
+      "area_label": "LLM-Health",
+      "area_slug": "llm-health",
+      "builds_on": "UNI (Chen 2023, 6T29JLTN); Concept Bottleneck Models (Koh 2020, TUIUJY92); SHAP (Lundberg 2017, 46WR27KQ)"
     }
   ]
 }

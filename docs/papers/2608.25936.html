@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Symptom, Three Levers — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+
+<h2>One Symptom, Three Levers: A Critical Review of On-Policy Self-Distillation</h2>
+<p class="paper-meta">
+  Robert, Qader &middot; arXiv 2026-08-26 &middot;
+  <a href="https://arxiv.org/abs/2608.25936" target="_blank" rel="noopener">arXiv:2608.25936</a> &middot;
+  Appears in: <a href="../areas/reasoning.html">Reasoning</a>
+</p>
+
+<h3>What</h3>
+<p>This is a review of on-policy self-distillation with no new experiments. It defines the setting precisely: the teacher is the model itself, conditioned on privileged information the student will not have at test time, such as a reference solution, a plan, or environment feedback, so the teacher is no stronger than the student and only better informed. It argues that one failure mode now dominates the subfield, namely collapse, the progressive narrowing of the set of reasoning paths the model can produce, and that collapse is not specific to self-distillation though privileged information aggravates it. The review organises the literature around three levers that govern collapse: where the signal is applied, meaning how tokens are weighted; what the teacher is shown, meaning the nature of the privileged information; and when the signal changes, meaning teacher dynamics and the decay of guidance. Scope is restricted to mathematical reasoning, where the method originated and where its failure modes are best documented.</p>
+
+<h3>Why</h3>
+<p>On-policy distillation combines the dense supervision of imitation learning with the on-policy sampling of reinforcement learning, but it requires a second, larger model as teacher, which is the cost that self-distillation removes. Early results reported accuracy comparable to reinforcement learning at a fraction of the generated tokens, which drew a large number of papers into the area quickly. The problem the review identifies is not technical but structural: the same asymmetry that produces the signal also biases it, and the resulting phenomena have been named differently across papers, so results are not comparable and it is unclear which claims are settled. The stated contribution is a shared vocabulary and a clear line between what is settled and what is still disputed.</p>
+
+<h3>How</h3>
+<p>The method is a taxonomy rather than an experiment. Each of the three levers is used to re-describe existing methods in common terms, so that a design choice made for one reason in one paper can be compared to a superficially different choice made for another reason elsewhere. Because the review reports no new numbers, its value depends entirely on whether the vocabulary holds up against papers published after it, which the current cluster provides an immediate test of.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">The reinforcement-learning baseline that self-distillation tries to match at lower token cost; graphify Community 0.</span></li>
+  <li><a href="2609.05295.html">RISE (Li 2026)</a><span class="lineage-note">Yesterday's Tier B paper; one specific self-teacher construction, readable as one setting of the three levers.</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">The prompting side of the reasoning-via-prompting against reasoning-via-reinforcement-learning bridge that self-distillation sits between.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 answered how to obtain reasoning at all and left open what the cheaper substitutes cost. The failure mode this review fixes is not a modelling failure but a measurement one: papers in this family report benchmark averages that stay flat or improve while the diversity of reasoning paths shrinks, so the damage is invisible in the headline number and is attributed to different causes in different papers. By naming collapse as one symptom with three governing levers, the review makes it possible to say which of two methods differ in a way that should matter, which was not previously possible from the abstracts alone.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to the method papers it covers, this work makes no architectural or algorithmic change and produces no numbers, so it should be judged on whether the three-lever decomposition is exhaustive and whether the settled-against-disputed split is honest. Compared to DeepSeek-R1 and Chain-of-Thought, both of which are anchor papers in the library, the review's position is between them: self-distillation uses a prompted teacher to supply exactly the dense signal that reinforcement learning from sparse reward does not, so the graph edge already recorded between those two anchors is the edge this literature occupies.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2609.03241.html">FlowBalance (2026)</a><span class="lineage-note">A method designed against the collapse mode this review names, with the diversity diagnostic to match.</span></li>
+  <li><a href="U4ZPM5DN.html">Latent-GRPO (2026)</a><span class="lineage-note">Same policy-optimisation family; the review's token-weighting lever applies directly to it.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

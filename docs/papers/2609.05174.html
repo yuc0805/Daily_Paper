@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMILE — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+
+<h2>SMILE: Self-Explainable Multimodal Information Bottleneck for Medical Diagnosis</h2>
+<p class="paper-meta">
+  Yang, Schmatz, Ma, Choi, Jenssen, Yu &middot; arXiv 2026-09-04 &middot;
+  <a href="https://arxiv.org/abs/2609.05174" target="_blank" rel="noopener">arXiv:2609.05174</a> &middot;
+  Appears in: <a href="../areas/llm-health.html">LLM-Health</a>
+</p>
+
+<h3>What</h3>
+<p>SMILE formulates self-explainable multimodal medical diagnosis inside the information bottleneck framework and optimises predictive performance and modality-specific explanation jointly, in a single learning paradigm, rather than attaching an explanation after training. The model identifies the most informative elements inside each modality that contribute to the diagnostic decision, so the explanation is reported per modality instead of as one attribution map over a fused representation. Optimisation uses a matrix-based Renyi alpha-order entropy functional to keep the bottleneck term tractable and stable, under the stated assumption that the encoders are sufficiently expressive.</p>
+
+<h3>Why</h3>
+<p>Explainability is treated as a requirement rather than a feature in safety-critical clinical decision-making, but most explainability methods in healthcare are post-hoc and were designed for a single modality. Diagnostic settings are increasingly multimodal, and the two limitations compound: a post-hoc attribution computed over a fused representation cannot report which modality carried the decision, which is the question a clinician asks first when the prediction disagrees with their own reading. Prior interpretable-by-design work either fixes an explanation vocabulary in advance, which does not transfer across modalities, or is restricted to a single input type.</p>
+
+<h3>How</h3>
+<p>The information bottleneck objective compresses the representation of each modality against the label, so the elements that survive compression are by construction the ones the model used. Making this per modality rather than over the fusion is what produces modality-specific explanation. The difficulty is that the bottleneck term is an entropy quantity that is normally intractable and estimated with a variational bound, which is where instability enters; the matrix-based Renyi alpha-order entropy functional is used instead, computed directly from the representation Gram matrix, which removes the variational approximation. Prediction and explanation share one objective, so there is no separate explanation module to train or calibrate.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="6T29JLTN.html">UNI (Chen 2023)</a><span class="lineage-note">General-purpose self-supervised encoder for a single medical modality; graphify Community 1 (Health AI &amp; Self-Supervised).</span></li>
+  <li><a href="TUIUJY92.html">Concept Bottleneck Models (Koh 2020)</a><span class="lineage-note">Established the interpretable-by-design layer inside the model rather than post-hoc attribution.</span></li>
+  <li><a href="46WR27KQ.html">SHAP (Lundberg 2017)</a><span class="lineage-note">The post-hoc attribution baseline whose limitations motivate the design; graphify Community 6 (Interpretability &amp; Fairness).</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>UNI produced a strong single-modality representation and left interpretation to whatever attribution method is attached afterwards, which fails in the multimodal case because the attribution is computed over the fused vector and cannot be decomposed back to the inputs that produced it. Concept Bottleneck Models put the explanation inside the model but require a predefined concept vocabulary, so the explanation is only as good as the concept set and the set has to be rebuilt for every new modality. SHAP is always available because it is model-agnostic, and always approximate for the same reason. The specific failure SMILE fixes is that none of these can answer which modality carried the decision, which is the failure that matters when the modalities disagree.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to UNI, the change is in the objective rather than the encoder: the encoder is assumed expressive and the contribution is what is optimised on top of it. Compared to Concept Bottleneck Models, the bottleneck is information-theoretic rather than semantic, so no concept vocabulary is needed and the method transfers across modalities without curation, at the cost that the explanation is a set of informative input elements rather than named concepts. Compared to SHAP, model-agnosticism is given up in exchange for an explanation the optimisation actually enforced during training. The entropy estimator is the enabling detail, since the same formulation with a variational bound is what made earlier multimodal information bottleneck work unstable.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Names interpretability as an open problem for biosignal models; this paper supplies a candidate mechanism.</span></li>
+  <li><a href="CKEAV8EA.html">Post-hoc Concept Bottleneck Models (2023)</a><span class="lineage-note">The intermediate position between post-hoc and by-design that SMILE bypasses.</span></li>
+  <li><a href="T264MQTK.html">Stop Explaining Black Box Models (Rudin 2019)</a><span class="lineage-note">The argument for interpretable-by-design in high-stakes settings that this work implements for the multimodal case.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

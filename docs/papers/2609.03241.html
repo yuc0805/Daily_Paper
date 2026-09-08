@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlowBalance — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+
+<h2>FlowBalance: Verifier-Grounded Self-Improvement from On-Policy Reasoning Experience</h2>
+<p class="paper-meta">
+  Tencent Hunyuan &middot; arXiv 2026-09-03 &middot;
+  <a href="https://arxiv.org/abs/2609.03241" target="_blank" rel="noopener">arXiv:2609.03241</a> &middot;
+  Appears in: <a href="../areas/reasoning.html">Reasoning</a>
+</p>
+
+<h3>What</h3>
+<p>FlowBalance learns a normalised distribution over complete responses instead of optimising a per-token objective, and it combines two supervision sources that fail in opposite directions. A terminal verifier supplies reliable but sparse signal. A frozen training-time view of the same policy, given privileged context, supplies token-level log-probability gains that are aggregated into a single trajectory-level self-guidance score. On mathematical reasoning it improves average accuracy over FlowRL on both Qwen3-4B and Qwen3-8B, improves training speed and stability, avoids the response-length collapse that direct on-policy self-distillation produces, and shows higher correct-strategy diversity in a controlled AIME24 diagnostic. The paper is 28 pages with 7 figures and 10 tables, with code released.</p>
+
+<h3>Why</h3>
+<p>A reasoning model can improve from its own on-policy experience without an external teacher, which is attractive because a stronger teacher is exactly what is unavailable at the frontier. The inner loop is fragile for a specific reason: the two available signals are complementary and both defective. Terminal verifiers are correct but give one bit at the end of a long trajectory, so credit assignment is weak and sample efficiency is poor. Dense guidance from the same model conditioned on privileged information is informative at every token but can reinforce false confidence and concentrate learning on one solution mode, which shows up as shrinking response length and shrinking strategy diversity. Prior work in this family took one signal or the other rather than reconciling them.</p>
+
+<h3>How</h3>
+<p>For each on-policy trajectory, the frozen privileged view of the policy scores tokens by log-probability gain, and these are aggregated to the trajectory level rather than applied per token. That aggregation is the design choice: the paper's diagnosis is that dense per-token privileged guidance is what narrows the reasoning-path set, so the dense signal is used to rank whole responses rather than to shape each step. The verifier grounds the resulting distribution so that self-guidance can reweight among responses but cannot override correctness. The evaluation adds a controlled AIME24 diagnostic that measures how many distinct correct strategies survive training, which is what separates this result from the benchmark averages that dominate the cluster.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Established that sparse terminal reward alone can induce long-form reasoning; graphify Community 0 (LLM Agents &amp; Reasoning).</span></li>
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Established the explicit intermediate-step trace that is the object being optimised; graphify Community 0.</span></li>
+  <li><a href="U4ZPM5DN.html">Latent-GRPO (2026)</a><span class="lineage-note">Same group-normalised policy-optimisation family; differs in what the advantage is computed over.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>DeepSeek-R1 accepted sparse outcome reward and paid for it in sample efficiency, and the obvious fix, adding a dense same-model teacher, introduced a new failure mode rather than removing the old one. The specific failure FlowBalance targets is mode collapse under privileged dense supervision: the model becomes confident, its responses get shorter, and the set of correct strategies it can still produce shrinks even while average accuracy holds or improves. Keeping the verifier as ground truth while demoting self-guidance to a trajectory-level ranking signal is what prevents the dense signal from overriding correctness. Against Chain-of-Thought, the failure fixed is that a prompted trace is not an optimised object, so nothing in the prompting formulation prevents the model from losing reasoning diversity once training is applied to those traces.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared to DeepSeek-R1, the reward structure is unchanged in kind but supplemented, so the verifier remains the arbiter and the addition is a second ranking term rather than a substitute reward. Compared to Latent-GRPO and the wider GRPO family, the optimiser is not the contribution; the change is that the normalised distribution is over complete responses, which makes response length and strategy diversity properties of the learned object rather than side effects of decoding. Compared to direct on-policy self-distillation, the token-level teacher signal is retained as a measurement but not as a per-token target, which is the single structural difference that the ablations attribute the stability gain to.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2609.05295.html">RISE (Li 2026)</a><span class="lineage-note">Yesterday's Tier B paper; also builds a teacher from the model's own trajectory, but by parameter-space extrapolation rather than privileged context.</span></li>
+  <li><a href="2608.25936.html">One Symptom, Three Levers (2026)</a><span class="lineage-note">The review that names the collapse failure mode FlowBalance is designed against.</span></li>
+  <li><a href="EGRXFZU9.html">Soft Thinking (2025)</a><span class="lineage-note">Also concerned with preserving reasoning-path breadth, but at inference rather than during training.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
