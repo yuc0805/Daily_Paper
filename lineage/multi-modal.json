@@ -472,6 +472,42 @@
       "cross_area": true,
       "date_added": "2026-08-02",
       "note": "Where the Agent AI survey described the multimodal-interaction and embodied-agent agenda in prose, HumanCLAW supplies a physics-grounded benchmark and a negative result: current vision-language models lose track of their own body."
+    },
+    {
+      "source": "chen2024_sensor2text",
+      "source_label": "Sensor2Text (Chen 2024)",
+      "target": "2609.04250",
+      "target_label": "Motion-Omni: End-to-End Joint Speech and Full-Body Motion for Spoken Dialogue (2026)",
+      "relation": "builds_on",
+      "note": "Sensor2Text mapped sensor-observed body motion into natural language; Motion-Omni reverses the direction and writes motion and language together from one hidden state, pushing the same Community 4 to Community 5 crossing into generation.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-07"
+    },
+    {
+      "source": "J2EZPHK4",
+      "source_label": "Motion Mamba (2024)",
+      "target": "2609.04250",
+      "target_label": "Motion-Omni: End-to-End Joint Speech and Full-Body Motion for Spoken Dialogue (2026)",
+      "relation": "builds_on",
+      "note": "Motion Mamba treated human motion as a long continuous sequence with its own generative model; Motion-Omni folds that generator into the language model rather than calling it as a separate stage after the audio is finished.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-07"
+    },
+    {
+      "source": "baur2024_hear",
+      "source_label": "HeAR: Health Acoustic Representations (Baur 2024)",
+      "target": "2609.04250",
+      "target_label": "Motion-Omni: End-to-End Joint Speech and Full-Body Motion for Spoken Dialogue (2026)",
+      "relation": "builds_on",
+      "note": "HeAR established that an audio encoder's hidden states transfer to a downstream physiological task; Motion-Omni relies on the same premise but requires the speech pathway to be trained jointly, since a frozen pathway leaves motion misaligned.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-07"
     }
   ],
   "hyperedges": [],

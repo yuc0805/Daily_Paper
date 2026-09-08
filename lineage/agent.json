@@ -1084,6 +1084,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-04"
+    },
+    {
+      "source": "hong2026_deepeyesv2",
+      "source_label": "DeepEyesV2: Agentic Multimodal Model (Hong 2026)",
+      "target": "2609.04304",
+      "target_label": "Iris: Climbing to the Search Frontier (2026)",
+      "relation": "builds_on",
+      "note": "DeepEyesV2 interleaved tool calls with reasoning inside a single policy; Iris scales that architecture to 35B-A3B and 397B-A17B and keeps the single ReAct pass with no sub-agents and no test-time verification.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-07"
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2609.04304",
+      "target_label": "Iris: Climbing to the Search Frontier (2026)",
+      "relation": "builds_on",
+      "note": "LATS bought search-agent capability at inference time by expanding a tree over candidate trajectories; Iris moves that capability into the weights, because the training loop can afford the exploration once while deployment cannot afford it per query.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-07"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2609.04304",
+      "target_label": "Iris: Climbing to the Search Frontier (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 ran outcome-reward reinforcement learning against a verifier on a fixed answer set; Iris runs it against live search, which makes the environment nonstationary and forces in-cluster reward judging, observation summarizing and resumable rollouts.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-07"
     }
   ],
   "hyperedges": [

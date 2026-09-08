@@ -32,6 +32,8 @@
 2026-07 | TurboVLA (2607.27205) | vision-language-action policy running at 32 Hz on one RTX 4090 under 1 GB memory through compression and scheduling on the deployment side
 2026-08 | HumanCLAW (2607.27180) | evaluation framework that separates a vision-language model's action decisions from motor control; best of nine models reaches only 16.8% on embodied find-navigate-interact episodes
 
+2026-09 | Motion-Omni (2609.04250) | spoken dialogue model emits full-body motion from the same hidden states that produce speech, replacing the speech-then-motion cascade
+
 ### Paper List
 
 [KNOWN] [2021] Dosovitskiy et al. — ViT. zotero_key:B7F2Q998.
@@ -68,7 +70,11 @@
 
 [2026] 2607.27180 — HumanCLAW: Can Vision-Language Models Act Through a Body?. [https://arxiv.org/abs/2607.27180](https://arxiv.org/abs/2607.27180). external.
 
+[2026] 2609.04250 — Motion-Omni: End-to-End Joint Speech and Full-Body Motion for Spoken Dialogue. [https://arxiv.org/abs/2609.04250](https://arxiv.org/abs/2609.04250). external.
+
 ### Recent Activity
+
+2026-09-07 | 2609.04250 added | Motion-Omni removes the speech-then-motion cascade from conversational avatars by having one spoken dialogue model emit facial expression together with hand, upper-body and lower-body motion from the same hidden states that produce the speech, supervised by a model-agnostic pipeline that pseudo-labels consistent-voice speech responses with a replaceable motion teacher, giving 422,856 quality-ranked pairs across 1,402 hours; on a Qwen2.5-7B-Instruct backbone the model stays within 2 percent of the same-audio teacher cascade on reference-free motion metrics while responding 5.4x faster at RTF 0.78 and reaching a 2.62 percent word error rate; where Sensor2Text (ELYUE3NF) read body motion and wrote language, this paper writes body motion and language together from one hidden state, which pushes the same Community 4 to Community 5 crossing in the generative direction, and where Motion Mamba (J2EZPHK4) treated human motion as a long continuous sequence with its own generative model, Motion-Omni folds that model into the language model rather than calling it as a separate stage, with HeAR (3LA8GNCU) supplying the precedent for treating an audio encoder's hidden states as a transferable substrate for a downstream physiological task; the transferable result is the ablation rather than the system, since freezing the speech pathway and training only the motion head leaves the two streams misaligned, which says the alignment lives in the shared representation and not in the decoder, and that is the property that matters most for continuous sensor streams where attaching a new head to a frozen backbone is the default recipe; Tier B
 
 2026-08-02 | 2607.27180 added | HumanCLAW harnesses an off-the-shelf vision-language model to issue atomic skill commands that a controller turns into sub-second full-body motion under real physics, so balance and motor errors are factored out and only the model's action choices are measured; across 1,218 long-horizon egocentric episodes in 41 scenes none of nine models solves it and the best reaches 16.8% success, locating the gap in embodied self-awareness rather than perception; Tier B
 

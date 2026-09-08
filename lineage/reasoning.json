@@ -877,6 +877,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-05"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2609.05295",
+      "target_label": "RISE: Recursive Improvement via Self-Extrapolating Policy Distillation (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 turned a sparse outcome reward into a parameter update and stopped there; RISE reads that update as a direction and extrapolates along it, converting one bit of outcome signal per rollout into supervision at every token position.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-07"
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2609.05295",
+      "target_label": "RISE: Recursive Improvement via Self-Extrapolating Policy Distillation (2026)",
+      "relation": "builds_on",
+      "note": "Chain-of-Thought fixed the token-level reasoning trace as the object of study; that trace is what both the outcome reward and the extrapolated distillation target act on in RISE.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-07"
+    },
+    {
+      "source": "2609.04172",
+      "source_label": "Rethinking On-Policy Distillation of Large Language Models II: One Training Example (2026)",
+      "target": "2609.05295",
+      "target_label": "RISE: Recursive Improvement via Self-Extrapolating Policy Distillation (2026)",
+      "relation": "builds_on",
+      "note": "Both papers hold that on-policy distillation is algorithm-starved rather than data-starved and differ on the fix: that paper removes the data, while RISE replaces the teacher with an extrapolated checkpoint.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-07"
     }
   ],
   "hyperedges": [],
