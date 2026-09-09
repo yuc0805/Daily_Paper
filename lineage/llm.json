@@ -561,6 +561,42 @@
       "confidence_score": 0.9,
       "cross_area": true,
       "date_added": "2026-09-05"
+    },
+    {
+      "source": "ho2020_ddpm",
+      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+      "target": "2609.04010",
+      "target_label": "Unlocking Lossless Speedups in LLMs via Discrete Diffusion (Uno, 2026)",
+      "relation": "builds_on",
+      "note": "DDPM used diffusion to define the model distribution; Uno demotes diffusion to a proposal mechanism and keeps the autoregressive model as the distribution of record, which is what preserves quality.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-08"
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2609.04010",
+      "target_label": "Unlocking Lossless Speedups in LLMs via Discrete Diffusion (Uno, 2026)",
+      "relation": "builds_on",
+      "note": "The transformer tied the training objective and the decoding order together; Uno separates them, training with next-token prediction but decoding out of order under a sampler that repairs the mismatch.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-08"
+    },
+    {
+      "source": "BZKDNHD6",
+      "source_label": "SPRINT (Biju 2025)",
+      "target": "2609.04010",
+      "target_label": "Unlocking Lossless Speedups in LLMs via Discrete Diffusion (Uno, 2026)",
+      "relation": "builds_on",
+      "note": "SPRINT found parallelism at the level of reasoning steps and needed curated trajectory data; Uno finds it at the level of tokens and needs only a distillation pass over existing weights.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-08"
     }
   ],
   "hyperedges": [],

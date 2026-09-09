@@ -754,6 +754,42 @@
       "confidence_score": 0.9,
       "cross_area": true,
       "date_added": "2026-09-04"
+    },
+    {
+      "source": "chen2023_pathology",
+      "source_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
+      "target": "2609.05174",
+      "target_label": "SMILE: Self-Explainable Multimodal Information Bottleneck for Medical Diagnosis (2026)",
+      "relation": "builds_on",
+      "note": "UNI produced a strong single-modality representation and left interpretation to an attached attribution method; SMILE makes the selection of informative elements part of the training objective.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-08"
+    },
+    {
+      "source": "TUIUJY92",
+      "source_label": "Concept Bottleneck Models (Koh 2020)",
+      "target": "2609.05174",
+      "target_label": "SMILE: Self-Explainable Multimodal Information Bottleneck for Medical Diagnosis (2026)",
+      "relation": "builds_on",
+      "note": "Concept Bottleneck Models put the explanation inside the network but required a predefined concept vocabulary; the information bottleneck formulation needs none and compresses each modality against the label.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-08"
+    },
+    {
+      "source": "lundberg2017_shap",
+      "source_label": "SHAP: Unified Model Interpretation (Lundberg 2017)",
+      "target": "2609.05174",
+      "target_label": "SMILE: Self-Explainable Multimodal Information Bottleneck for Medical Diagnosis (2026)",
+      "relation": "builds_on",
+      "note": "SHAP is model-agnostic and always approximate and post-hoc; SMILE gives up model-agnosticism in exchange for an explanation the optimisation enforced. First link joining Community 6 to Community 1.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-08"
     }
   ],
   "hyperedges": [

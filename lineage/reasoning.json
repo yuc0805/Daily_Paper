@@ -913,6 +913,66 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-07"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2608.25936",
+      "target_label": "One Symptom, Three Levers: A Critical Review of On-Policy Self-Distillation (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 established reasoning through reinforcement learning with a sparse verifiable reward; the review takes that as the settled baseline and asks what the cheaper self-distilled substitutes cost.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-08"
+    },
+    {
+      "source": "2609.05295",
+      "source_label": "RISE: Recursive Improvement via Self-Extrapolating Policy Distillation (2026)",
+      "target": "2608.25936",
+      "target_label": "One Symptom, Three Levers: A Critical Review of On-Policy Self-Distillation (2026)",
+      "relation": "builds_on",
+      "note": "RISE proposed one specific self-teacher; the review names the reasoning-path narrowing that any such self-teacher inherits, so RISE reads as one setting of the three levers.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-08"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2609.03241",
+      "target_label": "FlowBalance: Verifier-Grounded Self-Improvement from On-Policy Reasoning Experience (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 accepted a sparse terminal reward as sufficient for long-form reasoning; FlowBalance keeps that reward as ground truth and adds a dense self-drawn signal alongside it rather than replacing it.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-08"
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2609.03241",
+      "target_label": "FlowBalance: Verifier-Grounded Self-Improvement from On-Policy Reasoning Experience (2026)",
+      "relation": "builds_on",
+      "note": "Chain-of-Thought treated the reasoning trace as a prompting artefact; FlowBalance treats the whole trajectory as the unit of the learned distribution, which is what makes length collapse a distributional effect.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-08"
+    },
+    {
+      "source": "U4ZPM5DN",
+      "source_label": "Latent-GRPO (Deng 2026)",
+      "target": "2609.03241",
+      "target_label": "FlowBalance: Verifier-Grounded Self-Improvement from On-Policy Reasoning Experience (2026)",
+      "relation": "builds_on",
+      "note": "Both sit in the group-normalised policy-optimisation family; the change is not the optimiser but what the advantage is computed over, a full trajectory rather than a token.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-08"
     }
   ],
   "hyperedges": [],
