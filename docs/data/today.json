@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-08",
+  "date": "2026-09-09",
   "papers": [
     {
-      "zotero_key": "2609.04010",
-      "title": "Unlocking Lossless Speedups in LLMs via Discrete Diffusion (Uno)",
-      "authors": "Sahoo et al. (Institute of Foundation Models)",
+      "zotero_key": "2609.07816",
+      "title": "Kalman Delta Networks: Uncertainty-aware Associative Memory",
+      "authors": "Bui, Huang, Ying (Yale University)",
       "year": 2026,
-      "what": "Splits a language model into autoregressive weights that define the distribution and lightweight diffusion weights that propose several tokens at once, so parallel decoding preserves the base model exactly with no draft model, giving up to 3x speedup and an 8B model that beats the 26B DiffusionGemma and Mercury 2 on tool use, coding and long-context reasoning.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "DDPM (Ho 2020, GX7WR7KA); Attention Is All You Need (Vaswani 2017, PHB9VRVM); SPRINT (Biju 2025, BZKDNHD6)"
+      "what": "Reformulates the fixed-size recurrent memory of linear attention as a linear-Gaussian state-space model and uses the Kalman filter as the write rule, so each write is weighted by tracked uncertainty rather than by the current token alone, with diagonal and isotropic approximations that keep the associative scan and improve perplexity and downstream accuracy at 750M and 1.3B parameters.",
+      "area_label": "MAMBA",
+      "area_slug": "mamba",
+      "builds_on": "Mamba-2 (2024, JPKDWV2Q); HiPPO (2020, 5YQ4IKMA); Attention Is All You Need (2017, PHB9VRVM)"
     },
     {
-      "zotero_key": "2609.03241",
-      "title": "FlowBalance: Verifier-Grounded Self-Improvement from On-Policy Reasoning Experience",
-      "authors": "Tencent Hunyuan",
+      "zotero_key": "2609.06006",
+      "title": "Memory in Deep Time-Series Models",
+      "authors": "Nguyen et al. (Hung Le group)",
       "year": 2026,
-      "what": "Learns a normalised distribution over complete responses, keeping a terminal verifier as ground truth while a frozen privileged view of the same policy supplies a trajectory-level self-guidance score, which beats FlowRL on Qwen3-4B and 8B, avoids response-length collapse, and keeps higher correct-strategy diversity on a controlled AIME24 diagnostic.",
+      "what": "Re-reads recurrent networks, transformers, state-space models, retrieval-augmented predictors, foundation models and time-series agents as successive answers to one question about what a model retains beyond its input window, and organizes them on an internal-to-external memory spectrum with a shared account of what is written, how it is read, and how it persists.",
+      "area_label": "Signal (Time Series)",
+      "area_slug": "time-series",
+      "builds_on": "TS-Agent (2025, I2CIT4I7); LLMs for TS Survey (2024, N2JLZBY3); Memory Mechanisms Survey (2026, BDY3HUCV)"
+    },
+    {
+      "zotero_key": "2609.08798",
+      "title": "Eliciting Weak-to-Strong Generalization with On-Policy Reverse Distillation",
+      "authors": "Park, Bae et al. (KAIST AI)",
+      "year": 2026,
+      "what": "Lets a stronger student inherit a weaker teacher's post-training gains without inheriting its ceiling, by measuring the teacher's policy shift on the student's own rollouts and amplifying only the verifier-supported component of the student's gradient along that direction, which preserves the student's stationary points while reaching final performance in fewer updates.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Chain-of-Thought (Wei 2023, HBLPTRMY); Latent-GRPO (2026, U4ZPM5DN)"
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); PPO (2017, KQTIJC4U); Policy Gradient (1999, DAGWCZ67)"
     },
     {
-      "zotero_key": "2608.25936",
-      "title": "One Symptom, Three Levers: A Critical Review of On-Policy Self-Distillation",
-      "authors": "Robert, Qader",
+      "zotero_key": "2609.08183",
+      "title": "NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harness",
+      "authors": "NeoHorse Team et al.",
       "year": 2026,
-      "what": "Reviews on-policy self-distillation with no new experiments, argues that one failure mode dominates the field, the progressive narrowing of the reasoning paths a model can produce, and organises the literature around three levers that govern it: how tokens are weighted, what the teacher is shown, and how guidance decays over training.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); RISE (Li 2026, 2609.05295); Chain-of-Thought (Wei 2023, HBLPTRMY)"
-    },
-    {
-      "zotero_key": "2609.05174",
-      "title": "SMILE: Self-Explainable Multimodal Information Bottleneck for Medical Diagnosis",
-      "authors": "Yang, Schmatz, Ma, Choi, Jenssen, Yu",
-      "year": 2026,
-      "what": "Puts multimodal medical diagnosis inside the information bottleneck framework and optimises prediction and per-modality explanation in one objective, using a matrix-based Renyi entropy functional instead of a variational bound, so the model reports which elements of which modality carried the decision rather than attributing after the fact.",
-      "area_label": "LLM-Health",
-      "area_slug": "llm-health",
-      "builds_on": "UNI (Chen 2023, 6T29JLTN); Concept Bottleneck Models (Koh 2020, TUIUJY92); SHAP (Lundberg 2017, 46WR27KQ)"
+      "what": "Turns serving traffic into training data by logging the router's capability prediction and the full harness context of each agent turn, then using those routing signals to organize a three-stage curriculum and on-policy distillation, raising the eleven-benchmark macro-average from 58.94 to 64.87 at 4B and 65.60 to 69.04 at 9B.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "LATS (2024, 77ERE7HA); ADaPT (2023, J8DYBKW2); DeepSeek-V3 (2024, 2JCKA7GI)"
     }
   ]
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalman Delta Networks: Uncertainty-aware Associative Memory — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/mamba.html" class="back-link">&larr; Back to Area</a>
+<h2>Kalman Delta Networks: Uncertainty-aware Associative Memory</h2>
+<p class="paper-meta">Bui, Huang, Ying (Yale University) &middot; arXiv preprint 2026 &middot; <a href="https://arxiv.org/abs/2609.07816" target="_blank" rel="noopener">arXiv:2609.07816</a> &middot; Appears in: <a href="../areas/mamba.html">MAMBA</a></p>
+
+<h3>What</h3>
+<p>Kalman Delta Networks reformulate the fixed-size recurrent memory of linear attention as a linear-Gaussian state-space model, for which the Kalman filter is the optimal recursive estimator, and use that filter as the write rule. The transition propagates the memory state together with its covariance, so the Kalman gain weights each residual write by accumulated evidence and observation reliability rather than by the current token alone. Delta-rule updates emerge as the special case that substitutes a token-wise isotropic surrogate for the predictive covariance and omits covariance tracking entirely.</p>
+
+<h3>Why</h3>
+<p>Linear attention is used in frontier models for long-context inference at constant decoding memory, and its bounded recurrent state forces an online decision at every token: what to write, and how strongly to overwrite existing associations, before knowing what future queries will ask for. Delta-rule models learn that strength from the current token embedding, which means the write cannot adapt to how much evidence the memory has already accumulated about the association being overwritten. A confident memory and an uninformed one are updated the same way, and nothing in the layer represents the difference.</p>
+
+<h3>How</h3>
+<p>Recurrent associative memory is written as a linear-Gaussian state-space model and updated by Kalman recursion, so the gain scales each write by predictive covariance and observation reliability. Exact tracking entails a dense, state-dependent Riccati recursion that is poorly suited to GPU-parallel linear-attention scans, so the paper introduces two scan-compatible approximations. Diagonal KDN projects each one-step posterior onto the diagonal Gaussian family through online mean-field variational inference; Isotropic KDN keeps a single uncertainty scalar per head. Both uncertainty recurrences take the form of Mobius maps, which compose associatively and therefore run as associative scans with logarithmic parallel depth. Reported result: across controlled pretraining at 750M and 1.3B parameters, KDN variants consistently improve perplexity and mean downstream accuracy over state-of-the-art linear-attention models.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="JPKDWV2Q.html">Mamba-2 (Dao 2024)</a><span class="lineage-note">Established the state-space duality that writes a linear-attention layer and a structured SSM as the same recurrence; KDN starts from that identification and changes what the recurrence estimates.</span></li>
+  <li><a href="5YQ4IKMA.html">HiPPO (Gu 2020)</a><span class="lineage-note">Framed fixed-size recurrent state as optimal online compression of history under a fixed measure; KDN keeps the principled-write ambition and makes the compression adaptive.</span></li>
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">The softmax attention baseline whose unbounded KV cache linear attention replaces with the bounded state KDN is trying to manage well.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Mamba-2 unified linear attention and SSMs and then spent its effort making the shared recurrence fast, leaving the question of what the recurrence should be estimating untouched. HiPPO answered a version of that question but fixed the compression measure in advance, so the transition is static and the same input is absorbed identically regardless of what the state already holds. Delta-rule models made the write strength input-dependent but read it off the current token, so it still cannot reflect accumulated evidence. KDN fixes that specific failure mode: by carrying a covariance, a token produces a large update when the relevant memory is uncertain and a small one when it is well determined, and the paper shows the delta rule is exactly what its own update degenerates to when the covariance is replaced by an isotropic constant.</p>
+
+<h3>Method vs predecessors</h3>
+<p>HiPPO derives a fixed transition matrix from an orthogonal-polynomial measure and Mamba-2 makes the transition input-dependent but scalar-times-identity in its efficient form, in both cases tracking a state and no second moment. KDN tracks state and uncertainty jointly, which is what supplies the Kalman gain. The obstacle is that the exact second-moment recursion is a dense state-dependent Riccati update, which is sequential and therefore incompatible with the parallel scan that makes these layers competitive. The resolution is structural rather than numerical: restricting the posterior to diagonal or isotropic families turns the uncertainty recurrence into a Mobius map, and Mobius maps compose associatively, so the parallel scan survives. That is the same move Mamba made for the state recurrence, applied one level up to the covariance.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="XNI34DQX.html">Mamba (Gu 2024)</a><span class="lineage-note">The selective-state mechanism that made input-dependent forgetting standard, which KDN reinterprets as an uncertainty-free approximation.</span></li>
+  <li><a href="J7K2E7A3.html">S4 (Gu 2022)</a><span class="lineage-note">The structured state-space backbone whose fixed transition KDN replaces with a tracked-covariance update.</span></li>
+  <li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">The point where this backbone family already reaches wearable sensing, and the natural place to test an uncertainty-aware write under motion artifact.</span></li>
+</ul>
+</div>
+</body>
+</html>

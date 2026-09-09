@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eliciting Weak-to-Strong Generalization with On-Policy Reverse Distillation — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Eliciting Weak-to-Strong Generalization with On-Policy Reverse Distillation</h2>
+<p class="paper-meta">Park, Bae, Jung, Ko, Choi, Kim, Cameron, Courville, Yun (KAIST AI) &middot; arXiv preprint 2026 &middot; <a href="https://arxiv.org/abs/2609.08798" target="_blank" rel="noopener">arXiv:2609.08798</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+
+<h3>What</h3>
+<p>On-Policy Reverse Distillation lets a stronger student inherit post-training gains from a weaker teacher and then pass it. The method evaluates the teacher's policy shift relative to its own reference policy, measured on the student's rollouts rather than the teacher's, and amplifies the component of the student's verifier-driven policy gradient that lies along that direction. Because only verifier-supported updates are rescaled, the stationary points of the student's own policy optimization are preserved, so the teacher accelerates learning without becoming something the student converges to.</p>
+
+<h3>Why</h3>
+<p>Successive model generations and multi-domain consolidation both raise the same practical problem: repeating frontier-scale post-training from scratch for every new base model is expensive, and the gains already paid for sit inside an older, weaker model. Conventional distillation is the obvious route and the wrong one, because it treats the weak teacher's distribution as an optimization target and therefore risks transferring the teacher's capacity ceiling to a student that did not have one. What is wanted is a way to use the teacher's evidence about where to go without adopting the teacher's destination.</p>
+
+<h3>How</h3>
+<p>The teacher's post-training is summarized as a shift between its policy and its reference policy, and that shift is evaluated on states the student actually visits, which is what makes the procedure on-policy with respect to the student. The student's gradient comes from verifier reward as in ordinary verifier-driven RL; OPRD rescales the component of that gradient aligned with the teacher's shift direction, and leaves everything the verifier does not support untouched. Rescaling a gradient without adding a term preserves its zeros, which is the argument for why the student's optimum is unmoved. Reported results: in successive model transfer and multi-teacher distillation, OPRD reaches the final performance of competing RL and distillation methods with fewer student updates and ultimately exceeds both; response-style analysis finds OPRD students closer to verifier-only RL models than to their teachers; gains also hold in conventional strong-to-weak distillation.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Established verifier-driven RL as the mechanism that produces reasoning gains; that gradient is exactly what OPRD rescales.</span></li>
+  <li><a href="KQTIJC4U.html">PPO (Schulman 2017)</a><span class="lineage-note">The policy-optimization machinery OPRD modifies rather than replaces.</span></li>
+  <li><a href="DAGWCZ67.html">Policy Gradient Methods (Sutton 1999)</a><span class="lineage-note">Supplies the stationary-point reasoning behind the claim that teacher guidance does not move the student's optimum.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Standard distillation fails at exactly the case this paper targets: making the teacher's output the target caps the student at the teacher, which is unacceptable when the teacher is deliberately the weaker model. Verifier-only RL as in DeepSeek-R1 has no such ceiling but pays in sample count, discarding the post-training work already embedded in the older model. OPRD removes the ceiling and keeps the reuse by changing what is borrowed from the teacher: a direction instead of a target. The response-style evidence is the part that supports the claim rather than assuming it, since students that had merely been pulled toward the teacher would look like the teacher, and they do not.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Distillation adds a term to the loss that pulls the student's distribution toward the teacher's, which changes where the optimization settles. PPO constrains the update to a trust region around the current policy, an isotropic restriction applied for stability. OPRD does neither: it applies an anisotropic rescaling that stretches the student's existing gradient along one direction, adding nothing, so the fixed points are untouched and only the path to them is shortened. Safety comes from restricting the rescaling to verifier-supported updates rather than from a trust region. Measuring the teacher's shift on student rollouts rather than teacher rollouts is what keeps the direction relevant to the states the student is actually in.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="HBLPTRMY.html">Chain-of-Thought (Wei 2023)</a><span class="lineage-note">The prompting-era counterpart to obtaining reasoning by RL, and the other end of the bridge DeepSeek-R1 already crosses in this library.</span></li>
+  <li><a href="BZKDNHD6.html">SPRINT (Biju 2025)</a><span class="lineage-note">Also post-trains a reasoning model on curated data to change how the optimization proceeds rather than what it targets.</span></li>
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">The staged post-training pipeline that makes the successive-generation transfer problem concrete.</span></li>
+</ul>
+</div>
+</body>
+</html>

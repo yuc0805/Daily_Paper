@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory in Deep Time-Series Models — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/time-series.html" class="back-link">&larr; Back to Area</a>
+<h2>Memory in Deep Time-Series Models</h2>
+<p class="paper-meta">Nguyen, Nguyen, Nguyen, Do, Nguyen, Le &middot; arXiv preprint 2026 &middot; <a href="https://arxiv.org/abs/2609.06006" target="_blank" rel="noopener">arXiv:2609.06006</a> &middot; Appears in: <a href="../areas/time-series.html">Signal (Time Series)</a></p>
+
+<h3>What</h3>
+<p>A survey arguing that recurrent networks, transformers, structured state-space models, retrieval-augmented predictors, time-series foundation models and tool-using agents are usually studied as separate architectural eras when they are better read as successive answers to one question: how does a time-series model retain and access information beyond its immediate input? Existing methods are placed on a spectrum from internal memory, held in parameters and fixed-size states, to external memory that is addressable, retrievable and increasingly maintained by an agent. Three classes of external memory are then reviewed under a common account of what is retained, how it is written and read, and how it persists.</p>
+
+<h3>Why</h3>
+<p>Conventional time-series modeling faces a limitation that no single architecture removes: information relevant to a prediction may lie far outside any feasible input window, while compressing history into a fixed-size state discards material that may matter later. Organizing the literature by architecture hides this, because it separates methods that answer the same limitation and groups methods that answer different ones. Taxonomies arranged by how a language model is attached to a series have the same problem from the other direction, putting a state-space model and a retrieval-augmented forecaster in unrelated boxes.</p>
+
+<h3>How</h3>
+<p>The paper formulates the limitation as a memory problem and builds a taxonomy of memory mechanisms along the internal-to-external spectrum. Three classes of external memory are covered: explicit modules, retrieval augmentation, and agentic stores. Each is described by what it retains, how it is written and accessed, and how it persists, which makes mechanisms from different architectural eras directly comparable. A cross-cutting analysis maps mechanisms to time-series tasks and identifies gaps in both methods and evaluation, and the paper closes on open problems in systems that selectively retain, retrieve, revise and forget as temporal environments change. This is a survey, so it contributes a framework rather than measurements.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">The agentic-store end of the spectrum this survey defines, where an external agent maintains what the model remembers about a series.</span></li>
+  <li><a href="N2JLZBY3.html">LLMs for Time Series: A Survey (Zhang 2024)</a><span class="lineage-note">The previous organizing survey of this literature, arranged by how a language model is attached to a series rather than by what is retained.</span></li>
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Supplies the write, read, revise and persist vocabulary for agent memory that this paper carries over to numeric temporal data.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Zhang 2024 organized the field by interface and therefore could not say whether two methods were solving the same problem, since an SSM and a retrieval-augmented forecaster land in unrelated categories despite both addressing the finite-window limitation. Huang 2026 built the vocabulary for agent memory but applied it to language agents over text, leaving open whether it survives contact with numeric temporal data where the relevant history is periodic and drifting rather than propositional. This paper puts both on one axis and, in doing so, surfaces a gap neither predecessor could state: the surveyed mechanisms are all scored on downstream forecasting error, so there is no evidence about whether their memory actually retains, revises or forgets correctly.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The organizing move is to make memory a first-class design dimension that is independent of the backbone, where the earlier surveys treated backbone choice as the primary axis and memory as an implementation detail of each backbone. Concretely, parameter memory, fixed-size recurrent state, explicit memory modules, retrieval augmentation and agentic stores are described with one set of questions rather than five sets of architectural details, which is what lets HiPPO-style compression and an LLM agent maintaining notes about a series appear as two positions on a continuum. The intermediate positions on that continuum are where the paper says the open problems are, and it is honest that the evaluation apparatus to compare them does not yet exist.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="5YQ4IKMA.html">HiPPO (Gu 2020)</a><span class="lineage-note">The internal-memory pole of the spectrum: history compressed optimally into a fixed-size state under a fixed measure.</span></li>
+  <li><a href="KKXN4S6L.html">Timer (Liu 2024)</a><span class="lineage-note">A foundation-model position on the same axis, where memory lives in pretrained parameters rather than in an addressable store.</span></li>
+  <li><a href="ICD9EG8Q.html">GLOBEM (Xu 2023)</a><span class="lineage-note">Multi-year behavioral data, the setting where the retain-versus-revise question the survey raises has real consequences.</span></li>
+</ul>
+</div>
+</body>
+</html>

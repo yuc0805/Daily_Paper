@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harness — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harness</h2>
+<p class="paper-meta">NeoHorse Team et al. &middot; arXiv preprint 2026 &middot; <a href="https://arxiv.org/abs/2609.08183" target="_blank" rel="noopener">arXiv:2609.08183</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+
+<h3>What</h3>
+<p>A family of agent-native models built around a loop in which serving traffic becomes training data. A heterogeneous model pool sits behind an intelligent router, and each user turn is logged with the predicted capability demand, the service tier chosen, and the resulting interaction. Those records become training examples that preserve interleaved reasoning, tool calls and harness context, and the same routing signals organize supervised fine-tuning into a three-stage curriculum and drive routing-guided on-policy distillation. Capability-guided allocation then turns evaluation feedback into the next training mixture, closing an evaluation-selection-update loop.</p>
+
+<h3>Why</h3>
+<p>Recursive self-improvement is usually discussed without a mechanism: a system is supposed to observe its own capabilities and convert that observation into the next round of learning, but what carries the observation is left unspecified. Meanwhile agent deployments generate exactly the signal that is missing, since every routed turn contains an implicit judgment about how hard the request was and a full record of how it went, and that signal is normally discarded after serving. Agent trajectories are also expensive to produce, and existing inference-time search methods throw away the harness context once an answer is returned.</p>
+
+<h3>How</h3>
+<p>The router predicts capability demand and selects a service tier; both the prediction and the subsequent interaction are recorded. Records pass structural validation, six-dimensional semantic evaluation and subscene-level labeling before admission, and the surviving examples retain interleaved reasoning, tool calls and harness context rather than being flattened to input-output pairs. Routing signals then place each example in one of three curriculum stages for supervised fine-tuning, and the same progression governs routing-guided on-policy distillation, where a teacher supervises student-generated responses. Capability-guided allocation converts benchmark feedback into the next mixture. Reported result: across eleven benchmarks spanning harness-based agents, tool use, coding and instruction following, post-training raises the macro-average from 58.94 to 64.87 at 4B and from 65.60 to 69.04 at 9B, narrowing much of the gap between the post-trained 4B model and the 9B base model.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Put search and feedback over agent trajectories at inference time; NeoHorse moves the same trajectories into the training loop instead of discarding them.</span></li>
+  <li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Established as-needed decomposition of agent tasks; the capability demand the router predicts is that judgment made ahead of the turn.</span></li>
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">The reference for routing plus staged post-training as a production pipeline, here applied across separate models rather than experts.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>LATS and ADaPT both spend computation at inference time to decide how a task should be handled, and both discard that computation once the task is done, so the system is exactly as capable on the next request as it was on the last one. NeoHorse fixes that specific waste: the routing decision and the full harness context are retained and converted into supervision, which is what turns a serving system into a training signal generator. The result is that a 4B model post-trained on its own traffic closes much of the gap to a 9B base model, which is the practical claim. The weaker part is the recursive self-improvement framing, since one round of a loop is evidence about one round.</p>
+
+<h3>Method vs predecessors</h3>
+<p>DeepSeek-V3 routes among experts inside a single forward pass, where the routing decision exists only as internal activations and cannot label anything. Here the routing is across a pool of separate models at different service tiers, so the decision is an explicit capability estimate that persists outside the model and can be used twice, first to serve and then to place the example in a curriculum. Against LATS, the difference is where the search product goes: LATS consumes it to produce an answer, NeoHorse admits it through validation and semantic evaluation and keeps it as data. Preserving interleaved reasoning, tool calls and harness context rather than flattening to input-output pairs is what makes the retained trace usable for agent training at all. Eleven benchmarks with a self-selected data pipeline is a setting where contamination is difficult to rule out, and the reported gains, roughly six and three and a half macro-average points, should be read with that in mind.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">The question of what an agent retains across turns, answered here by writing it into weights rather than into a store.</span></li>
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Tool use learned as embeddings; NeoHorse instead keeps tool calls inline in retained trajectories.</span></li>
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">The framing survey for agent-native systems this technical report positions itself inside.</span></li>
+</ul>
+</div>
+</body>
+</html>
