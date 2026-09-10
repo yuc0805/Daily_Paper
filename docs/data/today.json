@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-09",
+  "date": "2026-09-10",
   "papers": [
     {
-      "zotero_key": "2609.07816",
-      "title": "Kalman Delta Networks: Uncertainty-aware Associative Memory",
-      "authors": "Bui, Huang, Ying (Yale University)",
+      "zotero_key": "2609.05405",
+      "title": "WearableQA: A Benchmark for Health Reasoning over Real-World Wearable Data",
+      "authors": "Lee, Chen, Chuang et al. (Meta)",
       "year": 2026,
-      "what": "Reformulates the fixed-size recurrent memory of linear attention as a linear-Gaussian state-space model and uses the Kalman filter as the write rule, so each write is weighted by tracked uncertainty rather than by the current token alone, with diagonal and isotropic approximations that keep the associative scan and improve perplexity and downstream accuracy at 750M and 1.3B parameters.",
-      "area_label": "MAMBA",
-      "area_slug": "mamba",
-      "builds_on": "Mamba-2 (2024, JPKDWV2Q); HiPPO (2020, 5YQ4IKMA); Attention Is All You Need (2017, PHB9VRVM)"
+      "what": "Builds 4,084 ten-option questions from the real 500-day wearable records, blood biomarkers and demographics of 200 people, keeping device noise and between-person variability, and splits them along data-versus-health and single-versus-cross-signal axes so a score says where a model failed rather than only how often; 14 models span 19.6 to 72.9 percent against a 10 percent floor.",
+      "area_label": "LLM-Health",
+      "area_slug": "llm-health",
+      "builds_on": "LLMs are Few-Shot Health Learners (2023, JX3X3KH5); Health-LLM (2024, 7RHTW5L3); GLOBEM (2023, ICD9EG8Q)"
     },
     {
-      "zotero_key": "2609.06006",
-      "title": "Memory in Deep Time-Series Models",
-      "authors": "Nguyen et al. (Hung Le group)",
+      "zotero_key": "2609.06976",
+      "title": "HealthLoopQA: Context-Aware QA for Wearable Monitoring in Diabetes Care",
+      "authors": "Anonymous (under review)",
       "year": 2026,
-      "what": "Re-reads recurrent networks, transformers, state-space models, retrieval-augmented predictors, foundation models and time-series agents as successive answers to one question about what a model retains beyond its input window, and organizes them on an internal-to-external memory spectrum with a shared account of what is written, how it is read, and how it persists.",
-      "area_label": "Signal (Time Series)",
-      "area_slug": "time-series",
-      "builds_on": "TS-Agent (2025, I2CIT4I7); LLMs for TS Survey (2024, N2JLZBY3); Memory Mechanisms Survey (2026, BDY3HUCV)"
+      "what": "Replaces the collected dataset with a simulated hybrid closed-loop insulin testbed so that causal questions have ground-truth answers and 17 device-failure and security-fault scenarios can be injected on demand, then grades questions by reasoning depth and scores numerical accuracy separately from the paired textual rationale.",
+      "area_label": "LLM-Health",
+      "area_slug": "llm-health",
+      "builds_on": "Verifiable Physiological Reasoning (2026, 2BGP9QJL); Health-LLM (2024, 7RHTW5L3); TS-Agent (2025, I2CIT4I7)"
     },
     {
-      "zotero_key": "2609.08798",
-      "title": "Eliciting Weak-to-Strong Generalization with On-Policy Reverse Distillation",
-      "authors": "Park, Bae et al. (KAIST AI)",
+      "zotero_key": "2609.07103",
+      "title": "Revisiting Complete Reasoning Traces for Post-Training",
+      "authors": "Hwang, Yun, Heo, Han (NAVER AI Lab)",
       "year": 2026,
-      "what": "Lets a stronger student inherit a weaker teacher's post-training gains without inheriting its ceiling, by measuring the teacher's policy shift on the student's own rollouts and amplifying only the verifier-supported component of the student's gradient along that direction, which preserves the student's stationary points while reaching final performance in fewer updates.",
+      "what": "Deletes the middle of reasoning trajectories used for supervised fine-tuning and finds that heavy truncation costs little, with attention analysis and controlled token-removal indicating that intermediate tokens contribute minimally because a model given the endpoints can reconstruct coherent steps from internal knowledge.",
       "area_label": "Reasoning",
       "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); PPO (2017, KQTIJC4U); Policy Gradient (1999, DAGWCZ67)"
+      "builds_on": "Chain-of-Thought (2023, HBLPTRMY); DeepSeek-R1 (2025, Z5IWHZAE); CODI (2025, FFWLYL3J)"
     },
     {
-      "zotero_key": "2609.08183",
-      "title": "NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harness",
-      "authors": "NeoHorse Team et al.",
+      "zotero_key": "2609.09134",
+      "title": "Co-Evolving Harnesses and Models: On-Policy Correction Helps Weaker Models Catch Up Where Imitation Fails",
+      "authors": "Yu, Bi, Pentyala et al. (Salesforce)",
       "year": 2026,
-      "what": "Turns serving traffic into training data by logging the router's capability prediction and the full harness context of each agent turn, then using those routing signals to organize a three-stage curriculum and on-policy distillation, raising the eleven-benchmark macro-average from 58.94 to 64.87 at 4B and 65.60 to 69.04 at 9B.",
+      "what": "Shows that fine-tuning a weak model on a strong expert's full trajectories under a harness already evolved for that weak model regresses on all seven enterprise tasks by 4 to 30 points, because imitation installs a planning style the harness was not shaped around, and fixes it by having a meta-level agent localize the failing turn in the model's own rollout and rewrite only that turn.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "LATS (2024, 77ERE7HA); ADaPT (2023, J8DYBKW2); DeepSeek-V3 (2024, 2JCKA7GI)"
+      "builds_on": "ADaPT (2023, J8DYBKW2); LATS (2024, 77ERE7HA); NeoHorse-1 (2026, 2609.08183)"
     }
   ]
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revisiting Complete Reasoning Traces for Post-Training — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Revisiting Complete Reasoning Traces for Post-Training</h2>
+<p class="paper-meta">Hwang, Yun, Heo, Han (NAVER AI Lab) &middot; arXiv preprint 2026 &middot; <a href="https://arxiv.org/abs/2609.07103" target="_blank" rel="noopener">arXiv:2609.07103</a> &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+
+<h3>What</h3>
+<p>Tests whether supervised fine-tuning on complete reasoning trajectories is what makes reasoning post-training work, and reports that it is largely not. A pilot study finds full trajectories give only limited benefit over partial ones, and that partial trajectories stay effective under heavy truncation. Attention-based analysis and controlled token-removal studies then show that intermediate tokens contribute minimally to final reasoning quality. The proposed reading is that a model given the endpoints of a trajectory infers coherent intermediate steps from its own internal knowledge, so much of the middle of a long chain is redundant supervision.</p>
+
+<h3>Why</h3>
+<p>Reasoning trajectories are long because complex problems produce interwoven paths with detours that do not lead to the answer. Collecting and training on them is the dominant cost in reasoning post-training, and the field has treated trajectory completeness as necessary without testing it. If the middle of a chain is redundant, the data budget for this kind of training has been set by an untested assumption, and the widely-used practice of reading trace length as a proxy for reasoning quality is measuring something incidental.</p>
+
+<h3>How</h3>
+<p>Two instruments are combined. Attention-based analysis measures how much the final answer tokens attend to intermediate positions, which is correlational. Controlled token removal deletes intermediate content and measures the effect on final reasoning quality, which is the causal intervention and carries the argument. Truncation is applied at varying severity to establish how far the effect extends. The detour structure of long chains is offered as the explanation: a trajectory that wanders and backtracks contains many tokens that a model with the endpoints could have reconstructed, and supervising on them adds cost without adding signal.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">Established that intermediate steps improve final answers at inference time; this paper separates that from the claim that they help as training supervision.</span></li>
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">The reference point for long-trajectory post-training, where chain length grows as a byproduct of reward optimization.</span></li>
+  <li><a href="FFWLYL3J.html">CODI (Shen 2025)</a><span class="lineage-note">Already argued the reasoning chain can be compressed into latent form without losing the answer; this paper argues much of it can simply be deleted.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The failure mode being fixed is not a model failure but an inference the field drew from Wei 2023. Chain-of-Thought showed that producing intermediate steps helps, and post-training practice concluded that consuming complete intermediate steps must therefore help. That conclusion does not follow, and this paper shows it is weak in practice: heavy truncation costs little. Relative to DeepSeek-R1, it separates the observation that strong reasoners emit long chains from the claim that long chains are what taught them, which matters because the second claim is what sets data collection budgets.</p>
+
+<h3>Method vs predecessors</h3>
+<p>CODI kept the chain but moved it into a latent space, so the information still had to be represented somewhere. This paper reports that a substantial part of the chain can be removed from the training data outright, which is a cheaper and stronger claim if it holds at scale. Methodologically it differs from both predecessors in being a controlled ablation study rather than a proposed method: there is no new architecture or objective, only an intervention on the training data and a measurement. The attention analysis is supporting evidence rather than the result.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="EMXEJYHV.html">Latent Reasoning Survey (Zhu 2025)</a><span class="lineage-note">Maps the compress-the-chain literature this result cuts across.</span></li>
+  <li><a href="EGRXFZU9.html">Soft Thinking (Zhang 2025)</a><span class="lineage-note">Another attempt to reduce what the chain must carry, from the inference side rather than the data side.</span></li>
+  <li><a href="2609.08798.html">Weak-to-Strong Generalization via On-Policy Reverse Distillation (2026)</a><span class="lineage-note">Also questions what a student actually needs from a teacher's trajectories.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

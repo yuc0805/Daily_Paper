@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HealthLoopQA: Context-Aware QA for Wearable Monitoring in Diabetes Care — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+<h2>HealthLoopQA: A Context-Aware Question Answering Benchmark for Interpreting Wearable Monitoring Data in Diabetes Care</h2>
+<p class="paper-meta">Anonymous (under review) &middot; arXiv preprint 2026 &middot; <a href="https://arxiv.org/abs/2609.06976" target="_blank" rel="noopener">arXiv:2609.06976</a> &middot; Appears in: <a href="../areas/llm-health.html">LLM-Health</a></p>
+
+<h3>What</h3>
+<p>A diagnostic benchmark for language model reasoning over continuous diabetes monitoring data, built on a simulated hybrid closed-loop insulin delivery testbed rather than a collected dataset. The testbed produces physiological and therapeutic traces under varied patient activity schedules and injects 17 fault scenarios covering device failures and security compromises. Question templates cover process mining, anomaly detection and predictive reasoning, graded by reasoning depth from descriptive statistics through causal and inferential reasoning, and each item carries both a numerical answer and a textual rationale so that quantitative accuracy and reasoning fidelity are scored separately.</p>
+
+<h3>Why</h3>
+<p>Existing wearable question-answering benchmarks assess short-horizon classification or statistical summaries. They therefore omit three things that determine whether a system is usable in chronic care: long-term patterns that only appear over months, the therapeutic and behavioral context that explains why a signal moved, and the system faults that occur in real deployments. The last is the sharpest gap, because a device failure and a physiological event can produce the same trace, and no observational dataset contains enough labeled failures to test whether a model can separate them.</p>
+
+<h3>How</h3>
+<p>Simulation supplies what observation cannot: the generating process is known, so every question has a ground-truth causal answer, and faults can be injected on demand rather than waited for. Activity schedules are varied to produce realistic behavioral context, and the 17 fault scenarios span both hardware failure and adversarial compromise. The reasoning-depth grading is what makes it diagnostic, since a system can be strong on descriptive statistics and fail on causal attribution, and a single score would hide that. Requiring a rationale alongside each numerical answer separates a model that reaches the right number by the right route from one that does not.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="2BGP9QJL.html">Verifiable Physiological Reasoning (Wang 2026)</a><span class="lineage-note">Established that a physiological answer should be checked against an explicit derivation; this benchmark carries that requirement into every item via the paired rationale.</span></li>
+  <li><a href="7RHTW5L3.html">Health-LLM (Kim 2024)</a><span class="lineage-note">The short-horizon wearable evaluation setup this paper argues is too narrow for chronic-care deployment.</span></li>
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">The tool-using, evidence-logging pattern that the process-mining and anomaly-detection question types are designed to reward.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Health-LLM's failure mode is that it cannot ask a causal question, because an observational wearable dataset does not record why a signal moved. HealthLoopQA fixes this by generating the data from a known process, which makes causal and inferential items answerable and gradeable. The second failure mode it fixes belongs to the whole prior line: no benchmark scored whether a model can distinguish a sensor fault from a physiological event, so a system that treats every anomaly as clinical was indistinguishable from one that does not. Fault injection makes that distinction measurable.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Where Wang 2026 verified a single derivation, this paper attaches a rationale to every item and scores reasoning fidelity as a separate quantity from numerical accuracy, which turns verification from a method into an evaluation axis. Where TS-Agent showed that operator calls beat direct reading on time-series reasoning, this supplies the setting where the gap should be largest, since fault attribution requires evidence gathering rather than pattern recall. The design trade is explicit and is the opposite of WearableQA's: simulation buys controlled faults and ground-truth causal structure at the cost of authentic sensor distributions.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2609.05405.html">WearableQA (2026)</a><span class="lineage-note">The complementary end of the same design space: real distributions, no ground-truth causes.</span></li>
+  <li><a href="ICD9EG8Q.html">GLOBEM (Xu 2023)</a><span class="lineage-note">Multi-year observational behavior data; shows what a collected record can and cannot support.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Frames the biosignal modeling landscape this benchmark evaluates against.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

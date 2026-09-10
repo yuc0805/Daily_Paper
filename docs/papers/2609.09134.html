@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Co-Evolving Harnesses and Models — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>Co-Evolving Harnesses and Models: On-Policy Correction Helps Weaker Models Catch Up Where Imitation Fails</h2>
+<p class="paper-meta">Yu, Bi, Pentyala, Mehrotra, Chaudhuri, Bhagavath, Chen, Xu, Mui, Zhu, Asur (Salesforce) &middot; arXiv preprint 2026 &middot; <a href="https://arxiv.org/abs/2609.09134" target="_blank" rel="noopener">arXiv:2609.09134</a> &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+
+<h3>What</h3>
+<p>Studies what happens when an agent harness, meaning the system prompt, tool set, execution hooks and context-management scaffolding around a model, is evolved for a weak model and that model is then fine-tuned on a stronger expert's trajectories under the same harness. Across seven enterprise agent tasks the combination regresses on all seven, by 4 to 30 points for Qwen3-Coder and Gemma 4, even though the identical fine-tuning helps under the unevolved harness. The paper diagnoses the cause and proposes an on-policy expert-correction pipeline that recovers the gains from both sides.</p>
+
+<h3>Why</h3>
+<p>Automated harness evolution lets small models do domain work at a fraction of frontier cost, and lightweight fine-tuning does the same from the weight side. Both shape behavior, so the natural move is to apply both, and the field has assumed the gains add. Nobody had tested the combination, and the assumption turns out to be wrong in a specific and reproducible way: the two updates compete for the same thing, namely the model's planning style, and the harness was shaped around the style that fine-tuning overwrites.</p>
+
+<h3>How</h3>
+<p>The analysis shows that imitation does transfer knowledge and does increase scaffold usage, but breaks model-harness fit: the weak model adopts the expert's planning strategy without the competence to execute it, and that strategy no longer matches a harness evolved around its own native planning. The fix is to change the provenance of the supervision rather than its content. A meta-level machine-learning agent localizes the failing turn inside the weak model's own rollout and asks the expert to rewrite only that turn, leaving the rest of the trajectory as the weak model produced it. Planning style is preserved, the harness stays compatible, and the gains from harness evolution and weight adaptation combine instead of cancelling.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Established as-needed decomposition, the idea that planning strategy should match executor competence; this paper finds the same mismatch appearing across a training boundary.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">The scaffold-side agent whose gains come from search rather than weights; this paper puts scaffold gains and weight gains in tension.</span></li>
+  <li><a href="2609.08183.html">NeoHorse-1 (2026)</a><span class="lineage-note">Trained on harness-logged trajectories and reported gains; this paper isolates the condition under which that recipe reverses sign.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>LATS and the wider scaffold line implicitly treated harness improvement and weight improvement as independent additive contributions. The failure mode this paper surfaces is that they are not: once a harness has been evolved against a specific model, retraining that model on off-policy expert data makes the harness a liability, and the result is a regression on every task tested. NeoHorse-1 did not hit this because its training trajectories came from the model's own serving traffic. The difference between on-policy and off-policy provenance is what flips the sign, and naming that condition is the paper's contribution beyond the fix.</p>
+
+<h3>Method vs predecessors</h3>
+<p>ADaPT matched decomposition depth to executor competence within a single run, at inference time. This paper moves the same principle into training: the minimal-edit correction, where only the failing turn is rewritten, is a way of supplying expert supervision without overwriting the executor's planning style. Compared to standard trajectory-level supervised fine-tuning, the unit of supervision shrinks from the trajectory to the turn, and the rollout stays the student's own. The automation is also different in kind, since a meta-level agent performs the failure localization that would otherwise require manual trajectory inspection.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2609.08798.html">Weak-to-Strong Generalization via On-Policy Reverse Distillation (2026)</a><span class="lineage-note">Reaches the same on-policy conclusion from the RL post-training side rather than the agent-scaffolding side.</span></li>
+  <li><a href="BDY3HUCV.html">Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Treats the scaffold around a model as a first-class object of study, as this paper does for the harness.</span></li>
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Reference for staged post-training as a production pipeline.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
