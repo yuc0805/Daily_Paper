@@ -1795,6 +1795,42 @@
       "confidence_score": 0.9,
       "cross_area": true,
       "date_added": "2026-09-07"
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent: Time Series Reasoning Agent (Liu 2025)",
+      "target": "2609.06006",
+      "target_label": "Memory in Deep Time-Series Models (2026)",
+      "relation": "builds_on",
+      "note": "TS-Agent showed that an external agentic store helps on specific reasoning tasks; this survey places that result as one point on a continuum whose other end is HiPPO-style parameter memory.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-09"
+    },
+    {
+      "source": "zhang2024_llm_ts_survey",
+      "source_label": "LLMs for Time Series: A Survey (Zhang 2024)",
+      "target": "2609.06006",
+      "target_label": "Memory in Deep Time-Series Models (2026)",
+      "relation": "builds_on",
+      "note": "The previous organizing survey arranged this literature by interface, asking how a language model is attached to a series; this one arranges it by state, asking what the model retains and how it is addressed.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-09"
+    },
+    {
+      "source": "huang2026_memory",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "2609.06006",
+      "target_label": "Memory in Deep Time-Series Models (2026)",
+      "relation": "builds_on",
+      "note": "Huang 2026 built the retain, retrieve, revise and forget vocabulary for language agents over text; this survey carries it to numeric temporal data and finds that the surveyed methods are evaluated on forecasting error rather than on whether their memory holds.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-09"
     }
   ],
   "hyperedges": [

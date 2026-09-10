@@ -260,6 +260,42 @@
       "confidence_score": 0.9,
       "cross_area": true,
       "date_added": "2026-09-05"
+    },
+    {
+      "source": "JPKDWV2Q",
+      "source_label": "Mamba-2 (Dao 2024)",
+      "target": "2609.07816",
+      "target_label": "Kalman Delta Networks: Uncertainty-aware Associative Memory (2026)",
+      "relation": "builds_on",
+      "note": "Mamba-2 established the state-space duality that writes a linear-attention layer and a structured SSM as one recurrence and then optimized its speed; this paper asks what that recurrence should estimate and adopts the Kalman filter as the write rule.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-09"
+    },
+    {
+      "source": "5YQ4IKMA",
+      "source_label": "HiPPO (Gu 2020)",
+      "target": "2609.07816",
+      "target_label": "Kalman Delta Networks: Uncertainty-aware Associative Memory (2026)",
+      "relation": "builds_on",
+      "note": "HiPPO fixed the compression measure in advance and derived a static transition from it; this paper lets effective write strength move with a tracked covariance, so an uncertain memory takes a large update and a well-determined one takes a small update.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-09"
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2609.07816",
+      "target_label": "Kalman Delta Networks: Uncertainty-aware Associative Memory (2026)",
+      "relation": "builds_on",
+      "note": "Softmax attention kept an unbounded key-value cache and therefore never faced the overwrite question; this paper manages the bounded state that replaced it.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-09"
     }
   ],
   "hyperedges": [

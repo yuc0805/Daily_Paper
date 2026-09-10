@@ -1120,6 +1120,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-07"
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2609.08183",
+      "target_label": "NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harness (2026)",
+      "relation": "builds_on",
+      "note": "LATS put search and feedback over agent trajectories at inference time and discarded the search; NeoHorse moves that trace into the training loop as supervision.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-09"
+    },
+    {
+      "source": "prasad2023_adapt",
+      "source_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
+      "target": "2609.08183",
+      "target_label": "NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harness (2026)",
+      "relation": "builds_on",
+      "note": "ADaPT decomposed a task on demand to decide how much planning a step needed; NeoHorse predicts that same capability demand before the turn and uses it to route and to place the example in a curriculum stage.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-09"
+    },
+    {
+      "source": "deepseek2024_v3",
+      "source_label": "DeepSeek-V3 Technical Report (2024)",
+      "target": "2609.08183",
+      "target_label": "NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harness (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-V3 routed among experts inside one forward pass, leaving the decision as internal activations; routing here is across separate models at different service tiers, so the decision persists outside the model and becomes a label.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-09"
     }
   ],
   "hyperedges": [

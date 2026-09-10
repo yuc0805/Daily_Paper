@@ -973,6 +973,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-08"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2609.08798",
+      "target_label": "Eliciting Weak-to-Strong Generalization with On-Policy Reverse Distillation (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 established verifier-driven RL as the way reasoning gains are produced and paid for it in sample count; OPRD keeps that verifier signal and uses weak-teacher guidance to reach the same place in fewer student updates.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-09"
+    },
+    {
+      "source": "KQTIJC4U",
+      "source_label": "PPO (Schulman 2017)",
+      "target": "2609.08798",
+      "target_label": "Eliciting Weak-to-Strong Generalization with On-Policy Reverse Distillation (2026)",
+      "relation": "builds_on",
+      "note": "PPO constrains the update isotropically to a trust region for stability; OPRD adds an anisotropic rescaling that deliberately stretches one direction and relies on verifier support rather than a trust region.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-09"
+    },
+    {
+      "source": "DAGWCZ67",
+      "source_label": "Policy Gradient Methods (Sutton 1999)",
+      "target": "2609.08798",
+      "target_label": "Eliciting Weak-to-Strong Generalization with On-Policy Reverse Distillation (2026)",
+      "relation": "builds_on",
+      "note": "Sutton 1999 supplies the stationary-point argument; OPRD uses it as the load-bearing claim that rescaling a verifier-supported gradient shortens the path without moving the student optimum.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-09"
     }
   ],
   "hyperedges": [],
