@@ -790,6 +790,78 @@
       "confidence_score": 0.9,
       "cross_area": true,
       "date_added": "2026-09-08"
+    },
+    {
+      "source": "liu2023_health_llm",
+      "source_label": "LLMs are Few-Shot Health Learners (Liu 2023)",
+      "target": "2609.05405",
+      "target_label": "WearableQA: A Benchmark for Health Reasoning over Real-World Wearable Data (2026)",
+      "relation": "builds_on",
+      "note": "Liu 2023 showed a language model can read raw physiological numbers in a clean prompt; WearableQA keeps the noise, missingness and between-person variability of a deployed device, moving the question from whether the capability exists to whether it survives real data.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-10"
+    },
+    {
+      "source": "7RHTW5L3",
+      "source_label": "Health-LLM (Kim 2024)",
+      "target": "2609.05405",
+      "target_label": "WearableQA: A Benchmark for Health Reasoning over Real-World Wearable Data (2026)",
+      "relation": "builds_on",
+      "note": "Health-LLM evaluated curated features over short windows; WearableQA evaluates up to 500 days of one person's own record, changing the failure mode from feature-vector-to-label mapping to locating and computing over the relevant stretch of a history.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-10"
+    },
+    {
+      "source": "xu2023_globem",
+      "source_label": "GLOBEM: Multi-Year Human Behavior Datasets (Xu 2023)",
+      "target": "2609.05405",
+      "target_label": "WearableQA: A Benchmark for Health Reasoning over Real-World Wearable Data (2026)",
+      "relation": "builds_on",
+      "note": "GLOBEM contributed the multi-year multi-cohort behavior data and a prediction task; WearableQA contributes a 16-type question schema on top of comparable data, which is where the substance sits.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-10"
+    },
+    {
+      "source": "2BGP9QJL",
+      "source_label": "Verifiable Physio Reasoning (Wang 2026)",
+      "target": "2609.06976",
+      "target_label": "HealthLoopQA: A Context-Aware Question Answering Benchmark for Interpreting Wearable Monitoring Data in Diabetes Care (2026)",
+      "relation": "builds_on",
+      "note": "Wang 2026 required a checkable derivation behind a single physiological claim; HealthLoopQA carries that requirement into a benchmark by attaching a rationale to every item, so reasoning fidelity is scored separately from numerical accuracy.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-10"
+    },
+    {
+      "source": "7RHTW5L3",
+      "source_label": "Health-LLM (Kim 2024)",
+      "target": "2609.06976",
+      "target_label": "HealthLoopQA: A Context-Aware Question Answering Benchmark for Interpreting Wearable Monitoring Data in Diabetes Care (2026)",
+      "relation": "builds_on",
+      "note": "Health-LLM scored short-horizon classification over wearable features; HealthLoopQA argues that horizon is too narrow and asks instead about long-horizon patterns, therapeutic context and device faults.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-10"
+    },
+    {
+      "source": "liu2025_tsagent",
+      "source_label": "TS-Agent (Liu 2025)",
+      "target": "2609.06976",
+      "target_label": "HealthLoopQA: A Context-Aware Question Answering Benchmark for Interpreting Wearable Monitoring Data in Diabetes Care (2026)",
+      "relation": "builds_on",
+      "note": "TS-Agent showed that a tool-using, evidence-logging agent outperforms direct reading on time-series reasoning; HealthLoopQA supplies the fault-injection setting where that advantage should be largest and is measurable.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-10"
     }
   ],
   "hyperedges": [

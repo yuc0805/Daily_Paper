@@ -1156,6 +1156,42 @@
       "confidence_score": 0.9,
       "cross_area": true,
       "date_added": "2026-09-09"
+    },
+    {
+      "source": "prasad2023_adapt",
+      "source_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
+      "target": "2609.09134",
+      "target_label": "Co-Evolving Harnesses and Models: On-Policy Correction Helps Weaker Models Catch Up Where Imitation Fails (2026)",
+      "relation": "builds_on",
+      "note": "ADaPT matched decomposition depth to what the executing model could do inside a single run; this paper finds the same planner-executor mismatch appearing across a training boundary, because fine-tuning overwrites the planning style while the harness stays fixed.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-10"
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2609.09134",
+      "target_label": "Co-Evolving Harnesses and Models: On-Policy Correction Helps Weaker Models Catch Up Where Imitation Fails (2026)",
+      "relation": "builds_on",
+      "note": "LATS took its gains from the scaffold rather than the weights, and the scaffold line treated the two as additive; this paper shows they interact negatively once the harness has been evolved against the weak model.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-10"
+    },
+    {
+      "source": "2609.08183",
+      "source_label": "NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harness (2026)",
+      "target": "2609.09134",
+      "target_label": "Co-Evolving Harnesses and Models: On-Policy Correction Helps Weaker Models Catch Up Where Imitation Fails (2026)",
+      "relation": "builds_on",
+      "note": "NeoHorse-1 trained on harness-logged trajectories drawn from the model's own serving traffic and reported gains; this paper isolates the reversing case, where the trajectories come from a stronger expert, making on-policy versus off-policy provenance the deciding variable.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-10"
     }
   ],
   "hyperedges": [

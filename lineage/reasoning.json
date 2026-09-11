@@ -1009,6 +1009,42 @@
       "confidence_score": 0.9,
       "cross_area": true,
       "date_added": "2026-09-09"
+    },
+    {
+      "source": "wei2023_cot",
+      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+      "target": "2609.07103",
+      "target_label": "Revisiting Complete Reasoning Traces for Post-Training (2026)",
+      "relation": "builds_on",
+      "note": "Wei 2023 established that intermediate steps improve final answers at inference time; this paper tests the separate claim that consuming those steps as training signal helps, and finds it much weaker.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-10"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2609.07103",
+      "target_label": "Revisiting Complete Reasoning Traces for Post-Training (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 made long trajectories the shape of a strong reasoner, with length emerging from reward optimization; this paper argues the length is partly incidental, because truncated supervision reaches comparable quality.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-10"
+    },
+    {
+      "source": "FFWLYL3J",
+      "source_label": "CODI: Continuous Chain-of-Thought Distillation (Shen 2025)",
+      "target": "2609.07103",
+      "target_label": "Revisiting Complete Reasoning Traces for Post-Training (2026)",
+      "relation": "builds_on",
+      "note": "CODI compressed the reasoning chain into latent form and still had to represent it; this paper reports much of the chain can be deleted from the training data outright, which is the stronger and cheaper claim.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-10"
     }
   ],
   "hyperedges": [],
