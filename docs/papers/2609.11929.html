@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SenseNova-U1.5 &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+
+<h2>SenseNova-U1.5: Towards Native Unified Visual Intelligence</h2>
+<p class="paper-meta">
+  Diao, Wang, Ding, Deng, Chen et al. (65 authors) &middot; arXiv 2026-09-10 &middot;
+  <a href="https://arxiv.org/abs/2609.11929" target="_blank" rel="noopener">arXiv:2609.11929</a> &middot;
+  Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a>
+</p>
+
+<h3>What</h3>
+<p>SenseNova-U1.5 is an 8B mixture-of-transformers model that understands, reasons about and generates visual content inside a single architecture with no separate vision encoder and no variational autoencoder. Its visual interface is trained by spatially coherent patch reconstruction at native resolutions up to 4K. Post-training optimizes separate experts for visual aesthetics, bilingual text rendering, infographic generation and image editing, then consolidates those capabilities through multi-expert on-policy distillation.</p>
+
+<h3>Why</h3>
+<p>A model that reads images and a model that makes them have historically been joined by an interface: a frozen vision encoder feeding a language model, or a variational autoencoder supplying a latent space for a diffusion backbone. Each interface is a place where the representation used for understanding and the representation used for generation stop being the same thing, which limits how much the two capabilities can support each other. The concrete symptom is that models generate well but follow complex structured instructions poorly, because the instruction is parsed in one representation and rendered in another.</p>
+
+<h3>How</h3>
+<p>The model predicts image patches directly in the same transformer stream that handles text, with a spatially coherent patch reconstruction objective standing in for what an autoencoder would otherwise provide. Training scale comes from curated generation and editing data, reformulated tasks, structural prompt enhancement, and support for native resolutions rather than fixed-size crops. Post-training runs specialist optimization per capability and then folds the specialists back into one model by on-policy distillation, so serving does not require several experts. Training code covering supervised finetuning, reinforcement learning and on-policy distillation is stated as forthcoming.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="4N5WXKPI.html">BLIP-2 (Li 2023)</a><span class="lineage-note">The frozen-vision-encoder bridging design that "encoder-free" is defined against.</span></li>
+  <li><a href="DULT32HM.html">Stable Diffusion (Rombach 2022)</a><span class="lineage-note">The latent-diffusion pipeline whose variational autoencoder this architecture removes.</span></li>
+  <li><a href="YJ9TK993.html">DiT (Peebles 2023)</a><span class="lineage-note">Established the transformer as a generative backbone, but kept the autoencoder that this work also drops.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>BLIP-2 attaches a pretrained vision encoder to a frozen language model through a learned bridge, which gives understanding without giving generation, and Stable Diffusion generates inside a variational autoencoder's latent space, which gives generation without giving understanding. The shared failure mode is that structured instruction following falls between the two: a model that parses a layout instruction in one representation must hand it across an interface to something that renders. Removing both interfaces is the fix proposed here, and the evidence offered is generalization rather than fidelity, since the model handles long, complex and structured visual instructions despite little structured data in its generation training.</p>
+
+<h3>Method vs predecessors</h3>
+<p>DiT took the partial step, swapping the U-Net for a transformer while keeping the variational autoencoder, so the generative backbone unified but the representation did not. SenseNova removes the autoencoder as well and pays for it with the patch reconstruction objective, which is what supplies the spatial structure the autoencoder used to provide. The other difference is in post-training: instead of a single reinforcement learning stage, capability-specific experts are trained and then merged by on-policy distillation, which is a way to get specialist quality without serving specialist models. The claim that this path is better than a strong interfaced pipeline rests on the transfer result, so that is the part to check against the fidelity tables when the code is released.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="B7F2Q998.html">ViT (Dosovitskiy 2021)</a><span class="lineage-note">The patch-token treatment of images that makes an encoder-free transformer interface possible at all.</span></li>
+  <li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">The pixel-space diffusion ancestor, before latent-space autoencoders became standard.</span></li>
+  <li><a href="A5HBRQB9.html">Masked Autoencoders (He 2021)</a><span class="lineage-note">The closest relative of the patch reconstruction objective used to train the visual interface.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

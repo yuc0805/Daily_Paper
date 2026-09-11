@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CARDEA &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+
+<h2>CARDEA: Auditable Reasoning Grounded in Spatial Evidence for End-to-End Coronary Angiography Interpretation</h2>
+<p class="paper-meta">
+  Lee, Hou, Ng, Wang, Chang &middot; arXiv 2026-09-07 &middot;
+  <a href="https://arxiv.org/abs/2609.06931" target="_blank" rel="noopener">arXiv:2609.06931</a> &middot;
+  Appears in: <a href="../areas/llm-health.html">LLM-Health</a>
+</p>
+
+<h3>What</h3>
+<p>CARDEA is a unified large vision-language model that runs a coronary angiography pipeline end to end, from raw multi-view video through keyframe selection to two study-level diagnoses, dominance classification and complexity assessment. Its reasoning trace is required to cite bounding boxes, a scheme the authors call Chain-of-Box, so a clinician can see which image regions a conclusion rests on. It was trained only on public datasets and only on closed-ended tasks; report generation was held out of training entirely and evaluated zero-shot on an external cohort.</p>
+
+<h3>Why</h3>
+<p>Coronary angiography is the reference standard for diagnosing coronary artery disease, but readings differ substantially between observers. Existing systems improve consistency and then stop at a prediction, leaving the intermediate reasoning unavailable for inspection. A clinician cannot check a number, which limits adoption regardless of accuracy. Prior interpretability work in medical imaging produces saliency maps after the fact, which explain a model's attention but are not the object the model was optimized to produce, so they can disagree with the stated reasoning.</p>
+
+<h3>How</h3>
+<p>Training runs in three stages. Visual feature alignment fits the model to coronary angiography features. A self-distilled Chain-of-Box cold start synthesizes box-citing reasoning traces from the model itself rather than from human annotation, which avoids the cost of collecting traces. Reinforcement learning with verifiable rewards then optimizes against the closed-ended labels, with an added Chain-of-Box reward that pays for bounding-box use inside the reasoning trace. The verifiable part of the reward is the closed-ended answer, and the box reward shapes where the model looks while getting there.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Source of the verifiable-reward recipe, applied here to clinical labels rather than to math and code.</span></li>
+  <li><a href="6T29JLTN.html">UNI: General-Purpose Self-Supervised Model for Pathology (Chen 2023)</a><span class="lineage-note">The medical-imaging foundation-model alignment recipe that the first training stage follows.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals: A Survey (Gu 2025)</a><span class="lineage-note">Names auditability as the blocking issue for clinical adoption; this is one concrete answer to that.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>UNI produces strong pathology representations and stops at the representation, so any downstream diagnosis is still a number with no inspectable derivation. DeepSeek-R1 produces long reasoning traces, but the trace is natural language, and a natural-language justification in a medical image setting can be fluent and still not correspond to anything in the image. CARDEA fixes that specific failure by making the trace cite bounding boxes, which are checkable against the image in a way sentences are not. The result that supports the design is a transfer effect: only the verifiable-reward stage raised zero-shot report generation, to 0.686 vessel-severity macro-F1 from 0.513 for the untuned base model, against an always-normal floor of 0.312. Supervised imitation on the same closed-ended tasks did not produce that lift.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Against DeepSeek-R1, the reward is composite rather than purely outcome-based: correctness plus a behavioral term for box use, which is a way of shaping the reasoning process without step-level labels. Against UNI, the pipeline extends past representation learning into an end-to-end system that selects keyframes and emits study-level conclusions. The accuracy is not free. CARDEA trailed a dedicated classifier on in-distribution dominance classification and only drew level under domain shift, at 0.91 accuracy with a 95 percent confidence interval of 0.86 to 0.95, and matched two interventional cardiologists on complexity assessment at 0.90 accuracy. The paper is explicit that clinical use would require prospective validation.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="GST6E6A6.html">CounselBench (Li 2025)</a><span class="lineage-note">Also evaluates a clinical language model against practitioners rather than against a benchmark alone.</span></li>
+  <li><a href="JX3X3KH5.html">LLMs are Few-Shot Health Learners (Liu 2023)</a><span class="lineage-note">The other direction of the same question: whether a general model can read physiological evidence without task-specific training.</span></li>
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Same auditability goal via a different mechanism, forcing every claim to trace to a recorded operator call rather than to an image region.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

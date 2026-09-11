@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCP-ArchPreview &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm.html" class="back-link">&larr; Back to Area</a>
+
+<h2>NCP-ArchPreview Technical Report: Moving towards Latent Space Language Models through Next Concept Prediction</h2>
+<p class="paper-meta">
+  Liu et al. (28 authors) &middot; arXiv 2026-09-11 &middot;
+  <a href="https://arxiv.org/abs/2609.10715" target="_blank" rel="noopener">arXiv:2609.10715</a> &middot;
+  Appears in: <a href="../areas/llm.html">LLM</a>
+</p>
+
+<h3>What</h3>
+<p>NCP-ArchPreview adds a second autoregressive objective above next-token prediction. The model builds a concept vocabulary by product-quantizing its own hidden states, then trains a dedicated Concept Module to predict the next discrete concept, where a concept spans several tokens. The predicted concept is fed back down to the token level to condition subsequent token generation, and the concept objective and the token objective are trained jointly end to end. The architecture was scaled to 8.9B parameters trained on 5.73T tokens of Dolma-3, which the authors report as the largest latent-space language model trained so far.</p>
+
+<h3>Why</h3>
+<p>Next-token prediction asks the model to commit its entire predictive effort to one unit ahead, which means long-range structure has to be carried implicitly. Latent-reasoning work has argued for years that a model should be able to plan in a hidden space above the token, but the approaches that tried it kept the latent stream continuous and unsupervised, so there was no loss to train the latent level against. That limited these methods to post-training reasoning interventions on modest models, and left open whether a latent objective helps at pretraining scale at all.</p>
+
+<h3>How</h3>
+<p>The hidden states of the running model are product-quantized into a discrete codebook, which turns the latent space into a vocabulary with addressable entries. Because the codebook index of a future position is a concrete label, the Concept Module can be trained with a standard prediction loss to name the next concept. That predicted concept is then injected back into the token-level stream as conditioning, so the coarse prediction steers fine-grained generation rather than sitting beside it. Both losses are optimized together throughout pretraining, and the token-level autoregressive interface is preserved, so generation and decoding are unchanged from a standard language model.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="2BJAGQ5K.html">Coconut: Reasoning in a Continuous Latent Space (Hao 2024)</a><span class="lineage-note">Established that reasoning state can be carried in hidden vectors instead of emitted tokens; this work quantizes that state so it can be predicted.</span></li>
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">Supplies the token-level autoregressive backbone, which is kept intact underneath the concept level.</span></li>
+  <li><a href="EMXEJYHV.html">Latent Reasoning: A Survey (Zhu 2025)</a><span class="lineage-note">Names the missing supervision signal for latent states that product quantization is proposed to provide.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Coconut showed that a model can reason in a continuous latent stream, but that stream is unsupervised: nothing tells the model what the latent state at a future position should be, so the method works as a post-training reasoning intervention and does not give pretraining a second objective. The specific failure mode is that a continuous latent has no label, so it cannot be scored. Product quantization fixes exactly that, because the codebook index of a future hidden state is a discrete target the Concept Module can be trained against. The consequence is scale: the concept objective runs across 5.73T pretraining tokens at 8.9B parameters rather than being fitted afterward on a small set of reasoning traces.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared with a standard transformer, the difference is the prediction horizon. Vaswani 2017 defines one prediction unit, the next token, and every gradient at a position is about that unit. NCP-ArchPreview keeps that head and adds a second one whose unit spans multiple tokens, so each position carries gradients about both a local continuation and a coarser future state. Compared with Coconut, the latent space changes from continuous to discrete and from inference-time to pretraining-time, and a feedback path is added so the concept prediction conditions token generation rather than replacing it. The cost is an extra module, a codebook that must be maintained as hidden states drift during training, and a joint loss whose balance is a new hyperparameter.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="HBLPTRMY.html">Chain-of-Thought Prompting (Wei 2023)</a><span class="lineage-note">The token-space version of the same goal: make intermediate structure explicit, but in emitted text rather than in a latent vocabulary.</span></li>
+  <li><a href="TUIUJY92.html">Concept Bottleneck Models (Koh 2020)</a><span class="lineage-note">Also routes prediction through an intermediate concept layer, but with human-defined concepts rather than ones discovered by quantizing hidden states.</span></li>
+  <li><a href="A5HBRQB9.html">Masked Autoencoders (He 2021)</a><span class="lineage-note">The competing self-supervised objective whose prediction unit is a raw patch rather than a quantized state.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

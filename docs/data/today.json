@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-10",
+  "date": "2026-09-11",
   "papers": [
     {
-      "zotero_key": "2609.05405",
-      "title": "WearableQA: A Benchmark for Health Reasoning over Real-World Wearable Data",
-      "authors": "Lee, Chen, Chuang et al. (Meta)",
+      "zotero_key": "2609.10715",
+      "title": "NCP-ArchPreview: Moving towards Latent Space Language Models through Next Concept Prediction",
+      "authors": "Liu et al. (28 authors)",
       "year": 2026,
-      "what": "Builds 4,084 ten-option questions from the real 500-day wearable records, blood biomarkers and demographics of 200 people, keeping device noise and between-person variability, and splits them along data-versus-health and single-versus-cross-signal axes so a score says where a model failed rather than only how often; 14 models span 19.6 to 72.9 percent against a 10 percent floor.",
+      "what": "Product-quantizes a model's own hidden states into a concept vocabulary, trains a Concept Module to predict the next multi-token concept, and feeds that prediction back to condition token generation, scaled to 8.9B parameters over 5.73T tokens as the largest latent-space language model reported so far.",
+      "area_label": "LLM",
+      "area_slug": "llm",
+      "builds_on": "Coconut (Hao 2024, 2BJAGQ5K); Attention Is All You Need (Vaswani 2017, PHB9VRVM); Latent Reasoning Survey (Zhu 2025, EMXEJYHV)"
+    },
+    {
+      "zotero_key": "2609.06931",
+      "title": "CARDEA: Auditable Reasoning Grounded in Spatial Evidence for End-to-End Coronary Angiography Interpretation",
+      "authors": "Lee, Hou, Ng, Wang, Chang",
+      "year": 2026,
+      "what": "Trains a vision-language model on closed-ended angiography labels with a verifiable reward that also pays for citing bounding boxes inside the reasoning trace, and finds the reinforcement stage alone surfaces zero-shot report generation the model was never trained on, lifting vessel-severity macro-F1 from 0.513 to 0.686.",
       "area_label": "LLM-Health",
       "area_slug": "llm-health",
-      "builds_on": "LLMs are Few-Shot Health Learners (2023, JX3X3KH5); Health-LLM (2024, 7RHTW5L3); GLOBEM (2023, ICD9EG8Q)"
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); UNI Pathology (Chen 2023, 6T29JLTN); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF)"
     },
     {
-      "zotero_key": "2609.06976",
-      "title": "HealthLoopQA: Context-Aware QA for Wearable Monitoring in Diabetes Care",
-      "authors": "Anonymous (under review)",
+      "zotero_key": "2609.11412",
+      "title": "X-AuT: Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation",
+      "authors": "Zhang, Zou, Chen et al. (XPENG AI)",
       "year": 2026,
-      "what": "Replaces the collected dataset with a simulated hybrid closed-loop insulin testbed so that causal questions have ground-truth answers and 17 device-failure and security-fault scenarios can be injected on demand, then grades questions by reasoning depth and scores numerical accuracy separately from the paired textual rationale.",
-      "area_label": "LLM-Health",
-      "area_slug": "llm-health",
-      "builds_on": "Verifiable Physiological Reasoning (2026, 2BGP9QJL); Health-LLM (2024, 7RHTW5L3); TS-Agent (2025, I2CIT4I7)"
+      "what": "Selects which audio-encoder layers to drop by short behavioral probes rather than weight statistics, then repairs the pruned encoder by representation alignment and distillation from a larger teacher with the language backbone frozen, cutting 18 layers to 16 while macro-average error falls from 5.61 to 5.27 percent.",
+      "area_label": "Audio",
+      "area_slug": "audio",
+      "builds_on": "HeAR (Baur 2024, 3LA8GNCU); Audio Mamba (Erol 2024, 6VTXUZEG); Attention Is All You Need (Vaswani 2017, PHB9VRVM)"
     },
     {
-      "zotero_key": "2609.07103",
-      "title": "Revisiting Complete Reasoning Traces for Post-Training",
-      "authors": "Hwang, Yun, Heo, Han (NAVER AI Lab)",
+      "zotero_key": "2609.11929",
+      "title": "SenseNova-U1.5: Towards Native Unified Visual Intelligence",
+      "authors": "Diao, Wang, Ding et al. (65 authors)",
       "year": 2026,
-      "what": "Deletes the middle of reasoning trajectories used for supervised fine-tuning and finds that heavy truncation costs little, with attention analysis and controlled token-removal indicating that intermediate tokens contribute minimally because a model given the endpoints can reconstruct coherent steps from internal knowledge.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "Chain-of-Thought (2023, HBLPTRMY); DeepSeek-R1 (2025, Z5IWHZAE); CODI (2025, FFWLYL3J)"
-    },
-    {
-      "zotero_key": "2609.09134",
-      "title": "Co-Evolving Harnesses and Models: On-Policy Correction Helps Weaker Models Catch Up Where Imitation Fails",
-      "authors": "Yu, Bi, Pentyala et al. (Salesforce)",
-      "year": 2026,
-      "what": "Shows that fine-tuning a weak model on a strong expert's full trajectories under a harness already evolved for that weak model regresses on all seven enterprise tasks by 4 to 30 points, because imitation installs a planning style the harness was not shaped around, and fixes it by having a meta-level agent localize the failing turn in the model's own rollout and rewrite only that turn.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "ADaPT (2023, J8DYBKW2); LATS (2024, 77ERE7HA); NeoHorse-1 (2026, 2609.08183)"
+      "what": "Removes both the vision encoder and the variational autoencoder so an 8B mixture-of-transformers model reads and writes image patches in one stream trained by spatially coherent patch reconstruction, then folds capability-specific experts back together by multi-expert on-policy distillation.",
+      "area_label": "Multi-Modal",
+      "area_slug": "multi-modal",
+      "builds_on": "BLIP-2 (Li 2023, 4N5WXKPI); Stable Diffusion (Rombach 2022, DULT32HM); DiT (Peebles 2023, YJ9TK993)"
     }
   ]
 }

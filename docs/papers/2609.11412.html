@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X-AuT &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/audio.html" class="back-link">&larr; Back to Area</a>
+
+<h2>X-AuT: Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation</h2>
+<p class="paper-meta">
+  Zhang, Zou, Chen, Yu, Fan et al. (XPENG AI) &middot; arXiv 2026-09-10 &middot;
+  <a href="https://arxiv.org/abs/2609.11412" target="_blank" rel="noopener">arXiv:2609.11412</a> &middot;
+  Appears in: <a href="../areas/audio.html">Audio</a>
+</p>
+
+<h3>What</h3>
+<p>X-AuT removes layers from the audio encoder of a speech language model and repairs the damage, so that inference cost falls without the deletion and premature end-of-sequence errors that whole-block pruning normally causes. Which layer combinations to keep is decided by short behavioral probes rather than by weight statistics. Repair uses representation alignment, cross-scale distillation from a larger teacher, scheduled student-policy supervision, and LoRA finetuning, with the language backbone frozen throughout and only attention adapters and the tied output embedding adapting.</p>
+
+<h3>Why</h3>
+<p>Audio-encoder depth dominates the inference cost of a speech language model, so pruning it is the obvious lever. The problem is that the encoder output is consumed by a decoder that was trained against a specific embedding distribution, and removing a complete block perturbs that distribution in a way the decoder reads as a signal to stop or to skip content. Standard pruning criteria based on weight magnitude do not see this, because they measure importance inside the encoder rather than the effect on the downstream decoder's behavior.</p>
+
+<h3>How</h3>
+<p>Candidate layer subsets are scored with short behavioral probes that measure what the pruned model actually does, which selects for combinations that preserve decoder behavior rather than encoder weights. The pruned encoder is then aligned to the original representation, distilled from a larger-scale teacher rather than from itself, and given LoRA adapters on attention while the backbone stays frozen. Training data is filtered to the highest-agreement tier of a transcript-consistency pipeline, with source reweighting during finetuning. Compression proceeds progressively through intermediate depths rather than in one step.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="3LA8GNCU.html">HeAR: Health Acoustic Representations (Baur 2024)</a><span class="lineage-note">The general health-audio encoder whose deployment cost is the problem this recipe addresses.</span></li>
+  <li><a href="6VTXUZEG.html">Audio Mamba (Erol 2024)</a><span class="lineage-note">The competing answer to encoder cost: change the architecture rather than compress the trained one.</span></li>
+  <li><a href="PHB9VRVM.html">Attention Is All You Need (Vaswani 2017)</a><span class="lineage-note">Supplies the stacked-attention encoder whose depth is the quantity being reduced.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Audio Mamba reduces audio-encoder cost by replacing attention with a bidirectional state-space model, which works but discards the pretrained encoder and requires retraining from scratch. When that encoder is already attached to a frozen language model, throwing it away is expensive. X-AuT fixes the failure mode of the cheap alternative instead: naive block removal perturbs the embeddings the decoder consumes and produces deletions and early end-of-sequence, and the repair pipeline plus behavior-driven layer selection is what stops that. The evidence that the selection step matters is that going 18 to 16 layers reduced macro-average error from 5.61 to 5.27 percent across ten Chinese-English benchmarks, meaning the original depth was not optimal for this decoder.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Two design choices distinguish this from ordinary distillation. First, the teacher is a larger model, 1.7B, not the unpruned student, and that matters: under a matched recipe the 1.7B teacher yielded 5.55 percent mean error against 8.45 percent for self-distillation. Second, pruning is progressive rather than direct; reaching 14 layers through intermediate depths gave 5.75 percent against 6.73 percent for pruning straight to 14, at 20.7 percent fewer audio-tower parameters. Read the numbers with the authors' own caveat, which is that these are single-run results and the direction of the effect varies across the ten benchmarks.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="65EDEWIJ.html">Audio MAE (Huang 2022)</a><span class="lineage-note">The self-supervised audio encoder whose pretrained weights a compression recipe like this is designed to preserve.</span></li>
+  <li><a href="HE9X47KN.html">HARMamba (Li 2024)</a><span class="lineage-note">The same efficiency goal in wearable sensing, solved by architecture choice rather than by compressing a trained encoder.</span></li>
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Surveys the signal encoders that this compression pattern would apply to next.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
