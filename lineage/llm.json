@@ -597,6 +597,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-08"
+    },
+    {
+      "source": "2BJAGQ5K",
+      "source_label": "Coconut: Training LLMs to Reason in a Continuous Latent Space (Hao 2024)",
+      "target": "2609.10715",
+      "target_label": "NCP-ArchPreview: Moving towards Latent Space Language Models through Next Concept Prediction (2026)",
+      "relation": "builds_on",
+      "note": "Coconut carried reasoning state in a continuous latent stream that had no prediction target of its own; NCP product-quantizes the latent space into a discrete vocabulary drawn from the model's own hidden states, because a discrete target gives the latent level an explicit loss and therefore makes it trainable at pretraining scale.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-11"
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2609.10715",
+      "target_label": "NCP-ArchPreview: Moving towards Latent Space Language Models through Next Concept Prediction (2026)",
+      "relation": "builds_on",
+      "note": "The transformer fixes the prediction horizon at one token ahead; the Concept Module predicts a unit spanning several tokens and feeds it back down to condition token generation, which changes what the gradient is asked to encode at each position while keeping the token-level backbone.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-11"
+    },
+    {
+      "source": "EMXEJYHV",
+      "source_label": "Latent Reasoning: A Survey (Zhu 2025)",
+      "target": "2609.10715",
+      "target_label": "NCP-ArchPreview: Moving towards Latent Space Language Models through Next Concept Prediction (2026)",
+      "relation": "builds_on",
+      "note": "The survey identified the missing supervision signal as the shared unresolved problem of latent-space approaches; a product-quantization codebook index over hidden states is a label the model can be scored against, which answers that directly.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-11"
     }
   ],
   "hyperedges": [],

@@ -508,6 +508,42 @@
       "confidence_score": 0.9,
       "cross_area": true,
       "date_added": "2026-09-07"
+    },
+    {
+      "source": "4N5WXKPI",
+      "source_label": "BLIP-2 (Li 2023)",
+      "target": "2609.11929",
+      "target_label": "SenseNova-U1.5: Towards Native Unified Visual Intelligence (2026)",
+      "relation": "builds_on",
+      "note": "BLIP-2 attached a pretrained vision encoder to a frozen language model through a learned bridge; SenseNova-U1.5 deletes that bridge and the encoder, predicting image patches directly in one transformer, because every interface is a place where understanding and generation stop sharing representations.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-11"
+    },
+    {
+      "source": "DULT32HM",
+      "source_label": "Stable Diffusion (Rombach 2022)",
+      "target": "2609.11929",
+      "target_label": "SenseNova-U1.5: Towards Native Unified Visual Intelligence (2026)",
+      "relation": "builds_on",
+      "note": "Stable Diffusion generated inside a variational autoencoder's latent space; this model removes the autoencoder and pays for it with spatially coherent patch reconstruction at native resolution as the training objective.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-11"
+    },
+    {
+      "source": "peebles2023_dit",
+      "source_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+      "target": "2609.11929",
+      "target_label": "SenseNova-U1.5: Towards Native Unified Visual Intelligence (2026)",
+      "relation": "builds_on",
+      "note": "DiT made the generative backbone a transformer while keeping the autoencoder; SenseNova-U1.5 takes the next step and removes the autoencoder as well, so understanding and generation share one representation with no modality-specific front end.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-11"
     }
   ],
   "hyperedges": [],

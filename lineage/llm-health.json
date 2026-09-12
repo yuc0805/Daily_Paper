@@ -862,6 +862,42 @@
       "confidence_score": 0.9,
       "cross_area": true,
       "date_added": "2026-09-10"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2609.06931",
+      "target_label": "CARDEA: Auditable Reasoning Grounded in Spatial Evidence for End-to-End Coronary Angiography Interpretation (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 applied reinforcement learning with verifiable rewards where correctness is checkable directly in text, namely math and code; CARDEA keeps the machinery but makes the verifiable part a closed-ended clinical label while the quantity being shaped is spatial attention, because a bounding box is checkable in a way a natural-language justification is not.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-11"
+    },
+    {
+      "source": "chen2023_pathology",
+      "source_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
+      "target": "2609.06931",
+      "target_label": "CARDEA: Auditable Reasoning Grounded in Spatial Evidence for End-to-End Coronary Angiography Interpretation (2026)",
+      "relation": "builds_on",
+      "note": "UNI supplied the medical-imaging foundation-model recipe that the visual alignment stage follows and stopped at the representation; CARDEA carries that representation into a reasoning trace that cites its own evidence regions.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-11"
+    },
+    {
+      "source": "gu2025_biosignals",
+      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+      "target": "2609.06931",
+      "target_label": "CARDEA: Auditable Reasoning Grounded in Spatial Evidence for End-to-End Coronary Angiography Interpretation (2026)",
+      "relation": "builds_on",
+      "note": "The Gu survey named auditability as the blocking issue for clinical adoption of biosignal foundation models; CARDEA is one concrete answer, and the reported numbers price it, since it trailed a dedicated classifier in distribution and drew level only under domain shift.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-11"
     }
   ],
   "hyperedges": [

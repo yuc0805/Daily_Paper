@@ -22,6 +22,42 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "cross_area": false
+    },
+    {
+      "source": "erol2024_audiomamba",
+      "source_label": "Audio Mamba: Bidirectional SSM for Audio (Erol 2024)",
+      "target": "2609.11412",
+      "target_label": "X-AuT: Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation (2026)",
+      "relation": "builds_on",
+      "note": "Audio Mamba addressed audio-encoder cost by replacing attention with a state-space model and retraining from scratch; X-AuT keeps the trained transformer encoder and removes depth from it, because a pretrained encoder attached to a frozen language model is an asset an architecture swap discards.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-11"
+    },
+    {
+      "source": "baur2024_hear",
+      "source_label": "HeAR: Health Acoustic Representations (Baur 2024)",
+      "target": "2609.11412",
+      "target_label": "X-AuT: Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation (2026)",
+      "relation": "builds_on",
+      "note": "HeAR established that a general health-acoustic encoder transfers across tasks and left deployment cost untouched; X-AuT supplies the compression recipe such an encoder would need on a device, with the language backbone frozen throughout.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-11"
+    },
+    {
+      "source": "vaswani2017_transformer",
+      "source_label": "Attention Is All You Need (Vaswani 2017)",
+      "target": "2609.11412",
+      "target_label": "X-AuT: Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation (2026)",
+      "relation": "builds_on",
+      "note": "Stacked attention layers are the unit of encoder capacity this work prunes; the result that 18 to 16 layers improved macro-average error from 5.61 to 5.27 percent says the original depth sat on the wrong side of the capacity-noise trade-off for this decoder.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-11"
     }
   ],
   "hyperedges": [
