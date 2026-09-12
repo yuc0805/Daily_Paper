@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>An Open Recipe for IMO Gold: Training Nemotron for Olympiad Mathematics &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>An Open Recipe for IMO Gold: Training Nemotron for Olympiad Mathematics</h2>
+<p class="paper-meta">Moshkov, Ge, Armstrong, Du, Mahdavi, Gitman (NVIDIA) &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2609.10712" target="_blank" rel="noopener">link</a> &middot; arXiv: 2609.10712 &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3><p>Two specialist checkpoints are post-trained from Nemotron 3 Ultra, one by supervised fine-tuning and one by reinforcement learning, and combined with the general-availability model into a test-time pipeline that generates, verifies, and refines natural-language proofs, with a separate high-compute stage selecting each final submission. The system operates entirely in natural language, with no formal prover, no external tools, and no internet access, and it scored 30 out of 42 points at IMO 2026, above the gold-medal threshold. The release includes both post-trained checkpoints, the training data, the training and inference code, the submitted solutions, and Nemotron-IMO-Bench, a benchmark of 200 novel olympiad-level problems.</p>
+<h3>Why</h3><p>Olympiad proof generation gives no partial credit and cannot be checked by string match, so it exposes what answer-level benchmarks hide. Prior gold-level results relied on formal provers or on undisclosed pipelines, which left two questions open: how much of the performance comes from the post-trained weights and how much from the inference procedure, and whether the result reproduces without a formal verification backend. Because the pipeline choices and the checkpoints were not public, no one budgeting inference compute could tell which stage to spend on. This paper answers those questions by releasing the components and by ablating checkpoint choice, verification, and refinement separately.</p>
+<h3>How</h3><p>Supervised fine-tuning and reinforcement learning produce two specialists with different failure profiles, and the pipeline exploits the difference: candidate proofs are generated, then verified in natural language, then refined in response to the verification, in an iterative search. A final high-compute selection stage picks the submission from the surviving candidates. All verification is done by the models themselves rather than by a formal checker, which is what makes the recipe portable to domains with no proof assistant. The accompanying 200-problem benchmark is constructed from novel problems so that contamination arguments against older olympiad sets do not apply.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Graphify anchor deepseek2025_r1, Community 0; showed reinforcement learning on verifiable answers yields long reasoning traces without process supervision.</span></li>
+  <li><a href="BZKDNHD6.html">SPRINT (Biju 2025)</a><span class="lineage-note">Restructured reasoning trajectories into planning rounds plus parallel execution, cutting sequential tokens by up to 39 percent.</span></li>
+  <li><a href="W7RPRTCH.html">Test-Time Training for Abstract Reasoning (Akyurek 2024)</a><span class="lineage-note">Established that inference-time compute can substitute for capacity on reasoning tasks.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>DeepSeek-R1 spends its budget on training one policy, which leaves the inference procedure as an unexamined variable and makes the resulting traces long and unfiltered. This pipeline adds an outer loop that verifies and refines, so a wrong-but-fluent proof is caught rather than submitted, and the ablation shows that loop buys more at fixed compute than a stronger single generator does. Against Test-Time Training for Abstract Reasoning, the failure mode addressed is different: that method adapts weights per instance and pays a per-instance training cost, whereas here the weights stay frozen and the budget goes to search breadth, which is the cheaper option when generation is the bottleneck rather than adaptation.</p>
+<h3>Method vs predecessors</h3><p>DeepSeek-R1 trains a policy and samples once; SPRINT reorganizes a single trajectory so independent subtasks run in parallel; this paper searches across trajectories drawn from three different checkpoints and then selects. The three are not in competition at the same level, and SPRINT composes with this pipeline because it parallelizes inside a trajectory while the pipeline searches outside it. Verification here is a model in natural language rather than a formal prover or a learned scalar critic, so the method transfers to any domain where a competent reader can judge an argument but no formal checker exists.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="U4ZPM5DN.html">Latent-GRPO (Deng 2026)</a><span class="lineage-note">Reinforcement-learning variant for reasoning; the training-side counterpart to this inference-side recipe.</span></li>
+  <li><a href="FPEC4PIH.html">Large Multimodal Reasoning Survey (Li 2025)</a><span class="lineage-note">Surveys the verify-and-refine family this pipeline instantiates.</span></li>
+  <li><a href="EGRXFZU9.html">Soft Thinking (Zhang 2025)</a><span class="lineage-note">Alternative route to trace quality through continuous rather than discrete steps.</span></li>
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">Comparable frontier base model and technical-report format.</span></li>
+</ul>
+</div>
+</body>
+</html>

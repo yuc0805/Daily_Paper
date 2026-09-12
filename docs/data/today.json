@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-11",
+  "date": "2026-09-12",
   "papers": [
     {
-      "zotero_key": "2609.10715",
-      "title": "NCP-ArchPreview: Moving towards Latent Space Language Models through Next Concept Prediction",
-      "authors": "Liu et al. (28 authors)",
+      "zotero_key": "2609.03342",
+      "title": "Gradients Know What Outcomes Don't: Unlocking Reinforcement Learning for LLM Reasoning with Gradient-Aligned Rewards",
+      "authors": "Zheng et al. (11 authors)",
       "year": 2026,
-      "what": "Product-quantizes a model's own hidden states into a concept vocabulary, trains a Concept Module to predict the next multi-token concept, and feeds that prediction back to condition token generation, scaled to 8.9B parameters over 5.73T tokens as the largest latent-space language model reported so far.",
-      "area_label": "LLM",
-      "area_slug": "llm",
-      "builds_on": "Coconut (Hao 2024, 2BJAGQ5K); Attention Is All You Need (Vaswani 2017, PHB9VRVM); Latent Reasoning Survey (Zhu 2025, EMXEJYHV)"
+      "what": "Builds a dense reinforcement-learning reward by taking truncated gradients through the output projection layer for each rollout and scoring their cosine similarity against an expert-solution anchor gradient, adding under 9 percent wall-clock overhead and improving over GRPO on competition mathematics with transfer to GPQA Diamond and MMLU-Pro.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Latent-GRPO (Deng 2026, U4ZPM5DN)"
     },
     {
-      "zotero_key": "2609.06931",
-      "title": "CARDEA: Auditable Reasoning Grounded in Spatial Evidence for End-to-End Coronary Angiography Interpretation",
-      "authors": "Lee, Hou, Ng, Wang, Chang",
+      "zotero_key": "2609.10712",
+      "title": "An Open Recipe for IMO Gold: Training Nemotron for Olympiad Mathematics",
+      "authors": "Moshkov, Ge, Armstrong, Du, Mahdavi, Gitman (NVIDIA)",
       "year": 2026,
-      "what": "Trains a vision-language model on closed-ended angiography labels with a verifiable reward that also pays for citing bounding boxes inside the reasoning trace, and finds the reinforcement stage alone surfaces zero-shot report generation the model was never trained on, lifting vessel-severity macro-F1 from 0.513 to 0.686.",
-      "area_label": "LLM-Health",
-      "area_slug": "llm-health",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); UNI Pathology (Chen 2023, 6T29JLTN); Foundation Models for Biosignals (Gu 2025, 2XWEG7AF)"
+      "what": "Post-trains two Nemotron 3 Ultra specialists by supervised fine-tuning and reinforcement learning, then runs an iterative generate-verify-refine search across three checkpoints in natural language with no formal prover or external tools, scoring 30 out of 42 at IMO 2026 and releasing checkpoints, data, code, and a 200-problem benchmark.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); SPRINT (Biju 2025, BZKDNHD6)"
     },
     {
-      "zotero_key": "2609.11412",
-      "title": "X-AuT: Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation",
-      "authors": "Zhang, Zou, Chen et al. (XPENG AI)",
+      "zotero_key": "2609.07064",
+      "title": "SpatialBlock: Enhancing Spatial Intelligence in LVLMs via Synthetic Block-Stacking Problem",
+      "authors": "Ryu, Kim, Yang (KAIST AI)",
       "year": 2026,
-      "what": "Selects which audio-encoder layers to drop by short behavioral probes rather than weight statistics, then repairs the pruned encoder by representation alignment and distillation from a larger teacher with the language backbone frozen, cutting 18 layers to 16 while macro-average error falls from 5.61 to 5.27 percent.",
-      "area_label": "Audio",
-      "area_slug": "audio",
-      "builds_on": "HeAR (Baur 2024, 3LA8GNCU); Audio Mamba (Erol 2024, 6VTXUZEG); Attention Is All You Need (Vaswani 2017, PHB9VRVM)"
-    },
-    {
-      "zotero_key": "2609.11929",
-      "title": "SenseNova-U1.5: Towards Native Unified Visual Intelligence",
-      "authors": "Diao, Wang, Ding et al. (65 authors)",
-      "year": 2026,
-      "what": "Removes both the vision encoder and the variational autoencoder so an 8B mixture-of-transformers model reads and writes image patches in one stream trained by spatially coherent patch reconstruction, then folds capability-specific experts back together by multi-expert on-policy distillation.",
+      "what": "Replaces annotation-heavy real-scene spatial supervision with 15,000 fully synthetic block-stacking problems covering 3D-to-2D projection, viewpoint transformation, and structural combination, plus controlled colour cues for anchor-based reasoning, and shows both direct-answer and reasoning variants transfer to real-scene spatial benchmarks.",
       "area_label": "Multi-Modal",
       "area_slug": "multi-modal",
-      "builds_on": "BLIP-2 (Li 2023, 4N5WXKPI); Stable Diffusion (Rombach 2022, DULT32HM); DiT (Peebles 2023, YJ9TK993)"
+      "builds_on": "BLIP-2 (Li 2023, 4N5WXKPI); Machine Mental Imagery (Yang 2025, PDAMP7VF)"
+    },
+    {
+      "zotero_key": "2609.05903",
+      "title": "EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses for Securing Agents",
+      "authors": "Li, Ma, Cao, Suh, Li, Song, Xiao",
+      "year": 2026,
+      "what": "Searches jointly over a natural-language safety policy and the executable code that enforces it at every tool call for a frozen model in a target domain, cutting DecodingTrust-Agent attack success from 45.6 to 10.0 percent for 3.3 utility points and reaching 82.8 percent utility at 0.0 percent attack success on AgentDojo.",
+      "area_label": "Agent",
+      "area_slug": "agent",
+      "builds_on": "ToolkenGPT (Hao 2024, 6RDHVVA2); ADaPT (Prasad 2023, J8DYBKW2)"
     }
   ]
 }

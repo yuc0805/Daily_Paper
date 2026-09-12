@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gradients Know What Outcomes Don&#39;t: Unlocking Reinforcement Learning for LLM Reasoning with Gradient-Aligned Rewards &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/reasoning.html" class="back-link">&larr; Back to Area</a>
+<h2>Gradients Know What Outcomes Don&#39;t: Unlocking Reinforcement Learning for LLM Reasoning with Gradient-Aligned Rewards</h2>
+<p class="paper-meta">Zheng, Su, Niu, Wang, Wang, Zhang, Yan, Wu, Kang, Fu, Zhang &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2609.03342" target="_blank" rel="noopener">link</a> &middot; arXiv: 2609.03342 &middot; Appears in: <a href="../areas/reasoning.html">Reasoning</a></p>
+<h3>What</h3><p>Gradient-Aligned Reward turns each expert solution already present in the training corpus into an anchor gradient, then scores a rollout by the cosine similarity between the rollout&#39;s own gradient and that anchor. Truncated backpropagation runs only through the output projection layer, which yields a compact gradient vector per rollout rather than a full model-sized one, so the dense reward costs under 9 percent wall-clock overhead relative to the base reinforcement-learning loop. The authors prove the cosine decomposes multiplicatively into a prediction-error factor and an activation-pattern factor, giving a concrete account of what the alignment signal measures. On Qwen3-4B and Qwen3-8B the method improves over GRPO and other dense-reward baselines on competition-level mathematics, and the gains transfer to GPQA Diamond and MMLU-Pro with no domain-specific reward data.</p>
+<h3>Why</h3><p>Reinforcement learning from verifiable rewards supplies one bit per rollout: correct or not correct. Among the rollouts that reach the right answer the reward is flat, so the policy receives no gradient separating a clean derivation from a guess that happened to land, and the credit-assignment problem inside the correct set is left unsolved. The two standard dense alternatives are each unsatisfactory. Surface heuristics such as length or formatting penalties are cheap but do not measure reasoning. Process reward models do measure reasoning but require step-level annotation that has to be purchased and add a second model to the training loop. Neither uses the written-out expert solutions that the training corpora already contain, which is the resource this paper exploits.</p>
+<h3>How</h3><p>For each training problem, the expert solution is passed through the policy to produce an anchor gradient; for each sampled rollout, the same truncated backpropagation produces a comparable vector. Restricting differentiation to the output projection layer is what keeps the vectors compact enough to compare at rollout scale. The cosine between rollout and anchor becomes the dense reward term, used in place of or alongside the binary outcome reward inside a GRPO-style update. The multiplicative decomposition into prediction-error and activation-pattern factors is derived analytically, so the reward can be read as how wrong the token predictions were multiplied by how similarly the network was engaged while producing them.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Graphify anchor deepseek2025_r1, Community 0; established that a binary verifiable reward alone trains long chain-of-thought behaviour at scale.</span></li>
+  <li><a href="U4ZPM5DN.html">Latent-GRPO (Deng 2026)</a><span class="lineage-note">The GRPO family member in the library that this paper is measured against.</span></li>
+  <li><a href="EMXEJYHV.html">Latent Reasoning Survey (Zhu 2025)</a><span class="lineage-note">Catalogues supervision signals for reasoning traces beyond the final answer, including the process-reward-model line this paper avoids.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>DeepSeek-R1 leaves every correct trajectory with the same reward, so the policy cannot be pushed toward the cleaner of two correct derivations and the failure mode is long, meandering traces that happen to end well. This paper supplies the missing ordering inside the correct set without buying step labels and without training a second model, which is the cost that blocked the process-reward-model route. Against Latent-GRPO the fix is orthogonal: Latent-GRPO changes the space the policy optimizes over, while this changes what the policy is paid for, so the two compose. The transfer to GPQA Diamond and MMLU-Pro from mathematics-only anchors is the evidence that the signal is not a benchmark artefact.</p>
+<h3>Method vs predecessors</h3><p>Where DeepSeek-R1 read the reward off an external answer check, this reads it off the policy&#39;s own parameters, so the supervision is internal to the model being trained and needs no annotator beyond the solution text. Where a process reward model scores a trajectory in output space step by step, this scores it in gradient space in one shot, which is why the overhead is a fraction rather than a multiple. The truncation to the output projection layer is the engineering choice that makes the comparison tractable, and the multiplicative decomposition is what distinguishes the approach from an uninterpretable learned critic.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="BZKDNHD6.html">SPRINT (Biju 2025)</a><span class="lineage-note">Also restructures reasoning-trace supervision, but for parallel execution rather than reward density.</span></li>
+  <li><a href="Y4ZNT3EC.html">CoLaR (Tan 2026)</a><span class="lineage-note">Compresses reasoning into latent steps; shares the goal of removing wasted trace length.</span></li>
+  <li><a href="3TLRP8U5.html">PonderLM (Zeng 2026)</a><span class="lineage-note">Allocates additional internal computation per token, an alternative lever on the same reasoning-quality axis.</span></li>
+  <li><a href="2JCKA7GI.html">DeepSeek-V3 (2024)</a><span class="lineage-note">The base-model lineage the reinforcement-learning recipe sits on.</span></li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses for Securing Agents &mdash; AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+<h2>EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses for Securing Agents</h2>
+<p class="paper-meta">Li, Ma, Cao, Suh, Li, Song, Xiao &middot; arXiv 2026 &middot; <a href="https://arxiv.org/abs/2609.05903" target="_blank" rel="noopener">link</a> &middot; arXiv: 2609.05903 &middot; Appears in: <a href="../areas/agent.html">Agent</a></p>
+<h3>What</h3><p>EvoSafeHarness synthesizes a deployable safety harness for a frozen model in a target domain by jointly searching a natural-language policy and the executable code that enforces it on every tool call, guided by observed model behaviour, domain specifications, and a fresh-context adversarial review that rejects benchmark-specific rules. On DecodingTrust-Agent the average attack success rate falls from 45.6 percent to 10.0 percent at a cost of 3.3 utility points, with the best score in 14 of 15 cells. On AgentDojo it reaches 82.8 percent utility at 0.0 percent attack success, twice CaMeL&#39;s utility at the same operating point, and transfers unchanged to the unseen AgentDyn suites. Mean attack success stays below 20 percent under adaptive PAIR attacks at a refinement budget of 16.</p>
+<h3>Why</h3><p>Agents now turn language into effects on real systems, which makes both indirect prompt injection and direct harmful requests operational problems rather than alignment abstractions. System-level harnesses add enforcement beyond model-level defences, but they are written once by experts and then reused across heterogeneous models and domains, and protection is deployment-dependent in two separate ways. Models differ in how much enforcement they tolerate before utility declines, so a harness calibrated for one over-blocks another. Domains differ in the effects, state, and action sequences that must be governed, so a policy written for a file system has no representation of a wash trade. A single hand-written harness cannot be correct on both axes at once.</p>
+<h3>How</h3><p>The search operates over a pair: a natural-language policy stating what must not happen, and code that evaluates that policy against the trajectory state at each tool call. Candidates are proposed and scored against observed model behaviour and the domain specification, and an adversarial review stage run in a fresh context attacks the candidate to expose rules that merely fit the benchmark rather than the threat. The model under protection is never updated, so the artefact produced is deployable against a frozen commercial endpoint. The reported analysis separates the two axes: domain semantics determine which safety relations and which trajectory state are needed, while model and runtime behaviour determine how and where those relations should be enforced.</p>
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="6RDHVVA2.html">ToolkenGPT (Hao 2024)</a><span class="lineage-note">Graphify anchor hao2024_toolkengpt, Community 0; made tool invocation a learned token-level decision.</span></li>
+  <li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Graphify anchor prasad2023_adapt, Community 0; made task decomposition adaptive to executor competence.</span></li>
+  <li><a href="BDY3HUCV.html">Memory Mechanisms of Foundation Agents (Huang 2026)</a><span class="lineage-note">Graphify huang2026_memory; catalogues the trajectory state a harness must inspect.</span></li>
+</ul>
+<h3>Solves vs predecessors</h3><p>ToolkenGPT and ADaPT both widen what an agent can do and leave the constraint side fixed, which is where the deployment failure appears: the same expert harness either strangles a cautious model or leaves a capable one exposed, and neither paper offers a way to calibrate. This work makes the constraint adaptive at the tool-call boundary, so the enforcement sits where the effect is produced rather than at the prompt, and it reports the trade-off explicitly as a frontier with a stated utility cost. The transfer to unseen AgentDyn suites without modification addresses the other predecessor failure, which is that hand-tuned defences do not survive a change of domain.</p>
+<h3>Method vs predecessors</h3><p>ADaPT decomposes a task according to what the executor can carry out; this decomposes a policy according to what the domain means, and the paper keeps those two determinations separate by design. Against ToolkenGPT, the granularity is shared but the direction is reversed: ToolkenGPT learns to emit a tool call, while this evaluates one before it lands. The searched artefact is a policy-plus-code pair rather than model weights or a prompt, which is the structural difference from model-level defences, and the fresh-context adversarial review is the mechanism that keeps the search from overfitting the evaluation suite. This extends the graphify cross-area bridge hao2024_toolkengpt to zhao2025_pyvision by adding a governance layer over the open tool interface both endpoints assume.</p>
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Graphify bridge endpoint; agentic vision with dynamically written tools, the interface this harness governs.</span></li>
+  <li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Agentic multimodal model with tool use; a candidate protected model.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Search over agent trajectories; the search machinery here is applied to the policy instead.</span></li>
+  <li><a href="Z9WZPMNU.html">Agent AI Survey (Durante 2024)</a><span class="lineage-note">Frames the multimodal-interaction setting in which these harnesses deploy.</span></li>
+</ul>
+</div>
+</body>
+</html>
