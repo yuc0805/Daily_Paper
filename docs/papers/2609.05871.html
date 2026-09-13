@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where Does the Sound Go? — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/audio.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Where Does the Sound Go? Tracing Acoustic Information Loss in Audio-Conditioned LLMs</h2>
+<p class="paper-meta">
+  Jo, Lee, Kim, Choi, Choi &middot; EMNLP 2026 Findings &middot;
+  <a href="https://arxiv.org/abs/2609.05871" target="_blank" rel="noopener">arXiv:2609.05871</a> &middot;
+  Appears in: <a href="../areas/audio.html">Audio</a>
+</p>
+
+<h3>What</h3>
+<p>Audio-conditioned language models are known to underuse acoustic cues such as prosody, emotion, and non-speech sound. This paper locates where that information stops being used. It probes four stages of the pipeline — after the audio encoder, after the projector, inside the language model, and at the language-model head — asking at each point whether discriminative acoustic information is still recoverable. It also swaps the ASR-trained Whisper frontend for reconstruction-based codecs (EnCodec, DAC-VAE, WavTokenizer) inside an otherwise fixed pipeline. The finding is that discriminative audio information survives to the last hidden layer, codec swaps do not fix the underuse, and fine-tuning only the letter rows of the output head recovers most of the multiple-choice accuracy gap.</p>
+
+<h3>Why</h3>
+<p>The standard explanation for acoustic underuse blames the frontend: an encoder trained for transcription should discard paralinguistic detail, so the information is gone before the language model ever sees it. That explanation implies a specific research programme — build better audio tokenizers — and a good deal of current work follows it. The explanation had not been tested stage by stage in a controlled pipeline, which means the field has been optimizing a stage that may not be the binding constraint. Distinguishing "the representation lacks the information" from "the model does not read the information it has" matters because the two call for different and non-interchangeable fixes.</p>
+
+<h3>How</h3>
+<p>The design holds the pipeline fixed and varies one thing at a time. Frontend substitution puts Whisper and the reconstruction codecs into the same downstream language model so the comparison is not confounded by training recipe. Stage-wise probing then asks whether a classifier can recover the acoustic attribute from the representation at each point, which separates loss of information from failure to use it. The corrective experiment is deliberately minimal: rather than retraining the encoder or the projector, the authors tune only the output head rows corresponding to the answer letters, which is close to the smallest intervention that could close a multiple-choice gap. That it works is the evidence that the deficit sits at readout.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="ESEEEH85.html">LTU (Gong 2023)</a><span class="lineage-note">The encoder-projector-language-model design for audio-conditioned LLMs that this paper dissects.</span></li>
+  <li><a href="3LA8GNCU.html">HeAR (Baur 2024)</a><span class="lineage-note">Graphify Community 1. Showed pretrained audio encoders retain health-relevant non-speech acoustic detail.</span></li>
+  <li><a href="KNGZCC5J.html">CLAP (Elizalde 2022)</a><span class="lineage-note">Contrastive audio-text pretraining; the alternative frontend family whose representations also feed language models.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>LTU established that an audio encoder bolted to a language model can answer open-ended questions about sound, and subsequent work read its paralinguistic weaknesses as a capability ceiling of the frontend. The failure mode this paper fixes is diagnostic rather than architectural: it shows that the pipeline that appears unable to hear is in fact still carrying the acoustic signal at its last hidden layer, so the attribution of blame to the ASR-trained encoder was wrong. Relative to HeAR, which demonstrated that acoustic detail is present in the encoder, this work removes the remaining ambiguity by tracking the same question past the encoder into the decoder, where the earlier evidence stopped.</p>
+
+<h3>Method vs predecessors</h3>
+<p>LTU, HeAR, and CLAP are all evaluated by downstream task performance, which conflates representation quality with readout quality. The method here is interpretability rather than modelling: fixed pipeline, stage-wise recoverability probes, and controlled substitution of the frontend. The result is a negative finding about a popular intervention — reconstruction codecs, which preserve more of the waveform by construction, do not improve acoustic use — paired with a positive finding about a much cheaper one. One limit worth carrying forward: the recovery is measured on multiple-choice accuracy, so it speaks to how the answer is selected and does not establish the same conclusion for open-ended generation.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="65EDEWIJ.html">Audio MAE (Huang 2022)</a><span class="lineage-note">Reconstruction-based audio pretraining, the family whose codecs are substituted here.</span></li>
+  <li><a href="7J6K6W8I.html">AST (Gong 2021)</a><span class="lineage-note">Transformer audio encoder underlying much of this pipeline lineage.</span></li>
+  <li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">Graphify Community 4. Same encoder-projector-LLM shape for time series; the probe has not been run there.</span></li>
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Graphify Community 4. Sensor-to-language alignment that assumes the encoder is the bottleneck.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

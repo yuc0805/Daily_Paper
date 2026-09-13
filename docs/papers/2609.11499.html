@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursive Code World Models — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Recursive Code World Models: Building Complex Worlds through Recursive Scene Programs</h2>
+<p class="paper-meta">
+  Li, Liao, Zhu &middot; arXiv 2026-09-10 &middot;
+  <a href="https://arxiv.org/abs/2609.11499" target="_blank" rel="noopener">arXiv:2609.11499</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>RCWM reconstructs a complex 3D world as executable code from a single reference image. A Recursive Scene Program represents the world as compositional scene code, and a construction solver calls itself: establish the whole, recursively reconstruct the parts that remain unresolved, then revisit the whole to refine how those parts compose. Reference-aligned views propagate one shared camera projection across recursion levels, and a vision-language coding agent compares the reference image against renders to decide whether to refine in place, descend, or return. The paper reports wins over prior code-based image-to-scene reconstruction methods, with ablations indicating that deeper recursive calls improve finer-scale reconstruction.</p>
+
+<h3>Why</h3>
+<p>Code world models make an attractive promise: a world stored as a program is inspectable, editable, and exactly reproducible, unlike a world stored in network weights. The promise stalls on construction. Representing a scene as code says nothing about how to arrive at the code for a scene that is too complex to write in one pass, and a single-pass vision-language agent asked to emit a whole scene program produces something coarse. Attempts to fix this by refining pieces independently create a second problem: each refined piece is locally better and globally inconsistent, because boundaries, spatial relations, and shared errors are invisible from inside a part.</p>
+
+<h3>How</h3>
+<p>The solver is uniform at every level — establish, descend, revisit — so the same procedure handles the room and the object on the shelf. The parent revisitation step is what distinguishes it from ordinary divide-and-conquer: after children return, control goes back to the parent scope specifically to repair boundaries, spatial relations, and errors the children share. Sharing one camera projection across levels keeps every render comparable to the same reference image, so the agent's visual comparison means the same thing at each depth. The agent itself supplies the control signal by diffing reference against render, which is what lets recursion depth adapt to scene complexity rather than being fixed in advance.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="XQTY5MPI.html">PyVision (Zhao 2025)</a><span class="lineage-note">Graphify Community 0. Agentic vision in which the model writes and runs its own visual tooling.</span></li>
+  <li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Graphify Community 0. As-needed recursive decomposition when the current plan fails.</span></li>
+  <li><a href="938DAXZT.html">World Models (Ha 2018)</a><span class="lineage-note">The learned-simulator framing that code world models replace with an explicit program.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>ADaPT decomposes a task on demand and returns once the subtasks succeed, which is correct when subtasks are independent and wrong when they share a boundary. That is the failure this paper targets: in scene construction, solving the parts well leaves the composition broken, and no amount of further local refinement repairs it because the inconsistency is not visible from within any part. The mandatory parent revisit closes that hole. Against PyVision, the failure addressed is persistence: a per-query script is discarded after it answers, so nothing accumulates, whereas a scene program is the deliverable and every refinement edits it.</p>
+
+<h3>Method vs predecessors</h3>
+<p>ADaPT recursion terminates on subtask success; RCWM recursion terminates only after a return visit to the parent, making the control flow global-local-global rather than top-down. PyVision generates tools; RCWM generates and repeatedly edits a single persistent artifact, with renders as the feedback channel. Compared with Ha's World Models, the simulator lives in source code instead of latent weights, which buys inspectability and editability at the price of a construction problem that the recursion exists to solve. This extends the graphify cross-area bridge from <em>ToolkenGPT</em> to <em>PyVision</em>, which already crossed tool-using agents and vision, pushing it toward tool use that builds a persistent structured artifact. The abstract reports comparative wins without headline numbers, so the magnitude needs the full text.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Graphify Community 0. Agentic multimodal model with tool-mediated visual inspection.</span></li>
+  <li><a href="P92FLHJ2.html">World Model Eval (Vafa 2024)</a><span class="lineage-note">Sets the standard for claiming a system holds a coherent world model rather than a good renderer.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

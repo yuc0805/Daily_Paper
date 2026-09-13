@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedDream: A Radiographic World Model — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/llm-health.html" class="back-link">&larr; Back to Area</a>
+
+<h2>A radiographic world model for clinical reasoning and evidence generation (MedDream)</h2>
+<p class="paper-meta">
+  Xi, Hu, Wang, Safari, del Balzo, Karim, Hu, Zhang, Wang, Weichselbaum, Yang &middot; arXiv 2026-09-07 &middot;
+  <a href="https://arxiv.org/abs/2609.07719" target="_blank" rel="noopener">arXiv:2609.07719</a> &middot;
+  Appears in: <a href="../areas/llm-health.html">LLM-Health</a>
+</p>
+
+<h3>What</h3>
+<p>MedDream learns a single continuous latent state from paired chest radiograph and report observations, then reads that state out in two directions: diagnostic reasoning and report-conditioned image generation. Pretraining used 2.65 million leakage-controlled radiograph-text pairs curated from 4.40 million candidates. Evaluation spans eight clinical datasets and two independent reader cohorts. Diagnostic coverage includes disease recognition, label-scarce adaptation, severity assessment, and localization; MedDream-supported review raised mean resident concordance with independent radiologist consensus from 56.3 percent to 63.0 percent. On the generative side, synthetic augmentation raised external VinDr-CXR macro-AUROC from 76.4 percent to 81.4 percent.</p>
+
+<h3>Why</h3>
+<p>Medical imaging models are normally built as one-way maps: radiograph to label, or description to image. Both maps are estimated from the same underlying radiographic state, so training them separately duplicates work and produces a discriminative model that cannot be interrogated by simulation. A discriminative-only encoder can report that it underperforms on a subgroup but cannot construct the cases that would close the gap. The world-model formulation asks instead for an internal state that supports readout and conditional simulation at once, which makes the failure mode addressable rather than merely measurable.</p>
+
+<h3>How</h3>
+<p>Radiograph and text observations are mapped into a shared continuous latent state rather than aligned by contrastive matching alone, and the training objective requires that state to support both clinical readout and conditional regeneration of the observation. Data curation is the other half of the method: 4.40 million candidate pairs were filtered to 2.65 million with explicit leakage control, which matters because report-conditioned generation is trivially gameable when the same study appears on both sides of an evaluation. At use time, generation is conditioned on a prespecified subgroup performance gap. That targeted construction increased weighted F1 by 3.1 percentage points for Asian patients, whereas matched-volume unguided augmentation decreased it by 2.3 points, a 5.4-point spread attributable to the targeting decision alone.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="6T29JLTN.html">UNI Pathology (Chen 2023)</a><span class="lineage-note">Graphify Community 1. Established large-scale self-supervised pretraining for a general-purpose medical image encoder with strong label-scarce transfer.</span></li>
+  <li><a href="GX7WR7KA.html">DDPM (Ho 2020)</a><span class="lineage-note">Graphify Community 3. The denoising generative formulation that makes conditional synthesis of radiographs tractable.</span></li>
+  <li><a href="938DAXZT.html">World Models (Ha 2018)</a><span class="lineage-note">Source of the internal-latent-state framing that supports both prediction and rollout.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>UNI Pathology produces an encoder whose only readout is discriminative, so its failure mode is silent: the model can be weak on a subgroup and offer no mechanism to probe or repair that weakness beyond collecting more real data, which for rare presentations and specific subgroups may not exist. MedDream fixes exactly this by requiring the latent to regenerate the observation, so a measured gap can be turned into a generation target. Relative to DDPM, the failure mode addressed is evaluative rather than architectural: diffusion models for medical images have been scored on fidelity metrics that do not establish clinical usefulness, and MedDream instead scores generated radiographs by downstream accuracy on held-out real data, where unguided augmentation is shown to actively hurt.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Compared with UNI Pathology, the technical change is the objective, not the scale: both pretrain on large curated medical corpora, but MedDream adds a reconstruction-capable shared latent over paired image and text observations instead of an image-only self-supervised target. Compared with Ha's World Models, the setting has no action space, so the conditioning variable is a clinical description and the rollout is a counterfactual radiograph rather than a next frame under a policy. Compared with the diffusion line, generation is not a standalone module but a readout of the same state used for diagnosis, which is what allows conditioning on a subgroup gap. The paper therefore joins graphify Community 1 (Health AI and Self-Supervised) to Community 3 (Vision-Language and Generative) inside a single model, where the current seed graph connects those communities only through shared self-supervised concepts.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2XWEG7AF.html">Foundation Models for Biosignals (Gu 2025)</a><span class="lineage-note">Surveys the discriminative-readout assumption that this paper drops for physiological rather than radiographic signals.</span></li>
+  <li><a href="UXDYEMP4.html">MedSAM (Ma 2024)</a><span class="lineage-note">Medical foundation model with a segmentation readout; same pretraining scale argument, no generative state.</span></li>
+  <li><a href="5GFYJJVV.html">LVM-Med (Nguyen 2023)</a><span class="lineage-note">Large-scale medical vision pretraining evaluated purely on transfer, not on simulation.</span></li>
+  <li><a href="P92FLHJ2.html">World Model Eval (Vafa 2024)</a><span class="lineage-note">Argues that generative competence does not imply a coherent internal world model; the standard this paper should be checked against.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

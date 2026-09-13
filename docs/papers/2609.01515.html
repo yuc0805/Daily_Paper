@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TempCloze — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+
+<h2>TempCloze: Can Video-LLMs Identify the Missing Middle?</h2>
+<p class="paper-meta">
+  Pei, Zhao, Liu, Meng, Chen, Wang, Du (The University of Hong Kong) &middot; arXiv 2026-09-01 &middot;
+  <a href="https://arxiv.org/abs/2609.01515" target="_blank" rel="noopener">arXiv:2609.01515</a> &middot;
+  Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a>
+</p>
+
+<h3>What</h3>
+<p>TempCloze is a video cloze benchmark for visual temporal reasoning. A model is shown the beginning and ending clips of a video and must identify the true missing middle from four candidates. The set contains 1,521 filtered videos from seven sources, mainly long-take and egocentric footage. Distractors are drawn from the same source along three axes: Semantic asks what event should happen, Alignment probes when it should occur, and Progression tests how it should unfold, with shared scenes and objects so that appearance cues cannot decide the answer. Across 10 proprietary and 21 open-source video language models, Alignment is the dominant bottleneck: models recognize plausible content and local progression but fail at temporal placement.</p>
+
+<h3>Why</h3>
+<p>Temporal reasoning benchmarks for video language models are usually mediated by text: the question and the candidate answers are sentences. That opens three shortcuts — option wording, correlations between answers across the dataset, and plain language priors about what usually happens next — any of which lets a model score well without watching the video carefully. As a result, reported temporal reasoning ability is partly an artifact of the answer format, and it is not possible to tell from an aggregate score which specific temporal skill a model lacks.</p>
+
+<h3>How</h3>
+<p>Making the candidates themselves video clips removes the text channel through which shortcuts travel. Drawing all four candidates from the same source video removes the appearance channel, since scenes and objects are shared. What remains is the temporal question. The three-way distractor design is the analytic contribution: because each distractor family targets a different failure, the error profile decomposes into what, when, and how rather than collapsing into one accuracy number. Long-take and egocentric footage is chosen because cuts would otherwise supply boundary cues. Follow-up analyses on TempCloze-Mixed and TempCloze-Hard with four representative models examine candidate order, context direction, visible span, frame density, and test-time scaling.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="RYGRHCG3.html">Video Action Survey (Zhu 2020)</a><span class="lineage-note">Graphify Community 9. The temporal-modelling evaluation tradition, with closed label sets and no language mediation.</span></li>
+  <li><a href="SC8KWYVK.html">Flamingo (Alayrac 2022)</a><span class="lineage-note">Interleaved visual-language conditioning, the architecture class under test.</span></li>
+  <li><a href="4N5WXKPI.html">BLIP-2 (Li 2023)</a><span class="lineage-note">The frozen-encoder-plus-language-model recipe most evaluated models inherit.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>The evaluation tradition catalogued in the Video Action Survey scored temporal understanding with fixed label sets, which avoided language shortcuts but could not ask open questions. Moving to Flamingo- and BLIP-2-style language interfaces restored expressiveness and reintroduced the shortcut: a model that has never modelled time can still pick the sentence that sounds right. TempCloze fixes that specific failure by keeping the open-ended setting while making the answer space visual, so option wording carries no signal. It also fixes a second, quieter failure — aggregate scores hiding which temporal skill is missing — by separating semantics, alignment, and progression.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The methodological move is to change the answer modality rather than the question. Prior benchmarks control for shortcuts by rewording options or balancing answer distributions, which mitigates but does not remove the text channel. Same-source video candidates remove it outright and simultaneously control appearance, which text-based balancing cannot do. The cost is construction effort: candidates must be mined from the same footage and filtered, which is why the set is 1,521 videos rather than tens of thousands. The finding that Alignment dominates is the payoff of that structure, and it is more actionable than an accuracy drop because it names the capability to fix.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="I2CIT4I7.html">TS-Agent (Liu 2025)</a><span class="lineage-note">Graphify Community 4. Motivated by the same concern that benchmark scores reflect memorisation rather than analysis, in the time-series setting.</span></li>
+  <li><a href="VSCNJG5J.html">ChatTS (Xie 2025)</a><span class="lineage-note">Graphify Community 4. Language-mediated time-series question answering, the format this paper shows is shortcut-prone.</span></li>
+  <li><a href="ELYUE3NF.html">Sensor2Text (Chen 2024)</a><span class="lineage-note">Graphify Community 4. Sensor-to-language evaluation with the same answer-format exposure.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

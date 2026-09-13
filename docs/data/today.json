@@ -1,45 +1,45 @@
 {
-  "date": "2026-09-12",
+  "date": "2026-09-13",
   "papers": [
     {
-      "zotero_key": "2609.03342",
-      "title": "Gradients Know What Outcomes Don't: Unlocking Reinforcement Learning for LLM Reasoning with Gradient-Aligned Rewards",
-      "authors": "Zheng et al. (11 authors)",
+      "zotero_key": "2609.07719",
+      "title": "A radiographic world model for clinical reasoning and evidence generation (MedDream)",
+      "authors": "Xi, Hu, Wang, Safari et al. (11 authors)",
       "year": 2026,
-      "what": "Builds a dense reinforcement-learning reward by taking truncated gradients through the output projection layer for each rollout and scoring their cosine similarity against an expert-solution anchor gradient, adding under 9 percent wall-clock overhead and improving over GRPO on competition mathematics with transfer to GPQA Diamond and MMLU-Pro.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); Latent-GRPO (Deng 2026, U4ZPM5DN)"
+      "what": "Learns one continuous latent state from 2.65 million leakage-controlled chest radiograph-text pairs and reads it out for both diagnosis and report-conditioned image generation, raising resident concordance with radiologist consensus from 56.3 to 63.0 percent and external VinDr-CXR macro-AUROC from 76.4 to 81.4 percent, with generation targeted at a prespecified subgroup gap adding 3.1 weighted-F1 points where unguided augmentation lost 2.3.",
+      "area_label": "LLM-Health",
+      "area_slug": "llm-health",
+      "builds_on": "UNI Pathology (Chen 2023, 6T29JLTN); DDPM (Ho 2020, GX7WR7KA); World Models (Ha 2018, 938DAXZT)"
     },
     {
-      "zotero_key": "2609.10712",
-      "title": "An Open Recipe for IMO Gold: Training Nemotron for Olympiad Mathematics",
-      "authors": "Moshkov, Ge, Armstrong, Du, Mahdavi, Gitman (NVIDIA)",
+      "zotero_key": "2609.05871",
+      "title": "Where Does the Sound Go? Tracing Acoustic Information Loss in Audio-Conditioned LLMs",
+      "authors": "Jo, Lee, Kim, Choi, Choi",
       "year": 2026,
-      "what": "Post-trains two Nemotron 3 Ultra specialists by supervised fine-tuning and reinforcement learning, then runs an iterative generate-verify-refine search across three checkpoints in natural language with no formal prover or external tools, scoring 30 out of 42 at IMO 2026 and releasing checkpoints, data, code, and a 200-problem benchmark.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "DeepSeek-R1 (2025, Z5IWHZAE); SPRINT (Biju 2025, BZKDNHD6)"
+      "what": "Probes an audio-conditioned language model after the encoder, after the projector, inside the language model, and at the head, and finds that discriminative acoustic information survives to the last hidden layer, that replacing Whisper with reconstruction codecs does not fix acoustic underuse, and that tuning only the output head's letter rows recovers most of the multiple-choice accuracy gap.",
+      "area_label": "Audio",
+      "area_slug": "audio",
+      "builds_on": "LTU (Gong 2023, ESEEEH85); HeAR (Baur 2024, 3LA8GNCU); CLAP (Elizalde 2022, KNGZCC5J)"
     },
     {
-      "zotero_key": "2609.07064",
-      "title": "SpatialBlock: Enhancing Spatial Intelligence in LVLMs via Synthetic Block-Stacking Problem",
-      "authors": "Ryu, Kim, Yang (KAIST AI)",
+      "zotero_key": "2609.01515",
+      "title": "TempCloze: Can Video-LLMs Identify the Missing Middle?",
+      "authors": "Pei, Zhao, Liu, Meng, Chen, Wang, Du (HKU)",
       "year": 2026,
-      "what": "Replaces annotation-heavy real-scene spatial supervision with 15,000 fully synthetic block-stacking problems covering 3D-to-2D projection, viewpoint transformation, and structural combination, plus controlled colour cues for anchor-based reasoning, and shows both direct-answer and reasoning variants transfer to real-scene spatial benchmarks.",
+      "what": "Replaces text answer options with video ones in a cloze task over 1,521 long-take and egocentric videos, using same-source distractors that separate semantics, temporal alignment, and progression, and finds across 31 video language models that alignment, not semantics, is the bottleneck.",
       "area_label": "Multi-Modal",
       "area_slug": "multi-modal",
-      "builds_on": "BLIP-2 (Li 2023, 4N5WXKPI); Machine Mental Imagery (Yang 2025, PDAMP7VF)"
+      "builds_on": "Video Action Survey (Zhu 2020, RYGRHCG3); Flamingo (Alayrac 2022, SC8KWYVK); BLIP-2 (Li 2023, 4N5WXKPI)"
     },
     {
-      "zotero_key": "2609.05903",
-      "title": "EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses for Securing Agents",
-      "authors": "Li, Ma, Cao, Suh, Li, Song, Xiao",
+      "zotero_key": "2609.11499",
+      "title": "Recursive Code World Models: Building Complex Worlds through Recursive Scene Programs",
+      "authors": "Li, Liao, Zhu",
       "year": 2026,
-      "what": "Searches jointly over a natural-language safety policy and the executable code that enforces it at every tool call for a frozen model in a target domain, cutting DecodingTrust-Agent attack success from 45.6 to 10.0 percent for 3.3 utility points and reaching 82.8 percent utility at 0.0 percent attack success on AgentDojo.",
+      "what": "Reconstructs a 3D world as executable scene code from a single image using a solver that recurses global-local-global, with a mandatory return visit to the parent scope after children are refined so that boundaries and spatial relations stay consistent, guided by a vision-language agent comparing renders against the reference.",
       "area_label": "Agent",
       "area_slug": "agent",
-      "builds_on": "ToolkenGPT (Hao 2024, 6RDHVVA2); ADaPT (Prasad 2023, J8DYBKW2)"
+      "builds_on": "PyVision (Zhao 2025, XQTY5MPI); ADaPT (Prasad 2023, J8DYBKW2); World Models (Ha 2018, 938DAXZT)"
     }
   ]
 }
