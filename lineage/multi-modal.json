@@ -544,6 +544,42 @@
       "confidence_score": 0.9,
       "cross_area": true,
       "date_added": "2026-09-11"
+    },
+    {
+      "source": "4N5WXKPI",
+      "source_label": "BLIP-2 (Li 2023)",
+      "target": "2609.07064",
+      "target_label": "SpatialBlock: Enhancing Spatial Intelligence in LVLMs via Synthetic Block-Stacking Problem (2026)",
+      "relation": "builds_on",
+      "note": "BLIP-2 aligned a frozen encoder to a language model on captions and web pairs; this changes the training data instead, using a synthetic geometric curriculum.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-12"
+    },
+    {
+      "source": "PDAMP7VF",
+      "source_label": "Machine Mental Imagery (Yang 2025)",
+      "target": "2609.07064",
+      "target_label": "SpatialBlock: Enhancing Spatial Intelligence in LVLMs via Synthetic Block-Stacking Problem (2026)",
+      "relation": "builds_on",
+      "note": "Machine Mental Imagery proposed an internal visual scratchpad; this treats spatial skill as a learnable curriculum rather than a representational property.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-12"
+    },
+    {
+      "source": "B7F2Q998",
+      "source_label": "ViT (Dosovitskiy 2021)",
+      "target": "2609.07064",
+      "target_label": "SpatialBlock: Enhancing Spatial Intelligence in LVLMs via Synthetic Block-Stacking Problem (2026)",
+      "relation": "builds_on",
+      "note": "ViT supplies the patch-token encoder with no explicit geometric inductive bias; this paper adds none either and teaches the geometry through supervision.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-12"
     }
   ],
   "hyperedges": [],

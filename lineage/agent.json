@@ -1192,6 +1192,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-10"
+    },
+    {
+      "source": "hao2024_toolkengpt",
+      "source_label": "ToolkenGPT: Tool Embeddings for LLMs (Hao 2024)",
+      "target": "2609.05903",
+      "target_label": "EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses for Securing Agents (2026)",
+      "relation": "builds_on",
+      "note": "ToolkenGPT made tool invocation a learned decision inside the model; this searches the constraint over that same tool interface, adding a governance layer the endpoint assumes is open.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-12"
+    },
+    {
+      "source": "prasad2023_adapt",
+      "source_label": "ADaPT: As-Needed Decomposition and Planning (Prasad 2023)",
+      "target": "2609.05903",
+      "target_label": "EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses for Securing Agents (2026)",
+      "relation": "builds_on",
+      "note": "ADaPT decomposed a task according to executor competence; this decomposes a policy according to domain semantics, so capability and constraint are separate adaptive axes.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-12"
+    },
+    {
+      "source": "huang2026_memory",
+      "source_label": "Rethinking Memory Mechanisms of Foundation Agents (Huang 2026)",
+      "target": "2609.05903",
+      "target_label": "EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses for Securing Agents (2026)",
+      "relation": "builds_on",
+      "note": "The memory survey catalogues the trajectory state an agent carries; the harness is a consumer of that state rather than a contributor to it.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-12"
     }
   ],
   "hyperedges": [

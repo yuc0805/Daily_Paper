@@ -1045,6 +1045,78 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-10"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2609.03342",
+      "target_label": "Gradients Know What Outcomes Don't: Unlocking Reinforcement Learning for LLM Reasoning with Gradient-Aligned Rewards (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 paid every correct trajectory the same flat reward; this paper keeps the verifiable setup and adds an ordering within the correct set, read off the policy's own gradients.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-12"
+    },
+    {
+      "source": "U4ZPM5DN",
+      "source_label": "Latent-GRPO (Deng 2026)",
+      "target": "2609.03342",
+      "target_label": "Gradients Know What Outcomes Don't: Unlocking Reinforcement Learning for LLM Reasoning with Gradient-Aligned Rewards (2026)",
+      "relation": "builds_on",
+      "note": "Latent-GRPO changed what the policy optimizes over; this changes what the policy is paid for, so the two are composable rather than competing.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-12"
+    },
+    {
+      "source": "EMXEJYHV",
+      "source_label": "Latent Reasoning Survey (Zhu 2025)",
+      "target": "2609.03342",
+      "target_label": "Gradients Know What Outcomes Don't: Unlocking Reinforcement Learning for LLM Reasoning with Gradient-Aligned Rewards (2026)",
+      "relation": "builds_on",
+      "note": "Relative to the process-reward-model line the survey catalogues, the difference is cost structure: no second model, no step labels, under 9 percent extra compute.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-12"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2609.10712",
+      "target_label": "An Open Recipe for IMO Gold: Training Nemotron for Olympiad Mathematics (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 put the compute into training one policy; this puts it into an outer loop over several specialist checkpoints that generate, verify and refine.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-12"
+    },
+    {
+      "source": "BZKDNHD6",
+      "source_label": "SPRINT (Biju 2025)",
+      "target": "2609.10712",
+      "target_label": "An Open Recipe for IMO Gold: Training Nemotron for Olympiad Mathematics (2026)",
+      "relation": "builds_on",
+      "note": "SPRINT reorganized a single trajectory into planning rounds plus parallel execution; this searches across trajectories instead, so the two are composable.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-12"
+    },
+    {
+      "source": "W7RPRTCH",
+      "source_label": "Test-Time Training for Abstract Reasoning (Akyurek 2024)",
+      "target": "2609.10712",
+      "target_label": "An Open Recipe for IMO Gold: Training Nemotron for Olympiad Mathematics (2026)",
+      "relation": "builds_on",
+      "note": "Test-time training adapted the weights at inference; this pipeline keeps the weights frozen and spends the same budget on search breadth and a selection stage.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-12"
     }
   ],
   "hyperedges": [],
