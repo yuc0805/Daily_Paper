@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omni-Streaming Thinking — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/multi-modal.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Omni-Streaming Thinking</h2>
+<p class="paper-meta">
+  Du, Liu, Zheng, Li, Guo, Zhang, Zou &middot; arXiv 2026-09-14 &middot;
+  <a href="https://arxiv.org/abs/2609.15128" target="_blank" rel="noopener">arXiv:2609.15128</a> &middot;
+  Appears in: <a href="../areas/multi-modal.html">Multi-Modal</a>
+</p>
+
+<h3>What</h3>
+<p>Omni-Streaming Thinking is a structured output and memory discipline for streaming omni-modal models, which must decide both what to answer and when to answer from the video chunks and synchronized audio seen so far. Each generated state contains the evidence observed to date, forecasts of evidence still to come, and claims grounded in that evidence. Claims enter memory marked pending, bound to a future verification interval and to the modality that would settle them. Audio and visual evidence are stored separately. At the end of a claim's interval the claim is checked against evidence from the named modality; contradictory evidence triggers a refutation process that reduces the influence of the claim and of any states that depend on it, then guides a state update from the new evidence. An answer gate releases a response only once the answer-critical claims meet its conditions.</p>
+
+<h3>Why</h3>
+<p>Visual cues frequently support an interpretation before the corresponding utterance or sound event has finished. If that early interpretation is written into memory as a settled fact, subsequent reasoning keeps relaying it even after the audio contradicts it. The authors name this failure premature cross-modal commitment, and it is a consequence of how streaming models are built rather than an occasional error: a model that appends each observation to a single fused context has no way to mark an entry as provisional, and no way to identify which modality supported it once it is written. The result is vision-induced auditory hallucination, where the model reports what the picture implied rather than what was heard.</p>
+
+<h3>How</h3>
+<p>Deferral and reversibility are the two mechanisms. Deferral means a claim does not count until its verification interval elapses, so arrival order, which in a stream is an artifact of timing rather than of evidential weight, stops determining what becomes fact. Reversibility requires that the support for a claim remain attributable, which is why audio and visual evidence are kept in separate stores; a single fused memory cannot answer which modality a claim rested on and therefore cannot retract it selectively. On a frozen Qwen3-Omni-30B-A3B-Instruct backbone with lightweight adaptation, the method beats the strongest open baselines on five streaming and audio-visual benchmarks by more than 10 percent relative on average. The paper also contributes OST-DiagBench, which holds video fixed and edits audio to construct agreement, absence, contradiction, coexistence, and subtitle-speech conflict cases; the method reaches d-prime 2.95 where open baselines reach at most 1.38.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="2609.05871.html">Where Does the Sound Go? (Jo 2026)</a><span class="lineage-note">Featured 2026-09-13. Showed by layer-wise probing that discriminative acoustic information survives to the last hidden layer, making audio underuse a readout problem rather than an encoding one.</span></li>
+  <li><a href="ESEEEH85.html">LTU (Gong 2023)</a><span class="lineage-note">Established audio-conditioned language modelling over a complete clip, with no notion of partial or revisable evidence.</span></li>
+  <li><a href="SC8KWYVK.html">Flamingo (Alayrac 2022)</a><span class="lineage-note">Established interleaved multimodal conditioning in which each observation is written into the language stream as it arrives.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Jo established that the acoustic evidence is present and unused, and located the problem at readout, but stopped at diagnosis and at a narrow remedy, tuning the output head. The failure mode left open is behavioural rather than representational: even a model whose last layer holds the acoustic evidence will keep repeating an earlier visual claim if that claim has already been committed to memory. This paper fixes that by making commitment conditional on the audio window having actually passed. Relative to LTU, the failure mode addressed is that a clip-level model has no policy for when to answer, so applied to a stream it either answers too early or waits for the end; the answer gate makes that an explicit decision. Relative to Flamingo, the fix is that writing to memory becomes provisional and revocable instead of append-only.</p>
+
+<h3>Method vs predecessors</h3>
+<p>All three predecessors condition a language model on non-text observations; the difference is the status of what gets written. LTU and Flamingo write evidence and conclusions into one undifferentiated stream, and Jo probes that stream without changing it. Here the state is typed, separating evidence from forecast from claim, and claims carry a pending flag, a verification deadline, and a modality pointer. Dependency tracking is what makes refutation more than deletion, since downweighting a refuted claim also downweights the states derived from it. The backbone is frozen with lightweight adaptation, so the gains are attributable to the output discipline rather than to representation learning, which is the cleanest form the comparison against Jo could take. The evaluation contribution matters as much as the method: holding video fixed while editing audio isolates the vision-dominance effect, and reporting d-prime rather than accuracy separates sensitivity from response bias.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="3LA8GNCU.html">HeAR (Baur 2024)</a><span class="lineage-note">Graphify Community 1. Health acoustic representations; the target setting if this discipline is ported to physiological audio streams.</span></li>
+  <li><a href="KNGZCC5J.html">CLAP (Elizalde 2022)</a><span class="lineage-note">Contrastive audio-language alignment, the fused-representation approach this paper deliberately keeps separate.</span></li>
+  <li><a href="4N5WXKPI.html">BLIP-2 (Li 2023)</a><span class="lineage-note">Bridging frozen encoders to a frozen language model, the same lightweight-adaptation strategy used here.</span></li>
+  <li><a href="2IV8EKL2.html">Med-HALT (Pal 2023)</a><span class="lineage-note">Hallucination benchmarking in a high-stakes domain; OST-DiagBench takes the same construct-the-conflict approach for audio-visual streams.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

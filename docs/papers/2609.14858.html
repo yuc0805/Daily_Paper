@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dream-RSI — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>Dream-RSI: Recursive Self-Improvement through Evolving Worlds</h2>
+<p class="paper-meta">
+  Zheng, Wu, Zhang, He, Zhang, Coleman, Wei, Bai, Liu, Liu, Wang et al. (Google) &middot; arXiv 2026-09-14 &middot;
+  <a href="https://arxiv.org/abs/2609.14858" target="_blank" rel="noopener">arXiv:2609.14858</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>Dream-RSI is a framework for recursively self-improving exploration in agentic discovery. A lightweight orchestration layer sits above an unchanged coding agent and makes the exploration strategy explicit and programmable. The accumulated discovery history, stored as trees of attempted and scored solutions, is reused as a replay simulator over the part of the search space that was actually visited. Candidate exploration policies are evaluated inside that simulator, which supplies immediate low-cost off-policy feedback, and the improved policy is then redeployed online, which in turn expands the simulator pool. The loop is evaluated on algorithm engineering, mathematical optimization, and GPU kernel engineering.</p>
+
+<h3>Why</h3>
+<p>Agentic discovery systems face a dilemma the authors state plainly. A fixed exploration strategy does not adapt as the search space grows, but optimizing the exploration policy online means searching a large meta-space under feedback that is both delayed and expensive, since each evaluation requires a full long-horizon rollout. Prior tree-search agents accept that cost and pay it per node. The cost is not incidental; in domains like kernel engineering a single evaluation involves compiling and benchmarking real code, so the number of policy-improvement steps affordable online is small enough that the meta-optimization never gets going.</p>
+
+<h3>How</h3>
+<p>The key move is to treat the record of past discovery as a dataset rather than as a log. Because every node in a past discovery tree carries a realized score, the tree defines a transition-and-reward structure over the visited region of the search space, and a new exploration policy can be replayed against it without invoking the real evaluator. This is offline policy improvement applied one level above the agent: the policy being improved chooses where to search, not what action to take in an environment. Redeployment closes the loop, since running the improved policy online reaches regions the simulator did not contain and appends them, so simulator coverage and policy quality grow together. Reported results are competitive or improved discovery quality at substantially reduced discovery cost in several settings, with cost measured as online evaluation calls rather than wall-clock time.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="ZULLM3UF.html">Offline RL (Levine 2020)</a><span class="lineage-note">Graphify Community 7. Established policy improvement from a fixed logged dataset with no further environment interaction.</span></li>
+  <li><a href="Y2MKM9Y3.html">OPE Study (Voloshin 2021)</a><span class="lineage-note">Graphify Community 7. Established when off-policy value estimates hold and when they break as the evaluated policy drifts from the logged behaviour.</span></li>
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Graphify Community 0. Established tree search over agent trajectories, with every node expansion paid for by a real rollout.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>LATS pays full online cost for each node it expands and keeps its search policy fixed for the duration of a run, so the search never learns from the shape of the space it has already mapped. The failure mode is that the expensive part of agentic discovery is evaluation rather than proposal, and LATS spends that budget on discovery alone, leaving nothing for strategy improvement. Dream-RSI recovers the strategy-improvement budget for free by reusing evaluations already paid for. Relative to Levine, the problem being solved is not the usual offline reinforcement learning one of learning without an environment, since the environment here is available; it is that the environment is affordable only a small number of times, so offline improvement is used to decide how to spend the few online calls that remain.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Levine's setting assumes a fixed dataset collected once, whereas here the dataset grows with every online deployment, so the distribution shift that Voloshin warns about is partly self-correcting: regions where the policy newly wants to go get added to the simulator as soon as it goes there. The residual risk is the first step into an unvisited region, where the replay simulator has no coverage and the off-policy estimate is uninformed, and this is the claim a careful reader should check in the experiments. Relative to LATS, the architectural change is separation of concerns: the coding agent is untouched, and only the orchestration layer above it is learned, which is why the method can be stated as a wrapper rather than as a new agent. In graph terms the paper joins Community 0 (LLM Agents and Reasoning) to Community 7 (Reinforcement Learning), which the current seed graph does not connect directly.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="2609.15309.html">When Agents Slow Down (Liu 2026)</a><span class="lineage-note">Today's Tier A paper; supplies the measurement that would show whether Dream-RSI moves the scaling inflection point or only shifts the curve down in cost.</span></li>
+  <li><a href="ZNEMGMWY.html">CEM (Pinneri 2020)</a><span class="lineage-note">Sample-efficient population search; the classical version of improving a sampling distribution from past evaluations.</span></li>
+  <li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">Decomposition-and-planning agent with a hand-specified rather than learned exploration policy.</span></li>
+  <li><a href="A4WGRRQ9.html">TD-MPC2 (Hansen 2024)</a><span class="lineage-note">Planning inside a learned model to avoid real environment calls, the same trade made in a continuous control setting.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

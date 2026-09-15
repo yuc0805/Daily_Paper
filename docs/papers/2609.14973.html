@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhysBrain 1.5 — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/world-model-rl.html" class="back-link">&larr; Back to Area</a>
+
+<h2>PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models</h2>
+<p class="paper-meta">
+  DeepCybo Team, Yu, Cao, Chang, Chen et al. (53 authors) &middot; arXiv 2026-09-14 &middot;
+  <a href="https://arxiv.org/abs/2609.14973" target="_blank" rel="noopener">arXiv:2609.14973</a> &middot;
+  Appears in: <a href="../areas/world-model-rl.html">World Model / RL</a>
+</p>
+
+<h3>What</h3>
+<p>PhysBrain 1.5 is a single model for understanding a physical environment, generating actions in it, and predicting how it will change. Starting from a general vision-language model, the system encodes three things as discrete token sequences — language responses, end-effector motion, and dense visual targets — and optimizes all of them jointly with autoregressive next-token prediction. Embodied supervision during pre-training comes entirely from human interaction videos, organized into task-centered episodes that pair semantic and spatial context with recovered motion and the observation that follows. Supervised fine-tuning then mixes human demonstrations, robot trajectories, and simulated experience. The 8B model averages 72.5 across 28 embodied understanding benchmarks and is best among open models on 14 of them; weights for 8B and 2B were released the same day.</p>
+
+<h3>Why</h3>
+<p>The physical loop is observation, interaction, environmental change, and models are normally built for one leg of it at a time: a perception model that labels a scene, a policy that emits actions, a video model that predicts frames. Training them separately means each estimates its own representation of the same physical state, and none of them can be interrogated by the other two. The harder constraint is data. Robot trajectories with recorded end-effector motion are expensive and scarce, which caps how far the action leg can scale, while video of people manipulating objects is abundant and carries the same physical structure without the instrumentation.</p>
+
+<h3>How</h3>
+<p>Discretization is what allows one objective to cover three heterogeneous outputs: once language, motion, and dense visual targets are all token sequences, next-token prediction trains all of them without separate heads or loss balancing. The supervision argument is the other half. Motion is recovered from passive human video rather than recorded from hardware, so the embodied pre-training corpus is limited by available video rather than by robot time, and task-centered episodes supply the pairing of context with subsequent observation that a predictive objective requires. Fine-tuning on the mixture of human, robot, and simulated data is where the model is grounded in an actual robot embodiment. Reported performance is on par with GPT-6-Astra and Gemini 3.6 Flash on the understanding benchmarks while general multimodal ability is retained; trajectory generation and future-scene prediction with spatially aligned RGB, depth, and robot-mask outputs are shown qualitatively.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="938DAXZT.html">World Models (Ha 2018)</a><span class="lineage-note">Established the observe, act, predict loop around an internal state that supports rollout.</span></li>
+  <li><a href="W44RSJJI.html">DINO-WM (Zhou 2025)</a><span class="lineage-note">Established building a world model on top of frozen pretrained visual features instead of learning the encoder from scratch.</span></li>
+  <li><a href="SC8KWYVK.html">Flamingo (Alayrac 2022)</a><span class="lineage-note">Established starting from a pretrained language model and attaching visual conditioning rather than training multimodally from zero.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>Ha's world model learns its latent from interaction collected in a simulator, so its reach is bounded by what can be simulated, and the sim-to-real gap is inherited rather than addressed. That is the failure mode the human-video supervision attacks: the pre-training signal comes from the physical world at the scale video is available, and the simulator is demoted to one component of the fine-tuning mixture. DINO-WM removes the cost of training an encoder but keeps understanding and prediction in separate modules, so the model cannot answer a question about a scene and act in it with the same parameters. Joint token-level training removes that separation. Relative to Flamingo, the failure mode addressed is the usual collapse of general multimodal ability under narrow embodied fine-tuning, which the paper reports as retained.</p>
+
+<h3>Method vs predecessors</h3>
+<p>Ha separates a recurrent dynamics model from a controller and trains them with different objectives; here there is one backbone and one objective, and the distinction between perceiving, acting, and predicting is carried by which token stream is being emitted. DINO-WM freezes features and learns dynamics above them, whereas this model updates the whole backbone and lets the visual target stream act as the dynamics signal, which is more expensive but keeps the representation aligned with the prediction task. Flamingo's contribution survives as the initialization rather than the architecture. The reader should treat two numbers with care. A 28-benchmark average is sensitive to suite composition, so the parity claim against proprietary models rests on which suites were chosen; and the future-state prediction results are qualitative, with no held-out prediction error reported, which is the claim that would establish this as a world model rather than a strong multi-task embodied model.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="P92FLHJ2.html">World Model Eval (Vafa 2024)</a><span class="lineage-note">Argues that generative competence does not imply a coherent internal world model; the standard the qualitative prediction results should be held to.</span></li>
+  <li><a href="A4WGRRQ9.html">TD-MPC2 (Hansen 2024)</a><span class="lineage-note">Latent-space planning for continuous control, with quantitative prediction error where this paper reports examples.</span></li>
+  <li><a href="RYGRHCG3.html">Video Action Survey (Zhu 2020)</a><span class="lineage-note">Graphify Community 9. The prior line on extracting action structure from human video, used here as supervision rather than as a task.</span></li>
+  <li><a href="2609.11499.html">Recursive Code World Models (Li 2026)</a><span class="lineage-note">Featured 2026-09-12. The symbolic alternative: reconstruct the world as executable scene code rather than as continuous tokens.</span></li>
+</ul>
+
+</div>
+</body>
+</html>

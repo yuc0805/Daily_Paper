@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When Agents Slow Down — AI Knowledge Graph</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+
+<a href="../areas/agent.html" class="back-link">&larr; Back to Area</a>
+
+<h2>When Agents Slow Down: Understanding LLM Agents' Test-Time Strategies via Elo-per-token Analysis</h2>
+<p class="paper-meta">
+  Liu, Mang, Peng, Chai, Li, Pimpalgaonkar, Zettlemoyer, Dimakis, Cheung &middot; arXiv 2026-09-14 &middot;
+  <a href="https://arxiv.org/abs/2609.15309" target="_blank" rel="noopener">arXiv:2609.15309</a> &middot;
+  Appears in: <a href="../areas/agent.html">Agent</a>
+</p>
+
+<h3>What</h3>
+<p>The paper introduces Elo-per-token analysis, a way to measure how agent performance scales with test-time compute on open-ended tasks that produce a continuous score for every intermediate submission. For each task it records the best solution found at each token budget, then fits a Bradley-Terry model to turn within-task orderings into Elo ratings that can be compared across tasks whose raw scores live on different scales. The analysis covers four general-purpose agents on four open-ended benchmarks with sessions of up to 100 million tokens, plus three feedback-driven optimization harnesses under controlled single-task interventions. Independent sampling serves as the reference curve, for which Elo is theoretically characterized as growing linearly with log compute.</p>
+
+<h3>Why</h3>
+<p>Agents decide for themselves how much compute to spend: they revise, call tools, explore alternatives, and choose when to stop. That adaptivity is the reason ordinary scaling curves do not apply, because the x-axis is no longer under the experimenter's control and the reported number is a single end-of-run score. A method that reports only the endpoint cannot distinguish an agent that is still improving from one that stopped improving at ten percent of its budget and then spent the rest, and it cannot say whether the budget should have gone into one long session or several parallel ones. The prior work treated test-time compute as something to add, and measured whether adding it helped; this paper asks where the marginal return falls to the level of a trivial baseline.</p>
+
+<h3>How</h3>
+<p>The scaling inflection point is defined as the per-session budget at which the agent's marginal Elo gain equals the independent-sampling reference rate. Measured against that reference, agents initially convert tokens into Elo faster than independent sampling, but their marginal gains diminish and eventually drop below it. The strongest historical human contestants on the shared AtCoder Heuristic Contest tasks improve superlinearly over contest time, which locates the slowdown in the agents rather than in the tasks and indicates remaining headroom. Using the inflection point as the per-session budget is directly actionable: splitting 100 million tokens across parallel sessions on FrontierCS Polyomino Packing gained 264 Elo over a single long session and 355 Elo over ten short sessions, so both over-long and over-short sessions are measurably wasteful and the correct width is measurable in advance.</p>
+
+<h3>Builds on</h3>
+<ul class="lineage-list">
+  <li><a href="77ERE7HA.html">LATS (Zhou 2024)</a><span class="lineage-note">Graphify Community 0. Established tree search over language agent trajectories as a way to spend test-time compute, scored at the end of the run.</span></li>
+  <li><a href="Z5IWHZAE.html">DeepSeek-R1 (2025)</a><span class="lineage-note">Graphify Community 0. Established reinforcement learning that lengthens reasoning trajectories, with accuracy reported as a final score.</span></li>
+  <li><a href="W7RPRTCH.html">TTT for Abstract Reasoning (Akyurek 2024)</a><span class="lineage-note">Established test-time adaptation as a competing use of the same compute budget.</span></li>
+</ul>
+
+<h3>Solves vs predecessors</h3>
+<p>LATS and DeepSeek-R1 both answer the question "does spending more compute at test time help", and both answer yes with an end-of-run score. The failure mode that leaves open is invisible waste: an agent whose marginal return collapsed early still reports a respectable final number, and there is no signal telling the operator to stop or to reallocate. This paper makes that waste visible by measuring the derivative against a reference whose shape is known analytically, and then converts the measurement into a budgeting rule. The AtCoder comparison closes off a competing explanation, namely that the tasks themselves saturate; humans on the same tasks accelerate rather than slow down.</p>
+
+<h3>Method vs predecessors</h3>
+<p>The technical object is a measurement protocol rather than an agent architecture, which is why the underlying agents are left unmodified. Two pieces do the work. The first is the choice of independent sampling as the reference, because its Elo-versus-log-compute relationship is derivable rather than estimated, which gives the inflection point a fixed meaning instead of a relative one. The second is the Bradley-Terry aggregation, which sidesteps the problem that open-ended benchmarks report scores on incomparable scales; only within-task orderings are used, and Elo carries them across tasks. The cost is the assumption that comparisons are transitive, and the requirement that intermediate submissions be continuously scorable, which excludes benchmarks with a single binary outcome. Relative to Akyurek, test-time compute stops being one knob and becomes an allocation problem over session count and session length.</p>
+
+<h3>Related (semantically similar in your library)</h3>
+<ul class="lineage-list">
+  <li><a href="HBLPTRMY.html">Chain-of-Thought (Wei 2023)</a><span class="lineage-note">The prompting end of the test-time compute axis that this analysis measures; DeepSeek-R1 is the reinforcement learning end, and the graphify seed already records that pair as a cross-area bridge.</span></li>
+  <li><a href="BDY3HUCV.html">Memory Mechanisms Survey (Huang 2026)</a><span class="lineage-note">Surveys what agents carry across a long session, which is one candidate explanation for why marginal returns decay.</span></li>
+  <li><a href="4XXXYXS9.html">DeepEyesV2 (Hong 2026)</a><span class="lineage-note">Agentic multimodal model whose tool-use loops are exactly the kind of trajectory this protocol would score.</span></li>
+  <li><a href="J8DYBKW2.html">ADaPT (Prasad 2023)</a><span class="lineage-note">As-needed decomposition, an early adaptive compute allocation policy evaluated without a scaling reference.</span></li>
+</ul>
+
+</div>
+</body>
+</html>
