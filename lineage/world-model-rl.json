@@ -314,6 +314,42 @@
    "confidence_score": 0.9,
    "cross_area": false,
    "date_added": "2026-09-03"
+  },
+  {
+   "source": "938DAXZT",
+   "source_label": "World Models (Ha and Schmidhuber 2018)",
+   "target": "2609.14973",
+   "target_label": "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models (2026)",
+   "relation": "builds_on",
+   "note": "Ha and Schmidhuber learned the latent from interaction data collected in a simulator; PhysBrain takes embodied supervision from human interaction video, because robot trajectories are the scarce resource and video of people is not.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-15"
+  },
+  {
+   "source": "W44RSJJI",
+   "source_label": "DINO-WM (Zhou 2025)",
+   "target": "2609.14973",
+   "target_label": "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models (2026)",
+   "relation": "builds_on",
+   "note": "DINO-WM kept understanding and prediction in separate modules over a frozen feature extractor; here understanding, action generation and future-state prediction are three token streams under one autoregressive objective.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-15"
+  },
+  {
+   "source": "SC8KWYVK",
+   "source_label": "Flamingo (Alayrac 2022)",
+   "target": "2609.14973",
+   "target_label": "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models (2026)",
+   "relation": "builds_on",
+   "note": "Flamingo established starting from a pretrained language model and attaching visual conditioning; the lineage shows in the starting point, with general multimodal ability reported to survive embodied training.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-09-15"
   }
  ],
  "hyperedges": [],

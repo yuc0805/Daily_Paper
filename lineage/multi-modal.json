@@ -580,6 +580,42 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-12"
+    },
+    {
+      "source": "2609.05871",
+      "source_label": "Where Does the Sound Go? (Jo 2026)",
+      "target": "2609.15128",
+      "target_label": "Omni-Streaming Thinking (2026)",
+      "relation": "builds_on",
+      "note": "Jo showed by layer-wise probing that acoustic information survives to the last hidden layer, so audio underuse is a readout problem; this supplies a mechanism that forces the evidence to be used, moving the bridge from diagnosis to correction.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-15"
+    },
+    {
+      "source": "ESEEEH85",
+      "source_label": "LTU (Gong 2023)",
+      "target": "2609.15128",
+      "target_label": "Omni-Streaming Thinking (2026)",
+      "relation": "builds_on",
+      "note": "LTU answers questions about a complete audio clip; this operates on a stream, deferring each claim until the audio window that would confirm or refute it has passed.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-15"
+    },
+    {
+      "source": "SC8KWYVK",
+      "source_label": "Flamingo (Alayrac 2022)",
+      "target": "2609.15128",
+      "target_label": "Omni-Streaming Thinking (2026)",
+      "relation": "builds_on",
+      "note": "Flamingo writes each incoming observation straight into the language stream; here the write is deferred and reversible, because arrival order in a stream reflects timing rather than importance.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-15"
     }
   ],
   "hyperedges": [],

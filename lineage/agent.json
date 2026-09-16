@@ -1228,6 +1228,78 @@
       "confidence_score": 0.9,
       "cross_area": false,
       "date_added": "2026-09-12"
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2609.15309",
+      "target_label": "When Agents Slow Down: Understanding LLM Agents' Test-Time Strategies via Elo-per-token Analysis (2026)",
+      "relation": "builds_on",
+      "note": "LATS spends test-time compute on tree search and reports the score at the end of the run; this measures the marginal Elo per token and locates the budget where that gain falls to the independent-sampling rate.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-15"
+    },
+    {
+      "source": "deepseek2025_r1",
+      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+      "target": "2609.15309",
+      "target_label": "When Agents Slow Down: Understanding LLM Agents' Test-Time Strategies via Elo-per-token Analysis (2026)",
+      "relation": "builds_on",
+      "note": "DeepSeek-R1 lengthened reasoning trajectories and reported end-of-run accuracy; this treats the length of the run as the variable and measures where extra length stops paying.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-15"
+    },
+    {
+      "source": "W7RPRTCH",
+      "source_label": "TTT for Abstract Reasoning (Akyurek 2024)",
+      "target": "2609.15309",
+      "target_label": "When Agents Slow Down: Understanding LLM Agents' Test-Time Strategies via Elo-per-token Analysis (2026)",
+      "relation": "builds_on",
+      "note": "Akyurek treated test-time adaptation as a single knob on the compute budget; this makes budget allocation itself the decision variable, with parallel sessions sized at the inflection point.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-15"
+    },
+    {
+      "source": "zhou2024_lats",
+      "source_label": "LATS: Language Agent Tree Search (Zhou 2024)",
+      "target": "2609.14858",
+      "target_label": "Dream-RSI: Recursive Self-Improvement through Evolving Worlds (2026)",
+      "relation": "builds_on",
+      "note": "LATS pays a real rollout for every node it expands; Dream-RSI treats the tree already built as a dataset and evaluates new exploration policies against it offline.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": false,
+      "date_added": "2026-09-15"
+    },
+    {
+      "source": "levine2020_offline_rl",
+      "source_label": "Offline Reinforcement Learning Tutorial (Levine 2020)",
+      "target": "2609.14858",
+      "target_label": "Dream-RSI: Recursive Self-Improvement through Evolving Worlds (2026)",
+      "relation": "builds_on",
+      "note": "Levine established improving a policy from a fixed logged dataset; this applies the same move one level up, to the search policy over a meta-space rather than an action policy over an environment.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-15"
+    },
+    {
+      "source": "voloshin2021_ope",
+      "source_label": "Off-Policy Policy Evaluation Study (Voloshin 2021)",
+      "target": "2609.14858",
+      "target_label": "Dream-RSI: Recursive Self-Improvement through Evolving Worlds (2026)",
+      "relation": "builds_on",
+      "note": "Voloshin characterized when off-policy estimates degrade; that is the failure mode to check here, since a replay simulator covers only the search space the history actually visited.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "cross_area": true,
+      "date_added": "2026-09-15"
     }
   ],
   "hyperedges": [
