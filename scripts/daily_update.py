@@ -414,6 +414,10 @@ def _tokens(text):
             if t not in _STOPWORDS]
 
 
+def _norm_title(t):
+    return re.sub(r"[^a-z0-9]", "", (t or "").lower())
+
+
 def _tfidf_scores(cand_texts, liked_texts):
     """Cosine similarity of each candidate to the centroid of liked docs.
 
@@ -463,6 +467,13 @@ def discover_papers(profile, history):
     n_exploit = N_DAILY_PAPERS - n_explore
     today = date.today()
     seen = set(history.keys())  # never recommend the same paper twice
+    # never recommend something already in Leo's library (match on normalized title)
+    known_titles = {_norm_title(e.get("title")) for e in
+                    load_json(META / "zotero_index.json", default=[])
+                    if e.get("title")}
+    known_titles |= {_norm_title(v.get("title")) for v in history.values()
+                     if isinstance(v, dict) and v.get("title")}
+    known_titles.discard("")
 
     def mk_paper(r, rec_type, explore_cat=None):
         authors = ", ".join(r["authors"][:4]) + (" et al." if len(r["authors"]) > 4 else "")
@@ -497,14 +508,14 @@ def discover_papers(profile, history):
         cats = AREA_ARXIV_CATS.get(area_file, ["cs.AI", "cs.LG"])
         query = " OR ".join(f"cat:{c}" for c in cats)
         for r in arxiv_search(query, max_results=10):
-            if r["arxiv_id"] in seen:
+            if r["arxiv_id"] in seen or _norm_title(r["title"]) in known_titles:
                 continue
             seen.add(r["arxiv_id"])
             foryou.append(mk_paper(r, "for-you"))
 
     for cat in EXPLORE_CATS:
         for r in arxiv_search(f"cat:{cat}", max_results=5):
-            if r["arxiv_id"] in seen:
+            if r["arxiv_id"] in seen or _norm_title(r["title"]) in known_titles:
                 continue
             seen.add(r["arxiv_id"])
             explore.append(mk_paper(r, "explore", explore_cat=cat))
