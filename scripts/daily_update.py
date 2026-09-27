@@ -330,18 +330,23 @@ def add_paper_to_kg(key, meta, area_index):
         })
         save_json(lineage_path, lineage)
 
-    docs_paper = REPO / "docs" / "papers" / f"{key}.html"
+    docs_paper = _paper_page_path(key)
     if not docs_paper.exists():
         docs_paper.parent.mkdir(parents=True, exist_ok=True)
         docs_paper.write_text(
-            "<!DOCTYPE html><html><head><meta charset='utf-8'>"
-            f"<title>{meta.get('title', '')}</title></head><body>"
-            f"<h1>{meta.get('title', '')}</h1>"
-            f"<p>{meta.get('authors', '')}</p>"
-            f"<p>{(meta.get('summary', '') or '')[:1500]}</p>"
-            f"<p><em>Liked by Leo on {today.isoformat()}, added to {area_label}</em></p>"
-            "</body></html>"
-        )
+            "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n"
+            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+            f"<title>{_esc(meta.get('title', ''))} — AI Knowledge Graph</title>\n"
+            "<link rel=\"stylesheet\" href=\"../style.css\">\n</head>\n<body>\n"
+            "<div class=\"paper-page\">\n"
+            f"<a href=\"../areas/{area_slug}.html\" class=\"back-link\">&larr; Back to {_esc(area_label)}</a>\n"
+            f"<h2>{_esc(meta.get('title', ''))}</h2>\n"
+            f"<p class=\"paper-meta\">{_esc(meta.get('authors', ''))} &middot; "
+            f"Liked {today.isoformat()} &middot; "
+            f"<a href=\"https://arxiv.org/abs/{_esc(key)}\" target=\"_blank\" "
+            f"rel=\"noopener\">arXiv:{_esc(key)}</a></p>\n"
+            f"<h3>What</h3>\n<p>{_esc((meta.get('summary', '') or '')[:1500])}</p>\n"
+            "</div>\n</body>\n</html>\n")
     return area_file
 
 
@@ -451,6 +456,77 @@ def _cos(a, b):
     if len(a) > len(b):
         a, b = b, a
     return sum(x * b.get(t, 0.0) for t, x in a.items())
+
+
+def _paper_page_path(key):
+    safe = re.sub(r"[^a-zA-Z0-9._-]", "_", key or "untitled")
+    return REPO / "docs" / "papers" / f"{safe}.html"
+
+
+def write_digest_paper_pages(today_papers, pool):
+    """Detail pages for digest papers so feed cards don't 404.
+
+    Writes docs/papers/<key>.html for every paper in the current digest
+    (with a "Why recommended" note) and prunes pages whose papers have
+    rotated out of the digest. Liked papers keep their page: add_paper_to_kg
+    overwrites it with the library version.
+    """
+    pages_dir = REPO / "docs" / "papers"
+    pages_dir.mkdir(parents=True, exist_ok=True)
+    liked_keys = set(load_json(META / "likes_processed.json",
+                               default={"processed": []}).get("processed", []))
+
+    def why(p):
+        if p.get("rec_type") == "explore":
+            cat = _esc(p.get("explore_cat") or "another field")
+            return (f"Picked for exploration — from {cat}, outside your usual "
+                    f"research areas.")
+        contribs = [("Close to papers already in your library.", 0.40 * p.get("_lib", 0)),
+                    ("Similar to a paper you liked.", 0.30 * p.get("_like", 0)),
+                    ("Very recent in your research areas.", 0.20 * p.get("_rec", 0))]
+        text = max(contribs, key=lambda x: x[1])[0]
+        if p.get("_dis", 0) > 0.15:
+            text += " (Somewhat similar to something you passed on before.)"
+        return text
+
+    new_keys = set()
+    for p in today_papers + pool:
+        key = p.get("zotero_key", "")
+        if not key:
+            continue
+        new_keys.add(key)
+        badge = ("<span class=\"rec-badge\">For you</span>"
+                 if p.get("rec_type") == "for-you"
+                 else "<span class=\"rec-badge explore\">Explore</span>")
+        html = (
+            "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n"
+            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+            f"<title>{_esc(p.get('title', key))} — Daily Paper</title>\n"
+            "<link rel=\"stylesheet\" href=\"../style.css\">\n</head>\n<body>\n"
+            "<div class=\"paper-page\">\n"
+            "<a href=\"../index.html\" class=\"back-link\">&larr; Back to Today's Papers</a>\n"
+            f"<h2>{_esc(p.get('title', key))}</h2>\n"
+            f"<p class=\"paper-meta\">{_esc(p.get('authors', ''))} &middot; "
+            f"{_esc(p.get('published', ''))} &middot; {badge} &middot; "
+            f"<a href=\"https://arxiv.org/abs/{_esc(key)}\" target=\"_blank\" "
+            f"rel=\"noopener\">arXiv:{_esc(key)}</a></p>\n"
+            f"<h3>Why recommended</h3>\n<p>{why(p)}</p>\n"
+            f"<h3>Abstract</h3>\n<p>{_esc(p.get('summary', ''))}</p>\n"
+            "<p class=\"paper-note\">Not in your library yet — tap 👍 on its card "
+            "to add it, 👎 to pass.</p>\n"
+            "</div>\n</body>\n</html>\n")
+        _paper_page_path(key).write_text(html)
+
+    old_keys = set(load_json(META / "digest_pages.json", default=[]))
+    pruned = 0
+    for key in old_keys - new_keys - liked_keys:
+        try:
+            _paper_page_path(key).unlink()
+            pruned += 1
+        except FileNotFoundError:
+            pass
+    save_json(META / "digest_pages.json", sorted(new_keys))
+    log(f"  site: {len(new_keys)} digest paper pages written, {pruned} pruned")
 
 
 def discover_papers(profile, history):
@@ -581,6 +657,7 @@ def discover_papers(profile, history):
 
     today_papers = foryou[:n_exploit] + explore[:n_explore]
     pool = (foryou[n_exploit:] + explore[n_explore:])[:60]
+    write_digest_paper_pages(today_papers, pool)  # before internal keys are popped
     for p in today_papers + pool:
         for k in ("_days_old", "_text", "_score", "_lib", "_like", "_dis", "_rec"):
             p.pop(k, None)
