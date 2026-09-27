@@ -133,7 +133,10 @@ async function sendRating(key, action, paper) {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(payload),
     });
-    if (!resp.ok) throw new Error('backend ' + resp.status);
+    if (!resp.ok) {
+      const txt = await resp.text().catch(() => '');
+      throw new Error('backend ' + resp.status + ' ' + txt.slice(0, 120));
+    }
     // success: flush any older queued ratings too
     const pending = loadPending();
     if (pending.length) {
@@ -152,6 +155,7 @@ async function sendRating(key, action, paper) {
     const pending = loadPending();
     pending.push(payload);
     savePending(pending.slice(-50)); // keep the last 50
+    if (window.showToast) window.showToast('Rating not sent: ' + (e && e.message ? e.message : e), null, null);
   }
 }
 function updateFeedbackStats() {
