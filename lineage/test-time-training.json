@@ -1,5 +1,5 @@
 {
- "_generated": "2026-05-14",
+ "_generated": "2026-09-27 (threads batch 2)",
  "_source": "graphify_seed/graph.json + zotero_index.json",
  "area": "test-time-training.md",
  "edges": [
@@ -200,6 +200,23 @@
    "relation": "implement",
    "confidence": "EXTRACTED",
    "confidence_score": 0.9
+  },
+  {
+   "id": "test-time-training",
+   "label": "Test-Time Training and Adaptation",
+   "nodes": [
+    "zhang2023_mae",
+    "chen2023_pathology",
+    "2506.23424",
+    "2606.06906",
+    "2607.15275",
+    "2608.27448",
+    "2609.00092"
+   ],
+   "relation": "form",
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "description": "Learning does not stop at deployment: parameter-efficient test-time adaptation for forecasting, evidence-aligned selective training for long-context QA, test-time policy optimization, and context scaling for robot policies."
   }
  ],
  "cross_area_bridges": []

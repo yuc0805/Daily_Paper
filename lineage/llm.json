@@ -1,5 +1,5 @@
 {
- "_generated": "2026-09-27 (bulk import: 33 papers + 7 threads)",
+ "_generated": "2026-09-27 (threads batch 2)",
  "_source": "graphify_seed/graph.json + zotero_index.json",
  "area": "llm.md",
  "edges": [
@@ -653,7 +653,7 @@
    "nodes": [
     "srivastava2014_dropout",
     "devries2017_cutout",
-    "concept_masked_autoencoder"
+    "zhang2023_mae"
    ],
    "relation": "form",
    "confidence": "INFERRED",
@@ -672,6 +672,19 @@
    "confidence": "INFERRED",
    "confidence_score": 0.8,
    "description": "Transformer analysis beyond attention (residual and normalization layers) and the attention-sink fix for streaming inference."
+  },
+  {
+   "id": "ssm-hybrid-architectures",
+   "label": "State-Space and Hybrid Architectures",
+   "nodes": [
+    "li2024_harmamba",
+    "liu2024_swinumamba",
+    "2605.26099"
+   ],
+   "relation": "form",
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "description": "Beyond pure attention: bidirectional SSMs for HAR, audio, and medical imaging; hybrid attention-recurrent models; quantization and activation analysis of the recurrent half; sleep-style consolidation of context into fast weights."
   }
  ],
  "cross_area_bridges": [

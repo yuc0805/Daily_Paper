@@ -1,5 +1,5 @@
 {
- "_generated": "2026-05-14",
+ "_generated": "2026-09-27 (threads batch 2)",
  "_source": "graphify_seed/graph.json + zotero_index.json",
  "area": "world-model-rl.md",
  "edges": [
@@ -352,6 +352,39 @@
    "date_added": "2026-09-15"
   }
  ],
- "hyperedges": [],
+ "hyperedges": [
+  {
+   "id": "video-world-models",
+   "label": "Video World Models",
+   "nodes": [
+    "2607.14076",
+    "2607.15207",
+    "2608.13489",
+    "2608.27345",
+    "2608.27549",
+    "2609.00188",
+    "2609.02886",
+    "2609.14973"
+   ],
+   "relation": "form",
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "description": "World models as game engines and physical predictors: multi-agent video world models, action-conditioned models for robotics, long-horizon interactive modeling, plus probes of where world-action models dream right but act wrong."
+  },
+  {
+   "id": "rl-llm-reasoning",
+   "label": "RL for LLM Reasoning",
+   "nodes": [
+    "pinneri2020_cem",
+    "voloshin2021_ope",
+    "2506.14965",
+    "2607.05339"
+   ],
+   "relation": "form",
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "description": "The RL substrate under reasoning models: sample-efficient planning, off-policy evaluation, cross-domain perspectives on RL for reasoning, and distilling exploration before reinforcing refinement."
+  }
+ ],
  "cross_area_bridges": []
 }

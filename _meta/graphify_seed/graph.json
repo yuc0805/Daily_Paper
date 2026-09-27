@@ -3389,7 +3389,8 @@
    "nodes": [
     "srivastava2014_dropout",
     "devries2017_cutout",
-    "concept_masked_autoencoder"
+    "concept_masked_autoencoder",
+    "zhang2023_mae"
    ],
    "relation": "form",
    "source_file": "",
@@ -3408,6 +3409,176 @@
    "relation": "form",
    "source_file": "",
    "description": "Transformer analysis beyond attention (residual and normalization layers) and the attention-sink fix for streaming inference."
+  },
+  {
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "id": "agent-memory-systems",
+   "label": "Agent Memory Systems",
+   "nodes": [
+    "huang2026_memory"
+   ],
+   "relation": "form",
+   "source_file": "",
+   "description": "How LLM agents remember across episodes: hierarchical memory indexes, topic documents, semantic consolidation, memory RL, spatial and procedural memory, plus benchmarks and a survey of memory mechanisms.",
+   "community": 0
+  },
+  {
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "id": "agentic-rl-self-evolution",
+   "label": "Agentic RL and Self-Evolution",
+   "nodes": [],
+   "relation": "form",
+   "source_file": "",
+   "description": "Training agents with reinforcement learning and letting them improve themselves: orchestration traces, programmatic rewards, skill evolution, on-policy distillation for agents, synthetic training tasks, and early evidence on open-ended AI research by agents.",
+   "community": 0
+  },
+  {
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "id": "agent-planning-search",
+   "label": "Agent Planning and Search",
+   "nodes": [
+    "rabinowitz2018_tom",
+    "prasad2023_adapt",
+    "zhou2024_lats"
+   ],
+   "relation": "form",
+   "source_file": "",
+   "description": "From theory of mind through decomposition-and-planning (ADaPT) and tree search over language actions (LATS) to planning benchmarks and deep-research agents.",
+   "community": 0
+  },
+  {
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "id": "multimodal-embodied-agents",
+   "label": "Multimodal and Embodied Agents",
+   "nodes": [
+    "zhao2025_pyvision",
+    "hong2026_deepeyesv2"
+   ],
+   "relation": "form",
+   "source_file": "",
+   "description": "Agents that see and act: agentic vision with dynamic tooling, multimodal models for embodied interaction, evidence-first interactive diagnosis, and frontier deep-research agents.",
+   "community": 0
+  },
+  {
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "id": "wearable-biosignal-fms",
+   "label": "Wearable and Biosignal Foundation Models",
+   "nodes": [
+    "yuan2024_ssl_har",
+    "li2024_harmamba",
+    "baur2024_hear",
+    "gu2025_biosignals"
+   ],
+   "relation": "form",
+   "source_file": "",
+   "description": "Self-supervised pretraining on wearable and physiological signals at scale: HAR at 700K person-days, bidirectional Mamba encoders, health acoustic representations, cross-modal PPG-ECG models, sleep and neuroimaging foundation models, and ECG benchmarks.",
+   "community": 1
+  },
+  {
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "id": "medical-reasoning-eval",
+   "label": "Medical Reasoning and Evaluation",
+   "nodes": [
+    "liu2023_health_llm",
+    "chen2024_sensor2text",
+    "nepal2024_mindscape"
+   ],
+   "relation": "form",
+   "source_file": "",
+   "description": "Do medical LLMs reason well enough to trust? Few-shot health learning, sensor-to-text interaction, agentic healthcare models, RL for medical multimodal reasoning, radiology drafting, and a wave of 2026 benchmarks for wearable QA, mental-health sensing, and auditable diagnosis.",
+   "community": 1
+  },
+  {
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "id": "diffusion-generative-vision",
+   "label": "Diffusion and Generative Vision",
+   "nodes": [
+    "zhu2020_cyclegan",
+    "ramesh2022_dalle2",
+    "peebles2023_dit"
+   ],
+   "relation": "form",
+   "source_file": "",
+   "description": "From GAN image translation through text-conditional diffusion and transformer diffusion backbones to controllable video generation, reward-tilted few-step generators, and MLLMs as zero-shot reward models for generation.",
+   "community": 3
+  },
+  {
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "id": "video-world-models",
+   "label": "Video World Models",
+   "nodes": [],
+   "relation": "form",
+   "source_file": "",
+   "description": "World models as game engines and physical predictors: multi-agent video world models, action-conditioned models for robotics, long-horizon interactive modeling, plus probes of where world-action models dream right but act wrong.",
+   "community": 0
+  },
+  {
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "id": "ssm-hybrid-architectures",
+   "label": "State-Space and Hybrid Architectures",
+   "nodes": [
+    "li2024_harmamba",
+    "erol2024_audiomamba",
+    "liu2024_swinumamba"
+   ],
+   "relation": "form",
+   "source_file": "",
+   "description": "Beyond pure attention: bidirectional SSMs for HAR, audio, and medical imaging; hybrid attention-recurrent models; quantization and activation analysis of the recurrent half; sleep-style consolidation of context into fast weights.",
+   "community": 2
+  },
+  {
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "id": "sensor-ssl",
+   "label": "Self-Supervised Learning for Sensors",
+   "nodes": [
+    "zhang2023_mae",
+    "yuan2024_ssl_har",
+    "li2024_harmamba",
+    "erol2024_audiomamba",
+    "chen2024_sensor2text"
+   ],
+   "relation": "form",
+   "source_file": "",
+   "description": "Masked and contrastive pretraining move from pixels to sensors: masked autoencoding theory, HAR at population scale, audio and sensor-text alignment, sleep physiology, neuroimaging, and EEG-language representation learning.",
+   "community": 1
+  },
+  {
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "id": "test-time-training",
+   "label": "Test-Time Training and Adaptation",
+   "nodes": [
+    "zhang2023_mae",
+    "chen2023_pathology"
+   ],
+   "relation": "form",
+   "source_file": "",
+   "description": "Learning does not stop at deployment: parameter-efficient test-time adaptation for forecasting, evidence-aligned selective training for long-context QA, test-time policy optimization, and context scaling for robot policies.",
+   "community": 1
+  },
+  {
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "id": "rl-llm-reasoning",
+   "label": "RL for LLM Reasoning",
+   "nodes": [
+    "pinneri2020_cem",
+    "voloshin2021_ope"
+   ],
+   "relation": "form",
+   "source_file": "",
+   "description": "The RL substrate under reasoning models: sample-efficient planning, off-policy evaluation, cross-domain perspectives on RL for reasoning, and distilling exploration before reinforcing refinement.",
+   "community": 7
   }
  ]
 }

@@ -110,9 +110,9 @@
    "members": [
     "srivastava2014_dropout",
     "devries2017_cutout",
-    "concept_masked_autoencoder"
+    "zhang2023_mae"
    ],
-   "description": "Regularization lineage (Dropout to Cutout) and the masked-autoencoder self-supervised vision anchor; MIRAGE evaluates whether VLMs truly understand images.",
+   "description": "Regularization lineage (Dropout to Cutout) and masked-autoencoder theory as the self-supervised vision anchor; MIRAGE evaluates whether VLMs truly understand images.",
    "position_guide": "Attach a paper here if it is a regularization method, a masked self-supervised vision method, or a probe of visual understanding."
   },
   {
@@ -129,6 +129,270 @@
    ],
    "description": "Transformer analysis beyond attention (residual and normalization layers) and the attention-sink fix for streaming inference.",
    "position_guide": "Attach a paper here if it analyzes transformer internals or fixes an inference-time failure mode. Parents: the transformer component it studies."
+  },
+  {
+   "id": "agent-memory-systems",
+   "label": "Agent Memory Systems",
+   "areas": [
+    "agent.md"
+   ],
+   "members": [
+    "2605.18421",
+    "2605.23986",
+    "2605.26256",
+    "2606.06448",
+    "2606.07909",
+    "2606.08656",
+    "2606.10677",
+    "2607.02255",
+    "2607.21503",
+    "2608.12743",
+    "2608.12990",
+    "2608.28476",
+    "huang2026_memory"
+   ],
+   "description": "How LLM agents remember across episodes: hierarchical memory indexes, topic documents, semantic consolidation, memory RL, spatial and procedural memory, plus benchmarks and a survey of memory mechanisms.",
+   "position_guide": "Attach a paper here if it stores, indexes, compresses, or manages an agent’s memory across episodes or long horizons. Parents: the memory system it extends or the benchmark it is measured against."
+  },
+  {
+   "id": "agentic-rl-self-evolution",
+   "label": "Agentic RL and Self-Evolution",
+   "areas": [
+    "agent.md"
+   ],
+   "members": [
+    "2602.21534",
+    "2605.02801",
+    "2605.18747",
+    "2606.00183",
+    "2606.01041",
+    "2606.02355",
+    "2606.03892",
+    "2606.31551",
+    "2607.03451",
+    "2607.05804",
+    "2607.14777",
+    "2607.16900",
+    "2607.18754",
+    "2607.26784",
+    "2607.27191"
+   ],
+   "description": "Training agents with reinforcement learning and letting them improve themselves: orchestration traces, programmatic rewards, skill evolution, on-policy distillation for agents, synthetic training tasks, and early evidence on open-ended AI research by agents.",
+   "position_guide": "Attach a paper here if it trains agents with RL, distills or evolves agent skills, or synthesizes agentic training data. Parents: the RL method or distillation baseline it modifies."
+  },
+  {
+   "id": "agent-planning-search",
+   "label": "Agent Planning and Search",
+   "areas": [
+    "agent.md"
+   ],
+   "members": [
+    "rabinowitz2018_tom",
+    "prasad2023_adapt",
+    "zhou2024_lats",
+    "2606.04874",
+    "2607.15257",
+    "2607.21461"
+   ],
+   "description": "From theory of mind through decomposition-and-planning (ADaPT) and tree search over language actions (LATS) to planning benchmarks and deep-research agents.",
+   "position_guide": "Attach a paper here if the agent plans, searches, or decomposes tasks before acting. Parents: the planning or search method it extends."
+  },
+  {
+   "id": "multimodal-embodied-agents",
+   "label": "Multimodal and Embodied Agents",
+   "areas": [
+    "agent.md"
+   ],
+   "members": [
+    "zhao2025_pyvision",
+    "2603.12109",
+    "hong2026_deepeyesv2",
+    "2606.13220",
+    "2605.24218"
+   ],
+   "description": "Agents that see and act: agentic vision with dynamic tooling, multimodal models for embodied interaction, evidence-first interactive diagnosis, and frontier deep-research agents.",
+   "position_guide": "Attach a paper here if the agent perceives images or video, or acts in an embodied or interactive environment. Parents: the vision-language or agent backbone it builds on."
+  },
+  {
+   "id": "wearable-biosignal-fms",
+   "label": "Wearable and Biosignal Foundation Models",
+   "areas": [
+    "llm-health.md",
+    "time-series.md",
+    "self-supervised.md"
+   ],
+   "members": [
+    "yuan2024_ssl_har",
+    "li2024_harmamba",
+    "baur2024_hear",
+    "gu2025_biosignals",
+    "2511.01747",
+    "2605.00973",
+    "2605.08296",
+    "2605.09579",
+    "2605.22759",
+    "2606.09605",
+    "2606.14957",
+    "2606.15284",
+    "2607.09749",
+    "2608.03597",
+    "2608.11656"
+   ],
+   "description": "Self-supervised pretraining on wearable and physiological signals at scale: HAR at 700K person-days, bidirectional Mamba encoders, health acoustic representations, cross-modal PPG-ECG models, sleep and neuroimaging foundation models, and ECG benchmarks.",
+   "position_guide": "Attach a paper here if it pretrains a general model on wearable, biosignal, or physiological data. Parents: the backbone architecture and the closest prior biosignal FM."
+  },
+  {
+   "id": "medical-reasoning-eval",
+   "label": "Medical Reasoning and Evaluation",
+   "areas": [
+    "llm-health.md"
+   ],
+   "members": [
+    "liu2023_health_llm",
+    "chen2024_sensor2text",
+    "nepal2024_mindscape",
+    "2603.04142",
+    "2604.04175",
+    "2605.13816",
+    "2606.31292",
+    "2606.31825",
+    "2607.01436",
+    "2607.02920",
+    "2607.15314",
+    "2608.27219",
+    "2609.05174",
+    "2609.05405",
+    "2609.06931",
+    "2609.06976"
+   ],
+   "description": "Do medical LLMs reason well enough to trust? Few-shot health learning, sensor-to-text interaction, agentic healthcare models, RL for medical multimodal reasoning, radiology drafting, and a wave of 2026 benchmarks for wearable QA, mental-health sensing, and auditable diagnosis.",
+   "position_guide": "Attach a paper here if it trains or evaluates clinical reasoning, medical QA, or health benchmarks. Parents: the clinical task definition it follows and the model family it evaluates."
+  },
+  {
+   "id": "diffusion-generative-vision",
+   "label": "Diffusion and Generative Vision",
+   "areas": [
+    "generative-cv.md"
+   ],
+   "members": [
+    "zhu2020_cyclegan",
+    "ramesh2022_dalle2",
+    "peebles2023_dit",
+    "2605.02641",
+    "2605.19995",
+    "2605.26108",
+    "2605.26111",
+    "2605.26230",
+    "2606.18043",
+    "2607.02515",
+    "2607.05722",
+    "2607.11886",
+    "2607.13188"
+   ],
+   "description": "From GAN image translation through text-conditional diffusion and transformer diffusion backbones to controllable video generation, reward-tilted few-step generators, and MLLMs as zero-shot reward models for generation.",
+   "position_guide": "Attach a paper here if it generates images, video, or 3D content with diffusion, flow, or GAN models. Parents: the generative backbone it modifies and the control or reward method it adds."
+  },
+  {
+   "id": "video-world-models",
+   "label": "Video World Models",
+   "areas": [
+    "generative-cv.md",
+    "world-model-rl.md"
+   ],
+   "members": [
+    "2606.02753",
+    "2606.09507",
+    "2607.14076",
+    "2607.15207",
+    "2607.18367",
+    "2608.13489",
+    "2608.27345",
+    "2608.27549",
+    "2609.00188",
+    "2609.02886",
+    "2609.14973"
+   ],
+   "description": "World models as game engines and physical predictors: multi-agent video world models, action-conditioned models for robotics, long-horizon interactive modeling, plus probes of where world-action models dream right but act wrong.",
+   "position_guide": "Attach a paper here if it builds, scales, or probes a video or world model for physical or embodied prediction. Parents: the world-model architecture it scales and the evaluation it targets."
+  },
+  {
+   "id": "ssm-hybrid-architectures",
+   "label": "State-Space and Hybrid Architectures",
+   "areas": [
+    "mamba.md",
+    "llm.md"
+   ],
+   "members": [
+    "li2024_harmamba",
+    "erol2024_audiomamba",
+    "liu2024_swinumamba",
+    "2605.26099",
+    "2606.30562",
+    "2608.12149",
+    "2608.27763",
+    "2608.30320",
+    "2609.04098",
+    "2609.07816"
+   ],
+   "description": "Beyond pure attention: bidirectional SSMs for HAR, audio, and medical imaging; hybrid attention-recurrent models; quantization and activation analysis of the recurrent half; sleep-style consolidation of context into fast weights.",
+   "position_guide": "Attach a paper here if it designs, hybridizes, or analyzes state-space, linear-recurrent, or hybrid attention architectures. Parents: the SSM or attention baseline it modifies."
+  },
+  {
+   "id": "sensor-ssl",
+   "label": "Self-Supervised Learning for Sensors",
+   "areas": [
+    "self-supervised.md"
+   ],
+   "members": [
+    "zhang2023_mae",
+    "yuan2024_ssl_har",
+    "li2024_harmamba",
+    "erol2024_audiomamba",
+    "chen2024_sensor2text",
+    "2506.13717",
+    "2605.00973",
+    "2605.08296",
+    "2606.05173",
+    "2606.09605",
+    "2606.14957",
+    "2607.21556",
+    "2608.11656"
+   ],
+   "description": "Masked and contrastive pretraining move from pixels to sensors: masked autoencoding theory, HAR at population scale, audio and sensor-text alignment, sleep physiology, neuroimaging, and EEG-language representation learning.",
+   "position_guide": "Attach a paper here if it pretrains representations on sensor, audio, or physiological data without labels. Parents: the SSL objective it adapts and the sensor domain it targets."
+  },
+  {
+   "id": "test-time-training",
+   "label": "Test-Time Training and Adaptation",
+   "areas": [
+    "test-time-training.md"
+   ],
+   "members": [
+    "zhang2023_mae",
+    "chen2023_pathology",
+    "2506.23424",
+    "2606.06906",
+    "2607.15275",
+    "2608.27448",
+    "2609.00092"
+   ],
+   "description": "Learning does not stop at deployment: parameter-efficient test-time adaptation for forecasting, evidence-aligned selective training for long-context QA, test-time policy optimization, and context scaling for robot policies.",
+   "position_guide": "Attach a paper here if it updates weights, memory, or policy at test or inference time. Parents: the base model or adaptation method it extends."
+  },
+  {
+   "id": "rl-llm-reasoning",
+   "label": "RL for LLM Reasoning",
+   "areas": [
+    "world-model-rl.md"
+   ],
+   "members": [
+    "pinneri2020_cem",
+    "voloshin2021_ope",
+    "2506.14965",
+    "2607.05339"
+   ],
+   "description": "The RL substrate under reasoning models: sample-efficient planning, off-policy evaluation, cross-domain perspectives on RL for reasoning, and distilling exploration before reinforcing refinement.",
+   "position_guide": "Attach a paper here if it studies RL methods for LLM reasoning: exploration, evaluation, or cross-domain transfer. Parents: the RL algorithm or reasoning setup it builds on."
   }
  ]
 }

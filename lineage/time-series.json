@@ -1,5 +1,5 @@
 {
- "_generated": "2026-09-27 (bulk import: 33 papers + 7 threads)",
+ "_generated": "2026-09-27 (threads batch 2)",
  "_source": "graphify_seed/graph.json + zotero_index.json",
  "area": "time-series.md",
  "edges": [
@@ -2138,6 +2138,25 @@
    "confidence": "INFERRED",
    "confidence_score": 0.8,
    "description": "Decoder-only forecasting foundation models and wearable-sensing foundation models; TS-Reasoner aligns them with LLM reasoning."
+  },
+  {
+   "id": "wearable-biosignal-fms",
+   "label": "Wearable and Biosignal Foundation Models",
+   "nodes": [
+    "yuan2024_ssl_har",
+    "li2024_harmamba",
+    "baur2024_hear",
+    "gu2025_biosignals",
+    "2605.00973",
+    "2605.08296",
+    "2605.09579",
+    "2605.22759",
+    "2608.11656"
+   ],
+   "relation": "form",
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "description": "Self-supervised pretraining on wearable and physiological signals at scale: HAR at 700K person-days, bidirectional Mamba encoders, health acoustic representations, cross-modal PPG-ECG models, sleep and neuroimaging foundation models, and ECG benchmarks."
   }
  ],
  "cross_area_bridges": [

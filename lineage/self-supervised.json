@@ -1,284 +1,327 @@
 {
-  "_generated": "2026-05-14",
-  "_source": "graphify_seed/graph.json + zotero_index.json",
-  "area": "self-supervised.md",
-  "edges": [
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "liu2021_swin",
-      "target_label": "Swin Transformer (Liu 2021)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "carion2020_detr",
-      "target_label": "DETR: End-to-End Object Detection with Transformers (Carion 2020)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "peebles2023_dit",
-      "target_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "zhai2023_siglip",
-      "target_label": "SigLIP: Sigmoid Loss for Language Image Pre-Training (Zhai 2023)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "li2024_harmamba",
-      "target_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "erol2024_audiomamba",
-      "target_label": "Audio Mamba: Bidirectional SSM for Audio (Erol 2024)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "chen2024_sensor2text",
-      "target_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "yuan2024_ssl_har",
-      "target_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "gu2025_biosignals",
-      "target_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "zhang2023_mae",
-      "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": false
-    },
-    {
-      "source": "zhang2023_mae",
-      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-      "target": "2605.00973",
-      "target_label": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "gu2025_biosignals",
-      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-      "target": "2605.00973",
-      "target_label": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "baur2024_hear",
-      "source_label": "HeAR: Health Acoustic Representations (Baur 2024)",
-      "target": "2605.00973",
-      "target_label": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "yuan2024_ssl_har",
-      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
-      "target": "2605.08296",
-      "target_label": "BenchHAR: Benchmarking Self-Supervised Learning for Generalizable Sensor-based Activity Recognition",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "yuan2024_ssl_har",
-      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
-      "target": "2506.13717",
-      "target_label": "CLAMP: Contrastive Self-Supervised Learning As Neural Manifold Packing",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "yuan2024_ssl_har",
-      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
-      "target": "2606.05173",
-      "target_label": "Predict and Reconstruct: Joint JEPA + MLM for Self-Supervised Language Representations",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "zhang2023_mae",
-      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-      "target": "2606.05173",
-      "target_label": "Predict and Reconstruct: Joint JEPA + MLM for Self-Supervised Language Representations",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "gu2025_biosignals",
-      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-      "target": "2606.09605",
-      "target_label": "Hypnos: Next-Token Prediction Learns Generalisable Representations of Sleep Physiology (2026)",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "zhang2023_mae",
-      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-      "target": "2606.09605",
-      "target_label": "Hypnos: Next-Token Prediction Learns Generalisable Representations of Sleep Physiology (2026)",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2606.09605",
-      "target_label": "Hypnos: Next-Token Prediction Learns Generalisable Representations of Sleep Physiology (2026)",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "zhang2023_mae",
-      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-      "target": "2606.14957",
-      "target_label": "Neuro-JEPA: Learning a Sparse Latent Predictive Foundation Model for Multimodal Neuroimaging (2026)",
-      "relation": "builds_on",
-      "note": "Where MAE theory explained why masked reconstruction works, Neuro-JEPA swaps reconstruction for prediction in a learned latent space, because reconstructing raw neuroimaging spends capacity on noise.",
-      "cross_area": false
-    },
-    {
-      "source": "yuan2024_ssl_har",
-      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
-      "target": "2606.14957",
-      "target_label": "Neuro-JEPA: Learning a Sparse Latent Predictive Foundation Model for Multimodal Neuroimaging (2026)",
-      "relation": "builds_on",
-      "note": "Where SSL for HAR scaled masked self-supervised pretraining on 700K person-days of sensor data, Neuro-JEPA keeps the large-scale pretraining but moves the objective to latent prediction with a sparsity constraint.",
-      "cross_area": false
-    },
-    {
-      "source": "gu2025_biosignals",
-      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-      "target": "2606.14957",
-      "target_label": "Neuro-JEPA: Learning a Sparse Latent Predictive Foundation Model for Multimodal Neuroimaging (2026)",
-      "relation": "builds_on",
-      "note": "Neuro-JEPA sits near the biosignal foundation-model survey as a biosignal effort, but on the latent-predictive rather than reconstructive branch.",
-      "cross_area": true
-    },
-    {
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-07-25",
-      "source": "DVUL4GU6",
-      "source_label": "DINO (Caron 2021)",
-      "target": "2607.21556",
-      "target_label": "Visual Contrastive Self-Distillation (VCSD, 2026)",
-      "note": "Where DINO builds its teacher-student asymmetry from two augmented crops of one image, VCSD builds the asymmetry from input conditioning, original image versus content-erased image under a fixed text prefix, because for a vision-language model the useful signal is which tokens the image content raises."
-    },
-    {
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-07-25",
-      "source": "yuan2024_ssl_har",
-      "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
-      "target": "2607.21556",
-      "target_label": "Visual Contrastive Self-Distillation (VCSD, 2026)",
-      "note": "Where SSL for HAR learned label-free sensor representations at scale, VCSD offers a label-free target built from full-input versus masked-control contrast that could transfer to channel-masked or band-masked sensor windows."
-    },
-    {
-      "source": "zhang2023_mae",
-      "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-      "target": "2608.11656",
-      "target_label": "Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM) (2026)",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-08-16",
-      "note": "BLPM takes the theory's account of what masking does and does not recover as grounds for abandoning reconstruction in this modality rather than for tuning the mask."
-    },
-    {
-      "source": "gu2025_biosignals",
-      "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
-      "target": "2608.11656",
-      "target_label": "Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM) (2026)",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-08-16",
-      "note": "The survey documented that masked reconstruction dominates biosignal pretraining; BLPM supplies the latent-prediction alternative for EEG."
-    }
-  ],
-  "hyperedges": [],
-  "cross_area_bridges": []
+ "_generated": "2026-09-27 (threads batch 2)",
+ "_source": "graphify_seed/graph.json + zotero_index.json",
+ "area": "self-supervised.md",
+ "edges": [
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "liu2021_swin",
+   "target_label": "Swin Transformer (Liu 2021)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "carion2020_detr",
+   "target_label": "DETR: End-to-End Object Detection with Transformers (Carion 2020)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "peebles2023_dit",
+   "target_label": "DiT: Scalable Diffusion Models with Transformers (Peebles 2023)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "zhai2023_siglip",
+   "target_label": "SigLIP: Sigmoid Loss for Language Image Pre-Training (Zhai 2023)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "li2024_harmamba",
+   "target_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "erol2024_audiomamba",
+   "target_label": "Audio Mamba: Bidirectional SSM for Audio (Erol 2024)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "chen2024_sensor2text",
+   "target_label": "Sensor2Text: NL Interactions for Activity Tracking (Chen 2024)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "yuan2024_ssl_har",
+   "target_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "gu2025_biosignals",
+   "target_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "zhang2023_mae",
+   "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": false
+  },
+  {
+   "source": "zhang2023_mae",
+   "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+   "target": "2605.00973",
+   "target_label": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "gu2025_biosignals",
+   "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+   "target": "2605.00973",
+   "target_label": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "baur2024_hear",
+   "source_label": "HeAR: Health Acoustic Representations (Baur 2024)",
+   "target": "2605.00973",
+   "target_label": "Physiology-Aware Masked Cross-Modal Reconstruction for Biosignal Representation Learning (xMAE)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "yuan2024_ssl_har",
+   "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+   "target": "2605.08296",
+   "target_label": "BenchHAR: Benchmarking Self-Supervised Learning for Generalizable Sensor-based Activity Recognition",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "yuan2024_ssl_har",
+   "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+   "target": "2506.13717",
+   "target_label": "CLAMP: Contrastive Self-Supervised Learning As Neural Manifold Packing",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "yuan2024_ssl_har",
+   "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+   "target": "2606.05173",
+   "target_label": "Predict and Reconstruct: Joint JEPA + MLM for Self-Supervised Language Representations",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "zhang2023_mae",
+   "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+   "target": "2606.05173",
+   "target_label": "Predict and Reconstruct: Joint JEPA + MLM for Self-Supervised Language Representations",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "gu2025_biosignals",
+   "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+   "target": "2606.09605",
+   "target_label": "Hypnos: Next-Token Prediction Learns Generalisable Representations of Sleep Physiology (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "zhang2023_mae",
+   "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+   "target": "2606.09605",
+   "target_label": "Hypnos: Next-Token Prediction Learns Generalisable Representations of Sleep Physiology (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2606.09605",
+   "target_label": "Hypnos: Next-Token Prediction Learns Generalisable Representations of Sleep Physiology (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "zhang2023_mae",
+   "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+   "target": "2606.14957",
+   "target_label": "Neuro-JEPA: Learning a Sparse Latent Predictive Foundation Model for Multimodal Neuroimaging (2026)",
+   "relation": "builds_on",
+   "note": "Where MAE theory explained why masked reconstruction works, Neuro-JEPA swaps reconstruction for prediction in a learned latent space, because reconstructing raw neuroimaging spends capacity on noise.",
+   "cross_area": false
+  },
+  {
+   "source": "yuan2024_ssl_har",
+   "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+   "target": "2606.14957",
+   "target_label": "Neuro-JEPA: Learning a Sparse Latent Predictive Foundation Model for Multimodal Neuroimaging (2026)",
+   "relation": "builds_on",
+   "note": "Where SSL for HAR scaled masked self-supervised pretraining on 700K person-days of sensor data, Neuro-JEPA keeps the large-scale pretraining but moves the objective to latent prediction with a sparsity constraint.",
+   "cross_area": false
+  },
+  {
+   "source": "gu2025_biosignals",
+   "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+   "target": "2606.14957",
+   "target_label": "Neuro-JEPA: Learning a Sparse Latent Predictive Foundation Model for Multimodal Neuroimaging (2026)",
+   "relation": "builds_on",
+   "note": "Neuro-JEPA sits near the biosignal foundation-model survey as a biosignal effort, but on the latent-predictive rather than reconstructive branch.",
+   "cross_area": true
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-07-25",
+   "source": "DVUL4GU6",
+   "source_label": "DINO (Caron 2021)",
+   "target": "2607.21556",
+   "target_label": "Visual Contrastive Self-Distillation (VCSD, 2026)",
+   "note": "Where DINO builds its teacher-student asymmetry from two augmented crops of one image, VCSD builds the asymmetry from input conditioning, original image versus content-erased image under a fixed text prefix, because for a vision-language model the useful signal is which tokens the image content raises."
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-25",
+   "source": "yuan2024_ssl_har",
+   "source_label": "Self-supervised Learning for HAR with 700K Person-days (Yuan 2024)",
+   "target": "2607.21556",
+   "target_label": "Visual Contrastive Self-Distillation (VCSD, 2026)",
+   "note": "Where SSL for HAR learned label-free sensor representations at scale, VCSD offers a label-free target built from full-input versus masked-control contrast that could transfer to channel-masked or band-masked sensor windows."
+  },
+  {
+   "source": "zhang2023_mae",
+   "source_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+   "target": "2608.11656",
+   "target_label": "Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM) (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-08-16",
+   "note": "BLPM takes the theory's account of what masking does and does not recover as grounds for abandoning reconstruction in this modality rather than for tuning the mask."
+  },
+  {
+   "source": "gu2025_biosignals",
+   "source_label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+   "target": "2608.11656",
+   "target_label": "Continuous-Latent Predictive Modeling with Semantic Alignment for EEG-Language Foundation Models (BLPM) (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-08-16",
+   "note": "The survey documented that masked reconstruction dominates biosignal pretraining; BLPM supplies the latent-prediction alternative for EEG."
+  }
+ ],
+ "hyperedges": [
+  {
+   "id": "wearable-biosignal-fms",
+   "label": "Wearable and Biosignal Foundation Models",
+   "nodes": [
+    "yuan2024_ssl_har",
+    "li2024_harmamba",
+    "baur2024_hear",
+    "gu2025_biosignals",
+    "2605.00973",
+    "2605.08296",
+    "2606.09605",
+    "2606.14957",
+    "2608.11656"
+   ],
+   "relation": "form",
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "description": "Self-supervised pretraining on wearable and physiological signals at scale: HAR at 700K person-days, bidirectional Mamba encoders, health acoustic representations, cross-modal PPG-ECG models, sleep and neuroimaging foundation models, and ECG benchmarks."
+  },
+  {
+   "id": "sensor-ssl",
+   "label": "Self-Supervised Learning for Sensors",
+   "nodes": [
+    "zhang2023_mae",
+    "yuan2024_ssl_har",
+    "li2024_harmamba",
+    "erol2024_audiomamba",
+    "chen2024_sensor2text",
+    "2506.13717",
+    "2605.00973",
+    "2605.08296",
+    "2606.05173",
+    "2606.09605",
+    "2606.14957",
+    "2607.21556",
+    "2608.11656"
+   ],
+   "relation": "form",
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "description": "Masked and contrastive pretraining move from pixels to sensors: masked autoencoding theory, HAR at population scale, audio and sensor-text alignment, sleep physiology, neuroimaging, and EEG-language representation learning."
+  }
+ ],
+ "cross_area_bridges": []
 }
