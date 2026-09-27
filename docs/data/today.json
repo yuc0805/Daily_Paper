@@ -1,45 +1,101 @@
 {
-  "date": "2026-09-15",
+  "date": "2026-09-27",
   "papers": [
     {
-      "zotero_key": "2609.15309",
-      "title": "When Agents Slow Down: Understanding LLM Agents' Test-Time Strategies via Elo-per-token Analysis",
-      "authors": "Liu, Mang, Peng, Chai, Li, Pimpalgaonkar, Zettlemoyer, Dimakis, Cheung",
+      "zotero_key": "2609.30266",
+      "title": "LLM Agents Can Easily Tamper With Their Own Traces",
+      "authors": "Jeremy Qin, David Schmotz, Derck Prinzhorn, Luca Beurer-Kellner et al.",
       "year": 2026,
-      "what": "Tracks the best solution found at each token budget and aggregates within-task orderings into Elo with a Bradley-Terry model, showing that agents beat independent sampling early then fall below it, and that splitting 100M tokens into parallel sessions sized at the scaling inflection point gains 264 Elo over one long session and 355 over ten short ones.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "LATS (Zhou 2024, 77ERE7HA); DeepSeek-R1 (2025, Z5IWHZAE); TTT for Abstract Reasoning (Akyurek 2024, W7RPRTCH)"
+      "what": "Asynchronous monitoring, incident investigations, and compliance audits primarily rely on agent traces to reconstruct what happened. These analyses assume that LLM agents cannot tamper with their own execution traces. We show that local LLM agents such as Claude Code, Codex, Antigravity, Open Code a",
+      "summary": "Asynchronous monitoring, incident investigations, and compliance audits primarily rely on agent traces to reconstruct what happened. These analyses assume that LLM agents cannot tamper with their own execution traces. We show that local LLM agents such as Claude Code, Codex, Antigravity, Open Code and Grok Build fail to enforce this boundary. All tested harnesses, except Muse Code, allowed agents to delete their traces when asked, without triggering monitor guardrails. We also validate that external attackers can exploit this gap to induce trace deletion. Finally, we show that trace tampering behavior emerges naturally in frontier models, when agents try to improve their rewards. We advise practitioners to ensure trace logging happens through an independent interception mechanism outside of the agent's control, preserving trace integrity even in cases of full host compromise. Overall, our findings identify a concrete failure of trace integrity in agent infrastructure which can be used to conceal misaligned behaviors like scheming or sabotage.",
+      "area_label": "Llm",
+      "area_slug": "llm",
+      "builds_on": "",
+      "rec_type": "for-you"
     },
     {
-      "zotero_key": "2609.14858",
-      "title": "Dream-RSI: Recursive Self-Improvement through Evolving Worlds",
-      "authors": "Zheng, Wu, Zhang, He et al. (Google)",
+      "zotero_key": "2609.30264",
+      "title": "AD-WM: Action-Discriminative World Models for Counterfactual Model Predictive Control",
+      "authors": "Jiabin Qiu, Zixuan Chen, Hongye Cao, Jieqi Shi et al.",
       "year": 2026,
-      "what": "Reuses accumulated discovery trees as a replay simulator so that exploration policies can be improved off-policy for free, then redeploys the improved policy online to expand the simulator, matching or improving discovery quality at lower online evaluation cost on algorithm engineering, mathematical optimization, and GPU kernel engineering.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "Offline RL (Levine 2020, ZULLM3UF); OPE Study (Voloshin 2021, Y2MKM9Y3); LATS (Zhou 2024, 77ERE7HA)"
+      "what": "Latent world models are typically trained to predict factual transitions, whereas model predictive control (MPC) must compare alternative actions from the same state. A model can therefore achieve low factual prediction error yet poorly distinguish candidate actions. We introduce AD-WM, an action-di",
+      "summary": "Latent world models are typically trained to predict factual transitions, whereas model predictive control (MPC) must compare alternative actions from the same state. A model can therefore achieve low factual prediction error yet poorly distinguish candidate actions. We introduce AD-WM, an action-discriminative joint-embedding world model for counterfactual MPC. AD-WM combines residual latent dynamics with predictor-level action-recovery regularization, using inverse dynamics and a normalized recovery objective motivated by conditional mutual information. Both objectives encourage planning transitions to preserve action information; their auxiliary heads are discarded at test time, leaving MPC unchanged. On OGBench-Cube, AD-WM improves hard-start success from 3.7% to 52.0% over a matched LeWM baseline and improves mean success over the reproduced baseline in four of five simulation environments. Planning diagnostics show that factual prediction error and whole-bank action ranking do not follow the closed-loop success ordering, whereas CEM-aligned elite regret tracks success more closely. With a frozen V-JEPA 2 encoder and matched DROID post-training, AD-WM also improves zero-shot transfer to our Franka setup, increasing basic pick-and-place success from 42.2% to 71.1% without lab-specific adaptation. These results suggest that world models for planning should preserve action-dependent differences needed for counterfactual selection, rather than optimize factual prediction accuracy alone. More videos and code are available at https://ad-wm.github.io/.",
+      "area_label": "Time Series",
+      "area_slug": "time-series",
+      "builds_on": "",
+      "rec_type": "for-you"
     },
     {
-      "zotero_key": "2609.15128",
-      "title": "Omni-Streaming Thinking",
-      "authors": "Du, Liu, Zheng, Li, Guo, Zhang, Zou",
+      "zotero_key": "2609.30258",
+      "title": "Temporal Gradient Inversion for Private Trajectory Reconstruction in Embodied Reinforcement Learning",
+      "authors": "Sudip Bhujel, Shanghao Shi, Ruiquan Huang, Ning Zhang et al.",
       "year": 2026,
-      "what": "Keeps audio and visual evidence in separate stores and marks every claim pending until the verification interval that would settle it has elapsed, so a visually motivated interpretation can be refuted by later audio, beating open baselines by over 10 percent relative on five streaming benchmarks and reaching d-prime 2.95 against at most 1.38.",
-      "area_label": "Multi-Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "Where Does the Sound Go? (Jo 2026, 2609.05871); LTU (Gong 2023, ESEEEH85); Flamingo (Alayrac 2022, SC8KWYVK)"
+      "what": "Distributed learning in embodied reinforcement-learning agents offers a degree of privacy by retaining raw sensor data on-device and transmitting only policy gradients to the server. Yet temporal structure can amplify this leakage beyond single-frame attacks. We introduce Temporal Reconstruction Att",
+      "summary": "Distributed learning in embodied reinforcement-learning agents offers a degree of privacy by retaining raw sensor data on-device and transmitting only policy gradients to the server. Yet temporal structure can amplify this leakage beyond single-frame attacks. We introduce Temporal Reconstruction Attack on Consecutive Encodings (TRACE), an amortized temporal gradient-inversion attack that autoregressively reconstructs the sequence of private observation-action trajectories from per-step policy-learning gradients. The attack exploits two structural signals ignored by prior single-frame methods: (i) cross-time correlation between successive embodied gradients, which we formalize via a conditional mutual-information bound, and (ii) closed-form action recovery from policy-head gradient structure, which we prove exact when standard entropy regularization is sufficiently small. On held-out embodied scenes, TRACE reaches $18.8$ dB PSNR with near-perfect action recovery at $3$-$4.5$ ms per reconstructed frame, dominating the learning-based baseline across all reconstruction metrics and exceeding optimization attacks while running orders of magnitude faster. Further evaluation demonstrates TRACE's broader applicability across recurrent, residual, and compact transformer victim architectures, multi-modal inputs, and larger discrete action spaces. Defense experiments suggest that protecting temporal gradient streams may require sequence-aware privacy mechanisms.",
+      "area_label": "Time Series",
+      "area_slug": "time-series",
+      "builds_on": "",
+      "rec_type": "for-you"
     },
     {
-      "zotero_key": "2609.14973",
-      "title": "PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models",
-      "authors": "DeepCybo Team et al. (53 authors)",
+      "zotero_key": "2609.30250",
+      "title": "Agentic Detection of Online Conspiracies",
+      "authors": "Lior Biton, Oren Tsur",
       "year": 2026,
-      "what": "Encodes language responses, end-effector motion, and dense visual targets as discrete tokens under one autoregressive objective, taking all embodied pre-training supervision from human interaction video rather than robot hardware, and averages 72.5 across 28 embodied understanding benchmarks with open 8B and 2B weights released the same day.",
-      "area_label": "World Model / RL",
-      "area_slug": "world-model-rl",
-      "builds_on": "World Models (Ha 2018, 938DAXZT); DINO-WM (Zhou 2025, W44RSJJI); Flamingo (Alayrac 2022, SC8KWYVK)"
+      "what": "Conspiratorial discourse on social media is not always expressed through explicit claims or stable lexical markers. The same surface content may express endorsement, legitimate concerns, criticism, satire, or mockery. The main challenge is therefore not only recognizing conspiracy-related claims, bu",
+      "summary": "Conspiratorial discourse on social media is not always expressed through explicit claims or stable lexical markers. The same surface content may express endorsement, legitimate concerns, criticism, satire, or mockery. The main challenge is therefore not only recognizing conspiracy-related claims, but inferring the speaker's intent -- the utterance's illocutionary force. We argue that this can be achieved through the use of relevant social contexts and propose an agentic framework, equipped with a set of tools supporting social queries. We demonstrate the benefits of our approach on a unique dataset of Hebrew tweets, covering 80\\%--90\\% of the public Hebrew tweets published over a four-year span (late 2018-- early 2023), encompassing several election cycles as well as the COVID pandemic years and related vaccination campaigns. This extensive coverage can be used in recovering different social contexts. Evaluating our framework on a manually-annotated adversarial dataset, we find that context-aware workflows consistently outperform text-only classification and that the agentic framework performs significantly better than other frameworks and settings, including a non-agentic model exposed to the same contexts available to the agent. We further provide an analysis of the results, the errors and efficiency (token economy) tradeoffs. These findings support viewing the task of conspiracy detection as a socially embedded interpretation task, in which effective classification depends not only on access to contexts, but also on adaptive reasoning in which the agent uses tools on a per-case basis, asking only for evidence relevant to its current reasoning step.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "",
+      "rec_type": "for-you"
+    },
+    {
+      "zotero_key": "2609.30249",
+      "title": "RAPID: Robot Agentic Programming from Demonstrations",
+      "authors": "Yuyao Liu, Jiayuan Mao, David Hsu, Leslie Pack Kaelbling et al.",
+      "year": 2026,
+      "what": "Coding agents have demonstrated enormous success in solving complex programming problems. To leverage their potential for robot systems, this work introduces Robot Agentic Programming from Demonstrations (RAPID), which automatically generates, verifies, and refines robot programs, given a single vis",
+      "summary": "Coding agents have demonstrated enormous success in solving complex programming problems. To leverage their potential for robot systems, this work introduces Robot Agentic Programming from Demonstrations (RAPID), which automatically generates, verifies, and refines robot programs, given a single visual human demonstration. The iterative agentic loop of code refinement requires several key ingredients: (i) a testable task specification, (ii) action primitives for robot execution, and (iii) an interactive environment for program execution and verification. RAPID infers all three from the demonstration automatically. To make the resulting program reusable beyond the demonstration setting, RAPID uses an object-centric relational program representation that focuses on the underlying structure of the demonstrated strategy rather than the specific motion per se: it expresses the action primitives as trajectory-optimization programs that realize object-level motion effects, while composing them through relational constraints that capture scene-specific geometry at run time. We evaluated RAPID in simulation on eight challenging contact-rich nonprehensile manipulation tasks as well as general prehensile manipulation tasks in the LIBERO-Pro benchmark. We also successfully deployed it on a real Franka arm and evaluated on all eight nonprehensile tasks. In all experiments, RAPID demonstrated strong performance, with generalization over object pose, shape, material, and environment. Website: https://yuyaoliu.me/projects/rapid.",
+      "area_label": "Time Series",
+      "area_slug": "time-series",
+      "builds_on": "",
+      "rec_type": "for-you"
+    },
+    {
+      "zotero_key": "2609.30247",
+      "title": "Rolling-WAM: World Action Models with Rolling Imagination",
+      "authors": "Yinghua Zhou, Junjie Ye, Yiqi Zhao, Hao Dong et al.",
+      "year": 2026,
+      "what": "World Action Models (WAMs) couple action generation with future visual prediction for robotic manipulation. However, completing the joint video-action denoising process at each replanning cycle incurs substantial latency, delaying action updates and limiting closed-loop responsiveness. We present Ro",
+      "summary": "World Action Models (WAMs) couple action generation with future visual prediction for robotic manipulation. However, completing the joint video-action denoising process at each replanning cycle incurs substantial latency, delaying action updates and limiting closed-loop responsiveness. We present Rolling-WAM, a formulation that distributes joint denoising across successive replanning cycles. Our method maintains a sliding window of video-action chunks at staggered noise levels. At each step, a rolling noise schedule fully denoises the imminent action chunk for execution, while partially refining farther-future chunks. As the window advances with new camera observations, the retained future chunks continue their denoising process. This distributes the computational cost over time while carrying an evolving visual-action context across chunk boundaries. Evaluations on LIBERO, RoboTwin, and a real-world Unitree G1 humanoid show that Rolling-WAM achieves competitive manipulation performance. By removing the need to denoise the entire prediction horizon from scratch, it delivers a 4.5x steady-state replanning speedup over standard joint WAMs.",
+      "area_label": "Reasoning",
+      "area_slug": "reasoning",
+      "builds_on": "",
+      "rec_type": "for-you"
+    },
+    {
+      "zotero_key": "2609.30217",
+      "title": "Instrumental Monitor Evasion Emerges Under Ordinary Task Pressure",
+      "authors": "David Schmotz, Derck Prinzhorn, Luca Beurer-Kellner, Anselm Paulus et al.",
+      "year": 2026,
+      "what": "[Explore] A central concern in AI safety is that agents may treat oversight as an obstacle when it conflicts with completing their goals. We study instrumental evasion, the propensity of LLM agents to circumvent runtime monitoring as a means of completing ordinary tasks. We introduce Evasi",
+      "summary": "A central concern in AI safety is that agents may treat oversight as an obstacle when it conflicts with completing their goals. We study instrumental evasion, the propensity of LLM agents to circumvent runtime monitoring as a means of completing ordinary tasks. We introduce EvasionBench, a benchmark of 50 diverse task-policy pairs in which completing the task requires an operation prohibited by a runtime monitor. Agents know that their tool calls are monitored and are prompted to continue working when they pause. Across our evaluations, best-of-3 evasion attempt rates reach up to 98% and success rates up to 88%, with substantial variance across models. Claude Fable 5.1 succeeds less often, but frequently makes creative attempts to circumvent the monitor. Evasion generally increases with test-time compute, with higher evasion rates at greater reasoning effort and token use. Traces show that agents encode prohibited commands, decompose operations across tool calls, and retry until relevant context leaves the monitor's history. We also find that GPT-6 Astra's low evasion rate comes with overrefusal, as it frequently abandons otherwise solvable tasks under a denial-of-service prompt injection. Our findings show that ordinary task pressure can lead to adaptive attempts to evade runtime monitors without an explicit adversarial objective. Effective oversight must therefore remain robust against repeated attempts, as the persistence that helps agents solve difficult tasks can also drive them to circumvent their guardrails.",
+      "area_label": "cs.CR",
+      "area_slug": "explore",
+      "builds_on": "",
+      "rec_type": "explore"
+    },
+    {
+      "zotero_key": "2609.30163",
+      "title": "Steelhead: Interleaving Partially Synchronous and Asynchronous Commit Rules on a Shared DAG",
+      "authors": "George Danezis, Zeno De Angeli, Philipp Jovanovic, Lefteris Kokoris-Kogias et al.",
+      "year": 2026,
+      "what": "[Explore] Dual-mode consensus protocols are fast when the network is partially synchronous and remain live under asynchrony. We introduce Steelhead, a dual-mode mechanism that composes a partially synchronous and an asynchronous commit rule over one DAG: every k-th round is decided by the ",
+      "summary": "Dual-mode consensus protocols are fast when the network is partially synchronous and remain live under asynchrony. We introduce Steelhead, a dual-mode mechanism that composes a partially synchronous and an asynchronous commit rule over one DAG: every k-th round is decided by the asynchronous rule, whose leader a common coin reveals after the votes, and all other rounds by the partially synchronous rule. Every interval, validators replay the committed DAG under each candidate period, adopt the one with the fewest expected message delays, and fall back to k = 1 when the output stalls; the asynchronous rule applied to the coin rounds alone keeps the protocol live. Steelhead sends no message beyond the DAG's blocks, not even to agree on the period, and opens a coin only on the rounds that need a hidden leader. It is generic over pairs of DAG commit rules that share a committee; we instantiate it with Mysticeti and Mahi-Mahi at n >= 3f+1 and with the two variants of BlueBottle at n >= 5f+1. We prove it safe and live, and provide mechanized proofs in Lean 4. In simulation, Steelhead matches the partially synchronous protocol in a healthy network, stays close to the asynchronous one when network conditions stall the partially synchronous one, and adapts quickly in both directions.",
+      "area_label": "cs.CR",
+      "area_slug": "explore",
+      "builds_on": "",
+      "rec_type": "explore"
     }
   ]
 }
