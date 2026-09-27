@@ -1,0 +1,8 @@
+{
+  "area_affinity": {
+    "time-series.md": 1.0,
+    "llm-health.md": 1.0,
+    "llm.md": 1.0,
+    "reasoning.md": 1.0
+  }
+}
