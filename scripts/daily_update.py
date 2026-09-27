@@ -495,6 +495,8 @@ def write_digest_paper_pages(today_papers, pool):
         if not key:
             continue
         new_keys.add(key)
+        pub = p.get("published") or p.get("year") or ""
+        pub = str(pub)
         badge = ("<span class=\"rec-badge\">For you</span>"
                  if p.get("rec_type") == "for-you"
                  else "<span class=\"rec-badge explore\">Explore</span>")
@@ -507,7 +509,7 @@ def write_digest_paper_pages(today_papers, pool):
             "<a href=\"../index.html\" class=\"back-link\">&larr; Back to Today's Papers</a>\n"
             f"<h2>{_esc(p.get('title', key))}</h2>\n"
             f"<p class=\"paper-meta\">{_esc(p.get('authors', ''))} &middot; "
-            f"{_esc(p.get('published', ''))} &middot; {badge} &middot; "
+            f"{_esc(pub)} &middot; {badge} &middot; "
             f"<a href=\"https://arxiv.org/abs/{_esc(key)}\" target=\"_blank\" "
             f"rel=\"noopener\">arXiv:{_esc(key)}</a></p>\n"
             f"<h3>Why recommended</h3>\n<p>{why(p)}</p>\n"
