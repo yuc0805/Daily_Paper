@@ -189,9 +189,9 @@ let poolCache = null;
 let toastTimer = null;
 
 function fameBadge(p) {
-  if ((p.rec_type || 'for-you') === 'explore' || !p.venue) return '';
   const cit = p.citations ? ` &middot; ${p.citations} cit.` : '';
-  const label = p.tier === 2 ? `&#127942; ${esc(p.venue)} &middot; Spotlight/Oral${cit}` : `${esc(p.venue)}${cit}`;
+  const venue = p.venue || 'arXiv';
+  const label = p.tier === 2 ? `&#127942; ${esc(venue)} &middot; Spotlight/Oral${cit}` : `${esc(venue)}${cit}`;
   const cls = p.tier === 2 ? 'rec-badge fame' : 'rec-badge';
   return `<span class="${cls}" title="Venue and citation signal">${label}</span>`;
 }
