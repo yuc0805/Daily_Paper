@@ -371,6 +371,7 @@ footer a:hover { text-decoration: underline; }
   vertical-align: middle;
 }
 .rec-badge.explore { background: #fef3e2; color: #b45309; }
+.rec-badge.fame { background: #fef9c3; color: #854d0e; border: 1px solid #facc15; }
 .paper-note {
   font-size: 0.85rem;
   color: var(--muted);

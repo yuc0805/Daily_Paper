@@ -188,6 +188,14 @@ const shownKeys = new Set();
 let poolCache = null;
 let toastTimer = null;
 
+function fameBadge(p) {
+  if ((p.rec_type || 'for-you') === 'explore' || !p.venue) return '';
+  const cit = p.citations ? ` &middot; ${p.citations} cit.` : '';
+  const label = p.tier === 2 ? `&#127942; ${esc(p.venue)} &middot; Spotlight/Oral${cit}` : `${esc(p.venue)}${cit}`;
+  const cls = p.tier === 2 ? 'rec-badge fame' : 'rec-badge';
+  return `<span class="${cls}" title="Venue and citation signal">${label}</span>`;
+}
+
 function buildTodayCard(p, fb) {
   const wrapper = document.createElement('div');
   wrapper.className = 'today-card-wrapper';
@@ -210,6 +218,7 @@ function buildTodayCard(p, fb) {
       <button class="like-btn ${fb[p.zotero_key]==='like'?'active':''}" data-key="${esc(p.zotero_key)}" data-action="like">Like</button>
       <button class="dislike-btn ${fb[p.zotero_key]==='dislike'?'active':''}" data-key="${esc(p.zotero_key)}" data-action="dislike">Pass</button>
       <span class="rec-badge ${recType}" title="${recType==='explore' ? 'Popular in another field — broadening your horizons' : 'Picked based on your interests'}">${recLabel}</span>
+      ${fameBadge(p)}
     </div>`;
   wrapper.appendChild(card);
   return wrapper;

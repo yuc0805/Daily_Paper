@@ -117,7 +117,8 @@ def arxiv_search(query, max_results=20, retries=3):
     except Exception as e:
         log(f"arXiv XML parse failed: {e}")
         return []
-    ns = {"a": "http://www.w3.org/2005/Atom"}
+    ns = {"a": "http://www.w3.org/2005/Atom",
+          "arxiv": "http://arxiv.org/schemas/atom"}
     papers = []
     for entry in root.findall("a:entry", ns):
         raw_id = entry.find("a:id", ns).text.strip().split("/")[-1]
@@ -126,8 +127,11 @@ def arxiv_search(query, max_results=20, retries=3):
         summary = " ".join(entry.find("a:summary", ns).text.strip().split())
         authors = [a.find("a:name", ns).text for a in entry.findall("a:author", ns)]
         published = entry.find("a:published", ns).text[:10]
+        comment_el = entry.find("arxiv:comment", ns)
+        comment = " ".join(comment_el.text.strip().split()) if comment_el is not None and comment_el.text else ""
         papers.append({"arxiv_id": pid, "title": title, "summary": summary,
-                       "authors": authors, "published": published})
+                       "authors": authors, "published": published,
+                       "comment": comment})
     return papers
 
 
@@ -477,17 +481,39 @@ def write_digest_paper_pages(today_papers, pool):
                                default={"processed": []}).get("processed", []))
 
     def why(p):
+        bits = []
         if p.get("rec_type") == "explore":
             cat = _esc(p.get("explore_cat") or "another field")
-            return (f"Picked for exploration — from {cat}, outside your usual "
-                    f"research areas.")
-        contribs = [("Close to papers already in your library.", 0.40 * p.get("_lib", 0)),
-                    ("Similar to a paper you liked.", 0.30 * p.get("_like", 0)),
-                    ("Very recent in your research areas.", 0.20 * p.get("_rec", 0))]
-        text = max(contribs, key=lambda x: x[1])[0]
+            bits.append(f"Picked for exploration — from {cat}, outside your usual "
+                        f"research areas.")
+        else:
+            contribs = [("Close to papers already in your library.", 0.20 * p.get("_lib", 0)),
+                        ("Similar to a paper you liked.", 0.15 * p.get("_like", 0)),
+                        ("Very recent in your research areas.", 0.10 * p.get("_rec", 0)),
+                        ("A notable paper in the field.", 0.55 * p.get("_fame", 0))]
+            bits.append(max(contribs, key=lambda x: x[1])[0])
         if p.get("_dis", 0) > 0.15:
-            text += " (Somewhat similar to something you passed on before.)"
-        return text
+            bits.append("Somewhat similar to something you passed on before.")
+        return " ".join(bits)
+
+    def fame_badge(p):
+        if p.get("rec_type") != "for-you":
+            return ("<span class=\"rec-badge explore\">Explore</span>")
+        tier = p.get("tier", 0)
+        venue = _esc(p.get("venue") or "")
+        cit = p.get("citations", 0) or 0
+        if tier == 2 and venue:
+            label = f"🏆 {venue} · Spotlight/Oral"
+        elif tier == 1 and venue:
+            label = f"{venue}"
+        elif venue:
+            label = venue
+        else:
+            label = "arXiv"
+        if cit:
+            label += f" · {cit} citation{'s' if cit != 1 else ''}"
+        cls = "rec-badge fame" if tier == 2 else "rec-badge"
+        return f"<span class=\"{cls}\">{label}</span>"
 
     new_keys = set()
     for p in today_papers + pool:
@@ -497,9 +523,6 @@ def write_digest_paper_pages(today_papers, pool):
         new_keys.add(key)
         pub = p.get("published") or p.get("year") or ""
         pub = str(pub)
-        badge = ("<span class=\"rec-badge\">For you</span>"
-                 if p.get("rec_type") == "for-you"
-                 else "<span class=\"rec-badge explore\">Explore</span>")
         html = (
             "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n"
             "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
@@ -509,7 +532,7 @@ def write_digest_paper_pages(today_papers, pool):
             "<a href=\"../index.html\" class=\"back-link\">&larr; Back to Today's Papers</a>\n"
             f"<h2>{_esc(p.get('title', key))}</h2>\n"
             f"<p class=\"paper-meta\">{_esc(p.get('authors', ''))} &middot; "
-            f"{_esc(pub)} &middot; {badge} &middot; "
+            f"{_esc(pub)} &middot; {fame_badge(p)} &middot; "
             f"<a href=\"https://arxiv.org/abs/{_esc(key)}\" target=\"_blank\" "
             f"rel=\"noopener\">arXiv:{_esc(key)}</a></p>\n"
             f"<h3>Why recommended</h3>\n<p>{why(p)}</p>\n"
@@ -649,9 +672,26 @@ def discover_papers(profile, history):
         c["_dis"] = max([_cos(cv, dv) for dv in dis_vecs], default=0.0)
         c["_rec"] = 1.0 / (1.0 + c["_days_old"] / 7.0)
 
-    for c in foryou:
-        c["_score"] = (0.40 * c["_lib"] + 0.30 * c["_like"]
-                       + 0.20 * c["_rec"] - 0.30 * c["_dis"])
+    # fame: spotlight/oral -> regular top-venue -> arXiv, citations high-low
+    try:
+        import fame as _fame
+        _fcache = _fame._load_cache()
+        _aids = [(c.get("arxiv_id") or c.get("zotero_key") or "") for c in foryou]
+        _s2 = _fame.s2_batch_lookup(_aids, _fcache)
+        _fame._save_cache(_fcache)
+        _finfos = [_fame.fame_for(c, _fcache, _s2) for c in foryou]
+        _fscores = _fame.fame_scores(_finfos)
+    except Exception as e:
+        log(f"WARN: fame lookup failed ({e}); ranking without fame")
+        _finfos = [{"tier": 0, "citations": 0, "venue": ""} for _ in foryou]
+        _fscores = [0.0 for _ in foryou]
+    for c, fi, fs in zip(foryou, _finfos, _fscores):
+        c["_fame"] = fs
+        c["venue"] = fi["venue"]
+        c["tier"] = fi["tier"]
+        c["citations"] = fi["citations"]
+        c["_score"] = (0.55 * fs + 0.20 * c["_lib"] + 0.15 * c["_like"]
+                       + 0.10 * c["_rec"] - 0.30 * c["_dis"])
     foryou.sort(key=lambda c: c["_score"], reverse=True)
     for c in explore:
         c["_score"] = c["_rec"] - 0.5 * c["_lib"]
@@ -661,7 +701,8 @@ def discover_papers(profile, history):
     pool = (foryou[n_exploit:] + explore[n_explore:])[:60]
     write_digest_paper_pages(today_papers, pool)  # before internal keys are popped
     for p in today_papers + pool:
-        for k in ("_days_old", "_text", "_score", "_lib", "_like", "_dis", "_rec"):
+        for k in ("_days_old", "_text", "_score", "_lib", "_like", "_dis",
+                  "_rec", "_fame"):
             p.pop(k, None)
     log(f"discovery: {len(foryou)} for-you + {len(explore)} explore candidates, "
         f"pool={len(pool)}, library={n_lib}, liked={n_liked}, disliked={n_dis}")
