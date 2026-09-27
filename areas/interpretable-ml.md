@@ -22,6 +22,7 @@
 2020 | Sanity Checks (Adebayo et al.) | 
 2021 | Manipulating Interpretability (Poursabzi-Sangdeh et al.) | 
 2021 | User Study IML (Sixt et al.) | 
+2021-11 | Residual+Norm Analysis (Kobayashi et al.) | extends transformer analysis beyond attention to residual connections and layer normalization in masked language models
 2022 | Model Indeterminacy (Brunet et al.) | 
 2023 | Consistent Explanations (Ley et al.) | 
 2023 | Explanation Constraints (Pukdee et al.) | 
@@ -56,7 +57,11 @@
 [KNOWN] [2023] Yuksekgonul et al. — Post-hoc CBM. zotero_key:CKEAV8EA.
 
 [2026] 2605.05151 — Superposition Is Not Necessary: Mechanistic Interpretability for TS Forecasting. [https://arxiv.org/abs/2605.05151](https://arxiv.org/abs/2605.05151). external.
+
+[2021] Kobayashi et al. — Incorporating Residual and Normalization Layers into Analysis of Masked Language Models. [https://aclanthology.org/2021.emnlp-main.373/](https://aclanthology.org/2021.emnlp-main.373/). external.
+
 ### Recent Activity
 
+2026-09-27 | bulk import: 1 paper | adds Kobayashi et al. 2021 residual and normalization analysis of masked language models
 2026-05-27 | 2605.05151 added | mechanistic interpretability applied to time series transformers
 2026-05-14 | Area page seeded | 24 papers from Zotero, 3 from graphify seed.

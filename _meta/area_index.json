@@ -1,71 +1,295 @@
 {
-  "_comment": "Maps Zotero collection keys to area page filenames. The daily digest uses this to route new papers to the right area page. The seeding task populates the initial area pages; thereafter this index is read-only unless a new area is created.",
-  "_generated": "2026-05-13",
-  "_source": "Zotero library libraryID=1, 475 items",
-  "collections": {
-    "645WK5UG": { "name": "Reasoning",                  "area_page": "reasoning.md" },
-    "6NVW54UK": { "name": "World Model / RL",           "area_page": "world-model-rl.md" },
-    "8HUWGVRY": { "name": "Causal Inference",           "area_page": "causal-inference.md" },
-    "B4QQTY63": { "name": "MoE",                        "area_page": "moe.md" },
-    "BXIE4C95": { "name": "LLM",                        "area_page": "llm.md" },
-    "C46DN3AD": { "name": "MAMBA",                      "area_page": "mamba.md" },
-    "FAY6DPGF": { "name": "Interpretable ML",           "area_page": "interpretable-ml.md" },
-    "3G3UNNCV": { "name": "XAI Method",                 "area_page": "interpretable-ml.md", "_subarea": "xai-method" },
-    "ILD664JC": { "name": "Framing IML",                "area_page": "interpretable-ml.md", "_subarea": "framing" },
-    "LFK8LDMG": { "name": "Multiplicity",               "area_page": "interpretable-ml.md", "_subarea": "multiplicity" },
-    "G4GXUWMD": { "name": "NLP",                        "area_page": "nlp.md" },
-    "G4Y2RM4Z": { "name": "Hallucination",              "area_page": "hallucination.md" },
-    "IZWWCABQ": { "name": "Video Action Recognition",   "area_page": "video-action-recognition.md" },
-    "JPXN55K9": { "name": "Agent",                      "area_page": "agent.md" },
-    "M9TBQKQW": { "name": "Self-Supervised Framework",  "area_page": "self-supervised.md" },
-    "MCBZN2AH": { "name": "Audio",                      "area_page": "audio.md" },
-    "P9ER2MXU": { "name": "LLM-Health",                 "area_page": "llm-health.md" },
-    "PW2J398M": { "name": "Computer Vision",            "area_page": "computer-vision.md" },
-    "QSDZF3DI": { "name": "Optimizer",                  "area_page": "optimizer.md" },
-    "SW2CX3BC": { "name": "Signal (Time Series)",       "area_page": "time-series.md" },
-    "TNSVCIHT": { "name": "AutoMachineLearning",        "area_page": "automl.md" },
-    "UAEAD3RU": { "name": "TestTimeTraining",           "area_page": "test-time-training.md" },
-    "UZA8RW5K": { "name": "Multi-Modal",                "area_page": "multi-modal.md" },
-    "X2UQS439": { "name": "MathematicsML",              "area_page": "mathematics-ml.md" },
-    "ZRJ845NY": { "name": "Generative CV",              "area_page": "generative-cv.md" }
+ "_comment": "Maps Zotero collection keys to area page filenames. The daily digest uses this to route new papers to the right area page. The seeding task populates the initial area pages; thereafter this index is read-only unless a new area is created.",
+ "_generated": "2026-05-13",
+ "_source": "Zotero library libraryID=1, 475 items",
+ "collections": {
+  "645WK5UG": {
+   "name": "Reasoning",
+   "area_page": "reasoning.md"
   },
-  "user_focus": {
-    "primary": ["time-series.md", "llm-health.md"],
-    "secondary": ["llm.md", "reasoning.md", "multi-modal.md", "self-supervised.md"],
-    "_note": "Primary = Leo's working area (TS / bio-sensing). Secondary = methods he watches for porting opportunities."
+  "6NVW54UK": {
+   "name": "World Model / RL",
+   "area_page": "world-model-rl.md"
   },
-  "graphify_seed": {
-    "_source": "_meta/graphify_seed/graph.json (run 2026-04-10, 49 PDFs sampled)",
-    "_use": "Read this graph FIRST when looking up parents for a new paper. Paper IDs are stable (lastname_year_shorttitle). Fall back to full Zotero scan only if a candidate parent is not in graphify nodes.",
-    "communities_to_areas": {
-      "0": { "label": "LLM Agents & Reasoning",            "area_pages": ["agent.md", "reasoning.md", "llm.md"] },
-      "1": { "label": "Health AI & Self-Supervised",       "area_pages": ["llm-health.md", "self-supervised.md"] },
-      "2": { "label": "Transformer & SSM Architectures",   "area_pages": ["mamba.md", "llm.md", "computer-vision.md"] },
-      "3": { "label": "Vision-Language & Generative",      "area_pages": ["multi-modal.md", "generative-cv.md"] },
-      "4": { "label": "Time Series + LLM Integration",     "area_pages": ["time-series.md", "llm.md"] },
-      "5": { "label": "Wearable Sensing & Behavior",       "area_pages": ["time-series.md", "llm-health.md"] },
-      "6": { "label": "Model Interpretability & Fairness", "area_pages": ["interpretable-ml.md", "causal-inference.md"] },
-      "7": { "label": "Reinforcement Learning",            "area_pages": ["world-model-rl.md"] },
-      "8": { "label": "Sparse Matrix Methods",             "area_pages": ["mathematics-ml.md"] },
-      "9": { "label": "Video Action Recognition",          "area_pages": ["video-action-recognition.md"] }
-    },
-    "god_nodes_by_area": {
-      "_note": "Pre-extracted anchor papers per area. Use as the seed for the Baseline / Key Methods section when seeding an area page. Each entry is {graphify_id, label, edge_count}.",
-      "llm.md":                      [{"id":"vaswani2017_transformer","label":"Attention Is All You Need (Vaswani 2017)","edges":12}],
-      "reasoning.md":                [{"id":"wei2023_cot","label":"Chain-of-Thought Prompting (Wei 2023)","edges":7}],
-      "time-series.md":              [{"id":"liu2025_tsagent","label":"TS-Agent (Liu 2025)","edges":7}, {"id":"chen2024_sensor2text","label":"Sensor2Text (Chen 2024)","edges":7}],
-      "self-supervised.md":          [{"id":"yuan2024_ssl_har","label":"SSL for HAR with 700K Person-days (Yuan 2024)","edges":8}],
-      "mamba.md":                    [{"id":"li2024_harmamba","label":"HARMamba (Li 2024)","edges":6}],
-      "llm-health.md":               [{"id":"gu2025_biosignals","label":"Foundation Models for Biosignals: A Survey (Gu 2025)","edges":6}],
-      "generative-cv.md":            [{"id":"ramesh2022_dalle2","label":"DALL-E 2 (Ramesh 2022)","edges":5}, {"id":"ho2020_ddpm","label":"DDPM (Ho 2020)","edges":4}],
-      "multi-modal.md":              [{"id":"zhai2023_siglip","label":"SigLIP (Zhai 2023)","edges":5}]
-    },
-    "cross_area_bridges": [
-      {"from":"cyclegan_zhu2020","to":"ho2020_ddpm","reason":"semantically_similar (generative-cv)"},
-      {"from":"chen2024_sensor2text","to":"liu2023_few_shot_health","reason":"semantically_similar (bio-sensing + llm-health bridge)"},
-      {"from":"deepseek2025_r1","to":"wei2023_cot","reason":"semantically_similar (reasoning-via-rl vs prompting)"},
-      {"from":"prasad2023_adapt","to":"zhou2024_lats","reason":"semantically_similar (planning-decomposition agents)"},
-      {"from":"hao2024_toolkengpt","to":"zhao2025_pyvision","reason":"semantically_similar (tool-using agents)"}
-    ]
+  "8HUWGVRY": {
+   "name": "Causal Inference",
+   "area_page": "causal-inference.md"
+  },
+  "B4QQTY63": {
+   "name": "MoE",
+   "area_page": "moe.md"
+  },
+  "BXIE4C95": {
+   "name": "LLM",
+   "area_page": "llm.md"
+  },
+  "C46DN3AD": {
+   "name": "MAMBA",
+   "area_page": "mamba.md"
+  },
+  "FAY6DPGF": {
+   "name": "Interpretable ML",
+   "area_page": "interpretable-ml.md"
+  },
+  "3G3UNNCV": {
+   "name": "XAI Method",
+   "area_page": "interpretable-ml.md",
+   "_subarea": "xai-method"
+  },
+  "ILD664JC": {
+   "name": "Framing IML",
+   "area_page": "interpretable-ml.md",
+   "_subarea": "framing"
+  },
+  "LFK8LDMG": {
+   "name": "Multiplicity",
+   "area_page": "interpretable-ml.md",
+   "_subarea": "multiplicity"
+  },
+  "G4GXUWMD": {
+   "name": "NLP",
+   "area_page": "nlp.md"
+  },
+  "G4Y2RM4Z": {
+   "name": "Hallucination",
+   "area_page": "hallucination.md"
+  },
+  "IZWWCABQ": {
+   "name": "Video Action Recognition",
+   "area_page": "video-action-recognition.md"
+  },
+  "JPXN55K9": {
+   "name": "Agent",
+   "area_page": "agent.md"
+  },
+  "M9TBQKQW": {
+   "name": "Self-Supervised Framework",
+   "area_page": "self-supervised.md"
+  },
+  "MCBZN2AH": {
+   "name": "Audio",
+   "area_page": "audio.md"
+  },
+  "P9ER2MXU": {
+   "name": "LLM-Health",
+   "area_page": "llm-health.md"
+  },
+  "PW2J398M": {
+   "name": "Computer Vision",
+   "area_page": "computer-vision.md"
+  },
+  "QSDZF3DI": {
+   "name": "Optimizer",
+   "area_page": "optimizer.md"
+  },
+  "SW2CX3BC": {
+   "name": "Signal (Time Series)",
+   "area_page": "time-series.md"
+  },
+  "TNSVCIHT": {
+   "name": "AutoMachineLearning",
+   "area_page": "automl.md"
+  },
+  "UAEAD3RU": {
+   "name": "TestTimeTraining",
+   "area_page": "test-time-training.md"
+  },
+  "UZA8RW5K": {
+   "name": "Multi-Modal",
+   "area_page": "multi-modal.md"
+  },
+  "X2UQS439": {
+   "name": "MathematicsML",
+   "area_page": "mathematics-ml.md"
+  },
+  "ZRJ845NY": {
+   "name": "Generative CV",
+   "area_page": "generative-cv.md"
   }
+ },
+ "user_focus": {
+  "primary": [
+   "time-series.md",
+   "llm-health.md"
+  ],
+  "secondary": [
+   "llm.md",
+   "reasoning.md",
+   "multi-modal.md",
+   "self-supervised.md"
+  ],
+  "_note": "Primary = Leo's working area (TS / bio-sensing). Secondary = methods he watches for porting opportunities."
+ },
+ "graphify_seed": {
+  "_source": "_meta/graphify_seed/graph.json (run 2026-04-10, 49 PDFs sampled)",
+  "_use": "Read this graph FIRST when looking up parents for a new paper. Paper IDs are stable (lastname_year_shorttitle). Fall back to full Zotero scan only if a candidate parent is not in graphify nodes.",
+  "communities_to_areas": {
+   "0": {
+    "label": "LLM Agents & Reasoning",
+    "area_pages": [
+     "agent.md",
+     "reasoning.md",
+     "llm.md"
+    ]
+   },
+   "1": {
+    "label": "Health AI & Self-Supervised",
+    "area_pages": [
+     "llm-health.md",
+     "self-supervised.md"
+    ]
+   },
+   "2": {
+    "label": "Transformer & SSM Architectures",
+    "area_pages": [
+     "mamba.md",
+     "llm.md",
+     "computer-vision.md"
+    ]
+   },
+   "3": {
+    "label": "Vision-Language & Generative",
+    "area_pages": [
+     "multi-modal.md",
+     "generative-cv.md"
+    ]
+   },
+   "4": {
+    "label": "Time Series + LLM Integration",
+    "area_pages": [
+     "time-series.md",
+     "llm.md"
+    ]
+   },
+   "5": {
+    "label": "Wearable Sensing & Behavior",
+    "area_pages": [
+     "time-series.md",
+     "llm-health.md"
+    ]
+   },
+   "6": {
+    "label": "Model Interpretability & Fairness",
+    "area_pages": [
+     "interpretable-ml.md",
+     "causal-inference.md"
+    ]
+   },
+   "7": {
+    "label": "Reinforcement Learning",
+    "area_pages": [
+     "world-model-rl.md"
+    ]
+   },
+   "8": {
+    "label": "Sparse Matrix Methods",
+    "area_pages": [
+     "mathematics-ml.md"
+    ]
+   },
+   "9": {
+    "label": "Video Action Recognition",
+    "area_pages": [
+     "video-action-recognition.md"
+    ]
+   }
+  },
+  "god_nodes_by_area": {
+   "_note": "Pre-extracted anchor papers per area. Use as the seed for the Baseline / Key Methods section when seeding an area page. Each entry is {graphify_id, label, edge_count}.",
+   "llm.md": [
+    {
+     "id": "vaswani2017_transformer",
+     "label": "Attention Is All You Need (Vaswani 2017)",
+     "edges": 12
+    }
+   ],
+   "reasoning.md": [
+    {
+     "id": "wei2023_cot",
+     "label": "Chain-of-Thought Prompting (Wei 2023)",
+     "edges": 7
+    }
+   ],
+   "time-series.md": [
+    {
+     "id": "liu2025_tsagent",
+     "label": "TS-Agent (Liu 2025)",
+     "edges": 7
+    },
+    {
+     "id": "chen2024_sensor2text",
+     "label": "Sensor2Text (Chen 2024)",
+     "edges": 7
+    }
+   ],
+   "self-supervised.md": [
+    {
+     "id": "yuan2024_ssl_har",
+     "label": "SSL for HAR with 700K Person-days (Yuan 2024)",
+     "edges": 8
+    }
+   ],
+   "mamba.md": [
+    {
+     "id": "li2024_harmamba",
+     "label": "HARMamba (Li 2024)",
+     "edges": 6
+    }
+   ],
+   "llm-health.md": [
+    {
+     "id": "gu2025_biosignals",
+     "label": "Foundation Models for Biosignals: A Survey (Gu 2025)",
+     "edges": 6
+    }
+   ],
+   "generative-cv.md": [
+    {
+     "id": "ramesh2022_dalle2",
+     "label": "DALL-E 2 (Ramesh 2022)",
+     "edges": 5
+    },
+    {
+     "id": "ho2020_ddpm",
+     "label": "DDPM (Ho 2020)",
+     "edges": 4
+    }
+   ],
+   "multi-modal.md": [
+    {
+     "id": "zhai2023_siglip",
+     "label": "SigLIP (Zhai 2023)",
+     "edges": 5
+    }
+   ]
+  },
+  "cross_area_bridges": [
+   {
+    "from": "cyclegan_zhu2020",
+    "to": "ho2020_ddpm",
+    "reason": "semantically_similar (generative-cv)"
+   },
+   {
+    "from": "chen2024_sensor2text",
+    "to": "liu2023_few_shot_health",
+    "reason": "semantically_similar (bio-sensing + llm-health bridge)"
+   },
+   {
+    "from": "deepseek2025_r1",
+    "to": "wei2023_cot",
+    "reason": "semantically_similar (reasoning-via-rl vs prompting)"
+   },
+   {
+    "from": "prasad2023_adapt",
+    "to": "zhou2024_lats",
+    "reason": "semantically_similar (planning-decomposition agents)"
+   },
+   {
+    "from": "hao2024_toolkengpt",
+    "to": "zhao2025_pyvision",
+    "reason": "semantically_similar (tool-using agents)"
+   }
+  ],
+  "_threads": "lineage/threads.json (2026-09-27): cross-area research threads. Attach each new paper to exactly one thread BEFORE choosing parents; members are ordered oldest to newest."
+ }
 }

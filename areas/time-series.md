@@ -21,6 +21,8 @@
 2023 | MAE Theory (Zhang et al.) | 
 2023 | PatchTST (Nie et al.) | 
 2023 | TimesNet (Wu et al.) | 
+2023-10 | LLMTime Zero-Shot (Gruver et al.) (2310.07820) | frozen LLMs forecast zero-shot by tokenizing numbers as text, matching purpose-built forecasters on some benchmarks
+2023-10 | TimesFM (Das et al.) (2310.10688) | decoder-only foundation model for forecasting trained on real plus synthetic series with patched decoding
 2024 | Bi-Mamba+ (Liang et al.) | 
 2024 | Brant-2 (Yuan et al.) | 
 2024 | Chronos (Ansari et al.) | 
@@ -28,6 +30,19 @@
 2024 | HARMamba (Li et al.) | 
 2024 | HeAR (Baur et al.) | 
 
+2024-11 | TS Reasoning Gap (Merrill et al.) | formal evaluation shows LLMs score near random on etiological reasoning and QA over time series, 30 points below humans
+2024-12 | NormWear (Luo et al.) (2412.09758) | foundation model for multivariate wearable sensing of physiological signals
+2025-06 | ITFormer (Wang et al.) (2506.20093) | bridges time series and natural language for multi-modal QA with a large-scale multitask dataset
+2025-09 | AXIS (Lan et al.) (2509.24378) | explainable time series anomaly detection with large language models
+2025-09 | TimeOmni-1 (Guan et al.) (2509.24803) | reinforcement learning incentivizes complex reasoning with time series in LLMs
+2025-10 | OpenTSLM (Langer et al.) (2510.02410) | time-series language models for reasoning over multivariate medical text and time-series data
+2025-10 | TS-Reasoner (Yu et al.) (2510.03519) | aligns time series foundation models with LLM reasoning
+2026-01 | TSRBench (Yu et al.) (2601.18744) | multi-task multi-modal time series reasoning benchmark for generalist models
+2026-02 | ARTIST (Messica et al.) (2602.18645) | adaptive time series reasoning via segment selection
+2026-02 | VeriTime (Zhou et al.) (2602.07830) | process-verifiable thinking data synthesis and scheduling for tailored LLM reasoning over time series
+2026-02 | SenTSR-Bench (He et al.) (2602.19455) | benchmarks thinking with injected knowledge for time-series reasoning
+2026-03 | ECG-Reasoning-Benchmark (Oh et al.) (2603.14326) | benchmark for evaluating clinical reasoning capabilities in ECG interpretation
+2026-03 | ECG Multimodal Reasoning (Xu et al.) (2603.00312) | evaluates how well multimodal models reason over ECG signals
 2026-05 | Superposition Not Necessary (2605.05151) | mechanistic interpretability shows TS transformers underuse superposition
 2026-05 | Chronicle (2605.20268) | 324M joint language+TS transformer trained from scratch
 2026-05 | Wearable Health FM (2605.22759) | 5M-participant wearable FM with LLM-agent AutoML for 35 health tasks
@@ -195,8 +210,25 @@
 
 [2026] 2609.06006 — Memory in Deep Time-Series Models. [https://arxiv.org/abs/2609.06006](https://arxiv.org/abs/2609.06006). external.
 
+[2023] 2310.07820 — Large Language Models Are Zero-Shot Time Series Forecasters. [https://arxiv.org/abs/2310.07820](https://arxiv.org/abs/2310.07820). external.
+[2023] 2310.10688 — A Decoder-Only Foundation Model for Time-Series Forecasting. [https://arxiv.org/abs/2310.10688](https://arxiv.org/abs/2310.10688). external.
+[2024] Merrill et al. — Language Models Still Struggle to Zero-shot Reason about Time Series. [https://aclanthology.org/2024.findings-emnlp.201/](https://aclanthology.org/2024.findings-emnlp.201/). external.
+[2024] 2412.09758 — Toward Foundation Model for Multivariate Wearable Sensing of Physiological Signals. [https://arxiv.org/abs/2412.09758](https://arxiv.org/abs/2412.09758). external.
+[2025] 2506.20093 — ITFormer: Bridging Time Series and Natural Language for Multi-Modal QA with Large-Scale Multitask Dataset. [https://arxiv.org/abs/2506.20093](https://arxiv.org/abs/2506.20093). external.
+[2025] 2509.24378 — AXIS: Explainable Time Series Anomaly Detection with Large Language Models. [https://arxiv.org/abs/2509.24378](https://arxiv.org/abs/2509.24378). external.
+[2025] 2509.24803 — TimeOmni-1: Incentivizing Complex Reasoning with Time Series in Large Language Models. [https://arxiv.org/abs/2509.24803](https://arxiv.org/abs/2509.24803). external.
+[2025] 2510.02410 — OpenTSLM: Time-Series Language Models for Reasoning over Multivariate Medical Text- and Time-Series Data. [https://arxiv.org/abs/2510.02410](https://arxiv.org/abs/2510.02410). external.
+[2025] 2510.03519 — TS-Reasoner: Aligning Time Series Foundation Models with LLM Reasoning. [https://arxiv.org/abs/2510.03519](https://arxiv.org/abs/2510.03519). external.
+[2026] 2601.18744 — TSRBench: A Comprehensive Multi-task Multi-modal Time Series Reasoning Benchmark for Generalist Models. [https://arxiv.org/abs/2601.18744](https://arxiv.org/abs/2601.18744). external.
+[2026] 2602.18645 — Adaptive Time Series Reasoning via Segment Selection. [https://arxiv.org/abs/2602.18645](https://arxiv.org/abs/2602.18645). external.
+[2026] 2602.07830 — Time Series Reasoning via Process-Verifiable Thinking Data Synthesis and Scheduling for Tailored LLM Reasoning. [https://arxiv.org/abs/2602.07830](https://arxiv.org/abs/2602.07830). external.
+[2026] 2602.19455 — SenTSR-Bench: Thinking with Injected Knowledge for Time-Series Reasoning. [https://arxiv.org/abs/2602.19455](https://arxiv.org/abs/2602.19455). external.
+[2026] 2603.14326 — ECG-Reasoning-Benchmark: A Benchmark for Evaluating Clinical Reasoning Capabilities in ECG Interpretation. [https://arxiv.org/abs/2603.14326](https://arxiv.org/abs/2603.14326). external.
+[2026] 2603.00312 — How Well Do Multimodal Models Reason on ECG Signals?. [https://arxiv.org/abs/2603.00312](https://arxiv.org/abs/2603.00312). external.
+
 ### Recent Activity
 
+2026-09-27 | bulk import: 15 papers (TS+LLM reasoning threads) | adds the 2023-2026 TS-LLM reasoning arc from LLMTime zero-shot forecasting through TimeOmni-1 RL reasoning to SenTSR/TSRBench benchmarks and ECG clinical reasoning evals
 2026-09-09 | 2609.06006 added | where LLMs for Time Series: A Survey (N2JLZBY3) organized this literature by interface, asking how a language model is attached to a series, this survey organizes it by state, asking what the model retains and how it is addressed, because the interface taxonomy separates a state-space model from a retrieval-augmented forecaster even though both answer the same finite-window limitation; recurrent networks, transformers, state-space models, retrieval-augmented predictors, foundation models and tool-using agents are placed on one spectrum, with TS-Agent (I2CIT4I7) as a single point at the agentic-store end and HiPPO-style parameter memory at the other, and the three classes of external memory, namely explicit modules, retrieval augmentation and agentic stores, are described under a shared set of questions about what is retained, how it is written and read, and how it persists; the retain, retrieve, revise and forget vocabulary comes from Rethinking Memory Mechanisms of Foundation Agents (BDY3HUCV), which sits in community 0 while TS-Agent sits in community 4, so this survey is the first item in the library that explicitly joins those two communities; the useful result is the gap it names rather than the taxonomy, since every mechanism surveyed is scored on downstream forecasting error and none is scored on whether its memory retains, revises or forgets correctly, which is the failure mode that matters in bio-sensing where the relevant history is months of a personal baseline that a model must revise rather than a long context window; Tier B
 
 2026-09-07 | 2609.04490 added | the paper isolates the rule a recurrent network uses to store its hidden state between steps, names it the recurrent-state write-back, and measures it in a GRU encoder-decoder that estimates two fluorescence lifetime parameters from high-noise time-resolved optical signals; holding the trained model fixed and replacing continuous state propagation with deterministic 4-bit state storage raises the error on the short-lived component by roughly 70x and on the long-lived component by roughly 300x, because repeated small updates each fall below the write threshold so the stored state stays nearly frozen while the network continues to propose change, and error feedback, residual memory and direction memory each carry the suppressed updates forward and recover most of the accuracy with no retraining, while a precision sweep shows that increasing state precision can make a fixed recurrent solution worse and the same failure and rescue reproduce in an independently trained LSTM where the cell state is more sensitive than the hidden state; where HARMamba (HE9X47KN) and Mamba (XNI34DQX) argued that a compact recurrent state is what makes long sensor sequences affordable at the edge, this paper stores that state at edge precision and finds a failure invisible in the usual quantization accounting, separating quantization of the arithmetic, which perturbs each computation independently, from quantization of the state interface, which couples across time because a rounded state is the input to the next step, and that coupling is why the errors reach 70x and 300x rather than the few percent a weight-and-activation study would report; relative to Foundation Models for Biosignals (2XWEG7AF), which names edge deployment as an open problem, it supplies a specific mechanism and three post-training fixes, and the measurement is cheap to repeat by freezing a HARMamba or Bi-Mamba+ checkpoint and quantizing only the state write; it sits next to the Gated DeltaNet quantization result from 2026-09-05, which found the opposite outcome for a different recurrence, so the open question is whether an update rule forgets injected state noise or accumulates it; the imported method is error-feedback quantization from the optimizer and gradient-compression literature applied to state storage rather than to weights or gradients, and it is not yet closed off for wearable time series; Tier A

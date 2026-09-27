@@ -1,0 +1,134 @@
+{
+ "_comment": "Cross-area research threads. POSITION BASE for future papers: attach each new paper to exactly one thread first, then choose 1-3 parents from that thread’s members (ordered oldest to newest). Adding a paper = append member + edges; do not reorder members.",
+ "_generated": "2026-09-27",
+ "_placement_protocol": [
+  "Match the paper to a thread by its position_guide trigger; if none fits, create a new thread rather than forcing it.",
+  "Pick 1-3 parents from the thread members that the paper directly extends, evaluates, or repairs; record relation builds_on with a one-sentence rationale.",
+  "Write the area page entries (Timeline chronological, Paper List batch, Recent Activity line) and the lineage edges in the paper’s primary area file; add cross_area bridges for parents in other areas.",
+  "Add the paper as a node in _meta/graphify_seed/graph.json with the thread’s community number and a hyperedge update."
+ ],
+ "threads": [
+  {
+   "id": "ts-llm-reasoning",
+   "label": "Time Series + LLM Reasoning",
+   "areas": [
+    "time-series.md"
+   ],
+   "members": [
+    "gruver2024_zeroshot",
+    "merrill2024_tsreason",
+    "das2024_timesfm",
+    "wang2025_itformer",
+    "xie2025_chatts",
+    "yu2026_tsreasoner",
+    "guan2026_timeomni",
+    "zhou2026_veritime",
+    "messica2026_artist",
+    "he2026_sentsr",
+    "yu2026_tsrbench",
+    "lan2025_axis",
+    "langer2026_opentslm",
+    "luo2025_normwear",
+    "oh2026_ecgbench",
+    "xu2026_ecgmultimodal"
+   ],
+   "description": "The arc from zero-shot TS forecasting with frozen LLMs, through the diagnosis that forecasting does not imply reasoning, to aligned TS-LLM models, RL-incentivized reasoning, verifiable thinking data, and clinical benchmarks.",
+   "position_guide": "Attach a paper here if it trains or evaluates an LLM that reads time series, synthesizes TS reasoning traces, or benchmarks TS reasoning. Parents: the closest method it modifies (ChatTS/TS-Reasoner for alignment, TimeOmni-1/VeriTime for RL and data, Merrill/SenTSR/TSRBench for evals)."
+  },
+  {
+   "id": "latent-continuous-reasoning",
+   "label": "Latent / Continuous Reasoning",
+   "areas": [
+    "reasoning.md",
+    "computer-vision.md"
+   ],
+   "members": [
+    "wei2023_cot",
+    "zhu2025_superposition",
+    "li2025_lvr",
+    "wang2025_monet"
+   ],
+   "description": "Reasoning moved off language tokens: superposition theory for continuous chain-of-thought, then latent visual reasoning in Monet. Related Zotero items already in reasoning.md: Coconut, CODI, Chain of Superposition (Deng), Latent Space Survey.",
+   "position_guide": "Attach a paper here if it reasons in a continuous latent space instead of discrete tokens. Parents: the CoT baseline it replaces and the nearest latent-reasoning method."
+  },
+  {
+   "id": "cot-faithfulness",
+   "label": "Chain-of-Thought Faithfulness",
+   "areas": [
+    "reasoning.md"
+   ],
+   "members": [
+    "wei2023_cot",
+    "turpin2023_unfaithful",
+    "lanham2023_faithfulness",
+    "wang2024_chainofprobe",
+    "zhang2023_snowball"
+   ],
+   "description": "Do CoT traces reflect actual reasoning? Unfaithful explanations, faithfulness measurement, per-step necessity and accuracy probes, and hallucination snowballing through generation.",
+   "position_guide": "Attach a paper here if it analyzes, measures, or repairs the fidelity of reasoning traces. Parents: CoT plus the specific faithfulness claim it tests."
+  },
+  {
+   "id": "multimodal-cot",
+   "label": "Multimodal Chain-of-Thought",
+   "areas": [
+    "multi-modal.md"
+   ],
+   "members": [
+    "flamingo2022",
+    "wei2023_cot",
+    "gao2025_icot",
+    "wu2025_groundedcot",
+    "zhu2026_visualcot",
+    "chen2024_imagetokens",
+    "zhang2025_llavamini"
+   ],
+   "description": "Chain-of-thought generalized to interleaved modalities: interleaved-modal CoT, grounded CoT, internalized visual thinking; plus the visual-token efficiency line (1/2 tokens after layer 2, one-token LLaVA-Mini).",
+   "position_guide": "Attach a paper here if it reasons across image and text or compresses visual tokens for reasoning. Parents: the CoT variant it extends and the VLM efficiency method it builds on."
+  },
+  {
+   "id": "ts-foundation-models",
+   "label": "Time Series Foundation Models",
+   "areas": [
+    "time-series.md"
+   ],
+   "members": [
+    "vaswani2017_transformer",
+    "das2024_timesfm",
+    "luo2025_normwear",
+    "yu2026_tsreasoner"
+   ],
+   "description": "Decoder-only forecasting foundation models and wearable-sensing foundation models; TS-Reasoner aligns them with LLM reasoning.",
+   "position_guide": "Attach a paper here if it pretraining a general time-series or wearable-sensing backbone. Parents: the backbone architecture and the FM it scales or specializes."
+  },
+  {
+   "id": "vision-ssl-regularization",
+   "label": "Vision SSL and Regularization Classics",
+   "areas": [
+    "computer-vision.md",
+    "llm.md"
+   ],
+   "members": [
+    "srivastava2014_dropout",
+    "devries2017_cutout",
+    "concept_masked_autoencoder"
+   ],
+   "description": "Regularization lineage (Dropout to Cutout) and the masked-autoencoder self-supervised vision anchor; MIRAGE evaluates whether VLMs truly understand images.",
+   "position_guide": "Attach a paper here if it is a regularization method, a masked self-supervised vision method, or a probe of visual understanding."
+  },
+  {
+   "id": "llm-efficiency-foundations",
+   "label": "LLM Efficiency and Analysis Foundations",
+   "areas": [
+    "llm.md",
+    "interpretable-ml.md"
+   ],
+   "members": [
+    "vaswani2017_transformer",
+    "xiao2024_attnsinks",
+    "kobayashi2021_resnorm"
+   ],
+   "description": "Transformer analysis beyond attention (residual and normalization layers) and the attention-sink fix for streaming inference.",
+   "position_guide": "Attach a paper here if it analyzes transformer internals or fixes an inference-time failure mode. Parents: the transformer component it studies."
+  }
+ ]
+}

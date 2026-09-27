@@ -4,11 +4,15 @@
 
 2021 | ViT (Dosovitskiy et al.) | 
 2022 | DALL-E 2 (Ramesh et al.) | 
-2022 | Flamingo (Alayrac et al.) | 
+2022 | Flamingo (Alayrac et al.) | visual language model for few-shot learning over interleaved images and text (2204.14198)
 2023 | BLIP-2 (Li et al.) | 
 2023 | FLIP (Li et al.) | 
+2024-03 | Image Tokens After L2 (Chen et al.) (2403.06764) | plug-and-play inference acceleration for vision-language models by dropping visual tokens after layer 2
+2024-11 | Interleaved-Modal CoT (Gao et al.) (2411.19488) | interleaves modalities within chain-of-thought for multimodal reasoning
 2025 | Machine Mental Imagery (Yang et al.) | 
 
+2025-01 | LLaVA-Mini (Zhang et al.) (2501.03895) | efficient image and video large multimodal models with one vision token
+2025-03 | Grounded CoT (Wu et al.) (2503.12799) | grounds chain-of-thought steps in image regions for multimodal LLMs
 2026-05 | MicroWorld (2605.10120) | attributed knowledge graph grounds a multimodal LLM in microscopy images
 2026-05 | DLLM-VSR (2605.28456) | diffusion-LLM does lip reading by confidence-ordered masked denoising
 
@@ -32,6 +36,7 @@
 2026-07 | TurboVLA (2607.27205) | vision-language-action policy running at 32 Hz on one RTX 4090 under 1 GB memory through compression and scheduling on the deployment side
 2026-08 | HumanCLAW (2607.27180) | evaluation framework that separates a vision-language model's action decisions from motor control; best of nine models reaches only 16.8% on embodied find-navigate-interact episodes
 
+2026-08 | Internalized Visual Thinking (Zhu et al.) (2608.15869) | internalized visual thinking for proactive video reasoning beyond explicit visual CoT
 2026-09 | Motion-Omni (2609.04250) | spoken dialogue model emits full-body motion from the same hidden states that produce speech, replacing the speech-then-motion cascade
 
 2026-09 | SenseNova-U1.5 (2609.11929) | 8B unified understanding and generation with no vision encoder and no variational autoencoder; spatially coherent patch reconstruction at native resolution up to 4K
@@ -84,8 +89,15 @@
 
 [2026] 2609.15128 — Omni-Streaming Thinking. [https://arxiv.org/abs/2609.15128](https://arxiv.org/abs/2609.15128). external.
 
+[2024] 2403.06764 — An Image is Worth 1/2 Tokens After Layer 2: Plug-and-Play Inference Acceleration for Large Vision-Language Models. [https://arxiv.org/abs/2403.06764](https://arxiv.org/abs/2403.06764). external.
+[2024] 2411.19488 — Interleaved-Modal Chain-of-Thought. [https://arxiv.org/abs/2411.19488](https://arxiv.org/abs/2411.19488). external.
+[2025] 2501.03895 — LLaVA-Mini: Efficient Image and Video Large Multimodal Models with One Vision Token. [https://arxiv.org/abs/2501.03895](https://arxiv.org/abs/2501.03895). external.
+[2025] 2503.12799 — Grounded Chain-of-Thought for Multimodal Large Language Models. [https://arxiv.org/abs/2503.12799](https://arxiv.org/abs/2503.12799). external.
+[2026] 2608.15869 — Beyond Visual CoT: Internalized Visual Thinking for Proactive Video Reasoning. [https://arxiv.org/abs/2608.15869](https://arxiv.org/abs/2608.15869). external.
+
 ### Recent Activity
 
+2026-09-27 | bulk import: 5 papers (multimodal CoT) | adds interleaved-modal CoT, grounded CoT, internalized visual thinking, and the VLM token-efficiency pair; Flamingo timeline stub enriched
 2026-09-15 | 2609.15128 added | Omni-Streaming Thinking names premature cross-modal commitment: in streaming audio-visual models a visual cue often supports an interpretation before the corresponding utterance or sound event has finished, and once that interpretation is written into memory as a fact, later reasoning keeps relaying it even after audio contradicts it. The method generates structured outputs holding observed evidence, forecasts of future evidence and claims, with each claim marked pending and bound to a verification interval; audio and visual evidence are stored separately, each claim is checked against the specified modality at the end of its interval, a refutation step downweights refuted claims and their dependents, and an answer gate decides when to respond. On a frozen Qwen3-Omni-30B-A3B-Instruct backbone with lightweight adaptation it beats the strongest open baselines on five streaming and audio-visual benchmarks by more than 10 percent relative on average, and reaches d-prime 2.95 on the new OST-DiagBench against at most 1.38 for open baselines. Where Does the Sound Go? (2609.05871) showed by layer-wise probing that acoustic information survives to the last hidden layer, making audio underuse a readout problem rather than an encoding problem, and this paper supplies the mechanism that forces the evidence to be used, by refusing to let a visually motivated claim become a fact until the audio window that would confirm or refute it has passed; where LTU (ESEEEH85) conditions on a finished clip and Flamingo (SC8KWYVK) writes each incoming observation straight into the context, the change here is that writing is deferred and reversible, because in a stream the order in which evidence arrives is an artifact of timing rather than of importance, and the separate audio and visual stores are what make refutation possible at all, since a single fused memory cannot say which modality supported a claim. The diagnostic benchmark is the second contribution, holding video fixed and editing audio to construct agreement, absence, contradiction, coexistence and subtitle-speech conflict cases, which turns a qualitative complaint about vision dominance into a d-prime. This work pushes the audio readout bridge of 13 September from diagnosis into correction, and the pending-claim and verification-interval construction is modality-agnostic with no counterpart in Community 5 (Wearable Sensing and Behavior), which makes it a concrete unported opportunity for streaming physiological sensing, where a fast motion channel routinely commits to a label before a slower cardiac channel can contradict it; Tier B
 
 2026-09-12 | 2609.07064 added | SpatialBlock trains large vision-language models on synthetic block play instead of annotated real scenes, releasing SpatialBlock-15k, 15,000 block-stacking problems covering 3D-to-2D projection, viewpoint transformation and structural combination, with controlled colour modulation added so the model anchors reasoning on task-relevant blocks rather than on global appearance, and two training strategies, one predicting the answer directly and one reasoning before answering, both of which transfer to real-scene spatial benchmarks despite the synthetic and compact training set. Where BLIP-2 (4N5WXKPI) aligned an image encoder to a language model on captions and web pairs, and Machine Mental Imagery (PDAMP7VF) argued for changing the model's internal representation by giving it a visual scratchpad, this paper changes the data instead, treating spatial skill as a learnable curriculum of controlled geometric transformations rather than an architectural property; relative to ViT (B7F2Q998) no inductive bias is added to the encoder and the geometry is taught entirely through supervision. The claim that carries beyond the benchmark is that 15,000 synthetic items beat annotation-heavy real-scene supervision, which inverts the usual assumption that spatial question answering needs dense geometric labels from external perception modules, and the transferable object is the cheap synthetic curriculum rather than the block domain: if a controlled set of that size can install a geometric skill that survives the move to real scenes, the same argument applies to sensor modalities where real labels are the bottleneck, using synthetically generated signal morphologies with known ground-truth transformations to install invariances that self-supervised pretraining on unlabelled traces does not reliably produce. This is an import candidate rather than an established result for signals; Tier B

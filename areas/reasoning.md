@@ -2,11 +2,17 @@
 
 ### Timeline
 
+2023-05 | Unfaithful CoT (Turpin et al.) (2305.04388) | chain-of-thought explanations can be unfaithful to the model’s actual reasoning
+2023-05 | Hallucination Snowball (Zhang et al.) (2305.13534) | language model hallucinations snowball through generation
+2023-07 | CoT Faithfulness Measure (Lanham et al.) (2307.13702) | measures faithfulness in chain-of-thought reasoning
+2024-06 | Chain-of-Probe (Wang et al.) (2406.16144) | examines the necessity and accuracy of chain-of-thought step by step
 2025 | CODI (Shen et al.) | 
 2025 | Large Multimodal Reasoning Survey (Li et al.) | 
 2025 | Latent Reasoning Survey (Zhu et al.) | 
 2025 | Machine Mental Imagery (Yang et al.) | 
 2025 | Soft Thinking (Zhang et al.) | 
+2025-02 | Small vs Strong Reasoners (Li et al.) (2502.12143) | small models struggle to learn from strong reasoners via distillation
+2025-05 | Superposition Theory (Zhu et al.) (2505.12514) | theoretical perspective on chain of continuous thought via superposition
 2026 | Chain of Superposition (Deng et al.) | 
 2026 | CoLaR (Tan et al.) | 
 2026 | Latent Space Survey (Yu et al.) | 
@@ -136,8 +142,16 @@
 
 [2026] 2609.10712 — An Open Recipe for IMO Gold: Training Nemotron for Olympiad Mathematics. [https://arxiv.org/abs/2609.10712](https://arxiv.org/abs/2609.10712). external.
 
+[2023] 2305.04388 — Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting. [https://arxiv.org/abs/2305.04388](https://arxiv.org/abs/2305.04388). external.
+[2023] 2305.13534 — How Language Model Hallucinations Can Snowball. [https://arxiv.org/abs/2305.13534](https://arxiv.org/abs/2305.13534). external.
+[2023] 2307.13702 — Measuring Faithfulness in Chain-of-Thought Reasoning. [https://arxiv.org/abs/2307.13702](https://arxiv.org/abs/2307.13702). external.
+[2024] 2406.16144 — Chain-of-Probe: Examining the Necessity and Accuracy of CoT Step-by-Step. [https://arxiv.org/abs/2406.16144](https://arxiv.org/abs/2406.16144). external.
+[2025] 2502.12143 — Small Models Struggle to Learn from Strong Reasoners. [https://arxiv.org/abs/2502.12143](https://arxiv.org/abs/2502.12143). external.
+[2025] 2505.12514 — Reasoning by Superposition: A Theoretical Perspective on Chain of Continuous Thought. [https://arxiv.org/abs/2505.12514](https://arxiv.org/abs/2505.12514). external.
+
 ### Recent Activity
 
+2026-09-27 | bulk import: 6 papers (CoT faithfulness + latent reasoning) | adds the 2023 CoT faithfulness analyses (Turpin, Lanham, Chain-of-Probe, Snowball) plus superposition theory and small-model distillation limits
 2026-09-12 | 2609.03342 added | This paper builds a dense reward for reinforcement learning from verifiable rewards without a process reward model and without step-level annotation: truncated backpropagation through the output projection layer yields a compact gradient vector for each rollout, and the reward is the cosine similarity between that vector and an anchor gradient computed from an expert solution already present in the training corpus, with the cosine shown to decompose multiplicatively into a prediction-error factor and an activation-pattern factor and wall-clock overhead held under 9 percent relative to the base loop. Where DeepSeek-R1 (deepseek2025_r1) paid every correct trajectory the same flat reward and absorbed the cost in long noisy traces, this paper keeps the same verifiable setup and adds an ordering within the correct set taken from the policy's own gradients, because the gradient direction already carries the trajectory-quality information that the outcome bit discards; where Latent-GRPO (U4ZPM5DN) changed what the policy optimizes over, this changes what the policy is paid for, so the two are composable rather than competing; and against the process-reward-model line catalogued in the Latent Reasoning Survey (EMXEJYHV) the substantive difference is cost, since there is no second model, no step labels and under 9 percent extra compute. The portability argument is what makes this worth a deep read: any domain with paired data and written expert interpretation can supply the anchor, including an electrocardiogram trace with a cardiologist's reading, an accelerometer window with a scored activity rationale, or a polysomnography record with a sleep report. Time-series reasoning models currently train against forecast error or a binary classification hit, and no method in graphify Community 4 derives a dense reward from annotator prose, so that import is open and the annotation it requires is clinical text that already exists; Tier A
 
 2026-09-12 | 2609.10712 added | An open recipe that post-trains two specialist checkpoints from Nemotron 3 Ultra, one by supervised fine-tuning and one by reinforcement learning, then runs a test-time pipeline in which three checkpoints generate, verify and refine natural-language proofs while a separate high-compute stage selects each final submission, with no formal prover, no external tools and no internet access; it scored 30 out of 42 points at IMO 2026, above the gold-medal threshold, and the release includes both post-trained checkpoints, the training data, the training and inference code, the submitted solutions and Nemotron-IMO-Bench, a set of 200 novel olympiad-level problems. Where DeepSeek-R1 (deepseek2025_r1) spent the compute on training a single policy and SPRINT (BZKDNHD6) spent it on reorganizing one trajectory into planning rounds plus parallel execution, this paper spends it on an outer loop over several specialist checkpoints, on the argument that verification and refinement buy more at fixed compute than a better single generator does; where Test-Time Training for Abstract Reasoning (W7RPRTCH) adapted the weights at inference, this pipeline leaves the weights frozen and puts the budget into search breadth and a selection stage instead. The part worth extracting is not the medal but the ablation, which separates how much of the result came from checkpoint choice, how much from verification and how much from refinement, and that decomposition is the current reference for anyone who has to justify an inference budget on a task with no partial credit and no tool access; the released benchmark of 200 novel problems also matters because contamination arguments are getting harder to make with older olympiad sets. SPRINT and this paper are composable, since SPRINT parallelizes within a trajectory while this searches across trajectories; Tier B

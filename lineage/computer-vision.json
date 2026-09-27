@@ -1,124 +1,262 @@
 {
-  "_generated": "2026-05-14",
-  "_source": "graphify_seed/graph.json + zotero_index.json",
-  "area": "computer-vision.md",
-  "edges": [
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "liu2021_swin",
-      "target_label": "Swin Transformer (Liu 2021)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "carion2020_detr",
-      "target_label": "DETR: End-to-End Object Detection with Transformers (Carion 2020)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "zhang2023_mae",
-      "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": false
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "ramesh2022_dalle2",
-      "target_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "ramesh2022_dalle2",
-      "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
-      "target": "zhai2023_siglip",
-      "target_label": "SigLIP: Sigmoid Loss for Language Image Pre-Training (Zhai 2023)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "liu2021_swin",
-      "source_label": "Swin Transformer (Liu 2021)",
-      "target": "liu2024_swinumamba",
-      "target_label": "Swin-UMamba: Mamba-based UNet (Liu 2024)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "liu2021_swin",
-      "source_label": "Swin Transformer (Liu 2021)",
-      "target": "finder2024_wavelet",
-      "target_label": "Wavelet Convolutions for Large Receptive Fields (Finder 2024)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "chen2023_pathology",
-      "source_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
-      "target": "zhang2023_mae",
-      "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": true
-    },
-    {
-      "source": "liu2021_swin",
-      "source_label": "Swin Transformer (Liu 2021)",
-      "target": "2606.03748",
-      "target_label": "Ultralytics YOLO26: Unified Real-Time End-to-End Vision Models",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "carion2020_detr",
-      "source_label": "DETR: End-to-End Object Detection with Transformers (Carion 2020)",
-      "target": "2606.03748",
-      "target_label": "Ultralytics YOLO26: Unified Real-Time End-to-End Vision Models",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    }
-  ],
-  "hyperedges": [
-    {
-      "id": "self_supervised_pretraining",
-      "label": "Self-Supervised Pretraining Methods",
-      "nodes": [
-        "yuan2024_ssl_har",
-        "chen2023_pathology",
-        "zhang2023_mae",
-        "baur2024_hear",
-        "concept_self_supervised"
-      ],
-      "relation": "implement",
-      "confidence": "EXTRACTED",
-      "confidence_score": 0.9
-    }
-  ],
-  "cross_area_bridges": []
+ "_generated": "2026-09-27 (bulk import: 33 papers + 7 threads)",
+ "_source": "graphify_seed/graph.json + zotero_index.json",
+ "area": "computer-vision.md",
+ "edges": [
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "liu2021_swin",
+   "target_label": "Swin Transformer (Liu 2021)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "carion2020_detr",
+   "target_label": "DETR: End-to-End Object Detection with Transformers (Carion 2020)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "zhang2023_mae",
+   "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": false
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "ramesh2022_dalle2",
+   "target_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "ramesh2022_dalle2",
+   "source_label": "DALL-E 2: Hierarchical Text-Conditional Image Gen (Ramesh 2022)",
+   "target": "zhai2023_siglip",
+   "target_label": "SigLIP: Sigmoid Loss for Language Image Pre-Training (Zhai 2023)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "liu2021_swin",
+   "source_label": "Swin Transformer (Liu 2021)",
+   "target": "liu2024_swinumamba",
+   "target_label": "Swin-UMamba: Mamba-based UNet (Liu 2024)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "liu2021_swin",
+   "source_label": "Swin Transformer (Liu 2021)",
+   "target": "finder2024_wavelet",
+   "target_label": "Wavelet Convolutions for Large Receptive Fields (Finder 2024)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "chen2023_pathology",
+   "source_label": "General-Purpose Self-Supervised Model for Pathology (Chen 2023)",
+   "target": "zhang2023_mae",
+   "target_label": "How Mask Matters: Masked Autoencoders Theory (Zhang 2023)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": true
+  },
+  {
+   "source": "liu2021_swin",
+   "source_label": "Swin Transformer (Liu 2021)",
+   "target": "2606.03748",
+   "target_label": "Ultralytics YOLO26: Unified Real-Time End-to-End Vision Models",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "carion2020_detr",
+   "source_label": "DETR: End-to-End Object Detection with Transformers (Carion 2020)",
+   "target": "2606.03748",
+   "target_label": "Ultralytics YOLO26: Unified Real-Time End-to-End Vision Models",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "srivastava2014_dropout",
+   "source_label": "Dropout (Srivastava 2014)",
+   "target": "devries2017_cutout",
+   "target_label": "Cutout (DeVries 2017)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "cross_area": true,
+   "rationale": "input-space masking as the spatial analogue of dropout"
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "li2025_lvr",
+   "target_label": "Latent Visual Reasoning (Li 2025)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.75,
+   "cross_area": true,
+   "rationale": "moves chain-of-thought style reasoning into visual latent space"
+  },
+  {
+   "source": "li2025_lvr",
+   "source_label": "Latent Visual Reasoning (Li 2025)",
+   "target": "wang2025_monet",
+   "target_label": "Monet (Wang 2025)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "cross_area": false,
+   "rationale": "extends latent visual reasoning beyond the image-language pair"
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "wang2025_monet",
+   "target_label": "Monet (Wang 2025)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.7,
+   "cross_area": true,
+   "rationale": "latent analogue of chain-of-thought"
+  },
+  {
+   "source": "flamingo2022",
+   "source_label": "Flamingo: a Visual Language Model for Few-Shot Learning (Alayrac 2022)",
+   "target": "asadi2026_mirage",
+   "target_label": "MIRAGE (Asadi 2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.7,
+   "cross_area": true,
+   "rationale": "evaluates whether few-shot vision-language models truly understand images"
+  }
+ ],
+ "hyperedges": [
+  {
+   "id": "self_supervised_pretraining",
+   "label": "Self-Supervised Pretraining Methods",
+   "nodes": [
+    "yuan2024_ssl_har",
+    "chen2023_pathology",
+    "zhang2023_mae",
+    "baur2024_hear",
+    "concept_self_supervised"
+   ],
+   "relation": "implement",
+   "confidence": "EXTRACTED",
+   "confidence_score": 0.9
+  },
+  {
+   "id": "latent-continuous-reasoning",
+   "label": "Latent / Continuous Reasoning",
+   "nodes": [
+    "wei2023_cot",
+    "zhu2025_superposition",
+    "li2025_lvr",
+    "wang2025_monet"
+   ],
+   "relation": "form",
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "description": "Reasoning moved off language tokens: superposition theory for continuous chain-of-thought, then latent visual reasoning in Monet. Related Zotero items already in reasoning.md: Coconut, CODI, Chain of Superposition (Deng), Latent Space Survey."
+  },
+  {
+   "id": "vision-ssl-regularization",
+   "label": "Vision SSL and Regularization Classics",
+   "nodes": [
+    "srivastava2014_dropout",
+    "devries2017_cutout",
+    "concept_masked_autoencoder"
+   ],
+   "relation": "form",
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "description": "Regularization lineage (Dropout to Cutout) and the masked-autoencoder self-supervised vision anchor; MIRAGE evaluates whether VLMs truly understand images."
+  }
+ ],
+ "cross_area_bridges": [
+  {
+   "from": "vaswani2017_transformer",
+   "to": "liu2021_swin",
+   "reason": "builds_on (llm -> computer-vision)"
+  },
+  {
+   "from": "vaswani2017_transformer",
+   "to": "carion2020_detr",
+   "reason": "builds_on (llm -> computer-vision)"
+  },
+  {
+   "from": "ho2020_ddpm",
+   "to": "ramesh2022_dalle2",
+   "reason": "builds_on (? -> computer-vision)"
+  },
+  {
+   "from": "ramesh2022_dalle2",
+   "to": "zhai2023_siglip",
+   "reason": "builds_on (? -> computer-vision)"
+  },
+  {
+   "from": "liu2021_swin",
+   "to": "liu2024_swinumamba",
+   "reason": "builds_on (? -> computer-vision)"
+  },
+  {
+   "from": "liu2021_swin",
+   "to": "finder2024_wavelet",
+   "reason": "builds_on (? -> computer-vision)"
+  },
+  {
+   "from": "chen2023_pathology",
+   "to": "zhang2023_mae",
+   "reason": "builds_on (? -> computer-vision)"
+  },
+  {
+   "from": "srivastava2014_dropout",
+   "to": "devries2017_cutout",
+   "reason": "builds_on (llm -> computer-vision)"
+  },
+  {
+   "from": "wei2023_cot",
+   "to": "li2025_lvr",
+   "reason": "builds_on (reasoning -> computer-vision)"
+  },
+  {
+   "from": "wei2023_cot",
+   "to": "wang2025_monet",
+   "reason": "builds_on (reasoning -> computer-vision)"
+  },
+  {
+   "from": "flamingo2022",
+   "to": "asadi2026_mirage",
+   "reason": "builds_on (multi-modal -> computer-vision)"
+  }
+ ]
 }

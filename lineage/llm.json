@@ -1,646 +1,784 @@
 {
-  "_generated": "2026-05-14",
-  "_source": "graphify_seed/graph.json + zotero_index.json",
-  "area": "llm.md",
-  "edges": [
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "deepseek2025_r1",
-      "target_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "cross_area": true
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "deepseek2024_v3",
-      "target_label": "DeepSeek-V3 Technical Report (2024)",
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2605.06638",
-      "target_label": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2605.06638",
-      "target_label": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2605.07153",
-      "target_label": "Beyond Reasoning: Reinforcement Learning Unlocks Parametric Knowledge in LLMs",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2605.23071",
-      "target_label": "The Efficiency Frontier: A Unified Framework for Cost-Performance Optimization in LLM Context Management",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2605.26099",
-      "target_label": "Language Models Need Sleep",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "li2024_harmamba",
-      "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
-      "target": "2605.26099",
-      "target_label": "Language Models Need Sleep",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "liu2024_swinumamba",
-      "source_label": "Swin-UMamba: Mamba-based UNet (Liu 2024)",
-      "target": "2605.26099",
-      "target_label": "Language Models Need Sleep",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2024_v3",
-      "source_label": "DeepSeek-V3 Technical Report (2024)",
-      "target": "2606.03458",
-      "target_label": "KVarN: Variance-Normalized KV-Cache Quantization",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2606.03458",
-      "target_label": "KVarN: Variance-Normalized KV-Cache Quantization",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2606.04511",
-      "target_label": "SparDA: Sparse Decoupled Attention for Efficient Long-Context LLM Inference",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2606.05988",
-      "target_label": "Compress-Distill: Reasoning Trace Compression for Efficient Knowledge Distillation",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2606.05988",
-      "target_label": "Compress-Distill: Reasoning Trace Compression for Efficient Knowledge Distillation",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "BB78CC56",
-      "source_label": "Causal Inference Intro (Pearl 2010)",
-      "target": "2607.01104",
-      "target_label": "CausalMix: Data Mixture as Causal Inference for Language Model Training (2026)",
-      "relation": "builds_on",
-      "note": "Where Pearl's framework estimates the effect of a treatment on an outcome in a fixed observational setting, CausalMix makes the data mixture the treatment and the training result the outcome, conditioning on pool features so it can predict the effect of an unseen mixture on an unseen pool.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2607.01104",
-      "target_label": "CausalMix: Data Mixture as Causal Inference for Language Model Training (2026)",
-      "relation": "builds_on",
-      "note": "DeepSeek-R1 established long chain-of-thought traces as valuable training data; CausalMix chooses the quantity of that long-CoT data in a principled way through treatment-effect estimation.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2607.02980",
-      "target_label": "HiLS-Attention: Hierarchical Sparse Attention Done Right (2026)",
-      "relation": "builds_on",
-      "note": "Where the Transformer read every token pair at quadratic cost, HiLS keeps content-based addressing but only over chunks it learns to retrieve under the language-modeling loss, so the retrieval scores enter the attention computation directly and selection is differentiable.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "li2024_harmamba",
-      "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
-      "target": "2607.02980",
-      "target_label": "HiLS-Attention: Hierarchical Sparse Attention Done Right (2026)",
-      "relation": "builds_on",
-      "note": "Where Mamba compressed history into a fixed recurrent state and lost content-based random access, HiLS keeps attention's content addressing over selected chunks while still cutting cost below quadratic.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "deepseek2024_v3",
-      "source_label": "DeepSeek-V3 (2024)",
-      "target": "2607.05147",
-      "target_label": "DSpark: Confidence-Scheduled Speculative Decoding (2026)",
-      "relation": "builds_on",
-      "note": "Where DeepSeek-V3's multi-token prediction drafts several tokens in parallel but loses acceptance on later ones, DSpark restores within-block dependency with a small sequential head and schedules verification by load.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "743XA29Y",
-      "source_label": "DeepSeek-V2 (2024)",
-      "target": "2607.05147",
-      "target_label": "DSpark: Confidence-Scheduled Speculative Decoding (2026)",
-      "relation": "builds_on",
-      "note": "DeepSeek-V2 is the upstream architecture whose high-concurrency serving stack DSpark accelerates.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2607.05147",
-      "target_label": "DSpark: Confidence-Scheduled Speculative Decoding (2026)",
-      "relation": "builds_on",
-      "note": "The autoregressive Transformer is the backbone DSpark speeds up at the serving-systems layer rather than the model-quality layer.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2607.05722",
-      "target_label": "Nemotron-Labs-Diffusion: Tri-Mode Language Model (2026)",
-      "relation": "builds_on",
-      "note": "The autoregressive Transformer supplies left-to-right language priors and verification in the joint objective.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2024_v3",
-      "source_label": "DeepSeek-V3 (2024)",
-      "target": "2607.05722",
-      "target_label": "Nemotron-Labs-Diffusion: Tri-Mode Language Model (2026)",
-      "relation": "builds_on",
-      "note": "Where DeepSeek-V3 decodes with multi-token prediction, Nemotron-Labs-Diffusion displaces it with diffusion drafting plus autoregressive verification in self-speculation mode.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2607.11614",
-      "target_label": "Extending LLM Context via Associative Recurrent Memory (2026)",
-      "relation": "builds_on",
-      "note": "Where the Transformer keeps information inside a fixed-length attention window, this work adds a recurrent associative memory that carries a compressed state across segments, so effective context grows without full quadratic attention over everything.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "huang2026_memory",
-      "source_label": "Memory Mechanisms Survey (Huang 2026)",
-      "target": "2607.11614",
-      "target_label": "Extending LLM Context via Associative Recurrent Memory (2026)",
-      "relation": "builds_on",
-      "note": "Where the memory survey catalogued mechanisms, this work commits to one and supplies the training curriculum and selective-layer placement that make it hold past the original context limit.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2607.13399",
-      "target_label": "Demystifying On-Policy Distillation (2026)",
-      "relation": "builds_on",
-      "note": "Where DeepSeek-R1 trains reasoning from verifiable outcome rewards, this paper studies the dense token-level signal of on-policy distillation and shows it acts as an exploration catalyst rather than a higher capability ceiling, then adds two regularizers to keep the signal faithful.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2607.13399",
-      "target_label": "Demystifying On-Policy Distillation (2026)",
-      "relation": "builds_on",
-      "note": "Where Chain-of-Thought elicits reasoning paths by prompting, this paper treats those paths as the behavior on-policy distillation transfers and names two failure modes, student-teacher mismatch and length exploitation, that break the transfer.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2607.15161",
-      "target_label": "On-Policy Delta Distillation (2026)",
-      "relation": "builds_on",
-      "note": "Where DeepSeek-R1 produced reasoning through RL and left an expensive teacher, OPD^2 does cheap transfer of exactly that ability by distilling the teacher-minus-base delta rather than copying the whole teacher distribution.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-07-20"
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2607.15161",
-      "target_label": "On-Policy Delta Distillation (2026)",
-      "relation": "builds_on",
-      "note": "Where Chain-of-Thought established the reasoning-trace target that distillation transfers, OPD^2 isolates that added reasoning behavior as the delta between the tuned teacher and its base model and distills only that.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-07-20"
-    },
-    {
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-07-25",
-      "source": "KQTIJC4U",
-      "source_label": "PPO (Schulman 2017)",
-      "target": "2607.10848",
-      "target_label": "Predictive Divergence Masks for LLM RL (2026)",
-      "note": "Where PPO clips updates on a single-sample importance ratio, this paper replaces the direction test with a predicted change in the trust-region divergence itself, because the ratio is a noisy proxy that can point the wrong way."
-    },
-    {
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-07-25",
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1 (2025)",
-      "target": "2607.10848",
-      "target_label": "Predictive Divergence Masks for LLM RL (2026)",
-      "note": "Where DeepSeek-R1 made RL from verifiable rewards the standard recipe for reasoning models, this paper sharpens the trust-region machinery underneath rather than changing the reward or the task."
-    },
-    {
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-07-25",
-      "source": "U4ZPM5DN",
-      "source_label": "Latent-GRPO (Deng)",
-      "target": "2607.10848",
-      "target_label": "Predictive Divergence Masks for LLM RL (2026)",
-      "note": "Where Latent-GRPO is a group-relative policy-optimization variant relying on the ratio-based mask, this paper supplies a consistent direction test that predicts the change in the same divergence the proximity test measures."
-    },
-    {
-      "source": "3TLRP8U5",
-      "source_label": "PonderLM (2026)",
-      "target": "2608.08888",
-      "target_label": "Full-bandwidth transformer (2026)",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-08-14",
-      "note": "Where PonderLM spends extra forward passes within one token step and feeds back a distribution-weighted mixture of token embeddings, this paper feeds the top-layer hidden state back across token steps, so the target is a persistent latent channel rather than more thinking time at one position."
-    },
-    {
-      "source": "EMXEJYHV",
-      "source_label": "Latent Reasoning Survey (2025)",
-      "target": "2608.08888",
-      "target_label": "Full-bandwidth transformer (2026)",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-08-14",
-      "note": "Where the Latent Reasoning Survey argued that latent computation should replace the verbalized chain, this paper keeps the verbal chain and adds latent state alongside it, which is why the language-modeling objective and standard decoding survive unchanged."
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2608.08888",
-      "target_label": "Full-bandwidth transformer (2026)",
-      "relation": "builds_on",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-08-14",
-      "note": "The only structural edit to the base architecture is on the input side, which is what keeps per-token decoding overhead negligible and the KV cache intact."
-    },
-    {
-      "source": "rabinowitz2018_tom",
-      "source_label": "Machine Theory of Mind (Rabinowitz 2018)",
-      "target": "2609.01591",
-      "target_label": "StudentSim: Training LLM-based Student Simulators (2026)",
-      "relation": "builds_on",
-      "note": "Rabinowitz learned a predictor of another agent's behaviour and stopped at prediction; StudentSim requires the learned model to also move correctly when the observed agent is instructed, and scores that as a second property.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-09-02"
-    },
-    {
-      "source": "li2025_counselbench",
-      "source_label": "CounselBench: LLM Benchmarking in Mental Health (Li 2025)",
-      "target": "2609.01591",
-      "target_label": "StudentSim: Training LLM-based Student Simulators (2026)",
-      "relation": "builds_on",
-      "note": "CounselBench evaluates a model against per-person records as a benchmark endpoint; StudentSim closes the loop and spends the fitted per-person model as a reward signal for training a tutor.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-09-02"
-    },
-    {
-      "source": "durante2024_agentai",
-      "source_label": "Agent AI: Surveying Multimodal Interaction (Durante 2024)",
-      "target": "2609.01591",
-      "target_label": "StudentSim: Training LLM-based Student Simulators (2026)",
-      "relation": "builds_on",
-      "note": "Durante frames simulated agents as environments for training other agents; StudentSim supplies a fitted per-individual environment and measures both how well it imitates and how well it responds.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-09-02"
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2609.02737",
-      "target_label": "Declarative Attention: Language Models Can Control Their Own Attention (2026)",
-      "relation": "builds_on",
-      "note": "Vaswani fixed the attention span as a property of the architecture; Declarative Attention makes the span a decision the model takes at run time, because a fixed span is no longer affordable at million-token context.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-09-03"
-    },
-    {
-      "source": "wei2023_cot",
-      "source_label": "Chain-of-Thought Prompting (Wei 2023)",
-      "target": "2609.02737",
-      "target_label": "Declarative Attention: Language Models Can Control Their Own Attention (2026)",
-      "relation": "builds_on",
-      "note": "Wei used the reasoning trace to hold intermediate answers; here the trace holds control instructions the serving engine executes, which turns it from an output artifact into a compute-scheduling signal.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-09-03"
-    },
-    {
-      "source": "deepseek2024_v3",
-      "source_label": "DeepSeek-V3 Technical Report (2024)",
-      "target": "2609.02737",
-      "target_label": "Declarative Attention: Language Models Can Control Their Own Attention (2026)",
-      "relation": "builds_on",
-      "note": "DeepSeek-V3 cut KV cache cost by compressing each key and value entry; this paper leaves the entry alone and declines to read most of them, so the two reductions compose.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-09-03"
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2609.01925",
-      "target_label": "CRISP: Cliff-awaRe Input-adaptive Sparse Prefilling with Structural-Mass-Motivated Routing (2026)",
-      "relation": "builds_on",
-      "note": "Vaswani made every query read every key and fixed the quadratic prefill cost; CRISP keeps the architecture and decides per input which heads can afford a sparse pattern, so the saving is a serving decision rather than a training one.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-09-04"
-    },
-    {
-      "source": "2609.02737",
-      "source_label": "Declarative Attention: Language Models Can Control Their Own Attention (2026)",
-      "target": "2609.01925",
-      "target_label": "CRISP: Cliff-awaRe Input-adaptive Sparse Prefilling with Structural-Mass-Motivated Routing (2026)",
-      "relation": "builds_on",
-      "note": "Declarative Attention put the selection decision inside the model's own output stream and applied it at decode time; CRISP keeps the decision outside the model, reads it off a proxy attention map, and applies it at prefill, so the two act on complementary halves of the same cost.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-09-04"
-    },
-    {
-      "source": "deepseek2024_v3",
-      "source_label": "DeepSeek-V3 Technical Report (2024)",
-      "target": "2609.01925",
-      "target_label": "CRISP: Cliff-awaRe Input-adaptive Sparse Prefilling with Structural-Mass-Motivated Routing (2026)",
-      "relation": "builds_on",
-      "note": "DeepSeek-V3 shrank the cost of reading each cache entry by compressing it; CRISP declines to read most entries at all, and adds the diagnostic that a cumulative coverage threshold admits O(n) background mass at long context.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-09-04"
-    },
-    {
-      "source": "MKICLA63",
-      "source_label": "Time-LLM (Jin 2024)",
-      "target": "2609.01507",
-      "target_label": "LatentPress: Context Compression Beyond Text and Vision (2026)",
-      "relation": "builds_on",
-      "note": "Time-LLM established that a frozen decoder will read a non-text modality if a small adapter reprograms it into the input-embedding space; LatentPress measures how much that same port can carry, reaching 4x to 16x compression while training only a 4.2M to 26.2M parameter adapter.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-09-05"
-    },
-    {
-      "source": "xie2025_chatts",
-      "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
-      "target": "2609.01507",
-      "target_label": "LatentPress: Context Compression Beyond Text and Vision (2026)",
-      "relation": "builds_on",
-      "note": "ChatTS aligned numeric series with language but reported no compression ratio and no read or write latency; LatentPress reports both against a same-modality baseline, which is what makes the interface capacity interpretable.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-09-05"
-    },
-    {
-      "source": "743XA29Y",
-      "source_label": "DeepSeek-V2 (2024)",
-      "target": "2609.01507",
-      "target_label": "LatentPress: Context Compression Beyond Text and Vision (2026)",
-      "relation": "builds_on",
-      "note": "Multi-head latent attention shrinks the per-token state inside attention and keeps the token count; LatentPress shrinks the token count itself at the input and leaves the decoder untouched, so the two are composable rather than competing.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-09-05"
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2609.03430",
-      "target_label": "Random Attention: Rethinking KV Cache Eviction for Efficient Reasoning (2026)",
-      "relation": "builds_on",
-      "note": "The KV cache and its linear growth follow directly from this attention formulation; Random Attention keeps the formulation and attacks the number of surviving entries with uniform random eviction inside each head.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-09-05"
-    },
-    {
-      "source": "743XA29Y",
-      "source_label": "DeepSeek-V2 (2024)",
-      "target": "2609.03430",
-      "target_label": "Random Attention: Rethinking KV Cache Eviction for Efficient Reasoning (2026)",
-      "relation": "builds_on",
-      "note": "DeepSeek-V2 reduced the per-token cost of the cache with a learned low-rank latent; Random Attention reduces the token count with no learning and no scoring, matching the strongest prior evictor at 32 to 43 percent higher throughput.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-09-05"
-    },
-    {
-      "source": "deepseek2025_r1",
-      "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
-      "target": "2609.03430",
-      "target_label": "Random Attention: Rethinking KV Cache Eviction for Efficient Reasoning (2026)",
-      "relation": "builds_on",
-      "note": "DeepSeek-R1-style traces are what make the cache a bottleneck, and their redundancy in the text and across heads is the property that makes the choice of surviving token stop mattering once the prompt is protected.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-09-05"
-    },
-    {
-      "source": "ho2020_ddpm",
-      "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
-      "target": "2609.04010",
-      "target_label": "Unlocking Lossless Speedups in LLMs via Discrete Diffusion (Uno, 2026)",
-      "relation": "builds_on",
-      "note": "DDPM used diffusion to define the model distribution; Uno demotes diffusion to a proposal mechanism and keeps the autoregressive model as the distribution of record, which is what preserves quality.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": true,
-      "date_added": "2026-09-08"
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2609.04010",
-      "target_label": "Unlocking Lossless Speedups in LLMs via Discrete Diffusion (Uno, 2026)",
-      "relation": "builds_on",
-      "note": "The transformer tied the training objective and the decoding order together; Uno separates them, training with next-token prediction but decoding out of order under a sampler that repairs the mismatch.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-09-08"
-    },
-    {
-      "source": "BZKDNHD6",
-      "source_label": "SPRINT (Biju 2025)",
-      "target": "2609.04010",
-      "target_label": "Unlocking Lossless Speedups in LLMs via Discrete Diffusion (Uno, 2026)",
-      "relation": "builds_on",
-      "note": "SPRINT found parallelism at the level of reasoning steps and needed curated trajectory data; Uno finds it at the level of tokens and needs only a distillation pass over existing weights.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-09-08"
-    },
-    {
-      "source": "2BJAGQ5K",
-      "source_label": "Coconut: Training LLMs to Reason in a Continuous Latent Space (Hao 2024)",
-      "target": "2609.10715",
-      "target_label": "NCP-ArchPreview: Moving towards Latent Space Language Models through Next Concept Prediction (2026)",
-      "relation": "builds_on",
-      "note": "Coconut carried reasoning state in a continuous latent stream that had no prediction target of its own; NCP product-quantizes the latent space into a discrete vocabulary drawn from the model's own hidden states, because a discrete target gives the latent level an explicit loss and therefore makes it trainable at pretraining scale.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-09-11"
-    },
-    {
-      "source": "vaswani2017_transformer",
-      "source_label": "Attention Is All You Need (Vaswani 2017)",
-      "target": "2609.10715",
-      "target_label": "NCP-ArchPreview: Moving towards Latent Space Language Models through Next Concept Prediction (2026)",
-      "relation": "builds_on",
-      "note": "The transformer fixes the prediction horizon at one token ahead; the Concept Module predicts a unit spanning several tokens and feeds it back down to condition token generation, which changes what the gradient is asked to encode at each position while keeping the token-level backbone.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-09-11"
-    },
-    {
-      "source": "EMXEJYHV",
-      "source_label": "Latent Reasoning: A Survey (Zhu 2025)",
-      "target": "2609.10715",
-      "target_label": "NCP-ArchPreview: Moving towards Latent Space Language Models through Next Concept Prediction (2026)",
-      "relation": "builds_on",
-      "note": "The survey identified the missing supervision signal as the shared unresolved problem of latent-space approaches; a product-quantization codebook index over hidden states is a label the model can be scored against, which answers that directly.",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "cross_area": false,
-      "date_added": "2026-09-11"
-    }
-  ],
-  "hyperedges": [],
-  "cross_area_bridges": [
-    {
-      "from": "deepseek2025_r1",
-      "to": "wei2023_cot",
-      "reason": "semantically_similar (reasoning-via-rl vs prompting)"
-    }
-  ]
+ "_generated": "2026-09-27 (bulk import: 33 papers + 7 threads)",
+ "_source": "graphify_seed/graph.json + zotero_index.json",
+ "area": "llm.md",
+ "edges": [
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "deepseek2025_r1",
+   "target_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "relation": "semantically_similar_to",
+   "confidence": "INFERRED",
+   "confidence_score": 0.75,
+   "cross_area": true
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "deepseek2024_v3",
+   "target_label": "DeepSeek-V3 Technical Report (2024)",
+   "relation": "cites",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2605.06638",
+   "target_label": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2605.06638",
+   "target_label": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2605.07153",
+   "target_label": "Beyond Reasoning: Reinforcement Learning Unlocks Parametric Knowledge in LLMs",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2605.23071",
+   "target_label": "The Efficiency Frontier: A Unified Framework for Cost-Performance Optimization in LLM Context Management",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2605.26099",
+   "target_label": "Language Models Need Sleep",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "li2024_harmamba",
+   "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+   "target": "2605.26099",
+   "target_label": "Language Models Need Sleep",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "liu2024_swinumamba",
+   "source_label": "Swin-UMamba: Mamba-based UNet (Liu 2024)",
+   "target": "2605.26099",
+   "target_label": "Language Models Need Sleep",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2024_v3",
+   "source_label": "DeepSeek-V3 Technical Report (2024)",
+   "target": "2606.03458",
+   "target_label": "KVarN: Variance-Normalized KV-Cache Quantization",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2606.03458",
+   "target_label": "KVarN: Variance-Normalized KV-Cache Quantization",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2606.04511",
+   "target_label": "SparDA: Sparse Decoupled Attention for Efficient Long-Context LLM Inference",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2606.05988",
+   "target_label": "Compress-Distill: Reasoning Trace Compression for Efficient Knowledge Distillation",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2606.05988",
+   "target_label": "Compress-Distill: Reasoning Trace Compression for Efficient Knowledge Distillation",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "BB78CC56",
+   "source_label": "Causal Inference Intro (Pearl 2010)",
+   "target": "2607.01104",
+   "target_label": "CausalMix: Data Mixture as Causal Inference for Language Model Training (2026)",
+   "relation": "builds_on",
+   "note": "Where Pearl's framework estimates the effect of a treatment on an outcome in a fixed observational setting, CausalMix makes the data mixture the treatment and the training result the outcome, conditioning on pool features so it can predict the effect of an unseen mixture on an unseen pool.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2607.01104",
+   "target_label": "CausalMix: Data Mixture as Causal Inference for Language Model Training (2026)",
+   "relation": "builds_on",
+   "note": "DeepSeek-R1 established long chain-of-thought traces as valuable training data; CausalMix chooses the quantity of that long-CoT data in a principled way through treatment-effect estimation.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2607.02980",
+   "target_label": "HiLS-Attention: Hierarchical Sparse Attention Done Right (2026)",
+   "relation": "builds_on",
+   "note": "Where the Transformer read every token pair at quadratic cost, HiLS keeps content-based addressing but only over chunks it learns to retrieve under the language-modeling loss, so the retrieval scores enter the attention computation directly and selection is differentiable.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "li2024_harmamba",
+   "source_label": "HARMamba: Bidirectional Mamba for HAR (Li 2024)",
+   "target": "2607.02980",
+   "target_label": "HiLS-Attention: Hierarchical Sparse Attention Done Right (2026)",
+   "relation": "builds_on",
+   "note": "Where Mamba compressed history into a fixed recurrent state and lost content-based random access, HiLS keeps attention's content addressing over selected chunks while still cutting cost below quadratic.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "deepseek2024_v3",
+   "source_label": "DeepSeek-V3 (2024)",
+   "target": "2607.05147",
+   "target_label": "DSpark: Confidence-Scheduled Speculative Decoding (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-V3's multi-token prediction drafts several tokens in parallel but loses acceptance on later ones, DSpark restores within-block dependency with a small sequential head and schedules verification by load.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "743XA29Y",
+   "source_label": "DeepSeek-V2 (2024)",
+   "target": "2607.05147",
+   "target_label": "DSpark: Confidence-Scheduled Speculative Decoding (2026)",
+   "relation": "builds_on",
+   "note": "DeepSeek-V2 is the upstream architecture whose high-concurrency serving stack DSpark accelerates.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2607.05147",
+   "target_label": "DSpark: Confidence-Scheduled Speculative Decoding (2026)",
+   "relation": "builds_on",
+   "note": "The autoregressive Transformer is the backbone DSpark speeds up at the serving-systems layer rather than the model-quality layer.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2607.05722",
+   "target_label": "Nemotron-Labs-Diffusion: Tri-Mode Language Model (2026)",
+   "relation": "builds_on",
+   "note": "The autoregressive Transformer supplies left-to-right language priors and verification in the joint objective.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2024_v3",
+   "source_label": "DeepSeek-V3 (2024)",
+   "target": "2607.05722",
+   "target_label": "Nemotron-Labs-Diffusion: Tri-Mode Language Model (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-V3 decodes with multi-token prediction, Nemotron-Labs-Diffusion displaces it with diffusion drafting plus autoregressive verification in self-speculation mode.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2607.11614",
+   "target_label": "Extending LLM Context via Associative Recurrent Memory (2026)",
+   "relation": "builds_on",
+   "note": "Where the Transformer keeps information inside a fixed-length attention window, this work adds a recurrent associative memory that carries a compressed state across segments, so effective context grows without full quadratic attention over everything.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "huang2026_memory",
+   "source_label": "Memory Mechanisms Survey (Huang 2026)",
+   "target": "2607.11614",
+   "target_label": "Extending LLM Context via Associative Recurrent Memory (2026)",
+   "relation": "builds_on",
+   "note": "Where the memory survey catalogued mechanisms, this work commits to one and supplies the training curriculum and selective-layer placement that make it hold past the original context limit.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2607.13399",
+   "target_label": "Demystifying On-Policy Distillation (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-R1 trains reasoning from verifiable outcome rewards, this paper studies the dense token-level signal of on-policy distillation and shows it acts as an exploration catalyst rather than a higher capability ceiling, then adds two regularizers to keep the signal faithful.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2607.13399",
+   "target_label": "Demystifying On-Policy Distillation (2026)",
+   "relation": "builds_on",
+   "note": "Where Chain-of-Thought elicits reasoning paths by prompting, this paper treats those paths as the behavior on-policy distillation transfers and names two failure modes, student-teacher mismatch and length exploitation, that break the transfer.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2607.15161",
+   "target_label": "On-Policy Delta Distillation (2026)",
+   "relation": "builds_on",
+   "note": "Where DeepSeek-R1 produced reasoning through RL and left an expensive teacher, OPD^2 does cheap transfer of exactly that ability by distilling the teacher-minus-base delta rather than copying the whole teacher distribution.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-20"
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2607.15161",
+   "target_label": "On-Policy Delta Distillation (2026)",
+   "relation": "builds_on",
+   "note": "Where Chain-of-Thought established the reasoning-trace target that distillation transfers, OPD^2 isolates that added reasoning behavior as the delta between the tuned teacher and its base model and distills only that.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-07-20"
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-07-25",
+   "source": "KQTIJC4U",
+   "source_label": "PPO (Schulman 2017)",
+   "target": "2607.10848",
+   "target_label": "Predictive Divergence Masks for LLM RL (2026)",
+   "note": "Where PPO clips updates on a single-sample importance ratio, this paper replaces the direction test with a predicted change in the trust-region divergence itself, because the ratio is a noisy proxy that can point the wrong way."
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-07-25",
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1 (2025)",
+   "target": "2607.10848",
+   "target_label": "Predictive Divergence Masks for LLM RL (2026)",
+   "note": "Where DeepSeek-R1 made RL from verifiable rewards the standard recipe for reasoning models, this paper sharpens the trust-region machinery underneath rather than changing the reward or the task."
+  },
+  {
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-07-25",
+   "source": "U4ZPM5DN",
+   "source_label": "Latent-GRPO (Deng)",
+   "target": "2607.10848",
+   "target_label": "Predictive Divergence Masks for LLM RL (2026)",
+   "note": "Where Latent-GRPO is a group-relative policy-optimization variant relying on the ratio-based mask, this paper supplies a consistent direction test that predicts the change in the same divergence the proximity test measures."
+  },
+  {
+   "source": "3TLRP8U5",
+   "source_label": "PonderLM (2026)",
+   "target": "2608.08888",
+   "target_label": "Full-bandwidth transformer (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-08-14",
+   "note": "Where PonderLM spends extra forward passes within one token step and feeds back a distribution-weighted mixture of token embeddings, this paper feeds the top-layer hidden state back across token steps, so the target is a persistent latent channel rather than more thinking time at one position."
+  },
+  {
+   "source": "EMXEJYHV",
+   "source_label": "Latent Reasoning Survey (2025)",
+   "target": "2608.08888",
+   "target_label": "Full-bandwidth transformer (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-08-14",
+   "note": "Where the Latent Reasoning Survey argued that latent computation should replace the verbalized chain, this paper keeps the verbal chain and adds latent state alongside it, which is why the language-modeling objective and standard decoding survive unchanged."
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2608.08888",
+   "target_label": "Full-bandwidth transformer (2026)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-08-14",
+   "note": "The only structural edit to the base architecture is on the input side, which is what keeps per-token decoding overhead negligible and the KV cache intact."
+  },
+  {
+   "source": "rabinowitz2018_tom",
+   "source_label": "Machine Theory of Mind (Rabinowitz 2018)",
+   "target": "2609.01591",
+   "target_label": "StudentSim: Training LLM-based Student Simulators (2026)",
+   "relation": "builds_on",
+   "note": "Rabinowitz learned a predictor of another agent's behaviour and stopped at prediction; StudentSim requires the learned model to also move correctly when the observed agent is instructed, and scores that as a second property.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-09-02"
+  },
+  {
+   "source": "li2025_counselbench",
+   "source_label": "CounselBench: LLM Benchmarking in Mental Health (Li 2025)",
+   "target": "2609.01591",
+   "target_label": "StudentSim: Training LLM-based Student Simulators (2026)",
+   "relation": "builds_on",
+   "note": "CounselBench evaluates a model against per-person records as a benchmark endpoint; StudentSim closes the loop and spends the fitted per-person model as a reward signal for training a tutor.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-09-02"
+  },
+  {
+   "source": "durante2024_agentai",
+   "source_label": "Agent AI: Surveying Multimodal Interaction (Durante 2024)",
+   "target": "2609.01591",
+   "target_label": "StudentSim: Training LLM-based Student Simulators (2026)",
+   "relation": "builds_on",
+   "note": "Durante frames simulated agents as environments for training other agents; StudentSim supplies a fitted per-individual environment and measures both how well it imitates and how well it responds.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-09-02"
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2609.02737",
+   "target_label": "Declarative Attention: Language Models Can Control Their Own Attention (2026)",
+   "relation": "builds_on",
+   "note": "Vaswani fixed the attention span as a property of the architecture; Declarative Attention makes the span a decision the model takes at run time, because a fixed span is no longer affordable at million-token context.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-09-03"
+  },
+  {
+   "source": "wei2023_cot",
+   "source_label": "Chain-of-Thought Prompting (Wei 2023)",
+   "target": "2609.02737",
+   "target_label": "Declarative Attention: Language Models Can Control Their Own Attention (2026)",
+   "relation": "builds_on",
+   "note": "Wei used the reasoning trace to hold intermediate answers; here the trace holds control instructions the serving engine executes, which turns it from an output artifact into a compute-scheduling signal.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-09-03"
+  },
+  {
+   "source": "deepseek2024_v3",
+   "source_label": "DeepSeek-V3 Technical Report (2024)",
+   "target": "2609.02737",
+   "target_label": "Declarative Attention: Language Models Can Control Their Own Attention (2026)",
+   "relation": "builds_on",
+   "note": "DeepSeek-V3 cut KV cache cost by compressing each key and value entry; this paper leaves the entry alone and declines to read most of them, so the two reductions compose.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-03"
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2609.01925",
+   "target_label": "CRISP: Cliff-awaRe Input-adaptive Sparse Prefilling with Structural-Mass-Motivated Routing (2026)",
+   "relation": "builds_on",
+   "note": "Vaswani made every query read every key and fixed the quadratic prefill cost; CRISP keeps the architecture and decides per input which heads can afford a sparse pattern, so the saving is a serving decision rather than a training one.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-09-04"
+  },
+  {
+   "source": "2609.02737",
+   "source_label": "Declarative Attention: Language Models Can Control Their Own Attention (2026)",
+   "target": "2609.01925",
+   "target_label": "CRISP: Cliff-awaRe Input-adaptive Sparse Prefilling with Structural-Mass-Motivated Routing (2026)",
+   "relation": "builds_on",
+   "note": "Declarative Attention put the selection decision inside the model's own output stream and applied it at decode time; CRISP keeps the decision outside the model, reads it off a proxy attention map, and applies it at prefill, so the two act on complementary halves of the same cost.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-04"
+  },
+  {
+   "source": "deepseek2024_v3",
+   "source_label": "DeepSeek-V3 Technical Report (2024)",
+   "target": "2609.01925",
+   "target_label": "CRISP: Cliff-awaRe Input-adaptive Sparse Prefilling with Structural-Mass-Motivated Routing (2026)",
+   "relation": "builds_on",
+   "note": "DeepSeek-V3 shrank the cost of reading each cache entry by compressing it; CRISP declines to read most entries at all, and adds the diagnostic that a cumulative coverage threshold admits O(n) background mass at long context.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-04"
+  },
+  {
+   "source": "MKICLA63",
+   "source_label": "Time-LLM (Jin 2024)",
+   "target": "2609.01507",
+   "target_label": "LatentPress: Context Compression Beyond Text and Vision (2026)",
+   "relation": "builds_on",
+   "note": "Time-LLM established that a frozen decoder will read a non-text modality if a small adapter reprograms it into the input-embedding space; LatentPress measures how much that same port can carry, reaching 4x to 16x compression while training only a 4.2M to 26.2M parameter adapter.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-09-05"
+  },
+  {
+   "source": "xie2025_chatts",
+   "source_label": "ChatTS: Aligning Time Series with LLMs (Xie 2025)",
+   "target": "2609.01507",
+   "target_label": "LatentPress: Context Compression Beyond Text and Vision (2026)",
+   "relation": "builds_on",
+   "note": "ChatTS aligned numeric series with language but reported no compression ratio and no read or write latency; LatentPress reports both against a same-modality baseline, which is what makes the interface capacity interpretable.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-09-05"
+  },
+  {
+   "source": "743XA29Y",
+   "source_label": "DeepSeek-V2 (2024)",
+   "target": "2609.01507",
+   "target_label": "LatentPress: Context Compression Beyond Text and Vision (2026)",
+   "relation": "builds_on",
+   "note": "Multi-head latent attention shrinks the per-token state inside attention and keeps the token count; LatentPress shrinks the token count itself at the input and leaves the decoder untouched, so the two are composable rather than competing.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-05"
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2609.03430",
+   "target_label": "Random Attention: Rethinking KV Cache Eviction for Efficient Reasoning (2026)",
+   "relation": "builds_on",
+   "note": "The KV cache and its linear growth follow directly from this attention formulation; Random Attention keeps the formulation and attacks the number of surviving entries with uniform random eviction inside each head.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-05"
+  },
+  {
+   "source": "743XA29Y",
+   "source_label": "DeepSeek-V2 (2024)",
+   "target": "2609.03430",
+   "target_label": "Random Attention: Rethinking KV Cache Eviction for Efficient Reasoning (2026)",
+   "relation": "builds_on",
+   "note": "DeepSeek-V2 reduced the per-token cost of the cache with a learned low-rank latent; Random Attention reduces the token count with no learning and no scoring, matching the strongest prior evictor at 32 to 43 percent higher throughput.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-05"
+  },
+  {
+   "source": "deepseek2025_r1",
+   "source_label": "DeepSeek-R1: Reasoning via RL (2025)",
+   "target": "2609.03430",
+   "target_label": "Random Attention: Rethinking KV Cache Eviction for Efficient Reasoning (2026)",
+   "relation": "builds_on",
+   "note": "DeepSeek-R1-style traces are what make the cache a bottleneck, and their redundancy in the text and across heads is the property that makes the choice of surviving token stop mattering once the prompt is protected.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-09-05"
+  },
+  {
+   "source": "ho2020_ddpm",
+   "source_label": "Denoising Diffusion Probabilistic Models (Ho 2020)",
+   "target": "2609.04010",
+   "target_label": "Unlocking Lossless Speedups in LLMs via Discrete Diffusion (Uno, 2026)",
+   "relation": "builds_on",
+   "note": "DDPM used diffusion to define the model distribution; Uno demotes diffusion to a proposal mechanism and keeps the autoregressive model as the distribution of record, which is what preserves quality.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": true,
+   "date_added": "2026-09-08"
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2609.04010",
+   "target_label": "Unlocking Lossless Speedups in LLMs via Discrete Diffusion (Uno, 2026)",
+   "relation": "builds_on",
+   "note": "The transformer tied the training objective and the decoding order together; Uno separates them, training with next-token prediction but decoding out of order under a sampler that repairs the mismatch.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-08"
+  },
+  {
+   "source": "BZKDNHD6",
+   "source_label": "SPRINT (Biju 2025)",
+   "target": "2609.04010",
+   "target_label": "Unlocking Lossless Speedups in LLMs via Discrete Diffusion (Uno, 2026)",
+   "relation": "builds_on",
+   "note": "SPRINT found parallelism at the level of reasoning steps and needed curated trajectory data; Uno finds it at the level of tokens and needs only a distillation pass over existing weights.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-08"
+  },
+  {
+   "source": "2BJAGQ5K",
+   "source_label": "Coconut: Training LLMs to Reason in a Continuous Latent Space (Hao 2024)",
+   "target": "2609.10715",
+   "target_label": "NCP-ArchPreview: Moving towards Latent Space Language Models through Next Concept Prediction (2026)",
+   "relation": "builds_on",
+   "note": "Coconut carried reasoning state in a continuous latent stream that had no prediction target of its own; NCP product-quantizes the latent space into a discrete vocabulary drawn from the model's own hidden states, because a discrete target gives the latent level an explicit loss and therefore makes it trainable at pretraining scale.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-11"
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "2609.10715",
+   "target_label": "NCP-ArchPreview: Moving towards Latent Space Language Models through Next Concept Prediction (2026)",
+   "relation": "builds_on",
+   "note": "The transformer fixes the prediction horizon at one token ahead; the Concept Module predicts a unit spanning several tokens and feeds it back down to condition token generation, which changes what the gradient is asked to encode at each position while keeping the token-level backbone.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-11"
+  },
+  {
+   "source": "EMXEJYHV",
+   "source_label": "Latent Reasoning: A Survey (Zhu 2025)",
+   "target": "2609.10715",
+   "target_label": "NCP-ArchPreview: Moving towards Latent Space Language Models through Next Concept Prediction (2026)",
+   "relation": "builds_on",
+   "note": "The survey identified the missing supervision signal as the shared unresolved problem of latent-space approaches; a product-quantization codebook index over hidden states is a label the model can be scored against, which answers that directly.",
+   "confidence": "INFERRED",
+   "confidence_score": 0.9,
+   "cross_area": false,
+   "date_added": "2026-09-11"
+  },
+  {
+   "source": "vaswani2017_transformer",
+   "source_label": "Attention Is All You Need (Vaswani 2017)",
+   "target": "xiao2024_attnsinks",
+   "target_label": "Attention Sinks (Xiao 2023)",
+   "relation": "builds_on",
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "cross_area": false,
+   "rationale": "fixes the streaming failure mode of transformer attention"
+  }
+ ],
+ "hyperedges": [
+  {
+   "id": "vision-ssl-regularization",
+   "label": "Vision SSL and Regularization Classics",
+   "nodes": [
+    "srivastava2014_dropout",
+    "devries2017_cutout",
+    "concept_masked_autoencoder"
+   ],
+   "relation": "form",
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "description": "Regularization lineage (Dropout to Cutout) and the masked-autoencoder self-supervised vision anchor; MIRAGE evaluates whether VLMs truly understand images."
+  },
+  {
+   "id": "llm-efficiency-foundations",
+   "label": "LLM Efficiency and Analysis Foundations",
+   "nodes": [
+    "vaswani2017_transformer",
+    "xiao2024_attnsinks",
+    "kobayashi2021_resnorm"
+   ],
+   "relation": "form",
+   "confidence": "INFERRED",
+   "confidence_score": 0.8,
+   "description": "Transformer analysis beyond attention (residual and normalization layers) and the attention-sink fix for streaming inference."
+  }
+ ],
+ "cross_area_bridges": [
+  {
+   "from": "deepseek2025_r1",
+   "to": "wei2023_cot",
+   "reason": "semantically_similar (reasoning-via-rl vs prompting)"
+  },
+  {
+   "from": "wei2023_cot",
+   "to": "deepseek2025_r1",
+   "reason": "builds_on (reasoning -> llm)"
+  },
+  {
+   "from": "BB78CC56",
+   "to": "2607.01104",
+   "reason": "builds_on (? -> llm)"
+  },
+  {
+   "from": "li2024_harmamba",
+   "to": "2607.02980",
+   "reason": "builds_on (? -> llm)"
+  },
+  {
+   "from": "wei2023_cot",
+   "to": "2607.13399",
+   "reason": "builds_on (reasoning -> llm)"
+  },
+  {
+   "from": "wei2023_cot",
+   "to": "2607.15161",
+   "reason": "builds_on (reasoning -> llm)"
+  },
+  {
+   "from": "KQTIJC4U",
+   "to": "2607.10848",
+   "reason": "builds_on (? -> llm)"
+  },
+  {
+   "from": "U4ZPM5DN",
+   "to": "2607.10848",
+   "reason": "builds_on (? -> llm)"
+  },
+  {
+   "from": "3TLRP8U5",
+   "to": "2608.08888",
+   "reason": "builds_on (? -> llm)"
+  },
+  {
+   "from": "EMXEJYHV",
+   "to": "2608.08888",
+   "reason": "builds_on (? -> llm)"
+  },
+  {
+   "from": "vaswani2017_transformer",
+   "to": "2608.08888",
+   "reason": "builds_on (llm -> llm)"
+  },
+  {
+   "from": "rabinowitz2018_tom",
+   "to": "2609.01591",
+   "reason": "builds_on (? -> llm)"
+  },
+  {
+   "from": "li2025_counselbench",
+   "to": "2609.01591",
+   "reason": "builds_on (? -> llm)"
+  },
+  {
+   "from": "durante2024_agentai",
+   "to": "2609.01591",
+   "reason": "builds_on (? -> llm)"
+  },
+  {
+   "from": "vaswani2017_transformer",
+   "to": "2609.02737",
+   "reason": "builds_on (llm -> llm)"
+  },
+  {
+   "from": "wei2023_cot",
+   "to": "2609.02737",
+   "reason": "builds_on (reasoning -> llm)"
+  },
+  {
+   "from": "vaswani2017_transformer",
+   "to": "2609.01925",
+   "reason": "builds_on (llm -> llm)"
+  },
+  {
+   "from": "MKICLA63",
+   "to": "2609.01507",
+   "reason": "builds_on (? -> llm)"
+  },
+  {
+   "from": "xie2025_chatts",
+   "to": "2609.01507",
+   "reason": "builds_on (time-series -> llm)"
+  },
+  {
+   "from": "deepseek2025_r1",
+   "to": "2609.03430",
+   "reason": "builds_on (llm -> llm)"
+  },
+  {
+   "from": "ho2020_ddpm",
+   "to": "2609.04010",
+   "reason": "builds_on (? -> llm)"
+  }
+ ]
 }
