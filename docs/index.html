@@ -97,7 +97,12 @@ const COMMUNITY_COLORS = [
 const COMMUNITY_LABELS = {};
 
 // --- Like/Dislike feedback store ---
+// Ratings are sent instantly to the like-worker (see infra/like-worker/README.md)
+// and also kept in localStorage as a backup.
+window.FEEDBACK_ENDPOINT = ''; // <-- paste your Cloudflare Worker URL here
+window.FEEDBACK_SECRET = '';   // <-- same value as the worker's FEEDBACK_SECRET, if you set one
 const FEEDBACK_KEY = 'daily_paper_feedback_v1';
+const PENDING_KEY = 'daily_paper_pending_v1';
 function loadFeedback() {
   try { return JSON.parse(localStorage.getItem(FEEDBACK_KEY) || '{}'); }
   catch(e) { return {}; }
@@ -105,18 +110,48 @@ function loadFeedback() {
 function saveFeedback(fb) {
   localStorage.setItem(FEEDBACK_KEY, JSON.stringify(fb));
   updateFeedbackStats();
-  // Also try to sync to backend if available
-  syncFeedbackToBackend(fb).catch(()=>{});
 }
-async function syncFeedbackToBackend(fb) {
-  // If a backend endpoint is configured, POST likes there.
-  // Configure via window.FEEDBACK_ENDPOINT = 'https://your-server/api/likes'
-  if (!window.FEEDBACK_ENDPOINT) return;
-  await fetch(window.FEEDBACK_ENDPOINT, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({feedback: fb, exported_at: new Date().toISOString()})
-  });
+function loadPending() {
+  try { return JSON.parse(localStorage.getItem(PENDING_KEY) || '[]'); }
+  catch(e) { return []; }
+}
+function savePending(list) {
+  localStorage.setItem(PENDING_KEY, JSON.stringify(list));
+}
+// Send one rating to the backend. Queues it locally if the send fails.
+async function sendRating(key, action, paper) {
+  const payload = {
+    key, action, paper: paper || {},
+    ts: new Date().toISOString(),
+    secret: window.FEEDBACK_SECRET || undefined,
+  };
+  if (!window.FEEDBACK_ENDPOINT) return; // not configured yet: localStorage only
+  try {
+    const resp = await fetch(window.FEEDBACK_ENDPOINT, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload),
+    });
+    if (!resp.ok) throw new Error('backend ' + resp.status);
+    // success: flush any older queued ratings too
+    const pending = loadPending();
+    if (pending.length) {
+      savePending([]);
+      for (const p of pending) {
+        try {
+          await fetch(window.FEEDBACK_ENDPOINT, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({...p, secret: window.FEEDBACK_SECRET || undefined}),
+          });
+        } catch(e) { /* keep going */ }
+      }
+    }
+  } catch(e) {
+    const pending = loadPending();
+    pending.push(payload);
+    savePending(pending.slice(-50)); // keep the last 50
+  }
 }
 function updateFeedbackStats() {
   const fb = loadFeedback();
@@ -162,7 +197,9 @@ async function renderToday() {
       return;
     }
     const fb = loadFeedback();
+    const paperByKey = {};
     today.papers.forEach(p => {
+      paperByKey[p.zotero_key] = p;
       const wrapper = document.createElement('div');
       wrapper.className = 'today-card-wrapper';
       const card = document.createElement('a');
@@ -196,9 +233,16 @@ async function renderToday() {
         const action = btn.dataset.action;
         const fb2 = loadFeedback();
         // Toggle: clicking same action again removes it
-        if (fb2[key] === action) { delete fb2[key]; }
-        else { fb2[key] = action; }
+        let sendAction;
+        if (fb2[key] === action) { delete fb2[key]; sendAction = 'clear'; }
+        else { fb2[key] = action; sendAction = action; }
         saveFeedback(fb2);
+        // Send the rating to the backend instantly (fire-and-forget)
+        const paper = paperByKey[key] || {};
+        sendRating(key, sendAction, {
+          title: paper.title, authors: paper.authors, summary: paper.summary,
+          area_slug: paper.area_slug, rec_type: paper.rec_type,
+        });
         // Update UI
         const wrapper = btn.closest('.today-card-actions');
         wrapper.querySelectorAll('.like-btn, .dislike-btn').forEach(b => b.classList.remove('active'));
