@@ -29,6 +29,7 @@ State that persists between runs (committed in the repo):
 
 import glob
 import json
+import math
 import os
 import re
 import sys
@@ -397,57 +398,138 @@ def ingest_feedback(area_index, profile, history):
     return n_liked, n_disliked, added
 
 
-def discover_papers(profile):
+# --- Content-based ranking (TF-IDF cosine, stdlib only) ---
+_STOPWORDS = frozenset("""
+a an and are as at be been by can do does for from had has have having he her
+his how i if in into is it its of on or our she so such than that the their
+them then there these they this to was we were will with would you your
+not no nor only own same too very can will just should now paper papers
+propose proposed method methods based using use used novel approach
+results result show shown study arxiv preprint
+""".split())
+
+
+def _tokens(text):
+    return [t for t in re.findall(r"[a-z]{3,}", (text or "").lower())
+            if t not in _STOPWORDS]
+
+
+def _tfidf_scores(cand_texts, liked_texts):
+    """Cosine similarity of each candidate to the centroid of liked docs.
+
+    Returns a list of floats aligned with cand_texts, in [0, 1]-ish range.
+    """
+    docs = [_tokens(t) for t in liked_texts + cand_texts]
+    n = len(docs)
+    df = {}
+    for toks in docs:
+        for t in set(toks):
+            df[t] = df.get(t, 0) + 1
+    idf = {t: math.log((1 + n) / (1 + c)) + 1.0 for t, c in df.items()}
+
+    def vec(toks):
+        if not toks:
+            return {}
+        tf = {}
+        for t in toks:
+            tf[t] = tf.get(t, 0) + 1
+        v = {t: (c / len(toks)) * idf[t] for t, c in tf.items() if t in idf}
+        norm = math.sqrt(sum(x * x for x in v.values())) or 1.0
+        return {t: x / norm for t, x in v.items()}
+
+    vecs = [vec(toks) for toks in docs]
+    centroid = {}
+    for v in vecs[:len(liked_texts)]:
+        for t, x in v.items():
+            centroid[t] = centroid.get(t, 0.0) + x
+    cn = math.sqrt(sum(x * x for x in centroid.values())) or 1.0
+    centroid = {t: x / cn for t, x in centroid.items()}
+    return [sum(x * centroid.get(t, 0.0) for t, x in v.items())
+            for v in vecs[len(liked_texts):]]
+
+
+def discover_papers(profile, history):
+    """Discover candidates from arXiv and rank them.
+
+    Returns (today_papers, pool):
+      today_papers: N_DAILY_PAPERS picks for today.json (exploit + explore).
+      pool: remaining ranked candidates for the frontend Refresh button.
+
+    Ranking: for-you papers score 0.65 * content-similarity-to-liked +
+    0.35 * recency; explore papers rank by recency. Papers recommended on
+    earlier days (paper_history) are never served again.
+    """
     n_explore = max(1, round(N_DAILY_PAPERS * EXPLORE_RATIO))
     n_exploit = N_DAILY_PAPERS - n_explore
-    log(f"Discovering {n_exploit} for-you + {n_explore} explore papers")
+    today = date.today()
+    seen = set(history.keys())  # never recommend the same paper twice
+
+    def mk_paper(r, rec_type, explore_cat=None):
+        authors = ", ".join(r["authors"][:4]) + (" et al." if len(r["authors"]) > 4 else "")
+        if rec_type == "for-you":
+            area = classify_area(r)
+            label = area.replace(".md", "").replace("-", " ").title()
+            slug = area.replace(".md", "")
+            what = r["summary"][:300]
+        else:
+            label, slug = explore_cat, "explore"
+            what = "[Explore] " + r["summary"][:280]
+        try:
+            days_old = max(0, (today - date.fromisoformat(r["published"])).days)
+        except ValueError:
+            days_old = 30
+        return {
+            "zotero_key": r["arxiv_id"], "title": r["title"],
+            "authors": authors, "year": int(r["published"][:4]),
+            "what": what, "summary": r["summary"],
+            "area_label": label, "area_slug": slug, "builds_on": "",
+            "rec_type": rec_type, "_days_old": days_old,
+            "_text": f"{r['title']} {r['summary']}",
+        }
 
     affinity = profile.get("area_affinity", {})
-    papers, seen = [], set()
-
+    foryou, explore = [], []
     weighted = sorted(
         ((AREA_WEIGHTS.get(a, 1.0) + affinity.get(a, 0) * 0.5, a)
          for a in set(list(AREA_WEIGHTS) + list(affinity))),
         reverse=True)
     for _, area_file in weighted:
-        if sum(1 for p in papers if p["rec_type"] == "for-you") >= n_exploit:
-            break
         cats = AREA_ARXIV_CATS.get(area_file, ["cs.AI", "cs.LG"])
         query = " OR ".join(f"cat:{c}" for c in cats)
         for r in arxiv_search(query, max_results=10):
             if r["arxiv_id"] in seen:
                 continue
             seen.add(r["arxiv_id"])
-            area = classify_area(r)
-            papers.append({
-                "zotero_key": r["arxiv_id"], "title": r["title"],
-                "authors": ", ".join(r["authors"][:4]) + (" et al." if len(r["authors"]) > 4 else ""),
-                "year": int(r["published"][:4]), "what": r["summary"][:300],
-                "summary": r["summary"],
-                "area_label": area.replace(".md", "").replace("-", " ").title(),
-                "area_slug": area.replace(".md", ""), "builds_on": "",
-                "rec_type": "for-you",
-            })
-            if sum(1 for p in papers if p["rec_type"] == "for-you") >= n_exploit:
-                break
+            foryou.append(mk_paper(r, "for-you"))
 
     for cat in EXPLORE_CATS:
-        if sum(1 for p in papers if p["rec_type"] == "explore") >= n_explore:
-            break
         for r in arxiv_search(f"cat:{cat}", max_results=5):
             if r["arxiv_id"] in seen:
                 continue
             seen.add(r["arxiv_id"])
-            papers.append({
-                "zotero_key": r["arxiv_id"], "title": r["title"],
-                "authors": ", ".join(r["authors"][:4]) + (" et al." if len(r["authors"]) > 4 else ""),
-                "year": int(r["published"][:4]),
-                "what": "[Explore] " + r["summary"][:280], "summary": r["summary"],
-                "area_label": cat, "area_slug": "explore", "builds_on": "",
-                "rec_type": "explore",
-            })
-            break
-    return papers[:N_DAILY_PAPERS]
+            explore.append(mk_paper(r, "explore", explore_cat=cat))
+
+    # content similarity to papers Leo liked
+    liked = load_json(META / "likes_processed.json", default={"processed": []}).get("processed", [])
+    liked_docs = [f"{history[k]['title']} {history[k].get('summary', '')}"
+                  for k in liked if k in history and history[k].get("title")]
+    sim_scores = _tfidf_scores([c["_text"] for c in foryou], liked_docs) if liked_docs else [0.0] * len(foryou)
+    for c, s in zip(foryou, sim_scores):
+        recency = 1.0 / (1.0 + c["_days_old"] / 7.0)
+        c["_score"] = 0.65 * s + 0.35 * recency if liked_docs else recency
+    foryou.sort(key=lambda c: c["_score"], reverse=True)
+    for c in explore:
+        c["_score"] = 1.0 / (1.0 + c["_days_old"] / 7.0)
+    explore.sort(key=lambda c: c["_score"], reverse=True)
+
+    today_papers = foryou[:n_exploit] + explore[:n_explore]
+    pool = (foryou[n_exploit:] + explore[n_explore:])[:60]
+    for p in today_papers + pool:
+        for k in ("_days_old", "_text", "_score"):
+            p.pop(k, None)
+    log(f"discovery: {len(foryou)} for-you + {len(explore)} explore candidates, "
+        f"pool={len(pool)}, liked_docs={len(liked_docs)}")
+    return today_papers, pool
 
 
 def main():
@@ -464,7 +546,7 @@ def main():
     refresh_site(added)
     save_json(META / "user_profile.json", profile)
 
-    papers = discover_papers(profile)
+    papers, pool = discover_papers(profile, history)
     for p in papers:
         history[p["zotero_key"]] = {"title": p["title"], "authors": p["authors"],
                                    "summary": p.get("summary", ""), "what": p["what"]}
@@ -473,6 +555,9 @@ def main():
     save_json(REPO / "docs" / "data" / "today.json",
               {"date": date.today().isoformat(), "papers": papers})
     log(f"Wrote today.json with {len(papers)} papers")
+    save_json(REPO / "docs" / "data" / "pool.json",
+              {"date": date.today().isoformat(), "papers": pool})
+    log(f"Wrote pool.json with {len(pool)} papers for the Refresh button")
     log("=== Daily Paper Update done ===")
 
 

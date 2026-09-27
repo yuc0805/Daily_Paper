@@ -58,17 +58,18 @@
   <div class="header-inner">
     <h1>AI Knowledge Graph</h1>
     <p class="subtitle">A structured map of research areas, methods, and papers from my reading.</p>
-    <p class="meta">22 areas &middot; 228 papers &middot; Seeded from Zotero + Graphify clustering</p>
+    <p class="meta">22 areas &middot; 294 papers &middot; Seeded from Zotero + Graphify clustering</p>
   </div>
 </header>
 
 <main>
   <section id="today-section">
     <h2>Today's Papers <span id="today-date" class="section-date"></span></h2>
-    <p class="section-desc">Papers picked for you every morning at 6AM. Like what interests you — your likes shape tomorrow's picks and get added to the knowledge graph. <span style="background:#fef3c7;padding:2px 8px;border-radius:10px;font-size:0.8em;">Explore</span> badges are popular papers from outside your usual areas.</p>
+    <p class="section-desc">Papers picked for you every morning at 6AM. Like what interests you — your likes shape tomorrow's picks and get added to the knowledge graph. Dislike removes a paper from your feed. Hit Refresh for 5 more papers. <span style="background:#fef3c7;padding:2px 8px;border-radius:10px;font-size:0.8em;">Explore</span> badges are popular papers from outside your usual areas.</p>
     <div class="feedback-bar">
       <span id="feedback-stats">Your feedback helps me learn your taste</span>
       <button id="export-likes" title="Download your likes as JSON for backup">Export likes</button>
+      <button id="refresh-feed" title="Show 5 fresh papers">Refresh</button>
     </div>
     <div id="today-cards"></div>
     <p id="today-empty" class="placeholder-msg" style="display:none;">No papers for today yet. The morning digest will populate this section.</p>
@@ -182,79 +183,171 @@ async function main() {
   updateFeedbackStats();
 }
 
-async function renderToday() {
+let todayCache = [];
+const shownKeys = new Set();
+let poolCache = null;
+let toastTimer = null;
+
+function buildTodayCard(p, fb) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'today-card-wrapper';
+  const card = document.createElement('a');
+  card.href = `papers/${p.zotero_key}.html`;
+  card.className = 'today-card';
+  const recType = p.rec_type || 'for-you';
+  const recLabel = recType === 'explore' ? 'Explore' : 'For you';
+  card.innerHTML = `
+    <div class="today-card-header">
+      <h3>${esc(p.title)}</h3>
+      <span class="today-meta">${esc(p.authors)} &middot; ${p.year}</span>
+    </div>
+    <p class="today-what">${esc(p.what)}</p>
+    <div class="today-footer">
+      <span class="today-area">${esc(p.area_label)}</span>
+      ${p.builds_on ? `<span class="today-lineage">Builds on: ${esc(p.builds_on)}</span>` : ''}
+    </div>
+    <div class="today-card-actions" onclick="event.preventDefault();event.stopPropagation();">
+      <button class="like-btn ${fb[p.zotero_key]==='like'?'active':''}" data-key="${esc(p.zotero_key)}" data-action="like">Like</button>
+      <button class="dislike-btn ${fb[p.zotero_key]==='dislike'?'active':''}" data-key="${esc(p.zotero_key)}" data-action="dislike">Pass</button>
+      <span class="rec-badge ${recType}" title="${recType==='explore' ? 'Popular in another field — broadening your horizons' : 'Picked based on your interests'}">${recLabel}</span>
+    </div>`;
+  wrapper.appendChild(card);
+  return wrapper;
+}
+
+function wireCardButtons(wrapper, paperByKey) {
+  wrapper.querySelectorAll('.like-btn, .dislike-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault(); e.stopPropagation();
+      const key = btn.dataset.key;
+      const action = btn.dataset.action;
+      const fb2 = loadFeedback();
+      // Toggle: clicking the same action again removes it
+      let sendAction;
+      if (fb2[key] === action) { delete fb2[key]; sendAction = 'clear'; }
+      else { fb2[key] = action; sendAction = action; }
+      saveFeedback(fb2);
+      // Send the rating to the backend instantly (fire-and-forget)
+      const paper = paperByKey[key] || {};
+      const paperMeta = {
+        title: paper.title, authors: paper.authors, summary: paper.summary,
+        area_slug: paper.area_slug, rec_type: paper.rec_type,
+      };
+      sendRating(key, sendAction, paperMeta);
+      if (sendAction === 'dislike') {
+        // social-media behavior: a disliked paper vanishes from the feed
+        const cardWrapper = btn.closest('.today-card-wrapper');
+        shownKeys.delete(key);
+        cardWrapper.style.transition = 'opacity .25s ease';
+        cardWrapper.style.opacity = '0';
+        setTimeout(() => {
+          cardWrapper.remove();
+          if (!document.getElementById('today-cards').children.length) {
+            document.getElementById('today-empty').style.display = 'block';
+          }
+        }, 260);
+        showToast('Removed from your feed', 'Undo', () => {
+          const fb3 = loadFeedback();
+          delete fb3[key];
+          saveFeedback(fb3);
+          sendRating(key, 'clear', paperMeta);
+          renderFeed(todayCache);
+        });
+        return;
+      }
+      // Update button states for like / unlike
+      const actions = btn.closest('.today-card-actions');
+      actions.querySelectorAll('.like-btn, .dislike-btn').forEach(b => b.classList.remove('active'));
+      if (fb2[key]) {
+        actions.querySelector(`[data-action="${fb2[key]}"]`).classList.add('active');
+      }
+    });
+  });
+}
+
+function renderFeed(papers) {
   const container = document.getElementById('today-cards');
   const emptyMsg = document.getElementById('today-empty');
-  const dateEl = document.getElementById('today-date');
+  container.innerHTML = '';
+  const fb = loadFeedback();
+  const paperByKey = {};
+  papers.forEach(p => {
+    if (fb[p.zotero_key] === 'dislike') return;  // passed on earlier
+    paperByKey[p.zotero_key] = p;
+    const w = buildTodayCard(p, fb);
+    wireCardButtons(w, paperByKey);
+    container.appendChild(w);
+    shownKeys.add(p.zotero_key);
+  });
+  emptyMsg.style.display = container.children.length ? 'none' : 'block';
+}
 
+async function renderToday() {
+  const dateEl = document.getElementById('today-date');
   try {
     const resp = await fetch('data/today.json');
-    if (!resp.ok) { emptyMsg.style.display = 'block'; return; }
+    if (!resp.ok) throw new Error('no today.json');
     const today = await resp.json();
     dateEl.textContent = today.date || '';
-    if (!today.papers || today.papers.length === 0) {
-      emptyMsg.style.display = 'block';
-      return;
-    }
-    const fb = loadFeedback();
-    const paperByKey = {};
-    today.papers.forEach(p => {
-      paperByKey[p.zotero_key] = p;
-      const wrapper = document.createElement('div');
-      wrapper.className = 'today-card-wrapper';
-      const card = document.createElement('a');
-      card.href = `papers/${p.zotero_key}.html`;
-      card.className = 'today-card';
-      const recType = p.rec_type || 'for-you';
-      const recLabel = recType === 'explore' ? 'Explore' : 'For you';
-      card.innerHTML = `
-        <div class="today-card-header">
-          <h3>${esc(p.title)}</h3>
-          <span class="today-meta">${esc(p.authors)} &middot; ${p.year}</span>
-        </div>
-        <p class="today-what">${esc(p.what)}</p>
-        <div class="today-footer">
-          <span class="today-area">${esc(p.area_label)}</span>
-          ${p.builds_on ? `<span class="today-lineage">Builds on: ${esc(p.builds_on)}</span>` : ''}
-        </div>
-        <div class="today-card-actions" onclick="event.preventDefault();event.stopPropagation();">
-          <button class="like-btn ${fb[p.zotero_key]==='like'?'active':''}" data-key="${esc(p.zotero_key)}" data-action="like">👍 Like</button>
-          <button class="dislike-btn ${fb[p.zotero_key]==='dislike'?'active':''}" data-key="${esc(p.zotero_key)}" data-action="dislike">👎 Pass</button>
-          <span class="rec-badge ${recType}" title="${recType==='explore' ? 'Popular in another field — broadening your horizons' : 'Picked based on your interests'}">${recLabel}</span>
-        </div>`;
-      wrapper.appendChild(card);
-      container.appendChild(wrapper);
-    });
-    // Wire up like/dislike buttons
-    container.querySelectorAll('.like-btn, .dislike-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault(); e.stopPropagation();
-        const key = btn.dataset.key;
-        const action = btn.dataset.action;
-        const fb2 = loadFeedback();
-        // Toggle: clicking same action again removes it
-        let sendAction;
-        if (fb2[key] === action) { delete fb2[key]; sendAction = 'clear'; }
-        else { fb2[key] = action; sendAction = action; }
-        saveFeedback(fb2);
-        // Send the rating to the backend instantly (fire-and-forget)
-        const paper = paperByKey[key] || {};
-        sendRating(key, sendAction, {
-          title: paper.title, authors: paper.authors, summary: paper.summary,
-          area_slug: paper.area_slug, rec_type: paper.rec_type,
-        });
-        // Update UI
-        const wrapper = btn.closest('.today-card-actions');
-        wrapper.querySelectorAll('.like-btn, .dislike-btn').forEach(b => b.classList.remove('active'));
-        if (fb2[key]) {
-          wrapper.querySelector(`[data-action="${fb2[key]}"]`).classList.add('active');
-        }
-      });
-    });
+    todayCache = today.papers || [];
+    renderFeed(todayCache);
   } catch (e) {
     console.error(e);
-    emptyMsg.style.display = 'block';
+    document.getElementById('today-empty').style.display = 'block';
   }
+}
+
+async function refreshFeed() {
+  const btn = document.getElementById('refresh-feed');
+  btn.disabled = true;
+  const origLabel = btn.innerHTML;
+  btn.innerHTML = 'Loading&hellip;';
+  try {
+    if (!poolCache) {
+      const resp = await fetch('data/pool.json');
+      if (!resp.ok) throw new Error('no pool yet');
+      poolCache = await resp.json();
+    }
+    const fb = loadFeedback();
+    const fresh = (poolCache.papers || []).filter(p => !fb[p.zotero_key] && !shownKeys.has(p.zotero_key));
+    const next5 = fresh.slice(0, 5);
+    if (next5.length === 0) {
+      showToast("You're all caught up — new papers arrive tomorrow at 6 AM.", null, null);
+    } else {
+      todayCache = next5;
+      renderFeed(todayCache);
+      if (next5.length < 5) {
+        showToast(`Only ${next5.length} fresh papers left — more arrive tomorrow at 6 AM.`, null, null);
+      }
+    }
+  } catch (e) {
+    showToast('Fresh papers arrive with the morning digest.', null, null);
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = origLabel;
+  }
+}
+
+function showToast(msg, undoLabel, onUndo) {
+  let toast = document.getElementById('feed-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'feed-toast';
+    document.body.appendChild(toast);
+  }
+  toast.innerHTML = `<span>${esc(msg)}</span>` +
+    (undoLabel ? ` <button id="feed-toast-undo">${esc(undoLabel)}</button>` : '');
+  toast.classList.add('show');
+  const undoBtn = toast.querySelector('#feed-toast-undo');
+  if (undoBtn) undoBtn.onclick = () => { hideToast(); onUndo(); };
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(hideToast, 5000);
+}
+
+function hideToast() {
+  const t = document.getElementById('feed-toast');
+  if (t) t.classList.remove('show');
+  clearTimeout(toastTimer);
 }
 
 function esc(s) { return s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') : ''; }
@@ -298,6 +391,7 @@ function setupFilters(data) {
   });
 }
 
+document.getElementById('refresh-feed').addEventListener('click', refreshFeed);
 main();
 </script>
 </body>

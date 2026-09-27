@@ -409,3 +409,39 @@ footer a:hover { text-decoration: underline; }
   h1 { font-size: 1.5rem; }
   #area-cards { grid-template-columns: 1fr; }
 }
+
+/* ======= Feed toast (dislike undo / refresh notices) ======= */
+#feed-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 80px);
+  background: #1f2937;
+  color: #f9fafb;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: system-ui, sans-serif;
+  opacity: 0;
+  transition: transform .25s ease, opacity .25s ease;
+  z-index: 9999;
+  box-shadow: 0 4px 16px rgba(0,0,0,.25);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  max-width: 90vw;
+}
+#feed-toast.show { transform: translate(-50%, 0); opacity: 1; }
+#feed-toast-undo {
+  background: transparent;
+  border: 1px solid #9ca3af;
+  color: #fff;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+#feed-toast-undo:hover { background: rgba(255,255,255,.12); }
+#refresh-feed { cursor: pointer; }
+#refresh-feed:disabled { opacity: .6; cursor: default; }
