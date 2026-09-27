@@ -6,6 +6,52 @@
 <title>AI Knowledge Graph — Leo Chen</title>
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<style>
+/* Like/Dislike UI */
+.today-card { position: relative; display: block; text-decoration: none; color: inherit; }
+.today-card-actions {
+  display: flex; gap: 8px; align-items: center;
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.like-btn, .dislike-btn {
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+}
+.like-btn:hover { border-color: #22c55e; background: #f0fdf4; }
+.dislike-btn:hover { border-color: #ef4444; background: #fef2f2; }
+.like-btn.active { background: #22c55e; color: white; border-color: #22c55e; }
+.dislike-btn.active { background: #ef4444; color: white; border-color: #ef4444; }
+.rec-badge {
+  font-family: system-ui, sans-serif;
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-left: auto;
+}
+.rec-badge.for-you { background: #dbeafe; color: #1e40af; }
+.rec-badge.explore { background: #fef3c7; color: #92400e; }
+.feedback-bar {
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+  display: flex; gap: 16px; align-items: center;
+}
+#export-likes {
+  font-size: 0.8rem; padding: 4px 12px;
+  border: 1px solid var(--border); border-radius: 4px;
+  background: #fff; cursor: pointer;
+}
+#export-likes:hover { background: #f5f5f5; }
+</style>
 </head>
 <body>
 <header>
@@ -19,7 +65,11 @@
 <main>
   <section id="today-section">
     <h2>Today's Papers <span id="today-date" class="section-date"></span></h2>
-    <p class="section-desc">Papers picked from recent Zotero additions, explained in context of the knowledge graph. Archived to area pages at end of day.</p>
+    <p class="section-desc">Papers picked for you every morning at 6AM. Like what interests you — your likes shape tomorrow's picks and get added to the knowledge graph. <span style="background:#fef3c7;padding:2px 8px;border-radius:10px;font-size:0.8em;">Explore</span> badges are popular papers from outside your usual areas.</p>
+    <div class="feedback-bar">
+      <span id="feedback-stats">Your feedback helps me learn your taste</span>
+      <button id="export-likes" title="Download your likes as JSON for backup">Export likes</button>
+    </div>
     <div id="today-cards"></div>
     <p id="today-empty" class="placeholder-msg" style="display:none;">No papers for today yet. The morning digest will populate this section.</p>
   </section>
@@ -46,20 +96,58 @@ const COMMUNITY_COLORS = [
 ];
 const COMMUNITY_LABELS = {};
 
+// --- Like/Dislike feedback store ---
+const FEEDBACK_KEY = 'daily_paper_feedback_v1';
+function loadFeedback() {
+  try { return JSON.parse(localStorage.getItem(FEEDBACK_KEY) || '{}'); }
+  catch(e) { return {}; }
+}
+function saveFeedback(fb) {
+  localStorage.setItem(FEEDBACK_KEY, JSON.stringify(fb));
+  updateFeedbackStats();
+  // Also try to sync to backend if available
+  syncFeedbackToBackend(fb).catch(()=>{});
+}
+async function syncFeedbackToBackend(fb) {
+  // If a backend endpoint is configured, POST likes there.
+  // Configure via window.FEEDBACK_ENDPOINT = 'https://your-server/api/likes'
+  if (!window.FEEDBACK_ENDPOINT) return;
+  await fetch(window.FEEDBACK_ENDPOINT, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({feedback: fb, exported_at: new Date().toISOString()})
+  });
+}
+function updateFeedbackStats() {
+  const fb = loadFeedback();
+  const likes = Object.values(fb).filter(v => v === 'like').length;
+  const dislikes = Object.values(fb).filter(v => v === 'dislike').length;
+  const el = document.getElementById('feedback-stats');
+  if (likes + dislikes > 0) {
+    el.textContent = `You've rated ${likes + dislikes} papers (${likes} liked, ${dislikes} passed) — shaping tomorrow's picks`;
+  }
+}
+
+document.getElementById('export-likes').addEventListener('click', () => {
+  const fb = loadFeedback();
+  const blob = new Blob([JSON.stringify({exported_at: new Date().toISOString(), feedback: fb}, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'daily-paper-likes.json';
+  a.click();
+});
+
 async function main() {
   const resp = await fetch('data/graph.json');
   const data = await resp.json();
-
-  // Populate community labels
   data.communities.forEach(c => { COMMUNITY_LABELS[c.id] = c.label; });
-
   await renderToday();
   renderCards(data);
   setupFilters(data);
+  updateFeedbackStats();
 }
 
 async function renderToday() {
-  const section = document.getElementById('today-section');
   const container = document.getElementById('today-cards');
   const emptyMsg = document.getElementById('today-empty');
   const dateEl = document.getElementById('today-date');
@@ -68,18 +156,20 @@ async function renderToday() {
     const resp = await fetch('data/today.json');
     if (!resp.ok) { emptyMsg.style.display = 'block'; return; }
     const today = await resp.json();
-
     dateEl.textContent = today.date || '';
-
     if (!today.papers || today.papers.length === 0) {
       emptyMsg.style.display = 'block';
       return;
     }
-
+    const fb = loadFeedback();
     today.papers.forEach(p => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'today-card-wrapper';
       const card = document.createElement('a');
       card.href = `papers/${p.zotero_key}.html`;
       card.className = 'today-card';
+      const recType = p.rec_type || 'for-you';
+      const recLabel = recType === 'explore' ? 'Explore' : 'For you';
       card.innerHTML = `
         <div class="today-card-header">
           <h3>${esc(p.title)}</h3>
@@ -89,87 +179,49 @@ async function renderToday() {
         <div class="today-footer">
           <span class="today-area">${esc(p.area_label)}</span>
           ${p.builds_on ? `<span class="today-lineage">Builds on: ${esc(p.builds_on)}</span>` : ''}
+        </div>
+        <div class="today-card-actions" onclick="event.preventDefault();event.stopPropagation();">
+          <button class="like-btn ${fb[p.zotero_key]==='like'?'active':''}" data-key="${esc(p.zotero_key)}" data-action="like">👍 Like</button>
+          <button class="dislike-btn ${fb[p.zotero_key]==='dislike'?'active':''}" data-key="${esc(p.zotero_key)}" data-action="dislike">👎 Pass</button>
+          <span class="rec-badge ${recType}" title="${recType==='explore' ? 'Popular in another field — broadening your horizons' : 'Picked based on your interests'}">${recLabel}</span>
         </div>`;
-      container.appendChild(card);
+      wrapper.appendChild(card);
+      container.appendChild(wrapper);
+    });
+    // Wire up like/dislike buttons
+    container.querySelectorAll('.like-btn, .dislike-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault(); e.stopPropagation();
+        const key = btn.dataset.key;
+        const action = btn.dataset.action;
+        const fb2 = loadFeedback();
+        // Toggle: clicking same action again removes it
+        if (fb2[key] === action) { delete fb2[key]; }
+        else { fb2[key] = action; }
+        saveFeedback(fb2);
+        // Update UI
+        const wrapper = btn.closest('.today-card-actions');
+        wrapper.querySelectorAll('.like-btn, .dislike-btn').forEach(b => b.classList.remove('active'));
+        if (fb2[key]) {
+          wrapper.querySelector(`[data-action="${fb2[key]}"]`).classList.add('active');
+        }
+      });
     });
   } catch (e) {
+    console.error(e);
     emptyMsg.style.display = 'block';
   }
 }
 
-function esc(s) { return s ? s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') : ''; }
-
-function renderGraph(data) {
-  const container = document.getElementById('graph-container');
-  const width = container.clientWidth;
-  const height = 480;
-  const svg = d3.select('#graph')
-    .attr('width', width)
-    .attr('height', height)
-    .attr('viewBox', `0 0 ${width} ${height}`);
-
-  const simulation = d3.forceSimulation(data.nodes)
-    .force('link', d3.forceLink(data.links).id(d => d.id).distance(100).strength(d => Math.min(d.weight * 0.15, 0.8)))
-    .force('charge', d3.forceManyBody().strength(-300))
-    .force('center', d3.forceCenter(width / 2, height / 2))
-    .force('collision', d3.forceCollide().radius(d => Math.sqrt(d.papers) * 5 + 12));
-
-  const link = svg.append('g').attr('class','links')
-    .selectAll('line').data(data.links).enter().append('line')
-    .attr('stroke', '#ccc').attr('stroke-width', d => Math.min(d.weight, 6))
-    .attr('stroke-opacity', 0.5);
-
-  const node = svg.append('g').attr('class','nodes')
-    .selectAll('g').data(data.nodes).enter().append('g')
-    .attr('cursor', 'pointer')
-    .on('click', (e, d) => { window.location.href = `areas/${d.id}.html`; })
-    .call(d3.drag()
-      .on('start', (e, d) => { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
-      .on('drag', (e, d) => { d.fx = e.x; d.fy = e.y; })
-      .on('end', (e, d) => { if (!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; })
-    );
-
-  node.append('circle')
-    .attr('r', d => Math.sqrt(d.papers) * 4 + 6)
-    .attr('fill', d => d.community >= 0 ? COMMUNITY_COLORS[d.community % COMMUNITY_COLORS.length] : '#999')
-    .attr('stroke', d => d.focus === 'primary' ? '#222' : (d.focus === 'secondary' ? '#666' : 'transparent'))
-    .attr('stroke-width', d => d.focus === 'primary' ? 3 : (d.focus === 'secondary' ? 2 : 0))
-    .attr('opacity', 0.85);
-
-  node.append('text')
-    .text(d => d.label)
-    .attr('dy', d => Math.sqrt(d.papers) * 4 + 18)
-    .attr('text-anchor', 'middle')
-    .attr('font-size', '11px')
-    .attr('fill', '#333')
-    .attr('font-family', 'system-ui, sans-serif');
-
-  // Tooltip
-  const tooltip = d3.select('body').append('div').attr('class','tooltip').style('opacity',0);
-  node.on('mouseover', (e, d) => {
-    tooltip.transition().duration(150).style('opacity',1);
-    tooltip.html(`<strong>${d.label}</strong><br>${d.papers} papers` +
-      (d.community >= 0 ? `<br>Community: ${COMMUNITY_LABELS[d.community] || d.community}` : '') +
-      (d.focus !== 'none' ? `<br><em>${d.focus} focus</em>` : ''))
-      .style('left', (e.pageX + 12) + 'px').style('top', (e.pageY - 20) + 'px');
-  }).on('mouseout', () => { tooltip.transition().duration(200).style('opacity',0); });
-
-  simulation.on('tick', () => {
-    link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y)
-        .attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
-    node.attr('transform', d => `translate(${d.x},${d.y})`);
-  });
-}
+function esc(s) { return s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') : ''; }
 
 function renderCards(data) {
   const container = document.getElementById('area-cards');
-  // Sort: primary first, then secondary, then by paper count
   const sorted = [...data.nodes].sort((a,b) => {
     const fo = {primary:0, secondary:1, none:2};
     if (fo[a.focus] !== fo[b.focus]) return fo[a.focus] - fo[b.focus];
     return b.papers - a.papers;
   });
-
   sorted.forEach(n => {
     const card = document.createElement('a');
     card.href = `areas/${n.id}.html`;
@@ -184,19 +236,6 @@ function renderCards(data) {
         ${n.focus !== 'none' ? `<span class="focus-badge ${n.focus}">${n.focus}</span>` : ''}
       </div>`;
     container.appendChild(card);
-  });
-}
-
-function renderLegend(data) {
-  const legend = document.getElementById('legend');
-  const seen = new Set();
-  data.communities.forEach(c => {
-    if (seen.has(c.id)) return;
-    seen.add(c.id);
-    const el = document.createElement('span');
-    el.className = 'legend-item';
-    el.innerHTML = `<span class="legend-dot" style="background:${COMMUNITY_COLORS[c.id % COMMUNITY_COLORS.length]}"></span>${c.label}`;
-    legend.appendChild(el);
   });
 }
 
