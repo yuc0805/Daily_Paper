@@ -10,6 +10,9 @@ Runs every morning at 6:00 AM ET via .github/workflows/daily.yml.
    category BEFORE generating today's list:
    papers/YYYY/MM/DD/<id>.md, areas/<area>.md timeline, lineage/<area>.json,
    docs/papers/<id>.html
+   Then refresh the static website for the new papers:
+   docs/data/graph.json (Research Areas tab counts) and the affected
+   docs/areas/<area>.html pages (count, paper list, activity).
 3. Discover new papers with an exploitation/exploration split:
    - ~80% exploitation: relevant to Leo's research, weighted by like history
    - ~20% exploration: popular papers from unrelated fields
@@ -27,6 +30,7 @@ State that persists between runs (committed in the repo):
 import glob
 import json
 import os
+import re
 import sys
 import urllib.parse
 import urllib.request
@@ -177,6 +181,113 @@ def read_inbox():
     return latest, files
 
 
+def _esc(s):
+    return (s or "").replace("&", "&amp;").replace("<", "&lt;") \
+        .replace(">", "&gt;").replace('"', "&quot;")
+
+
+def _insert_before(html, marker, entry):
+    idx = html.find(marker)
+    if idx == -1:
+        return html
+    return html[:idx] + entry + "\n" + html[idx:]
+
+
+def _insert_after(html, marker, entry):
+    idx = html.find(marker)
+    if idx == -1:
+        return html
+    end = idx + len(marker)
+    return html[:end] + "\n" + entry + html[end:]
+
+
+def update_area_page(slug, items, new_count):
+    """Insert newly KG-added papers into a static docs/areas/<slug>.html page.
+
+    Prepends paper-list entries at the top (the list runs newest-first) and
+    adds a Recent Activity line. Callers pass only papers not already on the
+    page, so re-runs are safe. The Timeline section was removed from area
+    pages; the paper list is the chronological record.
+    """
+    page = REPO / "docs" / "areas" / f"{slug}.html"
+    if not page.exists():
+        log(f"WARN: refresh_site: no area page for '{slug}'; page not updated")
+        return
+    html = page.read_text()
+    fresh = items
+    if not fresh:
+        return
+    if new_count is not None:
+        html = re.sub(r'<span class="meta">\d+ papers</span>',
+                      f'<span class="meta">{new_count} papers</span>',
+                      html, count=1)
+    year = date.today().year
+    block = []
+    for e in fresh:
+        title = _esc(e.get("title") or e["key"])
+        authors = _esc(e.get("authors") or "")
+        block.append(f'<a class="paper-entry" href="../papers/{e["key"]}.html">'
+                     f'[{year}] {authors} — {title}.</a>')
+    html = _insert_after(html, "<h3>Paper List</h3>", "\n".join(block))
+    keys = ", ".join(e["key"] for e in fresh[:5]) + ("..." if len(fresh) > 5 else "")
+    activity = (f'<p>{date.today().isoformat()} | {len(fresh)} paper'
+                f'{"s" if len(fresh) != 1 else ""} added from likes | {keys}</p>')
+    html = _insert_after(html, "<h3>Recent Activity</h3>", activity)
+    page.write_text(html)
+    log(f"  site: {slug}.html +{len(fresh)} papers")
+
+
+def refresh_site(added):
+    """Keep the static website in sync with papers newly added to the KG.
+
+    Updates docs/data/graph.json (the Research Areas tab counts) and the
+    affected docs/areas/<slug>.html pages (count, paper list,
+    recent activity). Paper detail pages are already written by
+    add_paper_to_kg; this only links to them.
+    """
+    if not added:
+        return
+    by_area = {}
+    for e in added:
+        by_area.setdefault(e["area_slug"], []).append(e)
+
+    # Drop papers already linked on their area page so re-runs are safe.
+    fresh_by_area = {}
+    for slug, items in by_area.items():
+        page = REPO / "docs" / "areas" / f"{slug}.html"
+        if page.exists():
+            html = page.read_text()
+            fresh = [e for e in items if f'../papers/{e["key"]}.html' not in html]
+        else:
+            fresh = items
+        if fresh:
+            fresh_by_area[slug] = fresh
+    if not fresh_by_area:
+        return
+
+    graph_path = REPO / "docs" / "data" / "graph.json"
+    graph = load_json(graph_path, default={"nodes": []})
+    node_ids = {n.get("id") for n in graph.get("nodes", [])}
+    new_counts = {}
+    for slug in fresh_by_area:
+        if slug not in node_ids:
+            log(f"WARN: refresh_site: no graph node for area '{slug}'; count not updated")
+    for n in graph.get("nodes", []):
+        if n.get("id") in fresh_by_area:
+            n["papers"] = n.get("papers", 0) + len(fresh_by_area[n["id"]])
+            new_counts[n["id"]] = n["papers"]
+    graph["total_papers"] = sum(n.get("papers", 0) for n in graph.get("nodes", []))
+    save_json(graph_path, graph)
+    log(f"  site: graph.json counts updated ({len(fresh_by_area)} areas, "
+        f"total {graph['total_papers']} papers)")
+
+    for slug, items in fresh_by_area.items():
+        try:
+            update_area_page(slug, items, new_counts.get(slug))
+        except Exception as e:
+            log(f"WARN: refresh_site failed for area '{slug}': {e}")
+
+
 def add_paper_to_kg(key, meta, area_index):
     """Add a liked paper to the knowledge graph. Returns area file."""
     area_file = classify_area(meta)
@@ -234,12 +345,17 @@ def add_paper_to_kg(key, meta, area_index):
 
 
 def ingest_feedback(area_index, profile, history):
-    """Process inbox: likes -> KG first, dislikes -> downweight. Returns counts."""
+    """Process inbox: likes -> KG first, dislikes -> downweight.
+
+    Returns (n_liked, n_disliked, added) where added is a list of
+    {key, title, authors, area_slug} dicts for the site refresh.
+    """
     latest, files = read_inbox()
     processed = load_json(META / "likes_processed.json", default={"processed": []})
     processed_keys = set(processed.get("processed", []))
 
     n_liked = n_disliked = 0
+    added = []
     for key, item in latest.items():
         action = item.get("action")
         paper = item.get("paper") or {}
@@ -257,6 +373,9 @@ def ingest_feedback(area_index, profile, history):
             area_file = add_paper_to_kg(key, meta, area_index)
             processed_keys.add(key)
             profile["area_affinity"][area_file] = profile.get("area_affinity", {}).get(area_file, 0) + 1.0
+            added.append({"key": key, "title": meta["title"],
+                          "authors": meta["authors"],
+                          "area_slug": area_file.replace(".md", "")})
             n_liked += 1
             log(f"  + like {key} -> {area_file}")
         elif action == "dislike":
@@ -275,7 +394,7 @@ def ingest_feedback(area_index, profile, history):
             Path(f).unlink()
         except Exception as e:
             log(f"WARN: could not delete inbox file {f}: {e}")
-    return n_liked, n_disliked
+    return n_liked, n_disliked, added
 
 
 def discover_papers(profile):
@@ -340,8 +459,9 @@ def main():
         profile = {"area_affinity": dict.fromkeys(AREA_WEIGHTS, 0.0)}
     history = load_json(META / "paper_history.json", default={})
 
-    n_liked, n_disliked = ingest_feedback(area_index, profile, history)
+    n_liked, n_disliked, added = ingest_feedback(area_index, profile, history)
     log(f"Feedback ingested: {n_liked} new likes -> KG, {n_disliked} dislikes")
+    refresh_site(added)
     save_json(META / "user_profile.json", profile)
 
     papers = discover_papers(profile)

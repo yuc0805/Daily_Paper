@@ -55,10 +55,6 @@ async function renderAreaGraph(areaSlug) {
 
   const W = container.clientWidth || 900;
   const H = 520;
-  const MIN_YEAR = Math.min(...data.nodes.map(n => n.year));
-  const MAX_YEAR = Math.max(...data.nodes.map(n => n.year));
-  const X_PAD = 50;
-  const xScale = d => X_PAD + ((d.year - MIN_YEAR) / Math.max(1, (MAX_YEAR - MIN_YEAR))) * (W - 2*X_PAD);
 
   container.innerHTML = `
     <div class="area-graph-wrap">
@@ -79,38 +75,21 @@ async function renderAreaGraph(areaSlug) {
     .attr('orient','auto')
     .append('path').attr('d','M0,-4L10,0L0,4').attr('fill','#999');
 
-  // year axis
-  const yearTicks = [];
-  for (let y = MIN_YEAR; y <= MAX_YEAR; y++) yearTicks.push(y);
-  const axis = svg.append('g').attr('class','area-graph-axis');
-  axis.selectAll('line').data(yearTicks).enter().append('line')
-    .attr('x1', y => X_PAD + ((y - MIN_YEAR)/Math.max(1,(MAX_YEAR-MIN_YEAR))) * (W - 2*X_PAD))
-    .attr('x2', y => X_PAD + ((y - MIN_YEAR)/Math.max(1,(MAX_YEAR-MIN_YEAR))) * (W - 2*X_PAD))
-    .attr('y1', H - 24).attr('y2', H - 18)
-    .attr('stroke', '#ccc');
-  axis.selectAll('text').data(yearTicks.filter((y, i) => yearTicks.length <= 12 || i % 2 === 0)).enter().append('text')
-    .attr('x', y => X_PAD + ((y - MIN_YEAR)/Math.max(1,(MAX_YEAR-MIN_YEAR))) * (W - 2*X_PAD))
-    .attr('y', H - 6)
-    .attr('text-anchor','middle')
-    .attr('font-size','10px')
-    .attr('font-family','system-ui, sans-serif')
-    .attr('fill','#888')
-    .text(y => y);
-
-  // Init: x = year-mapped, y = scattered around center
-  data.nodes.forEach((n, i) => {
-    n.x = xScale(n);
-    n.y = H/2 - 80 + (i % 7) * 30;
-  });
+  // Node positions are left to the simulation: layout follows paper
+  // dependencies only (linked papers pull together, the rest repel).
+  // No time axis — chronological order lives in the paper list below.
 
   const linkData = data.edges.map(e => ({...e}));
 
+  // Dependency-driven layout: the link force clusters papers that build on
+  // each other; charge/collide spread unrelated papers apart. Only a gentle
+  // centering keeps the graph in view — position encodes connection, not time.
   const sim = d3.forceSimulation(data.nodes)
-    .force('link', d3.forceLink(linkData).id(d => d.key).distance(60).strength(0.4))
-    .force('charge', d3.forceManyBody().strength(-180))
+    .force('link', d3.forceLink(linkData).id(d => d.key).distance(70).strength(0.7))
+    .force('charge', d3.forceManyBody().strength(-220))
     .force('collide', d3.forceCollide().radius(d => nodeRadius(d) + 6))
-    .force('x', d3.forceX(d => xScale(d)).strength(0.6))
-    .force('y', d3.forceY(H/2 - 20).strength(0.06));
+    .force('x', d3.forceX(W / 2).strength(0.08))
+    .force('y', d3.forceY(H / 2).strength(0.08));
 
   function nodeRadius(d) {
     const deg = (inDeg[d.key]||0) + (outDeg[d.key]||0);
