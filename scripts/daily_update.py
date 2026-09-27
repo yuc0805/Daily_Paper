@@ -354,6 +354,7 @@ def ingest_feedback(area_index, profile, history):
     latest, files = read_inbox()
     processed = load_json(META / "likes_processed.json", default={"processed": []})
     processed_keys = set(processed.get("processed", []))
+    dislike_store = load_json(META / "dislikes.json", default={})
 
     n_liked = n_disliked = 0
     added = []
@@ -383,12 +384,17 @@ def ingest_feedback(area_index, profile, history):
             area_file = classify_area(meta) if meta["title"] else None
             if area_file:
                 profile["area_affinity"][area_file] = profile.get("area_affinity", {}).get(area_file, 0) - 0.3
+            if meta["title"]:
+                # keep the text: dislikes are negative examples for ranking
+                dislike_store[key] = {"title": meta["title"], "summary": meta["summary"]}
             n_disliked += 1
             log(f"  - dislike {key}" + (f" ({area_file})" if area_file else ""))
         # "clear" (toggle-off): intentionally no-op; KG entries already added stay.
 
     processed["processed"] = sorted(processed_keys)
     save_json(META / "likes_processed.json", processed)
+    # keep the most recent 200 dislikes as negative ranking examples
+    save_json(META / "dislikes.json", dict(list(dislike_store.items())[-200:]))
 
     for f in files:
         try:
@@ -418,38 +424,33 @@ def _norm_title(t):
     return re.sub(r"[^a-z0-9]", "", (t or "").lower())
 
 
-def _tfidf_scores(cand_texts, liked_texts):
-    """Cosine similarity of each candidate to the centroid of liked docs.
-
-    Returns a list of floats aligned with cand_texts, in [0, 1]-ish range.
-    """
-    docs = [_tokens(t) for t in liked_texts + cand_texts]
+def _build_tfidf(doc_texts):
+    """L2-normalized TF-IDF vectors (dicts) for each doc, stdlib only."""
+    docs = [_tokens(t) for t in doc_texts]
     n = len(docs)
     df = {}
     for toks in docs:
         for t in set(toks):
             df[t] = df.get(t, 0) + 1
     idf = {t: math.log((1 + n) / (1 + c)) + 1.0 for t, c in df.items()}
-
-    def vec(toks):
+    vecs = []
+    for toks in docs:
         if not toks:
-            return {}
+            vecs.append({})
+            continue
         tf = {}
         for t in toks:
             tf[t] = tf.get(t, 0) + 1
-        v = {t: (c / len(toks)) * idf[t] for t, c in tf.items() if t in idf}
+        v = {t: (c / len(toks)) * idf[t] for t, c in tf.items()}
         norm = math.sqrt(sum(x * x for x in v.values())) or 1.0
-        return {t: x / norm for t, x in v.items()}
+        vecs.append({t: x / norm for t, x in v.items()})
+    return vecs
 
-    vecs = [vec(toks) for toks in docs]
-    centroid = {}
-    for v in vecs[:len(liked_texts)]:
-        for t, x in v.items():
-            centroid[t] = centroid.get(t, 0.0) + x
-    cn = math.sqrt(sum(x * x for x in centroid.values())) or 1.0
-    centroid = {t: x / cn for t, x in centroid.items()}
-    return [sum(x * centroid.get(t, 0.0) for t, x in v.items())
-            for v in vecs[len(liked_texts):]]
+
+def _cos(a, b):
+    if len(a) > len(b):
+        a, b = b, a
+    return sum(x * b.get(t, 0.0) for t, x in a.items())
 
 
 def discover_papers(profile, history):
@@ -459,9 +460,17 @@ def discover_papers(profile, history):
       today_papers: N_DAILY_PAPERS picks for today.json (exploit + explore).
       pool: remaining ranked candidates for the frontend Refresh button.
 
-    Ranking: for-you papers score 0.65 * content-similarity-to-liked +
-    0.35 * recency; explore papers rank by recency. Papers recommended on
-    earlier days (paper_history) are never served again.
+    Ranking: for-you papers score
+      0.40 * similarity-to-library-taste + 0.30 * similarity-to-likes
+      + 0.20 * recency - 0.30 * similarity-to-dislikes.
+    The library taste is a year-weighted centroid of every paper in the
+    knowledge graph (newer library papers count more); likes/dislikes are
+    max-similarity to any individual rated paper, so multiple interests and
+    strong aversions both survive. Explore papers come from unrelated
+    categories (OOD by construction) and rank by recency minus similarity to
+    the library taste, so the most out-of-distribution surface first.
+    Papers recommended on earlier days, already in the library, or rated in
+    the feed are never served again.
     """
     n_explore = max(1, round(N_DAILY_PAPERS * EXPLORE_RATIO))
     n_exploit = N_DAILY_PAPERS - n_explore
@@ -520,26 +529,63 @@ def discover_papers(profile, history):
             seen.add(r["arxiv_id"])
             explore.append(mk_paper(r, "explore", explore_cat=cat))
 
-    # content similarity to papers Leo liked
+    # --- taste profile: library background + likes + dislikes ---
+    lib_entries = load_json(META / "zotero_index.json", default=[])
+    lib_texts, lib_weights = [], []
+    for e in lib_entries:
+        if not e.get("title"):
+            continue
+        lib_texts.append(f"{e.get('title', '')} {e.get('abstract', '')}")
+        try:
+            age = max(0, today.year - int(e.get("year") or today.year))
+        except (ValueError, TypeError):
+            age = 0
+        lib_weights.append(1.0 / (1.0 + 0.5 * age))  # newer library papers count more
+
     liked = load_json(META / "likes_processed.json", default={"processed": []}).get("processed", [])
-    liked_docs = [f"{history[k]['title']} {history[k].get('summary', '')}"
-                  for k in liked if k in history and history[k].get("title")]
-    sim_scores = _tfidf_scores([c["_text"] for c in foryou], liked_docs) if liked_docs else [0.0] * len(foryou)
-    for c, s in zip(foryou, sim_scores):
-        recency = 1.0 / (1.0 + c["_days_old"] / 7.0)
-        c["_score"] = 0.65 * s + 0.35 * recency if liked_docs else recency
+    liked_texts = [f"{history[k]['title']} {history[k].get('summary', '')}"
+                   for k in liked if k in history and history[k].get("title")]
+    disliked = load_json(META / "dislikes.json", default={})
+    disliked_texts = [f"{v.get('title', '')} {v.get('summary', '')}"
+                      for v in disliked.values() if v.get("title")]
+
+    cand_vecs = _build_tfidf(
+        lib_texts + liked_texts + disliked_texts + [c["_text"] for c in foryou + explore])
+    n_lib, n_liked, n_dis = len(lib_texts), len(liked_texts), len(disliked_texts)
+    lib_vecs = cand_vecs[:n_lib]
+    liked_vecs = cand_vecs[n_lib:n_lib + n_liked]
+    dis_vecs = cand_vecs[n_lib + n_liked:n_lib + n_liked + n_dis]
+    cand_vecs = cand_vecs[n_lib + n_liked + n_dis:]
+
+    # year-weighted library centroid = background taste
+    centroid = {}
+    for v, w in zip(lib_vecs, lib_weights):
+        for t, x in v.items():
+            centroid[t] = centroid.get(t, 0.0) + x * w
+    cn = math.sqrt(sum(x * x for x in centroid.values())) or 1.0
+    centroid = {t: x / cn for t, x in centroid.items()}
+
+    for c, cv in zip(foryou + explore, cand_vecs):
+        c["_lib"] = _cos(cv, centroid)
+        c["_like"] = max([_cos(cv, lv) for lv in liked_vecs], default=0.0)
+        c["_dis"] = max([_cos(cv, dv) for dv in dis_vecs], default=0.0)
+        c["_rec"] = 1.0 / (1.0 + c["_days_old"] / 7.0)
+
+    for c in foryou:
+        c["_score"] = (0.40 * c["_lib"] + 0.30 * c["_like"]
+                       + 0.20 * c["_rec"] - 0.30 * c["_dis"])
     foryou.sort(key=lambda c: c["_score"], reverse=True)
     for c in explore:
-        c["_score"] = 1.0 / (1.0 + c["_days_old"] / 7.0)
+        c["_score"] = c["_rec"] - 0.5 * c["_lib"]
     explore.sort(key=lambda c: c["_score"], reverse=True)
 
     today_papers = foryou[:n_exploit] + explore[:n_explore]
     pool = (foryou[n_exploit:] + explore[n_explore:])[:60]
     for p in today_papers + pool:
-        for k in ("_days_old", "_text", "_score"):
+        for k in ("_days_old", "_text", "_score", "_lib", "_like", "_dis", "_rec"):
             p.pop(k, None)
     log(f"discovery: {len(foryou)} for-you + {len(explore)} explore candidates, "
-        f"pool={len(pool)}, liked_docs={len(liked_docs)}")
+        f"pool={len(pool)}, library={n_lib}, liked={n_liked}, disliked={n_dis}")
     return today_papers, pool
 
 
