@@ -100,8 +100,8 @@ const COMMUNITY_LABELS = {};
 // --- Like/Dislike feedback store ---
 // Ratings are sent instantly to the like-worker (see infra/like-worker/README.md)
 // and also kept in localStorage as a backup.
-window.FEEDBACK_ENDPOINT = ''; // <-- paste your Cloudflare Worker URL here
-window.FEEDBACK_SECRET = '';   // <-- same value as the worker's FEEDBACK_SECRET, if you set one
+window.FEEDBACK_ENDPOINT = 'https://daily-paper-likes.yuc0805.workers.dev';
+window.FEEDBACK_SECRET='ZBNplnGuuYMQxwFc59u26eugMLJiOqN7';   // <-- same value as the worker's FEEDBACK_SECRET, if you set one
 const FEEDBACK_KEY = 'daily_paper_feedback_v1';
 const PENDING_KEY = 'daily_paper_pending_v1';
 function loadFeedback() {
