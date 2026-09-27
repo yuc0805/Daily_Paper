@@ -36,7 +36,7 @@
       "id": "computer-vision",
       "label": "Computer Vision",
       "file": "computer-vision.md",
-      "papers": 26,
+      "papers": 30,
       "community": 2,
       "focus": "none"
     },
@@ -60,7 +60,7 @@
       "id": "interpretable-ml",
       "label": "Interpretable ML",
       "file": "interpretable-ml.md",
-      "papers": 25,
+      "papers": 26,
       "community": 6,
       "focus": "none"
     },
@@ -76,7 +76,7 @@
       "id": "llm",
       "label": "LLM",
       "file": "llm.md",
-      "papers": 4,
+      "papers": 6,
       "community": 0,
       "focus": "secondary"
     },
@@ -108,7 +108,7 @@
       "id": "multi-modal",
       "label": "Multi-Modal",
       "file": "multi-modal.md",
-      "papers": 6,
+      "papers": 11,
       "community": 3,
       "focus": "secondary"
     },
@@ -132,7 +132,7 @@
       "id": "reasoning",
       "label": "Reasoning",
       "file": "reasoning.md",
-      "papers": 10,
+      "papers": 16,
       "community": 0,
       "focus": "secondary"
     },
@@ -156,7 +156,7 @@
       "id": "time-series",
       "label": "Signal (Time Series)",
       "file": "time-series.md",
-      "papers": 47,
+      "papers": 62,
       "community": 4,
       "focus": "primary"
     },
@@ -362,6 +362,6 @@
       ]
     }
   ],
-  "total_papers": 228,
+  "total_papers": 261,
   "total_areas": 22
 }
