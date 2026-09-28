@@ -156,7 +156,7 @@
       "id": "time-series",
       "label": "Signal (Time Series)",
       "file": "time-series.md",
-      "papers": 62,
+      "papers": 64,
       "community": 4,
       "focus": "primary"
     },
@@ -362,6 +362,6 @@
       ]
     }
   ],
-  "total_papers": 294,
+  "total_papers": 296,
   "total_areas": 22
 }

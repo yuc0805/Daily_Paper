@@ -1,6 +1,10 @@
 ## Signal Processing and Time Series
 
 ### Timeline
+2026-09 | SemMSA: Latent Semantic-Aided Robust Multimodal Sentiment An (2609.30238) | liked by Leo — added to KG
+
+2026-09 | AD-WM: Action-Discriminative World Models for Counterfactual (2609.30264) | liked by Leo — added to KG
+
 
 1970 | ARIMA (Box et al.) | 
 2017 | Attention Is All You Need (Vaswani et al.) | 
