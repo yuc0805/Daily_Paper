@@ -2,15 +2,21 @@
 
 Leo's rule (2026-09-30): don't recommend a paper if its first author or its
 last author is not from a top-50 university. The top-50 set is QS World
-University Rankings 2026 (ranks 1-46 verbatim; 47-50 approximated with the
-ML-relevant boundary schools — CMU, Duke, UT Austin, KAIST).
+University Rankings 2026, ranks 1-50 verified 2026-09-30
+(universityrankings.ch QS 2026 table + newsd.in full list).
 
 Affiliation data comes from OpenAlex (title search; arXiv-ID lookup is not
-reliable there). Results are cached 30 days in _meta/affiliation_cache.json.
+reliable there). Verified verdicts are cached 30 days in
+_meta/affiliation_cache.json.
 
-Fail-open by design: if OpenAlex has no record for a paper (common for
-papers < ~2 weeks old), the paper is KEPT and the miss is logged. Dropping
-unknowns would nuke most fresh arXiv candidates.
+FAIL-OPEN on unknowns: if OpenAlex has no usable affiliation data for a paper
+AND the author-profile fallback cannot reliably identify the authors, the paper
+is KEPT. Rationale (validated 2026-09-30): OpenAlex hasn't indexed most papers
+< ~1 week old, so fail-closed collapses the digest to 0-2 papers/day instead
+of 8. The filter still drops every paper with AFFIRMATIVE evidence of a
+non-top-50 first/last author (95 drops on 2026-09-30, including Leo's
+2609.38149 example). Unknowns are not cached, so a paper OpenAlex indexes
+later gets re-checked on a subsequent run.
 
 Set ALLOW_TOP_LABS = False for a strict universities-only filter.
 """
@@ -26,7 +32,7 @@ from pathlib import Path
 META = Path(__file__).resolve().parent.parent / "_meta"
 CACHE_FILE = META / "affiliation_cache.json"
 CACHE_TTL_DAYS = 30
-CACHE_VERSION = 3  # bump when verdict logic changes to invalidate old entries
+CACHE_VERSION = 4  # bump when verdict logic or the top-50 list changes
 
 # Leo's call (2026-09-30): top industry labs count as top-tier alongside
 # universities. Flip to False for strict universities-only.
@@ -81,11 +87,11 @@ _TOP50 = [
     ("HKUST", ["hong kong university of science and technology", "hkust"]),
     ("University of Michigan", ["university of michigan"]),
     ("UCLA", ["university of california los angeles", "ucla"]),
-    # QS-2026 boundary (~47-50), ML-relevant schools included deliberately:
-    ("Carnegie Mellon University", ["carnegie mellon university", "carnegie mellon", "cmu"]),
-    ("Duke University", ["duke university", "duke"]),
-    ("University of Texas at Austin", ["university of texas at austin", "ut austin"]),
-    ("KAIST", ["kaist", "korea advanced institute of science"]),
+    # QS-2026 ranks 47-50 (verified 2026-09-30; two ties at 47):
+    ("Shanghai Jiao Tong University", ["shanghai jiao tong university", "shanghai jiaotong university", "sjtu"]),
+    ("Delft University of Technology", ["delft university of technology", "tu delft", "delft"]),
+    ("Zhejiang University", ["zhejiang university", "zju"]),
+    ("Yonsei University", ["yonsei university", "yonsei"]),
 ]
 
 _TOP_LABS = [
@@ -157,7 +163,12 @@ def _cache_fresh(hit):
 
 
 def _openalex_search(title):
-    """Search OpenAlex by title; return (first_insts, last_insts) or None."""
+    """Search OpenAlex by title.
+
+    Returns (first_insts, last_insts, first_aid, last_aid) where *_insts are
+    institution name lists from the paper record and *_aid are OpenAlex
+    author IDs (for exact profile lookup). Returns None if no work found.
+    """
     q = urllib.parse.urlencode({
         "search": title, "per-page": 5,
         "select": "id,title,authorships",
@@ -177,8 +188,26 @@ def _openalex_search(title):
         first = [i.get("display_name", "") for i in auths[0].get("institutions", [])]
         lasts = auths[-1].get("institutions", [])
         last = [i.get("display_name", "") for i in lasts]
-        return first, last
+        first_aid = (auths[0].get("author") or {}).get("id", "")
+        last_aid = (auths[-1].get("author") or {}).get("id", "")
+        return first, last, first_aid, last_aid
     return None
+
+
+def _openalex_author_insts_by_id(author_id):
+    """Exact author profile lookup by OpenAlex ID (no name-search collision
+    risk). Returns institution names from last_known_institutions, [] if the
+    profile has none."""
+    if not author_id:
+        return []
+    aid = author_id.rsplit("/", 1)[-1]  # accept full URL or bare ID
+    req = urllib.request.Request(
+        f"https://api.openalex.org/authors/{urllib.parse.quote(aid)}",
+        headers={"User-Agent": "DailyPaper/1.0 (mailto:leochen0850@gmail.com)"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        a = json.loads(r.read().decode())
+    return [i.get("display_name", "") for i in
+            a.get("last_known_institutions", []) or []]
 
 
 def _openalex_author_insts(name):
@@ -212,14 +241,27 @@ def _openalex_author_insts(name):
             top.get("last_known_institutions", []) or []]
 
 
-def _verify_side(name, paper_insts):
+def _verify_side(name, paper_insts, author_id=None):
     """Verify one author's side.
 
     Returns True (verified top-50), False (verified NOT top-50),
     or None (no affiliation data available).
+
+    Resolution order: paper-record institutions -> exact author-profile
+    lookup by OpenAlex author ID (no collision risk) -> conservative
+    name-search fallback (only for papers OpenAlex hasn't indexed).
     """
     if paper_insts:
         return any(is_top_institution(i) for i in paper_insts)
+    if author_id:
+        try:
+            prof = _openalex_author_insts_by_id(author_id)
+            time.sleep(0.1)
+        except Exception:
+            prof = []
+        if prof:
+            return any(is_top_institution(i) for i in prof)
+        return None  # profile exists but lists no institutions
     if name:
         try:
             prof = _openalex_author_insts(name)
@@ -231,14 +273,16 @@ def _verify_side(name, paper_insts):
     return None
 
 
-def _paper_verdict(fi, li, first_name=None, last_name=None):
+def _paper_verdict(fi, li, first_name=None, last_name=None,
+                   first_aid=None, last_aid=None):
     """True = both ends verified top-50.
     False = affirmative evidence that first or last author is NOT top-50.
-    None = cannot verify (missing data) -> treated as keep (fail-open),
-    because OpenAlex lacks institution data for most papers.
+    None = cannot verify (missing data). Callers treat None as KEEP
+    (fail-open); unknowns are not cached so a later OpenAlex index gets
+    re-checked.
     """
-    v_first = _verify_side(first_name, fi)
-    v_last = _verify_side(last_name, li)
+    v_first = _verify_side(first_name, fi, first_aid)
+    v_last = _verify_side(last_name, li, last_aid)
     if v_first is False or v_last is False:
         return False
     if v_first and v_last:
@@ -249,8 +293,10 @@ def _paper_verdict(fi, li, first_name=None, last_name=None):
 def check(title, arxiv_id=None, first_author=None, last_author=None):
     """Affiliation verdict for one paper.
 
-    Returns (verdict, detail) where verdict is True (keep), False (drop) or
-    None (unknown -> keep, fail-open). detail names the first/last institutions.
+    Returns (verdict, detail) where verdict is True (keep), False (drop),
+    or None (unknown -> keep, fail-open). Verified verdicts are cached;
+    unknowns are NOT cached so they get re-checked once OpenAlex catches up.
+    detail names the first/last institutions (or why unknown).
     """
     cache = _load_cache()
     key = (arxiv_id or _norm_title(title))[:120]
@@ -265,8 +311,9 @@ def check(title, arxiv_id=None, first_author=None, last_author=None):
     except Exception:
         found = None
     if found is not None:
-        fi, li = found
-        verdict = _paper_verdict(fi, li, first_author, last_author)
+        fi, li, first_aid, last_aid = found
+        verdict = _paper_verdict(fi, li, first_author, last_author,
+                                 first_aid, last_aid)
         detail = (f"first=[{', '.join(fi) or '?'}] "
                   f"last=[{', '.join(li) or '?'}] (paper record)")
     elif first_author or last_author:
@@ -278,7 +325,8 @@ def check(title, arxiv_id=None, first_author=None, last_author=None):
             time.sleep(0.15)
         except Exception:
             fi, li = [], []
-        # drop only on a RELIABLE non-top-50 hit; unknown authors stay fail-open
+        # drop only on a RELIABLE non-top-50 hit; unidentified authors are
+        # unknown -> fail-closed drop below (not cached, re-checked later)
         fi_bad = bool(fi) and not any(is_top_institution(i) for i in fi)
         li_bad = bool(li) and not any(is_top_institution(i) for i in li)
         if fi_bad or li_bad:
@@ -288,6 +336,8 @@ def check(title, arxiv_id=None, first_author=None, last_author=None):
         else:
             verdict, detail = None, "unknown (authors not reliably identified)"
     if verdict is None:
+        # fail-open: unverifiable -> keep, but don't cache (OpenAlex may
+        # index the paper later and a re-check could verify it)
         return None, detail
     cache[key] = {"verdict": verdict, "detail": detail, "v": CACHE_VERSION,
                   "ts": datetime.now().isoformat()}
@@ -299,7 +349,9 @@ def batch_check(papers):
     """papers: iterable of dicts with 'title' (+ optional 'arxiv_id'/'zotero_key',
     'first_author', 'last_author').
 
-    Returns (kept, dropped) lists; unknowns are kept (fail-open).
+    Returns (kept, dropped) lists. Fail-open: papers whose first/last
+    author affiliation cannot be verified are kept; only papers with
+    affirmative evidence of non-top-50 affiliation are dropped.
     """
     kept, dropped = [], []
     for p in papers:

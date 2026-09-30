@@ -70,11 +70,9 @@ export default {
     const ts = new Date().toISOString().replace(/[:.]/g, "-");
     const rand = Math.random().toString(36).slice(2, 8);
     const path = `feedback/inbox/${ts}-${rand}-${safeKey}.json`;
-    const reason = typeof body.reason === "string" ? body.reason.slice(0, 40) : "";
     const record = {
       key,
       action,
-      reason,
       paper: {
         title: (paper && paper.title) || "",
         authors: (paper && paper.authors) || "",

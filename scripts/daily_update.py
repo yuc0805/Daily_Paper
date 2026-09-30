@@ -440,6 +440,19 @@ def ingest_feedback(area_index, profile, history):
             log(f"  + like {key} -> {area_file}")
         elif action == "dislike":
             reason = item.get("reason") or ""
+            if reason == "already_known":
+                # "Already know it": deduplicate without teaching topic
+                # aversion. Record in history so it's never recommended
+                # again, but skip the negative content example and the
+                # area-affinity penalty entirely.
+                if key not in history and meta["title"]:
+                    history[key] = {"title": meta["title"],
+                                    "authors": meta["authors"],
+                                    "summary": meta["summary"],
+                                    "what": "Passed: already known"}
+                n_disliked += 1
+                log(f"  - dislike {key} [already_known: dedup only]")
+                continue
             penalty = DISLIKE_REASON_PENALTY.get(reason, DISLIKE_DEFAULT_PENALTY)
             area_file = classify_area(meta) if meta["title"] else None
             if area_file:
@@ -450,6 +463,13 @@ def ingest_feedback(area_index, profile, history):
                 dislike_store[key] = {"title": meta["title"],
                                       "summary": meta["summary"],
                                       "reason": reason}
+            # pool papers aren't in history yet: never recommend a
+            # disliked paper again regardless of reason
+            if key not in history and meta["title"]:
+                history[key] = {"title": meta["title"],
+                                "authors": meta["authors"],
+                                "summary": meta["summary"],
+                                "what": f"Passed [{reason or 'no reason'}]"}
             n_disliked += 1
             log(f"  - dislike {key}" + (f" ({area_file})" if area_file else "")
                 + (f" [{reason}]" if reason else ""))
@@ -468,11 +488,12 @@ def ingest_feedback(area_index, profile, history):
     return n_liked, n_disliked, added
 
 
-# pass-reason -> area-affinity penalty (Leo 2026-09-30: optional "why" on Pass)
+# pass-reason -> area-affinity penalty (Leo 2026-09-30: optional "why" on Pass).
+# "already_known" is handled separately in ingest_feedback (dedup only, no
+# penalty, no negative content example) and is intentionally absent here.
 DISLIKE_REASON_PENALTY = {
     "off_topic": 1.0,      # "Not my area": strong area downweight
     "uninteresting": 0.3,  # standard dislike
-    "already_known": 0.1,  # just exclude; barely penalize the area
     "low_quality": 0.5,
     "clickbait": 0.5,
 }
@@ -721,14 +742,14 @@ def discover_papers(profile, history):
     for _, area_file in weighted:
         cats = AREA_ARXIV_CATS.get(area_file, ["cs.AI", "cs.LG"])
         query = " OR ".join(f"cat:{c}" for c in cats)
-        for r in arxiv_search(query, max_results=10):
+        for r in arxiv_search(query, max_results=25):
             if r["arxiv_id"] in seen or _norm_title(r["title"]) in known_titles:
                 continue
             seen.add(r["arxiv_id"])
             foryou.append(mk_paper(r, "for-you"))
 
     for cat in EXPLORE_CATS:
-        for r in arxiv_search(f"cat:{cat}", max_results=5):
+        for r in arxiv_search(f"cat:{cat}", max_results=10):
             if r["arxiv_id"] in seen or _norm_title(r["title"]) in known_titles:
                 continue
             seen.add(r["arxiv_id"])
@@ -746,8 +767,10 @@ def discover_papers(profile, history):
     conference.sort(key=lambda c: c.get("citations", 0), reverse=True)
     conference = conference[:80]
 
-    # --- affiliation filter: drop papers whose first/last author is not
-    # from a top-50 university (Leo 2026-09-30). Unknowns are kept (fail-open).
+    # --- affiliation filter: drop papers whose first/last author is
+    # verifiably NOT from a top-50 university (Leo 2026-09-30). Fail-open
+    # on unknowns: OpenAlex hasn't indexed most <1-week-old papers, so
+    # fail-closed would collapse the digest to 0-2 papers/day.
     try:
         import affiliation as _aff
         for lst, lname in ((foryou, "for-you"), (explore, "explore"),
