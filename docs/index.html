@@ -29,6 +29,16 @@
 .dislike-btn:hover { border-color: #ef4444; background: #fef2f2; }
 .like-btn.active { background: #22c55e; color: white; border-color: #22c55e; }
 .dislike-btn.active { background: #ef4444; color: white; border-color: #ef4444; }
+.pass-reasons { display: inline-flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.pass-why { font-family: system-ui, sans-serif; font-size: 0.8rem; color: #666; }
+.pass-reason-chip {
+  font-family: system-ui, sans-serif; font-size: 0.78rem;
+  padding: 4px 10px; border: 1px solid var(--border); border-radius: 16px;
+  background: #fff; cursor: pointer; transition: all 0.15s; user-select: none;
+}
+.pass-reason-chip:hover { border-color: #ef4444; background: #fef2f2; }
+.pass-reason-chip.skip { color: #888; }
+.pass-reason-chip.cancel { border: none; color: #aaa; padding: 4px 6px; }
 .rec-badge {
   font-family: system-ui, sans-serif;
   font-size: 0.75rem;
@@ -120,9 +130,10 @@ function savePending(list) {
   localStorage.setItem(PENDING_KEY, JSON.stringify(list));
 }
 // Send one rating to the backend. Queues it locally if the send fails.
-async function sendRating(key, action, paper) {
+async function sendRating(key, action, paper, reason) {
   const payload = {
     key, action, paper: paper || {},
+    reason: reason || undefined,
     ts: new Date().toISOString(),
     secret: window.FEEDBACK_SECRET || undefined,
   };
@@ -207,7 +218,8 @@ function buildTodayCard(p, fb) {
   card.href = `papers/${p.zotero_key}.html`;
   card.className = 'today-card';
   const recType = p.rec_type || 'for-you';
-  const recLabel = recType === 'explore' ? 'Explore' : 'For you';
+  const recLabel = recType === 'explore' ? 'Explore'
+    : recType === 'conference' ? 'Conference' : 'For you';
   card.innerHTML = `
     <div class="today-card-header">
       <h3>${esc(p.title)}</h3>
@@ -235,37 +247,25 @@ function wireCardButtons(wrapper, paperByKey) {
       const key = btn.dataset.key;
       const action = btn.dataset.action;
       const fb2 = loadFeedback();
+      const paper = paperByKey[key] || {};
+      const paperMeta = {
+        title: paper.title, authors: paper.authors, summary: paper.summary,
+        area_slug: paper.area_slug, rec_type: paper.rec_type,
+      };
+      // Pass asks for an optional reason first (improves future ranking)
+      if (action === 'dislike' && fb2[key] !== 'dislike') {
+        showPassReasons(btn, key, paperMeta);
+        return;
+      }
       // Toggle: clicking the same action again removes it
       let sendAction;
       if (fb2[key] === action) { delete fb2[key]; sendAction = 'clear'; }
       else { fb2[key] = action; sendAction = action; }
       saveFeedback(fb2);
       // Send the rating to the backend instantly (fire-and-forget)
-      const paper = paperByKey[key] || {};
-      const paperMeta = {
-        title: paper.title, authors: paper.authors, summary: paper.summary,
-        area_slug: paper.area_slug, rec_type: paper.rec_type,
-      };
       sendRating(key, sendAction, paperMeta);
       if (sendAction === 'dislike') {
-        // social-media behavior: a disliked paper vanishes from the feed
-        const cardWrapper = btn.closest('.today-card-wrapper');
-        shownKeys.delete(key);
-        cardWrapper.style.transition = 'opacity .25s ease';
-        cardWrapper.style.opacity = '0';
-        setTimeout(() => {
-          cardWrapper.remove();
-          if (!document.getElementById('today-cards').children.length) {
-            document.getElementById('today-empty').style.display = 'block';
-          }
-        }, 260);
-        showToast('Removed from your feed', 'Undo', () => {
-          const fb3 = loadFeedback();
-          delete fb3[key];
-          saveFeedback(fb3);
-          sendRating(key, 'clear', paperMeta);
-          renderFeed(todayCache);
-        });
+        removeDislikedCard(btn, key, paperMeta);
         return;
       }
       // Update button states for like / unlike
@@ -275,6 +275,87 @@ function wireCardButtons(wrapper, paperByKey) {
         actions.querySelector(`[data-action="${fb2[key]}"]`).classList.add('active');
       }
     });
+  });
+}
+
+// Optional pass reasons — sent with the dislike so ranking can learn *why*.
+const PASS_REASONS = [
+  ['off_topic', 'Not my area'],
+  ['uninteresting', 'Not interesting'],
+  ['already_known', 'Already know it'],
+  ['low_quality', 'Low quality'],
+  ['clickbait', 'Clickbait'],
+];
+
+function showPassReasons(btn, key, paperMeta) {
+  const actions = btn.closest('.today-card-actions');
+  const existing = actions.querySelector('.pass-reasons');
+  if (existing) {  // tap Pass again to cancel
+    existing.remove();
+    actions.querySelectorAll('.like-btn,.dislike-btn').forEach(b => b.style.display = '');
+    return;
+  }
+  actions.querySelectorAll('.like-btn,.dislike-btn').forEach(b => b.style.display = 'none');
+  const row = document.createElement('span');
+  row.className = 'pass-reasons';
+  const why = document.createElement('span');
+  why.className = 'pass-why';
+  why.textContent = 'Why? ';
+  row.appendChild(why);
+  const pick = (reason) => (ev) => {
+    ev.preventDefault(); ev.stopPropagation();
+    doDislike(key, btn, paperMeta, reason);
+  };
+  PASS_REASONS.forEach(([id, label]) => {
+    const chip = document.createElement('button');
+    chip.className = 'pass-reason-chip';
+    chip.textContent = label;
+    chip.addEventListener('click', pick(id));
+    row.appendChild(chip);
+  });
+  const skip = document.createElement('button');
+  skip.className = 'pass-reason-chip skip';
+  skip.textContent = 'Skip';
+  skip.addEventListener('click', pick(null));
+  row.appendChild(skip);
+  const cancel = document.createElement('button');
+  cancel.className = 'pass-reason-chip cancel';
+  cancel.textContent = '✕';
+  cancel.addEventListener('click', (ev) => {
+    ev.preventDefault(); ev.stopPropagation();
+    row.remove();
+    actions.querySelectorAll('.like-btn,.dislike-btn').forEach(b => b.style.display = '');
+  });
+  row.appendChild(cancel);
+  actions.appendChild(row);
+}
+
+function doDislike(key, btn, paperMeta, reason) {
+  const fb2 = loadFeedback();
+  fb2[key] = 'dislike';
+  saveFeedback(fb2);
+  sendRating(key, 'dislike', paperMeta, reason);
+  removeDislikedCard(btn, key, paperMeta);
+}
+
+function removeDislikedCard(btn, key, paperMeta) {
+  // social-media behavior: a disliked paper vanishes from the feed
+  const cardWrapper = btn.closest('.today-card-wrapper');
+  shownKeys.delete(key);
+  cardWrapper.style.transition = 'opacity .25s ease';
+  cardWrapper.style.opacity = '0';
+  setTimeout(() => {
+    cardWrapper.remove();
+    if (!document.getElementById('today-cards').children.length) {
+      document.getElementById('today-empty').style.display = 'block';
+    }
+  }, 260);
+  showToast('Removed from your feed', 'Undo', () => {
+    const fb3 = loadFeedback();
+    delete fb3[key];
+    saveFeedback(fb3);
+    sendRating(key, 'clear', paperMeta);
+    renderFeed(todayCache);
   });
 }
 

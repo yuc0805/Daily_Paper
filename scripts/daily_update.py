@@ -70,6 +70,55 @@ AREA_ARXIV_CATS = {
 
 EXPLORE_CATS = ["cs.CR", "cs.DB", "cs.HC", "cs.RO", "econ.EM", "physics.soc-ph"]
 
+# --- Top-conference sourcing (Leo 2026-09-30: recommend top-conference
+# papers even if they aren't brand new) ---
+N_CONFERENCE = 2  # of the 8 daily picks, this many come from top venues
+CONF_VENUES = ["NeurIPS", "ICML", "ICLR", "CVPR", "ICCV", "ECCV",
+               "ACL", "EMNLP", "NAACL", "AAAI", "CoRL", "AISTATS",
+               "KDD", "UAI", "COLT"]
+CONF_YEAR_RANGE = "2024-2026"  # allow slightly older papers (Leo: freshness optional)
+
+
+def s2_conference_search(max_results=200):
+    """Top-cited recent papers from top AI venues via Semantic Scholar bulk API."""
+    params = {
+        "venue": ",".join(CONF_VENUES),
+        "year": CONF_YEAR_RANGE,
+        "fieldsOfStudy": "Computer Science",
+        "sort": "citationCount:desc",
+        "limit": min(max_results, 1000),
+        "fields": "title,abstract,authors,year,citationCount,externalIds,url,venue",
+    }
+    url = ("https://api.semanticscholar.org/graph/v1/paper/search/bulk?"
+           + urllib.parse.urlencode(params))
+    log(f"S2 conference search: {len(CONF_VENUES)} venues, {CONF_YEAR_RANGE}...")
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "DailyPaper/1.0"})
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            data = json.loads(resp.read().decode())
+    except Exception as e:
+        log(f"S2 conference search failed: {e}")
+        return []
+    papers = []
+    for p in data.get("data", []):
+        arxiv_id = (p.get("externalIds") or {}).get("ArXiv")
+        if not arxiv_id:  # keep the pipeline uniform: arXiv-linked papers only
+            continue
+        arxiv_id = arxiv_id.split("v")[0]
+        authors = [a.get("name", "") for a in p.get("authors", []) if a.get("name")]
+        papers.append({
+            "arxiv_id": arxiv_id,
+            "title": " ".join((p.get("title") or "").split()),
+            "summary": " ".join((p.get("abstract") or "").split()),
+            "authors": authors,
+            "published": f"{p.get('year') or 2025}-07-01",  # S2 gives year only
+            "venue": p.get("venue") or "",
+            "citations": p.get("citationCount") or 0,
+            "url": p.get("url") or "",
+        })
+    log(f"S2 conference search: {len(papers)} candidates with arXiv IDs")
+    return papers
+
 
 def log(msg):
     print(f"[{datetime.now().isoformat()}] {msg}", flush=True)
@@ -390,14 +439,20 @@ def ingest_feedback(area_index, profile, history):
             n_liked += 1
             log(f"  + like {key} -> {area_file}")
         elif action == "dislike":
+            reason = item.get("reason") or ""
+            penalty = DISLIKE_REASON_PENALTY.get(reason, DISLIKE_DEFAULT_PENALTY)
             area_file = classify_area(meta) if meta["title"] else None
             if area_file:
-                profile["area_affinity"][area_file] = profile.get("area_affinity", {}).get(area_file, 0) - 0.3
+                aff = profile.get("area_affinity", {})
+                aff[area_file] = aff.get(area_file, 0) - penalty
             if meta["title"]:
                 # keep the text: dislikes are negative examples for ranking
-                dislike_store[key] = {"title": meta["title"], "summary": meta["summary"]}
+                dislike_store[key] = {"title": meta["title"],
+                                      "summary": meta["summary"],
+                                      "reason": reason}
             n_disliked += 1
-            log(f"  - dislike {key}" + (f" ({area_file})" if area_file else ""))
+            log(f"  - dislike {key}" + (f" ({area_file})" if area_file else "")
+                + (f" [{reason}]" if reason else ""))
         # "clear" (toggle-off): intentionally no-op; KG entries already added stay.
 
     processed["processed"] = sorted(processed_keys)
@@ -411,6 +466,17 @@ def ingest_feedback(area_index, profile, history):
         except Exception as e:
             log(f"WARN: could not delete inbox file {f}: {e}")
     return n_liked, n_disliked, added
+
+
+# pass-reason -> area-affinity penalty (Leo 2026-09-30: optional "why" on Pass)
+DISLIKE_REASON_PENALTY = {
+    "off_topic": 1.0,      # "Not my area": strong area downweight
+    "uninteresting": 0.3,  # standard dislike
+    "already_known": 0.1,  # just exclude; barely penalize the area
+    "low_quality": 0.5,
+    "clickbait": 0.5,
+}
+DISLIKE_DEFAULT_PENALTY = 0.3
 
 
 # --- Content-based ranking (TF-IDF cosine, stdlib only) ---
@@ -486,6 +552,10 @@ def write_digest_paper_pages(today_papers, pool):
             cat = _esc(p.get("explore_cat") or "another field")
             bits.append(f"Picked for exploration — from {cat}, outside your usual "
                         f"research areas.")
+        elif p.get("rec_type") == "conference":
+            venue = _esc(p.get("venue") or "a top venue")
+            bits.append(f"A top-conference paper ({venue}) — highly cited and "
+                        f"close to your interests.")
         else:
             contribs = [("Close to papers already in your library.", 0.20 * p.get("_lib", 0)),
                         ("Similar to a paper you liked.", 0.15 * p.get("_like", 0)),
@@ -497,6 +567,15 @@ def write_digest_paper_pages(today_papers, pool):
         return " ".join(bits)
 
     def fame_badge(p):
+        if p.get("rec_type") == "explore":
+            return ("<span class=\"rec-badge explore\">Explore</span>")
+        if p.get("rec_type") == "conference":
+            venue = _esc(p.get("venue") or "Top conference")
+            cit = p.get("citations", 0) or 0
+            label = f"Conference · {venue}"
+            if cit:
+                label += f" · {cit} citation{'s' if cit != 1 else ''}"
+            return f"<span class=\"rec-badge fame\">{label}</span>"
         if p.get("rec_type") != "for-you":
             return ("<span class=\"rec-badge explore\">Explore</span>")
         tier = p.get("tier", 0)
@@ -606,6 +685,31 @@ def discover_papers(profile, history):
             "area_label": label, "area_slug": slug, "builds_on": "",
             "rec_type": rec_type, "_days_old": days_old,
             "_text": f"{r['title']} {r['summary']}",
+            "first_author": (r["authors"] or [None])[0],
+            "last_author": (r["authors"] or [None])[-1],
+        }
+
+    def mk_conf_paper(r):
+        authors = ", ".join(r["authors"][:4]) + (" et al." if len(r["authors"]) > 4 else "")
+        area = classify_area(r)
+        label = area.replace(".md", "").replace("-", " ").title()
+        slug = area.replace(".md", "")
+        try:
+            days_old = max(0, (today - date.fromisoformat(r["published"])).days)
+        except ValueError:
+            days_old = 365
+        return {
+            "zotero_key": r["arxiv_id"], "title": r["title"],
+            "authors": authors, "year": int(r["published"][:4]),
+            "what": "[Conference] " + r["summary"][:280],
+            "summary": r["summary"],
+            "area_label": label, "area_slug": slug, "builds_on": "",
+            "rec_type": "conference", "_days_old": days_old,
+            "_text": f"{r['title']} {r['summary']}",
+            "venue": r.get("venue", ""), "tier": 1,
+            "citations": r.get("citations", 0),
+            "first_author": (r["authors"] or [None])[0],
+            "last_author": (r["authors"] or [None])[-1],
         }
 
     affinity = profile.get("area_affinity", {})
@@ -630,6 +734,32 @@ def discover_papers(profile, history):
             seen.add(r["arxiv_id"])
             explore.append(mk_paper(r, "explore", explore_cat=cat))
 
+    # top-conference candidates (S2, 2024-2026, any freshness).
+    # Cap by citations BEFORE the affiliation check: we only need a few
+    # for the digest + pool, and each affiliation lookup costs API calls.
+    conference = []
+    for r in s2_conference_search(max_results=200):
+        if r["arxiv_id"] in seen or _norm_title(r["title"]) in known_titles:
+            continue
+        seen.add(r["arxiv_id"])
+        conference.append(mk_conf_paper(r))
+    conference.sort(key=lambda c: c.get("citations", 0), reverse=True)
+    conference = conference[:80]
+
+    # --- affiliation filter: drop papers whose first/last author is not
+    # from a top-50 university (Leo 2026-09-30). Unknowns are kept (fail-open).
+    try:
+        import affiliation as _aff
+        for lst, lname in ((foryou, "for-you"), (explore, "explore"),
+                           (conference, "conference")):
+            kept, dropped = _aff.batch_check(lst)
+            lst[:] = kept
+            if dropped:
+                log(f"affiliation filter: dropped {len(dropped)} {lname} "
+                    f"({'; '.join(d.get('title', '')[:40] for d in dropped[:3])})")
+    except Exception as e:
+        log(f"WARN: affiliation filter failed ({e}); keeping all candidates")
+
     # --- taste profile: library background + likes + dislikes ---
     lib_entries = load_json(META / "zotero_index.json", default=[])
     lib_texts, lib_weights = [], []
@@ -651,7 +781,8 @@ def discover_papers(profile, history):
                       for v in disliked.values() if v.get("title")]
 
     cand_vecs = _build_tfidf(
-        lib_texts + liked_texts + disliked_texts + [c["_text"] for c in foryou + explore])
+        lib_texts + liked_texts + disliked_texts
+        + [c["_text"] for c in foryou + explore + conference])
     n_lib, n_liked, n_dis = len(lib_texts), len(liked_texts), len(disliked_texts)
     lib_vecs = cand_vecs[:n_lib]
     liked_vecs = cand_vecs[n_lib:n_lib + n_liked]
@@ -666,7 +797,7 @@ def discover_papers(profile, history):
     cn = math.sqrt(sum(x * x for x in centroid.values())) or 1.0
     centroid = {t: x / cn for t, x in centroid.items()}
 
-    for c, cv in zip(foryou + explore, cand_vecs):
+    for c, cv in zip(foryou + explore + conference, cand_vecs):
         c["_lib"] = _cos(cv, centroid)
         c["_like"] = max([_cos(cv, lv) for lv in liked_vecs], default=0.0)
         c["_dis"] = max([_cos(cv, dv) for dv in dis_vecs], default=0.0)
@@ -697,15 +828,33 @@ def discover_papers(profile, history):
         c["_score"] = c["_rec"] - 0.5 * c["_lib"]
     explore.sort(key=lambda c: c["_score"], reverse=True)
 
-    today_papers = foryou[:n_exploit] + explore[:n_explore]
-    pool = (foryou[n_exploit:] + explore[n_explore:])[:60]
+    # conference papers: fame from S2 (tier 1 by construction), same blend
+    try:
+        import fame as _fame2
+        _cinfos = [{"tier": 1, "citations": c.get("citations", 0),
+                    "venue": c.get("venue", "")} for c in conference]
+        _cscores = _fame2.fame_scores(_cinfos)
+    except Exception:
+        _cscores = [0.0 for _ in conference]
+    for c, fs in zip(conference, _cscores):
+        c["_fame"] = fs
+        c["_score"] = (0.55 * fs + 0.20 * c["_lib"] + 0.15 * c["_like"]
+                       + 0.10 * c["_rec"] - 0.30 * c["_dis"])
+    conference.sort(key=lambda c: c["_score"], reverse=True)
+
+    n_conf = min(N_CONFERENCE, len(conference))
+    n_foryou = max(0, n_exploit - n_conf)
+    today_papers = foryou[:n_foryou] + conference[:n_conf] + explore[:n_explore]
+    pool = (foryou[n_foryou:] + conference[n_conf:] + explore[n_explore:])[:60]
     write_digest_paper_pages(today_papers, pool)  # before internal keys are popped
     for p in today_papers + pool:
         for k in ("_days_old", "_text", "_score", "_lib", "_like", "_dis",
-                  "_rec", "_fame"):
+                  "_rec", "_fame", "_aff_detail",
+                  "first_author", "last_author"):
             p.pop(k, None)
-    log(f"discovery: {len(foryou)} for-you + {len(explore)} explore candidates, "
-        f"pool={len(pool)}, library={n_lib}, liked={n_liked}, disliked={n_dis}")
+    log(f"discovery: {len(foryou)} for-you + {len(conference)} conference + "
+        f"{len(explore)} explore candidates, pool={len(pool)}, "
+        f"library={n_lib}, liked={n_liked}, disliked={n_dis}")
     return today_papers, pool
 
 
