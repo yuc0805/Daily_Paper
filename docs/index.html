@@ -189,7 +189,7 @@ document.getElementById('export-likes').addEventListener('click', () => {
 });
 
 async function main() {
-  const resp = await fetch('data/graph.json');
+  const resp = await fetch('data/graph.json?v=' + Date.now());
   const data = await resp.json();
   data.communities.forEach(c => { COMMUNITY_LABELS[c.id] = c.label; });
   await renderToday();
@@ -379,7 +379,7 @@ function renderFeed(papers) {
 async function renderToday() {
   const dateEl = document.getElementById('today-date');
   try {
-    const resp = await fetch('data/today.json');
+    const resp = await fetch('data/today.json?v=' + Date.now());
     if (!resp.ok) throw new Error('no today.json');
     const today = await resp.json();
     dateEl.textContent = today.date || '';
@@ -398,7 +398,7 @@ async function refreshFeed() {
   btn.innerHTML = 'Loading&hellip;';
   try {
     if (!poolCache) {
-      const resp = await fetch('data/pool.json');
+      const resp = await fetch('data/pool.json?v=' + Date.now());
       if (!resp.ok) throw new Error('no pool yet');
       poolCache = await resp.json();
     }
