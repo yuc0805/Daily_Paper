@@ -2054,6 +2054,13 @@
       "source": "user-like",
       "date": "2026-09-28",
       "area": "time-series.md"
+    },
+    {
+      "paper": "2609.40265",
+      "title": "OpenTSLM TeeMoE: A Unified Time-Series Language Model for Forecasting, Contextual Prediction, and Reasoning",
+      "source": "user-like",
+      "date": "2026-10-01",
+      "area": "time-series.md"
     }
   ],
   "hyperedges": [

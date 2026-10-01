@@ -1,10 +1,11 @@
 {
   "area_affinity": {
-    "time-series.md": 2.4000000000000004,
+    "time-series.md": 3.4000000000000004,
     "llm-health.md": 1.0,
     "llm.md": 0.39999999999999997,
     "reasoning.md": 0.09999999999999998,
     "nlp.md": -0.3,
-    "computer-vision.md": -0.3
+    "computer-vision.md": -0.3,
+    "audio.md": -1.0
   }
 }

@@ -1,6 +1,8 @@
 ## Signal Processing and Time Series
 
 ### Timeline
+2026-10 | OpenTSLM TeeMoE: A Unified Time-Series Language Model for Fo (2609.40265) | liked by Leo — added to KG
+
 2026-09 | SemMSA: Latent Semantic-Aided Robust Multimodal Sentiment An (2609.30238) | liked by Leo — added to KG
 
 2026-09 | AD-WM: Action-Discriminative World Models for Counterfactual (2609.30264) | liked by Leo — added to KG

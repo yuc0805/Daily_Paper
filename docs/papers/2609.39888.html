@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markovian Dynamics Enforcer: Feasibility Preserving Correction on Learned Dynamics Manifolds — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Markovian Dynamics Enforcer: Feasibility Preserving Correction on Learned Dynamics Manifolds</h2>
+<p class="paper-meta">Kevin Yu, Tao Guo, Constantinos Antoniou, Panagiotis Angeloudis &middot; 2026 &middot; <span class="rec-badge fame">Conference · NeurIPS</span> &middot; <a href="https://arxiv.org/abs/2609.39888" target="_blank" rel="noopener">arXiv:2609.39888</a></p>
+<h3>Why recommended</h3>
+<p>A top-conference paper (NeurIPS) — highly cited and close to your interests.</p>
+<h3>Abstract</h3>
+<p>Neural trajectory predictors can reach low prediction error while violating dynamics, actuator limits, or state constraints, especially when controls are unobserved and dynamics are partially specified. We introduce the Markovian Dynamics Enforcer (MaDE), a time-invariant post-hoc operator mapping state-transition proposals onto a learned feasible dynamics manifold, trained on feasible states without ground-truth controls. For each transition it infers a control and recomputes the state through a completion model of known physics plus a learned residual. It then corrects that control by gradient-based inequality reduction, so inequality satisfaction is best-effort within an iteration budget. Since every correction iterate re-enters the completion model, the returned state is dynamically consistent by construction relative to that model and the supplied previous-state anchor. MaDE drives dynamics residuals to essentially zero on fully specified simulated systems, and on an underspecified system leaves a smaller true-dynamics residual than the baselines. Designed to attach to arbitrary predictors, the frozen operator is evaluated downstream of recurrent, structured state-space, and transformer predictors. On recorded vehicle trajectories the one-step residual against a kinematic bicycle model is 0.0071 to 0.0072 for MaDE and 0.1703 to 0.1714 for raw predictors. MaDE raises average displacement error by a factor of 1.57 to 1.83.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
