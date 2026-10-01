@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ComputerSD: Online Self-Distillation from Real-Time Feedback for Computer-Use Agents — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>ComputerSD: Online Self-Distillation from Real-Time Feedback for Computer-Use Agents</h2>
+<p class="paper-meta">Yong Du, Tongbo Chen, Zhengxi Lu, Yizhou Liu et al. &middot; 2026 &middot; <span class="rec-badge">arXiv</span> &middot; <a href="https://arxiv.org/abs/2609.40253" target="_blank" rel="noopener">arXiv:2609.40253</a></p>
+<h3>Why recommended</h3>
+<p>Very recent in your research areas.</p>
+<h3>Abstract</h3>
+<p>Online training enables computer-use agents (CUAs) to improve through interaction with executable environments. However, existing methods primarily rely on sparse outcome rewards, which provide no supervision for intermediate actions. On-policy self-distillation (OPSD) offers token-level learning signals through privileged rescoring, but directly applying it to CUA online training presents two challenges: fixed guidance may become misaligned with the student's current state, and guidance-induced probability shifts may conflict with step-level correctness. We introduce ComputerSD, an online self-distillation method for CUAs that converts real-time feedback from executed GUI transitions into guidance for policy learning. A fine-tuned GUI analyzer produces guidance and a step-level value score after each action; the guidance provides privileged context, while the score regulates the resulting OPSD signals. ComputerSD jointly optimizes token-level OPSD and trajectory-level GRPO in a fully asynchronous training framework. On OSWorld-Verified, ComputerSD outperforms outcome-only GRPO by 1.9 and 4.1 percentage points on the general-purpose Qwen3-VL-8B-Thinking and specialized EvoCUA-8B backbones, respectively. Evaluation in out-of-distribution settings further supports the generalizability of ComputerSD. These results demonstrate the effectiveness of learning from real-time feedback through online self-distillation for CUAs.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>

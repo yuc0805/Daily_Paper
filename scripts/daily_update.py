@@ -35,6 +35,7 @@ import re
 import sys
 import urllib.parse
 import urllib.request
+import urllib.error
 import xml.etree.ElementTree as ET
 from datetime import date, datetime
 from pathlib import Path
@@ -79,45 +80,279 @@ CONF_VENUES = ["NeurIPS", "ICML", "ICLR", "CVPR", "ICCV", "ECCV",
 CONF_YEAR_RANGE = "2024-2026"  # allow slightly older papers (Leo: freshness optional)
 
 
-def s2_conference_search(max_results=200):
-    """Top-cited recent papers from top AI venues via Semantic Scholar bulk API."""
-    params = {
-        "venue": ",".join(CONF_VENUES),
-        "year": CONF_YEAR_RANGE,
-        "fieldsOfStudy": "Computer Science",
-        "sort": "citationCount:desc",
-        "limit": min(max_results, 1000),
-        "fields": "title,abstract,authors,year,citationCount,externalIds,url,venue",
-    }
-    url = ("https://api.semanticscholar.org/graph/v1/paper/search/bulk?"
-           + urllib.parse.urlencode(params))
-    log(f"S2 conference search: {len(CONF_VENUES)} venues, {CONF_YEAR_RANGE}...")
+def _oa_get(url, quiet_404=False):
+    """OpenAlex GET with polite UA; None on failure."""
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "DailyPaper/1.0"})
         with urllib.request.urlopen(req, timeout=60) as resp:
-            data = json.loads(resp.read().decode())
+            return json.loads(resp.read().decode())
+    except urllib.error.HTTPError as e:
+        if not (quiet_404 and e.code == 404):
+            log(f"OpenAlex request failed: HTTP Error {e.code}")
+        return None
     except Exception as e:
-        log(f"S2 conference search failed: {e}")
-        return []
-    papers = []
-    for p in data.get("data", []):
-        arxiv_id = (p.get("externalIds") or {}).get("ArXiv")
-        if not arxiv_id:  # keep the pipeline uniform: arXiv-linked papers only
+        log(f"OpenAlex request failed: {e}")
+        return None
+
+
+def _oa_abstract(inv):
+    inv = inv or {}
+    if not inv:
+        return ""
+    pos = {}
+    for w, idxs in inv.items():
+        for i in idxs:
+            pos[i] = w
+    try:
+        return " ".join(pos[i] for i in sorted(pos))[:2000]
+    except Exception:
+        return ""
+
+
+def _oa_arxiv_id(work):
+    for loc in (work.get("locations") or []):
+        for u in (loc.get("landing_page_url"), loc.get("pdf_url")):
+            if not u:
+                continue
+            m = re.search(r"arxiv\.org/(?:abs|pdf)/(\d+\.\d+)", u)
+            if m:
+                return m.group(1)
+    return None
+
+
+def _oa_authors(work):
+    out = []
+    for a in (work.get("authorships") or []):
+        name = (a.get("author") or {}).get("display_name")
+        if name:
+            out.append(name)
+    return out
+
+
+_OA_VENUE_PATTERNS = [
+    ("NeurIPS", r"neural information processing systems"),
+    ("ICML", r"international conference on machine learning(?! and applications)"),
+    ("ICLR", r"international conference on learning representations"),
+    ("CVPR", r"computer vision and pattern recognition"),
+    ("ICCV", r"international conference on computer vision"),
+    ("ECCV", r"european conference on computer vision"),
+    ("ACL", r"annual meeting of the association for computational linguistics"),
+    ("EMNLP", r"empirical methods in natural language processing"),
+    ("NAACL", r"north american chapter of the association for computational linguistics"),
+    ("AAAI", r"aaai conference on artificial intelligence"),
+    ("CoRL", r"conference on robot learning"),
+    ("AISTATS", r"artificial intelligence and statistics"),
+    ("KDD", r"knowledge discovery and data mining"),
+    ("UAI", r"uncertainty in artificial intelligence"),
+    ("COLT", r"(conference on learning theory|computational learning theory)"),
+]
+
+
+def _oa_venue_of(work):
+    names = set()
+    for loc in (work.get("locations") or []):
+        s = ((loc.get("source") or {}).get("display_name") or "")
+        if s:
+            names.add(s)
+    blob = " | ".join(names).lower()
+    for short, pat in _OA_VENUE_PATTERNS:
+        if re.search(pat, blob):
+            return short
+    return None
+
+
+def _oa_work_to_paper(work, venue, arxiv_id=None):
+    """Map an OpenAlex work to the pipeline's conference paper dict.
+    Returns None when no arXiv ID can be established (pipeline uniformity)."""
+    arxiv_id = arxiv_id or _oa_arxiv_id(work)
+    if not arxiv_id:
+        return None
+    title = " ".join((work.get("title") or "").split())
+    if not title:
+        return None
+    return {
+        "arxiv_id": arxiv_id,
+        "title": title,
+        "summary": _oa_abstract(work.get("abstract_inverted_index")),
+        "authors": _oa_authors(work),
+        "published": (work.get("publication_date") or "2025-07-01")[:10],
+        "venue": venue,
+        "citations": work.get("cited_by_count") or 0,
+        "url": f"https://arxiv.org/abs/{arxiv_id}",
+    }
+
+
+def _arxiv_ids_for_titles(titles):
+    """Batch-resolve arXiv IDs by exact title via the arXiv API.
+    Returns {normalized_title: arxiv_id}."""
+    import time as _t
+    import xml.etree.ElementTree as ET
+    found = {}
+    titles = [t for t in titles if t]
+    for i in range(0, len(titles), 8):
+        chunk = titles[i:i + 8]
+        q = " OR ".join("ti:\"" + t[:90].replace("\"", "") + "\"" for t in chunk)
+        url = "http://export.arxiv.org/api/query?" + urllib.parse.urlencode(
+            {"search_query": q, "start": 0, "max_results": 50})
+        root = None
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(url, timeout=30) as resp:
+                    root = ET.fromstring(resp.read())
+                break
+            except Exception as e:
+                log(f"arXiv title lookup attempt {attempt + 1}/3 failed: {e}")
+                _t.sleep(3 * (attempt + 1))
+        if root is None:
+            _t.sleep(3)
             continue
-        arxiv_id = arxiv_id.split("v")[0]
-        authors = [a.get("name", "") for a in p.get("authors", []) if a.get("name")]
-        papers.append({
-            "arxiv_id": arxiv_id,
-            "title": " ".join((p.get("title") or "").split()),
-            "summary": " ".join((p.get("abstract") or "").split()),
-            "authors": authors,
-            "published": f"{p.get('year') or 2025}-07-01",  # S2 gives year only
-            "venue": p.get("venue") or "",
-            "citations": p.get("citationCount") or 0,
-            "url": p.get("url") or "",
-        })
-    log(f"S2 conference search: {len(papers)} candidates with arXiv IDs")
-    return papers
+        ns = {"a": "http://www.w3.org/2005/Atom"}
+        for e in root.findall("a:entry", ns):
+            t = " ".join((e.find("a:title", ns).text or "").strip().split())
+            pid = (e.find("a:id", ns).text or "").strip().split("/")[-1].split("v")[0]
+            found[re.sub(r"[^a-z0-9]", "", t.lower())] = pid
+        _t.sleep(3)  # arXiv politeness
+    return found
+
+
+def _oa_citations_for_arxiv(arxiv_ids):
+    """cited_by_count per arXiv ID via OpenAlex canonical arXiv URLs."""
+    out = {}
+    for aid in arxiv_ids:
+        data = _oa_get(f"https://api.openalex.org/works/https://arxiv.org/abs/{aid}"
+                       "?select=cited_by_count", quiet_404=True)
+        if data:
+            out[aid] = data.get("cited_by_count") or 0
+    return out
+
+
+def openalex_conference_search(max_results=200):
+    """Top-cited papers from top AI venues.
+
+    Semantic Scholar is unreachable from this host (persistent HTTP 429),
+    so this combines three OpenAlex/arXiv sources instead:
+      1. AAAI via its OpenAlex proceedings source (best venue coverage),
+      2. OpenAlex conference works matching our venue list (keyword match),
+      3. recent arXiv papers whose comments name a top venue (fame.py regex).
+    Returns the same dict shape the old S2 search returned.
+    """
+    import fame as _fame
+    papers, seen_titles = [], set()
+
+    def _add(p):
+        t = _norm_title(p["title"])
+        if t and t not in seen_titles:
+            seen_titles.add(t)
+            papers.append(p)
+
+    # --- Source 1: AAAI proceedings (canonical OpenAlex source) ---
+    log("conference search: AAAI via OpenAlex proceedings source...")
+    params = urllib.parse.urlencode({
+        "filter": "locations.source.id:S4210191458,from_publication_date:2024-01-01",
+        "per-page": 60,
+        "select": "id,title,abstract_inverted_index,authorships,cited_by_count,"
+                  "publication_date,locations",
+        "sort": "cited_by_count:desc"})
+    data = _oa_get("https://api.openalex.org/works?" + params) or {}
+    missing = []
+    for w in data.get("results", []):
+        p = _oa_work_to_paper(w, "AAAI")
+        if p:
+            _add(p)
+        elif w.get("title"):
+            missing.append(w)
+    if missing:  # backfill arXiv IDs by title for the rest
+        t2id = _arxiv_ids_for_titles([w.get("title", "") for w in missing])
+        for w in missing:
+            aid = t2id.get(re.sub(r"[^a-z0-9]", "", (w.get("title") or "").lower()))
+            if not aid:
+                continue
+            p = _oa_work_to_paper(w, "AAAI", arxiv_id=aid)
+            if p:
+                p["url"] = f"https://arxiv.org/abs/{aid}"
+                _add(p)
+    log(f"conference search: source 1 (AAAI) -> {len(papers)} papers")
+
+    # --- Source 2: OpenAlex conference works matching our venue keywords ---
+    log("conference search: OpenAlex venue-keyword match...")
+    params = urllib.parse.urlencode({
+        "filter": "locations.source.type:conference,from_publication_date:2024-01-01",
+        "search": "machine learning",
+        "per-page": 200,
+        "select": "id,title,abstract_inverted_index,authorships,cited_by_count,"
+                  "publication_date,locations",
+        "sort": "cited_by_count:desc"})
+    data = _oa_get("https://api.openalex.org/works?" + params) or {}
+    n2 = 0
+    missing = []
+    for w in data.get("results", []):
+        venue = _oa_venue_of(w)
+        if not venue or venue == "AAAI":
+            continue
+        p = _oa_work_to_paper(w, venue)
+        if p:
+            _add(p)
+            n2 += 1
+        elif w.get("title"):
+            missing.append((w, venue))
+    t2id = _arxiv_ids_for_titles([w.get("title", "") for w, _ in missing]) if missing else {}
+    for w, venue in missing:
+        aid = t2id.get(re.sub(r"[^a-z0-9]", "", (w.get("title") or "").lower()))
+        if not aid:
+            continue
+        p = _oa_work_to_paper(w, venue, arxiv_id=aid)
+        if p:
+            p["url"] = f"https://arxiv.org/abs/{aid}"
+            _add(p)
+            n2 += 1
+    log(f"conference search: source 2 (venue keywords) -> {n2} papers")
+
+    # --- Source 3: recent arXiv papers with top-venue comments ---
+    log("conference search: arXiv comment mining for venue mentions...")
+    import xml.etree.ElementTree as ET
+    import time as _t
+    query = " OR ".join(f"cat:{c}" for c in
+                        ["cs.LG", "cs.AI", "cs.CL", "cs.CV"])
+    url = "http://export.arxiv.org/api/query?" + urllib.parse.urlencode(
+        {"search_query": query, "start": 0, "max_results": 400,
+         "sortBy": "submittedDate", "sortOrder": "descending"})
+    n3 = 0
+    try:
+        with urllib.request.urlopen(url, timeout=60) as resp:
+            root = ET.fromstring(resp.read())
+        ns = {"a": "http://www.w3.org/2005/Atom",
+              "arxiv": "http://arxiv.org/schemas/atom"}
+        mined = []
+        for entry in root.findall("a:entry", ns):
+            cel = entry.find("arxiv:comment", ns)
+            comment = (cel.text or "") if cel is not None else ""
+            tier, venue = _fame.parse_comment(comment)
+            if tier < 1 or not venue:
+                continue
+            if venue not in CONF_VENUES:
+                continue  # keep the conference slot to Leo's 15 venues
+            pid = (entry.find("a:id", ns).text or "").strip().split("/")[-1].split("v")[0]
+            title = " ".join((entry.find("a:title", ns).text or "").strip().split())
+            summary = " ".join((entry.find("a:summary", ns).text or "").strip().split())
+            authors = [(a.find("a:name", ns).text or "")
+                       for a in entry.findall("a:author", ns)]
+            pub = (entry.find("a:published", ns).text or "")[:10]
+            mined.append({"arxiv_id": pid, "title": title, "summary": summary,
+                          "authors": authors, "published": pub or "2025-07-01",
+                          "venue": venue, "citations": 0,
+                          "url": f"https://arxiv.org/abs/{pid}"})
+        cites = _oa_citations_for_arxiv([m["arxiv_id"] for m in mined[:80]])
+        for m in mined:
+            m["citations"] = cites.get(m["arxiv_id"], 0)
+            _add(m)
+            n3 += 1
+    except Exception as e:
+        log(f"arXiv comment mining failed: {e}")
+    log(f"conference search: source 3 (arXiv comments) -> {n3} papers")
+
+    papers.sort(key=lambda p: p.get("citations", 0), reverse=True)
+    log(f"conference search: {len(papers)} total candidates (cap {max_results})")
+    return papers[:max_results]
 
 
 def log(msg):
@@ -755,11 +990,12 @@ def discover_papers(profile, history):
             seen.add(r["arxiv_id"])
             explore.append(mk_paper(r, "explore", explore_cat=cat))
 
-    # top-conference candidates (S2, 2024-2026, any freshness).
+    # top-conference candidates (OpenAlex + arXiv comment mining, 2024-2026,
+    # any freshness).
     # Cap by citations BEFORE the affiliation check: we only need a few
     # for the digest + pool, and each affiliation lookup costs API calls.
     conference = []
-    for r in s2_conference_search(max_results=200):
+    for r in openalex_conference_search(max_results=200):
         if r["arxiv_id"] in seen or _norm_title(r["title"]) in known_titles:
             continue
         seen.add(r["arxiv_id"])
@@ -851,7 +1087,7 @@ def discover_papers(profile, history):
         c["_score"] = c["_rec"] - 0.5 * c["_lib"]
     explore.sort(key=lambda c: c["_score"], reverse=True)
 
-    # conference papers: fame from S2 (tier 1 by construction), same blend
+    # conference papers: tier 1 by construction, citations from OpenAlex
     try:
         import fame as _fame2
         _cinfos = [{"tier": 1, "citations": c.get("citations", 0),

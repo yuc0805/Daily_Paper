@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linear Recurrent Memory Suffices to Distil a World-Model Policy for Robot Air Hockey — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Linear Recurrent Memory Suffices to Distil a World-Model Policy for Robot Air Hockey</h2>
+<p class="paper-meta">F. Olivia Fan, Oliver Obst &middot; 2026 &middot; <span class="rec-badge">arXiv</span> &middot; <a href="https://arxiv.org/abs/2609.39151" target="_blank" rel="noopener">arXiv:2609.39151</a></p>
+<h3>Why recommended</h3>
+<p>Very recent in your research areas.</p>
+<h3>Abstract</h3>
+<p>Does memory-dependent control need nonlinear recurrent dynamics? We study simulated air-hockey defence under temporary loss of puck tracking. A DreamerV3 teacher outperforms a memoryless policy under tracking loss, while resetting the teacher's recurrent state sharply reduces performance, which demonstrates that the task requires memory. We distil this teacher into compact recurrent policies with a 64 dimensional state, with a combination of a diagonal linear recurrence and an optional rank-$k$ nonlinear innovation while retaining nonlinear observation encoders and action heads. Across five matched seeds, the purely linear recurrent model ($k=0$) matches both the GRU baseline and the teacher throughout the tested range of tracking loss. Increasing nonlinear innovation rank providing no measured benefits. This result is obtained on a fresh test split, which will be only opened after all models and analyses are frozen. The linear model requires fewer recurrent parameters and less computation than GRU, but performs comparably. These results suggest that, for this memory dependent control task, nonlinear representation learning around a simple linear memory mechanism can be sufficient, and that nonlinear recurrent dynamics are not necessarily required. These conclusions are limited to the simulated task, teacher, state dimension, and blackout horizon considered here, and to policies whose observation encoder and action head remain nonlinear.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>

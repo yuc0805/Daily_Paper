@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Importance-Aware Feature Sparsification for Wireless Split Learning — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Importance-Aware Feature Sparsification for Wireless Split Learning</h2>
+<p class="paper-meta">Bumjun Kim, Yoon Huh, Wan Choi &middot; 2026 &middot; <span class="rec-badge">arXiv</span> &middot; <a href="https://arxiv.org/abs/2609.39194" target="_blank" rel="noopener">arXiv:2609.39194</a></p>
+<h3>Why recommended</h3>
+<p>Very recent in your research areas.</p>
+<h3>Abstract</h3>
+<p>Wireless split learning (SL) reduces on-device computation by offloading upper layers to a server, yet transmitting high-dimensional intermediate features at each iteration remains a major communication bottleneck. Existing methods select features at the client side using task-agnostic criteria such as magnitude, statistics, or clustering, which increases client-side processing and often degrades accuracy under non-independent and identically distributed (non-i.i.d.) client data. We propose importance-aware class-balanced sparsification (ICS), a lightweight approach in which the server ranks feature channels using Grad-CAM-based scores obtained from the true-class logit during backpropagation. The per-class scores are aggregated into a class-balanced, label-agnostic importance vector that mitigates head-class bias under label skew, and each client reuses this vector in the next round to retain the top-$N$ feature channels, incurring no additional client-side forward or backward passes. We further derive a non-asymptotic convergence bound that isolates the sparsification-induced error and characterizes how the sparsification ratio and mini-batch size jointly affect convergence under a fixed communication budget, and we analyze the communication and computational overhead of ICS against representative baselines. Beyond sequential CNN-based SL, we extend ICS to parallel split learning and to transformer-based models. Experiments show that ICS consistently outperforms the baselines, with larger gains under severe non-i.i.d. partitions.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>

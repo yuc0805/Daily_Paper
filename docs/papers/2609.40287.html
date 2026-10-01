@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMosFM: Preconditioned Manifold Matching for One-Step Physics-Constrained Generation — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>PMosFM: Preconditioned Manifold Matching for One-Step Physics-Constrained Generation</h2>
+<p class="paper-meta">Zhangyong Liang, Haibin Ling &middot; 2026 &middot; <span class="rec-badge">arXiv</span> &middot; <a href="https://arxiv.org/abs/2609.40287" target="_blank" rel="noopener">arXiv:2609.40287</a></p>
+<h3>Why recommended</h3>
+<p>Very recent in your research areas.</p>
+<h3>Abstract</h3>
+<p>Physics-constrained generative models aim to generate physical fields that match a target distribution and satisfy prescribed constraints. However, enforcing these constraints often increases sampling costs through iterative corrections or training costs through residual optimization and trajectory unrolling. To address this issue, we introduce \textbf{P}reconditioned \textbf{M}anifold \textbf{o}ne-\textbf{s}tep \textbf{F}low \textbf{M}atching (\textbf{PMosFM}), a preconditioned manifold matching framework for one-step physics-constrained generation. By encoding constraints in a manifold decoder, PMosFM learns transport in intrinsic coordinates without separate residual losses or terminal residual unrolling. A geometric preconditioner rescales coordinates using the decoder-induced metric, while a regularized covariance transform approximately whitens the interpolation-state inputs. A finite-interval objective couples velocity supervision with consistency between decoded endpoints in physical space. We show that exact parameterization removes residual-induced Gauss--Newton curvature, that geometric and covariance effects separate in a local conditioning bound, and that physical flow-map error bounds endpoint distributional error. Controlled ablations examine conditioning, and experiments evaluate optimizer-update time and memory footprint. At inference, PMosFM uses one neural transport evaluation followed by physical decoding. Experiments across benchmarks show lower training and sampling time than the multi-step baselines at comparable physical and distributional fidelity. Code and datasets will be released publicly.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
