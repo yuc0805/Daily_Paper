@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not All Is Lost: Repairing Lossy User Preference States of Personalization Encoders — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Not All Is Lost: Repairing Lossy User Preference States of Personalization Encoders</h2>
+<p class="paper-meta">Parthiv Chatterjee, Dhiraj Golhar, Ummesalma Diwan, Sourish Dasgupta et al. &middot; 2026 &middot; <span class="rec-badge fame">Conference · NeurIPS</span> &middot; <a href="https://arxiv.org/abs/2610.01270" target="_blank" rel="noopener">arXiv:2610.01270</a></p>
+<h3>Why recommended</h3>
+<p>A top-conference paper (NeurIPS) — highly cited and close to your interests.</p>
+<h3>Abstract</h3>
+<p>Personalization encoders compress evolving interaction histories into preference states used to rank items or condition text generation. A task head operating only on this state can miss useful evidence that remains in the frozen encoder's cached representations for individual timesteps. We study this recoverability gap and propose REPAIR, which compares cached representations with the current preference state in a compact learned coordinate space. It resolves corrective evidence over extended history, recent interactions, and localized bursts. It then selects which patterns at which timesteps contribute and adds their aggregate correction to the state before the task head. Encoder-host repair reuses representations from the existing forward computation without re-encoding the history. Across MovieLens, PENS, MIND, and Amazon Reviews 2023, training only REPAIR improves MRR and nDCG@10 for all twelve representative recommendation hosts while both encoder and task head remain frozen. Head-only finetuning of the same hosts yields smaller gains. For example, Mamba4Rec on MovieLens gains 3.96 MRR points, compared with 0.19 from head-only finetuning. Rank and temporal diagnostics support a compact, host-dependent corrective structure. In personalized generation, IMPerSumm improves the two reported weighted PerSEval variants, which assess responsiveness to user preference, by up to 25.23%. These results support post-compression state correction and distinguish the availability of preference evidence from its downstream use.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>

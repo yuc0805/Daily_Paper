@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detection and Resolution of Periodic Artifacts in OpenDP's Discrete Laplace Sampler — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Detection and Resolution of Periodic Artifacts in OpenDP's Discrete Laplace Sampler</h2>
+<p class="paper-meta">Cesare Gerolimetto Fabrello, Valeria Rossi, Alberto Trombetta, Massimo Caccia &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2610.01907" target="_blank" rel="noopener">arXiv:2610.01907</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Differential privacy implementations rely on precise sampling from noise distributions to provide formal privacy guarantees. We report the discovery of systematic artifacts in OpenDP's discrete Laplace sampler that manifest as periodic distortions in the output distribution. Through systematic testing, we trace these artifacts to a faulty implementation in the rational arithmetic library used by the bernoulli_exp1 function, a low-level primitive that implements sampling from Bernoulli(e^(-x)) distributions. We present a diagnostic methodology that isolates the faulty component in the nested sampling hierarchy and propose an alternative implementation based on exact rational arithmetic that eliminates the artifacts. Statistical validation with 10^6 samples confirms that the corrected sampler produces outputs indistinguishable from the theoretical distribution at the tested precision level.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
