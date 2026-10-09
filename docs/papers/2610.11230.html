@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CORAL: Cross-modal Vector Retrieval via Incremental Graph Construction at Scale — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>CORAL: Cross-modal Vector Retrieval via Incremental Graph Construction at Scale</h2>
+<p class="paper-meta">Shixin Wan, Guoyu Hu, Yifan Wu, Ke Chen et al. &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2610.11230" target="_blank" rel="noopener">arXiv:2610.11230</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Cross-modal vector retrieval is widely used in multimodal systems, such as search engines and vector databases. It typically operates in out-of-distribution (OOD) settings, where query vectors follow a distribution that differs from that of the vectors stored in the database. In such cases, conventional indexes suffer significant performance degradation, and even methods specially designed for OOD remain limited by inefficient use of query modal characteristics, restricted GPU parallelism, and inadequate support for dynamic updates. We present CORAL, a novel GPU-accelerated graph-based vector index for scalable cross-modal retrieval, featuring hierarchical memory management that spans GPU, CPU, and disk. Specifically, CORAL incrementally incorporates the characteristics of query modality and terminates index construction timely. Crucially, it introduces coverage-aware adaptive pruning to address the imbalanced coverage of the query vector's neighbors. Moreover, CORAL presents a fully neighborhood-aware projection approach to efficiently utilize GPUs for highly parallel index construction, and a targeted connectivity enhancement method to refine the index structure. Besides, CORAL also supports modal-semantics-based vector insertion and topology-repairing deletion that restore node connectivity. Experimental results demonstrate that CORAL outperforms existing methods with up to 1.6 times the throughput at matched recall while reducing construction time by up to 56%. Furthermore, it exhibits remarkable resilience under dynamic updates and remains effective at the billion scale.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
