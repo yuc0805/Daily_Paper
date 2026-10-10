@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Should Your Database Systems Use Hardware-Assisted Memory Safety Extensions in Production? — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Should Your Database Systems Use Hardware-Assisted Memory Safety Extensions in Production?</h2>
+<p class="paper-meta">Ilya Meignan--Masson, Martin Fink, Masanori Misono, Dimitrios Stavrakakis et al. &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2610.11525" target="_blank" rel="noopener">arXiv:2610.11525</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Database systems are predominantly developed in unsafe languages (e.g., C/C++) to meet performance requirements through low-level memory management, yet this reliance renders them prone to systemic memory-safety issues that compromise reliability, consistency, security, and durability. Through an extensive bug analysis of prominent database systems, we show that these memory-safety issues persist in production environments despite advancements in database testing tools. While emerging hardware-assisted extensions, such as Arm's Memory Tagging Extension (MTE) and CHERI, offer a promising mitigation path for memory safety, their practical applicability and performance overhead within the specialized constraints of database systems remain largely unexplored. In this paper, we evaluate hardware extensions through the lens of what we define as the database trilemma: the fundamental trade-off between safety, performance, and portability, to determine their viability for production-grade database systems. We provide the first side-by-side comparison of MTE and CHERI across a database workload suite. Our bottom-up study spans microarchitecture, the compiler/runtime/OS stack, core data structures (ART, B+Tree, hash table, skip list, linked list, and queue), and full database systems (Redis, LevelDB, SQLite, MySQL, DuckDB, and LadyBugDB) to characterize their performance, safety guarantees, and ease of adoption. We find that while hardware extensions can offer near-deterministic protection, they introduce non-uniform performance taxes: MTE provides high portability with modest overheads (~10%), while CHERI delivers superior safety guarantees with higher performance penalties (20-60%) and significant porting effort. Our study equips database systems architects with an actionable guide toward building the next generation of reliable, secure databases using hardware-assisted safety mechanisms.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
