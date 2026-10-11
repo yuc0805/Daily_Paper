@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is Memorization Context-Sensitive? Prefix-Based Extraction Beyond Isolated Prefixes — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Is Memorization Context-Sensitive? Prefix-Based Extraction Beyond Isolated Prefixes</h2>
+<p class="paper-meta">Ali Satvaty, Narjes Sharafi, Jirui Qi, Suzan Verberne et al. &middot; 2026 &middot; <span class="rec-badge fame">Conference · EMNLP</span> &middot; <a href="https://arxiv.org/abs/2610.12085" target="_blank" rel="noopener">arXiv:2610.12085</a></p>
+<h3>Why recommended</h3>
+<p>A top-conference paper (EMNLP) — highly cited and close to your interests.</p>
+<h3>Abstract</h3>
+<p>Large language models (LLMs) can expose memorized training sequences under prefix-based extraction: given a prefix from a training example, the model may assign high probability to the original continuation. In deployed systems, however, prefixes are rarely evaluated in isolation. They often appear together with instructions, retrieved documents, or other task-specific context, as in retrieval-augmented generation (RAG). This motivates examining whether contextual conditioning mitigates memorization or merely changes the set of memorized samples that become extractable. We investigate this issue through paired item-level measurements of probabilistic suffix extraction. For each prefix-suffix pair, we score the target suffix under an empty prompt and under retrieved contexts of varying relevance, across three open-weight instruction-tuned models. We find that context does not simply erase memorization. Instead, extractable memorization consists of a context-robust core and a context-sensitive boundary. Many samples that are extractable without context remain extractable under the retrieved context, especially as the prefix length increases. At the same time, context mainly affects marginal samples near the extraction threshold: it suppresses some exposures, but also enables new ones that are missed by prefix-only evaluation. These findings qualify the view that RAG reduces memorization risk. Context can lower aggregate extraction by suppressing boundary cases, yet robustly extractable samples persist, and context-enabled extractability remains security-relevant.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
