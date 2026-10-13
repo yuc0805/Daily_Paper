@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoMask: Generative Masked Modeling of 3D Human Motions — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>MoMask: Generative Masked Modeling of 3D Human Motions</h2>
+<p class="paper-meta">Chuan Guo, Yuxuan Mu, Muhammad Gohar Javed, Sen Wang et al. &middot; 2024 &middot; <span class="rec-badge fame">Conference · CVPR · 179 citations</span> &middot; <a href="https://arxiv.org/abs/2312.00063" target="_blank" rel="noopener">arXiv:2312.00063</a></p>
+<h3>Why recommended</h3>
+<p>A top-conference paper (CVPR) — highly cited and close to your interests.</p>
+<h3>Abstract</h3>
+<p>We introduce MoMask, a novel masked modeling framework for text-driven 3D human motion generation. In Mo-Mask, a hierarchical quantization scheme is employed to represent human motion as multi-layer discrete motion tokens with high-fidelity details. Starting at the base layer, with a sequence of motion tokens obtained by vector quan-tization, the residual tokens of increasing orders are de-rived and stored at the subsequent layers of the hierar-chy. This is consequently followed by two distinct bidirectional transformers. For the base-layer motion tokens, a Masked Transformer is designated to predict randomly masked motion tokens conditioned on text input at training stage. During generation (i. e. inference) stage, starting from an empty sequence, our Masked Transformer iteratively fills up the missing tokens; Subsequently, a Residual Transformer learns to progressively predict the next-layer tokens based on the results from current layer. Extensive experiments demonstrate that MoMask outperforms the state-of-art methods on the text-to-motion generation task, with an FID of 0.045 (vs e.g. 0.141 of T2M-GPT) on the HumanML3D dataset, and 0.228 (vs 0.514) on KIT-ML, respectively. MoMask can also be seamlessly applied in related tasks without further model fine-tuning, such as text-guided temporal inpainting.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
