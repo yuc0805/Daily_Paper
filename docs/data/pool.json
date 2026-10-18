@@ -1,66 +1,6 @@
 {
-  "date": "2026-10-17",
+  "date": "2026-10-18",
   "papers": [
-    {
-      "zotero_key": "2610.22333",
-      "title": "Evaluation Awareness Beyond English: Do LLMs Act Differently When Tested in Indic Languages?",
-      "authors": "Trizal Garg, Sibayan Mitra, Arya Karanjkar, Advait Singh et al.",
-      "year": 2026,
-      "what": "Large language models (LLMs) can often tell when they are being tested. This ability, known as evaluation awareness, can lead models to act more cautiously during safety evaluations than in real use. Existing work has studied evaluation awareness almost entirely in English, although models serve use",
-      "summary": "Large language models (LLMs) can often tell when they are being tested. This ability, known as evaluation awareness, can lead models to act more cautiously during safety evaluations than in real use. Existing work has studied evaluation awareness almost entirely in English, although models serve users in many languages. Indic languages are spoken by over a billion people, yet evaluation awareness remains almost entirely unstudied in them. We test four instruction-tuned models from three families in five Indic languages alongside English. A set of cues varies whether the model is told that it is monitored and whether the monitoring is a safety test. Models refuse harmful requests more often when they are told that they are being tested. This increase appears in all four models and all six languages. In Indic languages, refusal of harmful requests rises by 14.4 percentage points on average. The test cue also brings Indic refusal of harmful requests level with English, but raises refusal of benign Indic requests from 6.9% to 11.3%. We release all 47,880 judged responses to support further work. These results suggest that safety evaluations in Indic languages may not reflect how models treat their everyday users.",
-      "area_label": "Llm",
-      "area_slug": "llm",
-      "builds_on": "",
-      "rec_type": "for-you",
-      "venue": "",
-      "tier": 0,
-      "citations": 0
-    },
-    {
-      "zotero_key": "2610.22371",
-      "title": "Gen4P: Video Generators are 4D Perceivers",
-      "authors": "Yitong Xia, Zeren Jiang, Chuanxia Zheng",
-      "year": 2026,
-      "what": "We introduce Gen4P, a unified framework for recovering 4D geometry and motion from monocular video. We show that a pretrained video generator can be repurposed into a feed-forward 4D perceiver without iterative denoising. Building on on-demand querying, Gen4P processes clean video latents in a singl",
-      "summary": "We introduce Gen4P, a unified framework for recovering 4D geometry and motion from monocular video. We show that a pretrained video generator can be repurposed into a feed-forward 4D perceiver without iterative denoising. Building on on-demand querying, Gen4P processes clean video latents in a single encoder pass and predicts the requested 4D attributes through a lightweight cross-attention decoder. The on-demand query formulation enables flexible spatial sampling, and our proposed continuous-time queries further provide temporal flexibility. To strengthen geometric knowledge, we propose a straightforward plug-in solution by incorporating a pretrained video-depth LoRA as a frozen geometry prior, improving overall performance without adding extra trainable parameters. Gen4P achieves state-of-the-art or competitive performance on tasks of 3D point tracking, video depth and camera pose estimation. Qualitative results on in-the-wild videos illustrate its capability of tracking complex motion while maintaining the delicate structure. Together, these results demonstrate the potential of video generative pretraining for unified 4D perception. See https://gen4p.github.io for more visual results.",
-      "area_label": "Time Series",
-      "area_slug": "time-series",
-      "builds_on": "",
-      "rec_type": "for-you",
-      "venue": "",
-      "tier": 0,
-      "citations": 0
-    },
-    {
-      "zotero_key": "2610.22325",
-      "title": "Dense4D: Pixel-Level 4D Human Correspondence",
-      "authors": "Rıza Alp Güler",
-      "year": 2026,
-      "what": "Reconstructing human motion in 4D requires identifying the same surface points through articulation, deformation and changes in visibility. We introduce Dense4D, to our knowledge the first feed-forward model dedicated to dense 4D correspondence across the body, clothing and hair from a set of monocu",
-      "summary": "Reconstructing human motion in 4D requires identifying the same surface points through articulation, deformation and changes in visibility. We introduce Dense4D, to our knowledge the first feed-forward model dedicated to dense 4D correspondence across the body, clothing and hair from a set of monocular RGB images, without a body template. Trained specifically for human geometry, Dense4D jointly processes person-centred crops with known image-to-crop transforms to predict Human Point Maps (HPMs) and depth for each image. An HPM assigns each person pixel the 3D position of its observed surface point at a common reference time. These maps support amodal correspondence: points hidden in the reference image can be localised from observations in other frames. Matching HPM coordinates across crops establishes correspondence without predicting camera poses or large scene displacements; per-image depth then lifts the matches into 3D tracks. Experiments on real people demonstrate substantially higher tracking accuracy and closer agreement with scanned surfaces than the evaluated baselines. Points from different frames assemble into coherent human geometry in the reference pose, providing visible evidence of consistent dense correspondence through articulation and clothing deformation. Additional qualitative results, videos, and an interactive viewer are available at https://alpguler.com/dense4d.",
-      "area_label": "Computer Vision",
-      "area_slug": "computer-vision",
-      "builds_on": "",
-      "rec_type": "for-you",
-      "venue": "",
-      "tier": 0,
-      "citations": 0
-    },
-    {
-      "zotero_key": "2610.22330",
-      "title": "Designing Transformers for Continuous Diffusion Language Models",
-      "authors": "Weijian Luo, Yujian Chen, Hao Jiang, Guang Cheng et al.",
-      "year": 2026,
-      "what": "Continuous diffusion language models (CDLMs) offer an alternative approach to parallel language generation; however, most existing studies directly use transformer architectures from either causal large language models (LLMs) or Diffusion Transformers (DiTs) for image generation, which were not opti",
-      "summary": "Continuous diffusion language models (CDLMs) offer an alternative approach to parallel language generation; however, most existing studies directly use transformer architectures from either causal large language models (LLMs) or Diffusion Transformers (DiTs) for image generation, which were not optimized for CDLMs. In this paper, we conduct a systematic study on Transformer architectures for CDLMs and introduce Language Diffusion Transformer (LangDiT), combining feature and query-key normalization, wider noise conditioning, likelihood-shortcut gradient routing and calibration, and confidence-gated training self-conditioning. LangDiT significantly reduces generation perplexity in matched LangFlow comparisons, establishing a new state of the art in continuous language generation across different model formulations. Using LangFlow as a representative CDLM, LangDiT as a plug-and-play backbone leads to a new state-of-the-art model with a generation perplexity (GenPPL) of 21.72 using 1024 NFEs and 44.72 GenPPL using 128 NFEs on the unconditional generation of 1024-token sequences on the OpenWebText dataset. When adapted to Plaid-style CDLM formulations, LangDiT results in a new leading GenPPL of 11.33 using 1024 denoising NFEs, and 27.51 GenPPL using 128 denoising NFEs. These gains are achieved while retaining each model's underlying representation, training objective, and inference sampler, isolating transformer architecture as a fundamental source of improvement. Our study identifies architectural design as an important source of improvement in continuous diffusion language models.",
-      "area_label": "Llm",
-      "area_slug": "llm",
-      "builds_on": "",
-      "rec_type": "for-you",
-      "venue": "",
-      "tier": 0,
-      "citations": 0
-    },
     {
       "zotero_key": "2610.22331",
       "title": "KnowGPO: Knowledge-Grouped Policy Optimization for Search Agents",
@@ -197,51 +137,6 @@
       "citations": 0
     },
     {
-      "zotero_key": "2312.08914",
-      "title": "CogAgent: A Visual Language Model for GUI Agents",
-      "authors": "Wenyi Hong, Weihan Wang, Qingsong Lv, Jiazheng Xu et al.",
-      "year": 2024,
-      "what": "[Conference] People are spending an enormous amount of time on dig-ital devices through graphical user interfaces (GUIs), e.g., computer or smartphone screens. Large language models (LLMs) such as ChatGPT can assist people in tasks like writing emails, but struggle to understand and interact ",
-      "summary": "People are spending an enormous amount of time on dig-ital devices through graphical user interfaces (GUIs), e.g., computer or smartphone screens. Large language models (LLMs) such as ChatGPT can assist people in tasks like writing emails, but struggle to understand and interact with GUIs, thus limiting their potential to increase automation levels. In this paper, we introduce CogAgent, an 18-billion-parameter visual language model (VLM) specializing in GUI understanding and navigation. By utilizing both low-resolution and high-resolution image encoders, CogA-gent supports input at a resolution of1120 × 1120, enabling it to recognize tiny page elements and text. As a general-ist visual language model, CogAgent achieves the state of the art on five text-rich and four general VQA benchmarks, including VQAv2, OK- VQA, Text- Vqa, St- Vqa, ChartQA, infoVQA, DocVQA, MM-Vet, and POPE. CogAgent, using only screenshots as input, outperforms LLM-based methods that consume extracted HTML text on both PC and Android GUI navigation tasks-Mind2Web and AITW, ad-vancing the state of the art. The model and codes are available at https://github.com/THUDM/CogVLM.",
-      "area_label": "Llm",
-      "area_slug": "llm",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "CVPR",
-      "tier": 1,
-      "citations": 199
-    },
-    {
-      "zotero_key": "2401.00368",
-      "title": "Improving Text Embeddings with Large Language Models",
-      "authors": "Liang Wang, Nan Yang, Xiaolong Huang, Linjun Yang et al.",
-      "year": 2024,
-      "what": "[Conference] In this paper, we introduce a novel and simple method for obtaining high-quality text embeddings using only synthetic data and less than 1k training steps.Unlike existing methods that often depend on multi-stage intermediate pretraining with billions of weakly-supervised text pai",
-      "summary": "In this paper, we introduce a novel and simple method for obtaining high-quality text embeddings using only synthetic data and less than 1k training steps.Unlike existing methods that often depend on multi-stage intermediate pretraining with billions of weakly-supervised text pairs, followed by fine-tuning with a few labeled datasets, our method does not require building complex training pipelines or relying on manually collected datasets that are often constrained by task diversity and language coverage.We leverage proprietary LLMs to generate diverse synthetic data for hundreds of thousands of text embedding tasks across 93 languages.We then fine-tune open-source decoder-only LLMs on the synthetic data using standard contrastive loss.Experiments demonstrate that our method achieves strong performance on highly competitive text embedding benchmarks without using any labeled data.Furthermore, when fine-tuned with a mixture of synthetic and labeled data, our model sets new state-of-the-art results on the BEIR and MTEB benchmarks.",
-      "area_label": "Llm",
-      "area_slug": "llm",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "ACL",
-      "tier": 1,
-      "citations": 146
-    },
-    {
-      "zotero_key": "2307.16449",
-      "title": "MovieChat: From Dense Token to Sparse Memory for Long Video Understanding",
-      "authors": "Enxin Song, Wenhao Chai, Guanhong Wang, Yucheng Zhang et al.",
-      "year": 2024,
-      "what": "[Conference] Recently, integrating video foundation models and large language models to build a video understanding system can overcome the limitations of specific pre-defined vision tasks. Yet, existing systems can only handle videos with very few frames. For long videos, the computation com",
-      "summary": "Recently, integrating video foundation models and large language models to build a video understanding system can overcome the limitations of specific pre-defined vision tasks. Yet, existing systems can only handle videos with very few frames. For long videos, the computation complexity, memory cost, and long-term temporal connection impose additional challenges. Taking advantage of the Atkinson-Shiffrin memory model, with tokens in Transformers being employed as the carriers of memory in combination with our specially designed memory mechanism, we propose the MovieChat to overcome these challenges. MovieChat achieves state-of-the-art performance in long video understanding, along with the released MovieChat-1K benchmark with 1K long video and 14K manual annotations for validation of the effectiveness of our method. The code, models and data can be found in https://reself.github.io/MovieChat.",
-      "area_label": "Time Series",
-      "area_slug": "time-series",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "CVPR",
-      "tier": 1,
-      "citations": 176
-    },
-    {
       "zotero_key": "2312.07488",
       "title": "LMDrive: Closed-Loop End-to-End Driving with Large Language Models",
       "authors": "Hao Shao, Yuxuan Hu, Letian Wang, Guanglu Song et al.",
@@ -272,21 +167,6 @@
       "citations": 232
     },
     {
-      "zotero_key": "2311.12908",
-      "title": "Diffusion Model Alignment Using Direct Preference Optimization",
-      "authors": "Bram Wallace, Meihua Dang, Rafael Rafailov, Linqi Zhou et al.",
-      "year": 2024,
-      "what": "[Conference] Large language models (LLMs) are fine-tuned using human comparison data with Reinforcement Learning from Human Feedback (RLHF) methods to make them better aligned with users' preferences. In contrast to LLMs, human preference learning has not been widely explored in text-to-image",
-      "summary": "Large language models (LLMs) are fine-tuned using human comparison data with Reinforcement Learning from Human Feedback (RLHF) methods to make them better aligned with users' preferences. In contrast to LLMs, human preference learning has not been widely explored in text-to-image diffusion models; the best existing approach is to fine-tune a pretrained model using carefully curated high quality images and captions to improve visual appeal and text alignment. We propose Diffusion-DPO, a method to align diffusion models to human preferences by directly optimizing on human comparison data. Diffusion-DPO is adapted from the recently developed Direct Preference Optimization (DPO) [36], a simpler alternative to RLHF which directly optimizes a policy that best satisfies human preferences under a classification objective. We re-formulate DPO to account for a diffusion model notion of likelihood, utilizing the evidence lower bound to derive a differentiable objective. Using the Pick-a-Pic dataset of 851K crowdsourced pairwise preferences, we fine-tune the base model of the state-of-the-art Stable Diffusion XL (SDXL)-1.0 model with Diffusion-DPO. Our fine-tuned base model significantly outperforms both base SDXL-1.0 and the larger SDXL-1.0 model consisting of an additional refinement model in human evaluation, improving visual appeal and prompt alignment. We also develop a variant that uses AI feedback and has comparable performance to training on human preferences, opening the door for scaling of diffusion model alignment methods.",
-      "area_label": "Llm",
-      "area_slug": "llm",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "CVPR",
-      "tier": 1,
-      "citations": 169
-    },
-    {
       "zotero_key": "2312.12337",
       "title": "PixelSplat: 3D Gaussian Splats from Image Pairs for Scalable Generalizable 3D Reconstruction",
       "authors": "David Charatan, Sizhe Li, Andrea Tagliasacchi, Vincent Sitzmann",
@@ -299,7 +179,7 @@
       "rec_type": "conference",
       "venue": "CVPR",
       "tier": 1,
-      "citations": 295
+      "citations": 296
     },
     {
       "zotero_key": "2312.02069",
@@ -317,21 +197,6 @@
       "citations": 251
     },
     {
-      "zotero_key": "2304.06819",
-      "title": "Modeling Dense Multimodal Interactions Between Biological Pathways and Histology for Survival Prediction",
-      "authors": "Guillaume Jaume, Anurag Jayant Vaidya, Richard J. Chen, Drew F. K. Williamson et al.",
-      "year": 2024,
-      "what": "[Conference] Integrating whole-slide images (WSIs) and bulk tran-scriptomics for predicting patient survival can improve our understanding of patient prognosis. However, this multi-modal task is particularly challenging due to the different nature of these data: WSIs represent a very high-dim",
-      "summary": "Integrating whole-slide images (WSIs) and bulk tran-scriptomics for predicting patient survival can improve our understanding of patient prognosis. However, this multi-modal task is particularly challenging due to the different nature of these data: WSIs represent a very high-dimensional spatial description of a tumor, while bulk tran-scriptomics represent a global description of gene expression levels within that tumor. In this context, our work aims to address two key challenges: (1) how can we tokenize transcriptomics in a semantically meaningful and interpretable way?, and (2) how can we capture dense multi-modal interactions between these two modalities? Here, we propose to learn biological pathway tokens from transcriptomics that can encode specific cellular functions. Together with histology patch tokens that encode the slide morphology, we argue that they form appropriate reasoning units for interpretability. We fuse both modalities using a memoryefficient multimodal Transformer that can model interactions between pathway and histology patch tokens. Our model, Survpath, achieves state-of-the-art performance when evaluated against unimodal and multimodal baselines on five datasets from The Cancer Genome Atlas. Our interpretability framework identifies key multimodal prognostic factors, and, as such, can provide valuable insights into the interaction between genotype and phenotype. Code available at https://github.com/mahmoodlab/SurvPath.",
-      "area_label": "Multi Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "CVPR",
-      "tier": 1,
-      "citations": 157
-    },
-    {
       "zotero_key": "2311.14760",
       "title": "SinSR: Diffusion-Based Image Super-Resolution in a Single Step",
       "authors": "Yufei Wang, Wenhan Yang, Xinyuan Chen, Yaohui Wang et al.",
@@ -347,21 +212,6 @@
       "citations": 189
     },
     {
-      "zotero_key": "2312.09228",
-      "title": "3DGS-Avatar: Animatable Avatars via Deformable 3D Gaussian Splatting",
-      "authors": "Zhiyin Qian, Shaofei Wang, Marko Mihajlović, Andreas Geiger et al.",
-      "year": 2024,
-      "what": "[Conference] We introduce an approach that creates animatable hu-man avatars from monocular videos using 3D Gaussian Splatting (3DGS). Existing methods based on neural radi-ance fields (NeRFs) achieve high-quality novel-viewlnovel-pose image synthesis but often require days of training, and a",
-      "summary": "We introduce an approach that creates animatable hu-man avatars from monocular videos using 3D Gaussian Splatting (3DGS). Existing methods based on neural radi-ance fields (NeRFs) achieve high-quality novel-viewlnovel-pose image synthesis but often require days of training, and are extremely slow at inference time. Recently, the com-munity has explored fast grid structures for efficient training of clothed avatars. Albeit being extremely fast at training, these methods can barely achieve an interactive ren-de ring frame rate with around 15 FPS. In this paper, we use 3D Gaussian Splatting and learn a non-rigid deformation network to reconstruct animatable clothed human avatars that can be trained within 30 minutes and rendered at real-time frame rates (50+ FPS). Given the explicit nature of our representation, we further introduce as-isometric-as-possible regularizations on both the Gaussian mean vectors and the covariance matrices, enhancing the generalization of our model on highly articulated unseen poses. Experi-mental results show that our method achieves comparable and even better performance compared to state-of-the-art approaches on animatable avatar creation from a monoc-ular input, while being 400x and 250x faster in training and inference, respectively. Please see our project page at https://neuralbodies.github.ioI3DGS-Avatar.",
-      "area_label": "Computer Vision",
-      "area_slug": "computer-vision",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "CVPR",
-      "tier": 1,
-      "citations": 175
-    },
-    {
       "zotero_key": "2305.14836",
       "title": "NuScenes-QA: A Multi-Modal Visual Question Answering Benchmark for Autonomous Driving Scenario",
       "authors": "Tianwen Qian, Jingjing Chen, Linhai Zhuo, Yang Jiao et al.",
@@ -375,6 +225,21 @@
       "venue": "AAAI",
       "tier": 1,
       "citations": 173
+    },
+    {
+      "zotero_key": "2312.09228",
+      "title": "3DGS-Avatar: Animatable Avatars via Deformable 3D Gaussian Splatting",
+      "authors": "Zhiyin Qian, Shaofei Wang, Marko Mihajlović, Andreas Geiger et al.",
+      "year": 2024,
+      "what": "[Conference] We introduce an approach that creates animatable hu-man avatars from monocular videos using 3D Gaussian Splatting (3DGS). Existing methods based on neural radi-ance fields (NeRFs) achieve high-quality novel-viewlnovel-pose image synthesis but often require days of training, and a",
+      "summary": "We introduce an approach that creates animatable hu-man avatars from monocular videos using 3D Gaussian Splatting (3DGS). Existing methods based on neural radi-ance fields (NeRFs) achieve high-quality novel-viewlnovel-pose image synthesis but often require days of training, and are extremely slow at inference time. Recently, the com-munity has explored fast grid structures for efficient training of clothed avatars. Albeit being extremely fast at training, these methods can barely achieve an interactive ren-de ring frame rate with around 15 FPS. In this paper, we use 3D Gaussian Splatting and learn a non-rigid deformation network to reconstruct animatable clothed human avatars that can be trained within 30 minutes and rendered at real-time frame rates (50+ FPS). Given the explicit nature of our representation, we further introduce as-isometric-as-possible regularizations on both the Gaussian mean vectors and the covariance matrices, enhancing the generalization of our model on highly articulated unseen poses. Experi-mental results show that our method achieves comparable and even better performance compared to state-of-the-art approaches on animatable avatar creation from a monoc-ular input, while being 400x and 250x faster in training and inference, respectively. Please see our project page at https://neuralbodies.github.ioI3DGS-Avatar.",
+      "area_label": "Computer Vision",
+      "area_slug": "computer-vision",
+      "builds_on": "",
+      "rec_type": "conference",
+      "venue": "CVPR",
+      "tier": 1,
+      "citations": 175
     },
     {
       "zotero_key": "2311.11278",
@@ -407,66 +272,6 @@
       "citations": 184
     },
     {
-      "zotero_key": "2311.15937",
-      "title": "Optimal Transport Aggregation for Visual Place Recognition",
-      "authors": "Sergio Izquierdo, Javier Civera",
-      "year": 2024,
-      "what": "[Conference] The task of Visual Place Recognition (VPR) aims to match a query image against references from an extensive database of images from different places, relying solely on visual cues. State-of-the-art pipelines focus on the aggre-gation offeatures extractedfrom a deep backbone, in o",
-      "summary": "The task of Visual Place Recognition (VPR) aims to match a query image against references from an extensive database of images from different places, relying solely on visual cues. State-of-the-art pipelines focus on the aggre-gation offeatures extractedfrom a deep backbone, in order to form a global descriptor for each image. In this con-text, we introduce SALAD (Sinkhorn Algorithm for Locally Aggregated Descriptors), which reformulates NetVLAD's soft-assignment of local features to clusters as an optimal transport problem. In SALAD, we consider both feature-to-cluster and cluster-to-feature relations and we also in-troduce a ‘dustbin’ cluster, designed to selectively discard features deemed non-informative, enhancing the overall de-scriptor quality. Additionally, we leverage and fine-tune DINOv2 as a backbone, which provides enhanced description power for the local features, and dramatically reduces the required training time. As a result, our single-stage method not only surpasses single-stage baselines in pub-lic VPR datasets, but also surpasses two-stage methods that add a re-ranking with significantly higher cost. Code and models are available at https://github.com/serizbalsalad.",
-      "area_label": "Computer Vision",
-      "area_slug": "computer-vision",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "CVPR",
-      "tier": 1,
-      "citations": 148
-    },
-    {
-      "zotero_key": "2312.10611",
-      "title": "Bi-directional Adapter for Multimodal Tracking",
-      "authors": "Bing Cao, Junliang Guo, Pengfei Zhu, Qinghua Hu",
-      "year": 2024,
-      "what": "[Conference] Due to the rapid development of computer vision, single-modal (RGB) object tracking has made significant progress in recent years. Considering the limitation of single imaging sensor, multi-modal images (RGB, infrared, etc.) are introduced to compensate for this deficiency for al",
-      "summary": "Due to the rapid development of computer vision, single-modal (RGB) object tracking has made significant progress in recent years. Considering the limitation of single imaging sensor, multi-modal images (RGB, infrared, etc.) are introduced to compensate for this deficiency for all-weather object tracking in complex environments. However, as acquiring sufficient multi-modal tracking data is hard while the dominant modality changes with the open environment, most existing techniques fail to extract multi-modal complementary information dynamically, yielding unsatisfactory tracking performance. To handle this problem, we propose a novel multi-modal visual prompt tracking model based on a universal bi-directional adapter, cross-prompting multiple modalities mutually. Our model consists of a universal bi-directional adapter and multiple modality-specific transformer encoder branches with sharing parameters. The encoders extract features of each modality separately by using a frozen, pre-trained foundation model. We develop a simple but effective light feature adapter to transfer modality-specific information from one modality to another, performing visual feature prompt fusion in an adaptive manner. With adding fewer (0.32M) trainable parameters, our model achieves superior tracking performance in comparison with both the full fine-tuning methods and the prompt learning-based methods. Our code is available: https://github.com/SparkTempest/BAT.",
-      "area_label": "Multi Modal",
-      "area_slug": "multi-modal",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "AAAI",
-      "tier": 1,
-      "citations": 152
-    },
-    {
-      "zotero_key": "2403.01105",
-      "title": "Depth Information Assisted Collaborative Mutual Promotion Network for Single Image Dehazing",
-      "authors": "Yafei Zhang, Shen Zhou, Huafeng Li",
-      "year": 2024,
-      "what": "[Conference] Recovering a clear image from a single hazy image is an open inverse problem. Although significant research progress has been made, most existing methods ignore the effect that downstream tasks play in promoting upstream de-hazing. From the perspective of the haze generation mech",
-      "summary": "Recovering a clear image from a single hazy image is an open inverse problem. Although significant research progress has been made, most existing methods ignore the effect that downstream tasks play in promoting upstream de-hazing. From the perspective of the haze generation mechanism, there is a potential relationship between the depth information of the scene and the hazy image. Based on this, we propose a dual-task collaborative mutual promotion framework to achieve the dehazing of a single image. This framework integrates depth estimation and de-hazing by a dual-task interaction mechanism and achieves mutual enhancement of their performance. To realize the joint optimization of the two tasks, an alternative imple-mentation mechanism with the difference perception is developed. On the one hand, the difference perception between the depth maps of the dehazing result and the ideal image is proposed to promote the dehazing network to pay attention to the non-ideal areas of the dehazing. On the other hand, by improving the depth estimation performance in the difficult-to-recover areas of the hazy image, the de-hazing network can explicitly use the depth information of the hazy image to assist the clear image recovery. To promote the depth estimation, we propose to use the difference between the dehazed image and the ground truth to guide the depth estimation network to focus on the de-hazed unideal areas. It allows dehazing and depth estimation to leverage their strengths in a mutually reinforcing manner. Experimental results show that the proposed method can achieve better performance than that of the state-of-the-art approaches. The source code is released at https://github.com/zhoushen/IDCMPNet.",
-      "area_label": "Computer Vision",
-      "area_slug": "computer-vision",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "CVPR",
-      "tier": 1,
-      "citations": 171
-    },
-    {
-      "zotero_key": "2311.17910",
-      "title": "HUGS: Human Gaussian Splats",
-      "authors": "Muhammed Kocabas, Jen-Hao Rick Chang, James Gabriel, Oncel Tuzel et al.",
-      "year": 2024,
-      "what": "[Conference] Recent advances in neural rendering have improved both training and rendering times by orders of magnitude. While these methods demonstrate state-of-the-art quality and speed, they are designed for photogrammetry of static scenes and do not generalize well to freely moving humans",
-      "summary": "Recent advances in neural rendering have improved both training and rendering times by orders of magnitude. While these methods demonstrate state-of-the-art quality and speed, they are designed for photogrammetry of static scenes and do not generalize well to freely moving humans in the environment. In this work, we introduce Human Gaussian Splats (HUGS) that represents an animatable human together with the scene using 3D Gaussian Splatting (3DGS). Our method takes only a monocular video with a small number of (50–100) frames, and it automatically learns to disentangle the static scene and a fully animatable human avatar within 30 minutes. We utilize the SMPL body model to initialize the human Gaussians. To capture details that are not modeled by SMPL (e.g., cloth, hairs), we allow the 3D Gaussians to deviate from the human body model. Utilizing 3D Gaussians for animated humans brings new challenges, including the artifacts created when articulating the Gaussians. We propose to jointly optimize the linear blend skinning weights to coordinate the movements of individual Gaussians during animation. Our approach enables novel-pose synthesis of human and novel view synthesis of both the human and the scene. We achieve state-of-the-art rendering quality with a rendering speed of 60 FPS while being ~100x faster to train over previous work. Our code will be announced here: https://github.com/apple/ml-hugs.",
-      "area_label": "Llm",
-      "area_slug": "llm",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "CVPR",
-      "tier": 1,
-      "citations": 148
-    },
-    {
       "zotero_key": "2412.13663",
       "title": "Smarter, Better, Faster, Longer: A Modern Bidirectional Encoder for Fast, Memory Efficient, and Long Context Finetuning and Inference",
       "authors": "Benjamin C. Warner, Antoine Chaffin, Benjamin Clavié, Orion Weller et al.",
@@ -479,22 +284,7 @@
       "rec_type": "conference",
       "venue": "ACL",
       "tier": 1,
-      "citations": 206
-    },
-    {
-      "zotero_key": "2311.13398",
-      "title": "Depth-Regularized Optimization for 3D Gaussian Splatting in Few-Shot Images",
-      "authors": "Jaeyoung Chung, Jeongtaek Oh, Kyoung Mu Lee",
-      "year": 2024,
-      "what": "[Conference] This paper presents a method to optimize Gaussian splatting with a limited number of images while avoiding overfitting. Representing a 3D scene by combining numerous Gaussian splats has yielded outstanding visual quality. However, it tends to overfit the training views when only ",
-      "summary": "This paper presents a method to optimize Gaussian splatting with a limited number of images while avoiding overfitting. Representing a 3D scene by combining numerous Gaussian splats has yielded outstanding visual quality. However, it tends to overfit the training views when only a few images are available. To address this issue, we employ an adjusted depth map as a geometric reference, derived from a pre-trained monocular depth estimation model and subsequently aligned with the sparse structure-from-motion points. We regularize the optimization process of 3D Gaussian splatting with the adjusted depth and an additional unsupervised smooth constraint, thereby effectively reducing the occurrence of floating artifacts. Our method is mainly validated on the NeRF-LLFF dataset with varying numbers of images, and we conduct multiple experiments with randomly selected training images, presenting the average value to ensure fairness. Our approach demonstrates robust geometry compared to the original method, which relied solely on images.",
-      "area_label": "Computer Vision",
-      "area_slug": "computer-vision",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "CVPR",
-      "tier": 1,
-      "citations": 154
+      "citations": 208
     },
     {
       "zotero_key": "2403.12580",
@@ -509,7 +299,7 @@
       "rec_type": "conference",
       "venue": "CVPR",
       "tier": 1,
-      "citations": 148
+      "citations": 149
     },
     {
       "zotero_key": "2311.12198",
@@ -527,36 +317,6 @@
       "citations": 177
     },
     {
-      "zotero_key": "2403.05369",
-      "title": "Frequency-Adaptive Dilated Convolution for Semantic Segmentation",
-      "authors": "Linwei Chen, Lin Gu, Dezhi Zheng, Ying Fu",
-      "year": 2024,
-      "what": "[Conference] Dilated convolution, which expands the receptive field by inserting gaps between its consecutive elements, is widely employed in computer vision. In this study, we propose three strategies to improve individual phases of dilated convolution from the perspective of spectrum analys",
-      "summary": "Dilated convolution, which expands the receptive field by inserting gaps between its consecutive elements, is widely employed in computer vision. In this study, we propose three strategies to improve individual phases of dilated convolution from the perspective of spectrum analysis. Departing from the conventional practice of fixing a global dilation rate as a hyperparameter, we introduce Frequency-Adaptive Dilated Convolution (FADC), which dynamically adjusts dilation rates spatially based on local frequency components. Subsequently, we design two plug-in modules to directly enhance effective bandwidth and receptive field size. The Adaptive Kernel (AdaKern) module decomposes convolution weights into low-frequency and high-frequency components, dynamically adjusting the ratio between these components on a per-channel basis. By increasing the high-frequency part of convolution weights, AdaKern captures more high-frequency components, thereby improving effective bandwidth. The Frequency Selection (FreqSelect) module optimally balances high- and low-frequency components in feature representations through spatially variant reweighting. It suppresses high frequencies in the background to encourage FADC to learn a larger dilation, thereby increasing the receptive field for an expanded scope. Extensive experiments on segmentation and object detection consistently validate the efficacy of our approach. The code is made publicly available at https://github.com/ying-fu/FADC.",
-      "area_label": "Computer Vision",
-      "area_slug": "computer-vision",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "CVPR",
-      "tier": 1,
-      "citations": 154
-    },
-    {
-      "zotero_key": "2308.13712",
-      "title": "Residual Denoising Diffusion Models",
-      "authors": "Jiawei Liu, Qiang Wang, Huijie Fan, Yinong Wang et al.",
-      "year": 2024,
-      "what": "[Conference] We propose residual denoising diffusion models (RDDM), a novel dual diffusion process that decouples the traditional single denoising diffusion process into residual diffusion and noise diffusion. This dual diffusion framework expands the denoising-based diffusion models, initial",
-      "summary": "We propose residual denoising diffusion models (RDDM), a novel dual diffusion process that decouples the traditional single denoising diffusion process into residual diffusion and noise diffusion. This dual diffusion framework expands the denoising-based diffusion models, initially uninterpretable for image restoration, into a unified and interpretable model for both image generation and restoration by introducing residuals. Specifically, our residual diffusion represents directional diffusion from the target image to the degraded input image and explicitly guides the reverse generation process for image restoration, while noise diffusion represents random perturbations in the diffusion process. The residual prioritizes certainty, while the noise emphasizes diversity, enabling RDDM to effectively unify tasks with varying certainty or diversity requirements, such as image generation and restoration. We demonstrate that our sampling process is consistent with that of DDPM and DDIM through coefficient transformation, and propose a partially path-independent generation process to better understand the reverse process. Notably, our RDDM enables a generic UNet, trained with only an L1 loss and a batch size of 1, to compete with state-of-the-art image restoration methods. We provide code and pre-trained models to encourage further exploration, application, and development of our innovative framework (https://github.com/nachifurlRDDM).",
-      "area_label": "Computer Vision",
-      "area_slug": "computer-vision",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "CVPR",
-      "tier": 1,
-      "citations": 157
-    },
-    {
       "zotero_key": "2302.04166",
       "title": "GPTScore: Evaluate as You Desire",
       "authors": "Jinlan Fu, See-Kiong Ng, Zhengbao Jiang, Pengfei Liu",
@@ -572,36 +332,6 @@
       "citations": 177
     },
     {
-      "zotero_key": "2303.11797",
-      "title": "CAT-Seg: Cost Aggregation for Open-Vocabulary Semantic Segmentation",
-      "authors": "Seokju Cho, Heeseong Shin, Sunghwan Hong, Anurag Arnab et al.",
-      "year": 2024,
-      "what": "[Conference] Open-vocabulary semantic segmentation presents the challenge of labeling each pixel within an image based on a wide range of text descriptions. In this work, we introduce a novel cost-based approach to adapt vision-language foundation models, notably CLIP, for the intricate task ",
-      "summary": "Open-vocabulary semantic segmentation presents the challenge of labeling each pixel within an image based on a wide range of text descriptions. In this work, we introduce a novel cost-based approach to adapt vision-language foundation models, notably CLIP, for the intricate task of semantic segmentation. Through aggregating the cosine similarity score, i. e., the cost volume between image and text embeddings, our method potently adapts CLIP for segmenting seen and unseen classes by fine-tuning its encoders, addressing the challenges faced by existing methods in handling unseen classes. Building upon this, we explore methods to effectively aggregate the cost volume considering its multi-modal nature of being established between image and text embeddings. Furthermore, we examine various methods for efficiently fine-tuning CLIP.",
-      "area_label": "Computer Vision",
-      "area_slug": "computer-vision",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "CVPR",
-      "tier": 1,
-      "citations": 151
-    },
-    {
-      "zotero_key": "2402.17414",
-      "title": "Neural Video Compression with Feature Modulation",
-      "authors": "Jiahao Li, Bin Li, Yan Lu",
-      "year": 2024,
-      "what": "[Conference] The emerging conditional coding-based neural video codec (NVC) shows superiority over commonly-used resid-ual coding-based codec and the latest NVC already claims to outperform the best traditional codec. However, there still exist critical problems blocking the practicality of N",
-      "summary": "The emerging conditional coding-based neural video codec (NVC) shows superiority over commonly-used resid-ual coding-based codec and the latest NVC already claims to outperform the best traditional codec. However, there still exist critical problems blocking the practicality of NVC. In this paper, we propose a powerful conditional coding- based NVC that solves two critical problems via feature modulation. The first is how to support a wide quality range in a single model. Previous NVC with this capability only supports about 3.8 dB PSNR range on average. To tackle this limitation, we modulate the latent feature of the cur-rent frame via the learnable quantization scaler. During the training, we specially design the uniform quantization pa-rameter sampling mechanism to improve the harmonization of encoding and quantization. This results in a better learning of the quantization scaler and helps our NVC support about 11.4 dB PSNR range. The second is how to make NVC still work under a long prediction chain. We expose that the previous SOTA NVC has an obvious quality degra-dation problem when using a large intra-period setting. To this end, we propose modulating the temporal feature with a periodically refreshing mechanism to boost the quality. Notably, under single intra-frame setting, our codec can achieve 29.7% bitrate saving over previous SOTA NVC with 16% MACs reduction. Our codec serves as a notable land-mark in the journey of NVC evolution. The codes are at https://github.com/microsoft/DCVC.",
-      "area_label": "Time Series",
-      "area_slug": "time-series",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "CVPR",
-      "tier": 1,
-      "citations": 151
-    },
-    {
       "zotero_key": "2403.09634",
       "title": "OneTracker: Unifying Visual Object Tracking with Foundation Models and Efficient Tuning",
       "authors": "Lingyi Hong, Shilin Yan, Renrui Zhang, Wanyun Li et al.",
@@ -615,21 +345,6 @@
       "venue": "CVPR",
       "tier": 1,
       "citations": 154
-    },
-    {
-      "zotero_key": "2311.07885",
-      "title": "One-2-3-45++: Fast Single Image to 3D Objects with Consistent Multi-View Generation and 3D Diffusion",
-      "authors": "Minghua Liu, Ruoxi Shi, Linghao Chen, Zhuoyang Zhang et al.",
-      "year": 2024,
-      "what": "[Conference] Recent advancements in open-world 3D object generation have been remarkable, with image-to-3D methods of-fering superior fine-grained control over their text-to-3D counterparts. However, most existing models fall short in simultaneously providing rapid generation speeds and high ",
-      "summary": "Recent advancements in open-world 3D object generation have been remarkable, with image-to-3D methods of-fering superior fine-grained control over their text-to-3D counterparts. However, most existing models fall short in simultaneously providing rapid generation speeds and high fidelity to input images - two features essential for practi-cal applications. In this paper, we present One-2-3-45++, an innovative method that transforms a single image into a detailed 3D textured mesh in approximately one minute. Our approach aims to fully harness the extensive knowledge embedded in 2D diffusion models and priors from valuable yet limited 3D data. This is achieved by initially finetuning a 2D diffusion model for consistent multi-view image generation, followed by elevating these images to 3D with the aid of multi-view-conditioned 3D native diffusion models. Extensive experimental evaluations demonstrate that our method can produce high-quality, diverse 3D assets that closely mirror the original input image.",
-      "area_label": "Time Series",
-      "area_slug": "time-series",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "CVPR",
-      "tier": 1,
-      "citations": 161
     },
     {
       "zotero_key": "2309.16585",
@@ -662,40 +377,13 @@
       "citations": 146
     },
     {
-      "zotero_key": "2306.11369",
-      "title": "CrossKD: Cross-Head Knowledge Distillation for Object Detection",
-      "authors": "Jiabao Wang, Yuming Chen, Zhaohui Zheng, Xiang Li et al.",
-      "year": 2024,
-      "what": "[Conference] Knowledge Distillation (KD) has been validated as an effective model compression technique for learning compact object detectors. Existing state-of-the-art KD methods for object detection are mostly based on feature imitation. In this paper, we present a general and effective pre",
-      "summary": "Knowledge Distillation (KD) has been validated as an effective model compression technique for learning compact object detectors. Existing state-of-the-art KD methods for object detection are mostly based on feature imitation. In this paper, we present a general and effective prediction mimicking distillation scheme, called CrossKD, which delivers the intermediate features of the student's detection head to the teacher's detection head. The resulting crosshead predictions are then forced to mimic the teacher's predictions. This manner relieves the student's head from receiving contradictory supervision signals from the annotations and the teacher's predictions, greatly improving the student's detection performance. Moreover, as mimicking the teacher's predictions is the target of KD, CrossKD offers more task-oriented information in contrast with feature imitation. On MS COCO, with only prediction mimicking losses applied, our CrossKD boosts the average precision of GFL ResNet-50 with 1 × training schedule from 40.2 to 43.7, outperforming all existing KD methods. In addition, our method also works well when distilling detectors with heterogeneous backbones.",
-      "area_label": "Computer Vision",
-      "area_slug": "computer-vision",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "CVPR",
-      "tier": 1,
-      "citations": 151
-    },
-    {
-      "zotero_key": "2610.21541",
-      "title": "A Systematic and Validated Translation of the Perceived Empathy of Technology Scale to Chinese",
-      "authors": "Matthias Schmidmaier, Jingyao Zheng, Jie Song, Lik-Hang Lee et al.",
+      "zotero_key": "2610.22243",
+      "title": "Shortcut Sensitivity in Agent-Safety Evaluations",
+      "authors": "Hasan Demirkiran, Jens Ernstberger",
       "year": 2026,
-      "what": "[Explore] The Perceived Empathy of Technology Scale (PETS) allows evaluation of empathic behavior in intelligent systems, a concept increasingly applied in human-AI interaction, particularly in emotional and mental health support applications. To support intercultural research and developm",
-      "summary": "The Perceived Empathy of Technology Scale (PETS) allows evaluation of empathic behavior in intelligent systems, a concept increasingly applied in human-AI interaction, particularly in emotional and mental health support applications. To support intercultural research and development, PETS is already available in multiple languages, as research suggests cultural and language-based differences in the expression and perception of empathy. Given the substantial Chinese-speaking population and the growing focus on cross-cultural HCI research, we present a validated translation of PETS into Putonghua (Mandarin) with Simplified Chinese. Based on established back-translation methodologies as used in previous PETS translations, our process included multiple independent translations, expert panel reviews, and empirical testing with a total of N=400 participants from an English and a Chinese sample. Through confirmatory factor analysis and invariance testing we show that the Chinese PETS retains the original two-factor structure with high reliability, with support for configural, metric, and scalar invariance. Beyond validation, empathic system behavior was rated equivalently across languages, while non-empathic behavior drew substantially higher ratings from Chinese participants, suggesting its absence is read less consistently across cultures than its presence. This validated Chinese version enables researchers and practitioners to assess empathy perceptions among Chinese-speaking users, supporting culturally appropriate empathic technology development.",
-      "area_label": "cs.HC",
-      "area_slug": "explore",
-      "builds_on": "",
-      "rec_type": "explore"
-    },
-    {
-      "zotero_key": "2610.22008",
-      "title": "Fractional-order SIS-UAU subdiffusion model for rumor propagation",
-      "authors": "Qin Li, Jiexi Tang, Jürgen Kurths, Matjaž Perc et al.",
-      "year": 2026,
-      "what": "[Explore] Understanding information and rumor diffusion in complex social systems is essential for risk management. Classical SIS-UAU (Susceptible-Infected-Susceptible / Unaware-Aware-Unaware) models rely on Markovian assumptions and thus fail to capture the memory effects and subdiffusive",
-      "summary": "Understanding information and rumor diffusion in complex social systems is essential for risk management. Classical SIS-UAU (Susceptible-Infected-Susceptible / Unaware-Aware-Unaware) models rely on Markovian assumptions and thus fail to capture the memory effects and subdiffusive behaviors commonly observed in real social interactions. To address this limitation, we propose a fractional-order SIS-UAU model based on Caputo derivatives, embedding non-Markovian memory into a duplex awareness-rumor spreading process. Methodologically, we derive the corresponding mean-field equations and establish existence, uniqueness, positivity, boundedness, and a Matignon-type stability criterion. The basic reproduction number is obtained, revealing how awareness dynamics reshape the effective rumor threshold. Numerically, we develop a block-adaptive FFT (Fast Fourier Transform) solver to efficiently handle long-horizon fractional dynamics, enabling large-scale simulations. Our results show that fractional memory significantly slows the transient evolution of rumors without altering the steady state. Furthermore, infection-layer parameters dominate long-term rumor prevalence, awareness transmission substantially suppresses rumor levels, and multilayer network topology-especially degree heterogeneity-critically influences propagation outcomes. Collectively, these findings underscore the necessity of integrating memory effects, awareness dynamics, and network structure for realistic rumor modeling",
-      "area_label": "physics.soc-ph",
+      "what": "[Explore] AI agents take actions through tools. Some actions are sensitive, so guards that supervise them must themselves be evaluated reliably. Yet the data used to evaluate a guard can include cues that make labels predictable without measuring the intended safety construct, and those cu",
+      "summary": "AI agents take actions through tools. Some actions are sensitive, so guards that supervise them must themselves be evaluated reliably. Yet the data used to evaluate a guard can include cues that make labels predictable without measuring the intended safety construct, and those cues can also influence guard decisions. We introduce a three-level shortcut-auditing framework and audit completed LinuxArena trajectories and two TS-Bench-derived step datasets. We distinguish label predictability, observational guard association, and paired decision sensitivity. In LinuxArena, shorter average shell commands strongly predict trajectory labels. In AgentDojo-Traj, exact-tool lookup falls from F_1=.901 with mixed-domain folds to .495 under domain holdout. In AgentHarm-Traj, released TS-Guard F_1 falls from .902 under row weighting to .719 with equal interaction weighting, while balanced accuracy rises. We then test the strongest safe-row marker association in a seven-configuration screen on a frozen 64-step AgentDojo-Traj cohort using repeated, interleaved Haiku calls. Rewriting the <INFORMATION> marker lowers blocking by 8.33 percentage points, while opaque tool aliases raise it by 11.46 points. All unsafe calls remain blocked; the changes concern false positives against inherited labels. Both effects remain nonzero after subtracting the formatting-placebo effect, with exploratory 95% ranges excluding zero. The same edits also change measured accuracy against inherited labels. This provides direct evidence that benchmark representation can materially change a guard's decisions and measured evaluation performance. The Haiku-sized effects do not reproduce in Luna or deterministic Q8 TS-Guard. We recommend domain group holdouts, evaluation-unit metrics, and placebo-controlled paired interventions.",
+      "area_label": "cs.CR",
       "area_slug": "explore",
       "builds_on": "",
       "rec_type": "explore"
@@ -708,18 +396,6 @@
       "what": "[Explore] Harsh and rapidly varying orbital illumination introduces failure modes during spacecraft inspection. Existing planners rely on line-of-sight inspection metrics which perform occlusion checks against a known target and conflate geometric visibility with task-relevant information.",
       "summary": "Harsh and rapidly varying orbital illumination introduces failure modes during spacecraft inspection. Existing planners rely on line-of-sight inspection metrics which perform occlusion checks against a known target and conflate geometric visibility with task-relevant information. These metrics overlook illumination effects including eclipse, self-shadowing, and specular reflection from spacecraft materials and tend to declare components as inspected despite the corresponding images lacking sufficient information. We propose an inspection-planning framework that replaces geometric visibility with a learned measure of camera information derived from a classifier variational autoencoder (VAE) that operates directly on the captured image. The encoder model is trained to classify spacecraft surface components from rendered patches, and its total latent variance is used to learn the varying illumination of said components, replacing binary visibility checks with a continuous, image-grounded quantity. We evaluate the approach by implementing a Guidance, Navigation, and Control architecture in a photorealistic physics simulator, and vary lighting and viewing geometries with multiple orbits. We show that, although all approaches successfully maximize their own objective, our approach results in better illumination: a mean brightness of $0.57$, with $81.6\\%$ of observations above $0.25$, compared with $0.02$ ($3.0\\%$) for geometric planning with an illumination band and $0.04$ ($6.0\\%$) for purely geometric planning.",
       "area_label": "cs.RO",
-      "area_slug": "explore",
-      "builds_on": "",
-      "rec_type": "explore"
-    },
-    {
-      "zotero_key": "2610.22243",
-      "title": "Shortcut Sensitivity in Agent-Safety Evaluations",
-      "authors": "Hasan Demirkiran, Jens Ernstberger",
-      "year": 2026,
-      "what": "[Explore] AI agents take actions through tools. Some actions are sensitive, so guards that supervise them must themselves be evaluated reliably. Yet the data used to evaluate a guard can include cues that make labels predictable without measuring the intended safety construct, and those cu",
-      "summary": "AI agents take actions through tools. Some actions are sensitive, so guards that supervise them must themselves be evaluated reliably. Yet the data used to evaluate a guard can include cues that make labels predictable without measuring the intended safety construct, and those cues can also influence guard decisions. We introduce a three-level shortcut-auditing framework and audit completed LinuxArena trajectories and two TS-Bench-derived step datasets. We distinguish label predictability, observational guard association, and paired decision sensitivity. In LinuxArena, shorter average shell commands strongly predict trajectory labels. In AgentDojo-Traj, exact-tool lookup falls from F_1=.901 with mixed-domain folds to .495 under domain holdout. In AgentHarm-Traj, released TS-Guard F_1 falls from .902 under row weighting to .719 with equal interaction weighting, while balanced accuracy rises. We then test the strongest safe-row marker association in a seven-configuration screen on a frozen 64-step AgentDojo-Traj cohort using repeated, interleaved Haiku calls. Rewriting the <INFORMATION> marker lowers blocking by 8.33 percentage points, while opaque tool aliases raise it by 11.46 points. All unsafe calls remain blocked; the changes concern false positives against inherited labels. Both effects remain nonzero after subtracting the formatting-placebo effect, with exploratory 95% ranges excluding zero. The same edits also change measured accuracy against inherited labels. This provides direct evidence that benchmark representation can materially change a guard's decisions and measured evaluation performance. The Haiku-sized effects do not reproduce in Luna or deterministic Q8 TS-Guard. We recommend domain group holdouts, evaluation-unit metrics, and placebo-controlled paired interventions.",
-      "area_label": "cs.CR",
       "area_slug": "explore",
       "builds_on": "",
       "rec_type": "explore"
@@ -773,24 +449,24 @@
       "rec_type": "explore"
     },
     {
-      "zotero_key": "2610.22285",
-      "title": "Asking Smarter Questions: Targeted Active Preference Learning for Underspecified Rewards",
-      "authors": "Helena Merker, Nick Walker, Andreea Bobu",
-      "year": 2026,
-      "what": "[Explore] Reward learning typically assumes the human's input covers everything that matters for the task. In practice, humans can only attend to so much at once, so their teaching naturally captures some features---or aspects of the task---better than others. Prior work has shown how the ",
-      "summary": "Reward learning typically assumes the human's input covers everything that matters for the task. In practice, humans can only attend to so much at once, so their teaching naturally captures some features---or aspects of the task---better than others. Prior work has shown how the robot can identify which features were poorly supervised directly from its teaching data. But the current solution is to ask the human to try again, putting the burden on someone who already struggled to convey those features. We propose shifting this burden to the robot. Our key insight is that the same information that tells the robot what it doesn't know can help it ask better questions. Preference queries offer a low-effort channel for resolving this uncertainty, but only if the robot knows where to direct them and the human knows what to attend to when answering. We act on this insight in two ways: we build an informed prior that targets preference queries at the features that need resolving, and we accompany each query with an explanation that focuses the human's attention on exactly those features. In simulation, the informed prior beats the standard active preference learning baseline by up to $30.8\\%$ in the low-query regime, where reducing human effort matters most. In a user study, the informed prior and explanations each significantly improve reward recovery and amplify each other.",
-      "area_label": "cs.HC",
-      "area_slug": "explore",
-      "builds_on": "",
-      "rec_type": "explore"
-    },
-    {
       "zotero_key": "2610.21972",
       "title": "Inflak: A Unified Orchestration Architecture for Human-Agent Interaction",
       "authors": "Lin Gao, Li Chen, Jianxun Lian, Ji Li et al.",
       "year": 2026,
       "what": "[Explore] LLM-powered agents increasingly support open-ended activities, yet orchestrating when and how agents interact with humans remains challenging. Existing approaches often provide interaction mechanisms tied to particular tasks or execution patterns, lacking a unified architecture f",
       "summary": "LLM-powered agents increasingly support open-ended activities, yet orchestrating when and how agents interact with humans remains challenging. Existing approaches often provide interaction mechanisms tied to particular tasks or execution patterns, lacking a unified architecture for diverse and evolving interaction needs. We introduce Inflak, a unified four-layer architecture for human-agent interaction orchestration that separates state reconstruction and routing, interaction and execution planning, interaction design, and interface rendering. Its layered design with progressive resolution enables general applicability, runtime flexibility, module composability, and orchestration maintainability. We implement Inflak as agent-native, skill-based plugins within a general-purpose agent framework and evaluate it through a gallery of various application scenarios and interaction paradigms, technical performance testing, and a comparative implementation case study. The evaluations show that Inflak can serve as a general and extensible foundation for orchestrating diverse human-agent interaction flows.",
+      "area_label": "cs.HC",
+      "area_slug": "explore",
+      "builds_on": "",
+      "rec_type": "explore"
+    },
+    {
+      "zotero_key": "2610.22285",
+      "title": "Asking Smarter Questions: Targeted Active Preference Learning for Underspecified Rewards",
+      "authors": "Helena Merker, Nick Walker, Andreea Bobu",
+      "year": 2026,
+      "what": "[Explore] Reward learning typically assumes the human's input covers everything that matters for the task. In practice, humans can only attend to so much at once, so their teaching naturally captures some features---or aspects of the task---better than others. Prior work has shown how the ",
+      "summary": "Reward learning typically assumes the human's input covers everything that matters for the task. In practice, humans can only attend to so much at once, so their teaching naturally captures some features---or aspects of the task---better than others. Prior work has shown how the robot can identify which features were poorly supervised directly from its teaching data. But the current solution is to ask the human to try again, putting the burden on someone who already struggled to convey those features. We propose shifting this burden to the robot. Our key insight is that the same information that tells the robot what it doesn't know can help it ask better questions. Preference queries offer a low-effort channel for resolving this uncertainty, but only if the robot knows where to direct them and the human knows what to attend to when answering. We act on this insight in two ways: we build an informed prior that targets preference queries at the features that need resolving, and we accompany each query with an explanation that focuses the human's attention on exactly those features. In simulation, the informed prior beats the standard active preference learning baseline by up to $30.8\\%$ in the low-query regime, where reducing human effort matters most. In a user study, the informed prior and explanations each significantly improve reward recovery and amplify each other.",
       "area_label": "cs.HC",
       "area_slug": "explore",
       "builds_on": "",
@@ -851,6 +527,42 @@
       "year": 2026,
       "what": "[Explore] I study randomization inference for dynamic causal effects in panels with many units and few periods when treatment is endogenous and an instrument is as good as randomly assigned only through the innovations of a first-order autoregressive assignment mechanism with unknown persi",
       "summary": "I study randomization inference for dynamic causal effects in panels with many units and few periods when treatment is endogenous and an instrument is as good as randomly assigned only through the innovations of a first-order autoregressive assignment mechanism with unknown persistence. The persistence is a nuisance parameter in two senses: it determines which weighted average of heterogeneous causal effects the instrumented local projection estimand measures, and it governs the randomization distribution of any statistic built from the instrument. I propose tests that never estimate it. For each candidate value the innovations are recovered, rerandomized under a group that leaves their joint law invariant, and a randomization p-value is formed; the reported p-value is the supremum over candidate values or over an exact confidence set. Under a sharp null on the path of lag-specific effects the tests have level at most $α$ for every persistence in finite samples, including the unit root, and the supremum is a maximum over finitely many points. Under a weak null on the heterogeneity-weighted estimand a studentized version is uniformly asymptotically valid.",
+      "area_label": "econ.EM",
+      "area_slug": "explore",
+      "builds_on": "",
+      "rec_type": "explore"
+    },
+    {
+      "zotero_key": "2610.17104",
+      "title": "Dynamic Panel Multinomial Logit Models",
+      "authors": "Kevin Dano, Bo E. Honoré, Martin Weidner",
+      "year": 2026,
+      "what": "[Explore] This paper provides moment conditions for dynamic multinomial logit panel data models with individual specific fixed effects. The moment conditions do not depend on the fixed effects and thus form the basis for generalized method of moments estimation. For a leading case, we prov",
+      "summary": "This paper provides moment conditions for dynamic multinomial logit panel data models with individual specific fixed effects. The moment conditions do not depend on the fixed effects and thus form the basis for generalized method of moments estimation. For a leading case, we provide sufficient conditions under which the moment conditions identify the common parameters, and we illustrate their use in an empirical application to household soft drink purchases. The construction of moment conditions is based on transformed models obtained by permuting outcomes across time periods. For any cyclic permutation, the ratio of the transformed model probability to the true model probability is free of the fixed effects, and comparing two such ratios yields restrictions on the common parameters of interest. This construction is not specific to the multinomial logit. It applies to any dynamic panel data model whose static counterpart admits a symmetric sufficient statistic for the fixed effects. This unifies our main result with analogous results for other models.",
+      "area_label": "econ.EM",
+      "area_slug": "explore",
+      "builds_on": "",
+      "rec_type": "explore"
+    },
+    {
+      "zotero_key": "2610.16701",
+      "title": "Estimation of Rational Inattention--Additive Random Utility Models",
+      "authors": "Ruolei Zhu",
+      "year": 2026,
+      "what": "[Explore] This paper develops likelihood-based estimation for parametric rational inattention--additive random utility models. We establish consistency and asymptotic normality of the exact maximum likelihood estimator and provide conditions under which the simulated estimator shares its a",
+      "summary": "This paper develops likelihood-based estimation for parametric rational inattention--additive random utility models. We establish consistency and asymptotic normality of the exact maximum likelihood estimator and provide conditions under which the simulated estimator shares its asymptotic distribution. To implement estimation, we develop Newton--BA, a KKT-guided hybrid of Newton--Raphson and Blahut--Arimoto (BA). The algorithm accommodates both interior and boundary solutions and substantially improves computational efficiency relative to direct BA while preserving numerical accuracy. Monte Carlo simulations show that parameter recovery improves with sample size and that confidence-interval coverage is generally close to the nominal $95$ percent level. Finally, we compare our model with no- and perfect-information logit benchmarks in an empirically calibrated ModeCanada experiment. Our model achieves similar in-sample likelihood fit to perfect-information logit but more accurately recovers key preference parameters, choice probabilities, and responses to travel-time changes.",
+      "area_label": "econ.EM",
+      "area_slug": "explore",
+      "builds_on": "",
+      "rec_type": "explore"
+    },
+    {
+      "zotero_key": "2610.15789",
+      "title": "Inference on the Value of Policy Improvement in Adaptive Experiments",
+      "authors": "Justin Whitehouse, Emma Brunskill, Vasilis Syrgkanis",
+      "year": 2026,
+      "what": "[Explore] In this paper, we develop an asymptotically normal estimator for the value of policy improvement (VPI) under adaptively collected data. This value, which is defined as the gap between the value of the best treatment policy in a class and that of a baseline policy, gauges whether ",
+      "summary": "In this paper, we develop an asymptotically normal estimator for the value of policy improvement (VPI) under adaptively collected data. This value, which is defined as the gap between the value of the best treatment policy in a class and that of a baseline policy, gauges whether or not it is worth deploying a personalized treatment policy. Building an estimator for the VPI is naturally more difficult than estimating the value of a fixed policy. This is because, in addition to contending with the correlated data and decaying propensities associated with adaptive experiments, any estimator must also handle the non-regularity, or lack of pathwise differentiability, of the underlying estimand when the optimal policy is non-unique. Our proposed estimator works by sequentially fitting a weighted empirical welfare maximizing policy on historical data and then evaluating it using inverse propensity weighting on future samples. We neither assume that the optimal policy is unique nor make a margin assumption on the underlying heterogeneous treatment effects. A key difficulty in analyzing our estimator is showing that the regret incurred through policy learning is asymptotically smaller than the standard error of the estimator. We accomplish this by showing faster regret rates for policy learning under decaying propensities, which may be of independent interest. We not only evaluate the coverage of our estimator on a mix of synthetic and semi-synthetic data, but also employ it to estimate the VPI in an adaptive experiment evaluating the efficacy of job assistance programs in Jordan due to Caria et al. Although our estimates are generally more conservative than their hierarchical Bayesian analysis, which assumes that the optimal policy is unique, we still corroborate the benefits of personalization amongst Syrian refugees.",
       "area_label": "econ.EM",
       "area_slug": "explore",
       "builds_on": "",
