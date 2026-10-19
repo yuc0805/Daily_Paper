@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrairieFire: Igniting High-Throughput Updates in Large-Scale Approximate Nearest Neighbor Search — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>PrairieFire: Igniting High-Throughput Updates in Large-Scale Approximate Nearest Neighbor Search</h2>
+<p class="paper-meta">Yuchen Huang, Baiteng Ma, Yiping Sun, Xiao Chen et al. &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2610.23232" target="_blank" rel="noopener">arXiv:2610.23232</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Arrays of modern NVMe SSDs are approaching memory in terms of bandwidth while offering much lower cost per gigabyte. Hence, approximate nearest neighbor search (ANNS) for billion-scale vectors in applications such as recommendation, search, and retrieval-augmented generation increasingly runs on SSD-based systems. Unfortunately, due to the limited update throughput of existing SSD-based solutions, the indexed corpus cannot keep pace with continuous modifications to data and embedding models, thus hindering broader deployment across more scenarios and larger scales. The bottleneck lies in CPU-intensive update paths, where foreground insertions incur frequent SSD accesses and background reassignments repeatedly relocate each vector, making high update throughput difficult to achieve even by exhausting available hardware. In this paper, using buffered updates and batched local rebuilds, we develop PrairieFire with cascaded adjustments, concurrency control, and CPU-GPU-SSD cooperation. These co-designs avoid frequent SSD accesses in foreground updates and heavy background reassignments, achieving high update throughput while maintaining excellent search performance. Evaluations show that, compared with state-of-the-art systems, PrairieFire can sustain approximately 3-35x update throughput while maintaining approximately 3-5x search throughput simultaneously. It also achieves approximately 1.5-8.7x cost efficiency. PrairieFire has been deployed in RedNote's production environments for two months, improving business metrics by higher freshness without frequent index rebuilds.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
