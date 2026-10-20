@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Does Tile Granularity Matter? An Empirical Study of Vector Tile Compression for Map Rendering with MapLibre Tiles — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Does Tile Granularity Matter? An Empirical Study of Vector Tile Compression for Map Rendering with MapLibre Tiles</h2>
+<p class="paper-meta">Viacheslav Nefedov, Ivan Nefedov, Petr Datsenko, Samuil Datsenko &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2610.25755" target="_blank" rel="noopener">arXiv:2610.25755</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Vector tiles are delivered as pyramids of small, independently encoded units, whose spatial granularity is largely determined by the tiling scheme. We investigate how this granularity affects compression in column-oriented MapLibre Tiles (MLT), using feature-oriented Mapbox Vector Tiles (MVT) as a baseline. Five heterogeneous geospatial datasets were encoded as conventional tile pyramids and as two denser variants grouping the area of 2 x 2 or 4 x 4 conventional tiles into one encoding unit at approximately matched logical levels of detail. Compared with conventional tiling, the 4 x 4 variant increased MLT's raw size saving over MVT by 1.0-7.3 percentage points across all five datasets. After per-tile gzip, the saving increased by 1.5-6.4 points in four datasets and decreased by 1.4 points in one. Coarser granularity lengthened MLT streams and reduced structural overhead in every dataset. The largest raw gains occurred where conventional tiles had the shortest streams: as mean values per stream rose from 27 to 2,075 across datasets, the raw gain decreased from 7.3 to 1.0 points. Encoded payload bytes per value also declined, with the strongest reductions in two datasets. For the two sparse datasets, coarser units reduced bytes per vertex across both formats, with or without gzip; the resulting 4 x 4 MLT+gzip archives were 71% and 33% smaller than the conventional ones. Thus, the measured compression advantage of MLT depends on spatial encoding-unit granularity, and conventional fine-grained tiling can understate the potential of column-oriented compression.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
