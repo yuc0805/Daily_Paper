@@ -1,66 +1,6 @@
 {
-  "date": "2026-10-24",
+  "date": "2026-10-25",
   "papers": [
-    {
-      "zotero_key": "2610.31663",
-      "title": "Phase Transition from Random Features to Fully Trainable Networks",
-      "authors": "Xin He, Huan Lao, Xiliang Lu, Shijun Zhang",
-      "year": 2026,
-      "what": "Constructing accurate and computationally tractable approximation spaces is a fundamental task in scientific computing. Partially trainable neural networks bridge fixed random features and fully adaptive representations. This paper quantifies a phase transition pattern in approximation bounds and ob",
-      "summary": "Constructing accurate and computationally tractable approximation spaces is a fundamental task in scientific computing. Partially trainable neural networks bridge fixed random features and fully adaptive representations. This paper quantifies a phase transition pattern in approximation bounds and observes analogous behavior in training errors: a rapid but smooth initial improvement followed by diminishing returns, with a sharper transition under greater initialization mismatch. Under polynomial spectral decay with exponent $α>1$ and leverage compatibility, we establish a squared $L_2$ approximation rate $\\mathcal{O}((κ_P\\log(m/δ)/m)^α)$ for two-layer networks of width $m$ and trainable proportion $P$, where $κ_P=(P/κ_1^*+(1-P)/κ_0^*)^{-1}$. The bound holds uniformly over the unit ball of a reproducing kernel Hilbert space (RKHS) with probability at least $1-δ$. The constants $κ_0^*$ and $κ_1^*$ quantify the fixed and trainable groups' sampling mismatches relative to the target RKHS. For spherical biased-ReLU features in dimension $d$, we verify these assumptions with $α=(d+2)/(d-1)$ and $κ_0^*=4\\sqrt{2}τ(d+1)/d$ for initialization scale $τ\\ge1$, and $κ_1^*=1$ under ridge leverage sampling. For $d=5$ and $τ=10$, a trainable proportion of approximately $4.1\\%$ captures $90\\%$ of the reduction in the approximation bound from $P=0$ to $P=1$. A structured three-layer example illustrates how a few trainable first-layer neurons exploit fixed downstream blocks through nonlinear composition. Numerical experiments across diverse settings, including networks with up to 15 layers, exhibit similar phase transitions in training errors.",
-      "area_label": "Llm",
-      "area_slug": "llm",
-      "builds_on": "",
-      "rec_type": "for-you",
-      "venue": "",
-      "tier": 0,
-      "citations": 0
-    },
-    {
-      "zotero_key": "2610.31671",
-      "title": "A Unified Framework for Image-to-3D Part Generation via Variable Granularity",
-      "authors": "Qiwen Gu, Xin Zhou, Xiwu Chen, Zhongyang Zhu et al.",
-      "year": 2026,
-      "what": "Controllable 3D part generation is pivotal for digital asset creation, yet existing methods lack the flexibility to accommodate diverse user workflows requiring varying levels of control. In this paper, we introduce FlexPart, a unified image-to-3D part generation framework that supports variable-gra",
-      "summary": "Controllable 3D part generation is pivotal for digital asset creation, yet existing methods lack the flexibility to accommodate diverse user workflows requiring varying levels of control. In this paper, we introduce FlexPart, a unified image-to-3D part generation framework that supports variable-granularity geometric conditions within a single model. By seamlessly integrating heterogeneous inputs, ranging from sparse points to dense bounding boxes and masks, via gated adaptive modulation, FlexPart unlocks a powerful cross-modal synergy. We also propose an asymmetric geometric guidance mechanism that leverages strong spatial priors to align representations across granularities, improving geometric consistency and facilitating inter-task synergy. Under mask conditioning on PartVerseXL, FlexPart reduces Part CD by 16.6% relative to TripoSG + SAM3D and by 10.5% relative to OmniPart, while maintaining competitive whole-mesh quality. The code can be found at https://github.com/Gucci233/FlexPart",
-      "area_label": "Computer Vision",
-      "area_slug": "computer-vision",
-      "builds_on": "",
-      "rec_type": "for-you",
-      "venue": "",
-      "tier": 0,
-      "citations": 0
-    },
-    {
-      "zotero_key": "2610.31635",
-      "title": "HiP3R: Hierarchical Pose Graphs for Long-Horizon 3D Reconstruction",
-      "authors": "Zunnan Xu, Shangchen Zhou, Yihang Luo, Chen Change Loy",
-      "year": 2026,
-      "what": "Feed-forward models accurately estimate camera motion and 3D geometry from short video windows. However, computational and memory costs prevent direct inference on sequences containing thousands of frames. Long videos must therefore be processed as overlapping chunks. This division produces independ",
-      "summary": "Feed-forward models accurately estimate camera motion and 3D geometry from short video windows. However, computational and memory costs prevent direct inference on sequences containing thousands of frames. Long videos must therefore be processed as overlapping chunks. This division produces independent local reconstructions with inconsistent coordinate frames and duplicate estimates of shared cameras. Achieving global consistency requires propagating constraints from adjacent overlaps and distant revisits across the sequence. This requirement naturally motivates pose graph optimization. However, the choice of graph level creates a trade-off. Chunk-level graphs efficiently resolve scale drift and close large loops. Yet, their rigid transformations cannot correct internal errors or conflicting frame predictions. Conversely, frame-level optimization offers local flexibility, but scaling it globally is computationally expensive and can break metric scale. HiP3R resolves this trade-off using a hierarchical pose graph. HiP3R first optimizes a robust chunk-level $\\mathrm{Sim}(3)$ graph to establish the global layout and scale. It then holds this layout fixed and estimates one shared $\\mathrm{SE}(3)$ camera per frame, turning overlapping window predictions into a single trajectory. Experiments across multiple benchmarks demonstrate the effectiveness of HiP3R in improving camera trajectories and 3D reconstruction. Our method applies to both chunk-based and streaming backends without additional training or fine-tuning. The codes are available at https://kkakkkka.github.io/HiP3R.",
-      "area_label": "Computer Vision",
-      "area_slug": "computer-vision",
-      "builds_on": "",
-      "rec_type": "for-you",
-      "venue": "",
-      "tier": 0,
-      "citations": 0
-    },
-    {
-      "zotero_key": "2610.31576",
-      "title": "What Makes a Good Unmasking Policy? A Controlled Study of Learned Unmasking in Diffusion Language Models",
-      "authors": "Jinya Sakurai, Xun Xu, Jaehong Yoon",
-      "year": 2026,
-      "what": "Masked diffusion language models generate tokens in parallel, but their efficiency depends on which predictions are committed. Learned unmasking policies improve the speed--accuracy trade-off, yet differ in supervision, inputs, and capacity, obscuring which choices matter. We view supervised policie",
-      "summary": "Masked diffusion language models generate tokens in parallel, but their efficiency depends on which predictions are committed. Learned unmasking policies improve the speed--accuracy trade-off, yet differ in supervision, inputs, and capacity, obscuring which choices matter. We view supervised policies as distilling a decoding procedure through a teacher and examine independently what the teacher labels as committable, on which states the policy imitates it, what the policy observes, and how much the number of function evaluations (NFE) must decrease to offset policy overhead. We find that labeling predictions matching the final output is overly permissive at low NFE, and hidden states are weak alone but can complement confidence. About a 10% NFE reduction suffices to offset policy overhead for policies up to 7.5M parameters across tested settings. We therefore train a policy on trajectory-contraction targets, which accept only commitments staying on a reference trajectory, using confidence and hidden states. On LLaDA-8B-Instruct, the resulting 856K-parameter policy achieves the best accuracy--NFE frontier and highest throughput on GSM8K, is competitive at moderate targets on MATH-500 and HumanEval, and largely transfers to Dream-7B-Instruct.",
-      "area_label": "Self Supervised",
-      "area_slug": "self-supervised",
-      "builds_on": "",
-      "rec_type": "for-you",
-      "venue": "",
-      "tier": 0,
-      "citations": 0
-    },
     {
       "zotero_key": "2610.31606",
       "title": "How Ground Truth Shapes Retrieval Scores: Evidence-Aware Evaluation of a Retrieval-Augmented Generation System for Breast Lesions",
@@ -197,36 +137,6 @@
       "citations": 0
     },
     {
-      "zotero_key": "2305.14836",
-      "title": "NuScenes-QA: A Multi-Modal Visual Question Answering Benchmark for Autonomous Driving Scenario",
-      "authors": "Tianwen Qian, Jingjing Chen, Linhai Zhuo, Yang Jiao et al.",
-      "year": 2024,
-      "what": "[Conference] We introduce a novel visual question answering (VQA) task in the context of autonomous driving, aiming to answer natural language questions based on street-view clues. Compared to traditional VQA tasks, VQA in autonomous driving scenario presents more challenges. Firstly, the raw",
-      "summary": "We introduce a novel visual question answering (VQA) task in the context of autonomous driving, aiming to answer natural language questions based on street-view clues. Compared to traditional VQA tasks, VQA in autonomous driving scenario presents more challenges. Firstly, the raw visual data are multi-modal, including images and point clouds captured by camera and LiDAR, respectively. Secondly, the data are multi-frame due to the continuous, real-time acquisition. Thirdly, the outdoor scenes exhibit both moving foreground and static background. Existing VQA benchmarks fail to adequately address these complexities. To bridge this gap, we propose NuScenes-QA, the first benchmark for VQA in the autonomous driving scenario, encompassing 34K visual scenes and 460K question-answer pairs. Specifically, we leverage existing 3D detection annotations to generate scene graphs and design question templates manually. Subsequently, the question-answer pairs are generated programmatically based on these templates. Comprehensive statistics prove that our NuScenes-QA is a balanced large-scale benchmark with diverse question formats. Built upon it, we develop a series of baselines that employ advanced 3D detection and VQA techniques. Our extensive experiments highlight the challenges posed by this new task. Codes and dataset are available at https://github.com/qiantianwen/NuScenes-QA.",
-      "area_label": "Computer Vision",
-      "area_slug": "computer-vision",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "AAAI",
-      "tier": 1,
-      "citations": 176
-    },
-    {
-      "zotero_key": "2412.13663",
-      "title": "Smarter, Better, Faster, Longer: A Modern Bidirectional Encoder for Fast, Memory Efficient, and Long Context Finetuning and Inference",
-      "authors": "Benjamin C. Warner, Antoine Chaffin, Benjamin Clavié, Orion Weller et al.",
-      "year": 2025,
-      "what": "[Conference] Benjamin Warner, Antoine Chaffin, Benjamin Clavié, Orion Weller, Oskar Hallström, Said Taghadouini, Alexis Gallagher, Raja Biswas, Faisal Ladhak, Tom Aarsen, Griffin Thomas Adams, Jeremy Howard, Iacopo Poli. Proceedings of the 63rd Annual Meeting of the Association for Computatio",
-      "summary": "Benjamin Warner, Antoine Chaffin, Benjamin Clavié, Orion Weller, Oskar Hallström, Said Taghadouini, Alexis Gallagher, Raja Biswas, Faisal Ladhak, Tom Aarsen, Griffin Thomas Adams, Jeremy Howard, Iacopo Poli. Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). 2025.",
-      "area_label": "Optimizer",
-      "area_slug": "optimizer",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "ACL",
-      "tier": 1,
-      "citations": 212
-    },
-    {
       "zotero_key": "2403.12580",
       "title": "Real-IAD: A Real-World Multi-View Dataset for Benchmarking Versatile Industrial Anomaly Detection",
       "authors": "Chengjie Wang, Wenbing Zhu, Bin-Bin Gao, Zhenye Gan et al.",
@@ -299,7 +209,7 @@
       "rec_type": "conference",
       "venue": "NAACL",
       "tier": 1,
-      "citations": 143
+      "citations": 144
     },
     {
       "zotero_key": "2311.12198",
@@ -362,30 +272,6 @@
       "citations": 148
     },
     {
-      "zotero_key": "2610.30745",
-      "title": "Core-periphery structure induces double phase transitions in information cascades",
-      "authors": "Jiaqi Nie, Xincheng Shu, Yong Min, Qi Xuan et al.",
-      "year": 2026,
-      "what": "[Explore] Double phase transitions in spreading processes are commonly associated with additional dynamical or structural complexity. Here, we show that such transitions can emerge naturally in prevalent networks exhibiting a core-periphery (CP) organization. Specifically, we consider thre",
-      "summary": "Double phase transitions in spreading processes are commonly associated with additional dynamical or structural complexity. Here, we show that such transitions can emerge naturally in prevalent networks exhibiting a core-periphery (CP) organization. Specifically, we consider threshold-driven spreading on CP networks constructed from the stochastic block model, which is characterized by three parameters: the relative core size $r$, the CP coupling strength $μ$, and the fraction of intra-block link allocation $α$. We find that, by varying the allocation of links between the core and periphery, the system can generate a global cascade window in the parameter spaces, bounded by distinct phase transitions. At the upper boundary, where the periphery becomes sparse, the interplay between the structural inertia (resistance to state changes) of the core and the spreading constraints of the periphery can produce a double phase transition via a two-stage cascading mechanism. This double transition may change type from discontinuous-continuous to discontinuous-discontinuous as the model parameters vary in the limit of a vanishingly small initial seed. Our results reveal a simple structural route to double phase transitions of distinct types and highlight the role of CP structure in shaping threshold-driven spreading dynamics.",
-      "area_label": "physics.soc-ph",
-      "area_slug": "explore",
-      "builds_on": "",
-      "rec_type": "explore"
-    },
-    {
-      "zotero_key": "2610.31459",
-      "title": "How Different, or Different How? Stance Granularity in Viewpoint Selection for Dialog Systems that Engage Users with Alternative Views",
-      "authors": "Morita Tarvirdians, Reeve Lorena, Catharine Oertel",
-      "year": 2026,
-      "what": "[Explore] Systems that aim to help a user engage with viewpoints other than their own have to decide how different those viewpoints should be. Viewpoints are mainly represented on a scalar scale, too coarse to distinguish viewpoints that disagree with the user about different things. We in",
-      "summary": "Systems that aim to help a user engage with viewpoints other than their own have to decide how different those viewpoints should be. Viewpoints are mainly represented on a scalar scale, too coarse to distinguish viewpoints that disagree with the user about different things. We introduce a selection policy in which a bandit sets how far viewpoints may sit from the user, and the policy selects the most novel viewpoint within that bound. We vary only its stance encoder, comparing a scalar score with Perspectivized Stance Vectors, which break a position into separate stances on concepts. We integrate it inside a dialog system and run a between-subjects study (N=63). Concept-level stance produces more varied exposure sequences and broader coverage of the topic's positions, but does not change how deeply users justify viewpoints or how accurately they reconstruct them. Finally, we analyze user--viewpoint relations at the concept level, showing that users reconstruct a viewpoint least accurately on concepts that one side took no position on, rather than on concepts where the two disagreed. Our findings open up opportunities for dialog systems that support engagement with alternative viewpoints by acting on which concepts a user and a viewpoint disagree on, rather than on distance alone.",
-      "area_label": "cs.HC",
-      "area_slug": "explore",
-      "builds_on": "",
-      "rec_type": "explore"
-    },
-    {
       "zotero_key": "2610.31481",
       "title": "Supporting or Replacing Students' Reasoning? Cognitive Offloading in AI-Assisted Proof Learning",
       "authors": "Eason Chen, Sophia Judicke, Kayla Beigh, Xinyi Tang et al.",
@@ -398,24 +284,24 @@
       "rec_type": "explore"
     },
     {
-      "zotero_key": "2610.31366",
-      "title": "AfterDeleteBench: Auditing Post-Deletion Information Persistence in LLM Agents",
-      "authors": "Ehsan Saleh, Roozbeh Nahavandi, Sama Salarian, Raef Bassily et al.",
-      "year": 2026,
-      "what": "[Explore] Many LLM agents maintain external persistent memory and derive additional state from past interactions, such as summaries. Deleting an original memory record therefore need not remove information carried by its descendants. We introduce AfterDeleteBench, a controlled behavioral a",
-      "summary": "Many LLM agents maintain external persistent memory and derive additional state from past interactions, such as summaries. Deleting an original memory record therefore need not remove information carried by its descendants. We introduce AfterDeleteBench, a controlled behavioral audit for this failure mode in fixed-weight LLM agents. For each synthetic secret, we compare an exposed-then-deleted agent with an otherwise matched agent that was never exposed to the secret, allowing post-deletion recovery to be attributed to the original exposure. In our primary setting, a single query recovers the deleted secret from Qwen2.5-7B-Instruct in roughly two thirds of cases, while matched never-exposed controls have zero recovery. Crucially, recovery does not require a surviving verbatim copy: when the complete secret string is absent and only separately stored components remain under a public composition rule, exact reconstruction succeeds in 62-99% of cases across Qwen, Mistral, and Phi-3. We also show that the response interface is part of the measurement system: target-bearing replies can be scored as failures when the requested format and parser are misaligned. Finally, we separate reconstruction from write-back and fresh-session recall. Provenance-aware closure eliminates observed recovery in the tested positive-baseline settings, whereas an exact-literal write filter blocks reinsertion but cannot erase information already present. Together, these results show that source deletion should be evaluated behaviorally at the level of the agent and its memory system, not only as a storage operation.",
-      "area_label": "cs.CR",
-      "area_slug": "explore",
-      "builds_on": "",
-      "rec_type": "explore"
-    },
-    {
       "zotero_key": "2610.31294",
       "title": "Practical Auditing of Differentially Private Graph Release Mechanisms: Methodology, Toolkit, and Case Study",
       "authors": "Nicholas D'Silva, Surya Nepal, Salil S. Kanhere",
       "year": 2026,
       "what": "[Explore] Differential Privacy (DP) has become a prominent approach for protecting graph data releases, yet empirical auditing methodologies have largely been developed for tabular datasets and machine learning pipelines rather than graph-structured outputs. We present a methodology for em",
       "summary": "Differential Privacy (DP) has become a prominent approach for protecting graph data releases, yet empirical auditing methodologies have largely been developed for tabular datasets and machine learning pipelines rather than graph-structured outputs. We present a methodology for empirically auditing DP graph release mechanisms, identifying two graph-specific audit design problems: canary construction and witness statistic selection. We combine these components with an established statistically certified testing procedure and implement the resulting methodology as an open-source Python toolkit. To demonstrate the approach, we audit a published state-of-the-art Node-DP graph release mechanism. Across a series of synthetic and real-world canary pairs, we obtain certified lower bounds on the privacy parameter {\\varepsilon} that exceed the claimed value, yielding counterexamples sufficient to falsify the claimed guarantee for the audited implementation. The violations persist under progressively stronger restrictions on the input domain, including non-empty and connected graphs. We also show that witness selection can materially affect whether a violation is detected, highlighting the importance of evaluating a diverse battery of statistics when auditing DP graph release mechanisms.",
+      "area_label": "cs.CR",
+      "area_slug": "explore",
+      "builds_on": "",
+      "rec_type": "explore"
+    },
+    {
+      "zotero_key": "2610.31366",
+      "title": "AfterDeleteBench: Auditing Post-Deletion Information Persistence in LLM Agents",
+      "authors": "Ehsan Saleh, Roozbeh Nahavandi, Sama Salarian, Raef Bassily et al.",
+      "year": 2026,
+      "what": "[Explore] Many LLM agents maintain external persistent memory and derive additional state from past interactions, such as summaries. Deleting an original memory record therefore need not remove information carried by its descendants. We introduce AfterDeleteBench, a controlled behavioral a",
+      "summary": "Many LLM agents maintain external persistent memory and derive additional state from past interactions, such as summaries. Deleting an original memory record therefore need not remove information carried by its descendants. We introduce AfterDeleteBench, a controlled behavioral audit for this failure mode in fixed-weight LLM agents. For each synthetic secret, we compare an exposed-then-deleted agent with an otherwise matched agent that was never exposed to the secret, allowing post-deletion recovery to be attributed to the original exposure. In our primary setting, a single query recovers the deleted secret from Qwen2.5-7B-Instruct in roughly two thirds of cases, while matched never-exposed controls have zero recovery. Crucially, recovery does not require a surviving verbatim copy: when the complete secret string is absent and only separately stored components remain under a public composition rule, exact reconstruction succeeds in 62-99% of cases across Qwen, Mistral, and Phi-3. We also show that the response interface is part of the measurement system: target-bearing replies can be scored as failures when the requested format and parser are misaligned. Finally, we separate reconstruction from write-back and fresh-session recall. Provenance-aware closure eliminates observed recovery in the tested positive-baseline settings, whereas an exact-literal write filter blocks reinsertion but cannot erase information already present. Together, these results show that source deletion should be evaluated behaviorally at the level of the agent and its memory system, not only as a storage operation.",
       "area_label": "cs.CR",
       "area_slug": "explore",
       "builds_on": "",
@@ -530,30 +416,6 @@
       "rec_type": "explore"
     },
     {
-      "zotero_key": "2610.29714",
-      "title": "Condensation and optimal targeting of repeated forcing in heterogeneous networks",
-      "authors": "Jose Herrera-Diestra",
-      "year": 2026,
-      "what": "[Explore] Many networks receive repeated external forcing through a subset of entry nodes, for example infections imported from another population, information seeded by a campaign, or invasive species arriving through ports. We study how concentrating such forcing on important entry nodes",
-      "summary": "Many networks receive repeated external forcing through a subset of entry nodes, for example infections imported from another population, information seeded by a campaign, or invasive species arriving through ports. We study how concentrating such forcing on important entry nodes, with seeding probability $π_i\\propto w_i^γ$, changes the size of the resulting cascades in a stochastic SIR model on bipartite networks. The response to one seeding event is linear in the degree of the seeded node, so the relative gain from targeting does not depend on transmissibility. The targeting distribution is a Gibbs measure. For importance tails $p(w)\\sim w^{-a}$ and responses growing as $w^η$, the targeted response diverges at $γ_1=a-1-η$ and the forcing condenses on a few nodes at $γ_2=a-1$. Under repeated forcing, the burden-maximizing exponent $γ^*$ is strictly positive, and in large populations depletion of nodes already reached bounds it by the condensation point, $γ^*\\leγ_2$. The optimum decays as $γ^*\\simeq K/x$ for intense forcing, where $x$ is the expected number of seeding events per entry node, and approaches the condensation point as $γ_2-γ^*\\simeq(a-1)/\\ln(1/x)$ for sparse forcing. A cut-off of the importance distribution rounds the transitions in populations smaller than a crossover size $n_c$ and removes them in larger ones. Networks calibrated to survey data on sexual partnerships have between $0.08\\,n_c$ and $0.8\\,n_c$ entry nodes, which places them in the finite-size regime, where the asymptotic results hold only qualitatively.",
-      "area_label": "physics.soc-ph",
-      "area_slug": "explore",
-      "builds_on": "",
-      "rec_type": "explore"
-    },
-    {
-      "zotero_key": "2610.29120",
-      "title": "An Eco-Friendly Tourism Trip Planner Driven by Z-Number Uncertainty: Evidence from Baku, Dubai, Abu Dhabi, Tashkent, and Istanbul",
-      "authors": "Aziz Nuriyev, Sherzod Turaev, Saja Al-Dabet, Mary John et al.",
-      "year": 2026,
-      "what": "[Explore] Deployed tourism trip planners ingest travel times and ratings as exact numbers, although routing services return travel times that vary with the hour of departure and a platform rating may rest on a handful of reviews or on tens of thousands. We present an eco-friendly trip plan",
-      "summary": "Deployed tourism trip planners ingest travel times and ratings as exact numbers, although routing services return travel times that vary with the hour of departure and a platform rating may rest on a handful of reviews or on tens of thousands. We present an eco-friendly trip planner that represents both quantities as Z-numbers, which pair a fuzzy restriction on a value with a fuzzy reliability on the evidence behind it, and that constructs them directly from routing-service observations at six departure hours and from platform review counts rather than from linguistic elicitation. A hybrid loss combines score, carbon, travel-time, and reliability terms, and an adaptive large neighborhood search returns single-day itineraries with per-leg reliability annotations through a conversational front end. We compare the planner with a crisp-mean baseline under an identical optimizer in Baku, Dubai, Abu Dhabi, Tashkent, and Istanbul, with fifteen points of interest and thirty seeds per city, and we evaluate the selected itineraries on their trip carbon and their total travel time. Pooled over 150 seed-paired runs, the planner lowers trip carbon from 3.24 to 2.61 kg (19.3%, Wilcoxon p = 0.017; city-clustered bootstrap interval 6.4% to 26.7%) and travel time from 123 to 109 minutes per trip (11.5%, p = 2.8e-10; interval 5.0% to 18.2%). The travel-time reductions survive a Holm correction in Baku, Istanbul, and Abu Dhabi, the carbon reduction is significant in Baku and large but uncertain in the dispersed catalogs of Dubai and Abu Dhabi, and neither metric changes in Tashkent. Review counts were measured for Baku and estimated for the other four cities, and the comparison involves a single baseline, so the results establish feasibility and direction rather than a general advantage. Code, routing caches, frozen routing tables, and per-seed results are openly released.",
-      "area_label": "physics.soc-ph",
-      "area_slug": "explore",
-      "builds_on": "",
-      "rec_type": "explore"
-    },
-    {
       "zotero_key": "2610.30487",
       "title": "Monetary Policy Forecast Errors and Inflation Compensation under Sovereign Stress in Brazil",
       "authors": " Giovana,  Tommy",
@@ -561,18 +423,6 @@
       "what": "[Explore] This paper examines whether inflation compensation around Brazilian monetary policy decisions is associated differently with policy forecast errors when sovereign spreads are relatively elevated. Public Tesouro Direto quotations, meeting-specific Focus forecasts and a lagged EMBI",
       "summary": "This paper examines whether inflation compensation around Brazilian monetary policy decisions is associated differently with policy forecast errors when sovereign spreads are relatively elevated. Public Tesouro Direto quotations, meeting-specific Focus forecasts and a lagged EMBI indicator yield 68 three-year and 60 five-year event observations. The outcome is a matched-horizon retail yield proxy; the policy variable is the announced Selic target minus a preceding-week survey mean. At three years, a 10-basis-point forecast error is associated with 4.14 basis points less compensation repricing in the high-spread state than in the low-spread state, but the restricted wild cluster test gives a two-sided p-value of 0.1018. The estimated total high-state response is -0.42 basis points, with a pointwise 95 percent interval of [-2.25, 1.41]. The five-year interaction is sensitive to pandemic meetings and changes sign when 2020 is excluded. A common sample of 43 events does not establish a maturity gradient. A supplementary comparison on extended windows is also sensitive to the policy measure. The evidence is therefore inconclusive about state dependence. Survey timing, sparse maturity support and daily retail quotations prevent these associations from identifying a structural monetary shock, a pure inflation-risk premium or fiscal dominance.",
       "area_label": "econ.EM",
-      "area_slug": "explore",
-      "builds_on": "",
-      "rec_type": "explore"
-    },
-    {
-      "zotero_key": "2610.30100",
-      "title": "Building SQL Equivalence Proofs from Query Rewrite Rules",
-      "authors": "Chunyu Chen, Xinyi Huang, Zhengjie Miao",
-      "year": 2026,
-      "what": "[Explore] Query rewriting and semantic evaluation of text-to-SQL systems both depend on deciding whether two SQL queries return the same result on every database satisfying the schema constraints. Decades of equivalence-preserving optimizer rules provide a natural basis for constructive pr",
-      "summary": "Query rewriting and semantic evaluation of text-to-SQL systems both depend on deciding whether two SQL queries return the same result on every database satisfying the schema constraints. Decades of equivalence-preserving optimizer rules provide a natural basis for constructive proofs: two queries are equivalent when admitted rewrites transform them to a common logical expression. Building on this observation, \\sys{} organizes query-rewriting knowledge as a standalone proof-producing system. It separates rule validation from proof discovery, explicitly aligns alternative query representations, and returns the resulting rewrite derivation. Across three corpus classes, EquiTrace proves 648/1,106 expected-equivalent text-to-SQL pairs (58.6%), 229/266 curated pairs (86.1%), and 97/240 LLM-generated rewrites whose results agree under benchmark execution (40.4%). On the query rewrite corpus, EquiTrace proves 97 pairs, compared with 35 for QED and 38 for SQLSolver. An analysis of 1,242 recorded proofs shows that coverage depends on a small number of transformations, while many frequently used rules are individually substitutable. The resulting derivations make each proof replayable and expose the specific transformations on which it depends.",
-      "area_label": "cs.DB",
       "area_slug": "explore",
       "builds_on": "",
       "rec_type": "explore"
@@ -597,18 +447,6 @@
       "what": "[Explore] Many policies determine social arrangements whose effects depend on the relationships formed afterwards. We study how to learn such policies when a constrained joint action changes network formation and outcomes depend on exposures to the resulting network. Policy value integrate",
       "summary": "Many policies determine social arrangements whose effects depend on the relationships formed afterwards. We study how to learn such policies when a constrained joint action changes network formation and outcomes depend on exposures to the resulting network. Policy value integrates an outcome response over the distribution of post-assignment networks. The large number of feasible arrangements makes it difficult to evaluate policies directly from historical data. We therefore adopt a model-based approach that pools information across assignments to evaluate alternative arrangements. We characterize identification of policy values and construct plug-in estimators. Our regret bounds account for sampling variation, first-stage estimation error, and computational errors. Our applications to classroom seating and business groups illustrate predicted welfare gains from learned rules relative to random assignment.",
       "area_label": "econ.EM",
-      "area_slug": "explore",
-      "builds_on": "",
-      "rec_type": "explore"
-    },
-    {
-      "zotero_key": "2610.27198",
-      "title": "DeGroot Dynamics on Multiplex Networks with Directed and Acyclic Interlayer Connectivities",
-      "authors": "Mia Zender, Kye Shi, Abigail Hickok, Weiqi Chu et al.",
-      "year": 2026,
-      "what": "[Explore] In models of opinion dynamics, researchers typically examine how an individual's opinion on one topic is influenced by the opinions of their neighbors in a network. However, people's opinions on a topic are also influenced by their opinions and their neighbors' opinions on relate",
-      "summary": "In models of opinion dynamics, researchers typically examine how an individual's opinion on one topic is influenced by the opinions of their neighbors in a network. However, people's opinions on a topic are also influenced by their opinions and their neighbors' opinions on related topics. In an election, for example, the opinions of a voter on a variety of issues inform their opinions of electoral candidates. To consider the influence between people's opinions on multiple distinct topics, we study a multiplex extension of the traditional DeGroot consensus model. In our multiplex DeGroot model, different network layers represent distinct topics and directed interlayer edges (which are not allowed to form cycles) encode relationships between distinct topics. In our model, an individual's opinion on one topic is influenced both by the opinions of their neighbors on that topic and by their own opinions on related topics. We prove under mild conditions that our multiplex DeGroot model converges to a limit state. We also prove that strong connectedness in ``source layers'' (which represent fundamental beliefs) eventually yields a consensus opinion in each layer. In particular, we show that consensus on source layers can lead to consensus on other layers even when those layers otherwise would be polarized. By numerically simulating our multiplex DeGroot model on a two-layer network, we examine the effects on opinion dynamics of (1) different network structures and (2) different types of initial opinion data.",
-      "area_label": "physics.soc-ph",
       "area_slug": "explore",
       "builds_on": "",
       "rec_type": "explore"
