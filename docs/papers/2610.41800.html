@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reparo: Synthesizing and Validating Access Control Policies — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Reparo: Synthesizing and Validating Access Control Policies</h2>
+<p class="paper-meta">Ayesha Binte Mostofa, Gehao Zhang, Sam Stern, Juan Zhai et al. &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2610.41800" target="_blank" rel="noopener">arXiv:2610.41800</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Writing correct access control policies for software applications is difficult because it requires expertise in the authorization language and a thorough understanding of the application's authorization requirements. Existing synthesis and mining approaches assume explicit authorization inputs and a trusted reference policy. However, authorization logic is often distributed across code, comments, and documentation rather than captured in a single artifact, and developer-defined policies in real-world application repositories are often incomplete, outdated, or incorrect. We present Reparo, an LLM-aided pipeline for access control policy synthesis, repair, and validation. Reparo collects repository evidence for authorization intent and uses it to guide an LLM in generating an initial policy. It then uses official policy-language validation tools to identify and automatically repair errors. For semantic validation, a different LLM derives a behavioral oracle from the same repository evidence, consisting of concrete authorization requests with expected allow or deny decisions, which Reparo executes against the generated policy. We manually assess the oracle on a statistically sized sample of 390 test cases. We evaluate Reparo on 228 real-world GitHub repositories that use Cedar, OpenFGA, or Rego. In these repositories, 40.6-55.7% of the repository policies fail their language's validation tool, whereas Reparo produces 99.0-100% valid policies after repair. Agreement with the oracle is 98.2-99.6% for OpenFGA, 82.0-86.5% for Cedar, and 76.3-80.2% for Rego. Manual review confirms 91.5-96.9% of the sampled test cases as correct. Synthesizing and validating the policy for one repository takes about five minutes and costs $0.55-$1.57. These results show that repository evidence can support both access policy synthesis and independent validation, even when no reliable reference policy exists.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
