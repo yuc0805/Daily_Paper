@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distral: Robust Multitask Reinforcement Learning — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Distral: Robust Multitask Reinforcement Learning</h2>
+<p class="paper-meta">Yee Whye Teh &middot; 2025 &middot; <span class="rec-badge fame">Conference · NeurIPS · 148 citations</span> &middot; <a href="https://arxiv.org/abs/1707.04175" target="_blank" rel="noopener">arXiv:1707.04175</a></p>
+<h3>Why recommended</h3>
+<p>A top-conference paper (NeurIPS) — highly cited and close to your interests.</p>
+<h3>Abstract</h3>
+<p>Most deep reinforcement learning algorithms are data inefficient in complex and rich environments, limiting their applicability to many scenarios. One direction for improving data efficiency is multitask learning with shared neural network parameters, where efficiency may be improved through transfer across related tasks. In practice, however, this is not usually observed, because gradients from different tasks can interfere negatively, making learning unstable and sometimes even less data efficient. Another issue is the different reward schemes between tasks, which can easily lead to one task dominating the learning of a shared model. We propose a new approach for joint training of multiple tasks, which we refer to as Distral (distill &amp; transfer learning). Instead of sharing parameters between the different workers, we propose to share a distilled policy that captures common behaviour across tasks. Each worker is trained to solve its own task while constrained to stay close to the shared policy, while the shared policy is trained by distillation to be the centroid of all task policies. Both aspects of the learning process are derived by optimizing a joint objective function. We show that our approach supports efficient transfer on complex 3D environments, outperforming several related methods. Moreover, the proposed learning process is more robust to hyperparameter settings and more stable—attributes that are critical in deep reinforcement learning.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>

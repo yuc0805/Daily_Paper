@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recast: Refinement-Centered Approximate Nearest Neighbor Search Optimized for Storage — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Recast: Refinement-Centered Approximate Nearest Neighbor Search Optimized for Storage</h2>
+<p class="paper-meta">Zehai Yang, Fengyi Tao, Wenzhuo Dong, Shimin Chen &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2611.02765" target="_blank" rel="noopener">arXiv:2611.02765</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Large-scale ANNS systems often exploit storage in addition to DRAM for supporting vector search. The central question is how to divide the work between memory and storage for achieving both high query throughput-recall and good index maintenance performance. Existing storage-optimized ANNS paradigms fall short of providing a complete answer: disk-resident graph indexes have difficulty in supporting efficient vector deletions, while posting-list systems often incur more disk I/Os for queries. In this paper, we introduce a refinement-centered paradigm for storage-optimized ANNS systems. We propose Recast as a concrete design of this paradigm. Recast stores raw vectors on disk and keeps an IVF index with our RecastQ quantization encoding in memory. For an ANNS query, Recast selects nprobe inverted lists and performs SIMD-based FastScan on their RecastQ codes to identify refinement candidates in memory. It then retrieves candidate vectors from disk, computes exact distances, and refines the top-K result. To reduce disk I/Os, RecastQ computes uncertainty intervals containing true distances with high probability. Our QUIC policy selects a minimal refinement set based on these intervals, minimizing candidate-retrieval I/Os. Both the on-disk raw vectors and the in-memory IVF structure support insertions and deletions. Experiments on real-world data sets show that Recast processes batched insertions and deletions 3.10-37.27x faster than SPFresh and OdinANN, while its QPS at 0.99 recall changes by at most 6.9% after updating 50% of the corpus. For static queries at 0.99 recall, Recast achieves 1.56-2.01x the QPS of the strongest baseline with the matched memory budget on each data set, while requiring 1.22-6.75x less external storage than the evaluated systems. At matched in-memory space, RecastQ also provides a better Recall-refinement frontier than RaBitQ.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>

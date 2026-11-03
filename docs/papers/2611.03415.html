@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O2N2: Efficient Doubly Oblivious Approximate Nearest Neighbor Search — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>O2N2: Efficient Doubly Oblivious Approximate Nearest Neighbor Search</h2>
+<p class="paper-meta">Zhechen Li, Zimai Guo, Mingxun Zhou, Chang Shi et al. &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2611.03415" target="_blank" rel="noopener">arXiv:2611.03415</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Privacy-preserving approximate nearest neighbor (ANN) search allows clients to search from an untrusted server without revealing sensitive queries, and is useful in scenarios like medical diagnostics and credit scoring. Among the various privacy-preserving primitives, trusted execution environments (TEEs) have much lower overhead than heavy cryptographic ones, yet they leak memory access patterns, enabling adversaries to infer query contents. Oblivious RAM (ORAM) can be used to hide those access patterns at $\mathrm{O}(\log N)$ asymptotic cost, but existing high-performance ANN search algorithms (e.g., IVF or HNSW) exhibit complex, data-dependent access patterns that are unfriendly for ORAM. Furthermore, standard ORAM constructions typically assume there exists a small amount of trusted storage, which weakens the security guarantees and is not always feasible. Solutions that eliminate such trusted storage (known as {\em double obliviousness}) typically degrade performance further to $\mathrm{O}(\log^2 N)$. We introduce O2N2, a doubly oblivious ANN framework built around single-path search in randomly rotated $k$-d tree forests. A pointer-based Circuit ORAM stores the search structure, with separate storage for compact internal nodes and vector-bearing leaves. Each visited leaf is processed by an oblivious selection network, and fixed-schedule duplicate removal and selection combine the local results into the final top-$k$. We evaluate O2N2 on real-world datasets and further test its scalability on 100 million vectors. For 10-NN and 100-NN search at the specified high-recall targets, it achieves a $9.8$--$125.9\times$ speedup over the fastest doubly oblivious baselines.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
