@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Differentially Private GraphRAG: Protecting Relation Connectivity and Semantics — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Differentially Private GraphRAG: Protecting Relation Connectivity and Semantics</h2>
+<p class="paper-meta">Jie Fu, Yuan Hong, Yue Ning, Wendy Hui Wang &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2611.09658" target="_blank" rel="noopener">arXiv:2611.09658</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Graph Retrieval-Augmented Generation (GraphRAG) connects information across documents through entity relationships to support relational reasoning. However, black-box access to GraphRAG systems can enable adversaries to reconstruct knowledge graphs and recover both structural connectivity between entities and the semantics of their relationships. Existing defenses lack formal privacy guarantees and provide limited protection against such reconstruction attacks. We propose RelGuard, the first differentially private framework for GraphRAG, which provides formal privacy guarantees by mitigating connectivity leakage and protecting relations and their semantic meaning through relation removal. We formalize relation differential privacy (relation-DP), which bounds the distinguishability of mechanism outputs according to the semantic distance between alternative relations while accounting for relation removal. Building on this definition, we develop a four-step defense mechanism that sanitizes source documents before GraphRAG indexing by perturbing relation predicates or removing their associated connectivity using the exponential mechanism. Experiments across three GraphRAG systems and two targeted reconstruction attacks demonstrate that RelGuard provides stronger protection against reconstruction attacks than four existing defense mechanisms while better preserving downstream utility.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>

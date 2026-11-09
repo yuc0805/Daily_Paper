@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MV-IVF: Multi-Vector Retrieval via Multi-Vector Clustering — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>MV-IVF: Multi-Vector Retrieval via Multi-Vector Clustering</h2>
+<p class="paper-meta">Kishen N Gowda, Laxman Dhulipala, Lars Gottesbüren, Rajesh Jayaram &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2611.09040" target="_blank" rel="noopener">arXiv:2611.09040</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Multi-vector retrieval represents each query and document as a set of embeddings and scores relevance via fine-grained set-to-set interactions such as MaxSim (Chamfer similarity). This expressiveness improves retrieval quality over single-vector representations, but makes search substantially more expensive. Existing systems address this challenge primarily through proxy representations or filter-and-rerank pipelines that reduce candidate generation to single-vector search. We study the complementary direction of building a native IVF-style index directly over multi-vector data. We introduce MV-IVF, an inverted-file index for multi-vector retrieval built on MV-Lloyd, a new Lloyd-style algorithm for clustering point clouds under a Chamfer objective. Our key observation is that once point clouds are assigned to clusters, the center-update step reduces to standard single-vector clustering over the flattened embeddings in each cluster. This enables efficient construction of a hierarchical IVF tree with center point clouds at internal nodes. At query time, MV-IVF performs best-first beam search over the tree to identify promising leaf clusters, then scores the documents in those leaves. We further accelerate search using low-bit quantization, query compression, and cache-efficient batched search. We implement MV-IVF in MVSIC, an optimized C++ library and unified evaluation framework for multi-vector retrieval that includes several major approaches. Across BEIR and LoTTE text retrieval benchmarks, MV-IVF achieves strong latency--recall tradeoffs, the best batched throughput frontiers, and favorable build-time and index-size profiles. At $90\%$ Recall-$10$@$10$, MV-IVF achieves up to $8.03\times$ lower single-query latency and up to $173.5\times$ higher QPS than the baselines, demonstrating that native IVF-style indexing is practical and effective for scalable multi-vector retrieval.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
