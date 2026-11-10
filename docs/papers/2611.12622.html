@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reconfiguring System-Level Protection Through Bounded Delegation in RISC-V MCUs — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Reconfiguring System-Level Protection Through Bounded Delegation in RISC-V MCUs</h2>
+<p class="paper-meta">Luís Cunha, José Martins, Manuel Rodríguez, Tiago Gomes et al. &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2611.12622" target="_blank" rel="noopener">arXiv:2611.12622</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>MCU-based embedded and cyber-physical systems increasingly require protection policies to change at runtime as resources, software, and system composition evolve. Yet widely used COTS MCU protection mechanisms are still largely designed around statically established policies. While they can restrict which domains modify protection primitives, they generally do not constrain what policy an authorized domain may create. As a result, domains may expand protection rules beyond their intended scope or interfere with boundaries established by other domains. We identify bounded configuration authority as a missing primitive for secure dynamic policy evolution and introduce an ownership-aware model in which explicit ownership and rule containment bound both configuration authority and recursive delegation. Changes to active protection-rule ranges are validated before commit, preserving protection boundaries without extending the normal access-checking datapath. We implement the model in an open-source RISC-V World Checker integrated into a CVA6-based SoC. Our FPGA evaluation shows no degradation in access latency or operating frequency, with 7.1% LUT and 1.2% FF overhead for eight rules. In an OTA update case study, direct reconfiguration under delegated authority reduces policy-transition latency by 89.5% over hypervisor mediation and 94.6% over trusted firmware mediation, while preserving established authority boundaries. All artifacts will be open-sourced to support the evolution of RISC-V specifications and system-level protection designs.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>

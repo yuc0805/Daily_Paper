@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checking DER Commands Against Grid Context Catches Credentialed Attacks Static Checks Miss — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Checking DER Commands Against Grid Context Catches Credentialed Attacks Static Checks Miss</h2>
+<p class="paper-meta">Benjamin Blakely &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2611.12703" target="_blank" rel="noopener">arXiv:2611.12703</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Authorization of distributed energy resource (DER) commands judges a command by who sent it and whether its value has been seen before. An attacker holding a legitimate credential who writes ordinary values passes both tests. We add a check that judges each DER write against the grid's operating context: the bus voltages around the target, the hour, the day- ahead price, system load, and irradiance, compared with what operators wrote under similar conditions in the feeder's own benign history. We evaluate it live on the IEEE 123-bus and 8500-node feeders, driven by a measured 2024 year of price, load, and irradiance, against nine attack scenarios. A lookup trained on the same history catches none of the writes of the four scenarios that send values already familiar on the targeted device; the context check refuses 91.7% of insider-abuse writes and 64.4% of DER-aggregation writes while denying 1.28% of benign writes. In an offline test that replays recorded moments with curtailment setpoints drawn from the benign range, issued at a positive price, it refuses 47.3% and 50.5% on the two feeders, against 18.5% and 16.0% for the same check without context; live, the few setpoints tested were mostly shallow and were mostly allowed. The context check complements the lookup.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>

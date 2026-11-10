@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulating Vein Compressibility for Ultrasound-Guided Femoral Access: Speed, Accuracy, and Phantom Validation — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Simulating Vein Compressibility for Ultrasound-Guided Femoral Access: Speed, Accuracy, and Phantom Validation</h2>
+<p class="paper-meta">Amit Manicka, Laurent Coulon, Darwin Ang, Michael Loushin et al. &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2611.12818" target="_blank" rel="noopener">arXiv:2611.12818</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>In ultrasound-guided femoral access, probe pressure deforms the tissue and changes the vascular anatomy a robot observes. A simulator must reproduce these mechanics fast enough for robotic interaction, yet the computational effort needed for a clinically meaningful signal like vein collapse before artery is unclear. We test the feasibility of a physics-based simulation in NVIDIA's Isaac Sim for Healthcare, with Stable Neo-Hookean tissue solved by Vertex Block Descent on one GPU. A simulation of a low-fidelity cylindrical benchtop phantom with known geometry and mechanical properties, pressed by a robot, predicted its artery within 5 percentage points at every depth. It matched the vein within 3 points through 11 mm of a 25.4 mm press and followed the collapse behavior of the low-fidelity physical phantom. Across element size, time step, and solver iterations, wall clock time per frame scaled linearly with solver work, but accuracy did not improve with more work. The chosen setting reduced solver time per frame by a factor of 976, from 29,700 ms to 30.4 ms, while remaining within 1.03 points of the finest reference setting. The physics solver alone took 30.4 ms per frame, while the full stack, including ultrasound and graphics rendering, took 56.4 ms per frame. Finally, when seeded with realistic literature-based mechanical properties, the digital leg model compressed the vein far more than the artery at every setting, reproducing the expected clinical signal of vein collapse before artery, which is used to distinguish them. In total, these results suggest that the NVIDIA Isaac Sim platform may be suitable for augmenting reinforcement learning training or online simulation for autonomous femoral access with ultrasound.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
