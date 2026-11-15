@@ -1,66 +1,6 @@
 {
-  "date": "2026-11-14",
+  "date": "2026-11-15",
   "papers": [
-    {
-      "zotero_key": "2611.17230",
-      "title": "Two mathematical models of knowledge distillation",
-      "authors": "Audrey Xie, Ludwig Schmidt, John Duchi",
-      "year": 2026,
-      "what": "Many hypotheses compete to explain the successes of knowledge distillation. To help address this, we propose and analyze a mathematical model of distillation, which suggests that distillation's performance comes not from obtaining better models but from easier to optimize landscapes. For generalized",
-      "summary": "Many hypotheses compete to explain the successes of knowledge distillation. To help address this, we propose and analyze a mathematical model of distillation, which suggests that distillation's performance comes not from obtaining better models but from easier to optimize landscapes. For generalized linear models trained with stochastic gradient descent, we prove that distillation fits performant student models asymptotically more quickly than non-distilled models. In rank-1 matrix approximation, we characterize conditions on the target matrix under which gradient descent with distillation converges strictly faster than training on the supervised objective. The theory helps delineate the ways distillation provides benefits (i.e., in optimization speed, not in generalization), and experiments on real datasets corroborate the theoretical predictions.",
-      "area_label": "Optimizer",
-      "area_slug": "optimizer",
-      "builds_on": "",
-      "rec_type": "for-you",
-      "venue": "",
-      "tier": 0,
-      "citations": 0
-    },
-    {
-      "zotero_key": "2611.17320",
-      "title": "Learning When Diffusion Language Models Should Regenerate",
-      "authors": "Minhae Oh, Jeonghye Kim, Jinwoo Koo, Yeongoon Kim et al.",
-      "year": 2026,
-      "what": "Remasking allows diffusion language models to revisit generated text, but effective correction requires knowing when and what to revise. Our diagnosis on Sudoku reveals two gaps. Hidden states contain error information that token confidence does not reliably expose, and remasking an isolated error u",
-      "summary": "Remasking allows diffusion language models to revisit generated text, but effective correction requires knowing when and what to revise. Our diagnosis on Sudoku reveals two gaps. Hidden states contain error information that token confidence does not reliably expose, and remasking an isolated error usually reproduces it when the surrounding context remains fixed. These findings motivate DiVR , a verifier that predicts whether a partially generated sequence will reach a correct answer. Trained on the final correctness of the model's own trajectories, DiVR decides when to regenerate a block and which alternative to retain, while the generator itself stays unchanged. On five reasoning benchmarks with LLaDA-8B-Base, DiVR raises the average accuracy of the fine-tuned generator from 35.3\\% to 43.4\\% at $1.9$-$3.5\\times$ the cost of greedy decoding, above search baselines that use $3.8$-$7.4\\times$. It also complements post-training such as supervised fine-tuning and reinforcement learning, and generalizes to other generators, including Dream.",
-      "area_label": "Reasoning",
-      "area_slug": "reasoning",
-      "builds_on": "",
-      "rec_type": "for-you",
-      "venue": "",
-      "tier": 0,
-      "citations": 0
-    },
-    {
-      "zotero_key": "2611.17199",
-      "title": "MALNISI-Infused Graph Construction and Weighted Contrastive Loss based GAT for Unsupervised Representation Learning in HSI",
-      "authors": "Soumi Sarkar, Subhadip Boral, Sarbani Palit, Ashish Ghosh",
-      "year": 2026,
-      "what": "Hyperspectral images (HSI) possess discriminating spectral characteristics with respect to land utilization due to high-dimensional information. Recently, unsupervised representation learning using graph neural networks has unveiled these utilization-specific complex spectral relations. This article",
-      "summary": "Hyperspectral images (HSI) possess discriminating spectral characteristics with respect to land utilization due to high-dimensional information. Recently, unsupervised representation learning using graph neural networks has unveiled these utilization-specific complex spectral relations. This article has three main contributions. First, it proposes an index, the Mean Absolute Local Neighborhood Inverse Spectral Index (MALNISI), which measures the similarity between two pixels based on their neighborhood information. The index is used to construct a weighted adjacency matrix, giving the HSI a graph structure. Second, it proposes an upgraded Graph Attention Network that learns compact latent representations of hyperspectral data from the constructed graph. In this network, an enhanced multi-head attention mechanism incorporates the MALNISI weights as an auxiliary feature to emphasize learned attention between neighboring pixels. To alleviate over-smoothing and preserve fine-grained spectral details, the architecture integrates residual connections, skip projections, and feature normalization, which together enhance representation capability, stabilize learning, and accelerate convergence. Third, it proposes a weighted contrastive loss function that incorporates neighborhood-aware MALNISI between connected pixels, encouraging strongly connected pixels in the high-dimensional space to remain close in the latent space, and weakly connected pixels to stay apart. The resulting discriminative low-dimensional embeddings are then clustered using spectral clustering. Experimental analysis on six benchmark HSI datasets demonstrates the efficiency and necessity of the three aforementioned contributions, and the comparative study highlights superior performance over fourteen state-of-the-art approaches.",
-      "area_label": "Self Supervised",
-      "area_slug": "self-supervised",
-      "builds_on": "",
-      "rec_type": "for-you",
-      "venue": "",
-      "tier": 0,
-      "citations": 0
-    },
-    {
-      "zotero_key": "2611.17316",
-      "title": "CoReMem: Cost-Internalizing Memory for Successive Coding Tasks with Prospective Valuation",
-      "authors": "Peiwen Li, Harshit Verma, Sophia Zhou, Haiwen Wang et al.",
-      "year": 2026,
-      "what": "Coding agents tackle successive tasks on an evolving repository, carrying forward edits and writing memory before the next task is known. Selecting memory for unknown next tasks requires balancing future usefulness against the costs of writing and reading it. The actor must also decide when acting o",
-      "summary": "Coding agents tackle successive tasks on an evolving repository, carrying forward edits and writing memory before the next task is known. Selecting memory for unknown next tasks requires balancing future usefulness against the costs of writing and reading it. The actor must also decide when acting on available memory saves effort as the task unfolds. We introduce Coding-Repository Memory (CoReMem), a cost-internalizing framework that guides memory design and actor adaptation through measured memory value on the next task. Prospective segment valuation compares runs of the next task with and without individual trajectory segments from the same inherited repository state, guiding a compact memory built around anchors: repository locations and executable checks. Actor adaptation estimates on-policy memory value within rollout groups with and without memory, using a reward that prioritizes resolution and penalizes step count in successful runs. Provenance-gated value credit assigns the additional value term to steps identified as using memory-supplied anchors, while every step retains outcome credit. On ChainSWE, CoReMem raises the 27B actor's resolve rate from 21.0% to 25.7%, with 17% fewer steps and 11% fewer total cache-aware tokens, including memory-module calls, relative to the untrained actor model without memory.",
-      "area_label": "Agent",
-      "area_slug": "agent",
-      "builds_on": "",
-      "rec_type": "for-you",
-      "venue": "",
-      "tier": 0,
-      "citations": 0
-    },
     {
       "zotero_key": "2611.17323",
       "title": "AgentSSL: Can MLE Agents Leverage Unlabeled Data?",
@@ -197,36 +137,6 @@
       "citations": 0
     },
     {
-      "zotero_key": "2401.18079",
-      "title": "KVQuant: Towards 10 Million Context Length LLM Inference with KV Cache Quantization",
-      "authors": "Coleman Richard Charles Hooper, Sehoon Kim, Hiva Mohammadzadeh, Michael W. Mahoney et al.",
-      "year": 2024,
-      "what": "[Conference] LLMs are seeing growing use for applications which require large context windows, and with these large context windows KV cache activations surface as the dominant contributor to memory consumption during inference. Quantization is a promising approach for compressing KV cache ac",
-      "summary": "LLMs are seeing growing use for applications which require large context windows, and with these large context windows KV cache activations surface as the dominant contributor to memory consumption during inference. Quantization is a promising approach for compressing KV cache activations; however, existing solutions fail to represent activations accurately in sub-4-bit precision. Our work, KVQuant, facilitates low precision KV cache quantization by incorporating several novel methods: (i) Per-Channel Key Quantization, where we adjust the dimension along which we quantize the Key activations to better match the distribution; (ii) Pre-RoPE Key Quantization, where we quantize Key activations before the rotary positional embedding to mitigate its impact on quantization; (iii) Non-Uniform KV Cache Quantization, where we derive per-layer sensitivity-weighted non-uniform datatypes that better represent the distributions; and (iv) Per-Vector Dense-and-Sparse Quantization, where we isolate outliers separately for each vector to minimize skews in quantization ranges. By applying our method to the LLaMA, Llama-2, Llama-3, and Mistral models, we achieve < 0.1 perplexity degradation with 3-bit quantization on both Wikitext-2 and C4, outperforming existing approaches. Our method enables serving LLaMA-7B with a context length of up to 1 million on a single A100-80GB GPU and up to 10 million on an 8-GPU system. We develop custom CUDA kernels for KVQuant, showing that we can achieve up to ~1.7x speedups, compared to baseline fp16 matrix-vector multiplications, for the LLaMA-7B model.",
-      "area_label": "Llm",
-      "area_slug": "llm",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "NeurIPS",
-      "tier": 1,
-      "citations": 384
-    },
-    {
-      "zotero_key": "2311.05608",
-      "title": "FigStep: Jailbreaking Large Vision-Language Models via Typographic Visual Prompts",
-      "authors": "Yichen Gong, Delong Ran, Jinyuan Liu, Conglei Wang et al.",
-      "year": 2025,
-      "what": "[Conference] Large Vision-Language Models (LVLMs) signify a groundbreaking paradigm shift within the Artificial Intelligence (AI) community, extending beyond the capabilities of Large Language Models (LLMs) by assimilating additional modalities (e.g., images). Despite this advancement, the sa",
-      "summary": "Large Vision-Language Models (LVLMs) signify a groundbreaking paradigm shift within the Artificial Intelligence (AI) community, extending beyond the capabilities of Large Language Models (LLMs) by assimilating additional modalities (e.g., images). Despite this advancement, the safety of LVLMs remains adequately underexplored, with a potential overreliance on the safety assurances purported by their underlying LLMs. In this paper, we propose FigStep, a straightforward yet effective black-box jailbreak algorithm against LVLMs. Instead of feeding textual harmful instructions directly, FigStep converts the prohibited content into images through typography to bypass the safety alignment. The experimental results indicate that FigStep can achieve an average attack success rate of 82.50% on six promising open-source LVLMs. Not merely to demonstrate the efficacy of FigStep, we conduct comprehensive ablation studies and analyze the distribution of the semantic embeddings to uncover that the reason behind the success of FigStep is the deficiency of safety alignment for visual embeddings. Moreover, we compare FigStep with five text-only jailbreaks and four image-based jailbreaks to demonstrate the superiority of FigStep, i.e., negligible attack costs and better attack performance. Above all, our work reveals that current LVLMs are vulnerable to jailbreak attacks, which highlights the necessity of novel cross-modality safety alignment techniques.",
-      "area_label": "Llm",
-      "area_slug": "llm",
-      "builds_on": "",
-      "rec_type": "conference",
-      "venue": "AAAI",
-      "tier": 1,
-      "citations": 317
-    },
-    {
       "zotero_key": "2402.10260",
       "title": "A StrongREJECT for Empty Jailbreaks",
       "authors": "Alexandra Souly, Qingyuan Lu, Dillon Bowen, Tu Trinh et al.",
@@ -270,30 +180,6 @@
       "venue": "CVPR",
       "tier": 1,
       "citations": 669
-    },
-    {
-      "zotero_key": "2611.16149",
-      "title": "HyperPage: Learned Page Layouts for Disk-Resident Graph Vector Indexes",
-      "authors": "Xinyu Zhang, Jingze Li, Baihua Zheng, Weiwei Sun",
-      "year": 2026,
-      "what": "[Explore] Disk-resident graph indexes such as DiskANN store each vector with its graph edges as one record on SSD pages. A search needs the page of every record it expands, so its page reads depend on the page layout, that is, which records share a page. Search agents trained with reinforc",
-      "summary": "Disk-resident graph indexes such as DiskANN store each vector with its graph edges as one record on SSD pages. A search needs the page of every record it expands, so its page reads depend on the page layout, that is, which records share a page. Search agents trained with reinforcement learning query one such index run after run, and every graph traversal can be logged with the records it expands. We therefore use the logs of a finished run to lay out the index for a declared memory budget, so later runs read fewer pages. In contrast, existing layouts such as Starling and MARGO are computed from the graph and vectors and use no logs. Learning a layout from logs is challenging, because the logs must stay valid under every layout, the saving depends on what the budget caches, and the best layout is NP-hard to find. Our key observation is that DiskANN-style search routes on in-memory codes and the records it expands, never on their page-mates. As a result, the logged traversals price every layout by replay, and cached records add no page reads. Accordingly, we propose HyperPage, which first builds layouts for the declared budget on the logged traversals of uncached records. It then selects one layout, together with the budget split between hot records and a page cache, by replaying validation steps. In addition, a Lagrangian lower bound shows how far a layout may be from the optimum. We learn from one Search-R1 agent run and test on a later run with a different reward, over 1M and 21M passages. Across seven cache budgets, HyperPage reads 5.2% to 21.2% fewer pages than MARGO, and no compared layout reads fewer. The advantage is largest when the cache is small. For example, at 1% of the 1M index, MARGO needs nearly 3 times the budget to read as few pages. On the 21M index, HyperPage also cuts search time per step by up to 10.4%. The saving holds for a second agent model and a second corpus.",
-      "area_label": "cs.DB",
-      "area_slug": "explore",
-      "builds_on": "",
-      "rec_type": "explore"
-    },
-    {
-      "zotero_key": "2611.16406",
-      "title": "One-Sided Randomization in Two-Sided Platform Experiments: Which Side Should be Randomized?",
-      "authors": "Ramesh Johari, Anushka Murthy",
-      "year": 2026,
-      "what": "[Explore] Two-sided marketplace platforms often use randomized experiments to evaluate new features, raising the question of whether to randomize customers or listings. Randomizing the smaller (\\emph{short}) side can reduce interference bias due to weaker competition, while randomizing the",
-      "summary": "Two-sided marketplace platforms often use randomized experiments to evaluate new features, raising the question of whether to randomize customers or listings. Randomizing the smaller (\\emph{short}) side can reduce interference bias due to weaker competition, while randomizing the larger (\\emph{long}) side provides a larger nominal sample, potentially reducing variance. On the surface, these competing considerations suggest a bias-variance trade-off in choosing which side to randomize. We investigate this trade-off in a two-sided marketplace with first-come, first-served (FCFS) booking and heterogeneous customer preferences, studying the bias and variance of difference-in-means estimators of the global average treatment effect. Our findings suggest that rather than a bias-variance tradeoff, in fact short-side randomization is generally preferable on {\\em both} dimensions. We prove these results in an asymptotic regime where market imbalance increases. We establish conditions under which (1) short-side randomization eliminates first-order interference bias, while long-side randomization retains it; and (2) short-side randomization also achieves a variance rate of no larger asymptotic order than long-side randomization. The key insight is that although the long side contains more participants, the number of matches is constrained by the population on the short side, limiting the apparent variance advantage of randomizing a larger sample. Our conditions accommodate heterogeneous preferences and treatment effects and are satisfied by familiar logit models of customer choice. Together, these findings support randomizing on the short side, despite the larger sample size available on the long side.",
-      "area_label": "econ.EM",
-      "area_slug": "explore",
-      "builds_on": "",
-      "rec_type": "explore"
     },
     {
       "zotero_key": "2611.16199",
@@ -404,6 +290,18 @@
       "rec_type": "explore"
     },
     {
+      "zotero_key": "2611.16476",
+      "title": "Inheritance of Connectivity: Modeling Higher-Order Dynamic Networks with the Birth-Death Process",
+      "authors": "Qin Li, Yichao Yao, Jürgen Kurths, Matjaž Perc et al.",
+      "year": 2026,
+      "what": "[Explore] Higher-order networks extend pairwise interactions to represent group relationships and provide a useful framework for modeling complex systems. Understanding their dynamic evolution is important for explaining emergent structural and functional properties. However, constructing ",
+      "summary": "Higher-order networks extend pairwise interactions to represent group relationships and provide a useful framework for modeling complex systems. Understanding their dynamic evolution is important for explaining emergent structural and functional properties. However, constructing dynamic higher-order network models with stable topology remains challenging. In this paper, we propose a higher-order dynamic network model based on an inheritance-based deletion (IBAD) mechanism, which probabilistically redistributes connections when nodes or hyperedges are removed. The model combines birth-death dynamics with preferential attachment, enabling the analysis of evolving higher-order systems. Inheritance is guided by a Gaussian similarity measure based on the distance between degree histories. We derive stationary population distributions and conditional relations for connection retention and degree evolution. Simulation results show that the model generates networks with statistically stable node and hyperedge populations and heterogeneous degree distributions. The degree distributions and local clustering can be adjusted through the node and hyperedge attachment parameters. Comparisons with alternative mechanisms show that inheritance enhances connectivity relative to direct deletion, while the similarity measure influences degree heterogeneity. Comparisons with empirical networks from ecological and communication systems quantify distributional differences using Jensen-Shannon and Kullback-Leibler divergences and reveal discrepancies in clustering and within-hyperedge node-pair counts. These results provide a framework for studying population stability and structural evolution in dynamic higher-order networks.",
+      "area_label": "physics.soc-ph",
+      "area_slug": "explore",
+      "builds_on": "",
+      "rec_type": "explore"
+    },
+    {
       "zotero_key": "2611.17115",
       "title": "CapLite: Prompt-Injection Defense for Small Language Model Agents without Model-Written Security Artifacts",
       "authors": "Zimo Xu, Wenzhuo Liu, Hideki Nakayama",
@@ -423,18 +321,6 @@
       "what": "[Explore] Provably secure linguistic steganography assumes that the receiver recovers the sender's tokens, but a text channel delivers only text, and ambiguous tokenizations break extraction. Existing fixes change the distribution, synchronize whole pools of tokens at a capacity that colla",
       "summary": "Provably secure linguistic steganography assumes that the receiver recovers the sender's tokens, but a text channel delivers only text, and ambiguous tokenizations break extraction. Existing fixes change the distribution, synchronize whole pools of tokens at a capacity that collapses with large vocabularies, or track several token histories. We prove that if extraction is exact and error-free across full-support language models, a single-history receiver is confined to a prefix-free candidate set at every step -- even if it reads the entire future text and the sender constrains later steps -- and must therefore give up the stop entropy, the entropy of deciding whether each prefix token ends there. Fixing these stop decisions on the prefix forest with shared randomness yields coin projection: a closed-form scheme that attains the bound, works with any distribution coder in one model call per token, preserves ordinary sampling, and refines SyncPool for every key. Across English, Chinese and Japanese, ambiguous text is rare (at most 11 in 1,000 tokens), yet the stop entropy at word and morpheme prefixes takes 7.2-9.0% of the entropy at every step; SyncPool's further loss comes from space and single-byte UTF-8 hubs that merge subtrees while carrying almost no stop uncertainty. Coin projection keeps 91-93% of the string entropy for the coder at every vocabulary size; with the full vocabulary, it turns 2.16-6.85 times as much entropy into message bits as SyncPool and recovers every completed message.",
       "area_label": "cs.CR",
-      "area_slug": "explore",
-      "builds_on": "",
-      "rec_type": "explore"
-    },
-    {
-      "zotero_key": "2611.16476",
-      "title": "Inheritance of Connectivity: Modeling Higher-Order Dynamic Networks with the Birth-Death Process",
-      "authors": "Qin Li, Yichao Yao, Jürgen Kurths, Matjaž Perc et al.",
-      "year": 2026,
-      "what": "[Explore] Higher-order networks extend pairwise interactions to represent group relationships and provide a useful framework for modeling complex systems. Understanding their dynamic evolution is important for explaining emergent structural and functional properties. However, constructing ",
-      "summary": "Higher-order networks extend pairwise interactions to represent group relationships and provide a useful framework for modeling complex systems. Understanding their dynamic evolution is important for explaining emergent structural and functional properties. However, constructing dynamic higher-order network models with stable topology remains challenging. In this paper, we propose a higher-order dynamic network model based on an inheritance-based deletion (IBAD) mechanism, which probabilistically redistributes connections when nodes or hyperedges are removed. The model combines birth-death dynamics with preferential attachment, enabling the analysis of evolving higher-order systems. Inheritance is guided by a Gaussian similarity measure based on the distance between degree histories. We derive stationary population distributions and conditional relations for connection retention and degree evolution. Simulation results show that the model generates networks with statistically stable node and hyperedge populations and heterogeneous degree distributions. The degree distributions and local clustering can be adjusted through the node and hyperedge attachment parameters. Comparisons with alternative mechanisms show that inheritance enhances connectivity relative to direct deletion, while the similarity measure influences degree heterogeneity. Comparisons with empirical networks from ecological and communication systems quantify distributional differences using Jensen-Shannon and Kullback-Leibler divergences and reveal discrepancies in clustering and within-hyperedge node-pair counts. These results provide a framework for studying population stability and structural evolution in dynamic higher-order networks.",
-      "area_label": "physics.soc-ph",
       "area_slug": "explore",
       "builds_on": "",
       "rec_type": "explore"
@@ -512,18 +398,6 @@
       "rec_type": "explore"
     },
     {
-      "zotero_key": "2611.17110",
-      "title": "SALA: Semantically Aligned Latent Actions Enable Dual-Axis Scaling of Embodied Foundation Models",
-      "authors": "Jiachun Jin, Zetong Zhou, Haonan Wang, Xiao Yang et al.",
-      "year": 2026,
-      "what": "[Explore] Embodied foundation models hinge on diverse robot interaction data, which are costly to collect. Egocentric human videos offer a complementary source of experience, and latent action models (LAMs) provide a popular means of leveraging these videos for policy supervision. Compared",
-      "summary": "Embodied foundation models hinge on diverse robot interaction data, which are costly to collect. Egocentric human videos offer a complementary source of experience, and latent action models (LAMs) provide a popular means of leveraging these videos for policy supervision. Compared with world-action models (WAMs), LAMs can offer greater training efficiency and potentially lower inference costs by avoiding explicit pixel prediction during policy learning and execution. However, most existing LAMs learn latent actions solely through video reconstruction, which can cause their representations to cluster by visual appearance rather than by the underlying actions. As a result, they struggle to align human actions with their robot counterparts. To bridge the gap, we introduce SALA, which emphasizes establishing the semantic correspondence for latent actions. Without requiring paired data, we use the language descriptions of unpaired human and robot clips to estimate semantic similarities and supervise cross-embodiment correspondence. Specifically, we translate these similarities into soft neighborhood structures that guide human latent actions toward semantically related robot latents, while robot action reconstruction grounds the latent space in control. The resulting shared latent action space provides a unified supervision signal for training an embodied foundation model on both human and robot videos. Notably, latent action supervision enables scaling along two axes: (1) pre-training on increasing amounts of general human video consistently reduces robot action prediction error on downstream tasks, and (2) post-training on increasing amounts of task-specific human video substantially improves real-world robot task success rates.",
-      "area_label": "cs.RO",
-      "area_slug": "explore",
-      "builds_on": "",
-      "rec_type": "explore"
-    },
-    {
       "zotero_key": "2611.15313",
       "title": "Influence of Assortativity on the SICP Spreading Process in Hypergraphs",
       "authors": "Jelmer Stolwijk, Renze Dijkhuizen, H. A.,  Peters et al.",
@@ -531,6 +405,18 @@
       "what": "[Explore] Many real-world systems involve group interactions that cannot be captured by pairwise graphs. They can be better represented by hypergraphs where each hyperedge could connect an arbitrary number of nodes. The Susceptible-Infected Contact Process (SICP) has been proposed to model",
       "summary": "Many real-world systems involve group interactions that cannot be captured by pairwise graphs. They can be better represented by hypergraphs where each hyperedge could connect an arbitrary number of nodes. The Susceptible-Infected Contact Process (SICP) has been proposed to model the spreading of information and epidemics on hypergraphs. However, how higher-order topological properties of a hypergraph influence the SICP spreading process remains understudied. In this paper, we examine the impact of hypergraph assortativity based on the Neighborhood Coefficient (NC)-the average size of hyperedges incident to a node-on the SICP spreading process. By introducing a low-complexity measure of hypergraph assortativity grounded in analysis of variance, we apply hyperdegree-preserving rewirings to real-world networks and synthetic hypergraph models to tune their assortativity. We find and explain why lower NC assortativity yields higher average epidemic prevalence and lower prevalence variance across different seed selections. This phenomenon is evident when hyperdegree-preserving rewirings are applied to real-world networks with heterogeneous topological structures, but it is largely absent when comparing synthetic random hypergraphs to their rewired counterparts.",
       "area_label": "physics.soc-ph",
+      "area_slug": "explore",
+      "builds_on": "",
+      "rec_type": "explore"
+    },
+    {
+      "zotero_key": "2611.17110",
+      "title": "SALA: Semantically Aligned Latent Actions Enable Dual-Axis Scaling of Embodied Foundation Models",
+      "authors": "Jiachun Jin, Zetong Zhou, Haonan Wang, Xiao Yang et al.",
+      "year": 2026,
+      "what": "[Explore] Embodied foundation models hinge on diverse robot interaction data, which are costly to collect. Egocentric human videos offer a complementary source of experience, and latent action models (LAMs) provide a popular means of leveraging these videos for policy supervision. Compared",
+      "summary": "Embodied foundation models hinge on diverse robot interaction data, which are costly to collect. Egocentric human videos offer a complementary source of experience, and latent action models (LAMs) provide a popular means of leveraging these videos for policy supervision. Compared with world-action models (WAMs), LAMs can offer greater training efficiency and potentially lower inference costs by avoiding explicit pixel prediction during policy learning and execution. However, most existing LAMs learn latent actions solely through video reconstruction, which can cause their representations to cluster by visual appearance rather than by the underlying actions. As a result, they struggle to align human actions with their robot counterparts. To bridge the gap, we introduce SALA, which emphasizes establishing the semantic correspondence for latent actions. Without requiring paired data, we use the language descriptions of unpaired human and robot clips to estimate semantic similarities and supervise cross-embodiment correspondence. Specifically, we translate these similarities into soft neighborhood structures that guide human latent actions toward semantically related robot latents, while robot action reconstruction grounds the latent space in control. The resulting shared latent action space provides a unified supervision signal for training an embodied foundation model on both human and robot videos. Notably, latent action supervision enables scaling along two axes: (1) pre-training on increasing amounts of general human video consistently reduces robot action prediction error on downstream tasks, and (2) post-training on increasing amounts of task-specific human video substantially improves real-world robot task success rates.",
+      "area_label": "cs.RO",
       "area_slug": "explore",
       "builds_on": "",
       "rec_type": "explore"
