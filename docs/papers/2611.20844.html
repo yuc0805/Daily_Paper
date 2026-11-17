@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DetourBench: Trajectory-Level Evaluation of Interactive Agents with Exact Minimum-Action Bounds — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>DetourBench: Trajectory-Level Evaluation of Interactive Agents with Exact Minimum-Action Bounds</h2>
+<p class="paper-meta">Hanlin Tian, Sihan Zhu, Zhao Yang, Yuxiang Wang et al. &middot; 2026 &middot; <span class="rec-badge fame">Conference · NeurIPS</span> &middot; <a href="https://arxiv.org/abs/2611.20844" target="_blank" rel="noopener">arXiv:2611.20844</a></p>
+<h3>Why recommended</h3>
+<p>A top-conference paper (NeurIPS) — highly cited and close to your interests.</p>
+<h3>Abstract</h3>
+<p>Benchmarks judge language-model agents mainly by whether they reach the correct final state, not by how they got there. Endpoint scoring cannot separate an agent that retrieved exactly the evidence a decision required from one that read most of the environment, nor an agent that never located the evidence from one that stopped a single action short. Settling this needs a reference cost, and authored solutions establish only that a task is solvable, not that no shorter route exists. We present DetourBench, which constrains the environment until that minimum is computable. Each task is a finite, partially observable transition system with unit-cost accesses whose resources become globally addressable after discovery. Exhaustive search yields the full-information minimum action count $L_0$ with a replayable witness; from graph-recoverable terminal states it also yields exact residual work $R_T$, which separates an episode that stopped one access short from one that wandered, while an irreversible wrong commitment is recorded as having no finite residual distance rather than assigned one. Success, attainment, residual progress, and normalized detour are reported separately. Across 375 scored episodes --- five model endpoints, 25 integrated tasks, three repeats --- success ranges from 58.7% to 96.0% while conditional attainment ranges from 0.803 to 0.890 and orders the models differently. Among recoverable failures, residual work separates near-complete trajectories from costly incompletion and from irreversible commitment. We open-source the instances, oracle witnesses, and evaluation harness at https://github.com/DatagridsAI/DetourBench.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
