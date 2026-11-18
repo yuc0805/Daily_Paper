@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who Pays for Byzantine Robustness? Validity, Data-Share Dictatorships, and Fairness When Only a Few Hospitals Collaborate — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Who Pays for Byzantine Robustness? Validity, Data-Share Dictatorships, and Fairness When Only a Few Hospitals Collaborate</h2>
+<p class="paper-meta">Adnan Malkani &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2611.22904" target="_blank" rel="noopener">arXiv:2611.22904</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Clinical federated learning (FL) collaborations typically connect only three to six hospitals, yet Byzantine-robust aggregation rules are designed and benchmarked on synthetic partitions across dozens of equal-sized clients. We conduct an empirical audit of eight standard aggregation rules: FedAvg, coordinate-wise median, trimmed mean, Krum, Multi-Krum, Bulyan, geometric median (GeoMed), and Centered Clipping (CC). We evaluate both unweighted and sample-size-weighted variants across three cross-silo medical datasets from the FLamby benchmark: Fed-Heart-Disease ($n = 4$ hospitals), Fed-TCGA-BRCA ($n = 6$ regions), and Fed-ISIC2019 ($n = 6$ centres). We execute 54,214 training runs across enumerated attacker coalitions ($f \in \{1, 2\}$) paired with exact-twin leave-out controls that decompose performance drops into honest data loss versus adversarial attack damage. We report three findings. First, client-count validity checks fail to capture breakdown in skewed medical consortia: while $n = 6, f = 1$ satisfies every count condition except Bulyan's, assigning sample-size weights turns median and GeoMed into a clean-model dictatorship whenever a single hospital holds more than half the training data, and causes weighted median, GeoMed, and CC to collapse when that dominant centre attacks. Second, exact-twin leave-out controls reveal that when the largest hospital attacks, the apparent failure of count-based robust rules is predominantly caused by the loss of honest training data (7.5 to 10.4 points on ISIC) rather than adversarial perturbation (2.3 to 3.8 points on ISIC). Conversely, weight-dependent rules suffer large true attack damage (16.1 to 25.1 points on ISIC). Third, unweighted robust rules consistently discount whichever institution generates the most atypical parameter updates, penalizing the smallest hospital on Heart but penalizing larger institutions on TCGA and ISIC.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>

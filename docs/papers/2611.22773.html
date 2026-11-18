@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guarded Swarms in the Loop: A ROS 2/PX4 Digital Twin for Hybrid Digital-Analog Coordination of UAV/UGV Swarms — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Guarded Swarms in the Loop: A ROS 2/PX4 Digital Twin for Hybrid Digital-Analog Coordination of UAV/UGV Swarms</h2>
+<p class="paper-meta">Uwe M. Borghoff, Paolo Bottoni, Luca D'Aurizio, Remo Pareschi &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2611.22773" target="_blank" rel="noopener">arXiv:2611.22773</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Swarms of unmanned aerial and ground vehicles (UAV/UGV) operating in contested environments cannot rely on software alone for physical safety, since the software stack and its networks are part of the attack surface. The Guarded Swarms architecture addresses this by pairing a digital coordination layer, built on Topic-Based Communication Space Petri Nets (TB-CSPN), with an independent analog safety layer that can veto unsafe actuation commands. So far, the architecture has been specified and argued for, but not executed. We present the first executable instantiation of Guarded Swarms as a digital twin built on ROS 2, the PX4 autopilot in software-in-the-loop mode, and Gazebo, with two UAVs and one UGV in a coastal counter-UAS scenario. The TB-CSPN transition chain, from multi-modal sensing through human authorization to vehicle tasking, is mapped one-to-one onto ROS 2 nodes, and the analog layer is modeled as a per-vehicle Virtual Safety Board that gates every command. Eight groups of experiments show that the three negative guarantees of the architecture (no mission from conflicting, temporally incoherent, or unauthorized evidence) hold at three distinct stages of the chain in all 60 counterfactual runs; that threat confirmation is bounded by the narrowest sensing modality; that the safety layer exercises its full modeled envelope independently of the coordination layer; and, under fault injection, that it prevents every collision caused by a forged mission or a compromised worker once its veto is enforced by an independent gate, whereas a veto left to the compromised worker prevents none. The twin also exposes implementation-level hazards that the architectural specification does not address, and it draws an explicit line between the properties that simulation can validate and those that only hardware can.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
