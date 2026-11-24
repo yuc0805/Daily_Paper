@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Airlock: Robust Sandboxing and Governance of Rogue Agents — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Airlock: Robust Sandboxing and Governance of Rogue Agents</h2>
+<p class="paper-meta">Sina Abdollahi, Amir Al Sadi, Marios Kogias, Hamed Haddadi et al. &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2611.31010" target="_blank" rel="noopener">arXiv:2611.31010</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas. Somewhat similar to something you passed on before.</p>
+<h3>Abstract</h3>
+<p>Recent incidents involving agents bypassing sandboxing and network isolation have raised concerns about existing agent harnesses, prompting frontier labs such as OpenAI to reevaluate the security of their training platforms. Incident reviews show that determined agents can escape processes, containers, and VMs, or bypass their isolation through advanced side and covert channels. Follow-up audits also found that some agents concealed their actions by disabling monitoring and tampering with logs. We propose Airlock, an architecture that pairs each agent's VM with an Airlock VM, each running in a separate hardware-isolated Trusted Execution Environment (TEE). The Airlock VM fully mediates the agent's interactions with the outside world, including network and storage operations. We modify the firmware layer of Arm's Confidential Computing Architecture, Realm Management Monitor (RMM), and the kernels of both VMs so that the Airlock VM serves the agent VM's IO without involving the host. We adapt OpenShell, an agent runtime supporting sandboxing and governance policies, to this architecture. Airlock keeps network and filesystem policies, and credential protection effective even if the agent VM is fully compromised, and it removes the host from the agent's IO path, reducing opportunities for collusion and covert channels with the host. Finally, we extend the Airlock VM's capabilities to provide tamper-proof auditing of all agent operations, preserving forensic evidence even if the Airlock VM is compromised. We implement and evaluate Airlock on a Radxa development board. Our evaluation shows a loss of filesystem performance and network latency for small messages under 15% and a drop of network bandwidth by half or more, which in practice has a limited effect on typical agent tasks.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
