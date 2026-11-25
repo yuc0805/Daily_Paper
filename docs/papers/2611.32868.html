@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sound Distributed Runtime Verification under Incomplete Evidence — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Sound Distributed Runtime Verification under Incomplete Evidence</h2>
+<p class="paper-meta">Nikolaos Kekatos, Antonio Anastasio Bruto da Costa, Alexios Lekidis, Pabitra Mitra et al. &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2611.32868" target="_blank" rel="noopener">arXiv:2611.32868</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Distributed runtime verification often requires combining evidence from several nodes to check properties that cannot be evaluated locally. However, when messages are delayed, lost, or deliberately suppressed, the verifier may not know whether a violation occurred or whether the relevant evidence is missing. This creates a risk of incorrectly reporting compliance. We study the requirements for sound monitoring under these conditions. We first show that a deadline-bounded monitor cannot be simultaneously sound, decisive, and available when an adversary can suppress evidence. The monitor must therefore be able to abstain. We then distinguish two sources of incomplete evidence. Sequence numbers and periodic reports can identify missing events, whereas detecting silent streams requires timing assumptions. We also examine how membership changes and coordinator failures affect verdict soundness and recovery. We implement these mechanisms in a three-tier monitoring architecture using MQTT and NATS JetStream. Experiments with an LLM-planned robot swarm demonstrate the failure modes, show how the proposed mechanisms prevent unsupported compliance verdicts, and measure their runtime and communication costs.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
