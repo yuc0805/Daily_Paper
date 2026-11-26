@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fuel as Identity: Authenticating Inter-Satellite Laser Links after Total Key Compromise — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>Fuel as Identity: Authenticating Inter-Satellite Laser Links after Total Key Compromise</h2>
+<p class="paper-meta">Leon Birkel, Mohammad Hamad, Sebastian Steinhorst &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2611.34470" target="_blank" rel="noopener">arXiv:2611.34470</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Optical inter-satellite links form the backbone of entire constellations in low Earth orbit, yet their security rests on keys alone. When an attacker obtains every key of a satellite, no secret is left to authenticate it again. Existing fixes fail, since ground rekeying encrypts new keys under the leaked ones, and post-compromise protocols assume an authenticated start. As a remedy, the satellite's orbit can take over as the trust anchor. The attacker then needs an impostor satellite that blocks and retransmits the beam, a chord beneath the curved orbit. Hence, the blocking point lies off free fall and costs the impostor continuous thrust. We formalize this position-gated adversary and prove, for satellites on a shared circular orbit, a tight lower bound on the propellant cost in delta-v of a point-mass craft that keeps blocking, however it moves. We present OrbitLock, a history-chained protocol that combines this position gate with ML-KEM. Each link authenticates on its own, and we sketch how combining links forces an impostor onto every link. Once the chain outlasts an impostor's propellant, every key back to the first is authenticated retroactively. A satellite thus needs no crosslink key before launch, so none can leak in the supply chain. The same mechanism heals the link after total key compromise, even without compromise awareness. A passive attacker is shut out at the next round, whereas an active one splits the chains and is exposed once its propellant runs out. The chain can then heal after an operator reset. As a result, every Starlink satellite has a partner on whose link a CubeSat-class impostor runs out of propellant in about two days. This holds against one rigid craft per link running the best attack we know, if each terminal enforces a 1 km exclusion zone, while the protocol only uses under 0.02% of the link.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>

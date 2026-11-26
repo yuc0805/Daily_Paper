@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BridgeHammer: DNN Backdoor Attack via CPU-iGPU Shared-memory Rowhammer — Daily Paper</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="paper-page">
+<a href="../index.html" class="back-link">&larr; Back to Today's Papers</a>
+<h2>BridgeHammer: DNN Backdoor Attack via CPU-iGPU Shared-memory Rowhammer</h2>
+<p class="paper-meta">Yufei Wang, Saion K. Roy, Yunsi Fei &middot; 2026 &middot; <span class="rec-badge explore">Explore</span> &middot; <a href="https://arxiv.org/abs/2611.34684" target="_blank" rel="noopener">arXiv:2611.34684</a></p>
+<h3>Why recommended</h3>
+<p>Picked for exploration — from another field, outside your usual research areas.</p>
+<h3>Abstract</h3>
+<p>Heterogeneous systems-on-chips (SoCs) share physical memory between CPUs and integrated GPUs (iGPUs), creating a path for CPU-side memory corruption to compromise the integrity of deep learning models used for iGPU inference. Implanting a backdoor that causes targeted misclassifications on trigger-bearing inputs while retaining accuracy on normal inputs requires carefully selected weight changes. However, realizing these changes presents two challenges: where to induce faults, since vulnerable DRAM locations may not contain the targeted weights, and when to intervene, since memory placement and fault injection must align with different stages of the model deployment lifecycle that involve two distinct computation domains. We present BridgeHammer, a Rowhammer-based backdoor attack that addresses these challenges by coordinating targeted weight placement before zero-copy binding for the iGPU and fault injection before inference. The iGPU then uses the corrupted model for subsequent inferences. We evaluate BridgeHammer on a heterogeneous Intel CPU-iGPU platform using OpenVINO, targeting ResNet-20, VGG-16, and ResNet-50 at both INT8 and FP32 precision. Across all six configurations, BridgeHammer achieves an 88.9% attack success rate (ASR) and 86.3% clean accuracy on average, with reliable target-page placement and bit-flip reproduction. These results demonstrate a new integrity vulnerability on heterogeneous CPU-iGPU SoCs, motivating cross-domain memory integrity protections.</p>
+<p class="paper-note">Not in your library yet — tap 👍 on its card to add it, 👎 to pass.</p>
+</div>
+</body>
+</html>
